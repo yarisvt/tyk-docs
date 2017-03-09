@@ -1,0 +1,5 @@
+baseurl = "http://example.comc"
+languageCode = "en-us"
+title = "Tyk Documentation"
+theme = "tykio"
+MetaDataFormat = "yaml"

@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="row">
+      <div class="page-header" id="banner">
+        <div class="row">
+          
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-4">
+        <div class="row">
+          
+            <nav class="devsite-section-nav devsite-nav nocontent" style="left: auto; max-height: 643px; position: relative; top: 0px;">    
+              <ul class="devsite-nav-list devsite-nav-expandable">
+                      {{ $currentPage := . }}
+                      {{ range .Site.Menus.main }}
+                          <li class="devsite-nav-item devsite-nav-item-heading1 {{if $currentPage.IsMenuCurrent "main" . }} devsite-nav-active {{end}}">
+                              <a href="{{.URL}}" class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0">
+                              <span id="">{{ .Name }}</span></a>
+                            </li>
+                          {{ if .HasChildren }}
+                            {{ range .Children }}
+                              <li class="devsite-nav-item devsite-nav-item {{if $currentPage.IsMenuCurrent "main" . }} devsite-nav-active {{end}}">
+                                <a href="{{.URL}}" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="0" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">
+                                <span class="spacer-1"><span>{{ .Name }}</span></a>
+                              </li>
+                              {{ if .HasChildren }} <!-- Child 1 -->
+                                {{ range .Children }}
+                                  <li class="devsite-nav-item devsite-nav-item {{if $currentPage.IsMenuCurrent "main" . }} devsite-nav-active {{end}}">
+                                    <a href="{{.URL}}" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="0" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">
+                                    <span class="spacer-2"><span><span>{{ .Name }}</span></a>
+                                  </li>
+
+                                    {{ if .HasChildren }} <!-- Child 2 -->
+                                      {{ range .Children }}
+                                        <li class="devsite-nav-item devsite-nav-item {{if $currentPage.IsMenuCurrent "main" . }} devsite-nav-active {{end}}">
+                                          <a href="{{.URL}}" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="0" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">
+                                          <span class="spacer-3"><span><span>{{ .Name }}</span></a>
+                                        </li>
+                                      {{ end }} <!--end child2 range-->
+                                    {{ end }} <!--end if-->
+
+                                {{ end }} <!--end child1 range-->
+                              {{ end }} <!--end if-->
+                            {{ end }} <!--end child range-->
+                        {{ end }} <!--end if-->
+                      {{ end }} <!--end range-->
+                    
+                    </ul>
+                </nav>
+          
+            
+
+        </div>
+      </div>
+      <div class="col-lg-9">
