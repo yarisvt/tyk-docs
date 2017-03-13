@@ -1,13 +1,13 @@
 ---
 date: 2017-03-08T18:15:57+13:00
 title: Create an Account
+weight: 5
 menu:
   main:
-    parent: 'Tyk Cloud'
-weight: 5
+    parent: "Tyk Cloud"
 ---
 
-# Create an Account
+## Create an Account
 
 To create an account with Tyk Cloud is very quick and free, to do:
 

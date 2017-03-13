@@ -1,4 +1,14 @@
+<html>
+<head>
+    <title>{{ .Title}}</title>
+</head>
+<body>
 <h1>{{ .Title }}</h1>
+
+{{ .Content }}
 <!-- Put this line in your main template, at the place where you want to
      render the menu. -->
 {{ partial "menu_include.html" . }} 
+
+</body>
+</html>

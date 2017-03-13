@@ -1,13 +1,13 @@
 ---
 date: 2017-03-08T18:15:57+13:00
 title: Tyk Cloud
-menu:
+menu: 
   main:
-    parent: 'Get started with Tyk'
+    parent: "Get started with Tyk"
 weight: 5
 ---
 
-# What is Tyk Cloud?
+## What is Tyk Cloud?
  
 The Tyk Cloud API Management Platform is a simple, scalable way for developers, startups and large companies to get started with the Tyk platform, offering an easy, hosted way to add an API management layer to your services.
 
