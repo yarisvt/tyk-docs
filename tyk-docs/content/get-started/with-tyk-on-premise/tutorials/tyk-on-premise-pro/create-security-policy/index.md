@@ -51,7 +51,7 @@ A quota limits the number of total requests a user is allowed to have over a lon
 
 To make the policy active, select the `Create` button. Once the policy is saved, you will be able to use it when generating tokens, OAuth clients and custom JWT tokens.
 
-## <a name="with-the-api"></a>Tutorial: Create a Policy with the Dashboard API
+## <a name="with-api"></a>Tutorial: Create a Policy with the Dashboard API
 
 To create an API security policy using the API is a single call. It is very similar to the token creation object. To generate a simple security policy using the Tyk Dashboard API you can use the following curl command:
 

@@ -7,8 +7,6 @@ menu:
 weight: 0 
 ---
 
-## What is a security policy ?
-
 A policy encapsulates several security options that can be applied to a token. It acts as a template that can override individual sections of an API token (or identity) in Tyk. A good example is if you had 10,000 API tokens issued, how would you ensure that all 10,000 users received an upgraded quota, or access to a new API that you have published?
 
 You could manually modify all 10,000 tokens, or you could apply a policy to each of those tokens when you create them, and then just modify the policy once.

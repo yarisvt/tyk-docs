@@ -1,0 +1,61 @@
+---
+date: 2017-03-23T15:41:34Z
+title: Bearer Tokens
+menu:
+  main:
+    parent: "Your APIs"
+weight: 5 
+---
+
+## <a name="what-is-a-bearer-token"></a>What is a bearer token ?
+
+> Any party in possession of a bearer token (a “bearer”) can use it to get access to the associated resources (without demonstrating possession of a cryptographic key). To prevent misuse, bearer tokens need to be protected from disclosure in storage and in transport.
+
+Tyk provides bearer token access as one of the most convenient building blocks for managing security to your API, in a Tyk setup, this is called “Access Tokens” and is the default mode of any API Definition created for Tyk.
+
+Bearer tokens are added to a request as a header or as a query parameter, if added as a header, they may be preceded by the word “Bearer” to indicate their type, though this is optional.
+
+Traditionally these tokens are used as part of the `Authorization` header.
+
+## <a name="enable-bearer-tokens-with-dashboard"></a> Enable bearer tokens in your API Definition with the Dashboard
+
+To enable the use of a bearer token in your API:
+
+1.  Navigate to your API via "System Management" -> "APIs" -> Select your API
+2.  Scroll to the bottom where it says "Target details"
+3.  Select the "Auth Token" option:
+
+![TArget Details: Auth Token][1]
+
+Tyk will by default assume you are using the `Authorization` header, but you can change this by setting the header value here.
+
+You can also select whether to use the header and a query string parameter, and what parameter to use.
+
+## <a name="enable-bearer-tokens-with-file-based"></a> Enable bearer tokens in your API Definition with file-based
+
+Tyk will by default use the bearer token method to protect your API unless it is told otherwise.
+
+These tokens can be set as a *header, url parameter, or cookie name of a request*. A request for a resource at the API endpoint of `/api/widgets/12345` that uses access tokens will require the addition of a header field, traditionally this is the `Authorization` header.
+
+The name of the key can be defined as part of the API definition under the `auth` section of an API Definition file:
+
+```
+    "auth": {
+        "auth_header_name": "authorization",
+        "use_param": false,
+        "param_name": "",
+        "use_cookie": false,
+        "cookie_name": ""
+    },
+```
+
+To use request parameters instead of a header, simply set the `auth.use_param` setting in the API definition to `true`, note: unlike headers, request params are *case sensitive*).
+
+To use a cookie name instead of a header or request parameter, set the `use_cookie` parameter to `true`. Cookie names are also case sensitive.
+
+### Custom tokens
+
+It is possible to provide Tyk with your own custom tokens, this can be achieved using the Tyk Gateway REST API. This is very useful if you have your own identity provider and don't want Tyk to create and manage tokens for you, and instead just mirror those tokens within Tyk to off-load access control, quotas and rate limiting from your own application.
+
+ [1]: /img/dashboard/system-management/authToken.png
+
