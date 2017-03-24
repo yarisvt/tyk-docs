@@ -1,0 +1,29 @@
+---
+date: 2017-03-24T15:40:54Z
+title: Install Middleware on Tyk Pro
+menu:
+  main:
+    parent: "Install Middleware"
+weight: 0 
+---
+
+In some cases middleware references can't be directly embedded in API Definitions (for example, when using the dashboard in a Pro install). However, there is an easy way to distribute and enable custom middleware for an API on a Tyk node.
+
+A second method of loading API Definitions in Tyk nodes is to add them as a directory structure in the Tyk node, Tyk will load the middleware plugins dynamically on host-reload without needing a direct reference to them in the API Definition.
+
+The URL structure looks like this:
+
+```
+    middleware 
+        ? {API Id}
+            ? pre 
+            ?   ? {middlewareObject1Name}.js
+            ?   ? {middlewareObject2Name}.js
+            ? post
+                ? {middlewareObject1Name}_with_session.js
+                ? {middlewareObject2Name}.js
+```
+
+Tyk will check for a folder that matches the `API Id` being loaded, and then load the `pre` and `post` middleware from the respective folders. The filename *must* match the object to be loaded exactly.
+
+If your middleware requires session injection, then append `_with_session` to the filename.

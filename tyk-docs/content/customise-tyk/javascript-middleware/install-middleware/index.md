@@ -1,0 +1,11 @@
+---
+date: 2017-03-24T15:11:05Z
+title: Install Middleware
+menu:
+  main:
+    parent: "Javascript Middleware"
+weight: 0 
+---
+
+Installing middleware is different for different releases of Tyk, for example, in Tyk Community Edition it is possible to directly specify a path to a file in the API Definition, while in Tyk Pro, we recommend using a directory-based loader.
+
