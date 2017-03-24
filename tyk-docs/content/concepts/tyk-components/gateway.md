@@ -1,6 +1,6 @@
 ---
 date: 2017-03-23T13:12:42Z
-title: Gateway
+title: Gateway Component
 menu:
   main:
     parent: "Tyk Components"

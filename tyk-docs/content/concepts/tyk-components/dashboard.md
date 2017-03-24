@@ -1,6 +1,6 @@
 ---
 date: 2017-03-23T13:16:05Z
-title: Dashboard
+title: Dashboard Component
 menu:
   main:
     parent: "Tyk Components"
