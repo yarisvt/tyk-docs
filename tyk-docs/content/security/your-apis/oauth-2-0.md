@@ -172,6 +172,6 @@ A `refresh` type will send a new `refresh_token`, the `old_refresh_token` (to id
 *   Access tokens will use the Tyk access controls (versioning and named API ID's) to grant and deny access to APIs, not the Client ID.
 *   OAuth access data is stored in Analytics records so that data can be grouped by Client ID.
 
-[1]: 
-[2]: 
+[1]: /tyk-rest-api/token-management/
+[2]: /tyk-rest-api/api-definition-object-details/
 
