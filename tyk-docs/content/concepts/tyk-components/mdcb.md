@@ -1,6 +1,6 @@
 ---
 date: 2017-03-23T13:21:28Z
-title: Multi Data Center Bridge
+title: Multi Data Center Bridge Component
 menu:
   main:
     parent: "Tyk Components"

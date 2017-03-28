@@ -3,7 +3,7 @@ date: 2017-03-15T15:10:57Z
 title: Create an Account
 menu: 
   main:
-    parent: "Tyk Cloud"
+    parent: "With Tyk Cloud"
 weight: 5
 ---
 
@@ -31,8 +31,8 @@ This will present you with a new login screen for our cloud dashboard, to go the
 
 
 [1]: https://cloud.tyk.io
-[2]: /img/CloudSignup.png
-[3]: /img/CloudNav.png
-[4]: /img/DashLoginButton.png
+[2]: /img/cloud/CloudSignup.png
+[3]: /img/cloud/CloudNav.png
+[4]: /img/cloud/DashLoginButton.png
 [5]: https://admin.cloud.tyk.io
 

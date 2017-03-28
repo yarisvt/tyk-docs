@@ -3,7 +3,7 @@ date: 2017-03-24T16:52:36Z
 title: Integrate with OpenID Connect
 menu:
   main:
-    parent: "Integrate"
+    parent: "Integration Options"
 weight: 0 
 ---
 
@@ -65,4 +65,4 @@ To set up an API Definition to use OIDC, add the following block to the definiti
     *   **If disabled**: when alice uses the mobile app to log into the API, Tyk applies the same rate limit and access rules as if she had logged in via the web app or the desktop client. 
     *   **If enabled**: when alice uses the mobile app to log into the API, Tyk applies different rate limit and access rules than if she had logged in via the web app or the desktop client, in fact, each client and user combination will have its *own* internal representation.
 
- [1]: /img/openIDDiagram.png
+ [1]: /img/diagrams/openIDDiagram.png

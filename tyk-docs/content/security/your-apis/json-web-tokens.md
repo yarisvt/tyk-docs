@@ -103,7 +103,7 @@ If Tyk cannot find a `kid` header, it will try to find an ID in the `sub` field 
 The benefit here is that if RSA is used, then all that is stored in a Tyk installation that uses hashed keys is the hashed ID of the end user and their public key, so it is very secure.
 
  [1]: http://jwt.io/introduction/
- [2]: /img/jwt.png
+ [2]: /img/diagrams/jwt.png
  [3]: /img/dashboard/system-management/jsonWToken.png
  [4]: /img/dashboard/system-management/jwtSigningMethod.png
  [5]: /img/dashboard/system-management/jwtClaimForm.png

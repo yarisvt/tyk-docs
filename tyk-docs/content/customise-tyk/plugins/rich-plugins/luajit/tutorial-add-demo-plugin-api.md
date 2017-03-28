@@ -1,6 +1,6 @@
 ---
 date: 2017-03-24T13:46:17Z
-title: Tutorial Add a demo plugin to your API
+title: Tutorial Add a demo plugin to your API with Lua
 menu:
   main:
     parent: "LuaJIT"

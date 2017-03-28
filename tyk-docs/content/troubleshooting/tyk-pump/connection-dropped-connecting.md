@@ -3,7 +3,7 @@ date: 2017-03-27T17:32:44+01:00
 title: “Connection dropped, connecting...“
 menu:
   main:
-    parent: "Troubleshooting Tyk Pump"
+    parent: "Troubleshooting - Tyk Pump"
 weight: 5 
 ---
 

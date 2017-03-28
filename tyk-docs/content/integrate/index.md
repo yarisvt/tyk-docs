@@ -1,6 +1,6 @@
 ---
 date: 2017-03-24T16:39:31Z
-title: Integrate
+title: Integration Options
 weight: 0
 menu: "main"
 ---

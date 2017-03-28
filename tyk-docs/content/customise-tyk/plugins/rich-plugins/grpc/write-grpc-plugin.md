@@ -1,6 +1,6 @@
 ---
 date: 2017-03-24T13:32:12Z
-title: Write gRPC Plugin
+title: How to write gRPC Plugin
 menu:
   main:
     parent: "gRPC"

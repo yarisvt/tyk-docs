@@ -1,13 +1,12 @@
 ---
 date: 2017-03-23T16:15:37Z
-title: Token Expiry
+title: Physical Token Expiry
 menu:
   main:
     parent: "Your APIs"
 weight: 5 
 ---
 
-## Physical Token Expiry
 
 Tyk makes a distinction between a token expiring for an end user and a token physically expiring and being deleted.
 

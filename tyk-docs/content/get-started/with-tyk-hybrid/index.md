@@ -1,12 +1,12 @@
 ---
 date: 2017-03-13T15:35:00Z
-title: Tyk Hybrid
+title: With Tyk Hybrid
 menu: 
   main:
-    parent: "Get started with Tyk"
+    parent: "Get started"
 weight: 5
 ---
-## What is Tyk Hybrid ?
+## <a name="what-is-tyk-hybrid"></a>What is Tyk Hybrid ?
 
 Hybrid deployment is a feature unique to Tyk and Tyk Cloud, it enables you to run a Tyk API Gateway locally, within your own infrastructure, behind your own load balancers and alongside your existing application stack without having to expose your systems to the wider Internet.
 
@@ -20,7 +20,7 @@ In order to do this, Tyk Hybrid Gateways use a compressed RPC channel back to ou
 
 To get started with Tyk Hybrid, follow our [tutorial][1] to create an account.
 
-## What are the benefits of Hybrid ?
+## <a name="what-are-the-benefits-of-hybrid"></a>What are the benefits of Hybrid ?
 
 A Tyk Hybrid deployment is the best trade-off between running a Tyk node (or even a Tyk cluster) with a much lower infrastructure requirement and total cost of ownership:
 
@@ -35,7 +35,7 @@ A Tyk Hybrid deployment is the best trade-off between running a Tyk node (or eve
 *   Full dynamic middleware support
 *   Full API Sharding (multi-environments such as QA, UAT, Prod) support and multi-data center zoning
 
-## How does a Hybrid Gateway work ?
+## <a name="how-does-a-hybrid-gateway-work"></a>How does a Hybrid Gateway work ?
 
 Tyk Hybrid is installed as a network appliance, it should be run like any other reverse proxy within your application stack. To make this simple, we have developed a custom docker image that can be deployed and configured with a simple script, however you can modify this image, or in fact just re-use the configuration to fit your installation. Please contact your account manager to discuss options around ccontainer and gateway customisation for hybrid accounts.
 

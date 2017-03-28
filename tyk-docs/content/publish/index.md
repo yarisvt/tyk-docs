@@ -1,6 +1,6 @@
 ---
 date: 2017-03-24T17:09:48Z
-title: Integrate
+title: Publish
 weight: 0
 menu: "main"
 ---

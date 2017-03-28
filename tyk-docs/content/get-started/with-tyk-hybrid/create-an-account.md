@@ -3,7 +3,7 @@ date: 2017-03-15T16:50:08Z
 title: Create an account
 menu: 
   main:
-    parent: "Tyk Hybrid"
+    parent: "With Tyk Hybrid"
 weight: 5
 ---
 
@@ -44,7 +44,7 @@ And then select the large button to take you to the cloud dashboard:
 This will present you with a new login screen for our cloud dashboard, to go there directly simply [visit the page directly][5], the username and password will be the same as your username and password when you created your account.
 
 [1]: https://cloud.tyk.io
-[2]: /img/CloudSignup.png
-[3]: /img/CloudNav.png
-[4]: /img/DashLoginButton.png
+[2]: /img/cloud/CloudSignup.png
+[3]: /img/cloud/CloudNav.png
+[4]: /img/cloud/DashLoginButton.png
 [5]: https://admin.cloud.tyk.io

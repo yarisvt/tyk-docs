@@ -1,13 +1,13 @@
 ---
 date: 2017-03-15T15:01:42Z
-title: Tyk On Premise
+title: With Tyk On Premise
 menu: 
   main:
-    parent: "Get started with Tyk"
+    parent: "Get started"
 weight: 5
 ---
 
-## What is Tyk On-Prem?
+## What is Tyk On-Premise?
 
 Tyk On-Premise is the way to install an entire Tyk solution in your own infrastructure, it enables you to have full control over every element of the Tyk stack as well as no external dependency on our cloud solution or infrastructure.
 

@@ -13,5 +13,5 @@ These are some benchmarks performed on Python plugins. Python plugins run in a s
 
 ![Python Performance][2]
 
-[1]: /img/pythonResponseTime.png
-[2]: /img/pythonHitRate.png
+[1]: /img/diagrams/pythonResponseTime.png
+[2]: /img/diagrams/pythonHitRate.png

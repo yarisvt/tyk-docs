@@ -87,7 +87,7 @@ In many cases Redis will not be running, so let's start those:
 
 When Tyk is finished installing, it will have installed some init scripts, but it will not be running yet. The next step will be to setup the Gateway – thankfully this can be done with three very simple commands, however it does depend on whether you are configuring Tyk Gateway for use with the Dashboard or without (Community Edition).
 
-## <a name="with-community-edition"></a>Configure Tyk Gateway Community Edition
+## <a name="configure-tyk-community-edition"></a>Configure Tyk Gateway Community Edition
 
 You can set up the core settings for Tyk Gateway with a single setup script, however for more involved deployments, you will want to provide your own configuration file. To get things started, run:
 ```

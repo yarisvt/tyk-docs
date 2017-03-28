@@ -3,7 +3,7 @@ date: 2017-03-27T17:02:56+01:00
 title: “Organisation quota has been exceeded“ error in the Dashboard API
 menu:
   main:
-    parent: "Troubleshooting Tyk Cloud"
+    parent: "Troubleshooting - Tyk Cloud"
 weight: 5 
 ---
 

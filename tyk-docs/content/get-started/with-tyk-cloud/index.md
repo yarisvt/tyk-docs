@@ -1,9 +1,9 @@
 ---
 date: 2017-03-22T11:31:15Z
-title: Tyk Cloud
+title: With Tyk Cloud
 menu: 
   main:
-    parent: "Get started with Tyk"
+    parent: "Get started"
 weight: 5
 ---
 

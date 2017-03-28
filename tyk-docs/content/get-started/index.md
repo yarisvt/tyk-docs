@@ -1,9 +1,11 @@
 --- 
 date: 2017-03-08T18:15:30+13:00
-title: Get started with Tyk
+title: Get started
 weight: 0
 menu: "main"
 ---
+
+## Get started with Tyk
 
 Tyk comes in three powerful flavours: Cloud, Hybrid and On-Premise, each has it’s own strengths and reasons for deployment. To get started, why not check out the guides?
 

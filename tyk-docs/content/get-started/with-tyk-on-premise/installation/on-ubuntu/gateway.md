@@ -7,7 +7,7 @@ menu:
 weight: 0 
 ---
 
-## <a name="install-tyk-gateway-ubuntu"></a>Install Tyk Gateway on Ubuntu
+## <a name="install-tyk-ubuntu-gateway"></a>Install Tyk Gateway on Ubuntu
 
 Tyk has it's own APT repositories hosted by the kind folks at [packagecloud.io][1], which makes it easy, safe and secure to install a trusted distribution of the Tyk Gateway stack.
 
@@ -61,7 +61,7 @@ What we've done here is instructed apt-get to install Redis and the Tyk Gateway 
 
 When Tyk is finished installing, it will have installed some init scripts, but it will not be running yet. The next step will be to setup the Gateway - thankfully this can be done with three very simple commands, however it does depend on whether you are configuring Tyk Gateway for use with the Dashboard or without (Community Edition).
 
-## <a name="with-community-edition"></a>Configure Tyk Gateway Community Edition
+## <a name="configure-tyk-community-edition"></a>Configure Tyk Gateway Community Edition
 
 You can set up the core settings for Tyk Gateway with a single setup script, however for more involved deployments, you will want to provide your own configuration file. To get things started, run:
 ```
@@ -84,7 +84,7 @@ The Tyk Gateway can be started now that it is configured. Use this commannd to s
     sudo service tyk-gateway start
 ```
 
-## <a name="configure-with-dashboard"></a> Configure Tyk Gateway with Dashboard
+## <a name="configure-tyk-gateway-with-dashboard"></a> Configure Tyk Gateway with Dashboard
 
 ### Prerequisites
 

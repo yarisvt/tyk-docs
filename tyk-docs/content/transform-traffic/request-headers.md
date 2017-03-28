@@ -41,7 +41,7 @@ Using Tyk, you would set up your API Definition with these additions to the `ext
 
 Now Tyk keys that you create with an Access Definition rule that is set to this API and version, can have quotas, throttling and access checks applied without needing to add any new code or functionality to your existing API.
 
-## <a name="with-api"></a> Transform Request Headers with the Dashboard
+## <a name="with-dashboard"></a> Transform Request Headers with the Dashboard
 
 To inject new headers into a request using the GUI, you must make the edits in the Endpoint Designer section of your API Definition.
 

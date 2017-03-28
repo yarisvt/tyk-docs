@@ -3,7 +3,7 @@ date: 2017-03-24T16:40:31Z
 title: Integrate with JSON Web Tokens
 menu:
   main:
-    parent: "Integrate"
+    parent: "Integration Options"
 weight: 0 
 ---
 

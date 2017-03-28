@@ -1,11 +1,12 @@
 ---
-date: 2017-03-24T17:14:16Z
-title: Portal Tutorials
+date: 2017-03-28T13:57:55+01:00
+title: Publish an API to your Developer Portal
 menu:
   main:
-    parent: "Publish"
+    parent: "Publish Tutorials"
 weight: 0 
 ---
+
 
 Managing your portal is a key part of Tyk Dashboard, this section aims to provide some tutorials to help you get started working with your portal and publishing your API programmes to the public.
 

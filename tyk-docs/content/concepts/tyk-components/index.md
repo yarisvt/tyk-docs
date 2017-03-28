@@ -25,5 +25,5 @@ All components:
 [1]: /concepts/tyk-components/dashboard
 [2]: /concepts/tyk-components/gateway
 [3]: /concepts/tyk-components/identity-broker
-[4]: /concepts/mdcb
-[5]: /concepts/pump
+[4]: /concepts/tyk-components/mdcb
+[5]: /concepts/tyk-components/pump

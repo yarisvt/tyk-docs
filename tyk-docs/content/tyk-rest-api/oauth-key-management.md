@@ -1,6 +1,6 @@
 ---
 date: 2017-03-27T11:51:34+01:00
-title: OAuth Key Management
+title: OAuth Key Management API
 menu:
   main:
     parent: "Tyk Rest API"

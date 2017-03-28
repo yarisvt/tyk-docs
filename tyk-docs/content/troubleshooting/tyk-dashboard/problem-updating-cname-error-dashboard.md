@@ -3,7 +3,7 @@ date: 2017-03-27T19:30:10+01:00
 title: “There was a problem updating your CNAME“ error in the Dashboard
 menu:
   main:
-    parent: "Troubleshooting Tyk Dashboard"
+    parent: "Troubleshooting - Tyk Dashboard"
 weight: 5 
 ---
 

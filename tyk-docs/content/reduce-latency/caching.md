@@ -121,7 +121,7 @@ Utilising this method gives the most control as it will also only cache requests
 
 Under the advanced settings, ensure that *Enable upstream control* is activated and the global cache is deactivated, then follow the steps for per-path caching.
 
-## <a name="configuring-separate-redis-cache"></a>Caching: Configuring a separate Redis cache
+## <a name="separate-redis-cache"></a>Caching: Configuring a separate Redis cache
 
 For high-traffic systems that make heavy use of caching as well as rate limiting, it makes sense to separate out the Redis cache server from the Redis configuration server that supplies auth tokens and handles rate limiting configuration.
 

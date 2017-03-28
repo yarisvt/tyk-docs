@@ -7,7 +7,7 @@ menu:
 weight: 5 
 ---
 
-## What is the DAshboard Admin API ?
+## What is the Dashboard Admin API ?
 
 The Dashboard Admin API provides functions for:
 

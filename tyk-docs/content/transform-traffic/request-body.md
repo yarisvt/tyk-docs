@@ -11,7 +11,7 @@ Sometimes you may be exposing an older API, or one that uses a legacy structure 
 
 As of Tyk 1.5 it is possible to modify inbound JSON requests and as of v2.2 XML requests using a golang template.
 
-## <a name="request-body-modification-with-api"></a> Request Body Modification with Api Definition
+## <a name="with-api"></a> Request Body Modification with API Definition
 
 Setting up transforms in your API definition is easy:
 
@@ -45,7 +45,7 @@ The field representations are:
 *   `template_source`: Either a file path, or a `base64` encoded representation of your template.
 *   `template_mode`: Set to `blob` for a base64 template and `file` for a file path in the template source.
 
-## <a name="request-body-modification-with-api"></a> Request Body Modification with the Api Definition
+## <a name="with-dashboard"></a> Request Body Modification with the Dashboard
 
 Adding a body transformation using the endpoint designer is very straightforward, you can use the same examples that are set out in the API Definition Object configuration transformation documentation with the dashboard.
 
@@ -71,7 +71,7 @@ As you can see from the screenshot above, we've already done this and you can se
 
 ## <a name="request-body-modification-with-dashboard"></a> Request Body Modification with the Dashboard
 
-## <a name="request-body-json-data"></a> Request Body JSON Data
+## <a name="json-data"></a> Request Body JSON Data
 
 Tyk will unmarshal the data into a data structure, and then make that data available to the template in dot-notation. Here is an example to illustrate.
 
@@ -127,7 +127,7 @@ This example would produce the following output:
     }
 ```
 
-## <a name="request-body-xml-data"></a> Request Body XML Data
+## <a name="xml-data"></a> Request Body XML Data
 
 With an XML document it is a little different from JSON as XML cannot be as easily decoded into strict structures as JSON, so the syntax is a little different. Here is an example to illustrate.
 
@@ -170,7 +170,7 @@ You get this output:
         "Beijing_VPN": "127.0.0.2"
     }
 ```
-## <a name="request-body-meta-data"></a> Request Body Meta Data
+## <a name="meta-data"></a> Request Body Meta Data
 
 It is also possible to insert key meta data into a body transform, you can do this by calling the `._tyk_meta.KEYNAME` namespace, e.g.:
 
@@ -201,7 +201,7 @@ The context variables that are available are:
 *   `path`: The path that is being requested.
 *   `remote_addr`: The IP address of the connecting client.
 
-## <a name="request-body-form-data"></a> Request Body Form Data
+## <a name="form-data"></a> Request Body Form Data
 
 It is possible to work with inbound form data by making use of the Context Variable feature built into Tyk. If context variables are enabled in your API definition, then it is possible to iterate through form or querystring data in your template.
 

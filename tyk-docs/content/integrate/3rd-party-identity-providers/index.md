@@ -3,7 +3,7 @@ date: 2017-03-24T16:56:58Z
 title: 3rd Party Identity Providers
 menu:
   main:
-    parent: "Integrate"
+    parent: "Integration Options"
 weight: 0 
 ---
 

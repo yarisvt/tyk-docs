@@ -8,7 +8,7 @@ weight: 0
 ---
 
 
-## <a name="install-tyk-dashboard-redhat"></a>Install Tyk Dashboard: RedHat
+## <a name="install-dashboard"></a>Install Tyk Dashboard: RedHat
 
 Tyk has its own signed RPMs in a yum repository hosted by the kind folks at [packagecloud.io][1], which makes it easy, safe and secure to install a trusted distribution of the Tyk Gateway stack.
 

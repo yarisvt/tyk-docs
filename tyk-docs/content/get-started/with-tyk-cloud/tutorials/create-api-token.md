@@ -3,7 +3,7 @@ date: 2017-03-13T15:08:55Z
 Title: Create an API Token with Cloud
 menu:
   main:
-    parent: 'Tutorials'
+    parent: "Tutorials"
 weight: 0 
 ---
 

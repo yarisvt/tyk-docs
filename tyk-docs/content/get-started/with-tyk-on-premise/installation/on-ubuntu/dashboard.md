@@ -7,7 +7,7 @@ menu:
 weight: 0 
 ---
 
-## <a name="install-tyk-dashboard"></a>Install Tyk Dashboard on Ubuntu
+## <a name="install-tyk-dashboard-ubuntu"></a>Install Tyk Dashboard on Ubuntu
 
 Tyk has its own APT repositories hosted by the kind folks at [packagecloud.io][1], which makes it easy, safe and secure to install a trusted distribution of the Tyk Gateway stack.
 
@@ -69,7 +69,7 @@ What we've done here is instructed apt-get to install MongoDB and the Tyk Dashbo
 
 When Tyk Dashboard is finished installing, it will have installed some init scripts, but it will not be running yet. The next step will be to setup each application - thankfully this can be done with three very simple commands.
 
-## <a name="configure"></a> Configure Tyk Dashboard
+## <a name="configure-tyk-dashboard"></a> Configure Tyk Dashboard
 
 We can set the dashboard up with a helper setup command script, the below will get the dashboard set up for the local instance:
 ```

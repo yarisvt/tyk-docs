@@ -69,7 +69,7 @@ weight: 5
 
 #### Sample Request
 
-````
+```
     GET /api/users/54bd0ad9ff4329b88985aafb HTTP/1.1
     Host: localhost:3000
     authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8

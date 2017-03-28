@@ -1,6 +1,6 @@
 ---
 date: 2017-03-24T13:17:31Z
-title: Tutorial Add a demo plugin to your API
+title: Tutorial Add a demo plugin to your API with Python
 menu:
   main:
     parent: "Python"
