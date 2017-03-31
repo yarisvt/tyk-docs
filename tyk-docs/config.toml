@@ -1,4 +1,4 @@
-baseurl = "http://docs-dev.tykbeta.com"
+baseurl = "http://docs-dev.tykbeta.com/hugo-docs/"
 languageCode = "en-us"
 title = "Tyk Documentation"
 theme = "tykio"

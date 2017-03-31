@@ -1,7 +1,7 @@
 ---
 date: 2017-03-27T10:41:57+01:00
 title: Tyk Rest API
-weight: 0
+weight: 18
 menu: "main"
 ---
 

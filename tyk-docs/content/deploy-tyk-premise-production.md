@@ -1,7 +1,7 @@
 ---
 date: 2017-03-24T17:49:59Z
 title: Deploy Tyk On-Premise to Production
-weight: 0
+weight: 18
 menu: "main"
 ---
 
