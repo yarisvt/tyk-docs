@@ -1,7 +1,7 @@
 --- 
 date: 2017-03-08T18:15:30+13:00
 title: Get started
-weight: 0
+weight: 1
 menu: "main"
 ---
 
