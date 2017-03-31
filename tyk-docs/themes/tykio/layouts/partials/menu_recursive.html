@@ -5,23 +5,17 @@
   {{ $is := $page.IsMenuCurrent "main" . }}
   {{ $has := $page.HasMenuCurrent "main" . }}
   {{ if .HasChildren }} 
-    <li>
+    <li class="{{ if or $is $has}} st-open{{ end }}">
       <a href="{{ .URL }}">
         {{ .Name }}
-        {{ if $is }}[Is]{{ end }}
-        {{ if $has }}[Has]{{ end }}
-        {{ if .HasChildren }}[Children]{{ end }}
       </a>
         <!-- If the menu item has children, include this partial template again (recursively) -->
         {{ partial "menu_recursive.html" (dict "menu" .Children "page" $page "site" $site) }}
     </li>
   {{ else }}
-    <li>
+    <li class="{{ if or $is $has}} st-open{{ end }}">
       <a href="{{ .URL }}">
         {{ .Name }}
-        {{ if $is }}[Is]{{ end }}
-        {{ if $has }}[Has]{{ end }}
-        {{ if .HasChildren }}[Children]{{ end }}
       </a>
     </li>
   {{ end }}
