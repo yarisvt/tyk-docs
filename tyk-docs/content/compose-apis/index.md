@@ -7,6 +7,3 @@ menu: "main"
 
 In some cases you may want to compose multiple API calls or multiple APIs into a bundled or batched request. This is possible with Tyk and can be easily achieved using our Virtual Endpoints feature.
 
-* [Virtual Endpoints][1]
-
-[1]: virtual-endpoints

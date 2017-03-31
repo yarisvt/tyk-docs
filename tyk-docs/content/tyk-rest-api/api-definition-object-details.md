@@ -852,6 +852,6 @@ Please see the section on uptime tests for a full write-up on how uptime tests w
  [3]: https://web-payments.org/specs/ED/http-signatures/2014-02-01/#page-3
  [4]: /security/your-apis/oauth-2-0/
  [5]: http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#3xx_Redirection
- [6]: /quotas-limits-security/access-control
+ [6]: /security/your-apis/
  [7]: http://docs.mongodb.org/manual/tutorial/expire-data/
 
