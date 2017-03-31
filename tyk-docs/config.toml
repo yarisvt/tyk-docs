@@ -1,5 +1,5 @@
 baseurl = "http://docs-dev.tykbeta.com"
 languageCode = "en-us"
 title = "Tyk Documentation"
-theme = "dg"
+theme = "tykio"
 MetaDataFormat = "yaml"
