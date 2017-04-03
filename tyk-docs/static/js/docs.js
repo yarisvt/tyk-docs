@@ -10,8 +10,9 @@ $(document).ready(function() {
 	$html.removeClass('no-js');
 	
 	// Tree Menu
-	$('[data-tree]').simpleTree({startCollapsed: true});
-		
+  $('[data-tree]').simpleTree({startCollapsed: true});
+
+
 	// Sticky Sidebar 
 	if ($('[data-sticky]').size() > 0 ) {
 	    $('[data-sticky]').theiaStickySidebar({

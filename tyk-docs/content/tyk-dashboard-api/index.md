@@ -5,7 +5,7 @@ weight: 19
 menu: "main"
 ---
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a> Overview
 
 The Tyk Dashboard API (also referred to as the Advanced Management API) offers granular, programmatic access to a centralised database of resources that your Tyk nodes can pull from. This API has a dynamic user administrative structure which means the secret key that is used to communicate with your Tyk nodes can be kept secret and access to the wider management functions can be handled on a user-by-user and organisation-by-organisation basis.
 
