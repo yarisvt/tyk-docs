@@ -5,7 +5,7 @@
   {{ $is := $page.IsMenuCurrent "main" . }}
   {{ $has := $page.HasMenuCurrent "main" . }}
   {{ if .HasChildren }} 
-    <li class="{{ if or $is $has}} st-open{{ end }}">
+    <li class="{{ if or $is $has}} st-open {{else}} st-collapsed {{end}}">
       <a href="{{ .URL }}">
         {{ .Name }}
       </a>
@@ -13,7 +13,7 @@
         {{ partial "menu_recursive.html" (dict "menu" .Children "page" $page "site" $site) }}
     </li>
   {{ else }}
-    <li class="{{ if or $is $has}} st-open{{ end }}">
+    <li class="st-file">
       <a href="{{ .URL }}">
         {{ .Name }}
       </a>
