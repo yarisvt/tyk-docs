@@ -215,6 +215,10 @@ Set to `true` to enable SSL connections.
 
 A list of certificates and domains to match against. Please see the SSL section for more detail for this feature.
 
+### <a name="http_server_options-skip_url_cleaning"></a> http_server_options.skip_url_cleaning
+
+Setting this option to true will allow the use of a double slash in url path, and can be useful if you need to pass raw URLs to your API endpoints. For example: `http://myapi.com/get/http://example.com`.
+
 ### <a name="http_server_options-flush_interval"></a> http_server_options.flush_interval
 
 Set this to the number of seconds that Tyk should use to flush content from the proxied upstream connection to the open downstream connection. This is usually required for HTTP Streams.
@@ -348,12 +352,6 @@ Change the expiry time of refresh token, by default 1 hour (in seconds).
 
 The hostname to bind the REST API to.
 
-### <a name="control_api_port"></a> control_api_port
-
-The port to bind the REST API to.
-
-This option is only available from v2.3.2 and onwards.
-
 ### <a name="enable_api_segregation"></a> enable_api_segregation
 
 For additional security it is possible to have Tyk put its REST API on a separate hostname, this means that all calls to the `/api` functions must go via this hostname for this node otherwise they will 404. This is useful if you do not wish to expose the Tyk API to proxy API users.
@@ -428,9 +426,13 @@ Is used as part of the RPC / Hybrid back-end configuration when using Tyk Enterp
 
 Enables the real-time Gateway log view in the Dashboard.
 
-### <a name="http_server_options-skip_url_cleaning"></a> http_server_options.skip_url_cleaning
 
-Setting this option to true will allow the use of a double slash in url path, and can be useful if you need to pass raw URLs to your API endpoints. For example: `http://myapi.com/get/http://example.com`.
+### <a name="management_node"></a> management_node
+
+If set to `true`, distributed rate limiter will be disabled for this node, and it will be excluded from rate limit calculation.
+
+This option is available from v2.3.4 and onwards.
+
 
 
  [1]: /others/Gateway-Environment-Vars.xlsx

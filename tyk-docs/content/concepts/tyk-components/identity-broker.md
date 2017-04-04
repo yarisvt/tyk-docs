@@ -22,5 +22,5 @@ The Tyk Identity Broker flow is quite complex, the initial authentication reques
 ![Tyk Identity Broker OAuth Flow][2]
 
 [1]: https://github.com/TykTechnologies/tyk-identity-broker
-[2]: /img/TIB.png
+[2]: /img/diagrams/TIB.png
 
