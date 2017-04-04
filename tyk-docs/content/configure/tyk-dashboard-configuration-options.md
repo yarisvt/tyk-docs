@@ -205,6 +205,9 @@ If you set this value to `true`, then the `id` parameter in a stored policy (or 
 
 *   `aggregate_lookup_cutoff`: As of v1.2, set this to a date value of the form `DD/MM/YYYY`. Any analytics queries before this date will fall back to the raw base log data collection (slower), this is to ensure continuity of service and a smooth upgrade process with no loss of data.
 
+*   `disable_parallel_sessions`: As of v1.3.4, if set to `true`, it restricts an account to a single session. When an account logs in, any other open sessions for that account are logged out.
+
+
 ### Environment variables
 
 Environment variables can be used to override settings defined in the configuration file. The [Tyk Dashboard environment variable mappings][2] spreadsheet shows how the JSON member keys map to the environment variables. Where an environment variable is specified, its value will take precendence over the value in the configuration file.
