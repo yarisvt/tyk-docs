@@ -4,7 +4,7 @@ title: Create a security policy with Pro
 menu:
   main:
     parent: "Tyk On-Premise Pro"
-weight: 0 
+weight: 3
 ---
 
 ## <a name="with-dashboard"></a>Tutorial: Create a security policy with the Dashboard

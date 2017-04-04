@@ -4,7 +4,7 @@ title: Create a portal entry with Cloud
 menu:
   main:
     parent: "Tutorials"
-weight: 5 
+weight: 4
 ---
 
 ## Tutorial: Create a portal entry

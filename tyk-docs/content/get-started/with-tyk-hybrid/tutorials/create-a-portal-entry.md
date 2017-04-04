@@ -4,7 +4,7 @@ title: Create a portal entry with Hybrid
 menu:
   main:
     parent: /with-tyk-hybrid
-weight: 5 
+weight: 5
 ---
 
 ## Tutorial: Create a portal entry

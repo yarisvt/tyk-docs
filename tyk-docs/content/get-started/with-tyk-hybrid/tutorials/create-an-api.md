@@ -4,7 +4,7 @@ Title: Create an API with Hybrid
 menu:
   main:
     parent: /with-tyk-hybrid
-weight: 0 
+weight: 2
 ---
 
 ## <a name="with-dashboard"></a>Tutorial: Create an API with the Dashboard

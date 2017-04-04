@@ -1,7 +1,7 @@
 ---
 date: 2017-03-13T14:32:26Z
 title: Create a security policy with Cloud
-weight: 0
+weight: 3
 menu:
     main: 
         parent: "Tutorials"

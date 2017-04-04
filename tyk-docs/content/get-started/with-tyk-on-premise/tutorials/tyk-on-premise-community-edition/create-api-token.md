@@ -4,7 +4,7 @@ Title: Create an API Token with Community Edition
 menu:
   main:
     parent: Tyk On-Premise Community Edition
-weight: 0 
+weight: 2
 ---
 
 To create an API token, we will need the API ID that we wish to grant the token access to, then creating the token is a very simple API call to the endpoint.

@@ -4,7 +4,7 @@ title: Create an API with Pro
 menu:
   main:
     parent: "Tyk On-Premise Pro"
-weight: 0 
+weight: 1
 ---
 
 

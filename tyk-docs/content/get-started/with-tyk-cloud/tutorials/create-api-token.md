@@ -4,7 +4,7 @@ Title: Create an API Token with Cloud
 menu:
   main:
     parent: "Tutorials"
-weight: 0 
+weight: 2
 ---
 
 ## <a name="with-dashboard"></a>Tutorial: Create an API token with the Dashboard

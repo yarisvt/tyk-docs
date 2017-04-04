@@ -1,7 +1,7 @@
 ---
 date: 2017-03-23T18:07:31Z
 title: Compose APIs
-weight: 6
+weight: 60
 menu: "main"
 ---
 

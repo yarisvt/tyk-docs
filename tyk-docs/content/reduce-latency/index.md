@@ -1,7 +1,7 @@
 ---
 date: 2017-03-24T09:57:45Z
 title: Reduce Latency
-weight: 7
+weight: 70
 menu: "main"
 ---
 

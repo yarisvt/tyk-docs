@@ -4,7 +4,7 @@ Title: Create a security policy with Community Edition
 menu:
   main:
     parent: Tyk On-Premise Community Edition
-weight: 0 
+weight: 3
 ---
 
 ## <a name="what-is-a-security-policy"></a>What is a security policy ?
