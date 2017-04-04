@@ -4,7 +4,7 @@ Title: Create an API with Cloud
 menu:
   main:
     parent: "Tutorials"
-weight: 0 
+weight: 1
 ---
 
 ## <a name="with-dashboard"></a>Tutorial: Create an API with the Dashboard

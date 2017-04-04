@@ -1,7 +1,7 @@
 ---
 date: 2017-03-24T10:10:41Z
 title: Ensure High Availability
-weight: 8
+weight: 80
 menu: "main"
 ---
 

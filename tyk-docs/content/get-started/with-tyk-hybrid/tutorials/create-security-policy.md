@@ -5,7 +5,7 @@ weight: 0
 menu:
     main: 
         parent: /with-tyk-hybrid
-weight: 5
+weight: 4
 ---
 
 A security policy for Tyk Hybrid is the same as one with Tyk Cloud and will be mirrored in your Hybrid Gateways, follow the instructions below to generate a policy, within a few seconds, that policy will be available in your Hybrid Gateways locally.

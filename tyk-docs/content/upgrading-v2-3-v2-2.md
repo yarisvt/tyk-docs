@@ -1,7 +1,7 @@
 ---
 date: 2017-03-28T12:47:56+01:00
 title: Upgrading to v2.3 from v2.2
-weight: 21
+weight: 220
 menu: "main"
 ---
 

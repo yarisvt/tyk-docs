@@ -4,7 +4,7 @@ Title: Create an API Token with Hybrid
 menu:
   main:
     parent: /with-tyk-hybrid
-weight: 0 
+weight: 3
 ---
 
 Creating an API Token with tyk Hybrid is the same process as with Tyk Cloud, the only difference is that when you use the API token, you can use it wether against your Cloud endpoints or against your Hybrid Gateway, both are valid.

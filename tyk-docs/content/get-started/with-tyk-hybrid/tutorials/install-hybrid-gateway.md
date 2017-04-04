@@ -4,7 +4,7 @@ title: Install the Hybrid Gateway
 menu:
   main:
     parent: /with-tyk-hybrid
-weight: 5 
+weight: 1
 ---
 
 To Install a Tyk Hybrid Gateway, you will need to ensure some basic requirements are met.

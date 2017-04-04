@@ -1,7 +1,7 @@
 ---
 date: 2017-03-27T12:39:31+01:00
 title: Tyk Dashboard Admin API
-weight: 20
+weight: 210
 menu: "main"
 ---
 

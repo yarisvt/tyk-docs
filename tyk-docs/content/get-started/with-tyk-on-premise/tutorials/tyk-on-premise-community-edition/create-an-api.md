@@ -4,7 +4,7 @@ Title: Create an API with Community Edition
 menu:
   main:
     parent: Tyk On-Premise Community Edition
-weight: 0 
+weight: 1
 ---
 
 ## <a name="creation-methods"></a>Creation Methods

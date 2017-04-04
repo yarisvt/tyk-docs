@@ -4,7 +4,7 @@ title: Create a portal entry with Pro
 menu:
   main:
     parent: "Tyk On-Premise Pro"
-weight: 0 
+weight: 4
 ---
 
 ## Tutorial: Create a portal entry

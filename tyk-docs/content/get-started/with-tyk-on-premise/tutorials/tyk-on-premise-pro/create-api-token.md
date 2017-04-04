@@ -4,7 +4,7 @@ title: Create an API Token with Pro
 menu:
   main:
     parent: "Tyk On-Premise Pro"
-weight: 0 
+weight: 2
 ---
 
 ## <a name="with-dashboard"></a>Tutorial: Create an API Token with the Dashboard
