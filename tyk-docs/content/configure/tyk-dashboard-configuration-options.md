@@ -79,9 +79,9 @@ The file will look like the sample below, the various fields are explained in th
 
 *   `tyk_api_config.Port`: The port that Tyk is running on, defaults to `5000`.
 
-*   `tyk_api_config.Secret`: The secret that you have set in the `tyk.conf` file, this is the key that Tyk Dashboard will use to speak to the Tyk node's REST API.
+*   `tyk_api_config.Secret`: The secret that you have set in the `tyk.conf` file, this is the key that Tyk Dashboard will use to speak to the Tyk node's REST API. Please note that this value should match with the `secret` value in `tyk.conf`.
 
-*   `tyk_api_config.shared_node_secret`: As of Tyk v2.0 and Tyk Dashboard 1.0 all Tyk API Gateway nodes that are configured to use the Dashboard as a back-end API Definition service (i.e. are managed by a Dashboard) will register with the Dashboard service on load, and claim a node ID that is provided by the license for the Dashboard.
+*   `tyk_api_config.shared_node_secret`: As of Tyk v2.0 and Tyk Dashboard 1.0 all Tyk API Gateway nodes that are configured to use the Dashboard as a back-end API Definition service (i.e. are managed by a Dashboard) will register with the Dashboard service on load, and claim a node ID that is provided by the license for the Dashboard. Please note that this value should match with [node_secret][3] Gateway configuration option value.
     
 Each node communicates with the Dashboard via a shared secret (this setting) and a nonce to ensure that out-of-band requests cannot be made. Nodes will send a heartbeat every few seconds to notify the Dashboard that they are running.
 
@@ -214,3 +214,4 @@ Environment variables can be used to override settings defined in the configurat
 
  [1]: /security/concepts/tls-and-ssl/
  [2]: /others/Gateway-Environment-Vars.xlsx
+ [3]: /configure/tyk-gateway-configuration-options/#node_secret

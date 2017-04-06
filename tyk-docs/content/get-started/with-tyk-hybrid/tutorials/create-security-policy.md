@@ -25,7 +25,7 @@ Policies can set:
 
 Each of these can also be overridden in isolation using the partitioning options. When partitioning a policy, only one segment of the policy will be applied to the token. So, for example, if you need to set quotas and rate limits on a per client basis, but want to manage access control across all of your clients, a partitioned policy with only the ACL enabled would achieve this.
 
-## <a name="with-the-dashboard"></a>Tutorial: Create a security policy with the Dashboard
+## <a name="with-dashboard"></a>Tutorial: Create a security policy with the Dashboard
 
 To create a security policy with the Dashboard, follow these steps:
 
@@ -69,7 +69,7 @@ A quota limits the number of total requests a user is allowed to have over a lon
 
 To make the policy active, select the `Create` button. Once the policy is saved, you will be able to use it when generating tokens, OAuth clients and custom JWT tokens.
 
-## <a name="with-the-api"></a>Tutorial: Create a security policy with the API
+## <a name="with-api"></a>Tutorial: Create a security policy with the API
 
 Security Policies can be created with a single call to the API. It is very similar to the token creation process. To generate a simple security policy using the Tyk Cloud API you can use the following curl command:
 ```

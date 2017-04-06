@@ -9,11 +9,12 @@
     <title>{{ .Title}} - Tyk Documentation </title>
     <link rel="stylesheet" href="/css/docs.css" type="text/css" />
     <link rel="stylesheet" href="/css/simpletree.css" type="text/css" />
-    <TITLE> {{ .Title }}</TITLE>
+    <link rel="stylesheet" href="/css/docs-navigation.css" type="text/css" />
+    <link rel="stylesheet" href="/css/docs-table-of-contents.css" type="text/css" />
     <script src="/js/modernizr.min.js"></script>
     <meta name='robots' content='noindex,follow' />
-    <link rel='dns-prefetch' href='//ajax.googleapis.com' />
-    <script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js?ver=1.12.0'></script>
+    <link rel='dns-prefetch' href='http://ajax.googleapis.com' />
+    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js?ver=1.12.0'></script>
 </head>
 <body class=" page-terms-and-conditions">
 <header class="header f-14">
@@ -43,8 +44,15 @@
         <button class="submenu-close m-show" data-toggle="show-submenu">&times;</button>
     </aside>
     <article class="wysiwyg">
-        <h1> {{ .Title}}</h1>
-						  {{ .Content }}
+
+        <h1>{{ .Title}}</h1>
+
+				    {{ .Content }}
+          
+          <div class="docs-navigation">
+            <button id="previousArticle"></button>
+            <button id="nextArticle"></button>
+          </div>
     </article>
   </div>
 </section>
@@ -81,6 +89,8 @@
     </script>
     <script src="/js/simpletree.min.js"></script>
     <script type='text/javascript' src='/js/docs.js'></script>
+    <script type='text/javascript' src='/js/docs-navigation.js'></script>
+    <script type='text/javascript' src='/js/docs-table-of-contents.js'></script>
 
 </body>
 </html>
