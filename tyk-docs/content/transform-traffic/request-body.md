@@ -67,9 +67,6 @@ If you have sample input data, you can use the input box to add it, and then tes
 
 As you can see from the screenshot above, we've already done this and you can see the sample output of the transformation in the **Output** field.
 
- 
-
-## <a name="request-body-modification-with-dashboard"></a> Request Body Modification with the Dashboard
 
 ## <a name="json-data"></a> Request Body JSON Data
 

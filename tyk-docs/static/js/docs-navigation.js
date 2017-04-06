@@ -44,6 +44,6 @@ $(document).ready(function() {
 		location.href = prevPage.link;
 	});
 
-	$("#previousArticle").html('Previous: '+ prevPage.text);
-  $("#nextArticle").html('Next: ' + nextPage.text);
+	$("#previousArticle").html('<'+ prevPage.text);
+  $("#nextArticle").html(nextPage.text + '>');
 });

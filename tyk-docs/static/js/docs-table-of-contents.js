@@ -17,7 +17,7 @@ ToC.append(newline);
 
 var ToClength = ToC[0].childNodes.length;
 
-if(ToClength < 2) {
+if(ToClength < 2 || link === '#undefined') {
 	ToC = $("<div>").removeClass("table-of-contents");
 }
 
