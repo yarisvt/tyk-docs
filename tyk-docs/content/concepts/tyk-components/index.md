@@ -13,17 +13,3 @@ A full Tyk stack consists of multiple components working together, the three mos
 * Tyk Dashboard: This is the GUI to control your gateways and view analytics, as well as an extended Dashboard REST API that enables granular integration
 * Tyk Pump: A data processor that moves analytics data from your gateways (Redis) into other data sinks, most importantly MongoDB for the dashboard to process.
 The following sections will outline in detail show all of the Tyk component operate.
-
-All components:
-
-* [Dashboard][1]
-* [Gateway][2]
-* [Identity Broker][3]
-* [Multi Data Center Bridge][4]
-* [Pump][5]
-
-[1]: /concepts/tyk-components/dashboard
-[2]: /concepts/tyk-components/gateway
-[3]: /concepts/tyk-components/identity-broker
-[4]: /concepts/tyk-components/mdcb
-[5]: /concepts/tyk-components/pump

@@ -1,5 +1,6 @@
 $(document).ready(function() {
 	var currentPage = location.pathname,
+  currentPageGH = currentPage.replace(/\/$/, ""),
 	prevPage, nextPage, currentPageIndex,
 	links = $('.st-treed a');
 
@@ -46,4 +47,21 @@ $(document).ready(function() {
 
 	$("#previousArticle").html('<'+ prevPage.text);
   $("#nextArticle").html(nextPage.text + '>');
+
+	$('.container-github').on('click', function (e){
+		e.preventDefault();
+    if ( $('.active').hasClass('st-open')){
+			window.open("https://github.com/TykTechnologies/tyk-docs/tree/master/tyk-docs/content" + currentPage + 'index.md', "_blank");
+		}
+		else if ( $('.active').hasClass('st-file') && $('.active').closest('.st-open').length === 0) {
+			window.open("https://github.com/TykTechnologies/tyk-docs/tree/master/tyk-docs/content" + currentPage + 'index.md', "_blank");
+		}
+		else if ( $('.active').hasClass('st-file') ) {
+			window.open("https://github.com/TykTechnologies/tyk-docs/tree/master/tyk-docs/content" + currentPageGH + ".md", "_blank");
+		}
+	});
+
+
+
+
 });

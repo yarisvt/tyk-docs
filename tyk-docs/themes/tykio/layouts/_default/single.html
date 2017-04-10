@@ -37,21 +37,20 @@
         <nav class="aside-submenu" data-sticky>
             <div class="theiaStickySidebar">
                 <div data-tree class="st-treed">
-                        {{ partial "menu_include.html" . }}
+                    {{ partial "menu_include.html" . }}
                 </div>
             </div>
         </nav>
         <button class="submenu-close m-show" data-toggle="show-submenu">&times;</button>
     </aside>
     <article class="wysiwyg">
-      <a href="https://github.com/TykTechnologies/tyk-docs" target="_blank" class="container-github icon-github">Edit on GitHub</a>
+      <a class="container-github icon-github" target="_blank" >Edit on GitHub</a>
         <h1>{{ .Title}}</h1>
-
-				    {{ .Content }}
+              {{ .Content }}
           
           <div class="docs-navigation">
-            <button id="previousArticle"></button>
-            <button id="nextArticle"></button>
+            <a id="previousArticle"></a>
+            <a id="nextArticle"></a>
           </div>
     </article>
   </div>
