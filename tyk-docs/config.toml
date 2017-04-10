@@ -1,5 +1,5 @@
-baseurl = "//docs-dev.tykbeta.com/docs/"
-languageCode = "en-us"
+baseurl = "//site-dev.tykbeta.com/docs/"
+languageCode = "en-gb"
 title = "Tyk Documentation"
 theme = "tykio"
 MetaDataFormat = "yaml"
