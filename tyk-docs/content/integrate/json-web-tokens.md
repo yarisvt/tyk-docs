@@ -22,5 +22,5 @@ The following guide explains how the JWT process in Tyk works, and how to set up
 
 Please see [this section][1].
 
-[1]: /security/your-apis/json-web-tokens/
+[1]: /docs/security/your-apis/json-web-tokens/
 

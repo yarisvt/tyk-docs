@@ -17,6 +17,6 @@ The suggested order would be to install Tyk Gateway, then Tyk Dashboard and then
 * [Dashboard][2]
 * [Gateway][3]
 
-[1]: /get-started/with-tyk-on-premise/installation/on-ubuntu/analytics-pump
-[2]: /get-started/with-tyk-on-premise/installation/on-ubuntu/dashboard
-[3]: /get-started/with-tyk-on-premise/installation/on-ubuntu/gateway/
+[1]: /docs/get-started/with-tyk-on-premise/installation/on-ubuntu/analytics-pump
+[2]: /docs/get-started/with-tyk-on-premise/installation/on-ubuntu/dashboard
+[3]: /docs/get-started/with-tyk-on-premise/installation/on-ubuntu/gateway/

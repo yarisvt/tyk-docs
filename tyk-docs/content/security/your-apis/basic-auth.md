@@ -150,7 +150,7 @@ The following command will create a basic auth user with the dashboard API:
 > **Note**: The most important thing to ensure with both of these commands is that the ORG ID is set correctly and consistently.
 
 
-[1]: /img/dashboard/system-management/basicAuth.png
+[1]: /docs/img/dashboard/system-management/basicAuth.png
 
 
 

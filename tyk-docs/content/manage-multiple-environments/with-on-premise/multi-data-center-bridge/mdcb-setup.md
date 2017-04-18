@@ -181,7 +181,7 @@ The most important elements here are:
 
 Once this is complete, you can start the Tyk MDCB instance and start having Tyk Slave instances connect to it.
 
- [1]: 
+ [1]: /docs/dashboard-admin-api/organisations/
 
 
 

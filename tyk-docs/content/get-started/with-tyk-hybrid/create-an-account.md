@@ -44,7 +44,7 @@ And then select the large button to take you to the cloud dashboard:
 This will present you with a new login screen for our cloud dashboard, to go there directly simply [visit the page directly][5], the username and password will be the same as your username and password when you created your account.
 
 [1]: https://cloud.tyk.io
-[2]: /img/cloud/CloudSignup.png
-[3]: /img/cloud/CloudNav.png
-[4]: /img/cloud/DashLoginButton.png
+[2]: /docs/img/cloud/CloudSignup.png
+[3]: /docs/img/cloud/CloudNav.png
+[4]: /docs/img/cloud/DashLoginButton.png
 [5]: https://admin.cloud.tyk.io

@@ -12,7 +12,7 @@ Adapted as a jQuery plugin by Maurizio Manetti
     list-style-type: none;
     margin: 0;
     padding: 0;
-    background-image: url('/images/vdot.gif');
+    background-image: url('/docs/images/vdot.gif');
     background-repeat: repeat-y;
     background-position: 8px 0;
 }
@@ -20,7 +20,7 @@ Adapted as a jQuery plugin by Maurizio Manetti
 .st-treed a {
     text-decoration: none;
     color: #000;
-    background-image: url('/images/folder.gif');
+    background-image: url('/docs/images/folder.gif');
     background-repeat: no-repeat;
     background-position: center left;
     padding: 2px 0 2px 20px;
@@ -28,7 +28,7 @@ Adapted as a jQuery plugin by Maurizio Manetti
 
 .st-treed li {
     padding-left: 20px;
-    background-image: url('/images/corner.gif');
+    background-image: url('/docs/images/corner.gif');
     background-repeat: no-repeat;
     background-position: 8px 0;
 }
@@ -38,7 +38,7 @@ Adapted as a jQuery plugin by Maurizio Manetti
 }
 
 .st-treed .st-last {
-    background-image: url('/images/corner.gif');
+    background-image: url('/docs/images/corner.gif');
     background-position: 8px 0;
 }
 
@@ -49,11 +49,11 @@ Adapted as a jQuery plugin by Maurizio Manetti
 }
 
 .st-treed .st-collapsed {
-    background-image: url('/images/plus.gif');
+    background-image: url('/docs/images/plus.gif');
 }
 
 .st-treed .st-open {
-    background-image: url('/images/minus.gif');
+    background-image: url('/docs/images/minus.gif');
 }
 
 .st-treed .st-collapsed ul {
@@ -61,7 +61,7 @@ Adapted as a jQuery plugin by Maurizio Manetti
 }
 
 .st-treed .st-file a {
-    background-image: url('/images/file.gif');
+    background-image: url('/docs/images/file.gif');
 }
 
 .st-treed a:hover {

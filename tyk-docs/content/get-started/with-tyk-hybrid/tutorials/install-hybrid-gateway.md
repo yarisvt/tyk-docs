@@ -67,4 +67,4 @@ This will show you the log output of the hybrid container, if you don't see any 
 
 Then the gateway has successfully started.
 
- [1]: /img/dashboard/system-management/userCredentials.png
+ [1]: /docs/img/dashboard/system-management/userCredentials.png

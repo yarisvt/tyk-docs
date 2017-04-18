@@ -147,11 +147,11 @@ To enable a separate cache server, update your `tyk.conf` with the following sec
 
 The configuration is the same (and uses the same underlying driver) as the regular configuration, so Redis Cluster is fully supported.
 
-[1]: /img/dashboard/system-management/advancedOptionsDesigner.png
-[2]: /img/dashboard/system-management/cacheSettings.png
-[3]: /img/dashboard/system-management/cacheOptions.png
-[4]: /img/dashboard/system-management/cachePath.png
-[5]: /img/dashboard/system-management/cachePlugin.png
+[1]: /docs/img/dashboard/system-management/advancedOptionsDesigner.png
+[2]: /docs/img/dashboard/system-management/cacheSettings.png
+[3]: /docs/img/dashboard/system-management/cacheOptions.png
+[4]: /docs/img/dashboard/system-management/cachePath.png
+[5]: /docs/img/dashboard/system-management/cachePlugin.png
 
 
 

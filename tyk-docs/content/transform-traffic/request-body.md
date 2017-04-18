@@ -207,6 +207,6 @@ You do this by using the `._tyk_context.` namespace, unlike the context exposed 
 The `request_data` section is populated if the inbound request contained any query data or form data, it will be available in this object as a `key:[]value` map.
 
 
-[1]: /img/dashboard/system-management/bodyTransfEndpointDesigner.png
-[2]: /img/dashboard/system-management/defineTransformation.png
+[1]: /docs/img/dashboard/system-management/bodyTransfEndpointDesigner.png
+[2]: /docs/img/dashboard/system-management/defineTransformation.png
 

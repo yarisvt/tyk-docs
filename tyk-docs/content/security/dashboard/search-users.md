@@ -11,5 +11,5 @@ You can search for a user simply by start typing in the search field.
 
 ![User Profile Search][1]
 
-[1]: /img/dashboard/system-management/userProfileSearch.png
+[1]: /docs/img/dashboard/system-management/userProfileSearch.png
 

@@ -61,12 +61,12 @@ This option is only available from Dashboard v1.3.1.2 and onwards.
 
 ![Developer Profile Search][8]
 
- [1]: /img/dashboard/portal-management/developersNav.png
- [2]: /img/dashboard/portal-management/addDeveloperButton.png
- [3]: /img/dashboard/portal-management/developerDetails.png
- [4]: /img/dashboard/portal-management/developerProfileOverview.png
- [5]: /img/dashboard/portal-management/developerUsage.png
- [6]: /img/dashboard/portal-management/developerSubscriptions.png
- [7]: /img/dashboard/portal-management/developerEdit.png
- [8]: /img/dashboard/portal-management/developerSearch.png
+ [1]: /docs/img/dashboard/portal-management/developersNav.png
+ [2]: /docs/img/dashboard/portal-management/addDeveloperButton.png
+ [3]: /docs/img/dashboard/portal-management/developerDetails.png
+ [4]: /docs/img/dashboard/portal-management/developerProfileOverview.png
+ [5]: /docs/img/dashboard/portal-management/developerUsage.png
+ [6]: /docs/img/dashboard/portal-management/developerSubscriptions.png
+ [7]: /docs/img/dashboard/portal-management/developerEdit.png
+ [8]: /docs/img/dashboard/portal-management/developerSearch.png
 

@@ -37,5 +37,5 @@ Then enter the timeout in seconds for the endpoint:
 
 ![Enforced timeout configuration][2]
 
-[1]: /img/dashboard/system-management/enforcedTimeoutDesigner.png
-[2]: /img/dashboard/system-management/enforcedTimeoutConfig.png
+[1]: /docs/img/dashboard/system-management/enforcedTimeoutDesigner.png
+[2]: /docs/img/dashboard/system-management/enforcedTimeoutConfig.png

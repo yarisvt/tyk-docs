@@ -149,9 +149,9 @@ The context variables that are available are:
 *   `remote_addr`: The IP address of the connecting client.
 *   `$jwt_claims_CLAIMNAME` - If JWT tokens are being used (not OIDC Middleware), then each claim in the JWT is available in this format to the context processor.
 
-[1]: /img/dashboard/system-management/headersEndpointDesigner.png
-[2]: /img/dashboard/system-management/headersRequestTab.png
-[3]: /img/dashboard/system-management/setHeaders.png
-[4]: /img/dashboard/system-management/globalHeaders.png
+[1]: /docs/img/dashboard/system-management/headersEndpointDesigner.png
+[2]: /docs/img/dashboard/system-management/headersRequestTab.png
+[3]: /docs/img/dashboard/system-management/setHeaders.png
+[4]: /docs/img/dashboard/system-management/globalHeaders.png
 
 

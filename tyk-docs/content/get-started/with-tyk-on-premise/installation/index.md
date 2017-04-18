@@ -19,9 +19,6 @@ We distribute Tyk via Packagecloud.io APT and Yum repositories, as well as via o
 
 
 
-[1]: /get-started/with-tyk-on-premise/installation/on-ubuntu/
-[2]: /get-started/with-tyk-on-premise/installation/redhat-rhel-centos/
+[1]: /docs/get-started/with-tyk-on-premise/installation/on-ubuntu/
+[2]: /docs/get-started/with-tyk-on-premise/installation/redhat-rhel-centos/
 [3]: https://github.com/TykTechnologies/tyk/releases
-[4]: http://tyk-nightlies.s3-website-us-east-1.amazonaws.com/
-[5]: http://tyk-dashboard-nightly.s3-website-us-east-1.amazonaws.com/
-[6]: http://tyk-pump-nightly.s3-website-us-east-1.amazonaws.com/

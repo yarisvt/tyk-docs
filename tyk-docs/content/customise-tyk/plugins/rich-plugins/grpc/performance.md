@@ -24,7 +24,7 @@ gRPC plugins may use different transports, we've tested TCP and Unix Sockets.
 
 ![Unix Socket Hit Rate][4]
 
-[1]: /img/diagrams/tcpResponseTime.png
-[2]: /img/diagrams/tcpHitRate.png
-[3]: /img/diagrams/unixResponseTime.png
-[4]: /img/diagrams/unixHitRate.png
+[1]: /docs/img/diagrams/tcpResponseTime.png
+[2]: /docs/img/diagrams/tcpHitRate.png
+[3]: /docs/img/diagrams/unixResponseTime.png
+[4]: /docs/img/diagrams/unixHitRate.png

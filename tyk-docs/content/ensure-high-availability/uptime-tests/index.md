@@ -146,8 +146,8 @@ If you have configured Tyk to use round-robin load balancing, you can enable an 
   ...
 ```
 
-[1]: /img/dashboard/system-management/uptimeTestsDesigner.png
-[2]: /img/dashboard/system-management/addUptimeTests.png
-[3]: /img/dashboard/system-management/uptimeTestsDetails.png
+[1]: /docs/img/dashboard/system-management/uptimeTestsDesigner.png
+[2]: /docs/img/dashboard/system-management/addUptimeTests.png
+[3]: /docs/img/dashboard/system-management/uptimeTestsDetails.png
 
 

@@ -435,4 +435,4 @@ This option is available from v2.3.4 and onwards.
 
 
 
- [1]: /others/Gateway-Environment-Vars.xlsx
+ [1]: /docs/others/Gateway-Environment-Vars.xlsx

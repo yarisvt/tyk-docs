@@ -29,6 +29,6 @@ If you wish to customise how emails are displayed to end-users, then you can als
 
 Once you have finished making your changes, click the "Update" button, the new CSS should be available almost immediately on your site.
 
- [1]: /img/dashboard/portal-management/cssNav.png
- [2]: /img/dashboard/portal-management/cssEditor.png
- [3]: /img/dashboard/portal-management/cssEmail.png
+ [1]: /docs/img/dashboard/portal-management/cssNav.png
+ [2]: /docs/img/dashboard/portal-management/cssEditor.png
+ [3]: /docs/img/dashboard/portal-management/cssEmail.png

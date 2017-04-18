@@ -61,8 +61,8 @@ To add a global check for size limits, simply add:
 
 To the version element of your API Definition, the global size limit will be checked before the specific path-based one.
 
-[1]: /img/dashboard/system-management/endpointDesigner.png
-[2]: /img/dashboard/system-management/addEndpoint.png
-[3]: /img/dashboard/system-management/requestSizeDropdown.png
-[4]: /img/dashboard/system-management/setSizeLimit.png
+[1]: /docs/img/dashboard/system-management/endpointDesigner.png
+[2]: /docs/img/dashboard/system-management/addEndpoint.png
+[3]: /docs/img/dashboard/system-management/requestSizeDropdown.png
+[4]: /docs/img/dashboard/system-management/setSizeLimit.png
 

@@ -213,5 +213,5 @@ If you set this value to `true`, then the `id` parameter in a stored policy (or 
 Environment variables can be used to override settings defined in the configuration file. The [Tyk Dashboard environment variable mappings][2] spreadsheet shows how the JSON member keys map to the environment variables. Where an environment variable is specified, its value will take precendence over the value in the configuration file.
 
  [1]: /security/concepts/tls-and-ssl/
- [2]: /others/Gateway-Environment-Vars.xlsx
+ [2]: /docs/others/Gateway-Environment-Vars.xlsx
  [3]: /configure/tyk-gateway-configuration-options/#node_secret

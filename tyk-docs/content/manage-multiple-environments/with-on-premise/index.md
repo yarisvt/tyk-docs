@@ -53,6 +53,6 @@ In your API definition, add a tags section to the root of the API Definition:
 This will set the tags for the API and when the API is loaded by a gateway, these tags will be transferred in to the analytics data set.
 
 
-[1]: /img/dashboard/system-management/advancedOptionsDesigner.png
-[2]: /img/dashboard/system-management/segmentTags.png
+[1]: /docs/img/dashboard/system-management/advancedOptionsDesigner.png
+[2]: /docs/img/dashboard/system-management/segmentTags.png
 

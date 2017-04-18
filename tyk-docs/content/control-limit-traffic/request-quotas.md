@@ -53,6 +53,6 @@ In order to set a quota for a token:
 
 > Note: To set an unlimited quota, set quota_max to -1.
 
-[1]: /img/dashboard/system-management/usageQuotas.png
+[1]: /docs/img/dashboard/system-management/usageQuotas.png
 
 

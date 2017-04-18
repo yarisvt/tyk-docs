@@ -26,4 +26,4 @@ To enable the developer hand-off in a Tyk Portal, browse to the Portal Settings 
 
 ![Redirect key requests form][1]
 
-[1]: /img/dashboard/portal-management/portalRedirect.png
+[1]: /docs/img/dashboard/portal-management/portalRedirect.png

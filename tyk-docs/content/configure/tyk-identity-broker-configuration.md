@@ -50,23 +50,23 @@ Tyk Identity Broker is configured through two files: The configuration file tib.
 
 The various options for this configuration file are enumerated in detail below.
 
-## <a name="secret"></a> secret
+### <a name="secret"></a> secret
 
 The REST API secret to configure the Tyk Identity Broker remotely.
 
-## <a name="httpserveroptions-usessl"></a> HttpServerOptions.UseSSL
+### <a name="httpserveroptions-usessl"></a> HttpServerOptions.UseSSL
 
 Set this to `true` to turn on SSL for the server, this is *highly recommended*.
 
-## <a name="httpserveroptions-keyfile"></a> HHttpServerOptions.KeyFile
+### <a name="httpserveroptions-keyfile"></a> HHttpServerOptions.KeyFile
 
 The path to the key file for this server, required for SSL.
 
-## <a name="httpserveroptions-certfile"></a> HHttpServerOptions.CertFile
+### <a name="httpserveroptions-certfile"></a> HHttpServerOptions.CertFile
 
 The path to the certificate file for this server, required for SSL.
 
-## <a name="backend"></a> BackEnd
+### <a name="backend"></a> BackEnd
 
 TIB is quite modular and different back-ends can be generated quite easily. By default, TIB will store profile configurations in memory, which does not require any new configuration.
 
@@ -74,55 +74,55 @@ For Identity Handlers that provide token-based access, it is possible to enforce
 
 Since profiles are unlikely to change often, profiles are kept in-memory, but can be added, removed and modified using an API for automated setups if required.
 
-## <a name="backend-database"></a> BackEnd.Database
+### <a name="backend-database"></a> BackEnd.Database
 
 If you are using multiple databases (not supported in Redis cluster), let TIB know which DB to use for Identity caching.
 
-## <a name="backend-password"></a> BackEnd.Password
+### <a name="backend-password"></a> BackEnd.Password
 
 The password for your Redis DB (recommended).
 
-## <a name="backend-hosts"></a> BackEnd.Hosts
+### <a name="backend-hosts"></a> BackEnd.Hosts
 
 Add your Redis hosts here as a map of hostname:port. Since TIB uses the same cluster driver as Tyk, it is possible to have TIB interact with your existing Redis cluster if you enable it.
 
-## <a name="backend-maxidle"></a> BackEnd.MaxIdle
+### <a name="backend-maxidle"></a> BackEnd.MaxIdle
 
 Max idle connections to Redis.
 
-## <a name="backend-maxactive"></a> BackEnd.MaxActive
+### <a name="backend-maxactive"></a> BackEnd.MaxActive
 
 Max active Redis connections.
 
-## <a name="backend-enablecluster"></a> BackEnd.EnableCluster
+### <a name="backend-enablecluster"></a> BackEnd.EnableCluster
 
 If you are using Redis cluster, enable it here to enable the slots mode.
 
-## <a name="tykapisettings"></a> TykAPISettings
+### <a name="tykapisettings"></a> TykAPISettings
 
 This section enables you to configure the API credentials for the various Tyk Components TIB is interacting with.
 
-## <a name="tykapisettings-dashboardconfig-adminsecret"></a> TykAPISettings.DashboardConfig.AdminSecret
+### <a name="tykapisettings-dashboardconfig-adminsecret"></a> TykAPISettings.DashboardConfig.AdminSecret
 
 The high-level secret for the Advanced API. This is required because of the SSO-nature of some of the actions provided by TIB, it requires the capability to access a special SSO endpoint in the Advanced API to create one-time tokens for access.
 
-## <a name="tykapisettings-dashboardconfig-port"></a> TykAPISettings.DashboardConfig.Port
+### <a name="tykapisettings-dashboardconfig-port"></a> TykAPISettings.DashboardConfig.Port
 
 The port of your Advanced API.
 
-## <a name="tykapisettings-dashboardconfig-endpoint"></a> TykAPISettings.DashboardConfig.Endpoint
+### <a name="tykapisettings-dashboardconfig-endpoint"></a> TykAPISettings.DashboardConfig.Endpoint
 
 The hostname of your Dashboard (Advanced API).
 
-## <a name="tykapisettings-gatewayconfig-adminsecret"></a> TykAPISettings.GatewayConfig.AdminSecret
+### <a name="tykapisettings-gatewayconfig-adminsecret"></a> TykAPISettings.GatewayConfig.AdminSecret
 
 The API secret for the Tyk Gateway REST API.
 
-## <a name="tykapisettings-gatewayconfig-port"></a> TykAPISettings.GatewayConfig.Port
+### <a name="tykapisettings-gatewayconfig-port"></a> TykAPISettings.GatewayConfig.Port
 
 The port to use on the Tyk Gateway host.
 
-## <a name="tykapisettings-gatewayconfig-endpoint"></a> TykAPISettings.GatewayConfig.Endpoint
+### <a name="tykapisettings-gatewayconfig-endpoint"></a> TykAPISettings.GatewayConfig.Endpoint
 
 The hostname of the Tyk Gateway (this is for token generation purposes).
 

@@ -99,10 +99,11 @@ Scroll down until you see the Webhooks panel:
 
 Here you will be able to select the event to fire on and what webhook to use for the event. Since you can re-use webhooks, simply select the notification target from the drop down, and how often to leave between webhook notifications (cooldown).
 
-[1]: /img/dashboard/system-management/webhooksNav.png
-[2]: /img/dashboard/system-management/addWebhook.png
-[3]: /img/dashboard/system-management/webhookConfig.png
-[4]: /img/dashboard/system-management/saveWebhook.png
+[1]: /docs/img/dashboard/system-management/webhooksNav.png
+[2]: /docs/img/dashboard/system-management/addWebhook.png
+[3]: /docs/img/dashboard/system-management/webhookConfig.png
+[4]: /docs/img/dashboard/system-management/advancedOptionsDesigner.png
+[5]: /docs/img/dashboard/system-management/saveWebhook.png
 
 
 
