@@ -26,8 +26,8 @@ If you then select the *View Details* section of a request line, you can drill d
 
 **A warning on detailed logging:** This mode generates a very large amount of data, and that data exponentially increases the size of your log data set, and may cause problems with delivering analytics in bulk to your MongoDB instances. This mode should only be used to debug your APIs for short periods of time.
 
-[1]: /img/dashboard/usage-data/logViewer.png
-[2]: /img/dashboard/usage-data/logViewerDetails.png
+[1]: /docs/img/dashboard/usage-data/logViewer.png
+[2]: /docs/img/dashboard/usage-data/logViewerDetails.png
 
 
 

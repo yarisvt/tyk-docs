@@ -25,5 +25,5 @@ Below the aggregate graph, you’ll see an error breakdown and endpoint populari
 ![Error Breakdown and Endpoints][2]
 
 
-[1]: /img/dashboard/usage-data/activityDashboard.png
-[2]: /img/dashboard/usage-data/errorBreakDownAndEndpoints.png
+[1]: /docs/img/dashboard/usage-data/activityDashboard.png
+[2]: /docs/img/dashboard/usage-data/errorBreakDownAndEndpoints.png

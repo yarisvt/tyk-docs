@@ -23,4 +23,4 @@ You can then start issuing tokens, either manually or via the developer portal, 
 
 To get started with Tyk Cloud, follow our [tutorial][1] to create an account.
 
- [1]: /get-started/with-tyk-cloud/create-an-account/
+ [1]: /docs/get-started/with-tyk-cloud/create-an-account/

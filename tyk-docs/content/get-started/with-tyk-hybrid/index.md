@@ -45,4 +45,4 @@ When requests come into your node, Tyk Cloud will act as your centralised Key an
 
 Tyk Hybrid's RPC system has been built in such a way as to minimise latency, it's performance profile is the same as a full local deployment, just without any of the overhead of managing a failover MongoDB cluster or a tyk Dashboard installation.
 
- [1]: /get-started/with-tyk-hybrid/create-an-account/
+ [1]: /docs/get-started/with-tyk-hybrid/create-an-account/

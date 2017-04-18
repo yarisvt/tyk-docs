@@ -131,10 +131,10 @@ To access the proxied API via the gateway on Tyk Cloud:
 
 If you see the above output, then the API is loaded and is being protected by Tyk. You can now generate a token and try the same command in place of `null` to see if the request proxies.
 
-[1]: /img/dashboard/system-management/NavAPIs.png
-[2]: /img/dashboard/system-management/addAPIbutton.png
-[3]: /img/dashboard/system-management/APIDesigner.png
-[4]: /img/dashboard/system-management/targetDetails.png
-[5]: /img/dashboard/system-management/saveAPI.png
-[6]: /img/dashboard/system-management/APIURLLocation.png
-[7]: /img/dashboard/system-management/APIKey.png
+[1]: /docs/img/dashboard/system-management/NavAPIs.png
+[2]: /docs/img/dashboard/system-management/addAPIbutton.png
+[3]: /docs/img/dashboard/system-management/APIDesigner.png
+[4]: /docs/img/dashboard/system-management/targetDetails.png
+[5]: /docs/img/dashboard/system-management/saveAPI.png
+[6]: /docs/img/dashboard/system-management/APIURLLocation.png
+[7]: /docs/img/dashboard/system-management/APIKey.png

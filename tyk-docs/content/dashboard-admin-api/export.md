@@ -85,4 +85,4 @@ The organisation object is the most fundamental object in a Tyk setup, all other
 
 To export APIs and Policies you should use the standard `GET APIS` endpoint and `GET POLICIES` list endpoints. The output from these endpoints can be used by the [import API][1].
 
- [1]: /import
+ [1]: /docs/dashboard-admin-api/import/

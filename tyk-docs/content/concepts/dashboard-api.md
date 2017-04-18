@@ -17,4 +17,4 @@ It is encouraged to integrate with the Dashboard API in a Pro installation.
 
 ![API Overview][1]
 
-[1]: /img/diagrams/gatewayDashboardDiff.png
+[1]: /docs/img/diagrams/gatewayDashboardDiff.png

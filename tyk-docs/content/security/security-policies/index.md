@@ -9,4 +9,4 @@ weight: 5
 
 [What is a Security Policy ?][1]
 
-[1]: /concepts/what-is-a-security-policy/
+[1]: /docs/concepts/what-is-a-security-policy/

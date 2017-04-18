@@ -39,7 +39,7 @@ The change is instant and the token will be updated with the new policy as soon 
 
 ![Change key policy button location][4]
 
- [1]: /img/dashboard/portal-management/developerEdit.png
- [2]: /img/dashboard/portal-management/devChangePolicy.png
- [3]: /img/dashboard/portal-management/selectPolicy.png
- [4]: /img/dashboard/portal-management/saveKeyPolicy.png
+ [1]: /docs/img/dashboard/portal-management/developerEdit.png
+ [2]: /docs/img/dashboard/portal-management/devChangePolicy.png
+ [3]: /docs/img/dashboard/portal-management/selectPolicy.png
+ [4]: /docs/img/dashboard/portal-management/saveKeyPolicy.png

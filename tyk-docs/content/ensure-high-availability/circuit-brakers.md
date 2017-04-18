@@ -92,7 +92,7 @@ Once the plugin is active, you can set up the various configurations options for
 *   **Sample size (requests)**: The number of samples to take for a circuit breaker window.
 *   **Return to service in (s)**: The cool-down period of the breaker to return to service (seconds).
 
- [1]: /img/dashboard/system-management/circuitBrakerDesigner.png
- [2]: /img/dashboard/system-management/circuitBrakerConfig.png
+ [1]: /docs/img/dashboard/system-management/circuitBrakerDesigner.png
+ [2]: /docs/img/dashboard/system-management/circuitBrakerConfig.png
 
 

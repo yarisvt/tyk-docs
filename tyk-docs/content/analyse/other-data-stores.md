@@ -174,6 +174,6 @@ The Graylog Pump requires the following configuration to be added to your `pump.
         }
 ```
 
-[1]: /others/Gateway-Environment-Vars.xlsx
+[1]: /docs/others/Gateway-Environment-Vars.xlsx
 
 

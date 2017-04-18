@@ -26,6 +26,6 @@ See the [User API Roles][2] section.
 The Dashboard API is secured using an “Authorization” header that must be added to each request that is made. The Authorization key can be found in the User details view of a user.
 
 
-[1]: /img/diagrams/gatewayDashboardDiff.png
-[2]: /security/dashboard/user-roles/
+[1]: /docs/img/diagrams/gatewayDashboardDiff.png
+[2]: /docs/security/dashboard/user-roles/
 

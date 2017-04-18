@@ -12,8 +12,6 @@ The Tyk API Gateway is the main component that will be internet-facing in your i
 Although the Gateway has an API, it is recommended to integrate with the Dashboard API as this is more secure and more granular.
 
 1. [What is Tyk Gateway?][1]
-2. [Gateway API Overview][2]
 
-[1]: /concepts/tyk-components/gateway/
-[2]: /concepts/gateway-api/
+[1]: /docs/concepts/tyk-components/gateway/
 

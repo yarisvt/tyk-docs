@@ -48,5 +48,5 @@ Permissions are enforced *at the dashboard API level*.
 
 Each of the object categories will also have an effect on the dashboard navigation, however side-effects can occur if pages that make use of multiple APIs to fetch configuration data cross over e.g. policies and API Definition listings.
 
-[1]: /img/dashboard/system-management/adminAccount.png
+[1]: /docs/img/dashboard/system-management/adminAccount.png
 

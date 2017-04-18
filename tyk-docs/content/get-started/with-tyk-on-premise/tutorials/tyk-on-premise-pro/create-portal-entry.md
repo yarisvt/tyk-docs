@@ -68,10 +68,10 @@ You can now visit your portal to see the API catalogue entry, to do so, simply s
 
 ![Portal nav menu location][7]
 
-[1]: /img/dashboard/portal-management/NavCatalogue.png
-[2]: /img/dashboard/system-management/addAPIbutton.png
-[3]: /img/dashboard/portal-management/portalPolicy.png
-[4]: /img/dashboard/portal-management/portalDescription.png
-[5]: /img/dashboard/portal-management/enableAPI.png
-[6]: /img/dashboard/portal-management/saveAPI.png
-[7]: /img/dashboard/portal-management/visitPortal.png
+[1]: /docs/img/dashboard/portal-management/NavCatalogue.png
+[2]: /docs/img/dashboard/system-management/addAPIbutton.png
+[3]: /docs/img/dashboard/portal-management/portalPolicy.png
+[4]: /docs/img/dashboard/portal-management/portalDescription.png
+[5]: /docs/img/dashboard/portal-management/enableAPI.png
+[6]: /docs/img/dashboard/portal-management/saveAPI.png
+[7]: /docs/img/dashboard/portal-management/visitPortal.png

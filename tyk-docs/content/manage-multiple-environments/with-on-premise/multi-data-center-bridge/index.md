@@ -60,4 +60,4 @@ A slave cluster consists of the following configuration:
 1.  Tyk gateway instance(s) specially configured as slaves
 2.  A Redis DB
 
-[1]: /img/diagrams/mdcbArchitecture.png
+[1]: /docs/img/diagrams/mdcbArchitecture.png

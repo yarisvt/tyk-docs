@@ -87,8 +87,8 @@ The context variables that are available are:
 
 As of v2.3 it is possible to inject meta data from a Tyk Session Object linked to a token into your URL Rewrite commands. In a similar way to the context variables, the values are in a reserved namespace: `$tyk_meta.FIELDNAME`. This can be especially useful if you wish to incorporate custom query string parameters into a URL structure.
 
-[1]: /img/dashboard/system-management/rewriteEndpointDesigner.pngco
-[2]: /img/dashboard/system-management/configureRewrite.png
+[1]: /docs/img/dashboard/system-management/rewriteEndpointDesigner.pngco
+[2]: /docs/img/dashboard/system-management/configureRewrite.png
 
 
 

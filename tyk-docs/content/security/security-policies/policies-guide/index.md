@@ -144,9 +144,9 @@ On how to create a policy with the Gateway API check [this section][2]
 On how to create a policy with the Gateway API check [this section][3]
 
 
-[1]: /get-started/with-tyk-on-premise/tutorials/tyk-on-premise-pro/create-security-policy/#with-api
-[2]: /get-started/with-tyk-on-premise/tutorials/tyk-on-premise-community-edition/create-security-policy/#create-a-file-based-policy
-[3]: /get-started/with-tyk-on-premise/tutorials/tyk-on-premise-pro/create-security-policy/#with-dashboard
+[1]: /docs/get-started/with-tyk-on-premise/tutorials/tyk-on-premise-pro/create-security-policy/#with-api
+[2]: /docs/get-started/with-tyk-on-premise/tutorials/tyk-on-premise-community-edition/create-security-policy/#create-a-file-based-policy
+[3]: /docs/get-started/with-tyk-on-premise/tutorials/tyk-on-premise-pro/create-security-policy/#with-dashboard
 
 
 

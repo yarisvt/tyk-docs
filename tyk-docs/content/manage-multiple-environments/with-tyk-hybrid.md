@@ -48,8 +48,8 @@ In this section, set the tag name you want to apply, and click the *Add* button.
 
 When you save the API, the tags will become immediately active, and if any gateways are configured to only load tagged API Definitions then this configuration will only be loaded by the relevant gateway.
 
-[1]: /img/dashboard/system-management/advancedOptionsDesigner.png
-[2]: /img/dashboard/system-management/segmentTags.png
+[1]: /docs/img/dashboard/system-management/advancedOptionsDesigner.png
+[2]: /docs/img/dashboard/system-management/segmentTags.png
 
 
 

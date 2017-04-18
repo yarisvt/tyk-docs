@@ -23,5 +23,5 @@ If you select a token, you can get a drill down view of the activity of that tok
 
 (The filters in this view will not be of any use except to filter by API Version).
 
-[1]: /img/dashboard/usage-data/activityPerToken.png
-[2]: /img/dashboard/usage-data/tokenViewDetail.png
+[1]: /docs/img/dashboard/usage-data/activityPerToken.png
+[2]: /docs/img/dashboard/usage-data/tokenViewDetail.png

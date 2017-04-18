@@ -49,8 +49,8 @@ This will now import the API Definition into your new environment, if you have k
 
 > **Important**: The ID you use in with any Dashboard API integrations will change as the documents physical ID will have changed with the import.
 
-[1]: /img/dashboard/system-management/registeredAPIs.png
-[2]: /img/dashboard/system-management/exportAPI.png
-[3]: /img/dashboard/system-management/exportSaveAPI.png
-[4]: /img/dashboard/system-management/importAPI.png
-[5]: /img/dashboard/system-management/generateAPI.png
+[1]: /docs/img/dashboard/system-management/registeredAPIs.png
+[2]: /docs/img/dashboard/system-management/exportAPI.png
+[3]: /docs/img/dashboard/system-management/exportSaveAPI.png
+[4]: /docs/img/dashboard/system-management/importAPI.png
+[5]: /docs/img/dashboard/system-management/generateAPI.png

@@ -25,4 +25,4 @@ The Dashboard API is a superset of the Gateway API, providing the same functiona
 *   The API features read/write permissions on a per-endpoint level to have extra control over integrations
 *   The API enforces a schema (that can be modified and hardened depending on your usage requirements)
 
- [1]: /img/diagrams/dashboard.png
+ [1]: /docs/img/diagrams/dashboard.png

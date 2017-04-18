@@ -1,6 +1,5 @@
 ---
 date: 2017-03-22T17:04:48Z
-draft: true
 title: Install Tyk Pro On-Premise on Vagrant
 menu:
   main:
@@ -200,7 +199,7 @@ You will now be able to log into and test your Tyk instance with the values give
 *   [Set up and test your first API][3]
 *   [Set up your portal and publish your first API][4]
 
-[1]: /get-started/with-tyk-on-premise/installation/on-ubuntu/
-[2]: /get-started/with-tyk-on-premise/installation/redhat-rhel-centos/
+[1]: /docs/get-started/with-tyk-on-premise/installation/on-ubuntu/
+[2]: /docs/get-started/with-tyk-on-premise/installation/redhat-rhel-centos/
 
 

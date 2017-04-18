@@ -192,9 +192,9 @@ Understanding what files are created or modified by the Dashboard and Gateway du
 *   Dashboard will write the licence into the configuration file if you add it via the UI.
 *   From v2.3 onwards it is possible for a Dashboard to remotely change the config of a Gateway, which will cause the Gateway's configuration file to update.
 
- [1]: /img/diagrams/deployGraph.jpg
- [2]: /img/diagrams/deployGraphNoRateLimitQuota.jpg
- [3]: /img/diagrams/deployGraphVanilla.jpg
+ [1]: /docs/img/diagrams/deployGraph.jpg
+ [2]: /docs/img/diagrams/deployGraphNoRateLimitQuota.jpg
+ [3]: /docs/img/diagrams/deployGraphVanilla.jpg
  [4]: http://blitz.io
  [5]: https://docs.mongodb.com/manual/core/capped-collections/
  [6]: https://docs.mongodb.com/manual/reference/command/convertToCapped/

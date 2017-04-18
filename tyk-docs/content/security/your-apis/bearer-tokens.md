@@ -57,5 +57,5 @@ To use a cookie name instead of a header or request parameter, set the `use_cook
 
 It is possible to provide Tyk with your own custom tokens, this can be achieved using the Tyk Gateway REST API. This is very useful if you have your own identity provider and don't want Tyk to create and manage tokens for you, and instead just mirror those tokens within Tyk to off-load access control, quotas and rate limiting from your own application.
 
- [1]: /img/dashboard/system-management/authToken.png
+ [1]: /docs/img/dashboard/system-management/authToken.png
 

@@ -34,5 +34,5 @@ To set up load balancing via the Dashboard, simply set the above settings in the
 
 ![Dashboard load balancing configuration][1]
 
- [1]: /img/dashboard/system-management/loadBalancing.png
+ [1]: /docs/img/dashboard/system-management/loadBalancing.png
 

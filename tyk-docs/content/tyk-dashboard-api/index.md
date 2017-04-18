@@ -43,5 +43,5 @@ The only special case is when a user is created without an empty OrgID, this can
 
 Users that are not assigned to an Organisation gain special privileges in the Dashboard, and can see all APIs, users and all analytics data disregarding organisations. These users will not be able to add new users to other organisations though, only to their own context - so any users they create will also be super-users.
 
- [1]: /dashboard-admin-api/admin-api-organisations/
+ [1]: /docs/dashboard-admin-api/organisations/
 

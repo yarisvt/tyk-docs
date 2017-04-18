@@ -22,5 +22,5 @@ Tyk Pump is an open-source project from the team here at Tyk and you can find it
 ![Tyk Pump Data Transport Service][2]
 
  [1]: https://github.com/TykTechnologies/tyk-pump
- [2]: /img/diagrams/pump.png
+ [2]: /docs/img/diagrams/pump.png
 

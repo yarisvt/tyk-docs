@@ -89,10 +89,10 @@ You will see a response with your new token:
 The value returned in the `key` parameter of the response is the access token you can now use to access the API that was specified in the `access_rights` section of the call
 
 
-[1]: /img/dashboard/system-management/NavKeys.png
-[2]: /img/dashboard/system-management/addKeyButton.png
-[3]: /img/dashboard/system-management/accessRights.png
-[4]: /img/dashboard/system-management/createKeyButton.png
-[5]: /img/dashboard/system-management/keyAdded.png
-[6]: /img/dashboard/system-management/APIKey.png
-[7]: /img/dashboard/system-management/APIId.png
+[1]: /docs/img/dashboard/system-management/NavKeys.png
+[2]: /docs/img/dashboard/system-management/addKeyButton.png
+[3]: /docs/img/dashboard/system-management/accessRights.png
+[4]: /docs/img/dashboard/system-management/createKeyButton.png
+[5]: /docs/img/dashboard/system-management/keyAdded.png
+[6]: /docs/img/dashboard/system-management/APIKey.png
+[7]: /docs/img/dashboard/system-management/APIId.png

@@ -7,8 +7,4 @@ menu:
 weight: 5 
 ---
 
-This section outlines some of the key security concepts that Tyk uses and that you should be familiar with before setting up and using a Tyk stack to secure your API:
-
-* [Key Hashing][1]
-
-[1]: key-hashing
+This section outlines some of the key security concepts that Tyk uses and that you should be familiar with before setting up and using a Tyk stack to secure your API.

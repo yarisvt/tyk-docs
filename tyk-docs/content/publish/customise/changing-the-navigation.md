@@ -50,7 +50,7 @@ Once added, you can select it from the drop down and add the title and URL field
 
 The menu item, once saved, will appear in your Portal navigation instantly.
 
-[1]: /img/dashboard/portal-management/portalMenus.png
-[2]: /img/dashboard/portal-management/addPortalMenus.png
-[3]: /img/dashboard/portal-management/portalMenusDropdown.png
+[1]: /docs/img/dashboard/portal-management/portalMenus.png
+[2]: /docs/img/dashboard/portal-management/addPortalMenus.png
+[3]: /docs/img/dashboard/portal-management/portalMenusDropdown.png
 

@@ -847,11 +847,11 @@ Please see the section on uptime tests for a full write-up on how uptime tests w
 
 * `do_not_track`: Set this value to true to have traffic for this API completely ignored.
 
- [1]: /security/your-apis/basic-auth/
- [2]: /rest-api/token-management
- [3]: https://web-payments.org/specs/ED/http-signatures/2014-02-01/#page-3
- [4]: /security/your-apis/oauth-2-0/
- [5]: http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#3xx_Redirection
- [6]: /security/your-apis/
- [7]: http://docs.mongodb.org/manual/tutorial/expire-data/
+[1]: /docs/security/your-apis/basic-auth/
+[2]: /docs/tyk-rest-api/token-management
+[3]: https://web-payments.org/specs/ED/http-signatures/2014-02-01/#page-3
+[4]: /docs/security/your-apis/oauth-2-0/
+[5]: http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#3xx_Redirection
+[6]: /docs/security/your-apis/
+[7]: http://docs.mongodb.org/manual/tutorial/expire-data/
 
