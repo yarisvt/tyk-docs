@@ -4,7 +4,8 @@ title: Your APIs
 menu:
   main:
     parent: "Security"
-weight: 5 
+weight: 5
+url: "/security/your-apis"
 ---
 
 Tyk has multiple security options to lock-down your APIs out of the box, these are designed to work as best as possible with open standards.

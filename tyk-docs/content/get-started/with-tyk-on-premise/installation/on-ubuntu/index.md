@@ -4,7 +4,8 @@ Title: On Ubuntu
 menu:
   main:
     parent: "Installation"
-weight: 0 
+weight: 0
+url: "/get-started/with-tyk-on-premise/installation/on-ubuntu"
 ---
 
 ## Install Tyk API Gateway on Ubuntu

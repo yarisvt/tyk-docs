@@ -3,6 +3,7 @@ date: 2017-03-24T17:09:48Z
 title: Publish
 weight: 160
 menu: "main"
+url: "/publish"
 ---
 
 The Tyk Developer Portal is a small CMS-like system that enables you to expose a facade of your APIs and then allow third-party developers to register and use your APIs.

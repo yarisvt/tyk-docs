@@ -3,6 +3,7 @@ date: 2017-03-24T17:49:59Z
 title: Deploy Tyk On-Premise to Production
 weight: 180
 menu: "main"
+url: "/deploy-tyk-on-premise-production"
 ---
 
 So you want to deploy Tyk to production?

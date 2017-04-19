@@ -5,6 +5,7 @@ menu:
   main:
     parent: "Get started"
 weight: 5
+url: "/get-started/with-tyk-on-premise"
 ---
 
 ## What is Tyk On-Premise?

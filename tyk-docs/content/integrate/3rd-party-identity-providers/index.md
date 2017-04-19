@@ -4,7 +4,8 @@ title: 3rd Party Identity Providers
 menu:
   main:
     parent: "Integration Options"
-weight: 0 
+weight: 0
+url: "/integrate/3rd-party-identity-providers"
 ---
 
 ## Tyk Identity Broker Overview 

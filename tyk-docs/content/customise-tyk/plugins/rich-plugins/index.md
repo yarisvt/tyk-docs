@@ -4,7 +4,8 @@ title: Rich Plugins
 menu:
   main:
     parent: "Plugins"
-weight: 0 
+weight: 0
+url: "/customise-tyk/plugins/rich-plugins"
 ---
 
 The pages in this section explain what rich plugins are and how they work.

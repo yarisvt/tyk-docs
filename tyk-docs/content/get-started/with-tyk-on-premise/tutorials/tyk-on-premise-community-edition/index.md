@@ -4,7 +4,8 @@ Title: Tyk On-Premise Community Edition
 menu:
   main:
     parent: /with-tyk-on-premise
-weight: 0 
+weight: 0
+url: "/get-started/with-tyk-on-premise/tutorials/tyk-on-premise-community-edition"
 ---
 
 ## What is Community Edition?

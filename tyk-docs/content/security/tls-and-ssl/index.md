@@ -4,7 +4,8 @@ title: TLS and SSL
 menu:
   main:
     parent: "Security"
-weight: 5 
+weight: 5
+url: "/security/tls-and-ssl"
 ---
 
 Tyk supports TLS connections, and as of version 2.0 all TLS connections will also support HTTP/2. To enable SSL in your Tyk gateway and dashboard, you will need to modify the `tyk.conf` and `tyk_analytics` files to include a server options section like so:

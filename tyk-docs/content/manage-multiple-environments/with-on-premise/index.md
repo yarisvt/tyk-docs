@@ -5,6 +5,7 @@ menu:
   main:
     parent: "Manage Multiple Environments"
 weight: 5
+url: "/manage-multiple-environments/with-on-premise"
 ---
 
 ## <a name="api-tagging"></a>API Tagging with On-Premise

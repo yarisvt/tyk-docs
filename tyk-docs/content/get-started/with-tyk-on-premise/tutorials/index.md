@@ -5,7 +5,8 @@ menu:
   main:
     parent: "With Tyk On Premise"
     identifier: /with-tyk-on-premise
-weight: 0 
+weight: 0
+url: "/get-started/with-tyk-on-premise/tutorials"
 ---
 
 ## Get Started with Tyk On-Premise: Tutorials

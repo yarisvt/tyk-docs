@@ -5,6 +5,7 @@ menu:
   main:
     parent: "With On-Premise"
 weight: 5
+url: "/manage-multiple-environments/with-on-premise/multi-data-center-bridge"
 ---
 
 ## <a name="introduction"></a>Multi-Data-Center Bridge: Introduction

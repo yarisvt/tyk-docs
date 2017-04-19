@@ -4,7 +4,8 @@ title: Customise
 menu:
   main:
     parent: "Publish"
-weight: 0 
+weight: 0
+url: "/publish/customise"
 ---
 
 ## Portal Customisation: Overview

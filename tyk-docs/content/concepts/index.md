@@ -3,6 +3,7 @@ date: 2017-03-23T12:52:32Z
 title: Concepts
 weight: 20
 menu: "main"
+url: "/concepts"
 ---
 
 In order to really get to grips with the Tyk ecosystem, there are some key concepts that, once grasped, make working with APIs in Tyk much easier.

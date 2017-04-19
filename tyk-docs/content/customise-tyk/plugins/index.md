@@ -4,7 +4,8 @@ title: Plugins
 menu:
   main:
     parent: "Customise Tyk"
-weight: 0 
+weight: 0
+url: "customise-tyk/plugins"
 ---
 
 This section contains information about the various ways you can use plugins to extend the functionality of Tyk.

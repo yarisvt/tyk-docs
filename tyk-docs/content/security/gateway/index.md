@@ -4,7 +4,8 @@ title: Gateway
 menu:
   main:
     parent: "Security"
-weight: 5 
+weight: 5
+url: "/security/gateway"
 ---
 
 The Tyk API Gateway is the main component that will be internet-facing in your installation since it manages the traffic through to your services. The Gateway has a command and control API that must be secured, and is secured using a shared secret.

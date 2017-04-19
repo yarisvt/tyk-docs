@@ -5,6 +5,7 @@ menu:
   main:
     parent: "Get started"
 weight: 5
+url: "/get-started/with-tyk-hybrid"
 ---
 ## <a name="what-is-tyk-hybrid"></a>What is Tyk Hybrid ?
 

@@ -4,7 +4,8 @@ title: Service Discovery
 menu:
   main:
     parent: "Ensure High Availability"
-weight: 0 
+weight: 0
+url: "/ensure-high-availability/service-discovery"
 ---
 
 Service Discovery is a very useful feature for when you have a dynamically changing upstream service set.
@@ -79,8 +80,6 @@ In the above example, the **port data path** would be `port`.
 
 *   **Cache timeout**: Tyk caches target data from a discovery service, in order to make this dynamic you can set a cache value when the data expires and new data is loaded. Setting it too low will cause Tyk to call the SD service too often, setting it too high could mean that failures are not recovered from quickly enough.
 
-[1]: /img/dashboard/system-management/serviceDiscovery.png
-[2]: /img/dashboard/system-management/serviceDiscoveryConfig.png
 
 ## <a name="with-api"></a> Service Discovery Config: API Definition
 
@@ -149,4 +148,7 @@ In the above example, the `port_data_path` would be `port`.
 *   `service_discovery.cache_timeout`: Tyk caches target data from a discovery service, in order to make this dynamic you can set a cache value when the data expires and new data is loaded. Setting it too low will cause Tyk to call the SD service too often, setting it too high could mean that failures are not recovered from quickly enough.
 
 *   `service_discovery.target_path`: Use this setting to set a target path to append to the discovered endpoint, since many SD services only provide host and port data, it is important to be able to target a specific resource on that host, setting this value will enable that.
+
+[1]: /docs/img/dashboard/system-management/serviceDiscovery.png
+[2]: /docs/img/dashboard/system-management/serviceDiscoveryConfig.png
 
