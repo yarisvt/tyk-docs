@@ -4,5 +4,6 @@ title: Troubleshooting - Tyk Pump
 menu:
   main:
     parent: "Troubleshooting"
-weight: 5 
+weight: 5
+url: "/troubleshooting/tyk-pump"
 ---

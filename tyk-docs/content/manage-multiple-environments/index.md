@@ -3,6 +3,7 @@ date: 2017-03-24T11:46:00Z
 title: Manage Multiple Environments
 weight: 90
 menu: "main"
+url: "/manage-multiple-environments"
 ---
 
 It is possible with the Hybrid and the On-Premise version of Tyk to manage multiple environments across data centers. This can be very useful if you have QA, UAT and Production environments that are physically or geographically separate and you want to move API configurations between environments seamlessly.

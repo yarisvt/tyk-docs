@@ -4,7 +4,8 @@ title: Docker Quickstart
 menu:
   main:
     parent: "With Docker"
-weight: 0 
+weight: 0
+url: "/get-started/with-tyk-on-premise/installation/docker/docker-quickstart"
 ---
 
 ## Get started with Docker & Tyk API Gateway

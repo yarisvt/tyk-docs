@@ -5,7 +5,8 @@ menu:
   main:
     parent: "With Tyk Hybrid"
     identifier: /with-tyk-hybrid
-weight: 5 
+weight: 5
+url: "/get-started/with-tyk-hybrid/tutorials"
 ---
 
 ## Get Started with Tyk Hybrid: Tutorials

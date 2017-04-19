@@ -4,7 +4,8 @@ title: Tyk Components
 menu:
   main:
     parent: "Concepts"
-weight: 0 
+weight: 0
+url: "/concepts/tyk-components"
 ---
 
 A full Tyk stack consists of multiple components working together, the three most important ones are:

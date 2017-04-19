@@ -4,5 +4,6 @@ title: Troubleshooting - Tyk Hybrid
 menu:
   main:
     parent: "Troubleshooting"
-weight: 5 
+weight: 5
+url: "/troubleshooting/tyk-hybrid"
 ---

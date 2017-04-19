@@ -3,6 +3,7 @@ date: 2017-03-24T12:53:50Z
 title: Log Data
 weight: 120
 menu: "main"
+url: "/log-data"
 ---
 
 ## <a name="logging"></a> Logging

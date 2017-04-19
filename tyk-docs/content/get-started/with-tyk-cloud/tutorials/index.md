@@ -4,7 +4,8 @@ title: Tutorials
 menu:
   main:
     parent: "With Tyk Cloud"
-weight: 5 
+weight: 5
+url: "/get-started/with-tyk-cloud/tutorials"
 ---
 
 ## Get started with Tyk Cloud: Tutorials

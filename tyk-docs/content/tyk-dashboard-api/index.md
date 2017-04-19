@@ -3,6 +3,7 @@ date: 2017-03-27T12:08:14+01:00
 title: Tyk Dashboard API
 weight: 200
 menu: "main"
+url: "/tyk-dashboard-api"
 ---
 
 ## <a name="overview"></a> Overview

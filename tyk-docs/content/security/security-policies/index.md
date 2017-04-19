@@ -4,7 +4,8 @@ title: Security Policies
 menu:
   main:
     parent: "Security"
-weight: 5 
+weight: 5
+url: "/security/security-policies"
 ---
 
 [What is a Security Policy ?][1]

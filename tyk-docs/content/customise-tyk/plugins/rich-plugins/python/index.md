@@ -4,6 +4,7 @@ title: Python
 menu:
   main:
     parent: "Rich Plugins"
-weight: 0 
+weight: 0
+url: "/customise-tyk/plugins/rich-plugins/python"
 ---
 

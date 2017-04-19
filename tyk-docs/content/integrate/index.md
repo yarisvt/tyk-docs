@@ -3,6 +3,7 @@ date: 2017-03-24T16:39:31Z
 title: Integration Options
 weight: 150
 menu: "main"
+url: "/integrate"
 ---
 
 Tyk has multiple integration options with third parties, and these integrations can occur in a few places:

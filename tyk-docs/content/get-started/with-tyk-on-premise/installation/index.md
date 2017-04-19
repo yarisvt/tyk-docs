@@ -4,7 +4,8 @@ Title: Installation
 menu:
   main:
     parent: "With Tyk On Premise"
-weight: 0 
+weight: 0
+url: "/get-started/with-tyk-on-premise/installation"
 ---
 
 ## Install Tyk on-premise: Managed releases and package options

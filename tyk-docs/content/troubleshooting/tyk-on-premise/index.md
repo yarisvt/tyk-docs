@@ -4,7 +4,8 @@ title: Troubleshooting - Tyk On-Premise
 menu:
   main:
     parent: "Troubleshooting"
-weight: 5 
+weight: 5
+url: "/troubleshooting/tyk-on-premise"
 ---
 
 
