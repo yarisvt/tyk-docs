@@ -3,7 +3,7 @@ date: 2017-03-09T11:20:34Z
 Title: Documentation
 weight: 1
 menu: "main"
-url: "/index.html"
+url: "/"
 ---
 
 The Tyk Open Source API Gateway 2.x is the next step in a more distributed version of Tyk, and introduces a host of new modules:
