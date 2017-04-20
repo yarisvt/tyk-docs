@@ -3,7 +3,7 @@ date: 2017-03-08T18:15:30+13:00
 title: Get started
 weight: 10
 menu: "main"
-url: "/get-started"
+url: "get-started"
 ---
 
 ## Get started with Tyk

@@ -10,7 +10,7 @@ $(document).ready(function() {
 		var i;
 
 		for (i = 0; i < arr.length; i++) {
-			if(arr[i].link === page) {
+			if(arr[i].link + '/' === page || arr[i].link === page) {
 				return i;
 			}
 		}
