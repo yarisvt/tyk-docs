@@ -19,20 +19,32 @@ Your company name will be used to generate your cloud endpoint, this is where yo
 
 ## <a name="log-into-your-cloud-dashboard"></a> Log into your Dashboard
 
-From your cloud account page, to get to your cloud dashboard, select "Account Overview" in the navigation:
+From your cloud account page click "Account Overview":
 
 ![Cloud Navigation][3]
 
-And then select the large button to take you to the cloud dashboard:
+Then click "Login to your dashboard":
 
 ![Dashboard Login Button][4]
 
-This will present you with a new login screen for our cloud dashboard, to go there directly simply [visit the page directly][5], the username and password will be the same as your username and password when you created your account.
+This will present you with a new login screen for our cloud dashboard. You can login directly from <https://admin.cloud.tyk.io>. The username and password will be the same as those used to create your account.
 
+## Next Steps
+
+[Create an API from the Dashboard][5]
+
+[Create an API from the Tyk REST API][6]
+
+[Create an API Token from the Dashboard][7]
+
+[Create an API Token fro the Tyk REST API][8]
 
 [1]: https://cloud.tyk.io
 [2]: /docs/img/cloud/CloudSignup.png
 [3]: /docs/img/cloud/CloudNav.png
 [4]: /docs/img/cloud/DashLoginButton.png
-[5]: https://admin.cloud.tyk.io
+[5]: /docs/get-started/with-tyk-cloud/tutorials/create-an-api/#with-dashboard
+[6]: /docs/get-started/with-tyk-cloud/tutorials/create-an-api/#with-api
+[7]: /docs/get-started/with-tyk-cloud/tutorials/create-api-token/#with-dashboard
+[8]: /docs/get-started/with-tyk-cloud/tutorials/create-api-token/#with-api
 
