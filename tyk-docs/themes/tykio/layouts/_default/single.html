@@ -48,7 +48,12 @@
     </aside>
     <article class="wysiwyg">
       <a class="container-github icon-github" target="_blank" >Edit on GitHub</a>
-        <input type="text" class="searchBox" placeholder="Search...">
+        <input type="text" class="search-box" placeholder="Search...">
+        <div class="search-box-container">
+            <div class="search-box-info-container">
+
+            </div>
+        </div>
         <h1>{{ .Title}}</h1>
               {{ .Content }}
           
@@ -96,7 +101,23 @@
     <script type='text/javascript' src='/docs/js/docs-table-of-contents.js'></script>
     <script type='text/javascript' src='https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js'></script>
     <script type='text/javascript' src='/docs/js/docs-search.js'></script>> 
-
+<script type='text/javascript'>
+   !function () {
+       var b = document.createElement('link');
+       b.type = 'text/css', b.href = 'http://cdn.searchly.com/widget/0.0.33/jquery.searchly.min.css', b.rel = 'stylesheet', document.getElementsByTagName('head')[0].appendChild(b);
+       var c = document.createElement('script');
+       c.type = 'text/javascript', c.src = 'http://cdn.searchly.com/widget/0.0.33/jquery.searchly.min.js',c.onload = function () {
+           $('.search-box').searchly( {
+  "server": "https://testWidget_67e5b8af:rtabrbnjeyzeob6t1ojoxgr16rpndjap@ori-eu-west-1.searchly.com",
+  "index": "kos-development",
+  "type": "site-dev_tykbeta_com_6f97",
+  "themeBaseColor": "#8611d4",
+  "resultContainer": ".search-box-container",
+  "resultInfoContainer": ".search-box-info-container"
+})
+       }, document.getElementsByTagName('head')[0].appendChild(c)
+   }();
+</script>
 </script>
 
 
