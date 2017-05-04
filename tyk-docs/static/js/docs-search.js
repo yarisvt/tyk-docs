@@ -1,5 +1,3 @@
-/* global instantsearch */
-
 var search = instantsearch({
   appId: 'EIXQM46UN9',
   apiKey: '2ac5e9a2564f4a3a187ab44500f42062',
@@ -9,19 +7,16 @@ var search = instantsearch({
   	var hits = document.getElementById("hits");
   	var pagination = document.getElementById("pagination");
 
+    setTimeout(history.replaceState(null, "", "?q="), 750);
+
     if (helper.state.query === '') {
-    	var state = helper.getState();
-state.query = "";
-helper.setState(state);
     	hits.style.display = 'none';
     	pagination.style.display = 'none';
       return;
     }
 
-
-
-hits.style.display = 'block';
-pagination.style.display = 'block';
+		hits.style.display = 'block';
+		pagination.style.display = 'block';
 
     helper.search();
   }
