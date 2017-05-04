@@ -3,7 +3,3 @@ languageCode = "en-gb"
 title = "Tyk Documentation"
 theme = "tykio"
 MetaDataFormat = "yaml"
-
-[outputs]
-  home = ["HTML", "JSON"]
-  page = ["HTML", "JSON"]

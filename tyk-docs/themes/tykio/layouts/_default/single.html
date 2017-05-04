@@ -3,100 +3,105 @@
 <html class="no-js" lang="en-GB">
 
 <head>
-    <meta name="robots" content="noindex">
-    <meta charset="UTF-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ .Title}} - Tyk Documentation </title>
-    <link rel="stylesheet" href="/docs/css/docs.css" type="text/css" />
-    <link rel="stylesheet" href="/docs/css/simpletree.css" type="text/css" />
-    <link rel="stylesheet" href="/docs/css/docs-navigation.css" type="text/css" />
-    <link rel="stylesheet" href="/docs/css/docs-table-of-contents.css" type="text/css" />
-    <script src="/docs/js/modernizr.min.js"></script>
-    <meta name='robots' content='noindex,follow' />
-    <link rel='dns-prefetch' href='//ajax.googleapis.com' />
-    <script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js?ver=1.12.0'></script>
-    <link rel='stylesheet' href='https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css' />
-    <link rel='stylesheet' type='text/css' href='/docs/css/docs-search.css'>
+  <meta name="robots" content="noindex">
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ .Title}} - Tyk Documentation </title>
+  <link rel="stylesheet" href="/docs/css/docs.css" type="text/css" />
+  <link rel="stylesheet" href="/docs/css/simpletree.css" type="text/css" />
+  <link rel="stylesheet" href="/docs/css/docs-navigation.css" type="text/css" />
+  <link rel="stylesheet" href="/docs/css/docs-table-of-contents.css" type="text/css" />
+  <script src="/docs/js/modernizr.min.js"></script>
+  <meta name='robots' content='noindex,follow' />
+  <link rel='dns-prefetch' href='//ajax.googleapis.com' />
+  <script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js?ver=1.12.0'></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.css">
+  <link rel="stylesheet" type="text/css" href="/docs/css/docs-search.css">
+
 </head>
 <body class=" page-terms-and-conditions">
 <header class="header f-14">
-  <div class="container">
-    <a href="http://localhost:8888/tyk.io" class="logo">
-        <img src="/docs/img/header-logo.svg" alt="Tyk">
-    </a>
-    <nav class="menu">
-      <a href="http://www.tyk.io" class="menu-getstarted">Back to Tyk</a>
-    </nav>
-    <a href="https://github.com/TykTechnologies" target="_blank" class="header-github icon-github"></a>
-  </div>
-  <button class="m-show burger" data-toggle="show-submenu"></button>
+<div class="container">
+  <a href="http://localhost:8888/tyk.io" class="logo">
+      <img src="/docs/img/header-logo.svg" alt="Tyk">
+  </a>
+  <nav class="menu">
+    <a href="http://www.tyk.io" class="menu-getstarted">Back to Tyk</a>
+  </nav>
+  <a href="https://github.com/TykTechnologies" target="_blank" class="header-github icon-github"></a>
+</div>
+<button class="m-show burger" data-toggle="show-submenu"></button>
 </header>
 <!-- Put this line in your main template, at the place where you want to
-     render the menu. -->
+   render the menu. -->
 <section class="section-page hasSidebar">
-  <div class="container clear">
-    <aside class="page-submenu">
-        <nav class="aside-submenu" data-sticky>
-            <div class="theiaStickySidebar">
-                <div data-tree class="st-treed">
-                    {{ partial "menu_include.html" . }}
-                </div>
-            </div>
-        </nav>
-        <button class="submenu-close m-show" data-toggle="show-submenu">&times;</button>
-    </aside>
-    <article class="wysiwyg">
-      <a class="container-github icon-github" target="_blank" >Edit on GitHub</a>
-        <input type="text" class="searchBox" placeholder="Search...">
-        <h1>{{ .Title}}</h1>
-              {{ .Content }}
-          
-          <div class="docs-navigation">
-            <a id="previousArticle"></a>
-            <a id="nextArticle"></a>
+<div class="container clear">
+  <aside class="page-submenu">
+      <nav class="aside-submenu" data-sticky>
+          <div class="theiaStickySidebar">
+              <div data-tree class="st-treed">
+                  {{ partial "menu_include.html" . }}
+              </div>
           </div>
-    </article>
-  </div>
+      </nav>
+      <button class="submenu-close m-show" data-toggle="show-submenu">&times;</button>
+  </aside>
+  <article class="wysiwyg">
+    <a class="container-github icon-github" target="_blank" >Edit on GitHub</a>
+      <input type="text" class="searchBox" id="q" placeholder="Search...">
+    <div>
+      <hr />
+      <div id="hits"></div>
+      <div id="pagination" class="text-center"></div>
+    </div>
+      <h1>{{ .Title}}</h1>
+            {{ .Content }}
+        
+        <div class="docs-navigation">
+          <a id="previousArticle"></a>
+          <a id="nextArticle"></a>
+        </div>
+  </article>
+</div>
 </section>
 <footer class="footer">
-  <div class="container clear">
-    <nav class="footer-social">
-        <a href="https://github.com/TykTechnologies" target="_blank" class="icon-github"></a>
-        <a href="https://twitter.com/tyk_io" target="_blank" class="icon-twitter"></a>
-    </nav>
-    <small class="f-12">&copy; Tyk Technologies, 2016</small>
-  </div>
+<div class="container clear">
+  <nav class="footer-social">
+      <a href="https://github.com/TykTechnologies" target="_blank" class="icon-github"></a>
+      <a href="https://twitter.com/tyk_io" target="_blank" class="icon-twitter"></a>
+  </nav>
+  <small class="f-12">&copy; Tyk Technologies, 2016</small>
+</div>
 </footer>
 
-    <!--[if lt IE 8]>
-			    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-			<![endif]-->
+  <!--[if lt IE 8]>
+		    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+		<![endif]-->
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>
-        (function(b, o, i, l, e, r) {
-            b.GoogleAnalyticsObject = l;
-            b[l] || (b[l] =
-                function() {
-                    (b[l].q = b[l].q || []).push(arguments)
-                });
-            b[l].l = +new Date;
-            e = o.createElement(i);
-            r = o.getElementsByTagName(i)[0];
-            e.src = 'https://www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e, r)
-        }(window, document, 'script', 'ga'));
-        ga('create', 'UA-53782596-1', 'auto');
-        ga('send', 'pageview');
-    </script>
-    <script src="/docs/js/simpletree.min.js"></script>
-    <script type='text/javascript' src='/docs/js/docs.js'></script>
-    <script type='text/javascript' src='/docs/js/docs-navigation.js'></script>
-    <script type='text/javascript' src='/docs/js/docs-table-of-contents.js'></script>
-    <script type='text/javascript' src='https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js'></script>
-    <script type='text/javascript' src='/docs/js/docs-search.js'></script>> 
-
+  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+  <script>
+      (function(b, o, i, l, e, r) {
+          b.GoogleAnalyticsObject = l;
+          b[l] || (b[l] =
+              function() {
+                  (b[l].q = b[l].q || []).push(arguments)
+              });
+          b[l].l = +new Date;
+          e = o.createElement(i);
+          r = o.getElementsByTagName(i)[0];
+          e.src = 'https://www.google-analytics.com/analytics.js';
+          r.parentNode.insertBefore(e, r)
+      }(window, document, 'script', 'ga'));
+      ga('create', 'UA-53782596-1', 'auto');
+      ga('send', 'pageview');
+  </script>
+  <script src="/docs/js/simpletree.min.js"></script>
+  <script type='text/javascript' src='/docs/js/docs.js'></script>
+  <script type='text/javascript' src='/docs/js/docs-navigation.js'></script>
+  <script type='text/javascript' src='/docs/js/docs-table-of-contents.js'></script>
+  <script src="https://cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.js"></script>
+  <script type='text/javascript'src="/docs/js/docs-search.js"></script>
 
 </body>
 </html>
