@@ -3,7 +3,7 @@ date: 2017-03-27T17:00:24+01:00
 title: Token information doesn't appear in Dashboard for Tyk Hybrid users
 menu:
   main:
-    parent: "Troubleshooting - Tyk Hybrid"
+    parent: "Tyk Hybrid"
 weight: 5 
 ---
 

@@ -3,7 +3,7 @@ date: 2017-03-27T17:01:22+01:00
 title: 413 Request Entity Too Large
 menu:
   main:
-    parent: "Troubleshooting - Tyk Cloud"
+    parent: "Tyk Cloud"
 weight: 5 
 ---
 

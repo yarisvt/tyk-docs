@@ -1,7 +1,7 @@
 var search = instantsearch({
   appId: 'EIXQM46UN9',
   apiKey: '10c29e867eddcb37b72bf886a3bb1acf',
-  indexName: 'tyk-test',
+  indexName: 'tyk-test-with-url',
   query: 'query',
   advancedSyntax: true,
   searchFunction(helper) {
@@ -35,8 +35,8 @@ search.addWidget(
 var hitTemplate =
   '<div class="hit media">' +
     '<div class="media-body">' +
-      '<h4 class="media-heading">Title: {{{_highlightResult.title.value}}}</h4></p> </a>' +
-      '<h4 class="media-heading em">Content: {{{_snippetResult.article.value}}}</h4></p> </a>' +
+      '<a href="/docs{{path}}" <h4 class="media-heading">Title: {{{_highlightResult.title.value}}}</h4></p> </a>' +
+      '<a href="/docs{{path}}" <h4 class="media-heading em">Content: {{{_snippetResult.article.value}}}</h4></p> </a>' +
     '</div>' +
   '</div>';
 

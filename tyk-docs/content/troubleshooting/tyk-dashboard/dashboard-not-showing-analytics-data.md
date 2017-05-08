@@ -3,7 +3,7 @@ date: 2017-03-27T19:20:30+01:00
 title: Dashboard not showing any analytics data
 menu:
   main:
-    parent: "Troubleshooting - Tyk Dashboard"
+    parent: "Tyk Dashboard"
 weight: 5 
 ---
 

@@ -3,7 +3,7 @@ date: 2017-03-27T16:54:12+01:00
 title: 404 when trying to access Tyk Gateway Repo
 menu:
   main:
-    parent: "Troubleshooting - Tyk Installation"
+    parent: "Tyk Installation"
 weight: 5 
 ---
 

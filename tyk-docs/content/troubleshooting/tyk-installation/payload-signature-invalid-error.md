@@ -3,7 +3,7 @@ date: 2017-03-27T16:56:33+01:00
 title: “Payload signature is invalid!“ error
 menu:
   main:
-    parent: "Troubleshooting - Tyk Installation"
+    parent: "Tyk Installation"
 weight: 5 
 ---
 
