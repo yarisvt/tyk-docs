@@ -3,7 +3,7 @@ date: 2017-03-27T17:30:49+01:00
 title: “There was a problem proxying the request“
 menu:
   main:
-    parent: "Troubleshooting - Tyk Gateway"
+    parent: "Tyk Gateway"
 weight: 5 
 ---
 
