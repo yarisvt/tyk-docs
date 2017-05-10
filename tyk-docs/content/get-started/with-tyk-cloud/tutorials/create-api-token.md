@@ -1,6 +1,6 @@
 ---
 date: 2017-03-13T15:08:55Z
-Title: Create an API Token with Cloud
+Title: Create an API Key with Cloud
 menu:
   main:
     parent: "Tutorials"
