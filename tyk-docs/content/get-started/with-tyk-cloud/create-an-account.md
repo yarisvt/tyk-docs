@@ -7,19 +7,19 @@ menu:
 weight: 5
 ---
 
-To create an account with Tyk Cloud is very quick and free, to do:
+To create a free Tyk Cloud account:
 
 Visit our Tyk [Cloud Signup Page][1] and enter your details:
 
 ![Tyk Cloud signup form][2]
 
-Your company name will be used to generate your cloud endpoint, this is where your API Developer Portal will be hosted, and also your Tyk Cloud API endpoints for any APIs that you create.
+Your company name will be used to generate your cloud endpoint. This is where your API Developer Portal will be hosted, and also your Tyk Cloud API endpoints for any APIs that you create.
 
 > **Note:** If you change the password in your cloud account page it will not change the password in your Cloud Dashboard.
 
 ## <a name="log-into-your-cloud-dashboard"></a> Log into your Dashboard
 
-From your cloud account page click "Account Overview":
+From your cloud account page click **Account Overview**:
 
 ![Cloud Navigation][3]
 
