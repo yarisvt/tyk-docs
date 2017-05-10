@@ -126,7 +126,7 @@ You can then use this policy ID in the `apply_policy_id` field of an API token. 
 
 For more information on how policies are constructed and a detailed explanation of their properties, please see the Security Policies section.
 
- [1]: /docs/img/dashboard/system-management/NavPolicies.png
+ [1]: /docs/img/dashboard/system-management/nav_policies.png
  [2]: /docs/img/dashboard/system-management/AddPolicyButton.png
  [3]: /docs/img/dashboard/system-management/policyNameField.png
  [4]: /docs/img/dashboard/system-management/rateLimit.png
