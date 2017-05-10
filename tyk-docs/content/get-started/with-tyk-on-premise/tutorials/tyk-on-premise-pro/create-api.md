@@ -123,7 +123,7 @@ If the command succeeds, you will see:
 
 We just sent an API definition to the Tyk `/apis` endpoint, API definitions are discussed in detail in the API section of this documentation. These objects encapsulate all of the settings for an API within Tyk Cloud.
 
-[1]: /docs/img/dashboard/system-management/NavAPIs.png
+[1]: /docs/img/dashboard/system-management/nav_apis.png
 [2]: /docs/img/dashboard/system-management/addAPIbutton.png
 [3]: /docs/img/dashboard/system-management/apiBaseSettings.png
 [4]: /docs/img/dashboard/system-management/targetDetails.png
