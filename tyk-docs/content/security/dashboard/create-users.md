@@ -90,7 +90,7 @@ You will see the following response if all has gone to plan:
 
 The user is now active.
 
- [1]: /docs/img/dashboard/system-management/navUsers.png
+ [1]: /docs/img/dashboard/system-management/nav_users.png
  [2]: /docs/img/dashboard/system-management/addUserButton.png
  [3]: /docs/img/dashboard/system-management/userDetailsFields.png
  [4]: /docs/img/dashboard/system-management/adminAccount.png
