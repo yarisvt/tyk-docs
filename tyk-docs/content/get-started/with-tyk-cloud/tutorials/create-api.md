@@ -114,7 +114,7 @@ If the command succeeds, you will see:
 
 **What did we just do?**
 
-We just sent an API Definition to the Tyk `/apis` endpoint. API Definitions are described further[here][8]. These objects encapsulate all of the settings for an API within Tyk Cloud.
+We just sent an API Definition to the Tyk `/apis` endpoint. API Definitions are described further [here][8]. These objects encapsulate all of the settings for an API within Tyk Cloud.
 
 ## Test your new API
 
