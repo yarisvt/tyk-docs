@@ -60,11 +60,18 @@ The file will look like the sample below, the various fields are explained in th
             "hostname": "",
             "portal_domains": {},
             "portal_root_path": "/portal",
-            "generate_secure_paths": true
+            "generate_secure_paths": true,
+            "secure_cookie": false
         },
         "http_server_options": {
             "use_ssl": false,
             "certificates": []
+        },
+        "security": {
+            "login_failure_username_limit": 3,
+            "login_failure_ip_limit": 10,
+            "login_failure_expiration": 900,
+            "audit_log_path" : "/tmp/audit.log"
         }
     }
 ```
@@ -165,6 +172,10 @@ For legacy installs or upgrades using the host manager, leave this value as `fal
 
 *   `generate_secure_paths`: As of v2.1, Tyk Dashboard tries to generate URLs for you that can be used straight from the Dashboard, if you prefer to have the URLs start with `https`, set this option to `true`. This is a purely aesthetic change.
 
+*   `secure_cookie`: This enables HTTPS “secure” cookies.
+
+> **NOTE:** This option is available from v1.3.5 onwards.
+
 *   `[http_server_options]`: This section is reserved for settings relating to the HTTP server that powers the Dashboard.
 
 *   `use_ssl`: Enable to use SSL.
@@ -180,6 +191,18 @@ For legacy installs or upgrades using the host manager, leave this value as `fal
 ```
     
 For more information see the [SSL section in the documentation][1]
+
+*   `[security]`: This section controls login limits for both the Dashboard and the Developer Portal. The path for you audit log is also set here.
+
+> **NOTE:** This section is available from v1.3.5 onwards
+
+*   `login_failure_username_limit`: Controls how many time a user can attempt to log in before being denied access. The default is 0.
+
+*   `login_failure_ip_limit`: Controls how many times an IP Address can be used to attempt to log in before being denied access. The default is 0.
+
+*   `login_failure_expiration`: Controls how long before the failure limits are reset in seconds. The default is 900 seconds.
+
+*   `audit_log_path`: This sets the path to your audit log. It will log all user actions and response statuses to it. Security information such as passwords are not logged.
 
 *   `home_dir`: The path to the home directory of Tyk Dashboard, this must be set in order for Portal templates and other files to be loadable. By default this is `/opt/tyk-dashboard/`.
 

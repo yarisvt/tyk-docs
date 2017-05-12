@@ -9,17 +9,17 @@ weight: 2
 
 ## <a name="with-dashboard"></a>Tutorial: Create an API with the Dashboard
 
-To create an API with the Tyk Dashboard is very straightforward. In this section we will create a very simple API that has no special elements set up.
+We will use the Tyk Dashboard to create a very simple API that has no special elements set up.
 
-### Step 1: Navigate to the API listing page
+### Step 1: Select "APIs" from the "System Management" section
 
 ![API listing page link location][1]
 
-### Step 2: Select the *Add new API* button
+### Step 2: Click "Add new API"
 
 ![Add API button location][2]
 
-### Step 3: Set up the base settings for your API
+### Step 3: Set up the Base Configuration for your API
 
 ![API Designer][3]
 
@@ -32,11 +32,11 @@ In this section:
 
 #### Step 4: Set up the security option for your API
 
-Scroll to the bottom of this page, and you will see:
+From the Target Details section:
 
 ![Target details form][4]
 
-In this section:
+You have the following options:
 
 *   **Authentication mode**: This is the security method to use with your API, there can be only one per API. In this case, set it to `Auth Token`, this is the simplest security mechanism to use.
 *   **Auth Key Header Name**: The header name that will hold the token on inbound requests. The default for this is `Authorization`.
@@ -45,23 +45,23 @@ In this section:
 
 ### Step 5: Save the API
 
-To save and publish the API, use the `Save` button at the top of the screen:
+Click **Save**
 
 ![Save button location][5]
 
-Once saved, you will be taken back to the API list, where the new API will be shown.
+Once saved, you will be taken back to the API list, where the new API will be displayed.
 
-To see what URL your API has been given, simply select the API from the list to open it again, and the API URL will be displayed in the top of the editor:
+To see the URL given to your API, select the API from the list to open it again. The API URL will be displayed in the top of the editor:
 
 ![API URL location][6]
 
 ## <a name="with-api"></a>Tutorial: Create an API with the API
 
-With Tyk Cloud, it is also possible to programatically create APIs using Tyk's REST API, in order to do so you will need an API key for your organisation and one command to create the API and make it live.
+With Tyk Cloud, it is also possible to create APIs using Tyk's REST API. You will need an API key for your organisation and one command to create the API and make it live.
 
 ### Step 1: Get an API key for Tyk Cloud
 
-To get your API key, go to the Users management page, click edit on your user account, then scroll to the bottom of the page. Your API Key is the first entry:
+Select "Users" from the "System Management" section. Click **Edit** for your user, then scroll to the bottom of the page. Your API Key is the first entry:
 
 ![API key location][7]
 
@@ -114,7 +114,7 @@ If the command succeeds, you will see:
 
 **What did we just do?**
 
-We just sent an API Definition to the Tyk `/apis` endpoint, API Definitions are discussed in detail in the API section of this documentation. These objects encapsulate all of the settings for an API within Tyk Cloud.
+We just sent an API Definition to the Tyk `/apis` endpoint. API Definitions are described further [here][8]. These objects encapsulate all of the settings for an API within Tyk Cloud.
 
 ## <a name="test-new-api"></a> Test your new API
 
@@ -131,11 +131,11 @@ To access the proxied API via the gateway on Tyk Cloud:
 
 If you see the above output, then the API is loaded and is being protected by Tyk. You can now generate a token and try the same command in place of `null` to see if the request proxies.
 
- [1]: /docs/img/dashboard/system-management/nav_apis.png
- [2]: /docs/img/dashboard/system-management/addAPIbutton.png
- [3]: /docs/img/dashboard/system-management/APIDesigner.png
- [4]: /docs/img/dashboard/system-management/targetDetails.png
- [5]: /docs/img/dashboard/system-management/saveAPI.png
- [6]: /docs/img/dashboard/system-management/APIURLLocation.png
- [7]: /docs/img/dashboard/system-management/APIKey.png
-
+[1]: /docs/img/dashboard/system-management/nav_apis.png
+[2]: /docs/img/dashboard/system-management/addAPIbutton.png
+[3]: /docs/img/dashboard/system-management/APIDesigner.png
+[4]: /docs/img/dashboard/system-management/targetDetails.png
+[5]: /docs/img/dashboard/system-management/saveAPI.png
+[6]: /docs/img/dashboard/system-management/APIURLLocation.png
+[7]: /docs/img/dashboard/system-management/APIKey.png
+[8]: /docs/tyk-rest-api/api-definition-object-details/

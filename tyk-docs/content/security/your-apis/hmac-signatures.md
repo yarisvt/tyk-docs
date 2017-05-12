@@ -78,7 +78,7 @@ Tyk API Gateway supports full header signing through the use of the `headers` HM
     ...
 ```
 
-### A note for legacy .Net users
+### Date header not allowed for legacy .Net
 
 Older versions of some programming frameworks do not allow the Date header to be set, which can causes problems with implementing HMAC, therefore, if Tyk detects a `x-aux-date` header, it will use this to replace the Date header.
 
