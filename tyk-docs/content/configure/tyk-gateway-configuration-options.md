@@ -235,6 +235,13 @@ s of v2.2, Tyk supports transparent websocket connection upgrades, to enable thi
 
 Set this value to `true` to force Tyk to get clients to close the connection with the client, otherwise the connections will remain open for as long as your OS keeps TCP connections open, this can cause a file-handler limit to be exceeded.
 
+### <a name="http_server_options.ssl_insecure_skip_verify"></a>
+http_server_options.ssl_insecure_skip_verify
+
+This boolean option allows you to skip SSL checking for upstream APIs with self-signed certificates. The default setting is false.
+
+> **NOTE:** This option is available from v2.3.5 onwards.
+
 ### <a name="monitor"></a> monitor
 
 The monitor section is useful if you wish to enforce a global trigger limit on organisation and user quotas. This feature will trigger a webhook event to fire when specific triggers are reached. Triggers can be global (set in the node), by organisation (set in the organisation session object) or by key (set in the key session object).

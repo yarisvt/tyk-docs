@@ -32,7 +32,7 @@ In this section:
 
 #### Step 4: Set up the security option for your API
 
-From the Target Details section:
+From the **Target Details** section:
 
 ![Target details form][4]
 

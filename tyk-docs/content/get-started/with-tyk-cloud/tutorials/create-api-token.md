@@ -9,7 +9,7 @@ weight: 2
 
 ## <a name="with-dashboard"></a>Tutorial: Create an API Key with the Dashboard
 
-The Tyk Dashboard is the simplest way to generate a new token.
+The Tyk Dashboard is the simplest way to generate a new Key.
 
 ### Step 1: Select "Keys" from the "System Management" section
 

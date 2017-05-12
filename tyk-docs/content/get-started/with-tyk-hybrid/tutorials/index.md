@@ -11,6 +11,6 @@ url: "/get-started/with-tyk-hybrid/tutorials"
 
 ## Get Started with Tyk Hybrid: Tutorials
 
-There are multiple tutorials for Tyk Hybrid, to get started, make sure that you have an account with Tyk Cloud, and then follow the guides to get started with your Hybrid installation.
+There are multiple tutorials for Tyk Hybrid. To get started, make sure that you have an account with Tyk Cloud, and then follow the guides to get started with your Hybrid installation.
 
 
