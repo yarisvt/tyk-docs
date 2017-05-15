@@ -23,7 +23,7 @@ To Install a Tyk Hybrid Gateway, you will need to ensure some basic requirements
     
     ![RPC credentials][1]
 
-### Step 2: Get Tyk installed
+### <a name="install-tyke"></a> Step 2: Install Tyk
 
 To get started with a hybrid node, ensure you have Docker installed, then run the following in the terminal:
 
@@ -64,7 +64,17 @@ This will show you the log output of the hybrid container, if you don't see any 
     time="Jul  7 08:15:03" level=info msg="Gateway started (vx.x.x.x)"
     time="Jul  7 08:15:03" level=info msg="--> Listening on port: 8080"
 ``` 
-
+```
 Then the gateway has successfully started.
+
+### <a name="upgrade-tyke"></a> Upgrading the Hybrid Gateway
+
+To upgrade your Hybrid Gateway to the latest version:
+
+### Step 1: Backup your Docker Container Configuration File
+If you have modified your Docker container in the current version, you should take a backup of your tyk.conf configuration file.
+
+### Step 2: Run the start.sh script again
+Run the start.sh script again as in Step 2 in the Install section.
 
  [1]: /docs/img/dashboard/system-management/userCredentials.png
