@@ -1,3 +1,4 @@
+
 <!doctype html>
 
 <html class="no-js" lang="en-GB">
@@ -7,20 +8,21 @@
   <meta charset="UTF-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ .Title}} - Tyk Documentation </title>
-  <link rel="stylesheet" href="/docs/css/docs.css" type="text/css" />
-  <link rel="stylesheet" href="/docs/css/simpletree.css" type="text/css" />
-  <link rel="stylesheet" href="/docs/css/docs-navigation.css" type="text/css" />
-  <link rel="stylesheet" href="/docs/css/docs-table-of-contents.css" type="text/css" />
-  <script src="/docs/js/modernizr.min.js"></script>
+  <title> {{ .Title }}</title>
   <meta name='robots' content='noindex,follow' />
+
   <link rel='dns-prefetch' href='//ajax.googleapis.com' />
+
+  <script src="http://site-dev.tykbeta.com/docs/js/modernizr.min.js"></script>
   <script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js?ver=1.12.0'></script>
+  
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.css">
-  <link rel="stylesheet" type="text/css" href="/docs/css/docs-search.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+  <link rel="stylesheet" href="http://77.104.171.234/~addedlov/with/tyk/wp-content/themes/bespoke/style.css" type="text/css" />
+  <link rel="stylesheet" href="/docs/css/docs.css" type="text/css" />
 
 </head>
-<body class=" page-terms-and-conditions">
+<body class="page-documentation">
 <header class="header f-14">
 <div class="container">
   <a href="http://localhost:8888/tyk.io" class="logo">
@@ -35,51 +37,75 @@
 </header>
 <!-- Put this line in your main template, at the place where you want to
    render the menu. -->
+
+<section class="hero">
+  <div class="container">
+    <article class="hero-sidebyside">
+      <h1 class="f-48 has-icon">
+        <img src="/docs/images/icon-documentation.svg" width="0" height="0" alt="Documentation">
+        Documentation
+      </h1>
+      
+      <div class="hero-text f-16">
+        <form class="search documentation-search f-12 roboto">
+          <input type="text" class="searchBox" id="q" placeholder="Search...">
+            <button class="icon-search"></button>
+
+            <div class="documentation-search-container">
+              <div id="hits" class="documentation-search-results f-16 roboto"></div>
+              <div id="pagination" class="documentation-search-pagination pagination"></div>
+            </div>    
+      
+        </form>
+      </div>
+    </article>      
+  </div>  
+</section>  
+
 <section class="section-page hasSidebar">
 <div class="container clear">
-  <aside class="page-submenu">
-      <nav class="aside-submenu" data-sticky>
-          <div class="theiaStickySidebar">
-              <div data-tree class="st-treed">
-                  {{ partial "menu_include.html" . }}
-              </div>
-          </div>
+  <aside class="page-submenu roboto">
+      <nav class="aside-submenu">
+        <div data-tree class="st-treed">
+            {{ partial "menu_include.html" . }}
+        </div>
       </nav>
-      <button class="submenu-close m-show" data-toggle="show-submenu">&times;</button>
+    <button class="submenu-close overlay-close m-show icon-close"  data-toggle="show-submenu"></button>
   </aside>
-  <article class="wysiwyg">
-    <a class="container-github icon-github" target="_blank" >Edit on GitHub</a>
-      <input type="text" class="searchBox" id="q" placeholder="Search...">
-    <div>
-      <hr />
-      <div id="hits"></div>
-      <div id="pagination" class="text-center"></div>
-    </div>
+
+  <article class="page-content wysiwyg">
+      <nav class="documentation-table-of-contents">
+        <label class="f-12">In this section:</label>
+      </nav>  
+      <nav class="docs-share-print share-print f-14 bold ucase">
+        <a href="#" class="icon-share"><span>Share</span></a>
+        <a href="#" class="icon-print" data-print><span>Print</span></a>
+      </nav>
+            <a class="button grey medium suggest-edit icon-github" target="_blank" >Edit on GitHub</a>
       <h1>{{ .Title}}</h1>
             {{ .Content }}
         
-        <div class="docs-navigation">
-          <a id="previousArticle"></a>
-          <a id="nextArticle"></a>
-        </div>
+      <nav class="docs-navigation clear">
+        <a id="previousArticle" class="button outline blue"></a>
+        <a id="nextArticle" class="button outline blue"></a>
+      </nav>
+
   </article>
+
+
 </div>
 </section>
-<footer class="footer">
-<div class="container clear">
-  <nav class="footer-social">
-      <a href="https://github.com/TykTechnologies" target="_blank" class="icon-github"></a>
-      <a href="https://twitter.com/tyk_io" target="_blank" class="icon-twitter"></a>
-  </nav>
-  <small class="f-12">&copy; Tyk Technologies, 2016</small>
-</div>
-</footer>
 
-  <!--[if lt IE 8]>
-		    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-		<![endif]-->
-
-  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+  <footer class="footer">
+    <div class="container clear">
+      <nav class="footer-social">
+          <a href="https://github.com/TykTechnologies" target="_blank" class="icon-github"></a>
+          <a href="https://twitter.com/tyk_io" target="_blank" class="icon-twitter"></a>
+      </nav>
+      <small class="f-12">&copy; Tyk Technologies, 2016</small>
+    </div>
+  </footer>
+ 
   <script>
       (function(b, o, i, l, e, r) {
           b.GoogleAnalyticsObject = l;
@@ -96,6 +122,7 @@
       ga('create', 'UA-53782596-1', 'auto');
       ga('send', 'pageview');
   </script>
+
   <script src="/docs/js/simpletree.min.js"></script>
   <script type='text/javascript' src='/docs/js/docs.js'></script>
   <script type='text/javascript' src='/docs/js/docs-navigation.js'></script>
