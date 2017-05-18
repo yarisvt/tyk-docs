@@ -1,10 +1,10 @@
 $(document).ready(function() {
 	var currentPage = location.pathname,
-  currentPageGH = currentPage.replace(/\/$/, ""),
-  githubIndexLink = currentPage.replace(/\/docs/, "/"),
-  githubCustomLink = currentPageGH.replace(/\/docs/, "/"),
-	prevPage, nextPage, currentPageIndex,
-	links = $('.st-treed a');
+		currentPageGH = currentPage.replace(/\/$/, ""),
+		githubIndexLink = currentPage.replace(/\/docs/, "/"),
+		githubCustomLink = currentPageGH.replace(/\/docs/, "/"),
+		prevPage, nextPage, currentPageIndex,
+		links = $('.st-treed a');
 
 	function getCurrentPageIndex(arr, page) {
 		var i;
@@ -31,34 +31,24 @@ $(document).ready(function() {
 
 	if(!nextPage) {
 		$('#nextArticle').hide();
+	} else {
+		$("#nextArticle").text(nextPage.text + '>').attr('href', nextPage.link);	
 	}
 
 	if(!prevPage) {
 		$('#previousArticle').hide();
+	} else {
+		$("#previousArticle").text('<'+ prevPage.text).attr('href', prevPage.link);	
 	}
 
-	$('#nextArticle').on('click', function(e) {
+	$('.suggest-edit').on('click', function (e){
 		e.preventDefault();
-		location.href = nextPage.link;
-	});
-
-	$('#previousArticle').on('click', function(e) {
-		e.preventDefault();
-		location.href = prevPage.link;
-	});
-
-	$("#previousArticle").html('<'+ prevPage.text);
-  $("#nextArticle").html(nextPage.text + '>');
-
-	$('.container-github').on('click', function (e){
-		e.preventDefault();
-    if ( $('.active').hasClass('st-open')){
+		
+	    if ( $('.active').hasClass('st-open')){
 			window.open("https://github.com/TykTechnologies/tyk-docs/tree/master/tyk-docs/content" + githubIndexLink + 'index.md', "_blank");
-		}
-		else if ( $('.active').hasClass('st-file') && $('.active').closest('.st-open').length === 0) {
+		} else if ( $('.active').hasClass('st-file') && $('.active').closest('.st-open').length === 0) {
 			window.open("https://github.com/TykTechnologies/tyk-docs/tree/master/tyk-docs/content" + githubIndexLink + 'index.md', "_blank");
-		}
-		else if ( $('.active').hasClass('st-file') ) {
+		} else if ( $('.active').hasClass('st-file') ) {
 			window.open("https://github.com/TykTechnologies/tyk-docs/tree/master/tyk-docs/content" + githubCustomLink + ".md", "_blank");
 		}
 	});
