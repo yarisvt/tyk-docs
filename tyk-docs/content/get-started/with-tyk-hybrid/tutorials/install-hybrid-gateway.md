@@ -15,16 +15,18 @@ To install the Tyk Hybrid Gateway, you need:
 1.  A Docker-enabled host
 2.  Access to the shell of this host
 3.  Port 80, 8080 and 9090 open
-4.  A Tyk Hybrid account. Click [here] (/tyk-docs/content/get-started/with-tyk-hybrid/create-an-account.md) for details of how to create one or to upgrade from a Cloud account.
+4.  A Tyk Hybrid account. Click [here][2] for details of how to create one or to upgrade from a Cloud account.
 
-## <a name="credentials"></a>Step 1: Get your credentials
+## <a name="installation"></a>Install the Hybrid Gateway
+
+### Step 1: Get your credentials
 
 1.  Go to <https://admin.cloud.tyk.io> and login with your new details.
 2.  Click "Users" and select your name, you will see your RPC credentials, take note of these:
     
     ![RPC credentials][1]
 
-## <a name="install-hybrid"></a>Step 2: Install the Hybrid Gateway
+### Step 2: Installation
 
 To get started with a hybrid node, ensure you have Docker installed, then run the following in the terminal:
 
@@ -55,7 +57,7 @@ The `TYK-SECRET` should be a secret key you define so you can interact with your
 
 This command will start the Docker container and be ready to proxy traffic (you will need to check the logs of the container to make sure the login was successful).
 
-## <a name="check"></a>Step 3: Check everything is working
+### Step 3: Check everything is working
 
 To check if the node has connected and logged in, type:
 
@@ -81,3 +83,4 @@ If you have modified your Docker container in the current version, you should ta
 Run the start.sh script again as in [Step 2] (http://localhost:1313/docs/get-started/with-tyk-hybrid/tutorials/install-hybrid-gateway/#install-hybrid) in the Install section.
 
  [1]: /docs/img/dashboard/system-management/userCredentials.png
+ [2]: /docs/get-started/with-tyk-hybrid/create-an-account/
