@@ -130,11 +130,34 @@
   <script type='text/javascript' src='/docs/js/docs-navigation.js'></script>
   <script type='text/javascript' src='/docs/js/docs-table-of-contents.js'></script>
   <script src="https://cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.js"></script>
-  <script type='text/javascript'src="/docs/js/docs-search.js"></script>
+  <script type='text/javascript' src="/docs/js/docs-search.js"></script>
+  <script type='text/javascript'>
+    setTimeout(function(){
+        if (!window.LiveReload) {
+            var head= document.getElementsByTagName('head')[0];
+            var script= document.createElement('script');
+            script.type= 'text/javascript';
+            script.src= '/docs/js/turbolinks.js';
+            head.appendChild(script);
+            
+            $(document).on('turbolinks:load', function() {
+                document.querySelector('.page-content').scrollIntoView();
+
+                setTimeout(function(){
+                    document.querySelector('.page-content').scrollIntoView();
+                }, 0)
+            })
+          
+            $(document).on('turbolinks:load',  function() {
+                $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
+            });
+        }
+    }, 500)
+      
+  </script>
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
   <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
-
 </body>
 </html>
 
