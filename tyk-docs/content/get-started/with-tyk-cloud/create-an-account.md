@@ -4,7 +4,7 @@ title: Create an Account
 menu: 
   main:
     parent: "With Tyk Cloud"
-weight: 5
+weight: 1
 ---
 
 To create a free Tyk Cloud account:
