@@ -5,7 +5,7 @@ menu:
   main:
     parent: "Concepts"
     identifier: concepts-gateway-api
-weight: 0 
+weight: 7 
 ---
 
 ## Concept: Gateway API
