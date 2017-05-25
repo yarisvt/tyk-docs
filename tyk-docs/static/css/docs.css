@@ -7,15 +7,10 @@
 .submenu-toggle {top:60px !important;}
 .submenu-toggle span {top:0px !important;}
 
-
-/* Following rules should be removed after the bug is fixed */
-
-.hasSidebar aside { padding-right: 26px; }
-.hasSidebar .page-content { padding-left: 20px; }
-.aside-submenu { background: #e1e1e1; }
+.hasSidebar .container:before{ width: 454px; left: 50%; margin-left: -720px; }
 
 /* Edit on GitHub button */
-.button.medium { color: white; margin: 8px;}
+.button.medium { color: white; margin: 10px;    padding-top: 0; height: 25px; padding-bottom: 0; min-width: 0; line-height: 26px}
 
 
 /* Anchor tags */
@@ -25,6 +20,10 @@ height:90px;
 margin:-90px 0 0;
 }
 
+@media only screen and (max-width : 1100px) {
+  /* Fix Sidebar */
+  .hasSidebar .container:before  { width: 420px; left: 50%; margin-left: -668px;}
+}
 
 @media only screen and (max-width: 1000px) {
   .menu-getstarted { top:15px !important; }
@@ -51,6 +50,11 @@ margin:-90px 0 0;
 .wysiwyg pre {padding-left: 6px !important;}
 .wysiwyg code {overflow-wrap: break-word;}
 
+/* Blockquote */ 
+.wysiwyg blockquote:before {font-size: 20px;}
+.wysiwyg blockquote { padding: 0px 0 0 30px;}
+
+
 /* Lists */
 .wysiwyg ul {padding-left: 26px;}
 .wysiwyg li {list-style-position: initial;}
@@ -64,7 +68,7 @@ margin:-90px 0 0;
 
 /* Documentation : Table of Contents */
 .documentation-table-of-contents { padding-bottom: 20px; border-bottom: 1px solid #c8c8c8;}
-.documentation-table-of-contents a { padding: 0 26px; }
+.documentation-table-of-contents a { padding: 10px 26px; }
 .documentation-table-of-contents label { text-transform: uppercase; color: #676773; letter-spacing: 0.15em; display: block; padding: 0 0 20px 24px; }
 
 /* Documentation : Share - Print*/

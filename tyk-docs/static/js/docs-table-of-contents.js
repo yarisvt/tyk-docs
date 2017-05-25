@@ -1,5 +1,3 @@
-
-
 var updatePageNav = function() {
 	
 	var ToC = $('.documentation-table-of-contents');
@@ -16,8 +14,8 @@ var updatePageNav = function() {
 	});
 	
 	var ToClength = ToC[0].childNodes.length;
-
-	if(ToClength < 6) {
+	
+	if(ToClength < 3) {
 		ToC.remove();
 	}
 	
