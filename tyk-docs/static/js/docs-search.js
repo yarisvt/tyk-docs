@@ -1,7 +1,7 @@
 var search = instantsearch({
   appId: 'EIXQM46UN9',
-  apiKey: '10c29e867eddcb37b72bf886a3bb1acf',
-  indexName: 'tyk-test-with-url',
+  apiKey: '2fe33796b7f332e9a8ecc25de3d5e0be',
+  indexName: 'kos-test1',
   query: 'query',
   advancedSyntax: true,
   searchFunction(helper) {
