@@ -29,4 +29,4 @@ The shared secret you set should then be sent along as a header with each REST A
     x-tyk-authorization: 352d20ee67be67f6340b4c0605b044bc4
 ```
 
-**The Tyk Gateway API is subsumed by the Tyk Dashboard API in Pro installations.**
+**The Tyk Gateway API is subsumed by the Tyk Dashboard API in Pro Edition installations.**
