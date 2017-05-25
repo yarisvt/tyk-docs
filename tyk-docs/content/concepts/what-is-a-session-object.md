@@ -36,6 +36,6 @@ By default, the token itself is hashed and therefore **obfuscated**, this means 
 
 #### Where can I get more information?
 
-A session object is just a JSON object. For more details of each parameter in the session object, see [Tyke Token Session Object Details][1].
+A session object is just a JSON object. For more details of each parameter in the session object, see [Tyk Token Session Object Details][1].
 
  [1]: /docs/tyk-rest-api/token-session-object-details/
