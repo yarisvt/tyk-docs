@@ -7,13 +7,13 @@ menu:
 weight: 5
 ---
 
-**Note:** This is a Tyk Community Contribution.
+> **Note:** This is a Tyk Community Contribution.
 
-## Prerequisite:
+## Prerequisite
 
 *   Our Docker image - see [Docker Quickstart][1] for more details.
 
-## Steps:
+### Steps
 
 1.  From the Heroku CLI perform the following (Where APPNAME is your app): 
     *   heroku plugins:install heroku-container-registry
@@ -29,6 +29,6 @@ weight: 5
     *   RPORT
     *   SECRET 
 
-**NOTE:** This will only work with port 80 deployments and other ports will be ignored.
+> **NOTE:** This will only work with port 80 deployments and other ports will be ignored.
 
  [1]: /docs/get-started/with-tyk-on-premise/installation/docker/docker-quickstart/

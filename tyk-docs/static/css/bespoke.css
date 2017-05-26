@@ -1455,11 +1455,11 @@ html, body {height: 100%;}
 @media only screen and (max-width : 1100px) {
   /* Menu - Collapse  */
   .header {position: absolute; right: 60px;}
-
+/*
   .burger {width: 60px; height: 60px; position: fixed; top:0; right: 0; background: rgba(0,0,24,0.85); z-index: 3; display: inline-block; }
   .burger:before, .burger:after {content: ''; width: 23px; margin: auto;  position: absolute; top:0; bottom: 0; left:0; right:0;}
   .burger:before { height: 16px; border-top:2px solid #FFF; border-bottom: 2px solid #FFF; }
-  .burger:after { height: 2px;  background: #FFF; } 
+  .burger:after { height: 2px;  background: #FFF; } */
   
   .menu, .submenu {line-height: 52px; font-size: 22px; }
   .menu { position: fixed; top:0; right: 70px; left:0; top:0; bottom: 0; background: #000018; text-align: left; padding: 26px; z-index: 2;  text-transform: none; -webkit-transform: translateX(-100%); transform: translateX(-100%); max-width: 310px; min-width: 274px; }
