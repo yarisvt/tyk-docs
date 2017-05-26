@@ -35,18 +35,18 @@ For Mac OSX users:
 Open a CLI that can access the `docker` command, and then:
 
 ```
-curl "https://raw.githubusercontent.com/lonelycode/tyk-hybrid-docker/master/start.sh" -o "start.sh"
-chmod +x start.sh
-./start.sh [PORT] [TYK-SECRET] [RPC-CREDENTIALS] [API CREDENTIALS]
+	curl "https://raw.githubusercontent.com/lonelycode/tyk-hybrid-docker/master/start.sh" -o "start.sh"
+	chmod +x start.sh
+	./start.sh [PORT] [TYK-SECRET] [RPC-CREDENTIALS] [API CREDENTIALS]
 ```
 
 
 For Linux users:
 
 ```
-wget https://raw.githubusercontent.com/lonelycode/tyk-hybrid-docker/master/start.sh
-chmod +x start.sh
-sudo ./start.sh [PORT] [TYK-SECRET] [RPC-CREDENTIALS] [API CREDENTIALS]
+	wget https://raw.githubusercontent.com/lonelycode/tyk-hybrid-docker/master/start.sh
+	chmod +x start.sh
+	sudo ./start.sh [PORT] [TYK-SECRET] [RPC-CREDENTIALS] [API CREDENTIALS]
 ```
 
 
@@ -71,8 +71,8 @@ To check if the node has connected and logged in, type:
 This will show you the log output of the hybrid container, if you don't see any connectivity errors, and the log output ends something like this:
 
 ```
-time="Jul  7 08:15:03" level=info msg="Gateway started (vx.x.x.x)"
-time="Jul  7 08:15:03" level=info msg="--> Listening on port: 8080"
+	time="Jul  7 08:15:03" level=info msg="Gateway started (vx.x.x.x)"
+	time="Jul  7 08:15:03" level=info msg="--> Listening on port: 8080"
 ```
  
   

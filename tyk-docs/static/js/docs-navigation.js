@@ -30,17 +30,16 @@ var doNav = function() {
 	nextPage = (currentPageIndex === links.length - 1) ? '' : links[currentPageIndex + 1];
 	prevPage = (currentPageIndex === 0) ? '' : links[currentPageIndex - 1];
 
-
-	if(!nextPage) {
-		$('#nextArticle').hide();
-	} else {
-		$("#nextArticle").text(nextPage.text + '>').attr('href', nextPage.link);	
-	}
-
 	if(!prevPage) {
 		$('#previousArticle').hide();
 	} else {
-		$("#previousArticle").text('<'+ prevPage.text).attr('href', prevPage.link);	
+		$("#previousArticle").text(prevPage.text).attr('href', prevPage.link);	
+	}
+	
+	if(!nextPage) {
+		$('#nextArticle').hide();
+	} else {
+		$("#nextArticle").text(nextPage.text).attr('href', nextPage.link);	
 	}
 
 	$('.suggest-edit').on('click', function (e){
