@@ -9,9 +9,9 @@ weight: 2
 
 ## Concept: API Session Object
 
-In Tyk, all identities are mapped to a session object, identities can be in the form of Bearer Tokens, HMAC Keys, JSON Web Tokens, OpenID Connect identities and Basic Auth users.
+In Tyk, all identities are mapped to a session object. Identities can be in the form of Bearer Tokens, HMAC Keys, JSON Web Tokens, OpenID Connect identities and Basic Auth users.
 
-Think about a session object as the metadata associated with a user, or the identity trying to gain access to your services.
+You should think about a session object as the metadata associated with a user, or the identity trying to gain access to your services.
 
 In Tyk, a session object encapsulates the following details for any given identity:
 
@@ -26,7 +26,7 @@ Tyk also allows some additional meta-data for a session object which is valuable
 *   Meta Data (a string key/value map that can hold any data)
 *   Alias (a human-readable name for the identity)
 
-> **Note:** Expiry is not the same as invalidation, in Tyk, a session object will be "expired" but still be in the database in order to inform the session owner that their token has expired and they should renew, if the token was invalidate (deleted after the expiry period), then the user would simply be denied access and their token would be invalid. This is important for developers that have (but shouldn't) hard-coded their token into their app so it is hard to change.
+> **Note:** Expiry is not the same as invalidation, in Tyk, a session object will be "expired" but will still be in the database in order to inform the session owner that their token has expired and they should renew, if the token was invalidated (deleted after the expiry period), then the user would simply be denied access and their token would be invalid. This is important for developers that have (but shouldn't) hard-coded their token into their app so it is hard to change.
 
 #### Where are session objects stored?
 
@@ -36,4 +36,6 @@ By default, the token itself is hashed and therefore **obfuscated**, this means 
 
 #### Where can I get more information?
 
-A session object is just a JSON object, and full details of each parameter in the object can be found in the REST API documentation.
+A session object is just a JSON object. For more details of each parameter in the session object, see [Tyk Token Session Object Details][1].
+
+ [1]: /docs/tyk-rest-api/token-session-object-details/
