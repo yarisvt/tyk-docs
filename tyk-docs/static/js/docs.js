@@ -60,5 +60,19 @@ $(document).ready(function() {
 	// Get current year
 	$('#copyright-year').append('&copy; Tyk Technologies ' + (new Date).getFullYear());
 
+	// Scroll to Top  
+	$(window).scroll(function() {
+	  if ($(this).scrollTop() >= 1350) {        // If page is scrolled more than 1350px
+	      $('#return-to-top, .button.grey.medium.bottom').fadeIn(200);    // Fade in the arrow
+	  } else {
+	      $('#return-to-top, .button.grey.medium.bottom').fadeOut(200);   // Else fade out the arrow
+	  }
+	});
+	$('#return-to-top , .button.grey.medium.bottom').click(function() {      // When arrow is clicked
+	  $('body,html').animate({
+	      scrollTop : 0                       // Scroll to top of body
+	  }, 500);
+	});
+
 });
 
