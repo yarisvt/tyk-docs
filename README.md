@@ -1,28 +1,40 @@
-# tyk-docs
+# Tyk Documentation
 
-Contains tickets and content for new pipeline-based docs site.
+Contains the Tyk Documentation source.
+
+## How to contribute
+
+We recommend to follow the below flow
+
+* Fork this repository
+* Clone the forked repository on your machine
+* Create a remote branch, e.g `git add upstream https://github.com/TykTechnologies/tyk-docs.git`
+* Fetch from the remote branch `git fetch upstream`
+* Rebase your branch with the latest remote branch content `git rebase upstream/master`
+
+The following guide briefly explains how to work with Hugo, you would then need push to your forked repository and then create a Pull Request to Tyk's `master` branch.
 
 ## How to use
 
-This pipeline currenlty uses [hugo](http://gohugo.io/) to generate a basic bootstrap-based documentation site.
+This pipeline uses [hugo](http://gohugo.io/).
 
 **To use:**
 
 1. Install Hugo - v0.20.2 or later
-2. Clone this repo 
+2. Clone this repository 
 3. Run `hugo server --theme=tykio --buildDrafts`
 4. Go to  http://localhost:1313/docs to visit the landing page.
 
 
 ## Adding and editing content
 
-In the directory `tyk-docs/content` there is currently a baseline heirarchy to show how nested content works, it mimics the first three pages in our current docs site.
+In the directory `tyk-docs/content` there is the content of the documentation.
 
 To create a new page, you need to run:
 
-`hugo new get-started/with-tyk-cloud/create-an-account/index.md`
+`hugo new your-full-path/index.md`
 
-Notice how we have the full path we want there: `get-started/with-tyk-cloud/create-an-account/` and we use `index.md` as if it were an `index.html` file.
+we use `index.md` as if it were an `index.html` file.
 
 In each file there is a "front matter": in hugo-speak:
 
@@ -37,7 +49,7 @@ weight: 5
 ---
 ```
 
-You can create a dynamic, nested navigation heirarchy simply by changing the `parent` field to the name of the parent page (note,m these names *must be unique*)
+You can create a dynamic, nested navigation heirarchy simply by changing the `parent` field to the name of the parent page (note,  these names *must be unique*)
 
 To create a new top-level page, the front matter just looks like this:
 
@@ -57,9 +69,9 @@ Notice that we just define the `menu` field as a simple string.
 
 The content itself is just markdown that follows the front matter block. When you add and edit new content, hugo should auto-reload and you should be able to see the changes live in your browser (if not, refresh). Sometimes hugo gets confused and you need to re-run it.
 
-### But martin, this template look slike sh*t, what gives?
+## License
 
-Well, it's as simple as possible on purpose, because we want a new docs site and we want it to be easy to style, so once we have content and heirarchy sorted out, we can style and make it match our sitge by fixing the theme in the `tykio/` folder.
+Tyk is released under the MPL v2.0 please see the [license file](LICENSE.md) for a full version of the license.
 
 ## The pipeline
 
