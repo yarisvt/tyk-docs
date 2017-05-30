@@ -46,7 +46,6 @@ $(document).ready(function() {
 
 	// Search result list container functionality 
 	$(document).mouseup(function(e) {
-
     if (!container.is(e.target) && container.has(e.target).length === 0) 
     {
       container.slideUp();
@@ -62,15 +61,15 @@ $(document).ready(function() {
 
 	// Scroll to Top  
 	$(window).scroll(function() {
-	  if ($(this).scrollTop() >= 1350) {        // If page is scrolled more than 1350px
-	      $('#return-to-top, .button.grey.medium.bottom').fadeIn(200);    // Fade in the arrow
+	  if ($(this).scrollTop() >= 250) {
+	      $('#return-to-top, .button.grey.medium.bottom').fadeIn(200);
 	  } else {
-	      $('#return-to-top, .button.grey.medium.bottom').fadeOut(200);   // Else fade out the arrow
+	      $('#return-to-top, .button.grey.medium.bottom').fadeOut(200);
 	  }
 	});
-	$('#return-to-top , .button.grey.medium.bottom').click(function() {      // When arrow is clicked
+	$('#return-to-top , .button.grey.medium.bottom').click(function() {
 	  $('body,html').animate({
-	      scrollTop : 0                       // Scroll to top of body
+	      scrollTop : 0
 	  }, 500);
 	});
 
