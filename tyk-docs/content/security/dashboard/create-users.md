@@ -15,11 +15,11 @@ Dashboard users are not the same as developer portal users (“developers”), t
 
 To create a dashboard user with the GUI is very easy:
 
-### Step 1: Navigate to the users sections
+### Step 1: Select "Users" from the "System Management" section
 
 ![Users menu location][1]
 
-### Step 2: Select *Add user*
+### Step 2: Click "Add user"
 
 ![Add user button location][2]
 
@@ -32,18 +32,18 @@ In this section:
 *   **First Name**: The user's first name.
 *   **Last Name**: The user's last name.
 *   **Email**: The email address of the user, this will also be their login username.
-*   **Password**: The password to assign to the user, this will automatically be hashed and salted before storing in the database.
+*   **Password**: The password to assign to the user, this will automatically be hashed and salted before storing in the database. **NOTE** you need to inform the user about the password you have created for them.
 *   **Active**: Must be true for the user to have access to the dashboard or the dashboard API.
 
-### Step 4: Select their permissions (admin)
+### Step 4: Set the user privileges
 
 ![Admin checkbox location][4]
 
-You can be very specific with regards to which pages and segments of the UI the user has access to. Some Dashboard pages require access to multiple parts of the API, and so you may get errors if certain related elements are disabled (e.g. APIs + Policies)
+You can be very specific with regards to which pages and segments of the Dashboard the user has access to. Some Dashboard pages require access to multiple parts of the API, and so you may get errors if certain related elements are disabled (e.g. APIs + Policies)
 
-Permissions are set and enforced when they are set in this page, they can either be **read** or **write**, if they are set to **deny** then the record is non-existent in the object (there is no explicit "deny"). This means that if you set **deny** on all options it looks as if they have not been written, but they will still be enforced so long as even one read or write option has been set.
+Privileges are set and enforced when they are set on this page. They can either be **read** or **write**. If  set to **deny** then the record is non-existent in the object (there is no explicit "deny"). This means that if you set **deny** on all options it looks as if they have not been written, but they will still be enforced so long as even one read or write option has been set.
 
-### Step 5: Save the user
+### Step 5: Click "Save"
 
 ![Save button location][5]
 
@@ -76,9 +76,9 @@ Once you have your dashboard API Credentials, you can create a user very easily 
      }' http://{your-dashboard-host}:{port}/api/users | python -mjson.tool
 ```
 
-The fields are quite self explanatory, in this case, we have given the user an Admin permission. To see a detailed breakdown of permission objects, please see below.
+In this example, we have given the user Admin privileges. To see a detailed breakdown of permission objects, please see below.
 
-You will see the following response if all has gone to plan:
+You will see the following response if the user has been created:
 
 ```
     {

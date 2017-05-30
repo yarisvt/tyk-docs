@@ -8,7 +8,7 @@ weight: 0
 url: "/get-started/with-tyk-on-premise/installation"
 ---
 
-## Install Tyk on-premise: Managed releases and package options
+## Installing Tyk On-Premise: Managed releases and package options
 
 Tyk can be installed on almost any Linux environment, we've also created Docker containers that can be deployed and configured easily. Supported by the Tyk team, you can get Tyk for:
 

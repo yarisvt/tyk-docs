@@ -1,10 +1,10 @@
 ---
 date: 2017-03-22T16:14:35Z
-Title: Analytics Pump on Ubuntu
+Title: Tyk Pump on Ubuntu
 menu:
   main:
     parent: "On Ubuntu"
-weight: 0 
+weight: 2 
 ---
 
 ## Install Tyk Pump on Ubuntu

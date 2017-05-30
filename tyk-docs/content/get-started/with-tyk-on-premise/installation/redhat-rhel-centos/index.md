@@ -12,10 +12,10 @@ url: "/get-started/with-tyk-on-premise/installation/redhat-rhel-centos"
 
 Installing Tyk on RHEL is very straightforward using our YUM repositories, follow the guides and tutorials in this section to have Tyk up and running in no time.
 
-The suggested order would be to install Tyk Gateway, then Tyk Dashboard and then Tyk Pump for a full stack.
+The suggested order would be to install Tyk Dashboard, then Tyk Pump and then Tyk Gateway for a full stack.
 
-* [Analytics Pump][1]
 * [Dashboard][2]
+* [Pump][1]
 * [Gateway][3]
 
 [1]: /docs/get-started/with-tyk-on-premise/installation/redhat-rhel-centos/analytics-pump

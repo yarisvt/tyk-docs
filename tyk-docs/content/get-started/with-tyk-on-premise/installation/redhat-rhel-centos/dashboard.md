@@ -4,7 +4,7 @@ Title: Dashboard on Redhat (RHEL) / CentOS
 menu:
   main:
     parent: "On Redhat (RHEL) / CentOS"
-weight: 0 
+weight: 1 
 ---
 
 

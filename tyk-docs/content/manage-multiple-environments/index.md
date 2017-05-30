@@ -39,3 +39,11 @@ Policy tags completely replace key tags, these tags are then fed into the analyt
 ### Node tags
 
 If your API is segmented, node tags will be appended to the analytics data, this will allow you to filter out all traffic going through a specific node or node cluster.
+
+> Note: If you set `use_db_app_options.node_is_segmented` to `true` for multiple gateway nodes, you should ensure that `management_node` is set to `false`. This is to ensure visibility for the management node across all APIs. 
+
+`management_node` is available from v2.3.4 and onwards.
+
+See [Tyk Gateway Configuration Options][1] for more details on node tags.
+
+ [1]: /docs/configure/tyk-gateway-configuration-options/

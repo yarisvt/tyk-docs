@@ -1,6 +1,6 @@
 ---
 date: 2017-03-15T15:01:42Z
-title: With Tyk On Premise
+title: With Tyk On-Premise
 menu: 
   main:
     parent: "Get started"
@@ -26,7 +26,7 @@ To get started with Tyk On-Premise, visit our [licensing page][1].
 
 ## Dependencies
 
-A full on-premise installation has a few additional requirements:
+A full Tyk On-Premise installation has the following requirements:
 
 *   Redis: The primary key store for the Tyk Gateway, also synchronises data across gateways in a horizontally scaling installation.
 *   MongoDB: The primary configuration store and analytics data store, required by the dashboard and portal, not required by the gateway.

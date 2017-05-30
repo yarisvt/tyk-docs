@@ -63,6 +63,8 @@ Set the URL to your Dashboard instance (or a load balanced instance), the URL sh
 
 Set to `true` to enable filtering (sharding) of APIs.
 
+> Note: If you set to `true` for multiple gateway nodes, you should ensure that `management_node` is set to `false`. This is to ensure visibility for the management node across all APIs. 
+
 ### <a name="use_db_app_options-tags"></a> use_db_app_options.tags
 
 The tags to use when filtering (sharding) Tyk Gateway nodes, tags are processed as OR operations. If you include a non-filter tag (e.g. an identifier such as `node-id-1`, this will become available to your analytics Dashboard).
@@ -436,6 +438,8 @@ Enables the real-time Gateway log view in the Dashboard.
 ### <a name="management_node"></a> management_node
 
 If set to `true`, distributed rate limiter will be disabled for this node, and it will be excluded from rate limit calculation.
+
+> Note: If you set `use_db_app_options.node_is_segmented` to `true` for multiple gateway nodes, you should ensure that `management_node` is set to `false`. This is to ensure visibility for the management node across all APIs. 
 
 This option is available from v2.3.4 and onwards.
 
