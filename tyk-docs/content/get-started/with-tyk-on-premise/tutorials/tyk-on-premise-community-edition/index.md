@@ -13,13 +13,12 @@ url: "/get-started/with-tyk-on-premise/tutorials/tyk-on-premise-community-editio
 Tyk Community Edition is the open-source API Gateway that is developed by our community and supported by our community members and advocates (with some help from the Tyk Technologies team). The Tyk CE is an on-premise install that consists of:
 
 * Tyk API Gateway: The API Gateway that can manage your APIs.
-* Tyk Pump: An analytics data sink, while usually used with the 
-* Pro Edition and Dashboard, it can be used to send analytics data to other platforms such as StatsD, ElasticSearch and InfluxDB.
+* Tyk Pump: An analytics data sink, used to send analytics data to platforms such as StatsD, ElasticSearch and InfluxDB.
 * Tyk Identity Broker: A third-party IDP integration service.
 
 All of the above projects are available as open-source implementations on our [Github pages][1].
 
->Please note: Tyk Dashboard is not available for this edition.
+>Note: Tyk Dashboard is not available for this edition.
 
  [1]: https://github.com/TykTechnologies
 

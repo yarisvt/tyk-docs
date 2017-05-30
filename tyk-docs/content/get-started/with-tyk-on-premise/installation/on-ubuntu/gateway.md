@@ -4,7 +4,7 @@ Title: Gateway on Ubuntu
 menu:
   main:
     parent: "On Ubuntu"
-weight: 0 
+weight: 3 
 ---
 
 ## <a name="install-tyk-ubuntu-gateway"></a>Install Tyk Gateway on Ubuntu

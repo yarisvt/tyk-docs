@@ -1,10 +1,10 @@
 ---
 date: 2017-03-22T16:39:29Z
-Title: Analytics Pump on Redhat (RHEL) / CentOS
+Title: Tyk Pump on Redhat (RHEL) / CentOS
 menu:
   main:
     parent: "On Redhat (RHEL) / CentOS"
-weight: 0 
+weight: 2 
 ---
 
 ## <a name="install-tyk-redhat"></a>Install Tyk Pump on Redhat (RHEL) / CentOS

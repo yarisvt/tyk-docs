@@ -4,7 +4,7 @@ Title: Dashboard on Ubuntu
 menu:
   main:
     parent: "On Ubuntu"
-weight: 0 
+weight: 1 
 ---
 
 ## <a name="install-tyk-dashboard-ubuntu"></a>Install Tyk Dashboard on Ubuntu

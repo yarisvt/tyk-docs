@@ -4,7 +4,7 @@ Title: Gateway on Redhat (RHEL) / CentOS
 menu:
   main:
     parent: "On Redhat (RHEL) / CentOS"
-weight: 0 
+weight: 3 
 ---
 
 ## <a name="install-tyk-redhat-gateway"></a>Install Tyk API Gateway on Redhat

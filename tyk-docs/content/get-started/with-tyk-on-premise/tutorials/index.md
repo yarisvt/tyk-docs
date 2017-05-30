@@ -3,7 +3,7 @@ date: 2017-03-22T17:13:28Z
 Title: Tutorials
 menu:
   main:
-    parent: "With Tyk On Premise"
+    parent: "With Tyk On-Premise"
     identifier: /with-tyk-on-premise
 weight: 0
 url: "/get-started/with-tyk-on-premise/tutorials"
