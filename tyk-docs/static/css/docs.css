@@ -10,7 +10,7 @@
 .hasSidebar .container:before{ width: 454px; left: 50%; margin-left: -720px; }
 
 /* Edit on GitHub button */
-.button.medium { color: white; margin: 10px;    padding-top: 0; height: 25px; padding-bottom: 0; min-width: 0; line-height: 26px}
+.button.medium { color: white; margin: 10px; padding-top: 0; height: 25px; padding-bottom: 0; min-width: 0; line-height: 26px}
 
 
 /* Anchor tags */
@@ -75,6 +75,23 @@ margin:-90px 0 0;
 .docs-navigation .button {margin-bottom: 0;}
 .icon-right:before {float: right; margin-left: 5px;}
 
+/* Return to Top buttons */
+
+#return-to-top { position: fixed; bottom: 20px; right: 20px; background: #e1e1e1; width: 50px; height: 50px; -webkit-border-radius: 35px; -moz-border-radius: 35px; border-radius: 35px; display: none; -webkit-transition: all 0.3s linear; -moz-transition: all 0.3s ease; -ms-transition: all 0.3s ease; -o-transition: all 0.3s ease; transition: all 0.3s ease;}
+
+#return-to-top:hover { background: #2f3f9e; color: white; }
+
+#return-to-top:before { float: none; margin-left: 20px; margin-top: 1px; font-size: 31px; transform: rotate(271deg);}
+
+.button.grey.medium.bottom { float: right; display: none;}
+
+.return-top {border-top: 1px solid #E1E1E1; }
+
+@media only screen and (max-width: 1340px) {
+  #return-to-top{ visibility: hidden; }  
+}
+
+
 /* Documentation : Table of Contents */
 .documentation-table-of-contents { padding-bottom: 20px; border-bottom: 1px solid #c8c8c8;}
 .documentation-table-of-contents a { padding: 10px 26px; }
@@ -84,9 +101,6 @@ margin:-90px 0 0;
 .docs-share-print { border-top: 1px solid #c8c8c8; padding: 10px 0; margin-top: 0; clear:both; /*overflow: auto;*/  margin-bottom: 30px;}
 .docs-share-print a {display: inline-block; margin-right: 50px;}
 .share-print a:before { padding-right: 12px; }
-
-@media only screen and (max-width: 1024px) {
-}
 
 @media print {
 
@@ -221,4 +235,3 @@ body * { visibility: hidden; }
 @media only screen and (max-width: 768px) {
   .documentation-table-of-contents a {width: 100%; text-align: center;}
 }
-
