@@ -3,7 +3,7 @@ date: 2017-03-22T15:27:06Z
 Title: Installation
 menu:
   main:
-    parent: "With Tyk On Premise"
+    parent: "With Tyk On-Premise"
 weight: 0
 url: "/get-started/with-tyk-on-premise/installation"
 ---

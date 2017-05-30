@@ -57,7 +57,7 @@ To create a dashboard user with the API, we will first need some Dashboard API C
 
 You will need the **API Key**.
 
-Once you have your dashboard API Credentials, you can create a user very easily using the API, the following Curl command will generate a user:
+Once you have your dashboard API Credentials, you can create a user very easily using the API, the following cURL command will generate a user:
 
 ```
     curl -H "Authorization: {YOUR-API-KEY}"
