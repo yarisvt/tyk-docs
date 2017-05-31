@@ -35,7 +35,7 @@
 <!-- Put this line in your main template, at the place where you want to
    render the menu. -->
 
-<header class="hero">
+<header class="hero" data-turbolinks-permanent>
   <div class="container">
     <div class="hero-sidebyside">
       <h1 id="doc-icon">
@@ -45,7 +45,7 @@
       
       <nav class="hero-text f-16">
         <form class="search documentation-search f-12 roboto">
-          <input type="text" class="searchBox" id="q" placeholder="Search...">
+          <input type="text" class="searchBox" id="q" placeholder="Search..." data-turbolinks-permanent>
             <button class="icon-search" disabled></button>
 
             <div class="documentation-search-container">
@@ -61,7 +61,7 @@
 
 <section class="section-page hasSidebar">
 <div class="container clear">
-  <aside class="page-submenu roboto">
+  <aside class="page-submenu roboto" data-turbolinks-permanent>
       <nav class="aside-submenu">
         <div data-tree class="st-treed">
             {{ partial "menu_include.html" . }}
