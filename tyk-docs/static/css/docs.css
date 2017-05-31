@@ -55,6 +55,7 @@ margin:-90px 0 0;
 /* Code Blocks */
 .wysiwyg pre {padding-left: 6px !important;}
 .wysiwyg code {overflow-wrap: break-word;}
+.hljs { overflow-x: initial !important; }
 
 /* Blockquote */ 
 .wysiwyg blockquote:before {font-size: 20px; left: 20px; top: 30px;}
