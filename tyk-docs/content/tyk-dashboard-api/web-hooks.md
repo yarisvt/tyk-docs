@@ -165,18 +165,18 @@ weight: 6
 
 ### Delete web hook
 
-| **Property** | **Description** |
-| ------------ | --------------- |
-| Resource URL | `/api/users`    |
-| Method       | DELETE          |
-| Type         | None            |
-| Body         | None            |
-| Param        | None            |
+| **Property** | **Description**           |
+| ------------ | ------------------------- |
+| Resource URL | `/api/hooks/{hook-id}`    |
+| Method       | DELETE                    |
+| Type         | None                      |
+| Body         | None                      |
+| Param        | None                      |
 
 #### Sample Request
 
 ```
-    DELETE / HTTP/1.1
+    DELETE /api/hooks/54c2617aeba6db1edc000003 HTTP/1.1
     Host: localhost:3000
     authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 ```
