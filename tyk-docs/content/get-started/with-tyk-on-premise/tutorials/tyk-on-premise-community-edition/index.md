@@ -1,6 +1,6 @@
 ---
 date: 2017-03-23T09:57:24Z
-Title: Tyk On-Premise Community Edition
+Title: Tyk On-Premises Community Edition
 menu:
   main:
     parent: /with-tyk-on-premise

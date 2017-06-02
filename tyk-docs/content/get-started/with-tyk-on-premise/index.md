@@ -1,6 +1,6 @@
 ---
 date: 2017-03-15T15:01:42Z
-title: With Tyk On-Premise
+title: With Tyk On-Premises
 menu: 
   main:
     parent: "Get started"
@@ -8,11 +8,11 @@ weight: 5
 url: "/get-started/with-tyk-on-premise"
 ---
 
-## What is Tyk On-Premise?
+## What is Tyk On-Premises?
 
-Tyk On-Premise is the way to install an entire Tyk solution in your own infrastructure, it enables you to have full control over every element of the Tyk stack as well as no external dependency on our cloud solution or infrastructure.
+Tyk On-Premises is the way to install an entire Tyk solution in your own infrastructure, it enables you to have full control over every element of the Tyk stack as well as no external dependency on our cloud solution or infrastructure.
 
-The full Tyk On-Premise system consists of:
+The full Tyk On-Premises system consists of:
 
 *   Tyk API Gateway: The API Gateway that proxies and manages your traffic.
 *   Tyk Dashboard: The management Dashboard and integration API for managing a cluster of Tyk Gateways, also shows analytics and features the Developer portal.
@@ -22,11 +22,11 @@ The full Tyk On-Premise system consists of:
 
 ### Getting Started
 
-To get started with Tyk On-Premise, visit our [licensing page][1].
+To get started with Tyk On-Premises, visit our [licensing page][1].
 
 ## Dependencies
 
-A full Tyk On-Premise installation has the following requirements:
+A full Tyk On-Premises installation has the following requirements:
 
 *   Redis: The primary key store for the Tyk Gateway, also synchronises data across gateways in a horizontally scaling installation.
 *   MongoDB: The primary configuration store and analytics data store, required by the dashboard and portal, not required by the gateway.
