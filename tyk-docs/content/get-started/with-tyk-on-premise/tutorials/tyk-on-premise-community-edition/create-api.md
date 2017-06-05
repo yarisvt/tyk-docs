@@ -3,7 +3,7 @@ date: 2017-03-23T10:16:44Z
 Title: Create an API with Community Edition
 menu:
   main:
-    parent: Tyk On-Premises Community Edition
+    parent: Community Edition
 weight: 1
 ---
 

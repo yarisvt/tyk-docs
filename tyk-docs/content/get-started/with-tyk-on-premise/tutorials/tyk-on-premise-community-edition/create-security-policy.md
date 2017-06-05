@@ -3,7 +3,7 @@ date: 2017-03-23T10:39:14Z
 Title: Create a security policy with Community Edition
 menu:
   main:
-    parent: Tyk On-Premises Community Edition
+    parent: Community Edition
 weight: 3
 ---
 

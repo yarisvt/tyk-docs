@@ -3,7 +3,7 @@ date: 2017-03-23T11:11:18Z
 title: Create a security policy with Pro Edition
 menu:
   main:
-    parent: "Tyk On-Premises Pro Edition"
+    parent: "Pro Edition"
 weight: 3
 ---
 

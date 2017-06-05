@@ -1,6 +1,6 @@
 ---
 date: 2017-03-23T10:48:22Z
-Title: Tyk On-Premises Pro Edition
+Title: Pro Edition
 menu:
   main:
     parent: /with-tyk-on-premise
@@ -8,7 +8,7 @@ weight: 0
 url: "/get-started/with-tyk-on-premise/tutorials/tyk-on-premise-pro"
 ---
 
-## What is the Pro Edition?
+## What is the Tyk Pro Edition?
 
 Tyk Pro Edition is the open-source API Gateway, Dashboard and API Management Platform that is developed by and supported by Tyk Technologies. The Tyk Pro Edition is an on-premise install that consists of:
 

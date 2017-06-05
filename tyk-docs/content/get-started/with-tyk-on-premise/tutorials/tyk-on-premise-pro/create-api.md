@@ -3,7 +3,7 @@ date: 2017-03-23T10:53:11Z
 title: Create an API with Pro Edition
 menu:
   main:
-    parent: "Tyk On-Premises Pro Edition"
+    parent: "Pro Edition"
 weight: 1
 ---
 

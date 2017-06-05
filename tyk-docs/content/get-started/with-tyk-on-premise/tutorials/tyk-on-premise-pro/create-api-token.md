@@ -3,7 +3,7 @@ date: 2017-03-23T11:04:58Z
 title: Create an API Token with Pro Edition
 menu:
   main:
-    parent: "Tyk On-Premises Pro Edition"
+    parent: "Pro Edition"
 weight: 2
 ---
 
