@@ -8,7 +8,7 @@ url: "get-started"
 
 ## Get started with Tyk
 
-Tyk comes in three powerful flavours: Cloud, Hybrid and On-Premise, each has it’s own strengths and reasons for deployment. To get started, why not check out the guides?
+Tyk comes in three powerful flavours: Cloud, Hybrid and On-Premises. Each has it’s own strengths and reasons for deployment. To get started, why not check out the guides?
 
 - [Tyk Cloud][1]: The fastest way to explore Tyk – no setup, no installations, just a straight-up cloud-based API gateway and proxy.
 - [Tyk Hybrid][2]: Get the best of both worlds, manage things from our cloud but get a full API gateway in your infrastructure.

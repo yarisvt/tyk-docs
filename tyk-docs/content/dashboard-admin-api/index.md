@@ -6,6 +6,6 @@ menu: "main"
 url: "/dashboard-admin-api"
 ---
 
-The Dashboard Admin API is a special bootstrapping API that can be used to set up and provision a Tyk Dashboard instance without the command line and is used by the bootstrap scripts that come with Tyk On Premise installations.
+The Dashboard Admin API is a special bootstrapping API that can be used to set up and provision a Tyk Dashboard instance without the command line and is used by the bootstrap scripts that come with a Tyk On-Premises installation.
 
 > Note: This API should only be used for bootstrapping purposes, all actual interactions with dashboard objects should be done via the regular API.

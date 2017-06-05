@@ -12,38 +12,44 @@ weight: 2
 
 The Tyk Dashboard is the simplest way to generate a new token.
 
-### Step 1: Navigate to the keys management page
+### Step 1: Select "Keys" from the "System Management" section
 
 ![Keys menu link location][1]
 
-### Step 2: Click the *add key* button
+### Step 2: Click Add key
 
 ![Add key button location][2]
 
-### Step 3: Set the key access rights
+### Step 3: Set access rights
 
-Leave all the defaults except for selecting `Test API` from the access rights drop-down and clicking `Add`, this will add an access rule to the token for the API we just created. This is important, Tyk keys **must** have an access rule set.
+Select the API you created in the **Create an API** tutorial from the Access Rights drop-down list, then click **Add**. This sets an access rule to the API Key for your API. You **must** set an access rule for an API key.
+
+You can leave all other options at their default settings.
 
 ![Access rights location][3]
 
-### Step 4: Click the create button
+### Step 4: Click create
 
 ![Create button location][4]
 
 The page should scroll to the top and you will see the new key on the right-hand side in a green box.
+**NOTE:** You need to copy and save this key for later reference when it is displayed as it is cannot be retrieved later.
 
 ![Key success message location][5]
 
 That's it, you've created a key - now we can try and use it.
 
-## <a name="with-api"></a>Tutorial: Create an API Token with the API
+## <a name="with-api"></a>Tutorial: Create an API Key with the API
 
-To create an API Token, we will need the API ID that we wish to grant the token access to, then creating the token is a very simple API call to the endpoint. In a Pro installation, we use the dashboard endpoint instead of the gateway endpoint, as in a Pro installation we should always integrate with the dashboard API as it has a more granular security model.
+To create an API key, we will need the API ID that we wish to grant the key access to. Creating the token is then a simple API call to the endpoint. In a Pro Edition installation, we use the dashboard endpoint instead of the gateway endpoint, as in a Pro Edition installation we should always integrate with the dashboard API as it has a more granular security model.
 
 You will also need your own API Key, to get these values:
 
-1.  Click on "System Management" -> "Users" -> Your user name -> Edit.
-2.  The API key is under marked as **Tyk Dashboard API Access Credentials**, copy this somewhere you can reference it. 
+1.  Select "Users" from the "System Management" section.
+2.  In the users list, click "Edit" for your user.
+3.  The API key is the **Tyk Dashboard API Access Credentials**, copy this somewhere you can reference it. ![API key location][6]
+4.  Select "APIs" from the "System Management" section.
+5.  The API ID is next to your API name, copy this somewhere for reference too.
 
 ![API key location][6]
 

@@ -1,6 +1,6 @@
 ---
 date: 2017-03-22T17:04:48Z
-title: Install Tyk Pro On-Premise on Vagrant
+title: Install Tyk Pro On-Premises on Vagrant
 menu:
   main:
     parent: "Installation"
