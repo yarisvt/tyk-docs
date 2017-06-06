@@ -71,8 +71,8 @@ margin:-90px 0 0;
 
 /* Documentation : Navigation */
 .docs-navigation {border-top: 1px solid #e2e2e2; padding: 30px 0;}
-.docs-navigation #previousArticle {float: left;}
-.docs-navigation #nextArticle {float: right;}
+.docs-navigation #previousArticle {float: left; max-width:50%; text-align: center;}
+.docs-navigation #nextArticle {float: right; max-width:50%; text-align: center;}
 .docs-navigation .button {margin-bottom: 0;}
 .icon-right:before {float: right; margin-left: 5px;}
 
