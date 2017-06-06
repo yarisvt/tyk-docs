@@ -7,7 +7,7 @@ menu:
 weight: 4 
 ---
 
-A security policy incorporates several security options that can be applied to an API key. It acts as a template that can override individual sections of an API key (or identity) in Tyk. For example, if you had 10,000 API keys issued, how would you ensure that all 10,000 users received an upgraded quota or access a new API that you have published?
+A Tyk security policy incorporates several security options that can be applied to an API key. It acts as a template that can override individual sections of an API key (or identity) in Tyk. For example, if you had 10,000 API keys issued, how would you ensure that all 10,000 users received an upgraded quota or access a new API that you have published?
 
 You could manually modify all 10,000 keys, or you could apply a policy to each of those keys when you create them, and then just modify the policy once.
 

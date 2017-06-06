@@ -34,7 +34,7 @@ In the above example the username is `john@smith.com` and the password is `12345
 
 Tyk supports using basic authentication as an access key in the same way as any other access method.
 
-## <a name="with-dashboard">Enable Basic Auth in your API Definition with the Dashboard
+## <a name="with-dashboard"></a>Enable Basic Auth in your API Definition with the Dashboard
 
 To enable Basic Auth on your API using the dashboard GUI:
 
@@ -44,7 +44,7 @@ To enable Basic Auth on your API using the dashboard GUI:
 
 ![Target Details: Basic Auth][1]
 
-## <a name="with-file-based">Enable Basic Auth in your API Definition with file-based
+## <a name="with-file-based"></a>Enable Basic Auth in your API Definition with file-based
 
 To enable Basic Auth, the API Definition file needs to be set up to allow basic auth and not a standard access token:
 
@@ -59,7 +59,7 @@ To enable Basic Auth, the API Definition file needs to be set up to allow basic 
 
 As you can see in the above example, enabling basic auth is as simple as setting a flag for the feature in your API Definition object. Since BA is a standard, Tyk will always look for the credentials as part of the Authorization header.
 
-## a name="create-a-basic-auth-user">Create a Basic Auth User
+## <a name="create-a-basic-auth-user"></a>Create a Basic Auth User
 
 For a user session object, to enable basic auth, set the relevant fields in the session object:
 

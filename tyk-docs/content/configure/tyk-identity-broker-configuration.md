@@ -10,7 +10,7 @@ weight: 3
 
 Tyk Identity Broker is configured through two files: The configuration file tib.conf and the profiles file profiles.json. TIB can also be managed via the REST API (detailed below) for automated configurations.
 
-#### The tib.conf file
+#### The `tib.conf` file
 
 ```
 	{

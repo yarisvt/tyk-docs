@@ -7,7 +7,7 @@ menu:
 weight: 3 
 ---
 
-## <a name="overview"></a>Circuit Brakers Overview
+## <a name="overview"></a>Overview
 
 Tyk has a built-in circuit breaker pattern as a path-based option. Our circuit breaker is threshold-based, so if x% of requests are failing then the circuit is tripped. When the circuit is tripped, the gateway stops *all* inbound requests to that service for a pre-defined period of time (a recovery time-period).
 
@@ -56,7 +56,7 @@ The status codes returned to the template are:
 
 > **Note**: If you are using the service discovery module, every time the breaker trips, Tyk will attempt to refresh the node list.
 
-## <a name="config-with-api"></a>Circuit Brakers Config: API Definition
+## <a name="with-api"></a>Configure with the API Definition
 
 To enable the breaker in your API Definition, you will need to add a new section to your versions' `extended_paths` list:
 
@@ -78,7 +78,7 @@ To enable the breaker in your API Definition, you will need to add a new section
 *   `samples`: The number of samples to take for a circuit breaker window.
 *   `return_to_service_after`: The cool-down period of the breaker to return to service (seconds).
 
-## <a name="config-with-dashboard"></a>Circuit Brakers Config: Dashboard
+## <a name="with-dashboard"></a>Configure with the Dashboard
 
 To set up a circuit breaker on a path for your API, add a new Endpoint in the *Endpoint Designer* section of your API and then select the *Circuit Breaker* plugin:
 

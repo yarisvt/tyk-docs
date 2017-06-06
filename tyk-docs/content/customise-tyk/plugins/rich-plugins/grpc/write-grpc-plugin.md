@@ -40,7 +40,9 @@ This is what a manifest could look like:
 
 After saving this file as `manifest.json`, build it using [tyk-cli][1]:
 
-`tyk-cli bundle build -output mybundle.zip -key mykey.pem`
+```
+  tyk-cli bundle build -output mybundle.zip -key mykey.pem
+```
 
 ## The gRPC server
 

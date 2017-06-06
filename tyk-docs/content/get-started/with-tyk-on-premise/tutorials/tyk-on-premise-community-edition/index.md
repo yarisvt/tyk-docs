@@ -10,7 +10,7 @@ url: "/get-started/with-tyk-on-premise/tutorials/tyk-on-premise-community-editio
 
 ## What is Tyk Community Edition?
 
-Tyk Community Edition is the open-source API Gateway that is developed by our community and supported by our community members and advocates (with some help from the Tyk Technologies team). The Tyk CE is an on-premise install that consists of:
+Tyk Community Edition is the open-source API Gateway that is developed by our community and supported by our community members and advocates (with some help from the Tyk Technologies team). The Tyk CE is an On-Premises install that consists of:
 
 * Tyk API Gateway: The API Gateway that can manage your APIs.
 * Tyk Pump: An analytics data sink, used to send analytics data to platforms such as StatsD, ElasticSearch and InfluxDB.

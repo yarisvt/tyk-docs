@@ -7,12 +7,12 @@ menu:
 weight: 0 
 ---
 
-## <a name="overview"></a>Caching: Overview
+## <a name="overview"></a> Overview
 
 Tyk supports various ways of caching requests. At its simplest level, Tyk can cache all safe requests, however you can also manually set exactly which endpoint patterns to cache, and if that doesn’t suffice, or you require more granular control, then you can enable upstream control and have your application tell Tyk whether to cache a request or not and for how long.
 
 
-## <a name="global"></a>Caching: Global
+## <a name="global"></a> Global
 
 ### Enabling caching via the API definition
 
@@ -52,7 +52,7 @@ Here you must set:
 4.  **Global cache**: Enable the global cache.
 
 
-## <a name="per-path"></a>Caching: Per-path
+## <a name="per-path"></a> Per-path
 
 To cache only specific endpoints, within the version data under the `extended_paths` section, you will need to define the paths to cache in the `cache` list:
 
@@ -102,7 +102,7 @@ Select the cache plugin option from the drop down.
 ![Plugin dropdown list][3]
 
  
-## <a name="upstream-control"></a>Caching: Upstream control
+## <a name="upstream-control"></a> Upstream control
 
 Upstream cache control enables you to set whether a response should be cached, and for how long. To enable this, you will need to set `enable_cache` to and `enable_upstream_cache_control` to `true`.
 
@@ -121,7 +121,7 @@ Utilising this method gives the most control as it will also only cache requests
 
 Under the advanced settings, ensure that *Enable upstream control* is activated and the global cache is deactivated, then follow the steps for per-path caching.
 
-## <a name="separate-redis-cache"></a>Caching: Configuring a separate Redis cache
+## <a name="separate-redis-cache"></a> Configuring a separate Redis cache
 
 For high-traffic systems that make heavy use of caching as well as rate limiting, it makes sense to separate out the Redis cache server from the Redis configuration server that supplies auth tokens and handles rate limiting configuration.
 

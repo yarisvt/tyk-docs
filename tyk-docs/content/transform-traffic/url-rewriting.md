@@ -7,7 +7,7 @@ menu:
 weight: 5 
 ---
 
-## <a name="url-rewrite-overview"></a>URL rewrite overview
+## <a name="overview"></a>Overview
 
 URL rewriting is a very useful feature when translating an outbound API interface to the internal structure of your services.
 
@@ -66,9 +66,9 @@ Add the regex capture groups and the new URL to the relevant sections.
 
 Press the *save* or *create* buttons to save the changes and make the URL rewrite active.
 
-## URL Rewriteter: Context Variables
+## <a name="url-rewrite-context-variables"></a>Context Variables
 
-### <a name="url-rewrite-context-variables"></a>Context Data
+### Context Data
 
 As of version 2.2 Tyk allows context variables to be injected into the regex using the `$tyk_context.` namespace instead of the numeric index.
 

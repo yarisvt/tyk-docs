@@ -4,7 +4,7 @@ title: How do rich plugins work ?
 menu:
   main:
     parent: "Rich Plugins"
-weight: 0 
+weight: 2
 ---
 
 ### ID extractor & auth cache

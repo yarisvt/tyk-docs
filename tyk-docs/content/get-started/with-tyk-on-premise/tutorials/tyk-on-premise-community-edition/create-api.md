@@ -12,8 +12,6 @@ weight: 1
 
 With Tyk On-Premises Community Edition, it is possible to create APIs using Tyk’s REST API or to generate a file with the same object and store it in the /apps folder of the Tyk Gateway installation folder, this is discussed later.
 
-1. [REST API][1]
-2. [File Based][2]
 
 ## <a name="with-gateway-rest-api"></a>Tutorial: Create an API with the Gateway REST API
 
@@ -118,6 +116,3 @@ Once you have created the file, you will need to restart the Tyk Gateway, or iss
 This command will hot-reload your API Gateway(s) and the new API will be loaded, if you take a look at the output of the Gateway (or the logs), you will see that it should have loaded Test API on `/test-api/`.
 
 Your API is now ready to use via the Gateway.
-
-[1]: #with-gateway-rest-api
-[2]: #with-file-based-mode

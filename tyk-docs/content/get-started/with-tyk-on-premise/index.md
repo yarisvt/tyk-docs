@@ -8,7 +8,7 @@ weight: 5
 url: "/get-started/with-tyk-on-premise"
 ---
 
-## What is Tyk On-Premises?
+## <a name="what-is-tyk-on-premises"></a>What is Tyk On-Premises?
 
 Tyk On-Premises is the way to install an entire Tyk solution in your own infrastructure, it enables you to have full control over every element of the Tyk stack as well as no external dependency on our cloud solution or infrastructure.
 
@@ -24,7 +24,7 @@ The full Tyk On-Premises system consists of:
 
 To get started with Tyk On-Premises, visit our [licensing page][1].
 
-## Dependencies
+## <a name="dependencies"></a>Dependencies
 
 A full Tyk On-Premises installation has the following requirements:
 
