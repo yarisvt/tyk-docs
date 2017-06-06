@@ -1,9 +1,10 @@
 ---
 date: 2017-03-23T11:11:18Z
-title: Create a security policy with Pro
+title: Create a security policy
 menu:
   main:
-    parent: "Tyk On-Premise Pro"
+    parent: "Pro Edition"
+    identifier: pro-edition-create-security-policy
 weight: 3
 ---
 
@@ -11,33 +12,35 @@ weight: 3
 
 To create a security policy with the dashboard, follow these steps:
 
-### Step 1: Navigate to the policies management page
+### Step 1: Select "Policies" from the "System Management" section
 
 ![Policies menu link location][1]
 
-### Step 2: Click the *add policy* button
+### Step 2: Click Add Policy
 
 ![Add policy button location][2]
 
 This page lists out all the policies that you have created. Once you have reached the policies list you need to click the *add policy* button.
 
-### Step 3: Give the policy a name
+### Step 3: Give your policy a name
 
 ![Policy name form][3]
 
 All policies require a descriptive name, this helps you to reference it later, and it will appear in drop-down options where you can attach policies to objects such as tokens or OAuth client IDs.
 
-### Step 4: Set the rate limit
+### Step 4: Set Rate limits
 
 ![Rate limit form][4]
 
-A rate limit is enforced on all tokens, set the number of requests per second that a bearer of a token with this policy is allowed to use.
+A rate limit is enforced on all keys, set the number of requests per second that a user of a key with this policy is allowed to use.
+**NOTE:** The Rate Limit set by a policy will override the limits applied to an individual key.
 
-### Step 5: Set the quota
+### Step 5: Set Usage Quotas
 
 ![Quota form][5]
 
-A quota limits the number of total requests a user is allowed to have over a longer period of time, so while a rate limit is a rolling window, think of a quota as an absolute maximum that a user is allowed to have over a week, a day or a month.
+Usage quotas limit the number of total requests a user is allowed to have over a longer period of time. So while a rate limit is a rolling window, a quota is an absolute maximum that a user is allowed to have over a week, a day or a month.
+**NOTE:** The Usage Quota set by a policy will override a quota applied to an individual key.
 
 ### Step 6: Add a security entry
 
@@ -49,7 +52,7 @@ A quota limits the number of total requests a user is allowed to have over a lon
 
 ![Policy partitions form][7]
 
-To make the policy active, select the `Create` button. Once the policy is saved, you will be able to use it when generating tokens, OAuth clients and custom JWT tokens.
+To make the policy active, click **Create** . Once the policy is saved, you will be able to use it when generating keys, OAuth clients and custom JWT tokens.
 
 ## <a name="with-api"></a>Tutorial: Create a Policy with the Dashboard API
 

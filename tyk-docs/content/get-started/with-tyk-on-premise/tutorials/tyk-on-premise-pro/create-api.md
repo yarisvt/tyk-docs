@@ -1,9 +1,10 @@
 ---
 date: 2017-03-23T10:53:11Z
-title: Create an API with Pro
+title: Create an API
 menu:
   main:
-    parent: "Tyk On-Premise Pro"
+    parent: "Pro Edition"
+    identifier: pro-edition-creat-api
 weight: 1
 ---
 
@@ -12,32 +13,32 @@ weight: 1
 
 To create an API with the GUI is very straightforward, in this section we will create a very simple API that has no special elements set up.
 
-### Step 1: Navigate to the API listing page
+### Step 1: Select "APIs" from the "System Management" section
 
 ![API menu item location][1]
 
-#### Step 2: Select the *Add new API* button
+#### Step 2: Click "Add new API"
 
 ![Add API button location][2]
 
-### Step 3: Set up the base settings for your API
+### Step 3: Set up the Base Configuration for your API
 
 ![API settings form][3]
 
 In this section:
 
 *   **API Name**: The name you want to give this group of endpoints, this will represent the API.
-*   **API Listen Path**: The URL segment that will map to this API, e.g., if set to `widgets` then the full API URL will be `https://your-gateway-domain/widgets`. (**What about the API Slug?** This is not used in a Pro on-premise install, you can set the listen path directly.)
+*   **API Listen Path**: The URL segment that will map to this API, e.g., if set to `widgets` then the full API URL will be `https://your-gateway-domain/widgets`. (**What about the API Slug?** This is not used in a Tyk Pro On-Premises installation. You can set the listen path directly.)
 *   **Target URL**: The upstream origin that hosts the service you want to proxy to.
 *   **Enable Round Robin Load Balancing**: This allows you to enter more than one target URL, we will ignore this for now.
 
 ### Step 4: Set up the security option for your API
 
-Scroll to the bottom of this page, and you will see:
+From the **Target Details** section:
 
 ![Security options form][4]
 
-In this section:
+You have the following options:
 
 *   `Authentication mode` This is the security method to use with your API, there can be only one per API. In this case, set it to Auth Token, this is the simplest security mechanism to use.
 *   `Auth Key Header Name` The header name that will hold the token on inbound requests. The default for this is `Authorization`.
@@ -46,29 +47,23 @@ In this section:
 
 ### Step 5: Save the API
 
-To save and publish the API, use the `Save` button at the top of the screen:
+Click **Save**
 
 ![Save button location][5]
 
-Once saved, you will be taken back to the API list, where the new API will be shown.
+Once saved, you will be taken back to the API list, where the new API will be displayed.
 
-To see what URL your API has been given, simply select the API from the list to open it again, and the API URL will be displayed in the top of the editor:
+To see the URL given to your API, select the API from the list to open it again. The API URL will be displayed in the top of the editor:
 
 ![API URL location][6]
 
 ## <a name="with-api"></a>Create an API with the Dashboard REST API
 
-With Tyk Pro (On-Premise), it is possible to programatically create APIs using Tyk's Dashboard REST API, in order to do so you will need an API key for your organisation and one command to create the API and make it live.
+With Tyk Pro (On-Premises), it is possible to create APIs using Tyk's Dashboard REST API. You will need an API key for your organisation and one command to create the API and make it live.
 
 ### Step 1: Get an API Key
 
-To get your API key, select:
-
-*   Users
-*   Your username
-*   Scroll to the bottom of the page
-
-Your API Key is the first entry:
+Select "Users" from the "System Management" section. Click **Edit** for your user, then scroll to the bottom of the page. Your API Key is the first entry:
 
 ![Access credentials location][7]
 

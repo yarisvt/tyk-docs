@@ -1,9 +1,10 @@
 ---
 date: 2017-03-23T11:34:17Z
-title: Create a portal entry with Pro
+title: Create a portal entry
 menu:
   main:
-    parent: "Tyk On-Premise Pro"
+    parent: "Pro Edition"
+    identifier: pro-edition-create-portal-entry
 weight: 4
 ---
 

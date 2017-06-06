@@ -1,6 +1,6 @@
 ---
 date: 2017-03-23T09:57:24Z
-Title: Tyk On-Premise Community Edition
+Title: Community Edition
 menu:
   main:
     parent: /with-tyk-on-premise
@@ -8,7 +8,7 @@ weight: 0
 url: "/get-started/with-tyk-on-premise/tutorials/tyk-on-premise-community-edition"
 ---
 
-## What is Community Edition?
+## What is Tyk Community Edition?
 
 Tyk Community Edition is the open-source API Gateway that is developed by our community and supported by our community members and advocates (with some help from the Tyk Technologies team). The Tyk CE is an on-premise install that consists of:
 

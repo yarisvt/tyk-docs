@@ -9,7 +9,7 @@ weight: 5
 
 ### Description
 
-Users receive the following error when sending API requests to the Dashboard. This often occurs during performancce testing.
+Users receive the following error when sending API requests to the Dashboard. This often occurs during performance testing.
 
 ### Cause
 

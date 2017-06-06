@@ -40,7 +40,7 @@ That's it, you've created a key - now we can try and use it.
 
 ##  <a name="with-api"></a>Tutorial: Create an API Key with the API
 
- To create an API key, we will need the API ID that we wish to grant the key access to. Creating the token is then a simple API call to the endpoint.
+To create an API key, we will need the API ID that we wish to grant the key access to. Creating the token is then a simple API call to the endpoint.
 
 You will also need your own API Key, to get these values:
 
