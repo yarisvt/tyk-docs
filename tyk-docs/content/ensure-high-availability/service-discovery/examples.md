@@ -99,7 +99,7 @@ This is needed since Tyk appends a "Host" header when proxying the request and t
 
 [Linkered - Header Token Identifier documentation][3]
 
-[The original community contribution][2]
+[The original Community Contribution][2]
 
 
 [1]: https://linkerd.io/features/http-proxy/ 
