@@ -4,7 +4,7 @@ title: What are they ?
 menu:
   main:
     parent: "Rich Plugins"
-weight: 0 
+weight: 1
 ---
 
 Rich plugins make it possible to write powerful middleware for Tyk. Tyk supports [Python][1], [Lua][2] and [gRPC][3]. gRPC provides the ability to write plugins using many languages including C++, Java, Ruby and C#.

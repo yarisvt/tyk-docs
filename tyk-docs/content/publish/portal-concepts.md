@@ -7,7 +7,7 @@ menu:
 weight: 0 
 ---
 
-## <a name="api-catalogue"></a>Developer Portal Concepts: API Catalogue
+## <a name="api-catalogue"></a> API Catalogue
 
 The API Catalogue is a list of APIs that you have published to your portal.
 
@@ -20,7 +20,7 @@ From the API Catalogue, a user can either:
 
 When a developer requests a token, a new Auth token is generated on the linked policy, instead of the actual API, since you may wish to publish multi-tier access to the same API (E.g. Bronze / Silver / Gold).
 
-## <a name="key-requests"></a>Developer Portal Concepts: Key Requests
+## <a name="key-requests"></a> Key Requests
 
 A key request is a record that is generated when a developer requests an access token for an API published in the API Catalogue. The Key request encompasses the following information:
 
@@ -44,7 +44,7 @@ Tyk enables you to manage this flow in a few ways:
 
 A key request can be created using the Dashboard API too, in fact, the Key-Request mechanism is a great way to create a mapping between an identity (a developer) and a token, and managing that process.
 
-## <a name="policies"></a>Developer Portal Concepts: Policies
+## <a name="policies"></a> Policies
 
 In the context of the developer portal, a security policy is the main "element" being exposed to public access. The policy is the same as a standard policy, and the policy forms the baseline template that gets used when the portal generates a token for the developer.
 
@@ -58,7 +58,7 @@ Security policies are used instead of a one-to-one mapping because they encapsul
 
 Within the developer portal admin area, under a developer record, you will see their subscriptions. Those subscriptions represent the tokens they have and their policy level access. It is possible to then "upgrade" or "downgrade" a developers access without actually managing their token, but just assigning a new policy to that token.
 
-## <a name="documentation"></a>Developer Portal Concepts: Documentation
+## <a name="documentation"></a> Documentation
 
 Within the portal, documentation is what a developer can use to learn how to access and use your APIs.
 
@@ -69,7 +69,7 @@ The developer portal supports two types of documentation, and will render them d
 
 Within an API Catalogue entry, documentation must be "Attached" to the catalogue entry for it to be published.
 
-## <a name="developers"></a>Developer Portal Concepts: Developers
+## <a name="developers"></a> Developers
 
 Within the developer portal, the concept of a developer is pretty key. A developer here is an end-user that has access to the developer portal section of the portal website. This user is completely separate from the dashboard users and they do not ever intersect (they are also stored separately).
 

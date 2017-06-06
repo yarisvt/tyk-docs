@@ -7,7 +7,7 @@ menu:
 weight: 5 
 ---
 
-## <a name="overview"></a> Uptime tests overview
+## <a name="overview"></a> Overview
 
 As of v1.9 Tyk supports a kind of built-in "uptime awareness" of the underlying services and hosts that it is managing traffic for by actively polling user-defined endpoints at set intervals.
 
@@ -21,7 +21,7 @@ The master node will then run the uptime tests allocated to the cluster (shard g
 
 The node running the uptime test will have a worker pool defined so that it can execute tests simultaneously every few seconds determined by a node-configurable interval loop. Depending on how many uptime tests are being run, this worker pool should be increased or decreased as needed.
 
-## <a name="initial-configuration"></a> Uptime tests: Initial configuration
+## <a name="initial-configuration"></a> Initial configuration
 
 To configure uptime tests, add the relevant section to your `tyk.conf`:
 
@@ -43,7 +43,7 @@ To configure uptime tests, add the relevant section to your `tyk.conf`:
 *   `time_wait`: The number of seconds between running tests. In this example it is set to `300` seconds.
 *   `checker_pool_size`: The worker pool for uptime tests. In this example we have configured Tyk to keep `50` idle workers in memory to send tests to, in other words, with this configuration, you are pretty much guaranteed asynchronous testing for up to 50 tests.
 
-## <a name="configuration-with-api"></a> Uptime tests configuration: API Definition
+## <a name="configuration-with-api"></a> Configure with the API Definition
 
 Uptime test check lists sit within API configurations, so in your API Definition add a section for the tests:
 
@@ -94,7 +94,7 @@ The `body` is Base64 encoded.
 
 > **Note**: using the quick form will not enforce a timeout, while the long form will fail with a 500ms timeout.
 
-## <a name="configuration-with-dashboard"></a> Uptime tests configuration: Dashboard
+## <a name="configuration-with-dashboard"></a>Configure with the Dashboard
 
 To add an uptime test using the dashboard is very simple. Make sure that you have fulfilled the prerequisite configuration in your Gateway to enable the tester.
 
@@ -116,7 +116,7 @@ Complete the test details form and click *Add* to add the test:
 
 ![Test details form and add button location][3]
 
-## <a name="events"></a> Uptime tests: Events
+## <a name="events"></a> Events
 
 ### Uptime and downtime events
 
@@ -130,7 +130,7 @@ Please see the section on the event system on how to add event handlers to your 
 
 Since tests are on a URL-by-URL basis, you could potentially see multiple `HostDown` events for a single host where multiple endpoints are being tested.
 
-## <a name="load-balancing-and-service-discovery"></a> Uptime tests: Load balancing and Service Discovery
+## <a name="load-balancing-and-service-discovery"></a> Load balancing and Service Discovery
 
 #### Downtime detection and service availability
 

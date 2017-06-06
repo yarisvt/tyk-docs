@@ -55,9 +55,9 @@ Not yet, though IP-based rate limiting is possible using custom pre-processor mi
 
 All actions on the session object must be done via the Dashboard or Gateway REST API.
 
-1. Ensure that allowance and rate are set to the same value, this should be number of requests to be allowed in a time period, so if you wanted 100 requests every second, set this value to 100.
+1. Ensure that `allowance` and `rate` are set to the same value, this should be number of requests to be allowed in a time period, so if you wanted 100 requests every second, set this value to 100.
 
-2. Ensure that per is set to the time limit. Again, as in the above example, if you wanted 100 requests per second, set this value to 1. If you wanted 100 per 5 seconds, set this value to 5 etc.
+2. Ensure that `per` is set to the time limit. Again, as in the above example, if you wanted 100 requests per second, set this value to 1. If you wanted 100 per 5 seconds, set this value to 5 etc.
 
 
 

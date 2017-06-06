@@ -7,7 +7,7 @@ menu:
 weight: 1 
 ---
 
-## <a name="security-policies-detail"></a>Security Policies: Detail
+## <a name="security-policy-example"></a>Security Policy Example
 
 A Tyk policy looks just like the session object that is used when you create a new access token:
 

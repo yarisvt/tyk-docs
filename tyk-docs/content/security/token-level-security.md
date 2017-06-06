@@ -69,7 +69,7 @@ A quota is similar to a rate limit, as it allows a certain number of requests th
 In order to set a quota for a user:
 
 1.  Ensure that `quota_max` is set to the maximum amount of requests that a user is allowed to make in a time period.
-2.  Ensure `quota_reamining` is set to the same value as `quota_max`, this is the value that will decrement on each request (failed or successful).
+2.  Ensure `quota_remaining` is set to the same value as `quota_max`, this is the value that will decrement on each request (failed or successful).
 3.  Set the `quota_renewal_rate` to the value, in seconds, of when the quota should renew. For example, if you would like it to renew every 30 days, you would have `2592000` seconds (`((60*60) * 24) * 30 = 2592000`).
 
 To set an unlimited quota, set `quota_max` to `-1`.

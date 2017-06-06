@@ -1,13 +1,11 @@
 ---
 date: 2017-03-24T17:39:34Z
-title: Upgrading a developer's access
+title: Changing a developer's access level
 menu:
   main:
     parent: "Publish"
 weight: 0 
 ---
-
-## Tutorial: Tyk portal: Update a developers access level
 
 A common requirement when managing developers in the API developer portal is to upgrade or downgrade their access level depending on their billing rate or subscription level.
 

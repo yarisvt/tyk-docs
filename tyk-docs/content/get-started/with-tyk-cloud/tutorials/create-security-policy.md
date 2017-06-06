@@ -7,21 +7,12 @@ menu:
         parent: "Tutorials"
 ---
 
-## <a name="what-is-a-policy"></a>What is a security policy ?
+## <a name="introduction"></a> Introduction
 
-A security policy encapsulates several options that can be applied to a key. It acts as a template that can override individual sections of an API key (or identity) in Tyk. A good example is if you had 10,000 API keys issued, how would you ensure that all 10,000 users received an upgraded quota, or access to a new API that you have published?
+A security policy encapsulates several options that can be applied to a key. It acts as a template that can override individual sections of an API key (or identity) in Tyk.
 
-You could manually modify all 10,000 keys, or you could apply a policy to each of those tokens when you create them, and then just modify the policy once.
-**NOTE:** Policy settings override any Key settings you may have set up.
+See [What is a Security Policy?][8]
 
-Policies can set:
-
-*   Access lists for API and versions
-*   Access lists for method and path (granular control)
-*   Rate limit for a user
-*   Quota for a user
-
-Each of these can also be overridden in isolation using the partitioning options. When partitioning a policy, only one segment of the policy will be applied to the token. So, for example, if you need to set quotas and rate limits on a per client basis, but want to manage access control across all of your clients, a partitioned policy with only the ACL enabled would achieve this.
 
 ## <a name="with-dashboard"></a>Tutorial: Create a security policy with the Dashboard
 
@@ -133,3 +124,4 @@ For more information on how policies are constructed and a detailed explanation 
  [5]: /docs/img/dashboard/system-management/usageQuotas.png
  [6]: /docs/img/dashboard/system-management/securityEntry.png
  [7]: /docs/img/dashboard/system-management/savePolicy.png
+ [8]: /docs/concepts/what-is-a-security-policy/

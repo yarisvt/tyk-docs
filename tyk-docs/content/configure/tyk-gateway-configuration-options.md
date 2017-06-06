@@ -443,6 +443,12 @@ If set to `true`, distributed rate limiter will be disabled for this node, and i
 
 This option is available from v2.3.4 and onwards.
 
+### <a name="ssl_insecure_skip_verify"></a> ssl_insecure_skip_verify
+ 
+This boolean option allows the use of self-signed certificates for the Gateway.
+
+**NOTE**: This option is available from v2.3.5 onwards.
+
 
 
  [1]: /docs/others/Gateway-Environment-Vars.xlsx

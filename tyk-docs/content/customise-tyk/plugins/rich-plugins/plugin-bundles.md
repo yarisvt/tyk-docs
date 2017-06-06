@@ -4,7 +4,7 @@ title: Plugin Bundles
 menu:
   main:
     parent: "Rich Plugins"
-weight: 0 
+weight: 3 
 ---
 
 A plugin bundle is a ZIP file that contains your custom middleware files and its associated configuration block (the `custom_middleware` block).
@@ -57,7 +57,9 @@ The bundler tool enables you to sign a bundle using a private key. Tyk configura
 
 After installing any of the Tyk Gateway packages, the program will be located in the following path:
 
-`/opt/tyk-gateway/utils/tyk-cli`
+```
+  /opt/tyk-gateway/utils/tyk-cli
+```
 
 You may use the full path to call this program, feel free to create a symbolic link or attach its directory to your `PATH`.
 
@@ -69,7 +71,9 @@ You may use the full path to call this program, feel free to create a symbolic l
 
 This step will assume that you're located in your plugin directory and a valid manifest file is present. The bundle tool provides a `build` command, the most basic usage/syntax looks like this:
 
-`$ tyk-cli bundle build`
+```
+  $ tyk-cli bundle build
+```
 
 The resulting file will contain all your specified files and a modified `manifest.json` with the right checksum and signature (if required), in ZIP format.
 
