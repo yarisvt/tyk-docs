@@ -1,9 +1,10 @@
 ---
 date: 2017-03-23T11:11:18Z
-title: Create a security policy with Pro Edition
+title: Create a security policy
 menu:
   main:
     parent: "Pro Edition"
+    identifier: pro-edition-create-security-policy
 weight: 3
 ---
 

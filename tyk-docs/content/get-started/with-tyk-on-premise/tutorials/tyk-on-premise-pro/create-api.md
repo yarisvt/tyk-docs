@@ -1,9 +1,10 @@
 ---
 date: 2017-03-23T10:53:11Z
-title: Create an API with Pro Edition
+title: Create an API
 menu:
   main:
     parent: "Pro Edition"
+    identifier: pro-edition-creat-api
 weight: 1
 ---
 

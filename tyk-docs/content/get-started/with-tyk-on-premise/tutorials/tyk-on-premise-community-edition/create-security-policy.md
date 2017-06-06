@@ -1,9 +1,10 @@
 ---
 date: 2017-03-23T10:39:14Z
-Title: Create a security policy with Community Edition
+Title: Create a security policy
 menu:
   main:
     parent: Community Edition
+    identifier: community-edition-create-security-policy
 weight: 3
 ---
 

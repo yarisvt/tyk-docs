@@ -1,9 +1,10 @@
 ---
 date: 2017-03-23T11:04:58Z
-title: Create an API Token with Pro Edition
+title: Create an API Token
 menu:
   main:
     parent: "Pro Edition"
+    identifier: pro-edition-create-api-token
 weight: 2
 ---
 

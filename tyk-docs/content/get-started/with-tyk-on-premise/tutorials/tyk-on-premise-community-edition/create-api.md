@@ -1,9 +1,10 @@
 ---
 date: 2017-03-23T10:16:44Z
-Title: Create an API with Community Edition
+Title: Create an API
 menu:
   main:
     parent: Community Edition
+    identifier: community-edition-create-api
 weight: 1
 ---
 
