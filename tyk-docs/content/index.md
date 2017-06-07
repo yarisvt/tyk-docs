@@ -6,7 +6,7 @@ menu: "main"
 url: "/"
 ---
 
-Our documentation helps you get the most out of your Tyk installation. It covers all aspects of using Tyk to manage your APIs:
+Our documentation helps you get the most out of your Tyk installation. It covers all aspects of using Tyk to manage your APIs.
 
 ### Getting started
 
@@ -18,31 +18,31 @@ We have installation and tutorials for all Tyk Editions:
 
 Our tutorials cover all the subjects to get you started with Tyk, both using the GUI, and using our own APIs where available. From creating APIs to deploying your portal to your end users.
 
-Our documentation also covers the following (and more)
+Our documentation also covers the following (and more):
 
-### [Concepts][4]
+### Concepts
 
-The important concepts behind Tyk, helping you to understand the Tyk way of doing things. 
+The important [concepts][4] behind Tyk, helping you to understand the Tyk way of doing things. 
 
-### [Configuration][5]
+### Configuration
 
-How to configure Tyk to suit your requirements
+How to [configure][5] Tyk to suit your requirements.
 
-### [Analysis][6]
+### Analysis
 
-How to use Tyk's analytics tools
+How to use Tyk's [analytics][6] tools.
 
-### [Customising Tyk][7]
+### Customising Tyk
 
-How to customise Tyk, using Rich Plugins and JavaScript Virtual Machine Middleware
+How to [customise][7] Tyk, using Rich Plugins and JavaScript Virtual Machine Middleware.
 
-### [Portal Configuration][8]
+### Portal Configuration
 
-How to personalise your developer portal
+How to personalise your developer [portal][8].
 
 ### Tyk APIs
 
-How to use our APIs
+How to use our APIs.
 
 * [REST API][9]
 * [Dashboard API][10]
