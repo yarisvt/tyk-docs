@@ -10,7 +10,7 @@ weight: 1
 
 ## <a name="creation-methods"></a>Creation Methods
 
-With Tyk On-Premises Community Edition, it is possible to create APIs using Tyk’s REST API or to generate a file with the same object and store it in the /apps folder of the Tyk Gateway installation folder, this is discussed later.
+With Tyk On-Premises Community Edition, it is possible to create APIs using Tyk’s REST API or to generate a file with the same object and store it in the `/apps` folder of the Tyk Gateway installation folder, this is discussed later.
 
 
 ## <a name="with-gateway-rest-api"></a>Tutorial: Create an API with the Gateway REST API

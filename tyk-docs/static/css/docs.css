@@ -23,7 +23,7 @@ margin:-90px 0 0;
 /* Hero image */
 .hero-sidebyside img{ margin-right: 20px; width: 45px; margin-top: 10px;}
 .hero-sidebyside h1, .hero-sidebyside .hero-text {margin-top: 10px;}
-#doc-icon {font-size: 32px;}
+#doc-icon {font-size: 32px; width:400px;}
 
 @media only screen and (max-width : 1100px) {
   /* Fix Sidebar */

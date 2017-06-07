@@ -22,7 +22,7 @@ The way Tyk handles physical token deletion is in three stages:
 
 ### Expiring tokens at the API level
 
-In order to expire tokens at the API level, all that is required is to set the `session_expiry` field to an appropriate integer value in seconds.
+In order to expire tokens at the API level, all that is required is to set the `session_lifetime` field to an appropriate integer value in seconds.
 
 The expiry will become effective when the token is no longer updated or used, so if a token has an expiry set of 24 hours, then the session expiry will only come into effect after this period has elapsed.
 
@@ -30,7 +30,7 @@ If this is not set, then the default is 0 seconds, which means the token will no
 
 ### Expiring tokens at the Global level
 
-If `session_expiry` has not been set at the API level, it is possible to set a global expiration for all tokens after the token's expiry time by setting `global_session_lifetime` in the `tyk.conf` file to an integer value in seconds. This value will only be active if the session lifetime has not been set. The session lifetime will always supersede the global lifetime.
+If `session_lifetime` has not been set at the API level, it is possible to set a global expiration for all tokens after the token's expiry time by setting `global_session_lifetime` in the `tyk.conf` file to an integer value in seconds. This value will only be active if the session lifetime has not been set. The session lifetime will always supersede the global lifetime.
 
 ### Forcing expiry at Global level
 
