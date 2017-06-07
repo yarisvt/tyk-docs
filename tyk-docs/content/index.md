@@ -16,7 +16,7 @@ We have installation and tutorials for all Tyk Editions:
 * [Hybrid][2]
 * [On-Premises][3]
 
-Our tutorials cover all the subjects to get you started with Tyk, both using the GUI, and using our own APIs where available. From creating APIs to deploying your portal to your end users.
+Our tutorials cover all the subjects to get you started with Tyk, both using the Dashboard, and using our own APIs where available. From creating APIs to deploying your portal to your end users.
 
 Our documentation also covers the following (and more):
 
