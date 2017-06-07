@@ -6,15 +6,57 @@ menu: "main"
 url: "/"
 ---
 
-The Tyk Open Source API Gateway 2.x is the next step in a more distributed version of Tyk, and introduces a host of new modules:
+Our documentation helps you get the most out of your Tyk installation. It covers all aspects of using Tyk to manage your APIs.
 
-* WebSockets
-* XML transforms
-* Context variables
-* OpenID Connect Support
-* Tyk Pump: A data sink service that will move analytics data into any database that you choose, currently supported is CSV, MongoDB and ElasticSearch, InfluxDB, StatsD and Segment.io
-Tyk Identity Broker: Easily integrate third party Identity Providers with Tyk, be that Social, OAuth, Basic Auth, legacy systems or LDAP
+### Getting started
 
-Overall, we’ve improved stability and added much-needed support for standards such as HMAC signatures, JSON web tokens and IP whitelisting, as well as slimming down Tyk to handle less of the database work and decoupling it from MongoDB entirely.
+We have installation and tutorials for all Tyk Editions:
 
-Tyk v2.2 only has a single dependency: Redis, and we’ve changed the way we handle analytics so that instead of binding them directly to the dashboard, Tyk Community Edition users can publish their analytics to any data source they need (or multiple thereof), with minimum of effort.
+* [Cloud][1]
+* [Hybrid][2]
+* [On-Premises][3]
+
+Our tutorials cover all the subjects to get you started with Tyk, both using the Dashboard, and using our own APIs where available. From creating APIs to deploying your portal to your end users.
+
+Our documentation also covers the following (and more):
+
+### Concepts
+
+The important [concepts][4] behind Tyk, helping you to understand the Tyk way of doing things. 
+
+### Configuration
+
+How to [configure][5] Tyk to suit your requirements.
+
+### Analysis
+
+How to use Tyk's [analytics][6] tools.
+
+### Customising Tyk
+
+How to [customise][7] Tyk, using Rich Plugins and JavaScript Virtual Machine Middleware.
+
+### Portal Configuration
+
+How to [personalise][8] your Developer Portal.
+
+### Tyk APIs
+
+How to use our APIs.
+
+* [REST API][9]
+* [Dashboard API][10]
+* [Dashboard Admin API][11]
+
+
+  [1]: /docs/get-started/with-tyk-cloud/
+  [2]: /docs/get-started/with-tyk-hybrid/
+  [3]: /docs/get-started/with-tyk-on-premise/
+  [4]: /docs/concepts/
+  [5]: /docs/configure/
+  [6]: /docs/analyse/
+  [7]: /docs/publish/customise/
+  [8]: /docs/publish/customise/ 
+  [9]: /docs/tyk-rest-api/
+  [10]: /docs/tyk-dashboard-api/
+  [11]: /docs/dashboard-admin-api/
