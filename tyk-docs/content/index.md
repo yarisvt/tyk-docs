@@ -38,7 +38,7 @@ How to [customise][7] Tyk, using Rich Plugins and JavaScript Virtual Machine Mid
 
 ### Portal Configuration
 
-How to personalise your developer [portal][8].
+How to [personalise][8] your Developer Portal.
 
 ### Tyk APIs
 
