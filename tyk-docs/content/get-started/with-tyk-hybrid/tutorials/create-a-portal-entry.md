@@ -1,6 +1,6 @@
 ---
 date: 2017-03-22T14:36:21Z
-title: Create a portal entry with Hybrid
+title: Create a portal entry - Hybrid
 menu:
   main:
     parent: /with-tyk-hybrid

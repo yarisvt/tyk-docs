@@ -1,6 +1,6 @@
 ---
 date: 2017-03-23T11:04:58Z
-title: Create an API Token
+title: Create an API Token - Pro Edition
 menu:
   main:
     parent: "Pro Edition"

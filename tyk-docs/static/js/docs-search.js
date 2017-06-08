@@ -36,6 +36,7 @@ search.addWidget(
 var hitTemplate =
   '<div class="hit media">' +
     '<div class="media-body">' +
+      '<div class="media-body-section"><label>{{section}}</label></div>' +
       '<div class="media-body-title"><a href="/docs{{path}}" <h4 class="media-heading">{{{_highlightResult.title.value}}}.</h4></p> </a></div>' +
       '<div class="media-body-body"><a href="/docs{{path}}" <h4 class="media-heading em">..{{{_snippetResult.article.value}}}..</h4></p> </a></div>' +
     '</div>' +

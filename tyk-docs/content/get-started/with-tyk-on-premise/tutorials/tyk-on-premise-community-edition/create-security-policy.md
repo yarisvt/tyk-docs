@@ -1,6 +1,6 @@
 ---
 date: 2017-03-23T10:39:14Z
-Title: Create a security policy
+Title: Create a security policy - Community Edition
 menu:
   main:
     parent: Community Edition

@@ -77,7 +77,12 @@
       <a href="#" class="icon-print" data-print><span>Print</span></a>
       <a class="button grey medium suggest-edit icon-github" target="_blank" >Edit on GitHub</a>
     </nav>
-    <h1>{{ .Title}}</h1>
+    <h1>{{ if .Params.diffTitle }}
+          {{ .Params.diffTitleName }}
+        {{else}}
+          {{.Title}}
+        {{ end }}
+    </h1>
 
     <nav class="documentation-table-of-contents">
         <div class="toc-content"></div>

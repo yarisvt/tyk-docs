@@ -1,6 +1,6 @@
 ---
 date: 2017-03-23T10:53:11Z
-title: Create an API
+title: Create an API - Pro Edition
 menu:
   main:
     parent: "Pro Edition"
