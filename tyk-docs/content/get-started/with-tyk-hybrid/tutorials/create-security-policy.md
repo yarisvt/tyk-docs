@@ -1,6 +1,6 @@
 ---
 date: 2017-03-22T15:08:37Z
-title: Create a security policy with Hybrid
+title: Create a security policy - Hybrid
 weight: 0
 menu:
     main: 

@@ -1,6 +1,6 @@
 ---
 date: 2017-03-13T14:32:26Z
-title: Create a security policy with Cloud
+title: Create a security policy - Cloud
 weight: 3
 menu:
     main: 

@@ -1,6 +1,6 @@
 ---
 date: 2017-03-23T10:16:44Z
-Title: Create an API
+Title: Create an API - Community Edition
 menu:
   main:
     parent: Community Edition

@@ -1,11 +1,13 @@
 ---
 date: 2017-03-09T11:20:34Z
 Title: Tyk API Gateway Documentation
-weight: 1
+diffTitleName: Tyk Documentation
 menu:
   main:
     name: Documentation
 url: "/"
+weight: 1
+diffTitle: true
 ---
 
 Our documentation helps you get the most out of your Tyk installation. It covers all aspects of using Tyk to manage your APIs.

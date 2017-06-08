@@ -1,6 +1,6 @@
 ---
 date: 2017-03-23T11:11:18Z
-title: Create a security policy
+title: Create a security policy - Pro Edition
 menu:
   main:
     parent: "Pro Edition"

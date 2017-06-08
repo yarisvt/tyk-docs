@@ -17,7 +17,8 @@ var updatePageNav = function() {
 	
 	var ToClength = ToContent.children().length;
 	
-	if(ToClength < 3) {
+	console.log(ToClength);
+	if(ToClength < 4) {
 		ToC.remove();
 	}
 	

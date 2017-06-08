@@ -1,6 +1,6 @@
 ---
 date: 2017-03-22T15:03:39Z
-Title: Create an API Key with Hybrid
+Title: Create an API Key - Hybrid
 menu:
   main:
     parent: /with-tyk-hybrid

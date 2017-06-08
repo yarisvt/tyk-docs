@@ -1,6 +1,6 @@
 ---
 date: 2017-03-13T15:08:55Z
-Title: Create an API Token
+Title: Create an API Token - Community Edition
 menu:
   main:
     parent: Community Edition

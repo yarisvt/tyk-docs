@@ -1,6 +1,6 @@
 ---
 date: 2017-03-15T16:33:46Z
-title: Create a portal entry with Cloud
+title: Create a portal entry - Cloud
 menu:
   main:
     parent: "Tutorials"
