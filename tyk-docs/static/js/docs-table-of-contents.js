@@ -12,12 +12,11 @@ var updatePageNav = function() {
 	
 	$(".page-content h2").each(function() {
 		ToContent.prepend(ToClbl);
-	ToContent.append('<a href="#' + $(this).find('a').attr("name") +'" class="button blue outline">' + $(this).text() +'</a><br>');
+		ToContent.append('<a href="#' + $(this).find('a').attr("name") +'" class="button blue outline">' + $(this).text() +'</a><br>');
 	});
 	
 	var ToClength = ToContent.children().length;
 	
-	console.log(ToClength);
 	if(ToClength < 4) {
 		ToC.remove();
 	}
