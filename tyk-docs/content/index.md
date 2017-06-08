@@ -1,8 +1,10 @@
 ---
 date: 2017-03-09T11:20:34Z
-Title: Documentation
+Title: Tyk API Gateway Documentation
 weight: 1
-menu: "main"
+menu:
+  main:
+    name: Documentation
 url: "/"
 ---
 

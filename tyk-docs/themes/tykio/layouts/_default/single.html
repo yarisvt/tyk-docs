@@ -29,9 +29,9 @@
 <header class="header f-14">
 <div class="container">
   <a href="https://tyk.io" class="logo">
-      <img src="/docs/img/header-logo.svg" alt="Tyk">
+    <img src="/docs/img/header-logo.svg" alt="Tyk">
   </a>
-  <a href="https://github.com/TykTechnologies" target="_blank" class="header-github icon-github"></a>
+  <a href="https://github.com/TykTechnologies/tyk" target="_blank" class="header-github icon-github"></a>
 </div>
 <button class="m-show burger" data-toggle="show-submenu"></button>
 </header>
@@ -73,29 +73,29 @@
 
   <article class="page-content wysiwyg">
  
-      <nav class="docs-share-print share-print f-14 bold ucase">
-        <a href="#" class="icon-print" data-print><span>Print</span></a>
-        <a class="button grey medium suggest-edit icon-github" target="_blank" >Edit on GitHub</a>
-      </nav>
-      <h1>{{ .Title}}</h1>
+    <nav class="docs-share-print share-print f-14 bold ucase">
+      <a href="#" class="icon-print" data-print><span>Print</span></a>
+      <a class="button grey medium suggest-edit icon-github" target="_blank" >Edit on GitHub</a>
+    </nav>
+    <h1>{{ .Title}}</h1>
 
-        <nav class="documentation-table-of-contents">
-          <label class="f-12">In this section:</label>
-        </nav>
-        <div id="main-content">
-          {{ .Content }}
-        </div>
-        
-      <nav class="docs-navigation clear">
-        <a id="previousArticle" class="button outline blue icon-left"></a>
-        <a id="nextArticle" class="button outline blue icon-right"></a>
-      </nav>
+    <nav class="documentation-table-of-contents">
+        <div class="toc-content"></div>
+    </nav>
+    <div id="main-content">
+      {{ .Content }}
+    </div>
       
-      <div class="return-top">
-      <a href="javascript:" class="button grey medium bottom">Return to Top</a>
-      </div>
+    <nav class="docs-navigation clear">
+      <a id="previousArticle" class="button outline blue icon-left"></a>
+      <a id="nextArticle" class="button outline blue icon-right"></a>
+    </nav>
+    
+    <div class="return-top">
+    <a href="javascript:" class="button grey medium bottom">Return to Top</a>
+    </div>
 
-      <a href="javascript:" class="icon-right" id="return-to-top"></a>
+    <a href="javascript:" class="icon-right" id="return-to-top"></a>
   </article>
 
 
@@ -108,26 +108,25 @@
     
     <nav class="footer-menu f-12">
       <h3 class="f-13">Features</h3>
-        <a href="/features/" target="_blank">Features</a>
+        <a href="/features/">Features</a>
         <a href="/features/extend-tyk/">Extend Tyk</a>
-            
+        <a href="/features/tyk-benchmarks/">Tyk Benchmarks</a>
     </nav>
 
     <nav class="footer-menu f-12">
       <h3 class="f-13">Products</h3>
         <a href="/api-gateway/cloud/">Tyk Cloud</a>
-        <a href="/api-gateway/on-premise/">Tyk On-Premise</a>
+        <a href="/api-gateway/on-premise/">Tyk On-Premises</a>
         <a href="/api-gateway/hybrid/">Tyk Hybrid</a>
         <a href="/api-gateway/enterprise/">Tyk Enterprise</a>   
     </nav>
 
     <nav class="footer-menu f-12">
       <h3 class="f-13">Help</h3>
-        <a href="/documentation/">Documentation</a>
-        <a href="https://community.tyk.io/">Ask a Question</a>
+        <a href="https://community.tyk.io/" target="_blank">Ask a Question</a>
         <a href="/helpdesk/">Helpdesk</a>
-        <a href="https://github.com/TykTechnologies/tyk">Raise a Bug</a>
-        <a href="https://trello.com/b/59d5kAZ5/tyk-api-gateway-roadmap">Open Roadmap</a>
+        <a href="https://github.com/TykTechnologies/tyk/issues" target="_blank">Raise a Bug</a>
+        <a href="https://trello.com/b/59d5kAZ5/tyk-api-gateway-roadmap" target="_blank">Open Roadmap</a>
     </nav>
 
     <nav class="footer-menu f-12">
@@ -135,7 +134,7 @@
         <a href="/about/team/">Team</a>
         <a href="/about/partners/">Partners</a>
         <a href="/#contact">Contact</a>
-        <a href="/news/">News</a> 
+        <a href="/blog/">News</a> 
     </nav>
 
     <nav class="footer-menu f-12">
@@ -145,7 +144,7 @@
     </nav>
 
     <nav class="footer-social">
-      <a href="https://github.com/TykTechnologies" target="_blank" class="icon-github"></a>
+      <a href="https://github.com/TykTechnologies/tyk" target="_blank" class="icon-github"></a>
       <a href="https://twitter.com/tyk_io" target="_blank" class="icon-twitter"></a>
     </nav>
     
