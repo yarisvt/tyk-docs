@@ -124,6 +124,7 @@ body * { visibility: hidden; }
 .hero .search {margin-top: 10px; max-width: 100%;}
 .media-body-body {margin-top: 5px; }
 .media-body-title {border-top: 1px solid #E1E1E1;}
+.media-body-title a {font-weight: bold;}
 .media-body:hover { background: #e1e1e1; margin: 0; padding: 0; }
 
 /* Structure */

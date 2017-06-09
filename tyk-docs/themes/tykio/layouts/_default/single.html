@@ -113,17 +113,17 @@
     
     <nav class="footer-menu f-12">
       <h3 class="f-13">Features</h3>
-        <a href="/features/">Features</a>
-        <a href="/features/extend-tyk/">Extend Tyk</a>
-        <a href="/features/tyk-benchmarks/">Tyk Benchmarks</a>
+        <a href="/features/">Out of the box</a>
+        <a href="/features/extend-tyk/">Plugins</a>
+        <a href="/features/tyk-benchmarks/">Benchmarks</a>
     </nav>
 
     <nav class="footer-menu f-12">
       <h3 class="f-13">Products</h3>
-        <a href="/api-gateway/cloud/">Tyk Cloud</a>
-        <a href="/api-gateway/on-premise/">Tyk On-Premises</a>
-        <a href="/api-gateway/hybrid/">Tyk Hybrid</a>
-        <a href="/api-gateway/enterprise/">Tyk Enterprise</a>   
+        <a href="/api-gateway/cloud/">Cloud</a>
+        <a href="/api-gateway/on-premise/">On-Premises</a>
+        <a href="/api-gateway/hybrid/">Hybrid</a>
+        <a href="/api-gateway/enterprise/">Enterprise</a>
     </nav>
 
     <nav class="footer-menu f-12">
@@ -137,9 +137,8 @@
     <nav class="footer-menu f-12">
       <h3 class="f-13">About</h3>
         <a href="/about/team/">Team</a>
-        <a href="/about/partners/">Partners</a>
         <a href="/#contact">Contact</a>
-        <a href="/blog/">News</a> 
+        <a href="/blog/">Blog</a>
     </nav>
 
     <nav class="footer-menu f-12">
@@ -191,10 +190,10 @@
             head.appendChild(script);
             
             $(document).on('turbolinks:load', function() {
-                document.querySelector('.page-content').scrollIntoView();
+                $(window).scrollTop(0);
 
                 setTimeout(function(){
-                    document.querySelector('.page-content').scrollIntoView();
+                    $(window).scrollTop(0);
                 }, 0)
             })
           
