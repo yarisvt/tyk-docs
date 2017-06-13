@@ -144,6 +144,9 @@ body * { visibility: hidden; }
 .documentation-search input:focus {max-width: 100%; background-color: #e1e1e1; color: #010017;}
 .documentation-search input:focus + button {color: #010017;}
 .icon-search {cursor: auto;}
+#algolia-logo {float:right; background-color: #FFF; width:100%;}
+#algolia-logo img {float:right;}
+#algolia-logo span {float: right; width: 48px; margin-top: 10px; font-size: 13px; width: 65px; margin-top: 9px;}
 
 
 /* Search Result */
@@ -205,7 +208,7 @@ body * { visibility: hidden; }
   .documentation-table-of-contents a {border-radius: 12px; height: auto; padding-top:16px; padding-bottom: 16px; line-height: 1.5; width: 100%;}
 
   .docs-navigation a {text-align: center;}
-  .docs-navigation #previousArticle, .docs-navigation #nextArticle {float: none; width: 100%;}
+  .docs-navigation #previousArticle, .docs-navigation #nextArticle {float: none; width: 100%; max-width: 100%;}
   
   .aside-submenu {padding-top: 40px;}
 

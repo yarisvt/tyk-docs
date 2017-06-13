@@ -7,10 +7,12 @@ var search = instantsearch({
   searchFunction(helper) {
     var hits = document.getElementById("hits");
     var pagination = document.getElementById("pagination");
+    var algLogo = document.getElementById("algolia-logo");
 
     if (helper.state.query === '') {
         hits.style.display = 'none';
         pagination.style.display = 'none';
+        algLogo.style.display = 'none';
       return;
     }
 
@@ -19,6 +21,7 @@ var search = instantsearch({
 
     hits.style.display = 'block';
     pagination.style.display = 'block';
+    algLogo.style.display = 'block';
 
     helper.search();
 
