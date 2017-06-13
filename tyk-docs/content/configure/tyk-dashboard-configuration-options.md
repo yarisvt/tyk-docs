@@ -40,12 +40,13 @@ The file will look like the sample below, the various fields are explained in th
         "hash_keys": true,
         "email_backend": {
             "enable_email_notifications": true,
-            "code": "mandrill",
+            "code": "provider-name",
             "settings": {
-                "ClientKey": "YOUR_MANDRILL_KEY"
+                // Client specific settings go here.
             },
             "default_from_email": "you@domain.com",
-            "default_from_name": "The Dude at Domain.com"
+            "default_from_name": "The Dude at Domain.com",
+            "dashboard_domain": "{{your-public-dashboard-hostname}}"
         },
         "hide_listen_path": false,
         "use_sentry": false,
@@ -72,6 +73,11 @@ The file will look like the sample below, the various fields are explained in th
             "login_failure_ip_limit": 10,
             "login_failure_expiration": 900,
             "audit_log_path" : "/tmp/audit.log"
+        },
+        "dashboard_session_lifetime": 60
+        },
+        "mongo_ssl_insecure_skip_verify": true,
+        "mongo_use_ssl": true
         }
     }
 ```
@@ -120,11 +126,11 @@ Each node communicates with the Dashboard via a shared secret (this setting) and
 
 *   `hash_keys`: If your Tyk Gateway is using hashed tokens, set this value here to `true` so it matches, the Dashboard will now operate in a mode that is compatible with key hashing.
 
-*   `email_backend`: Tyk supports an interface-based email back-end system, currently only Mandrill is supported out of the box. If you have a Mandrill account, you can have Tyk send emails on your behalf by filling in this configuration section.
+*   `email_backend`: Tyk supports an interface-based email back-end system.We support `mandrill`, `sendgrid`, `amazonses` and `mailgun`. See [Outbound Email Configuration][4] for more details on configuring these different providers.
 
 *   `enable_email_notifications`: Set to `true` to have Tyk send emails for things such as key approvals, and portal sign ups.
 
-*   `code`: The code of the back-end to use, `mandrill`, `sendgrid`, `amazonses` and `mailgun` are supported, please see the "Sending emails" section for more details on configuring these different providers.
+*   `code`: The code of the back-end to use, `mandrill`, `sendgrid`, `amazonses` and `mailgun` are supported. See [Outbound Email Configuration][4] for more details on configuring these different providers.
 
 *   `email_backend.settings`: The custom settings sections for the back end.
 
@@ -133,6 +139,10 @@ Each node communicates with the Dashboard via a shared secret (this setting) and
 *   `default_from_email`: The address to send email from.
 
 *   `default_from_name`: The name to use when sending emails.
+
+*   `dashboard_domain`: Your public dashboard hostname.
+
+> **Note**: `dashboard_domain` is available from v1.3.6 onwards.
 
 *   `hide_listen_path`: If you set this option to `true`, then the listen path will not be editable or visible in the Dashboard.
 
@@ -206,6 +216,14 @@ For more information see the [SSL section in the documentation][1]
 
 *   `home_dir`: The path to the home directory of Tyk Dashboard, this must be set in order for Portal templates and other files to be loadable. By default this is `/opt/tyk-dashboard/`.
 
+*   `dashboard_session_lifetime` The timeout setting for a Dashboard session in seconds. Defaults to 60 seconds.
+
+> **NOTE:** `dashboard_session_lifetime` is available from v1.3.6 onwards
+
+*   `mongo_ssl_insecure_skip_verify`: Boolean setting for Mongo SSL support. Set to `true` to enable SSL.
+
+*   `mongo_use_ssl`: Boolean setting for Mongo SSL support. Set to `true` to enable SSL.
+
 *   `[identity_broker]`: Tyk Dashboard 1.0 has some preset Tyk Identity Broker configurations set up, for this integration to work, Tyk Dashboard must be able to see an Identity Broker instance. The settings in this section are to enable this integration.
 
 *   `identity_broker.enabled`: Enable the TIB integration (otherwise it will not appear in the UI).
@@ -238,3 +256,4 @@ Environment variables can be used to override settings defined in the configurat
  [1]: /security/concepts/tls-and-ssl/
  [2]: /docs/others/Gateway-Environment-Vars.xlsx
  [3]: /configure/tyk-gateway-configuration-options/#node_secret
+ [4]: /docs/configure/outbound-email-configuration/

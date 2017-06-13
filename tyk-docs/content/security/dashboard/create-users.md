@@ -89,6 +89,33 @@ You will see the following response if the user has been created:
 ```
 
 The user is now active.
+## Resetting a User Password
+> **Note:** This functionality is available from v1.3.6
+
+You can change your password in these circumstances:
+ 
+*  If you have forgotten your password
+*  If you wish to change your password
+
+### Forgotten Your Password?
+If you have forgotten your password, you can request a password reset email from the Dashboard Login screen:
+![password reset email][7]
+
+Enter your login email address, and you will receive an email with a link that enables you to create a new password.
+
+> **Note:** This link will only be valid for 1000 seconds
+
+> **Note:** You will need to configure your [outbound email settings][9] to enable this feature.
+
+### Change Your Password
+If you wish to change your current password, from the **System Management > Users** screen, select **Edit** for your Username.
+
+> **Note:** You will not be able to change the password for other Dashboard users.
+
+From the bottom of your user details, click **Reset Password**:
+![reset password button][8]
+Enter your current and new password (and confirm it) in the dialog box that is displayed, and click **Reset Password**.
+You will automatically be logged out of the Dashboard and will have to enter your username and new password to log back in.
 
  [1]: /docs/img/dashboard/system-management/nav_users.png
  [2]: /docs/img/dashboard/system-management/addUserButton.png
@@ -96,3 +123,6 @@ The user is now active.
  [4]: /docs/img/dashboard/system-management/adminAccount.png
  [5]: /docs/img/dashboard/system-management/saveUser.png
  [6]: /docs/img/dashboard/system-management/userCredentials.png
+ [7]: /docs/img/dashboard/system-management/password_email_reset.png
+ [8]: /docs/img/dashboard/system-management/reset_password_button.png
+ [9]: /docs/configure/outbound-email-configuration/

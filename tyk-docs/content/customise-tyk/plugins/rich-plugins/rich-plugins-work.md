@@ -156,8 +156,13 @@ The intended way of using a Coprocess middleware is to specify it as part of an 
 
 > **Note**: All hook types support chaining except the custom auth check (`auth_check`).
 
+### ReturnOverides
+From version 1.3.6, you can now  override response code, headers and body using ReturnOverrides. See the [Extend ReturnOverides][6] repo for details.
+
+
  [1]: https://developers.google.com/protocol-buffers/
  [2]: https://golang.org/cmd/cgo/
  [3]: https://github.com/TykTechnologies/tyk/blob/master/coprocess/api.h
  [4]: https://github.com/TykTechnologies/tyk/blob/master/coprocess.go
  [5]: http://cython.org/
+ [6]: https://github.com/TykTechnologies/tyk/pull/763
