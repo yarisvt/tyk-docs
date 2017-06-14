@@ -55,7 +55,9 @@ Create a `pump.conf` file:
             "collection_name": "tyk_uptime_analytics",
             "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/{db_name}"
         },
-        "dont_purge_uptime_data": false
+        "dont_purge_uptime_data": false,
+        "mongo_ssl_insecure_skip_verify": true,
+        "mongo_use_ssl": true
     }
 ```
 

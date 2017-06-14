@@ -44,7 +44,7 @@ To add a gRPC plugin to your API, you must specify the bundle name using the `cu
             "target_url": "http://httpbin.org",
             "strip_listen_path": true
         },
-        "custom_middleware_bundle": "test-bundle",
+        "custom_middleware_bundle": "test-bundle"
     }
 ```
 
@@ -71,6 +71,11 @@ To enable gRPC plugins you need to add the following block to `tyk.conf`:
 `bundle_base_url` is a base URL that will be used to download the bundle, in this example we have "test-bundle" specified in the API settings, Tyk will fetch the following URL: "http://my-bundle-server.com/bundles/test-bundle".
 
 `public_key_path` sets a public key, this is used for verifying signed bundles, you may omit this if unsigned bundles are used.
+
+## ReturnOverrides
+From version 1.3.6, you can now  override response code, headers and body using ReturnOverrides. See the [Extend ReturnOverides][1] sample for details.
+
+ [1]: https://github.com/TykTechnologies/tyk/pull/763
 
 
 
