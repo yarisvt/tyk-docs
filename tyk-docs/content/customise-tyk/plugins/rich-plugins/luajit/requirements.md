@@ -17,7 +17,7 @@ $ apt-get install luarocks`
 The LuaJIT required modules are as follows:
 
 *   [lua-cjson][2]: in case you have `luarocks`, run: `$ luarocks install lua-cjson`
-*   From v1.3.6 You can also use override response code, headers and body using ReturnOverrides. See the example [Extend ReturnOverides][3] pull request for details.
+*   From v1.3.6 You can also use override response code, headers and body using ReturnOverrides. See the [Extend ReturnOverides][3] sample for details.
 
  [1]: http://luajit.org/
  [2]: https://github.com/mpx/lua-cjson

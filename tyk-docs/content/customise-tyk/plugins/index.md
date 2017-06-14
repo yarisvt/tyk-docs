@@ -18,22 +18,18 @@ Tyk supports the use of the following plugins to extend Tyk functionality:
 All plugins require the following addition to be made to your `tyk.conf` file:
 
 ```
-
-"coprocess_options": {
-  "enable_coprocess": true
-},
-"enable_bundle_downloader": true,
-"bundle_base_url": "http://my-bundle-server.com/bundles/",
-"public_key_path": "/path/to/my/pubkey",
-
+  "coprocess_options": {
+    "enable_coprocess": true
+  },
+  "enable_bundle_downloader": true,
+  "bundle_base_url": "http://my-bundle-server.com/bundles/",
+  "public_key_path": "/path/to/my/pubkey",
 ```
 
 For a gRPC rich plugin a further parameter is required within coprocess_options:
 
 ```
-
-"coprocess_grpc_server": "tcp://127.0.0.1:5555"
-
+  "coprocess_grpc_server": "tcp://127.0.0.1:5555"
 ```
 
 ## Differences between Rich Plugins and JSVM middleware

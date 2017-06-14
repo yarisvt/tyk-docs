@@ -83,7 +83,10 @@ In some cases you may wish to add a secure header to all outbound requests (e.g.
           "Default": {
             ...
             "global_headers": {
-                "x-header-name": "x-header-value"
+                "X-Static": "foo",
+                "X-Request-ID":"$tyk_context.request_id",
+                "X-Path": "$tyk_context.path",
+                "X-Remote-Addr": "$tyk_context.remote_addr"
             },
             "global_headers_remove": [
                 "auth_id"
