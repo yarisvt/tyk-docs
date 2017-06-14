@@ -162,13 +162,13 @@ Since users are created with a random password, you will need to reset the passw
 
 ### Reset Password
 
-| **Property** | **Description**    |
-| ------------ | ------------------ |
-| Resource URL | `/api/users/{uid}` |
-| Method       | PUT                |
-| Type         | None               |
-| Body         | None               |
-| Param        | None               |
+| **Property** | **Description**                                      |
+| ------------ | ---------------------------------------------------- |
+| Resource URL | `/admin/users/:userId/actions/allow_reset_passwords` |
+| Method       | PUT                                                  |
+| Type         | None                                                 |
+| Body         | None                                                 |
+| Param        | None                                                 |
 
 #### Enable Reset Password
 ```
@@ -179,6 +179,16 @@ Since users are created with a random password, you will need to reset the passw
     PUT -H "admin-auth: <your secret>" http://<dashboard>/admin/users/:userId/actions/disallow_reset_passwords
 ```
 
+#### Sample Response
+
+```
+    {
+      "Status": "OK",
+      "Message": "User updated",
+      "Meta": 
+        { …user object payload …}
+    }
+```
 ### Update user
 
 | **Property** | **Description**    |

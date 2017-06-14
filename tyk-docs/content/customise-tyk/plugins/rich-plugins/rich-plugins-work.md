@@ -157,7 +157,7 @@ The intended way of using a Coprocess middleware is to specify it as part of an 
 > **Note**: All hook types support chaining except the custom auth check (`auth_check`).
 
 ### ReturnOverides
-From version 1.3.6, you can now  override response code, headers and body using ReturnOverrides. See the [Extend ReturnOverides][6] repo for details.
+From version 1.3.6, you can now  override response code, headers and body using ReturnOverrides. See the example [Extend ReturnOverides][6] pull request for details.
 
 
  [1]: https://developers.google.com/protocol-buffers/

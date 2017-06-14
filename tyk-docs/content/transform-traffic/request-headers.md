@@ -154,27 +154,27 @@ The context variables that are available are:
 
 ### Example `global_headers` section
 ```
-"version_data": {
-    "not_versioned": true,
-    "versions": {
-        "v1": {
-            "name": "v1",
-            "expires": "2100-01-02 15:04",
-            "use_extended_paths": true,
-            "paths": {
-                "ignored": [],
-                "white_list": [],
-                "black_list": []
-            },
-            "global_headers":{
-                "X-Static": "foo",
-                "X-Request-ID":"$tyk_context.request_id",
-                "X-Path": "$tyk_context.path",
-                "X-Remote-Addr": "$tyk_context.remote_addr"
+    "version_data": {
+        "not_versioned": true,
+        "versions": {
+            "v1": {
+                "name": "v1",
+                "expires": "2100-01-02 15:04",
+                "use_extended_paths": true,
+                "paths": {
+                    "ignored": [],
+                    "white_list": [],
+                    "black_list": []
+                },
+                "global_headers":{
+                    "X-Static": "foo",
+                    "X-Request-ID":"$tyk_context.request_id",
+                    "X-Path": "$tyk_context.path",
+                    "X-Remote-Addr": "$tyk_context.remote_addr"
+                }
             }
         }
-    }
- },
+     }
 ```
 
 

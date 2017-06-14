@@ -89,7 +89,7 @@ You will see the following response if the user has been created:
 ```
 
 The user is now active.
-## Resetting a User Password
+## <a name="reset-password"></a>Resetting a User Password
 > **Note:** This functionality is available from v1.3.6
 
 You can change your password in these circumstances:
@@ -99,6 +99,7 @@ You can change your password in these circumstances:
 
 ### Forgotten Your Password?
 If you have forgotten your password, you can request a password reset email from the Dashboard Login screen:
+
 ![password reset email][7]
 
 Enter your login email address, and you will receive an email with a link that enables you to create a new password.
@@ -113,6 +114,7 @@ If you wish to change your current password, from the **System Management > User
 > **Note:** You will not be able to change the password for other Dashboard users.
 
 From the bottom of your user details, click **Reset Password**:
+
 ![reset password button][8]
 Enter your current and new password (and confirm it) in the dialog box that is displayed, and click **Reset Password**.
 You will automatically be logged out of the Dashboard and will have to enter your username and new password to log back in.
