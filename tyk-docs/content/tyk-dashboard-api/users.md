@@ -61,7 +61,7 @@ weight: 5
 
 | **Property** | **Description**         |
 | ------------ | ----------------------- |
-| Resource URL | `/api/users/{user-id}}` |
+| Resource URL | `/api/users/{user-id}`  |
 | Method       | GET                     |
 | Type         | None                    |
 | Body         | None                    |
@@ -132,13 +132,13 @@ Users are created with a random password, you will need to reset the password in
 
 Since users are created with a random password, you will need to reset the password in a second API call to set the password correctly.
 
-| **Property** | **Description**                  |
-| ------------ | -------------------------------- |
-| Resource URL | `/api/users/{uid}/actions/reset` |
-| Method       | POST                             |
-| Type         | None                             |
-| Body         | Password Object                  |
-| Param        | None                             |
+| **Property** | **Description**                      |
+| ------------ | -------------------------------------|
+| Resource URL | `/api/users/{user-id}/actions/reset` |
+| Method       | POST                                 |
+| Type         | None                                 |
+| Body         | Password Object                      |
+| Param        | None                                 |
 
 #### Sample Request
 
@@ -162,17 +162,17 @@ Since users are created with a random password, you will need to reset the passw
 
 ### Allow Reset Password
 
-| **Property** | **Description**                                      |
-| ------------ | ---------------------------------------------------- |
-| Resource URL | `/admin/users/{uid}/actions/allow_reset_passwords`   |
-| Method       | PUT                                                  |
-| Type         | None                                                 |
-| Body         | None                                                 |
-| Param        | None                                                 |
+| **Property** | **Description**                                       |
+| ------------ | ------------------------------------------------------|
+| Resource URL | `/admin/users/{user-id}/actions/allow_reset_passwords`|
+| Method       | PUT                                                   |
+| Type         | None                                                  |
+| Body         | None                                                  |
+| Param        | None                                                  |
 
 #### Sample Request
 ```
-    PUT -H "admin-auth: <your secret>" http://<dashboard>/admin/users/:userId/actions/allow_reset_passwords
+    PUT -H "admin-auth: <your secret>" http://<dashboard>/admin/users/{user-id}/actions/allow_reset_passwords
 ```
 
 #### Sample Response
@@ -187,17 +187,17 @@ Since users are created with a random password, you will need to reset the passw
 
 ### Disallow Reset Password
 
-| **Property** | **Description**                                      |
-| ------------ | ---------------------------------------------------- |
-| Resource URL | `/admin/users/{uid}/actions/allow_reset_passwords`   |
-| Method       | PUT                                                  |
-| Type         | None                                                 |
-| Body         | None                                                 |
-| Param        | None                                                 |
+| **Property** | **Description**                                           |
+| ------------ | ----------------------------------------------------------|
+| Resource URL | `/admin/users/{user-id}/actions/disallow_reset_passwords` |
+| Method       | PUT                                                       |
+| Type         | None                                                      |
+| Body         | None                                                      |
+| Param        | None                                                      |
 
 #### Sample Request
 ```
-    PUT -H "admin-auth: <your secret>" http://<dashboard>/admin/users/:userId/actions/disallow_reset_passwords
+    PUT -H "admin-auth: <your secret>" http://<dashboard>/admin/users/{user-id}/actions/disallow_reset_passwords
 ```
 
 #### Sample Response
@@ -213,13 +213,13 @@ Since users are created with a random password, you will need to reset the passw
 
 ### Update user
 
-| **Property** | **Description**    |
-| ------------ | ------------------ |
-| Resource URL | `/api/users/{uid}` |
-| Method       | PUT                |
-| Type         | None               |
-| Body         | User Object        |
-| Param        | None               |
+| **Property** | **Description**        |
+| ------------ | -----------------------|
+| Resource URL | `/api/users/{user-id}` |
+| Method       | PUT                    |
+| Type         | None                   |
+| Body         | User Object            |
+| Param        | None                   |
 
 #### Sample Request
 
@@ -248,13 +248,13 @@ Since users are created with a random password, you will need to reset the passw
 
 ### Delete user
 
-| **Property** | **Description**     |
-| ------------ | ------------------- |
-| Resource URL | `/api/users/{uid}}` |
-| Method       | DELETE              |
-| Type         | None                |
-| Body         | None                |
-| Param        | None                |
+| **Property** | **Description**        |
+| ------------ | -----------------------|
+| Resource URL | `/api/users/{user-id}` |
+| Method       | DELETE                 |
+| Type         | None                   |
+| Body         | None                   |
+| Param        | None                   |
 
 #### Sample Request
 

@@ -31,9 +31,9 @@ The file will look like the sample below, the various fields are explained in th
         "redis_hosts": {
             "server1": "6379",
             "server2": "6380",
-            "server23: "6381",
+            "server3": "6381"
         },
-        "enable_cluster": false
+        "enable_cluster": false,
         "force_api_defaults": false,
         "notify_on_change": true,
         "license_key": "..."
@@ -74,11 +74,9 @@ The file will look like the sample below, the various fields are explained in th
             "login_failure_expiration": 900,
             "audit_log_path" : "/tmp/audit.log"
         },
-        "dashboard_session_lifetime": 60
-        },
+        "dashboard_session_lifetime": 60,
         "mongo_ssl_insecure_skip_verify": true,
         "mongo_use_ssl": true
-        }
     }
 ```
 

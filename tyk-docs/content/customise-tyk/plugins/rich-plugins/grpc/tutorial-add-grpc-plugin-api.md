@@ -44,7 +44,7 @@ To add a gRPC plugin to your API, you must specify the bundle name using the `cu
             "target_url": "http://httpbin.org",
             "strip_listen_path": true
         },
-        "custom_middleware_bundle": "test-bundle",
+        "custom_middleware_bundle": "test-bundle"
     }
 ```
 
