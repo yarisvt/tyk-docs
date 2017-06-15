@@ -61,6 +61,8 @@ Create a `pump.conf` file:
     }
 ```
 
+> **Note**: `mongo_ssl_insecure_skip_verify` and `mongo_use_ssl` are available from v1.3.6 onwards.
+
 Pumps are then added to the `pumps` section of this document, each should represent a sink to purge the data into.
 
 Settings must be the same as for the original `tyk.conf` for Redis and for MongoDB.
