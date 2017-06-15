@@ -69,6 +69,6 @@ Settings must be the same as for the original `tyk.conf` for Redis and for Mongo
 
 ### Environment variables
 
-Environment variables can be used to override settings defined in the configuration file. The [Tyk Pump environment variable mappings][1] spreadsheet shows how the JSON member keys map to the environment variables. Where an environment variable is specified, its value will take precendence over the value in the configuration file.
+Environment variables can be used to override settings defined in the configuration file. The [Tyk Pump environment variable mappings][1] spreadsheet shows how the JSON member keys map to the environment variables. Where an environment variable is specified, its value will take precedence over the value in the configuration file.
 
  [1]: /docs/others/Gateway-Environment-Vars.xlsx
