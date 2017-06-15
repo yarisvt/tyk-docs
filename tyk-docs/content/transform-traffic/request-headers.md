@@ -83,7 +83,10 @@ In some cases you may wish to add a secure header to all outbound requests (e.g.
           "Default": {
             ...
             "global_headers": {
-                "x-header-name": "x-header-value"
+                "X-Static": "foo",
+                "X-Request-ID":"$tyk_context.request_id",
+                "X-Path": "$tyk_context.path",
+                "X-Remote-Addr": "$tyk_context.remote_addr"
             },
             "global_headers_remove": [
                 "auth_id"
@@ -148,6 +151,36 @@ The context variables that are available are:
 *   `path`: The path that is being requested.
 *   `remote_addr`: The IP address of the connecting client.
 *   `$jwt_claims_CLAIMNAME` - If JWT tokens are being used (not OIDC Middleware), then each claim in the JWT is available in this format to the context processor.
+*   `request_id` Allows the injection of request correlation ID (for example X-Request-ID)
+
+> **Note**: `request_id` is available from v1.3.6
+
+### Example `global_headers` section
+```
+    "version_data": {
+        "not_versioned": true,
+        "versions": {
+            "v1": {
+                "name": "v1",
+                "expires": "2100-01-02 15:04",
+                "use_extended_paths": true,
+                "paths": {
+                    "ignored": [],
+                    "white_list": [],
+                    "black_list": []
+                },
+                "global_headers":{
+                    "X-Static": "foo",
+                    "X-Request-ID":"$tyk_context.request_id",
+                    "X-Path": "$tyk_context.path",
+                    "X-Remote-Addr": "$tyk_context.remote_addr"
+                }
+            }
+        }
+     }
+```
+
+
 
 [1]: /docs/img/dashboard/system-management/headersEndpointDesigner.png
 [2]: /docs/img/dashboard/system-management/headersRequestTab.png

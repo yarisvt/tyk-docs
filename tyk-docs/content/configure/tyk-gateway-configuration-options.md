@@ -98,7 +98,7 @@ Set the number of maximum idle connections in the Redis connection pool, default
 
 Tyk is capable of recording every hit to your API into a database with various filtering parameters, set this value to `true` and fill in the sub-section below to enable logging.
 
-> Note: Tyk will store traffic data to Redis initially (for performance reasons) and then p purge the data from Redis into MongoDB/CSV on a regular basis as determined by the `purge_delay` setting in your Tyk Pump configuration.
+> Note: Tyk will store traffic data to Redis initially (for performance reasons) and then purge the data from Redis into MongoDB/CSV on a regular basis as determined by the `purge_delay` setting in your Tyk Pump configuration.
 
 ### <a name="analytics_config"></a> analytics_config
 
