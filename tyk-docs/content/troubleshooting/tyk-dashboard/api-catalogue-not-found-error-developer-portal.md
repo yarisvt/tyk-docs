@@ -20,4 +20,4 @@ The catalogue hasn't been initialised yet.
 Information on how to publish to a developer portal using API catalogues can be found [here][1]. It may also be work checking that the key that the policy generates hasn’t expired.
 
 
- [1]: /publish/tutorials/
+ [1]: /docs/publish/tutorials/

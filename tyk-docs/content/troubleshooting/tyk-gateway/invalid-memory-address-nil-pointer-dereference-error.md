@@ -22,5 +22,5 @@ Make sure that API definitions are set up correctly. Information on how to do th
 *   [API Definition Object Details][1]
 *   [API Management][2]
 
- [1]: /tyk-rest-api/api-definition-object-details/
- [2]: /tyk-rest-api/api-management/
+[1]: /docs/tyk-rest-api/api-definition-object-details/
+[2]: /docs/tyk-rest-api/api-management/

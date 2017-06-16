@@ -34,5 +34,5 @@ And the following key-value pairs should be set in the relevant API definition:
 
 Further details on Gateway configuration settings can be found [at this link][1] and further information regarding API definition settings can be found [here][2].
 
- [1]: /configure/tyk-gateway-configuration-options/
- [2]: /tyk-rest-api/api-definition-object-details/
+ [1]: /docs/configure/tyk-gateway-configuration-options/
+ [2]: /docs/tyk-rest-api/api-definition-object-details/
