@@ -18,4 +18,4 @@ See [this tutorial][4] for instructions on how to create a gRPC plugin.
  [1]: http://www.grpc.io/docs/
  [2]: https://developers.google.com/protocol-buffers/
  [3]: https://github.com/TykTechnologies/tyk-protobuf
- [4]: /customise-tyk/plugins/rich-plugins/grpc/tutorial-add-grpc-plugin-api/
+ [4]: /docs/customise-tyk/plugins/rich-plugins/grpc/tutorial-add-grpc-plugin-api/

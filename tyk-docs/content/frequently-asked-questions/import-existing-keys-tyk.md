@@ -9,7 +9,7 @@ weight: 0
 
 Please see the Importing existing keys into Tyk example on the [Token Management documentation page][1].
 
-[1]: /tyk-rest-api/token-management/
+[1]: /docs/tyk-rest-api/token-management/
 
 
 

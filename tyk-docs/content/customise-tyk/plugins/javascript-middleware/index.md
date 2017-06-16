@@ -20,4 +20,4 @@ All customisations have access to a limited system API (for access to resources 
 
 Middleware components receive extra data (depending on their context), but all have the capability to modify the request and the session object if it has been made available to the plugin. Usage of the Session object in a middleware component is expensive as the object needs to be retrieved, and de/re-encoded multiple times as it passes through the system.
 
- [1]: /report-monitor-trigger-events/configure-webhooks-api-definition/
+ [1]: /docs/report-monitor-trigger-events/webhooks/#setup-with-api

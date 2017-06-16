@@ -9,7 +9,7 @@ weight: 0
 
 Please refer to the [Portal Developer API endpoints documentation][1].
 
-[1]: /tyk-dashboard-api/portal-developers
+[1]: /docs/tyk-dashboard-api/portal-developers
 
 
 
