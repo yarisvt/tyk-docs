@@ -61,12 +61,14 @@ Create a `pump.conf` file:
     }
 ```
 
+> **Note**: `mongo_ssl_insecure_skip_verify` and `mongo_use_ssl` are available from v1.3.6 onwards.
+
 Pumps are then added to the `pumps` section of this document, each should represent a sink to purge the data into.
 
 Settings must be the same as for the original `tyk.conf` for Redis and for MongoDB.
 
 ### Environment variables
 
-Environment variables can be used to override settings defined in the configuration file. The [Tyk Pump environment variable mappings][1] spreadsheet shows how the JSON member keys map to the environment variables. Where an environment variable is specified, its value will take precendence over the value in the configuration file.
+Environment variables can be used to override settings defined in the configuration file. The [Tyk Pump environment variable mappings][1] spreadsheet shows how the JSON member keys map to the environment variables. Where an environment variable is specified, its value will take precedence over the value in the configuration file.
 
  [1]: /docs/others/Gateway-Environment-Vars.xlsx
