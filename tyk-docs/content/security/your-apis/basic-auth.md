@@ -107,8 +107,7 @@ The below command will use the gateway API to generate a new basic auth user in 
         "basic_auth_data": {
             "password": "mickey-mouse"
         }
-     }'
-     http://{your-tyk-gateway-host}:{port}/tyk/keys/testuser | python -mjson.tool
+     }' http://{your-tyk-gateway-host}:{port}/tyk/keys/testuser | python -mjson.tool
 ```
 
 ### Create user using Dashboard API
@@ -143,8 +142,7 @@ The following command will create a basic auth user with the dashboard API:
         "basic_auth_data": {
             "password": "mickey-mouse"
         }
-     }'
-     http://{your-tyk-gateway-host}:{port}/api/apis/keys/basic/mysupertestuser2 | python -mjson.tool
+     }' http://{your-tyk-gateway-host}:{port}/api/apis/keys/basic/mysupertestuser2 | python -mjson.tool
 ```
 
 > **Note**: The most important thing to ensure with both of these commands is that the ORG ID is set correctly and consistently.

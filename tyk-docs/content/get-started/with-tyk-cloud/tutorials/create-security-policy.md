@@ -86,8 +86,7 @@ Security Policies can be created with a single call to the API. It is very simil
           "quota_max": 10000,
           "quota_renewal_rate": 3600,
           "tags": ["Startup Users"]
-        }'
-     https://admin.cloud.tyk.io/api/portal/policies | python -mjson.tool
+        }' https://admin.cloud.tyk.io/api/portal/policies | python -mjson.tool
 ```
 
 You must replace:
