@@ -443,7 +443,7 @@ If set to `true`, distributed rate limiter will be disabled for this node, and i
 
 This option is available from v2.3.4 and onwards.
 
-### <a name="ssl_insecure_skip_verify"></a> ssl_insecure_skip_verify
+### <a name="proxy_ssl_insecure_skip_verify"></a> proxy_ssl_insecure_skip_verify
  
 This boolean option allows the use of self-signed certificates for the Gateway.
 
