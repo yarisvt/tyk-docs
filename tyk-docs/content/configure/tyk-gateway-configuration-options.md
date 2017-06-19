@@ -206,7 +206,8 @@ Set these options to hard-code values into the way the HTTP server behaves. this
 	            "cert_file": "./certs/cert2/cname.domain.com.cert.cert",
 	            "key_file": "./certs/cert2/cname.domain.com.key"
 	        }
-	    ]
+	    ],
+	    "proxy_ssl_insecure_skip_verify": false
 	},
 ```
 ### <a name="http_server_options-use_ssl"></a> http_server_options.use_ssl
