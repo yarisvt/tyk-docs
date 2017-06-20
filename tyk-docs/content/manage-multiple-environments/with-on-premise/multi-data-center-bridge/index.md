@@ -28,6 +28,8 @@ The Tyk MDCB logical architecture consists of:
 2.  MDCB instances to handle the RPC connections.
 3.  The Tyk Slave clusters, these consist of Tyk Nodes and an isolated Redis DB.
 
+> **Note:** If setting up MDCB locally for Proof of Concept, your Redis instances for the master and the slaves **must** be different.
+
 ![Tyk Open Source API Gateway Multi-Data Center Deployment][1]
 
 ### The master nodes
@@ -54,7 +56,7 @@ When a request comes into a slaved node, the following set of actions occur:
 4.  If token is found in master, copy to local cache and use
 5.  If it is found in the local cache, no remote call is made and rate limiting and validation happen on the local copy
 
-(Note: Cached versions do not get synchronised back to the master, setting a short TTL is important to ensure a regular lifetime)
+> **Note:** Cached versions do not get synchronised back to the master, setting a short TTL is important to ensure a regular lifetime
 
 A slave cluster consists of the following configuration:
 

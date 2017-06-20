@@ -26,6 +26,7 @@ All plugins require the following addition to be made to your `tyk.conf` file:
 	"public_key_path": "/path/to/my/pubkey",
 ```
 
+
 `enable_coprocess` enables the rich plugins feature.
 
 `enable_bundle_downloader` enables the bundle downloader.
@@ -34,7 +35,8 @@ All plugins require the following addition to be made to your `tyk.conf` file:
 
 `public_key_path` sets a public key, this is used for verifying signed bundles. You may omit this if unsigned bundles are used.
 
-For a [gRPC][4] rich plugin a further `coprocess_grpc_server` parameter is required within coprocess_options:
+
+For a [gRPC][4] rich plugin a further `coprocess_grpc_server` parameter is required within `coprocess_options`:
 
 ```
 	"coprocess_grpc_server": "tcp://127.0.0.1:5555"

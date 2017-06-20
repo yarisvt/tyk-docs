@@ -63,7 +63,7 @@ Any OAuth keys must be generated under an API in the Dashboard. Any POST request
 
 ```
     curl -vX GET -H "Authorization: 68525fff302641704e1a737bfca088da" \
-      -H "Content-Type: application/json" 
+      -H "Content-Type: application/json" \
       http://localhost:3000/api/apis/oauth/582af5e04c9a5f0001ce4c95
 ```
 
@@ -108,7 +108,7 @@ Any OAuth keys must be generated under an API in the Dashboard. Any POST request
 
 ```
     curl -vX GET -H "Authorization: 68525fff302641704e1a737bfca088da" \
-      -H "Content-Type: application/json" 
+      -H "Content-Type: application/json" \
       http://localhost:3000/api/apis/oauth/582af5e04c9a5f0001ce4c95/7dce7fc297424fd65596b51c214666a4
 ```
 
@@ -136,7 +136,7 @@ You can delete an OAuth client using a simple DELETE method. Please note that to
 
 ```
     curl -vX DELETE -H "Authorization: {{API Access Credentials}}" \
-      -H "Content-Type: application/json" 
+      -H "Content-Type: application/json" \
       http://{{dashboard-hostname}}/api/apis/oauth/{{api-id}}/{{client_id}}
 ```
 
@@ -144,7 +144,7 @@ You can delete an OAuth client using a simple DELETE method. Please note that to
 
 ```
     curl -vX DELETE -H "Authorization: 68525fff302641704e1a737bfca088da" \
-      -H "Content-Type: application/json" 
+      -H "Content-Type: application/json" \
       http://localhost:3000/api/apis/oauth/582af5e04c9a5f0001ce4c95/d39817b33fb14c335d2a8699705f1c41
 ```
 
