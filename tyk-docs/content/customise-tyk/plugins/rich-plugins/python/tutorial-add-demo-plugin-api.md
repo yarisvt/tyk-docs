@@ -7,7 +7,7 @@ menu:
 weight: 3 
 ---
 
-## API settings
+## <a name="api-settings"></a>API settings
 
 To add a Python plugin to your API, you must specify the bundle name using the `custom_middleware_bundle` field:
 
@@ -48,7 +48,7 @@ To add a Python plugin to your API, you must specify the bundle name using the `
     }
 ```
 
-## Global settings
+## <a name="global-settings"></a>Global settings
 
 To enable Python plugins you need to add the following block to `tyk.conf`:
 
@@ -69,7 +69,7 @@ To enable Python plugins you need to add the following block to `tyk.conf`:
 
 `public_key_path`: sets a public key, this is used for verifying signed bundles, you may omit this if unsigned bundles are used.
 
-## Running the Tyk Python build
+## <a name="run-python-plugin"></a> Running the Tyk Python build
 
 To use Tyk with Python support you will need to use an alternative binary, it is provided in the standard Tyk package but it has a different service name.
 

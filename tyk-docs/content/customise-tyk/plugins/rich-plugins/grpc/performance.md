@@ -11,13 +11,13 @@ These are some benchmarks performed on gRPC plugins.
 
 gRPC plugins may use different transports, we've tested TCP and Unix Sockets.
 
-## TCP
+## <a name="tcp"></a> TCP
 
 ![TCP Response Times][1]
 
 ![TCP Hit Rate][2]
 
-## Unix Socket
+## <a name="unix"></a> Unix Socket
 
 ![Unix Socket Response Times][3]
 
