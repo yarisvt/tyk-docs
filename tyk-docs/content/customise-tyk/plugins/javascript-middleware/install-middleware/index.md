@@ -12,4 +12,4 @@ Installing middleware is different for different releases of Tyk, for example, i
 
 > **NOTE:** Tyk Cloud currently does not support custom middleware loading. However, it is possible with a [Tyk Hybrid deployment][1].
 
-[1]: docs/customise-tyk/javascript-middleware/install-middleware/tyk-hybrid/
+[1]: /docs/customise-tyk/plugins/javascript-middleware/install-middleware/tyk-hybrid/

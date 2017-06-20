@@ -100,7 +100,7 @@ Any OAuth keys must be generated under an API in the Dashboard. Any POST request
 
 ```
     curl -vX GET -H "Authorization: {{API Access Credentials}}" \
-      -H "Content-Type: application/json" 
+      -H "Content-Type: application/json" \
       http://localhost:3000/api/apis/oauth/{{api-id}}/{{client_id}}
 ```
 
