@@ -64,10 +64,10 @@ To make the policy active, click **Create** . Once the policy is saved, you will
 
 Security Policies can be created with a single call to the API. It is very similar to the token creation process. To generate a simple security policy using the Tyk Cloud API you can use the following curl command:
 ```
-    curl -X POST -H "authorization: {API-TOKEN}"
-     -s
-     -H "Content-Type: application/json"
-     -X POST
+    curl -X POST -H "authorization: {API-TOKEN}" \
+     -s \
+     -H "Content-Type: application/json" \
+     -X POST \
      -d '{
           "access_rights": {
             "{API-ID}": {
@@ -86,8 +86,7 @@ Security Policies can be created with a single call to the API. It is very simil
           "quota_max": 10000,
           "quota_renewal_rate": 3600,
           "tags": ["Startup Users"]
-        }'
-     https://admin.cloud.tyk.io/api/portal/policies | python -mjson.tool
+        }' https://admin.cloud.tyk.io/api/portal/policies | python -mjson.tool
 ```
 
 You must replace:

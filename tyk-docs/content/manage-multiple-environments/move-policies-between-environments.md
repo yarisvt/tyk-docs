@@ -16,9 +16,9 @@ First you must set up your new environment to respect explicit policy IDs. To do
 ### Step 1: Get your Policy
 
 ```
-    curl -X GET -H "authorization: {YOUR TOKEN}"
-     -s
-     -H "Content-Type: application/json" 
+    curl -X GET -H "authorization: {YOUR TOKEN}" \
+     -s \
+     -H "Content-Type: application/json" \
      https://admin.cloud.tyk.io/api/portal/policies/{POLICY-ID} | python -mjson.tool > policy.json
 ```
 
@@ -102,10 +102,10 @@ Remove the `_id` field and put the value of the `_id` field into the `id` field,
 Save the new `policies.json` file and then let's POST it back to the new environment:
 
 ```
-    curl -X POST -H "authorization: {API-TOKEN}"
-     -s
-     -H "Content-Type: application/json"
-     -d @policies.json 
+    curl -X POST -H "authorization: {API-TOKEN}" \
+     -s \
+     -H "Content-Type: application/json" \
+     -d @policies.json \
      https://{YOUR-NEW-ENV}/api/portal/policies | python -mjson.tool
 ```
 

@@ -206,7 +206,8 @@ Set these options to hard-code values into the way the HTTP server behaves. this
 	            "cert_file": "./certs/cert2/cname.domain.com.cert.cert",
 	            "key_file": "./certs/cert2/cname.domain.com.key"
 	        }
-	    ]
+	    ],
+	    "ssl_insecure_skip_verify": false
 	},
 ```
 ### <a name="http_server_options-use_ssl"></a> http_server_options.use_ssl
@@ -231,7 +232,7 @@ As of v2.2, `flush_interval` is in *milliseconds*.
 
 ### <a name="http_server_options-enable_websockets"></a> http_server_options.enable_websockets
 
-s of v2.2, Tyk supports transparent websocket connection upgrades, to enable this feature, ensure that this value is set to `true`.
+As of v2.2, Tyk supports transparent websocket connection upgrades, to enable this feature, ensure that this value is set to `true`.
 
 ### <a name="http_server_options-close_connections"></a> http_server_options.close_connections
 
@@ -443,11 +444,11 @@ If set to `true`, distributed rate limiter will be disabled for this node, and i
 
 This option is available from v2.3.4 and onwards.
 
-### <a name="ssl_insecure_skip_verify"></a> ssl_insecure_skip_verify
+### <a name="proxy_ssl_insecure_skip_verify"></a> proxy_ssl_insecure_skip_verify
  
 This boolean option allows the use of self-signed certificates for the Gateway.
 
-**NOTE**: This option is available from v2.3.5 onwards.
+> **NOTE:** This option is available from v2.3.5 onwards.
 
 
 
