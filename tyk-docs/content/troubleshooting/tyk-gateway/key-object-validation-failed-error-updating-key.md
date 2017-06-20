@@ -16,4 +16,4 @@ When the token was created, most probably it was configured without the meta_dat
 ### Solution
 The user will need to add the key-value pair meta_data: {} to their key as per the [documentation][1].
 
-[1]: /tyk-rest-api/token-management/
+[1]: /docs/tyk-rest-api/token-management/

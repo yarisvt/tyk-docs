@@ -9,7 +9,7 @@ weight: 0
 
 A gRPC plugin uses the standard bundling mechanism that you use for the rest of the rich plugins. The essential difference with a standard rich plugin is that a rich plugin bundle contains the actual code, which will be executed by Tyk, while a gRPC plugin bundle contains just a custom middleware definition, and you handle the execution of your code, independently, e.g. a gRPC server, listening on port 5000.
 
-## Bundle
+## <a name="bundle"></a> Bundle
 
 This is what a manifest could look like:
 
@@ -44,7 +44,7 @@ After saving this file as `manifest.json`, build it using [tyk-cli][1]:
   tyk-cli bundle build -output mybundle.zip -key mykey.pem
 ```
 
-## The gRPC server
+## <a name="server"></a> The gRPC server
 
 A gRPC server must be implemented in the language of your choice, we have prepared different tutorials for some of them:
 

@@ -27,27 +27,31 @@ Install the build tools: `apt-get install -y build-essential`
 Fetch & install the latest Protocol Buffer library:
 
 ```
-    cd /usr/src
-    wget https://github.com/google/protobuf/releases/download/v3.1.0/protobuf-python-3.1.0.tar.gz
-    tar -xvzf protobuf-python-3.1.0.tar.gz
-    cd protobuf-3.1.0/
-    ./configure -prefix=/usr
-    make && make install
+  cd /usr/src
+  wget https://github.com/google/protobuf/releases/download/v3.1.0/protobuf-python-3.1.0.tar.gz
+  tar -xvzf protobuf-python-3.1.0.tar.gz
+  cd protobuf-3.1.0/
+  ./configure -prefix=/usr
+  make && make install
 ```
 
-Install the Python build tools: `apt-get install -y python3-setuptools python3-dev` 
+Install the Python build tools: 
+
+```
+  apt-get install -y python3-setuptools python3-dev
+``` 
 
 Build & install the Python module: 
 
 ```
-    cd /usr/src
-    cd protobuf-3.1.0/python
-    python3 setup.py build --cpp_implementation && python3 setup.py install --cpp_implementation
+  cd /usr/src
+  cd protobuf-3.1.0/python
+  python3 setup.py build --cpp_implementation && python3 setup.py install --cpp_implementation
 ```
 
 ### How to write Python Plugins?
 
-We have created a demo Python plugin repository [here][7]
+We have created a demo Python plugin repository [here][7].
 
 The project implements a simple middleware for header injection, using a Pre hook (see [Tyk custom middleware hooks][8]). A single Python script contains the code for it, see [mymiddleware.py][9].
 

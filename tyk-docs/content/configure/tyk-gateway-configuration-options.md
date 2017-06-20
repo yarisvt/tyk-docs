@@ -440,9 +440,9 @@ Enables the real-time Gateway log view in the Dashboard.
 
 If set to `true`, distributed rate limiter will be disabled for this node, and it will be excluded from rate limit calculation.
 
-> Note: If you set `use_db_app_options.node_is_segmented` to `true` for multiple gateway nodes, you should ensure that `management_node` is set to `false`. This is to ensure visibility for the management node across all APIs. 
+> **Note**: If you set `use_db_app_options.node_is_segmented` to `true` for multiple gateway nodes, you should ensure that `management_node` is set to `false`. This is to ensure visibility for the management node across all APIs. 
 
-This option is available from v2.3.4 and onwards.
+> This option is available from v2.3.4 and onwards.
 
 ### <a name="proxy_ssl_insecure_skip_verify"></a> proxy_ssl_insecure_skip_verify
  

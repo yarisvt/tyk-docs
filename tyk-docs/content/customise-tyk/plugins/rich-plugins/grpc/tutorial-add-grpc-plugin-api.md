@@ -7,7 +7,7 @@ menu:
 weight: 0 
 ---
 
-## API settings
+## <a name="api-settings"></a> API settings
 
 To add a gRPC plugin to your API, you must specify the bundle name using the `custom_middleware_bundle` field:
 
@@ -48,7 +48,7 @@ To add a gRPC plugin to your API, you must specify the bundle name using the `cu
     }
 ```
 
-## Global settings
+## <a name="global-settings"></a>Global settings
 
 To enable gRPC plugins you need to add the following block to `tyk.conf`:
 
