@@ -3,17 +3,17 @@ date: 2017-03-24T12:05:54Z
 title: MDCB Setup
 menu: 
   main:
-    parent: "Multi Data-Center Bridge"
+    parent: "Multi Data Centre Bridge"
 weight: 5
 ---
 
 ## <a name="setup"></a>Setting up Tyk MDCB
 
-Tyk MDCB is mainly configured using a single conf file, it only needs to be able to access your Redis and MongoDB databases.
+Tyk MDCB is mainly configured using a single conf file - `tyk_sink.conf`, it only needs to be able to access your Redis and MongoDB databases.
 
 Tyk MDCB has a separate license, which you can request from your account representative.
 
-### The *tyk_sink* configuration file:
+### The tyk_sink configuration file:
 
 ```
     {
@@ -180,8 +180,12 @@ The most important elements here are:
 *   `connection_string`: The MDCB instance or load balancer.
 
 Once this is complete, you can start the Tyk MDCB instance and start having Tyk Slave instances connect to it.
+### Copying an Existing Dashboard Configuration
+If you are copying a Tyk Dashboard configuration (`tyk.conf`) from an On-Premises installation, you need to set `use_db_app_configs` to false. This allows Tyk to read the Tyk Sink configuration (`tyk_sink.conf`) instead of the Dashboard. See [Dashboard Configuration Options][2] for more details.
+
 
  [1]: /docs/dashboard-admin-api/organisations/
+ [2]: /docs/configure/tyk-dashboard-configuration-options/
 
 
 
