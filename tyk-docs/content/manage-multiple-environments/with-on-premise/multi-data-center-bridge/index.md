@@ -1,6 +1,6 @@
 ---
 date: 2017-03-24T12:01:05Z
-title: Multi Data-Center Bridge
+title: Multi Data Centre Bridge
 menu: 
   main:
     parent: "With On-Premises"
@@ -10,7 +10,7 @@ url: "/manage-multiple-environments/with-on-premise/multi-data-center-bridge"
 
 ## <a name="introduction"></a>Introduction
 
-Tyk Multi Data Center Bridge (MDCB, also known as Tyk Sink) acts as a broker between Tyk Gateway Instances that are isolated from one another and typically have their own Redis DB.
+Tyk Multi Data Centre Bridge (MDCB, also known as Tyk Sink) acts as a broker between Tyk Gateway Instances that are isolated from one another and typically have their own Redis DB.
 
 In order to manage physically separate Tyk Gateway clusters from a centralised location, Tyk MDCB needs to be used to provide a remote “back-end” for token and configuration queries.
 
