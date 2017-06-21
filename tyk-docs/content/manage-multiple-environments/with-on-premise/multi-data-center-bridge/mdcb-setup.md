@@ -13,7 +13,7 @@ Tyk MDCB is mainly configured using a single conf file - `tyk_sink.conf`, it onl
 
 Tyk MDCB has a separate license, which you can request from your account representative.
 
-### The tyk_sink configuration file:
+### The Tyk Sink configuration file:
 
 ```
     {
