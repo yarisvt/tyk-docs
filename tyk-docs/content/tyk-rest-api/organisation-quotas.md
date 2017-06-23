@@ -40,7 +40,7 @@ This reset quota mechanism is in place to allow a manual initialisation of the r
 
 ```
     POST /tyk/orgs/keys/ HTTP/1.1
-    Host: localhost:5000
+    Host: localhost:8080
     x-tyk-authorization: 352d20ee67be67f6340b4c0605b044bc4
     Cache-Control: no-cache
     
@@ -85,7 +85,7 @@ This reset quota mechanism is in place to allow a manual initialisation of the r
 
 ```
     PUT /tyk/org/keys/53ac07777cbb8c2d53000002 HTTP/1.1
-    Host: localhost:5000
+    Host: localhost:8080
     x-tyk-authorization: 352d20ee67be67f6340b4c0605b044bc4
     Cache-Control: no-cache
     
@@ -122,7 +122,7 @@ This reset quota mechanism is in place to allow a manual initialisation of the r
 
 ```
     DELETE /tyk/org/keys/53ac07777cbb8c2d53000002 HTTP/1.1
-    Host: localhost:5000
+    Host: localhost:8080
     x-tyk-authorization: 352d20ee67be67f6340b4c0605b044bc4
     Cache-Control: no-cache
 ```
@@ -153,7 +153,7 @@ You can retrieve all the keys in your Tyk instance.
 
 ```
     GET /tyk/org/keys/ HTTP/1.1
-    Host: localhost:5000
+    Host: localhost:8080
     x-tyk-authorization: 352d20ee67be67f6340b4c0605b044bc4
     Cache-Control: no-cache
 ```

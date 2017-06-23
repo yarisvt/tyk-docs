@@ -16,7 +16,7 @@ Environment variables can be used to override settings defined in the configurat
 
 ### <a name="listen_port"></a> listen_port
 
-Setting this value will change the port that Tyk listens on, by default Tyk will try to listen on port 5000.
+Setting this value will change the port that Tyk listens on, by default Tyk will try to listen on port 8080.
 
 ### <a name="secret"></a> secret
 

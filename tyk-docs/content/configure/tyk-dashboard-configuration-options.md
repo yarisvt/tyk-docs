@@ -18,7 +18,7 @@ The file will look like the sample below, the various fields are explained in th
         "listen_port": 3000,
         "tyk_api_config": {
             "Host": "http://localhost",
-            "Port": "80",
+            "Port": "8080",
             "Secret": "352d20ee67be67f6240c4c0605b045b7"
         },
         "mongo_url": "mongodb://localhost/tyk_analytics",
@@ -88,7 +88,7 @@ The file will look like the sample below, the various fields are explained in th
 
 *   `tyk_api_config.Host`: This is the full URL of your Tyk node.
 
-*   `tyk_api_config.Port`: The port that Tyk is running on, defaults to `5000`.
+*   `tyk_api_config.Port`: The port that Tyk is running on, defaults to `8080`.
 
 *   `tyk_api_config.Secret`: The secret that you have set in the `tyk.conf` file, this is the key that Tyk Dashboard will use to speak to the Tyk node's REST API. Please note that this value should match with the `secret` value in `tyk.conf`.
 

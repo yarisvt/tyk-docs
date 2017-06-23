@@ -22,7 +22,7 @@ Sometimes a cache might contain stale data, or it may just need to be cleared be
 
 ```
     DELETE /tyk/cache/0f6d0b9d41cc45715b62e34fae3cc4a2 HTTP/1.1
-    Host: localhost:5000
+    Host: localhost:8080
     X-Tyk-Authorization: 352d20ee67be67f6340b4c0605b044b7
 ```
 

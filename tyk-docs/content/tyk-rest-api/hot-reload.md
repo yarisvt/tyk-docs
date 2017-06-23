@@ -22,7 +22,7 @@ To reload a whole group of Tyk nodes (without using the Dashboard or host manage
 
 ```
     GET /tyk/reload/group HTTP/1.1
-    Host: localhost:5000
+    Host: localhost:8080
     X-Tyk-Authorization: 352d20ee67be67f6340b4c0605b044b7
     Cache-Control: no-cache
 ```
@@ -51,7 +51,7 @@ Tyk is capable of reloading configurations without having to stop serving reques
 
 ```
     GET /tyk/reload/ HTTP/1.1
-    Host: localhost:5000
+    Host: localhost:8080
     X-Tyk-Authorization: 352d20ee67be67f6340b4c0605b044b7
     Cache-Control: no-cache
 ```
