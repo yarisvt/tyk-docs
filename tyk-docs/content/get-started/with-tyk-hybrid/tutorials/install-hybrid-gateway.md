@@ -3,8 +3,8 @@ date: 2017-03-22T14:14:38Z
 title: Install the Hybrid Gateway
 menu:
   main:
-    parent: /with-tyk-hybrid
-weight: 1
+    parent: "With Tyk Hybrid"
+weight: 2
 ---
 
 

@@ -22,6 +22,8 @@ The file will look like the sample below, the various fields are explained in th
             "Secret": "352d20ee67be67f6240c4c0605b045b7"
         },
         "mongo_url": "mongodb://localhost/tyk_analytics",
+        "mongo_ssl_insecure_skip_verify": true,
+        "mongo_use_ssl": true,
         "page_size": 10,
         "shared_node_secret": "abcdefg",
         "admin_secret": "12345",
@@ -74,9 +76,8 @@ The file will look like the sample below, the various fields are explained in th
             "login_failure_expiration": 900,
             "audit_log_path" : "/tmp/audit.log"
         },
-        "dashboard_session_lifetime": 60,
-        "mongo_ssl_insecure_skip_verify": true,
-        "mongo_use_ssl": true
+        "dashboard_session_lifetime": 60
+
     }
 ```
 
@@ -92,13 +93,17 @@ The file will look like the sample below, the various fields are explained in th
 
 *   `tyk_api_config.Secret`: The secret that you have set in the `tyk.conf` file, this is the key that Tyk Dashboard will use to speak to the Tyk node's REST API. Please note that this value should match with the `secret` value in `tyk.conf`.
 
-*   `tyk_api_config.shared_node_secret`: As of Tyk v2.0 and Tyk Dashboard 1.0 all Tyk API Gateway nodes that are configured to use the Dashboard as a back-end API Definition service (i.e. are managed by a Dashboard) will register with the Dashboard service on load, and claim a node ID that is provided by the license for the Dashboard. Please note that this value should match with [node_secret][3] Gateway configuration option value.
+*   `tyk_api_config.shared_node_secret`: As of Tyk v2.0 and Tyk Dashboard 1.0 all Tyk API Gateway nodes that are configured to use the Dashboard as a back-end API Definition service (i.e. are managed by a Dashboard) will register with the Dashboard service on load, and claim a node ID that is provided by the license for the Dashboard. Please note that this value should match with [`node_secret`][3] Gateway configuration option value.
     
 Each node communicates with the Dashboard via a shared secret (this setting) and a nonce to ensure that out-of-band requests cannot be made. Nodes will send a heartbeat every few seconds to notify the Dashboard that they are running.
 
 *   `mongo_url`: The full URL to your MongoDB instance, this can be a clustered instance if necessary and should include the database and username / password data.
     
 > **Important**: This should be the same as the credentials that your Tyk installation uses.
+
+*   `mongo_ssl_insecure_skip_verify`: Boolean setting for Mongo SSL support. Set to `true` to enable SSL.
+
+*   `mongo_use_ssl`: Boolean setting for Mongo SSL support. Set to `true` to enable SSL.
 
 *   `page_size`: The page size that the dashboard should use, defaults to `10`. Should not be edited.
 
@@ -217,10 +222,6 @@ For more information see the [SSL section in the documentation][1]
 *   `dashboard_session_lifetime` The timeout setting for a Dashboard session in seconds. Defaults to 60 seconds.
 
 > **NOTE:** `dashboard_session_lifetime` is available from v1.3.6 onwards
-
-*   `mongo_ssl_insecure_skip_verify`: Boolean setting for Mongo SSL support. Set to `true` to enable SSL.
-
-*   `mongo_use_ssl`: Boolean setting for Mongo SSL support. Set to `true` to enable SSL.
 
 *   `[identity_broker]`: Tyk Dashboard 1.0 has some preset Tyk Identity Broker configurations set up, for this integration to work, Tyk Dashboard must be able to see an Identity Broker instance. The settings in this section are to enable this integration.
 
