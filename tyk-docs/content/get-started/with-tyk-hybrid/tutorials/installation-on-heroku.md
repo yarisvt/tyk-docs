@@ -3,7 +3,7 @@ date: 2017-05-09T14:39:43Z
 Title: Installation on Heroku
 menu:
   main:
-    parent: /with-tyk-hybrid
+    parent: "With Tyk Hybrid"
 weight: 5
 ---
 

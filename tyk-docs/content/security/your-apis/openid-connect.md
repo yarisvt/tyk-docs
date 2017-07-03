@@ -35,9 +35,11 @@ It is useful for the downstream service to be able to query this data somehow in
 
 It is possible to inject this as a header into the request moving upstream to the underlying service using header injection and invoking the reserved metadata field: `$tyk_meta.TykJWTSessionID`.
 
+Also possible to access the JWT claims, using `$tyk_context.jwt_claims_CLAIMNAME` by injecting as a context variable in a request header. See [Request Headers][2] for more details.
+
 ### Aliases
 
-In order to make OIDC Access tokens meaningful in analytics data, Tyk will also set an Alias for the internal token so the user can be easily identified in analytics. The OIDC Alias will always be the `ClientID + User ID` provided by the IDP. This can then be queried separately.
+In order to make OIDC Access tokens meaningful in analytics data, Tyk will also set an Alias for the internal token so the user can be easily identified in analytics. The OIDC Alias will always be the `ClientID + User ID` provided by the IDP. This will be displayed for analytics purposes.
 
 #### Setting up OIDC
 
@@ -67,3 +69,4 @@ To set up an API Definition to use OIDC, add the following block to the definiti
 
 
 [1]: /docs/img/diagrams/openidFlow.png
+[2]: /docs/transform-traffic/request-headers/

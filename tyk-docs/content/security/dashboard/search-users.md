@@ -7,7 +7,7 @@ menu:
 weight: 3 
 ---
 
-You can search for a user simply by start typing in the search field.
+You can search for a user (by email address) by entering the address in the search field. The user list will automatically refresh with that user being displayed.
 
 ![User Profile Search][1]
 

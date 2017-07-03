@@ -4,7 +4,7 @@ title: Create an account
 menu: 
   main:
     parent: "With Tyk Hybrid"
-weight: 5
+weight: 1
 ---
 
 ## <a name="tyk-hybrid-accounts"></a>Tyk Hybrid Accounts
