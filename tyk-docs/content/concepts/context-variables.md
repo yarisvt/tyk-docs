@@ -15,6 +15,7 @@ As of version 2.2 Tyk enables context variables to be injected into various midd
 
 ![Context Variables][1]
 
+If not using the Dashboard, you need to include the `enable_context_vars` variable in your API definition at root level and set it to `true`.
 
 The context variables that are available are:
 
