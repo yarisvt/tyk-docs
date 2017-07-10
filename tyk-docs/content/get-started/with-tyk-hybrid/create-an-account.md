@@ -33,18 +33,13 @@ Once your credit card details have been added, you will be sent an on-boarding e
 
 ## <a name="log-into-your-cloud-dashboard"></a>Log into your Cloud Dashboard 
 
-From your cloud account page, to get to your cloud dashboard, select "Account Overview" in the navigation:
+From your cloud account page click **Login to your dashboard**:
 
 ![Cloud Navigation][3]
 
-And then select the large button to take you to the cloud dashboard:
-
-![Dashboard Login Button][4]
-
-This will present you with a new login screen for our cloud dashboard, to go there directly simply [visit the page directly][5], the username and password will be the same as your username and password when you created your account.
+A login screen for our cloud dashboard will be displayed. You can login directly from <https://admin.cloud.tyk.io>. The username and password will be the same as those used to create your account.
 
 [1]: https://cloud.tyk.io
 [2]: /docs/img/cloud/CloudSignup.png
-[3]: /docs/img/cloud/CloudNav.png
+[3]: /docs/img/cloud/new_landing_page.png
 [4]: /docs/img/cloud/DashLoginButton.png
-[5]: https://admin.cloud.tyk.io
