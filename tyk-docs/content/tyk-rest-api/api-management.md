@@ -9,19 +9,19 @@ weight: 3
 
 API Management with the Tyk REST API is very simple, each update only affects the underlying file, and this endpoint will only work with disk based installations, not Database-backed ones.
 
-API's that are added this way are flushed to to disk into the `app_path` folder using the format: `{api-id}.json`, updating existing API's that use a different naming convention will cause those API's to be *added*, which could subsequently lead to a loading error and crash if they use the same `listen_path`.
+API's that are added this way are flushed to to disk into the `app_path` folder using the format: `{api-id}.json`. Updating existing API's that use a different naming convention will cause those API's to be *added*, which could subsequently lead to a loading error and crash if they use the same `listen_path`.
 
-These methods only work on a single API node, if updating a cluster, it is important to ensure that all nodes are updated before initiating a reload.
+These methods only work on a single API node. If updating a cluster, it is important to ensure that all nodes are updated before initiating a reload.
 
 ### Create new API Definitions
 
 A single Tyk node can have its API Definitions queried, deleted and updated remotely. This functionality enables you to remotely update your Tyk definitions without having to manage the files manually.
 
-This endpoint will only update the file-based configurations of a single node, if you are running multiple Tyk instances, each will need to be updated independently
+This endpoint will only update the file-based configurations of a single node. If you are running multiple Tyk instances, each will need to be updated independently.
 
-New definitions are loaded, and then re-encoded onto disk to prevent false file writes to your app's directory, if you are running Tyk in its default configuration, please ensure that the user the node is running under has write permissions to the apps folder defined in your `tyk.conf` file.
+New definitions are loaded, and then re-encoded onto disk to prevent false file writes to your app's directory. If you are running Tyk in its default configuration, please ensure that the user the node is running under has write permissions to the apps folder as defined in your `tyk.conf` file.
 
-Finally, any new definitions are not made live, they do not get loaded into the muxer, in order to load the APIs, a hot-reload request should be sent to the node, this will then force a re-read of the definitions and make the definition live.
+Finally, any new definitions are not made live and do not get loaded into the muxer. In order to load the APIs, a hot-reload request should be sent to the node, this will then force a re-read of the definitions and make the definition live.
 
 
 | **Property** | **Description** |
