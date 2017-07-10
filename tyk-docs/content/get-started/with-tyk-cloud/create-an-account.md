@@ -19,13 +19,9 @@ Your company name will be used to generate your cloud endpoint. This is where yo
 
 ## <a name="log-into-your-cloud-dashboard"></a> Log into your Dashboard
 
-From your cloud account page click **Account Overview**:
+From your cloud account page click **Login to your dashboard**:
 
 ![Cloud Navigation][3]
-
-Then click "Login to your dashboard":
-
-![Dashboard Login Button][4]
 
 This will present you with a new login screen for our cloud dashboard. You can login directly from <https://admin.cloud.tyk.io>. The username and password will be the same as those used to create your account.
 
@@ -41,7 +37,7 @@ This will present you with a new login screen for our cloud dashboard. You can l
 
 [1]: https://cloud.tyk.io
 [2]: /docs/img/cloud/CloudSignup.png
-[3]: /docs/img/cloud/CloudNav.png
+[3]: /docs/img/cloud/new_landing_page.png
 [4]: /docs/img/cloud/DashLoginButton.png
 [5]: /docs/get-started/with-tyk-cloud/tutorials/create-api/#with-dashboard
 [6]: /docs/get-started/with-tyk-cloud/tutorials/create-api/#with-api
