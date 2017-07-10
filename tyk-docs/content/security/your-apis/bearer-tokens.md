@@ -29,7 +29,7 @@ To enable the use of a bearer token in your API:
 
 Tyk will by default assume you are using the `Authorization` header, but you can change this by setting the header value here.
 
-You can also select whether to use the header and a query string parameter, and what parameter to use.
+You can also select whether to use the header and a URL query string parameter, and what parameter to use.
 
 ## <a name="enable-bearer-tokens-with-file-based"></a> Enable bearer tokens in your API Definition with file-based
 
@@ -49,7 +49,9 @@ The name of the key can be defined as part of the API definition under the `auth
     },
 ```
 
-To use request parameters instead of a header, simply set the `auth.use_param` setting in the API definition to `true`, note: unlike headers, request params are *case sensitive*).
+To use URL query parameters instead of a header, set the `auth.use_param` setting in your API definition to `true`. 
+
+> **Note**: unlike headers, URL query parameters are *case sensitive*.
 
 To use a cookie name instead of a header or request parameter, set the `use_cookie` parameter to `true`. Cookie names are also case sensitive.
 
