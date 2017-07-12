@@ -68,20 +68,11 @@ Press the *save* or *create* buttons to save the changes and make the URL rewrit
 
 ## <a name="url-rewrite-context-variables"></a>Context Variables
 
-### Context Data
+### Context Variables
 
 As of version 2.2 Tyk allows context variables to be injected into the regex using the `$tyk_context.` namespace instead of the numeric index.
 
-The context variables that are available are:
-
-*   `request_data`: If the inbound request contained any query data or form data, it will be available in this object, for the URL Rewrite, Tyk will format this data as `key:value1,value2,valueN;key:value1,value2` etc.
-*   `path_parts`: The components of the path, split on `/`, these values are made available in the format of a comma delimited list.
-*   `token`: The inbound raw token (if bearer tokens are being used) of this user.
-*   `path`: The path that is being requested.
-*   `remote_addr`: The IP address of the connecting client.
-*   `$jwt_claims_CLAIMNAME` - If JWT tokens are being used (not OIDC Middleware), then each claim in the JWT is available in this format to the context processor.
-
-> **Note:** You must have context variables enabled in your API Definition for this to work.
+For more details see [Context Variables][3]
 
 ### Meta Data
 
@@ -89,6 +80,7 @@ As of v2.3 it is possible to inject meta data from a Tyk Session Object linked t
 
 [1]: /docs/img/dashboard/system-management/rewriteEndpointDesigner.png
 [2]: /docs/img/dashboard/system-management/configureRewrite.png
+[3]: /docs/concepts/context-variables/
 
 
 
