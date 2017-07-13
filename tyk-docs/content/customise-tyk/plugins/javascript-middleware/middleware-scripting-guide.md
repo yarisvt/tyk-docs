@@ -128,3 +128,28 @@ The session object has the same representation as the one used by the API:
 ```
 
 There are other ways of accessing and editing a session object by using the Tyk JSVM API functions.
+
+#### Passing Custom Attributes to Middleware
+
+You can use the `config_data` special field in your API definition to pass custom attributes to middleware via the JSVM.
+
+#### Adding `config_data` to an API Definition
+
+Add the following to the root of your API definition:
+
+```
+    "config_data": {
+        "foo": "bar"
+    },
+```
+
+#### Sample use of `config_data`
+
+```
+var testJSVMData = new TykJS.TykMiddleware.NewMiddleware({});
+testJSVMData.NewProcessRequest(function(request, session, config) {
+    request.SetHeaders["data-foo"] = config.config_data.foo;
+    return testJSVMData.ReturnData(request, {});
+});
+```
+

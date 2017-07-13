@@ -138,3 +138,32 @@ The parameters are as follows:
 *   `method`: This is the HTTP verb (`GET`, `POST` etc.) to which this virtual middleware will respond.
 *   `use_session`: If true then the key session data will be provided to the function as the `session` variable. See the plugins documentation for more detail about this object.
 
+### Passing Custom Attributes to Middleware
+
+You can use the `config_data` special field in your API definition to pass custom attributes to middleware via a virtual endpoint.
+
+#### Adding `config_data` to an API Definition
+
+Add the following to the root of your API definition:
+
+```
+    "config_data": {
+        "foo": "bar"
+    },
+```
+
+#### Sample use of `config_data`
+
+```
+function testVirtData(request, session, config) {
+    var resp = {
+        Body: request.Body + " added body",
+        Headers: {
+            "data-foo": config.config_data.foo
+        },
+        Code: 202
+    }
+    return TykJsResponse(resp, session.meta_data)   
+}
+```
+

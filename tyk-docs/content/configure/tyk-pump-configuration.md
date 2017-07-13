@@ -32,7 +32,9 @@ Create a `pump.conf` file:
                 "name": "mongo",
                 "meta": {
                     "collection_name": "tyk_analytics",
-                    "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/{db_name}"
+                    "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/{db_name}",
+                    "mongo_ssl_insecure_skip_verify": true,
+                    "mongo_use_ssl": true
                 }
             },
             "csv": {
@@ -56,8 +58,6 @@ Create a `pump.conf` file:
             "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/{db_name}"
         },
         "dont_purge_uptime_data": false,
-        "mongo_ssl_insecure_skip_verify": true,
-        "mongo_use_ssl": true
     }
 ```
 
