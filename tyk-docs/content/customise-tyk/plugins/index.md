@@ -14,7 +14,7 @@ Tyk supports the use of the following plugins to extend Tyk functionality:
 *   [JavaScript Vitual Machine Middleware][2] (JSVM Middleware)
 *   [Authentication Plugins][3]
 
-## Requirements
+## <a name="plugin-requirements"></a>Requirements
 All plugins require the following addition to be made to your `tyk.conf` file:
 
 ```
@@ -42,7 +42,7 @@ For a [gRPC][4] rich plugin a further `coprocess_grpc_server` parameter is requi
 	"coprocess_grpc_server": "tcp://127.0.0.1:5555"
 ```
 
-## Differences between Rich Plugins and JSVM middleware
+## <a name="plugin-differences"></a>Differences between Rich Plugins and JSVM middleware
 The JavaScript Virtual Machine provides pluggable middleware that can modify a request on the fly and are designed to augment a running Tyk process, are easy to implement and run inside the Tyk process in a sandboxed ECMAScript interpreter. This is good, but there are some drawbacks with the JSVM:
 
 *   **Performance**: JSVM is performant, but is not easy to optimise and is dependent on the otto interpreter - this is not ideal. The JSVM also requires a copy of the interpreter object for each request to be made, which can increase memory footprint.
