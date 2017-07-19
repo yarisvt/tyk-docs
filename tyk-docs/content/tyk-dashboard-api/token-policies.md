@@ -19,7 +19,7 @@ weight: 4
 
 #### Sample Request
 
-```
+```{.copyWrapper}
     GET /api/portal/policies/ HTTP/1.1
     Host: localhost:3000
     authorization: 7a7b140f-2480-4d5a-4e78-24049e3ba7f8
@@ -87,7 +87,7 @@ Notice that `apiid` field, it is different than rest of policy definitions! (See
 
 #### Sample request
 
-```
+```{.copyWrapper}
     GET /api/portal/policies/56b9fed54e86e40001000002 HTTP/1.1
     Host: localhost
     authorization: 7a7b140f-2480-4d5a-4e78-24049e3ba7f8
@@ -150,7 +150,7 @@ Creating policy definitions is slightly different to the core API, API definitio
 
 #### Sample Request
 
-```
+```{.copyWrapper}
     POST /api/portal/policies/ HTTP/1.1
     Host: localhost:3000
     Connection: keep-alive
@@ -200,7 +200,7 @@ Creating policy definitions is slightly different to the core API, API definitio
 
 #### Sample Request
 
-```
+```{.copyWrapper}
     PUT /api/portal/policies/56b9fed54e86e40001000002 HTTP/1.1
     Host: localhost:3000
     Connection: keep-alive
@@ -262,7 +262,7 @@ Creating policy definitions is slightly different to the core API, API definitio
 
 #### Sample Request
 
-```
+```{.copyWrapper}
     DELETE /api/portal/policies/56b9fed54e86e40001000002 HTTP/1.1
     Host: localhost:3000
     authorization: 7a7b140f-2480-4d5a-4e78-24049e3ba7f8

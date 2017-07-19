@@ -20,7 +20,7 @@ Any OAuth keys must be generated with the help of a client ID, these need to be 
 
 #### Sample request
 
-```
+```{.copyWrapper}
     POST /tyk/oauth/clients/create HTTP/1.1
     Host: localhost:8080
     x-tyk-authorization: 352d20ee67be67f6340b4c0605b044b7
@@ -55,7 +55,7 @@ You can delete an OAuth client using a simple DELETE method. Please note that to
 
 #### Sample request
 
-```
+```{.copyWrapper}
     DELETE /tyk/oauth/clients/25348e8cf157409b52e39357fd9578f1/061ba634e6644b40633fa9456b138f4b HTTP/1.1
     Host: localhost:8080
     x-tyk-authorization: 352d20ee67be67f6340b4c0605b044b7
@@ -85,7 +85,7 @@ Oauth Clients are organised by API ID, and therefore are queried as such.
 
 #### Sample request
 
-```
+```{.copyWrapper}
     GET /tyk/oauth/clients/25348e8cf157409b52e39357fd9578f1/ HTTP/1.1
     Host: localhost:8080
     x-tyk-authorization: 352d20ee67be67f6340b4c0605b044b7
@@ -127,7 +127,7 @@ With the OAuth flow you will need to create authorisation or access tokens for y
 
 #### Sample request
 
-```
+```{.copyWrapper}
     POST /528a67c1ac9940964f9a41ae79235fcc/tyk/oauth/authorize-client/ HTTP/1.1
     Host: localhost:8080
     X-Tyk-Authorization: 352d20ee67be67f6340b4c0605b044b7
@@ -169,7 +169,7 @@ It is possible to invalidate refresh tokens in order to manage OAuth client acce
 | Body         | NONE                                       |
 
 #### Sample request
-```
+```{.copyWrapper}
     DELETE /tyk/oauth/refresh/25348e8cf157409b52e39357fd9578f1/061ba634e6644b40633fa9456b138f4b HTTP/1.1
     Host: localhost:8080
     x-tyk-authorization: 352d20ee67be67f6340b4c0605b044b7

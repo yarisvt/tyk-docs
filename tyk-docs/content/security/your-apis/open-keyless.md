@@ -15,7 +15,7 @@ Keyless access will allow all requests through, all access control, versioning, 
 
 To implement keyless access, simply set the flag in your API Definition:
 
-```
+```{.copyWrapper}
 	{
 	    ...
 	    "use_keyless": true,

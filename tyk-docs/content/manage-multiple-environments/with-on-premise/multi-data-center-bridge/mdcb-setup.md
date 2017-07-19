@@ -15,7 +15,7 @@ Tyk MDCB has a separate license, which you can request from your account represe
 
 ### The Tyk Sink configuration file:
 
-```
+```{.copyWrapper}
     {
         "storage": {
             "type": "redis",
@@ -43,7 +43,7 @@ Before a slave node can connect to MDCB, it is important to enable the organisat
 
 First, get a copy of the record:
 
-```
+```{.copyWrapper}
     GET /admin/organisations/{org-id}
     
     {
@@ -77,7 +77,7 @@ First, get a copy of the record:
 
 Now modify this object so that it has MDCB enabled by setting `hybrid_enabled: true` and also to enable key sharing across instances by setting the relevant `event_options`:
 
-```
+```{.copyWrapper}
     PUT /admin/organisations/54b53d3aeba6db5c35000002
     
     {
@@ -123,13 +123,13 @@ The last thing that needs to be done is to actually configure a slaved Tyk gatew
 
 First, we need to ensure that we are optimising for speed:
 
-```
+```{.copyWrapper}
 	"optimisations_use_async_session_write": true,
 ```
 
 Next, we need to set the group that the node will belong to using API sharding, or API tagging, these settings will ensure that only APIs tagged as `ny-1-qa` are loaded by this gateway, you can of course change this tag to be an identifier for whichever environment you want.
 
-```
+```{.copyWrapper}
     "db_app_conf_options": {
         "node_is_segmented": true,
         "tags": ["ny-1-qa"]
@@ -138,7 +138,7 @@ Next, we need to set the group that the node will belong to using API sharding, 
 
 Next, we need to ensure that the policy loader and analytics purger use the RPC driver:
 
-```
+```{.copyWrapper}
     "policies": {
       "policy_source": "rpc",
       "policy_record_name": "tyk_policies"
@@ -152,7 +152,7 @@ Next, we need to ensure that the policy loader and analytics purger use the RPC 
 
 Lastly, we add the sections that enforce the RPC Slave mechanism:
 
-```
+```{.copyWrapper}
     "slave_options": {
         "use_rpc": true,
         "rpc_key": "{ORGID}",
@@ -160,7 +160,9 @@ Lastly, we add the sections that enforce the RPC Slave mechanism:
         "connection_string": "{your-mdcb-instance-domain:9090}",
         "enable_rpc_cache": true,
         "bind_to_slugs": true,
-        "group-id": "ny"
+        "group-id": "ny",
+        "use_ssl" : true,
+        "ssl_insecure_skip_verify", true
     },
     
     "auth_override": {

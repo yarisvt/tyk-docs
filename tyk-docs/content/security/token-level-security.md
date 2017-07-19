@@ -11,7 +11,7 @@ Tyk supports the concept of access control at the token level. Access control is
 
 Tyk will store each access key as a record in Redis, this key will have certain metadata attached to. The record takes this form:
 
-```
+```{.copyWrapper}
     {
         "allowance": 1000,
         "rate": 1000,

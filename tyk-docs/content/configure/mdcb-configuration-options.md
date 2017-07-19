@@ -15,7 +15,7 @@ Tyk MDCB has a separate license, which you can request from your account represe
 
 ### The configuration file
 
-```
+```{.copyWrapper}
     {
         "storage": {
             "type": "redis",

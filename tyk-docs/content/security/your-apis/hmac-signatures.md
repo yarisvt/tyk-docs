@@ -41,7 +41,7 @@ Tyk API Gateway supports full header signing through the use of the `headers` HM
 
 ### A sample signature generation snippet
 
-```
+```{.copyWrapper}
     ...
     
     refDate := "Mon, 02 Jan 2006 15:04:05 MST"
@@ -96,7 +96,7 @@ HMAC Signing is a good way to secure an API if message reliability is paramount,
 
 To enable HMAC on your API, first you will need to set the API definition up to use the method, this is done in the API Definition file/object:
 
-```
+```{.copyWrapper}
     {
         "name": "Tyk Test API",
         ...
@@ -117,7 +117,7 @@ Ensure that the other methods are set to false.
 
 When creating a user session object, the settings should be modified to reflect that an HMAC secret needs to be generated alongside the key:
 
-```
+```{.copyWrapper}
     {
         ...
         "hmac_enabled": true,

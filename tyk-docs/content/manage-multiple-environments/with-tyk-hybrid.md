@@ -24,7 +24,7 @@ Notes on Hybrid distributions:
 
 Setting up a gateway to be a shard, or a zone, is very easy. All you do is tell the node in the tyk.conf file what tags to respect and that it is segmented:
 
-```
+```{.copyWrapper}
 	...
 	"db_app_conf_options": {
 	    "node_is_segmented": true,

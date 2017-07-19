@@ -7,13 +7,14 @@ menu:
 weight: 2 
 ---
 
+
 The Tyk Dashboard has a separate configuration file, it is small and comes packaged with the tarball. Tyk Dashboard uses a separate configuration file as it may be installed on a different host to your Tyk nodes.
 
 The dashboard configuration file can be found in the `tyk-dashboard` folder and by default is called `tyk_analytics.conf`, though it can be renamed and specified using the `--conf` flag.
 
 The file will look like the sample below, the various fields are explained in the following sections:
 
-```
+``` {.copyWrapper}
     {
         "listen_port": 3000,
         "tyk_api_config": {
@@ -79,6 +80,7 @@ The file will look like the sample below, the various fields are explained in th
         "mongo_use_ssl": true
     }
 ```
+
 
 * `listen_port`: Setting this value will change the port that Tyk Dashboard listens on, by default Tyk will try to listen on port `3000`.
 
@@ -190,7 +192,7 @@ For legacy installs or upgrades using the host manager, leave this value as `fal
 
 *   `certificates`: Add a certificate block for each domain being covered by the application:
 
-```
+```{.copyWrapper}
         {
             "domain_name": "*.banana.com",
             "cert_file": "new.cert.cert",

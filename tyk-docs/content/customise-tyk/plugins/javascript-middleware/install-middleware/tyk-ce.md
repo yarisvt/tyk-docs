@@ -11,7 +11,7 @@ In order to activate middleware in a CE configuration or when using a file-based
 
 Adding the middleware plugin is as simple as adding it to your definition file in the middleware sections:
 
-```
+```{.copyWrapper}
     // sample_api.conf
     
     ...

@@ -19,7 +19,7 @@ weight: 5
 
 #### Sample Request
 
-```
+```{.copyWrapper}
     GET /api/users HTTP/1.1
     Host: localhost:3000
     authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
@@ -69,7 +69,7 @@ weight: 5
 
 #### Sample Request
 
-```
+```{.copyWrapper}
     GET /api/users/54bd0ad9ff4329b88985aafb HTTP/1.1
     Host: localhost:3000
     authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
@@ -105,7 +105,7 @@ Users are created with a random password, you will need to reset the password in
 
 #### Sample Request
 
-```
+```{.copyWrapper}
     GET /api/users HTTP/1.1
     Host: localhost:3000
     authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
@@ -142,7 +142,7 @@ Since users are created with a random password, you will need to reset the passw
 
 #### Sample Request
 
-```
+```{.copyWrapper}
     POST /api/users/54c25e845d932847067402e2/actions/reset HTTP/1.1
     Host: localhost:3000
     authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
@@ -171,7 +171,7 @@ Since users are created with a random password, you will need to reset the passw
 | Param        | None                                                  |
 
 #### Sample Request
-```
+```{.copyWrapper}
     PUT -H "admin-auth: <your secret>" http://<dashboard>/admin/users/{user-id}/actions/allow_reset_passwords
 ```
 
@@ -196,7 +196,7 @@ Since users are created with a random password, you will need to reset the passw
 | Param        | None                                                      |
 
 #### Sample Request
-```
+```{.copyWrapper}
     PUT -H "admin-auth: <your secret>" http://<dashboard>/admin/users/{user-id}/actions/disallow_reset_passwords
 ```
 
@@ -223,7 +223,7 @@ Since users are created with a random password, you will need to reset the passw
 
 #### Sample Request
 
-```
+```{.copyWrapper}
     PUT /api/users/54c25e845d932847067402e2 HTTP/1.1
     Host: localhost:3000
     authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
@@ -258,7 +258,7 @@ Since users are created with a random password, you will need to reset the passw
 
 #### Sample Request
 
-```
+```{.copyWrapper}
     DELETE /api/users/54c25e845d932847067402e2 HTTP/1.1
     Host: localhost:3000
     authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8

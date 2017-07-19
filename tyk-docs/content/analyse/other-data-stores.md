@@ -17,7 +17,7 @@ Configuring Tyk Pump is very simple.
 
 Create a `pump.conf` file:
 
-```
+```{.copyWrapper}
     {
         "analytics_storage_type": "redis",
         "analytics_storage_config": {
@@ -77,7 +77,7 @@ Environment variables can be used to override settings defined in the configurat
 
 The Elasticsearch pump configuration looks like this:
 
-```
+```{.copyWrapper}
     "elasticsearch": {
             "name": "elasticsearch",
             "meta": {
@@ -99,7 +99,7 @@ The Elasticsearch pump configuration looks like this:
 
 The InfluxDB Pump configuration requires the following fields to be added to your `pump.conf` file:
 
-```
+```{.copyWrapper}
     "influx": {
             "name": "influx",
             "meta": {
@@ -126,7 +126,7 @@ The InfluxDB Pump configuration requires the following fields to be added to you
 
 The StatsD pump requires the following configuration to be added to your `pump.conf` file:
 
-```
+```{.copyWrapper}
     "statsd": {
             "name": "statsd",
             "meta": {
@@ -150,7 +150,7 @@ The StatsD pump requires the following configuration to be added to your `pump.c
 
 The Graylog Pump requires the following configuration to be added to your `pump.conf` file:
 
-```
+```{.copyWrapper}
     "graylog": {
           "name": "graylog",
           "meta": {

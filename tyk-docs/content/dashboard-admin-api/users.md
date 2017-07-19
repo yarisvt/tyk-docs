@@ -22,7 +22,7 @@ In order to make it easier to create and manage users in Tyk Dashboard, there is
 
 #### Sample Request
 
-```
+```{.copyWrapper}
     GET /admin/users/54bd0ad9ff4329b88985aafb HTTP/1.1
     Host: localhost:3000
     admin-auth: 12345
@@ -58,7 +58,7 @@ If a user is created and the password is set to empty, it will be hashed.
 
 #### Sample Request
 
-```
+```{.copyWrapper}
     POST /admin/users HTTP/1.1
     Host: localhost:3000
     admin-auth: 12345
@@ -96,7 +96,7 @@ If a user is created and the password is set to empty, it will be hashed.
 
 #### Sample Request
 
-```
+```{.copyWrapper}
     PUT /admin/users/54c25e845d932847067402e2 HTTP/1.1
     Host: localhost:3000
     admin-auth: 12345

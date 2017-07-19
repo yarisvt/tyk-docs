@@ -43,7 +43,7 @@ In order for everything to work in a single Docker instance, assuming everything
 #### Step 1: Set up hosts entries
 
 We are assuming that you are running this on a local Docker installation, the Tyk Portal requires a domain name to bind to in order to work properly, so let's make sure we set that up in `/etc/hosts`:
-```
+```{.copyWrapper}
     127.0.0.1    www.tyk-portal-test.com
 ```
 
@@ -54,7 +54,7 @@ This entry will be used to access our Portal.
 #### Step 2: Get the quick start compose files
 
 Our quick start is a GitHub repository that contains everything you need to start Tyk, let's clone it locally:
-```
+```{.copyWrapper}
     git clone https://github.com/lonelycode/tyk_quickstart.git
     cd tyk_quickstart
 ```
@@ -66,7 +66,7 @@ Our quick start is a GitHub repository that contains everything you need to star
 Go grab a Tyk Starter License (completely free), and edit the `tyk_analytics.conf` file in the the `tyk_quickstart` directory.
 
 Add your license to the field marked `license`:
-```
+```{.copyWrapper}
     {
         ...
         "mongo_url": "mongodb://mongo:27017/tyk_analytics",
@@ -81,7 +81,7 @@ Save the file and start your containers in the step below.
 #### Step 4: Bootstrap dashboard and portal
 
 We've included a setup script that will create an organisation, a user and create the proxy configurations for your Portal:
-```
+```{.copyWrapper}
     docker-compose up -d --force-recreate
     ./setup.sh
 ```

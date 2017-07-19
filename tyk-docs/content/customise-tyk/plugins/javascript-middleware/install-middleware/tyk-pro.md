@@ -13,7 +13,7 @@ A second method of loading API Definitions in Tyk nodes is to add them as a dire
 
 The URL structure looks like this:
 
-```
+```{.copyWrapper}
     middleware 
         ? {API Id}
             ? pre 

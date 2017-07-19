@@ -17,7 +17,7 @@ A plugin bundle must include a manifest file (called `manifest.json`). The manif
 
 A sample manifest file looks like this:
 
-```
+```{.copyWrapper}
     {
       "file_list": [
         "middleware.py",
@@ -71,7 +71,7 @@ You may use the full path to call this program, feel free to create a symbolic l
 
 This step will assume that you're located in your plugin directory and a valid manifest file is present. The bundle tool provides a `build` command, the most basic usage/syntax looks like this:
 
-```
+```{.copyWrapper}
   $ tyk-cli bundle build
 ```
 
@@ -91,7 +91,7 @@ The following options are supported:
 
 To load a bundle plugin the following parameters must be specified in your `tyk.conf`:
 
-```
+```{.copyWrapper}
     "enable_bundle_downloader": true,
     "bundle_base_url": "http://my-bundle-server.com/bundles/",
     "public_key_path": "/path/to/my/pubkey",
@@ -105,13 +105,13 @@ To load a bundle plugin the following parameters must be specified in your `tyk.
 
 To use a bundle plugin on one of your specified APIs, you must add the following parameter to its configuration block:
 
-```
+```{.copyWrapper}
   "custom_middleware_bundle": "bundle-latest.zip"
 ```
 
 A complete API configuration would look like:
 
-```
+```{.copyWrapper}
     {
         "name": "Tyk Test API",
         "api_id": "1",

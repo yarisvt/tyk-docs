@@ -17,7 +17,7 @@ When this mode is enabled, Tyk will record the request in wire-format and the re
 
 To enable detail logging is very simple, just enable the setting in your `tyk.conf` file:
 
-```
+```{.copyWrapper}
     "analytics_config": {
         "enable_detailed_recording": true
     }

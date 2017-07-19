@@ -19,7 +19,7 @@ The following validators are available:
 
 Below is an example of `password.json` file, with all options turned on:
 
-```
+```{.copyWrapper}
     {
         "title": "User password schema",
         "type": "string",

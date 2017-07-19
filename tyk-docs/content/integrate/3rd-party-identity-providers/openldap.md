@@ -15,7 +15,7 @@ The LDAP Identity Provider is experimental currently and provides limited functi
 
 Below is a sample TIB profile that can be used to log a user into the Dashboard using an LDAP pass-through provider:
 
-```
+```{.copyWrapper}
     {
         "ActionType": "GenerateOrLoginUserProfile",
         "ID": "4",
@@ -55,7 +55,7 @@ If you make this request with a valid user that can bind to the LDAP server, Tyk
 
 The configuration below will take a request that is posted to TIB, authenticate it against LDAP, if the request is valid, it will redirect to the Tyk Gateway OAuth clients' `Redirect URI` with the token as a URL fragment:
 
-```
+```{.copyWrapper}
     {
         "ActionType": "GenerateOAuthTokenForClient",
         "ID": "6",
@@ -92,7 +92,7 @@ This configuration is useful for internal APIs that require valid OAuth tokens (
 
 LDAP requires little configuration, we can use the same provider config that we used to log into the Dashboard to target the Portal instead - notice the change in the handler configuration and the return URL:
 
-```
+```{.copyWrapper}
     {
         "ActionType": "GenerateOrLoginDeveloperProfile",
         "ID": "5",

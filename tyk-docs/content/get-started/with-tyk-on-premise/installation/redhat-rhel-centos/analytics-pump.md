@@ -24,16 +24,16 @@ This configuration should also work (with some tweaks) for CentOS.
 ### Step 1: Set up yum repositories
 
 First, we need to install some software that allows us to use signed packages:
-
+```{.copyWrapper}
     sudo yum install pygpgme yum-utils wget
-    
+```
 
 Next, we need to set up the various repository configurations for Tyk and MongoDB:
 
 Create a file named `/etc/yum.repos.d/tyk_tyk-pump.repo` that contains the repository configuration below.
 
 Make sure to replace `el` and `7` in the config below with your Linux distribution and version:
-```
+```{.copyWrapper}
     [tyk_tyk-pump]
     name=tyk_tyk-pump
     baseurl=https://packagecloud.io/tyk/tyk-pump/el/7/$basearch
@@ -56,14 +56,14 @@ Make sure to replace `el` and `7` in the config below with your Linux distributi
 ```
 
 Finally we'll need to update our local cache, so run:
-```
+```{.copyWrapper}
     sudo yum -q makecache -y --disablerepo='*' --enablerepo='tyk_tyk-pump' info zabbix
 ```
 
 ### Step 2: Install packages
 
 We're ready to go, you can now install the relevant packages using yum:
-```
+```{.copyWrapper}
     sudo yum install -y tyk-pump
 ```
 
@@ -72,18 +72,18 @@ We're ready to go, you can now install the relevant packages using yum:
 ### Step 3: Configure Tyk Pump
 
 If you don't complete this step, you won't see any analytics in your Dashboard, so to enable the analytics service, we need to ensure Tyk Pump is running and configured properly, to configure Tyk Pump is very simple:
-```
+```{.copyWrapper}
     sudo /opt/tyk-pump/install/setup.sh --redishost=localhost --redisport=6379 --mongo=mongodb://127.0.0.1/tyk_analytics
 ```
 ### Step 4: Start Tyk Pump
-
-    sudo service tyk-pump start    
-    
+```{.copyWrapper}
+    sudo service tyk-pump start
+```
 
 That's it, the Pump should now be up and running.
 
 You can verify if Tyk Pump is running and working by tailing the log file:
-```
+```{.copyWrapper}
     sudo tail -f /var/log/tyk-pump.log
 ```
  [1]: https://packagecloud.io

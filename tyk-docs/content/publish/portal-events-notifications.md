@@ -17,7 +17,7 @@ Monitors are disabled by default in Tyk cloud. Portal events are enabled and can
 
 Enabling monitors in your Tyk node means adding a new configuration section to your `tyk.conf`:
 
-```
+```{.copyWrapper}
     "monitor": {
         "enable_trigger_monitors": true,
         "configuration": {
@@ -47,7 +47,7 @@ Enabling monitors in your Tyk node means adding a new configuration section to y
 
 Sometimes you will not want to have every user have a trigger event at the same levels, you can set manual trigger levels by adding a `monitor` section to the Session Object that defines a keys access details, this can also be added to the session object of an organisation ID:
 
-```
+```{.copyWrapper}
     "monitor": {
         "trigger_limits": [80.0, 60.0, 50.0]
     }
@@ -59,7 +59,7 @@ The trigger limits should be in *descending* order and represent the percentage 
 
 The webhook payload will take the following format:
 
-```
+```{.copyWrapper}
     {
         "event": "TriggerExceeded",
         "message": "Quota trigger reached",
@@ -89,7 +89,7 @@ To configure them, add an `event_options` section to an Organisation document wh
 
 Within this object, you can then register either webhooks or an email address to notify when an event occurs:
 
-```
+```{.copyWrapper}
     event_options: {
         api_event: {
           webhook: "http://posttestserver.com/post.php?dir=tyk-events",

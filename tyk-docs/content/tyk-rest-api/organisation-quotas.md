@@ -38,7 +38,7 @@ This reset quota mechanism is in place to allow a manual initialisation of the r
 
 #### Sample request
 
-```
+```{.copyWrapper}
     POST /tyk/orgs/keys/ HTTP/1.1
     Host: localhost:8080
     x-tyk-authorization: 352d20ee67be67f6340b4c0605b044bc4
@@ -83,7 +83,7 @@ This reset quota mechanism is in place to allow a manual initialisation of the r
 
 #### Sample request
 
-```
+```{.copyWrapper}
     PUT /tyk/org/keys/53ac07777cbb8c2d53000002 HTTP/1.1
     Host: localhost:8080
     x-tyk-authorization: 352d20ee67be67f6340b4c0605b044bc4
@@ -120,7 +120,7 @@ This reset quota mechanism is in place to allow a manual initialisation of the r
 
 #### Sample request
 
-```
+```{.copyWrapper}
     DELETE /tyk/org/keys/53ac07777cbb8c2d53000002 HTTP/1.1
     Host: localhost:8080
     x-tyk-authorization: 352d20ee67be67f6340b4c0605b044bc4
@@ -151,7 +151,7 @@ You can retrieve all the keys in your Tyk instance.
 
 #### Sample request
 
-```
+```{.copyWrapper}
     GET /tyk/org/keys/ HTTP/1.1
     Host: localhost:8080
     x-tyk-authorization: 352d20ee67be67f6340b4c0605b044bc4

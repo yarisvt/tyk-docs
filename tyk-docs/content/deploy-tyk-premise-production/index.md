@@ -84,7 +84,7 @@ Tyk also lets you set a maximum number of open connections, so that you don't ov
 
 To set your maximums and minimums, edit your `tyk.conf` and `tyk_analytics.conf` files to include:
 
-```
+```{.copyWrapper}
     "storage": {
         ...
         "optimisation_max_idle": 2000,
@@ -122,7 +122,7 @@ Tyk has an asynchronous rate limiter that can provide a smoother performance cur
 
 To enable this rate limiter, make sure the settings below are set in your `tyk.conf`:
 
-```
+```{.copyWrapper}
     "close_connections": true,
     "enforce_org_quotas": false, // only true if multi-tenant
     "enforce_org_data_detail_logging": false,

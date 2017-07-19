@@ -19,7 +19,7 @@ weight: 1
 
 #### Sample Request
 
-```
+```{.copyWrapper}
     GET /api/apis?p=0 HTTP/1.1
     Host: localhost:3000
     authorization: 7a7b140f-2480-4d5a-4e78-24049e3ba7f8
@@ -128,7 +128,7 @@ weight: 1
 
 #### Sample request
 
-```
+```{.copyWrapper}
     GET /api/apis/54c24242eba6db1c9a000002 HTTP/1.1
     Host: localhost
     authorization: 7a7b140f-2480-4d5a-4e78-24049e3ba7f8
@@ -296,7 +296,7 @@ Creating API definitions is slightly different to the core API, API definitions 
 
 #### Sample Request
 
-```
+```{.copyWrapper}
     POST /api/apis HTTP/1.1
     Host: localhost:3000
     Connection: keep-alive
@@ -433,7 +433,7 @@ APIs that are created using the advanced Dashboard API are referenced by their i
 
 #### Sample Request
 
-```
+```{.copyWrapper}
     PUT /api/apis/54c24242eba6db1c9a000002 HTTP/1.1
     Host: localhost:3000
     Connection: keep-alive

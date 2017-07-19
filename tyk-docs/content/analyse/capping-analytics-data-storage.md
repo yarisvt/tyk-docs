@@ -27,7 +27,7 @@ Run this command in your preferred MongoDB tool:
 
 @expiry.txt:
 
-```
+```{.copyWrapper}
     {
     "allowance": 10000,
     "rate": 10000,
@@ -46,7 +46,7 @@ Set the data expires to a time in seconds for it to expire. Tyk will calculate t
 
 ### Step 3: Make sure the setting is enabled in `tyk.conf`
 
-```
+```{.copyWrapper}
     "enforce_org_data_age": true, 
     "enforce_org_quota": false
 ```

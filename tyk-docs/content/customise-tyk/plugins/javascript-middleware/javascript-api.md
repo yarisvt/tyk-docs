@@ -19,7 +19,7 @@ Below is the list of functions currently provided by Tyk.
 
 *   `TykMakeHttpRequest(JSON.stringify(requestObject))`: This method is used to make an HTTP request, requests are encoded as JSON for deserialisation in the min binary and translation to a system HTTP call. The request object has the following structure:
 
-```
+```{.copyWrapper}
     newRequest = {
         "Method": "POST",
         "Body": JSON.stringify(event),
@@ -34,7 +34,7 @@ Below is the list of functions currently provided by Tyk.
     
 Tyk passes a simplified response back which looks like this:
 
-``` 
+```{.copyWrapper}
     type TykJSHttpResponse struct {
         Code int
         Body string
@@ -44,7 +44,7 @@ Tyk passes a simplified response back which looks like this:
     
 The response is JSON string encoded, and so will need to be decoded again before it is usable:
     
-```
+```{.copyWrapper}
     usableResponse = JSON.parse(response);
     log("Response code: " + usableResponse.Code);
     log("Response body: " + usableResponse.Body);
@@ -54,7 +54,7 @@ This method does not execute asynchronously, so execution will block until a res
 
 * `TykGetKeyData(api_key, api_id)`: Use this method to retrieve a session object for the key and the API provided:
 
-```
+```{.copyWrapper}
     // In an event handler, we can get the key idea from the event, and the API ID from the context variable.
     var thisSession = JSON.parse(TykGetKeyData(event.EventMetaData.Key, context.APIID))
     log("Expires: " + thisSession.expires)
@@ -62,7 +62,7 @@ This method does not execute asynchronously, so execution will block until a res
 
 * `TykSetKeyData(api_key, api_id)`:
 
-```
+```{.copyWrapper}
     Use this method to write data back into the Tyk session store:
     
         // You can modify the object just like with the REST API

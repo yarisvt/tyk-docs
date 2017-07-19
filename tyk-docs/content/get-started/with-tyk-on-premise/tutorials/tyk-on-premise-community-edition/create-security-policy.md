@@ -27,7 +27,7 @@ Each of these can also be overridden in isolation using the partitioning options
 
 Adding a policy to a file-based (Community Edition) Tyk Gateway is very easy. Polices are loaded into memory on load and so need to be specified in advanced in a file called `policies.json`. To add a policy, simply create or edit the `/policies/policies.json` file and add the policy object to the object array:
 
-```
+```{.copyWrapper}
   {
       "POLICYID": {
           "access_rights": {

@@ -21,7 +21,7 @@ You could either modify the API and add a whole user, key and access management 
 
 Using Tyk, you would set up your API Definition with these additions to the `extended_paths.transform_headers` field:
 
-```
+```{.copyWrapper}
     "extended_paths": {
         "ignored": [],
         "white_list": [],
@@ -77,7 +77,7 @@ Once the API is saved, if a request path and method matches your pattern, then t
 
 In some cases you may wish to add a secure header to all outbound requests (e.g. to verify that traffic is coming from the gateway), to do so, add this to your version block in your API Definition:
 
-```
+```{.copyWrapper}
     "version_data": {
         "versions": {
           "Default": {
@@ -122,7 +122,7 @@ Say in your session object you have included the following metadata:
 
 To use this in your header transform, your API definition path would be:
 
-```
+```{.copyWrapper}
     "transform_headers": [
         {
             "delete_headers": [],
@@ -156,7 +156,7 @@ The context variables that are available are:
 > **Note**: `request_id` is available from v1.3.6
 
 ### Example `global_headers` section
-```
+```{.copyWrapper}
     "version_data": {
         "not_versioned": true,
         "versions": {

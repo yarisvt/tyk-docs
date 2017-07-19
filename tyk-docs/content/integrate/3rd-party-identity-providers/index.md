@@ -67,7 +67,7 @@ cd tib-v0.1
 
 No command line arguments are needed, but if you are running TIB from another directory or during startup, you will need to set the absolute paths to the profile and config files:
 
-```
+```{.copyWrapper}
     Usage of ./tyk-auth-proxy:
       -c=string
             Path to the config file (default "tib.conf")

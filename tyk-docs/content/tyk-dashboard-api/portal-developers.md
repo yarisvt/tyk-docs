@@ -19,7 +19,7 @@ weight: 7
 
 #### Sample Request
 
-```
+```{.copyWrapper}
     GET /api/portal/developers HTTP/1.1
     Host: localhost
     authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
@@ -78,7 +78,7 @@ weight: 7
 
 #### Sample Request
 
-```
+```{.copyWrapper}
     GET /api/portal/developers/api/ HTTP/1.1
     Host: localhost
     authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
@@ -138,7 +138,7 @@ weight: 7
 
 #### Sample Request
 
-```
+```{.copyWrapper}
     GET /api/portal/developers/5555eceda8b6b60001000004 HTTP/1.1
     Host: localhost
     authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
@@ -183,7 +183,7 @@ weight: 7
 
 #### Sample Request
 
-```
+```{.copyWrapper}
     DELETE /api/portal/developers/554c733a30c55e4b16000002 HTTP/1.1
     Host: localhost
     authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8

@@ -23,7 +23,7 @@ Circuit breakers are individual on a single host, they do not centralise or pool
 
 When a circuit breaker trips, it will fire a `BreakerTriggered` event which you can define actions for in the `event_handlers` section (see the event handlers section of the documentations for more information on this feature):
 
-```
+```{.copyWrapper}
     event_handlers: {
         events: {
             BreakerTriggered: [
@@ -60,7 +60,7 @@ The status codes returned to the template are:
 
 To enable the breaker in your API Definition, you will need to add a new section to your versions' `extended_paths` list:
 
-```
+```{.copyWrapper}
     "circuit_breakers": [
         {
             "path": "get",

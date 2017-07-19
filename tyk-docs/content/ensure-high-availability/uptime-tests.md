@@ -25,7 +25,7 @@ The node running the uptime test will have a worker pool defined so that it can 
 
 To configure uptime tests, add the relevant section to your `tyk.conf`:
 
-```
+```{.copyWrapper}
     "uptime_tests": {
         "disable": false, // disable uptime tests on the node completely
         "config": {
@@ -47,7 +47,7 @@ To configure uptime tests, add the relevant section to your `tyk.conf`:
 
 Uptime test check lists sit within API configurations, so in your API Definition add a section for the tests:
 
-```
+```{.copyWrapper}
   uptime_tests: {
       check_list: [
           {

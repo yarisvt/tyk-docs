@@ -17,7 +17,7 @@ Tyk supports the use of the following plugins to extend Tyk functionality:
 ## Requirements
 All plugins require the following addition to be made to your `tyk.conf` file:
 
-```
+```{.copyWrapper}
 	"coprocess_options": {
 	  "enable_coprocess": true
 	},
@@ -38,7 +38,7 @@ All plugins require the following addition to be made to your `tyk.conf` file:
 
 For a [gRPC][4] rich plugin a further `coprocess_grpc_server` parameter is required within `coprocess_options`:
 
-```
+```{.copyWrapper}
 	"coprocess_grpc_server": "tcp://127.0.0.1:5555"
 ```
 

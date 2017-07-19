@@ -11,7 +11,7 @@ weight: 4
 
 Setting up response transforms in your API definition is very similar to setting up request transforms, we simply use the `transform_response` section of the API Definition instead:
 
-```
+```{.copyWrapper}
     "extended_paths": {
         "ignored": [],
         "white_list": [],
@@ -46,7 +46,7 @@ The field representations are:
 
 A middleware called `header_transform`, added in v2.1, ensures headers such as `Location` and `Link` reflect the outward facade of your API Gateway and also align with the expected response location to be terminated at the gateway, not the hidden upstream proxy:
 
-```
+```{.copyWrapper}
     "response_processors": [
         {
             "name": "header_transform",
@@ -68,7 +68,7 @@ In this configuration, you set the `headers` to target and the `target host` to 
 
 In order for responses to be processed by Tyk as they return via the proxy, the response middleware must be loaded for the API definition. Unlike inbound middleware, these processors are loaded only as required and must therefore be registered in advance. To do so is very simple, just add them to your API definition as follows:
 
-```
+```{.copyWrapper}
     "response_processors": [
         {
           "name": "response_body_transform",

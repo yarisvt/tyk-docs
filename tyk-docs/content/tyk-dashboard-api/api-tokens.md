@@ -21,7 +21,7 @@ weight: 2
 
 #### Sample Request:
 
-```
+```{.copyWrapper}
     GET /api/apis/39d2c98be05c424371c600bd8b3e2242/keys HTTP/1.1
     Host: localhost:3000
     authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
@@ -56,7 +56,7 @@ weight: 2
 
 #### Sample Request
 
-```
+```{.copyWrapper}
     GET /api/apis/39d2c98be05c424371c600bd8b3e2242/keys/54b53d3aeba6db5c3500000289a8fbc2bbba4ebc4934bb113588c792 HTTP/1.1
     Host: localhost:3000
     authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
@@ -110,7 +110,7 @@ weight: 2
 
 #### Sample Request
 
-```
+```{.copyWrapper}
     POST /api/keys HTTP/1.1
     Host: localhost:3000
     authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
@@ -185,7 +185,7 @@ weight: 2
 
 #### Sample Request
 
-```
+```{.copyWrapper}
     PUT /api/apis/39d2c98be05c424371c600bd8b3e2242/keys/54b53d3aeba6db5c3500000272d97a10538248e9523ca09e425090b8 HTTP/1.1
     Host: localhost:3000
     admin-auth: 12345
@@ -241,7 +241,7 @@ weight: 2
 
 #### Sample Request
 
-```
+```{.copyWrapper}
     DELETE /api/apis/39d2c98be05c424371c600bd8b3e2242/keys/54b53d3aeba6db5c3500000272d97a10538248e9523ca09e425090b8 HTTP/1.1
     Host: localhost:3000
     authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8

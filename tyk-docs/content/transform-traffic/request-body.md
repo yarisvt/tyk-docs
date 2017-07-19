@@ -15,7 +15,7 @@ As of Tyk 1.5 it is possible to modify inbound JSON requests and as of v2.2 XML 
 
 Setting up transforms in your API definition is easy:
 
-```
+```{.copyWrapper}
     "extended_paths": {
         "ignored": [],
         "white_list": [],
@@ -76,7 +76,7 @@ Tyk will unmarshal the data into a data structure, and then make that data avail
 
 Assume your inbound date structure is as follows:
 
-```
+```{.copyWrapper}
     {
         "value1": "value-1",
         "value2": "value-2",
@@ -92,7 +92,7 @@ Assume your inbound date structure is as follows:
 
 You could use a golang template that looks like this to transform it into a different format:
 
-```
+```{.copyWrapper}
     {
         "value1": "{{.value2}}",
         "value2": "{{.value1}}",
@@ -132,7 +132,7 @@ With an XML document it is a little different from JSON as XML cannot be as easi
 
 For this XML:
 
-```
+```{.copyWrapper}
     <?xml version="1.0" encoding="utf-8"?>
     <servers version="1">
         <server>
@@ -150,7 +150,7 @@ For this XML:
 
 And this Template:
 
-```
+```{.copyWrapper}
     {
     {{range $x, $s := .servers.server}}    "{{$s.serverName}}": "{{$s.serverIP}}"{{if not $x}},{{end}}
     {{end}}
@@ -171,7 +171,7 @@ You get this output:
 
 It is also possible to insert key meta data into a body transform, you can do this by calling the `._tyk_meta.KEYNAME` namespace, e.g.:
 
-```
+```{.copyWrapper}
     {
         "value1": "value-1",
         "value2": "value-2",

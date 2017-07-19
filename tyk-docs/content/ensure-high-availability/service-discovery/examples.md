@@ -11,7 +11,7 @@ weight: 0
 
 For integrating service discovery with Mesosphere, you can use the following configuration parameters:
 
-```
+```{.copyWrapper}
 	isNested = false
 	isTargetList = true
 	endpointReturnsList = false
@@ -25,7 +25,7 @@ For integrating service discovery with Mesosphere, you can use the following con
 
 For integrating service discovery with Eureka, you can use the following configuration parameters (this assumes that the endpoint will return JSON and not XML, this is achieved by creating an API Definition that injects the header that requests the data type and using this API Definition as the endpoint):
 
-```
+```{.copyWrapper}
 	isNested = false
 	isTargetList = true
 	endpointReturnsList = false
@@ -39,7 +39,7 @@ For integrating service discovery with Eureka, you can use the following configu
 
 For integrating with etcd, you can use the following configurations:
 
-```
+```{.copyWrapper}
 	isNested = false
 	isTargetList = false
 	endpointReturnsList = false
@@ -53,7 +53,7 @@ For integrating with etcd, you can use the following configurations:
 
 For integrating service discovery with Consul, you can use the following configuration parameters:
 
-```
+```{.copyWrapper}
 	isNested = false
 	isTargetList = true
 	endpointReturnsList = true
@@ -73,7 +73,7 @@ To integrate Tyk with Linkerd perform the following:
 
 For integrating with Linkerd, you need to add the following configuration to your `linkerd.yaml` file, located in the `config/` directory:
 
-```
+```{.copyWrapper}
 	routers:
 	- protocol: http
 	  identifier:

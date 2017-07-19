@@ -33,7 +33,7 @@ Creating a middleware object is done my calling the `TykJS.TykMiddleware.NewMidd
 
 Here is an example implementation:
 
-```
+```{.copyWrapper}
     /* --- sample.js --- */
     
     // Create your middleware object
@@ -66,7 +66,7 @@ This allows the middleware machinery to perform the necessary writes and changes
 
 The `request` object provides a set of arrays that can be manipulated, that when changed, will affect the request as it passes through the middleware pipeline, the `request` object looks like this:
 
-```
+```{.copyWrapper}
     {
         Headers       map[string][]string
         SetHeaders    map[string]string
@@ -101,7 +101,7 @@ In order for middleware to be able to transfer data between each other, the sess
 
 The session object has the same representation as the one used by the API:
 
-```
+```{.copyWrapper}
     {
         "allowance": 999,
         "rate": 1000,

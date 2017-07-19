@@ -11,7 +11,7 @@ weight: 0
 
 To add a gRPC plugin to your API, you must specify the bundle name using the `custom_middleware_bundle` field:
 
-```
+```{.copyWrapper}
     {
         "name": "Tyk Test API",
         "api_id": "1",
@@ -52,7 +52,7 @@ To add a gRPC plugin to your API, you must specify the bundle name using the `cu
 
 To enable gRPC plugins you need to add the following block to `tyk.conf`:
 
-```
+```{.copyWrapper}
     "coprocess_options": {
       "enable_coprocess": true,
       "coprocess_grpc_server": "tcp://127.0.0.1:5555"

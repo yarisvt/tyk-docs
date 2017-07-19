@@ -25,7 +25,7 @@ The organisation object is the most fundamental object in a Tyk setup, all other
 
 #### Sample Request
 
-```
+```{.copyWrapper}
     POST /admin/organisations/import HTTP/1.1
     Host: localhost:3000
     admin-auth: 12345
@@ -91,7 +91,7 @@ The import APIs operates on *lists* of APIs.
 
 #### Sample Request
 
-```
+```{.copyWrapper}
     POST /admin/apis/import HTTP/1.1
     Host: localhost:3000
     admin-auth: 12345
@@ -127,7 +127,7 @@ The import Policies operates on *lists* of Policies.
 
 #### Sample Request
 
-```
+```{.copyWrapper}
     POST /admin/policies/import HTTP/1.1
     Host: localhost:3000
     admin-auth: 12345

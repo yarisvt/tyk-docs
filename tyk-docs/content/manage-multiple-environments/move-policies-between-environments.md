@@ -15,7 +15,7 @@ First you must set up your new environment to respect explicit policy IDs. To do
 
 ### Step 1: Get your Policy
 
-```
+```{.copyWrapper}
     curl -X GET -H "authorization: {YOUR TOKEN}" \
      -s \
      -H "Content-Type: application/json" \
@@ -26,7 +26,7 @@ First you must set up your new environment to respect explicit policy IDs. To do
 
 The original file will look something like this, notice the two ID fields:
 
-```
+```{.copyWrapper}
     {
         "_id": "5777ecdb0a91ff0001000003",
         "access_rights": {
@@ -64,7 +64,7 @@ The original file will look something like this, notice the two ID fields:
 
 Remove the `_id` field and put the value of the `_id` field into the `id` field, so `policy.json` should look like this:
 
-```
+```{.copyWrapper}
     {
         "access_rights": {
             "xxxxx": {
@@ -101,7 +101,7 @@ Remove the `_id` field and put the value of the `_id` field into the `id` field,
 
 Save the new `policies.json` file and then let's POST it back to the new environment:
 
-```
+```{.copyWrapper}
     curl -X POST -H "authorization: {API-TOKEN}" \
      -s \
      -H "Content-Type: application/json" \

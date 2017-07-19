@@ -70,7 +70,7 @@ Select "Users" from the "System Management" section. Click **Edit** for your use
 ### Step 2: Create an API
 
 To create the API, let's send a definition to the admin endpoint:
-```
+```{.copyWrapper}
     curl -H "Authorization: 1238b7e0e2ff4c2957321724409ee2eb" \
      -s \
      -H "Content-Type: application/json" \

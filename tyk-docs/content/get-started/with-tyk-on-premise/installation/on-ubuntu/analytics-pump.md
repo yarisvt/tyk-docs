@@ -30,27 +30,27 @@ We're installing on a `t2.micro` because this is a tutorial, you'll need more RA
 #### Step 1: Set up our APT repositories
 
 First, add our GPGP key which signs our binaries:
-```
+```{.copyWrapper}
     curl https://packagecloud.io/gpg.key | sudo apt-key add -
 ``` 
 
 Do the same for MongoDB (this may change, correct at time of writing):
-```
+```{.copyWrapper}
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
 ``` 
 
 Run update:
-```
+```{.copyWrapper}
     sudo apt-get update
 ```
 
 Since our repositories are installed via HTTPS, you will need to make sure APT supports this:
-```
+```{.copyWrapper}
     sudo apt-get install -y apt-transport-https 
 ``` 
 
 Now lets add the required repos and update again (notice the `-a` flag in the second Tyk commands - this is important!):
-```
+```{.copyWrapper}
     echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list
  
     echo "deb https://packagecloud.io/tyk/tyk-pump/ubuntu/ trusty main" | sudo tee /etc/apt/sources.list.d/tyk_tyk-pump.list
@@ -69,7 +69,7 @@ Now lets add the required repos and update again (notice the `-a` flag in the se
 #### Step 2: Install the Tyk Pump
 
 We're now ready to install Tyk Gateway and Tyk Dashboard, along with all the main dependencies: MongoDB. To install everything run:
-```
+```{.copyWrapper}
     sudo apt-get install -y mongodb-org tyk-pump
 ```
 
@@ -80,17 +80,17 @@ When Tyk Pump is finished installing, it will have installed some init scripts, 
 #### Step 3: Configure Tyk Pump
 
 If you don't complete this step, you won't see any analytics in your Dashboard, so to enable the analytics service, we need to ensure Tyk Pump is running and configured properly, to configure Tyk Pump is very simple:
-```
+```{.copyWrapper}
     sudo /opt/tyk-pump/install/setup.sh --redishost=localhost --redisport=6379 --mongo=mongodb://127.0.0.1/tyk_analytics
 ```
 
 #### Step 4: Start Tyk Pump
-```
+```{.copyWrapper}
     sudo service tyk-pump start
 ```
 
 You can verify if Tyk Pump is running and working by tailing the log file:
-```
+```{.copyWrapper}
     sudo tail -f /var/log/upstart/tyk-pump.log
 ```
 

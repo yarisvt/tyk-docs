@@ -48,7 +48,7 @@ To enable Basic Auth on your API using the dashboard GUI:
 
 To enable Basic Auth, the API Definition file needs to be set up to allow basic auth and not a standard access token:
 
-```
+```{.copyWrapper}
 	{
 	  "name": "Tyk Test API",
 	  ...
@@ -63,7 +63,7 @@ As you can see in the above example, enabling basic auth is as simple as setting
 
 For a user session object, to enable basic auth, set the relevant fields in the session object:
 
-```
+```{.copyWrapper}
   {
       ...
       "basic_auth_data": {
@@ -81,7 +81,7 @@ Notice the `basic_auth_data` section - this is all that is really required, if a
 
 The below command will use the gateway API to generate a new basic auth user in Tyk Gateway:
 
-```
+```{.copyWrapper}
     curl -X POST -H "x-tyk-authorization: 352d20fe67be67f6340b4c0605b044c3" \
      -s \
      -H "Content-Type: application/json" \
@@ -114,7 +114,7 @@ The below command will use the gateway API to generate a new basic auth user in 
 
 The following command will create a basic auth user with the dashboard API:
 
-```
+```{.copyWrapper}
     curl -X POST -H "Authorization: {YOUR API KEY}"
      -s
      -H "Content-Type: application/json"
