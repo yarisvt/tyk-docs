@@ -25,7 +25,7 @@ With Tyk, you can set up some specific claims that will then enforce a token pol
 
 Currently HMAC Signing and RSA Public/Private key signing is supported. To enable centralised JWT on an API, add the following to the root of your API Definition:
 
-```
+```{.copyWrapper}
     "enable_jwt": true,
     "jwt_source": "BASE64-Encoded secret",
     "jwt_identity_base_field": "sub",
@@ -73,14 +73,14 @@ Tyk supports validating an inbound token against a stored key. Tyk will not issu
 
 Currently HMAC Signing and RSA Public/Private key signing is supported. To enable JWT on an API, add this to your API Definition:
 
-```
+```{.copyWrapper}
     "enable_jwt": true,
     "jwt_signing_method": "rsa"
 ```
 
 Then set your tokens up with these new fields when you create them:
 
-```
+```{.copyWrapper}
     "jwt_data": {
         "secret": "Secret"
     }
@@ -91,7 +91,7 @@ HMAC JWT secrets can be any string, but the secret is shared and therefore less 
 
 RSA secrets must be a PEM encoded PKCS1 or PKCS8 RSA private key, these can be generated on a Linux box using:
 
-```
+```{.copyWrapper}
     openssl genrsa -out key.rsa 
     openssl rsa -in key.rsa -pubout > key.rsa.pub
 ```

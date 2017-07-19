@@ -94,3 +94,55 @@ if (!window.debCfn) {
 	$(document).ready(debCfn);
 	$(document).on("turbolinks:load", debCfn);
 }
+
+$(window).load(function(e){
+
+	$.fn.copyToClipboard = function() {
+
+		return this.each(function($elem) {
+			var $textArea = $('<textarea></textarea>');
+			var $element = $(this);
+			var $parent = $element.parent();
+			var $button = $('<button class="button copy">Copy to Clipboard</button>');
+
+			var appendButton = function appendButton() {
+				$button.insertAfter($parent);
+			};
+
+			var selectCodeToBeCopied = function selectCodeToBeCopied() {
+				$textArea.val($element.text());
+				$textArea.insertAfter($element);
+				$textArea.select();
+			};
+
+			var copyTextToClipboard = function copyTextToClipboard() {
+				try {
+					document.execCommand('copy');
+					$button.text( 'Copied!').prop('disabled', true);
+				} catch (err) {
+					$button.text( 'FAILED: Could not copy').prop('disabled', true);
+				}
+
+				$textArea.remove();
+
+				setTimeout(function(){
+					$button.text( 'Copy to Clipboard').prop('disabled', false);
+				}, 3000);			
+			};
+
+			var bindEvents = function bindEvents() {
+				$button.on('click', function(e) {
+					e.preventDefault();
+					selectCodeToBeCopied();
+					copyTextToClipboard();
+				});
+			};
+
+			appendButton();
+			bindEvents();
+		});   
+	};
+
+	$('.language-copyWrapper').copyToClipboard();
+
+});

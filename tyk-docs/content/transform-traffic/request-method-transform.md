@@ -9,7 +9,7 @@ weight: 6
 
 It is now possible, as of Tyk Gateway v2.2, to change the method of a request. To enable, add to your extended paths:
 
-```
+```{.copyWrapper}
     method_transforms: [
             {
               path: "post",

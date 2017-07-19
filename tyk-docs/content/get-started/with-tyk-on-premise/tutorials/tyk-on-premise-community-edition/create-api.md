@@ -24,7 +24,7 @@ Your Tyk Gateway API secret is stored in your `tyk.conf` file, the property is c
 ### Step 2: Create an API
 
 To create the API, lets send a definition to the admin endpoint. Change the `x-tyk-authorization` value and `curl` domain name and port to be the correct values for your environment.
-```
+```{.copyWrapper}
   curl -v -H "x-tyk-authorization: 352d20ee67be67f6340b4c0605b044b7" \
    -s \
    -H "Content-Type: application/json" \
@@ -77,7 +77,7 @@ We just sent an API definition to the Tyk `/apis` endpoint. API definitions are 
 To create a file-based API definition is very easy.
 
 Create a file called `api1.json` and place it in the `/apps` folder of your Tyk Gateway installation (usually in `/var/tyk-gateway`), then add the following:
-```
+```{.copyWrapper}
   {
       "name": "Test API",
       "slug": "test-api",
@@ -109,7 +109,7 @@ Create a file called `api1.json` and place it in the `/apps` folder of your Tyk 
 ```
 
 Once you have created the file, you will need to restart the Tyk Gateway, or issue a hot reload command, lets do the latter:
-```
+```{.copyWrapper}
   curl -H "x-tyk-authorization: {your-secret}" -s https://{your-tyk-host}:{port}/tyk/reload/group | python -mjson.tool
 ```
 

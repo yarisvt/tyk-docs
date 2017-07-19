@@ -15,7 +15,7 @@ The response transform middleware works in the same way as the request transform
 
 Using Tyk, you would set up your API Definition with these additions to the extended_paths.transform_response_headers field:
 
-```
+```{.copyWrapper}
     "extended_paths": {
         "ignored": [],
         "white_list": [],
@@ -37,7 +37,7 @@ Using Tyk, you would set up your API Definition with these additions to the exte
 
 Response middleware must be *registered*, so one last step is required when editing the API Definition, and that is to add the response middleware to the processor like so:
 
-```
+```{.copyWrapper}
     "response_processors":[{"name": "header_injector"}]
 ```
 

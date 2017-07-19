@@ -13,7 +13,7 @@ A gRPC plugin uses the standard bundling mechanism that you use for the rest of 
 
 This is what a manifest could look like:
 
-```
+```{.copyWrapper}
     {
       "file_list": [
       ],
@@ -40,7 +40,7 @@ This is what a manifest could look like:
 
 After saving this file as `manifest.json`, build it using [tyk-cli][1]:
 
-```
+```{.copyWrapper}
   tyk-cli bundle build -output mybundle.zip -key mykey.pem
 ```
 

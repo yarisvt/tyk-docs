@@ -11,7 +11,7 @@ weight: 7
 
 Tyk supports Redis cluster integration (please note this is different from a Redis master/slave setup). To work with a Redis cluster, simply specify it in your `tyk.conf` file:
 
-```
+```{.copyWrapper}
 	"storage": {
 	    "type": "redis",
 	    "enable_cluster": true,
@@ -33,7 +33,7 @@ Tyk Dashboard and Tyk Pump also support Redis cluster, and must have this settin
 
 Tyk Dashboard also supports Redis cluster, simply update the `tyk_analytics.conf` to use the cluster like so:
 
-```
+```{.copyWrapper}
 	"redis_hosts": {
 	    "server1": "6379",
 	    "server2": "6380",
@@ -48,7 +48,7 @@ Cluster settings must be the same across all Tyk components.
 
 Tyk Pump also supports Redis cluster, simply update the pump.conf to use the cluster like so:
 
-```
+```{.copyWrapper}
 	"analytics_storage_config": {
 	    "type": "redis",
 	    "enable_cluster": true,
@@ -81,7 +81,7 @@ For Elasticache Redis, you can bypass having to list all your nodes, and instead
 
 If this does not work, you can still list out the hosts using an environment variable, to do so, set the environment variable
 
-```
+```{.copyWrapper}
     TYK_GW_STORAGE_HOSTS="redis_master1:port,redis_slave1:port,redis_master2:port,redis_slave2:port,redis_master3:port,redis_slave3:port"
 ```
 
@@ -89,7 +89,7 @@ It is important that Tyk can connect to all masters and slaves.
 
 It is recommended to ensure that the connection pool is big enough. To do this, set the following environment variables:
 
-```
+```{.copyWrapper}
     TYK_GW_STORAGE_MAXIDLE=6000
     TYK_GW_STORAGE_MAXACTIVE=10000
 ```

@@ -19,7 +19,7 @@ Unlike other web servers, Tyk uses a wide match to capture the URL and then a fi
 
 To rewrite a URL with the API Definition, you must add a new object to the `extended_paths` section of an API definition:
 
-```
+```{.copyWrapper}
     "url_rewrites": [{
         "path": "match/me",
         "method": "GET",
@@ -36,13 +36,13 @@ To rewrite a URL with the API Definition, you must add a new object to the `exte
 
 *   `rewrite_to`: Each capture group you specify is designated with an index, and then made available in the `rewrite_to` template, here `$n` will map against each value found in the capture group, so in the above example, the rewrite will be:
 
-```
+```{.copyWrapper}
     my/service?value1=match&value2=me
 ```
 
 This can also include a new hostname, but you *must* specify the transport, e.g.
 
-```
+```{.copyWrapper}
     https://my-new-target-host.com/my/service?value1=match&value2=me
 ```
 

@@ -85,8 +85,8 @@ In the above example, the **port data path** would be `port`.
 
 Service discovery is configured on a per-API basis, and is set up in the API Object under the `proxy` section of your API Definition:
 
-```
-    "enable_load_balancing": true,
+```{.copyWrapper}
+    enable_load_balancing: true,
     service_discovery: {
       use_discovery_service: true,
       query_endpoint: "http://127.0.0.1:4001/v2/keys/services/multiobj",

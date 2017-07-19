@@ -11,7 +11,7 @@ All tokens that are used to access services via Tyk correspond to a session obje
 
 A session object takes the following form:
 
-```
+```{.copyWrapper}
     {
         "last_check": 0,
         "allowance": 1000,

@@ -13,7 +13,7 @@ The ID extractor is a very useful mechanism that will let you cache your authent
 
 A sample usage will look like this:
 
-```
+```{.copyWrapper}
     "custom_middleware": {
       "pre": [
         {
@@ -42,7 +42,7 @@ The main interoperability task is achieved by using [cgo][2] as a bridge between
 
 Your C bridge function must accept and return a `CoProcessMessage` data structure like the one described in [`api.h`][3], where `p_data` is a pointer to the serialized data and `length` indicates the length of it.
 
-```
+```{.copyWrapper}
     struct CoProcessMessage {
       void* p_data;
       int length;
@@ -53,7 +53,7 @@ The unpacked data will hold the actual `CoProcessObject` data structure, where `
 
 The `Spec` field holds the API specification data, like organization ID, API ID, etc.
 
-```
+```{.copyWrapper}
     type CoProcessObject struct {
         HookType string
         Request  CoProcessMiniRequestObject
@@ -86,7 +86,7 @@ This component is in charge of dispatching your HTTP requests to the custom midd
 
 [`coprocess_api.go`][4] provides a bridge between the gateway API and C, any function that needs to be exported should have the `export` keyword:
 
-```
+```{.copyWrapper}
     //export TykTriggerEvent
     func TykTriggerEvent( CEventName *C.char, CPayload *C.char ) {
       eventName := C.GoString(CEventName)
@@ -100,7 +100,7 @@ This component is in charge of dispatching your HTTP requests to the custom midd
 
 You should also expect a header file declaration of this function in [`api.h`][3], like this:
 
-```
+```{.copyWrapper}
     #ifndef TYK_COPROCESS_API
     #define TYK_COPROCESS_API
     extern void TykTriggerEvent(char* event_name, char* payload);
@@ -109,7 +109,7 @@ You should also expect a header file declaration of this function in [`api.h`][3
 
 The language binding will include this header file (or declare the function inline) and perform the necessary steps to call it with the appropriate arguments (like an FFI mechanism could do). As a reference, this is how this could be achieved if you're building a [Cython][5] module:
 
-```
+```{.copyWrapper}
     cdef extern:
       void TykTriggerEvent(char* event_name, char* payload);
     
@@ -123,7 +123,7 @@ The language binding will include this header file (or declare the function inli
 
 The intended way of using a Coprocess middleware is to specify it as part of an API definition:
 
-```
+```{.copyWrapper}
     "custom_middleware": {
       "pre": [
           {

@@ -21,7 +21,7 @@ Basic Auth users are essentially a form of API token, just with a customised, pr
 
 #### Sample Request
 
-```
+```{.copyWrapper}
     POST /api/apis/keys/basic/test-user HTTP/1.1
     Host: localhost:3000
     authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8

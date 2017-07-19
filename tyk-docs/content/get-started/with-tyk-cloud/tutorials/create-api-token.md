@@ -53,7 +53,7 @@ You will also need your own API Key, to get these values:
 ![API ID location][7]
 
 Once you have these values, you can use them to access the dashboard API, the below `curl` command will generate a token for one of your APIs:
-```
+```{.copyWrapper}
     curl -X POST -H "authorization: 1238b7e0e2ff4c2957321724409ee2eb" \
      -s \
      -H "Content-Type: application/json" \

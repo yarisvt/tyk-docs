@@ -11,7 +11,7 @@ It is possible to hot-restart a Tyk Gateway process without dropping any connect
 
 To hot-restart a Tyk Gateway process, you simply need to send a SIGUSR2 signal to the process, for example:
 
-```
+```{.copyWrapper}
 	> sudo kill -SIGUSR2 {gateway-pid}
 ```
 

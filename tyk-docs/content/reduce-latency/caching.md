@@ -18,7 +18,7 @@ Tyk supports various ways of caching requests. At its simplest level, Tyk can ca
 
 To enable caching in your API, within your API definition you will need to set the `cache_options` flags in the main body of the definition:
 
-```
+```{.copyWrapper}
     cache_options: {
         cache_timeout: 10,
         enable_cache: true,

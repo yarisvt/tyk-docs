@@ -39,7 +39,7 @@ These tokens can be set as a *header, url parameter, or cookie name of a request
 
 The name of the key can be defined as part of the API definition under the `auth` section of an API Definition file:
 
-```
+```{.copyWrapper}
     "auth": {
         "auth_header_name": "authorization",
         "use_param": false,

@@ -63,7 +63,7 @@ To make the policy active, click **Create** . Once the policy is saved, you will
 ## <a name="with-api"></a>Tutorial: Create a security policy with the API
 
 Security Policies can be created with a single call to the API. It is very similar to the token creation process. To generate a simple security policy using the Tyk Cloud API you can use the following curl command:
-```
+```{.copyWrapper}
     curl -X POST -H "authorization: {API-TOKEN}" \
      -s \
      -H "Content-Type: application/json" \

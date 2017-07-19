@@ -26,7 +26,7 @@ This configuration should also work (with some tweaks) for CentOS.
 ### Step 1: Set up yum repositories
 
 First, we need to install some software that allows us to use signed packages:
-```
+```{.copyWrapper}
     sudo yum install pygpgme yum-utils wget
 ``` 
 
@@ -35,7 +35,7 @@ Next, we need to set up the various repository configurations for Tyk Dashboard 
 ### Step 2: Configure Tyk Dashboard
 
 Create a file named `/etc/yum.repos.d/tyk_tyk-dashboard.repo` that contains the repository configuration below.
-```
+```{.copyWrapper}
     [tyk_tyk-dashboard]
     name=tyk_tyk-dashboard
     baseurl=https://packagecloud.io/tyk/tyk-dashboard/el/7/$basearch
@@ -60,7 +60,7 @@ Create a file named `/etc/yum.repos.d/tyk_tyk-dashboard.repo` that contains the 
 ### Step 3: Configure MongoDB
 
 Create a /etc/yum.repos.d/mongodb-org-3.0.repo file so that you can install MongoDB directly, using yum.
-```
+```{.copyWrapper}
     [mongodb-org-3.0]
     name=MongoDB Repository
     baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.0/x86_64/
@@ -69,14 +69,14 @@ Create a /etc/yum.repos.d/mongodb-org-3.0.repo file so that you can install Mong
 ```
 
 Finally we'll need to update our local cache, so run:
-```
+```{.copyWrapper}
     sudo yum -q makecache -y --disablerepo='*' --enablerepo='tyk_tyk-dashboard' info zabbix
 ```
 
 ### Step 4: Install packages
 
 We're ready to go, you can now install the relevant packages using yum:
-```
+```{.copyWrapper}
     sudo yum install -y mongodb-org tyk-dashboard
 ```
 
@@ -85,14 +85,14 @@ We're ready to go, you can now install the relevant packages using yum:
 ### Step 5: Start MongoDB
 
 In many cases MongoDB not be running, so let's start that:
-```
+```{.copyWrapper}
     sudo service mongod start
 ```
 
 ### Step 6: Configure Tyk Dashboard
 
 We can set the Dashboard up with a similar setup command, the below will get the Dashboard set up for the local instance:
-```
+```{.copyWrapper}
     sudo /opt/tyk-dashboard/install/setup.sh --listenport=3000 --redishost=localhost --redisport=6379 --mongo=mongodb://127.0.0.1/tyk_analytics --tyk_api_hostname=$HOSTNAME --tyk_node_hostname=http://localhost --tyk_node_port=8080 --portal_root=/portal --domain="XXX.XXX.XXX.XXX"
 ```
 
@@ -111,7 +111,7 @@ What we have done here is:
 *   `--portal_root=/portal`: We want the Portal to be shown on /portal of whichever domain we set for the Portal.
 
 ### Step 7: Start Tyk Dashboard
-```
+```{.copyWrapper}
     sudo service tyk-dashboard start
 ``` 
 
@@ -132,7 +132,7 @@ If all is going well, you will be taken to a log in screen - we'll get to that s
 ### Step 9: Restart the Dashboard process
 
 Because we've just entered a license via the UI, we need to make sure that these changes get picked up, so to make sure things run smoothly, we restart the dashboard process (you only need to do this once) and (if you have it installed) then start the gateway:
-```
+```{.copyWrapper}
     sudo service tyk-dashboard restart 
 ```
 
@@ -159,7 +159,7 @@ You will now be able to log into and test your Tyk instance with the values give
 ## <a name="configure"></a> Configure Tyk Dashboard
 
 We can set the dashboard up with a helper setup command script, the below will get the dashboard set up for the local instance:
-```
+```{.copyWrapper}
     sudo /opt/tyk-dashboard/install/setup.sh --listenport=3000 --redishost=localhost --redisport=6379 --mongo=mongodb://127.0.0.1/tyk_analytics --tyk_api_hostname=$HOSTNAME --tyk_node_hostname=http://localhost --tyk_node_port=8080 --portal_root=/portal --domain="XXX.XXX.XXX.XXX"
 ```
 
@@ -178,7 +178,7 @@ What we have done here is:
 *   `--portal_root=/portal`: We want the portal to be shown on `/portal` of whichever domain we set for the portal.
 
 ### Step 1: Start Tyk Dashboard
-```
+```{.copyWrapper}
     sudo service tyk-dashboard start
 ```
 
@@ -199,7 +199,7 @@ If all is going well, you will be taken to a log in screen - we'll get to that s
 ### Step 3: Restart the dashboard and start the gateway process
 
 Because we've just entered a license via the UI, we need to make sure that these changes get picked up, so to make sure things run smoothly, we restart the dashboard process (you only need to do this once) and then start the gateway:
-```
+```{.copyWrapper}
     sudo service tyk-dashboard restart 
     sudo service tyk-gateway start
 ```
@@ -216,7 +216,7 @@ The best way to add this data is with the Admin API, to make it really easy we'v
 *   This command assumes you have Python 2.6 or 2.7 installed
 
 **To bootstrap your instance**:
-```
+```{.copyWrapper}
     sudo /opt/tyk-dashboard/install/bootstrap.sh XXX.XXX.XXX.XXX
 ```
 

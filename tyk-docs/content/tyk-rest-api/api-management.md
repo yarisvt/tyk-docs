@@ -34,7 +34,7 @@ Finally, any new definitions are not made live and do not get loaded into the mu
 
 #### Sample request
 
-```
+```{.copyWrapper}
     POST /tyk/apis/ HTTP/1.1
     Host: localhost:8080
     Connection: keep-alive
@@ -217,7 +217,7 @@ Updating will completely replace the file descriptor and will not change an API 
 
 #### Sample request
 
-```
+```{.copyWrapper}
     PUT /tyk/apis/987654321 HTTP/1.1
     Host: localhost:8080
     Connection: keep-alive
@@ -399,7 +399,7 @@ Deleting an API definition will remove the file from the file store, the API def
 
 #### Sample request
 
-```
+```{.copyWrapper}
     DELETE /tyk/apis/987654321 HTTP/1.1
     Host: localhost:8080
     Connection: keep-alive

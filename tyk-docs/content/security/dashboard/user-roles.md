@@ -23,7 +23,7 @@ Setting the "IsAdmin" property will give a user full access.
 
 The permissions object, when fully set as an API entry or in MongoDB, looks like this:
 
-```
+```{.copyWrapper}
     "user_permissions": {
         "analytics": "read",
         "apis": "write",

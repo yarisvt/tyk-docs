@@ -37,13 +37,13 @@ Fetch & install the latest Protocol Buffer library:
 
 Install the Python build tools: 
 
-```
+```{.copyWrapper}
   apt-get install -y python3-setuptools python3-dev
 ``` 
 
 Build & install the Python module: 
 
-```
+```{.copyWrapper}
   cd /usr/src
   cd protobuf-3.1.0/python
   python3 setup.py build --cpp_implementation && python3 setup.py install --cpp_implementation

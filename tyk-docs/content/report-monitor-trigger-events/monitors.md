@@ -11,7 +11,7 @@ Tyk enables you to actively monitor both users and organisation quotas. The mach
 
 Enabling monitors in your Tyk node means adding a new configuration section to your `tyk.conf`:
 
-```
+```{.copyWrapper}
     "monitor": {
         "enable_trigger_monitors": true,
         "configuration": {
@@ -37,7 +37,7 @@ Enabling monitors in your Tyk node means adding a new configuration section to y
 
 Sometimes you will not want to have every user have a trigger event at the same levels, you can set manual trigger levels by adding a `monitor` section to the Session Object that defines a key's access details, this can also be added to the session object of an organisation ID:
 
-```
+```{.copyWrapper}
     "monitor": {
         "trigger_limits": [80.0, 60.0, 50.0]
     }
@@ -49,7 +49,7 @@ The `trigger_limits` must be in *descending* order and represent the percentage 
 
 The webhook payload will take the following format:
 
-```
+```{.copyWrapper}
     {
         "event": "TriggerExceeded",
         "message": "Quota trigger reached",

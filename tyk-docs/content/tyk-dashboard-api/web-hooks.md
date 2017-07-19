@@ -19,7 +19,7 @@ weight: 6
 
 #### Sample Request
 
-```
+```{.copyWrapper}
     GET /api/hooks HTTP/1.1
     Host: localhost:3000
     authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
@@ -60,7 +60,7 @@ weight: 6
 
 #### Sample Request
 
-```
+```{.copyWrapper}
     GET /api/hooks/54be6c0beba6db07a6000002 HTTP/1.1
     Host: localhost:3000
     authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
@@ -96,7 +96,7 @@ weight: 6
 
 #### Sample Request
 
-```
+```{.copyWrapper}
     POST /api/hooks HTTP/1.1
     Host: localhost:3000
     authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
@@ -133,7 +133,7 @@ weight: 6
 
 #### Sample Request
 
-```
+```{.copyWrapper}
     PUT /api/hooks/54c2617aeba6db1edc000003 HTTP/1.1
     Host: localhost:3000
     authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
@@ -175,7 +175,7 @@ weight: 6
 
 #### Sample Request
 
-```
+```{.copyWrapper}
     DELETE /api/hooks/54c2617aeba6db1edc000003 HTTP/1.1
     Host: localhost:3000
     authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8

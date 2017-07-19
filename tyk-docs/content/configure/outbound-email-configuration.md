@@ -9,7 +9,7 @@ weight: 6
 
 Tyk Dashboard v1.0 supports sending emails using [Mandrill][1], Sendgrid, Mailgun and AmazonSES. To get email set up for your installation, add the following to your `tyk_analytics.conf` file:
 
-```
+```{.copyWrapper}
     "email_backend": {
         "enable_email_notifications": true,
         "code": "provider-name",
@@ -26,7 +26,7 @@ Tyk Dashboard v1.0 supports sending emails using [Mandrill][1], Sendgrid, Mailgu
 
 To configure for the Mandrill back end, use the following settings layout:
 
-```
+```{.copyWrapper}
     "code:": "mandrill",
     "settings": {
         "ClientKey": "xxxxxxxxx"
@@ -37,7 +37,7 @@ To configure for the Mandrill back end, use the following settings layout:
 
 To configure for the Sendgrid back end, use the following settings layout:
 
-```
+```{.copyWrapper}
     "code": "sendgrid",
     "settings": {
         "ClientKey": "xxxxxxxxx"
@@ -48,7 +48,7 @@ To configure for the Sendgrid back end, use the following settings layout:
 
 To configure for the Mailgun back end, use the following settings layout:
 
-```
+```{.copyWrapper}
     "code": "mailgun",
     "settings": {
         "Domain": "KEY",
@@ -61,7 +61,7 @@ To configure for the Mailgun back end, use the following settings layout:
 
 To configure for the Amazon SES back end, use the following settings layout:
 
-```
+```{.copyWrapper}
         "code": "amazonses",
         "settings": {
             "Endpoint": "Endpoint",

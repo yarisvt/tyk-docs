@@ -16,7 +16,7 @@ To create an API token, we will need the API ID that we wish to grant the token 
 
 Once you have this value, you can use them to access the Gateway API, the below `curl` command will generate a token for one of your APIs, remember to replace `{API-SECRET}`, `{API-ID}` and `{API-NAME}` with the real values as well as the `curl` domain name and port to be the correct values for your environment.
 
-```
+```{.copyWrapper}
     curl -X POST -H "x-tyk-authorization: {API-SECRET}" \
      -s \
      -H "Content-Type: application/json" \

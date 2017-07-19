@@ -15,7 +15,7 @@ Enforced timeouts are a good way to ensure that your service always responds wit
 
 To enable an enforced timeout on a path, you must add to your versions' `extended_paths` section:
 
-```
+```{.copyWrapper}
     extended_paths: {
             ...
             transform_response_headers: [],

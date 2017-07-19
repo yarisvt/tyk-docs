@@ -30,7 +30,7 @@ Adding the `suppress_reset` parameter and setting it to `1`, will cause Tyk to *
 
 #### Sample Request
 
-```
+```{.copyWrapper}
     POST /tyk/keys/create HTTP/1.1
     Host: localhost:8080
     x-tyk-authorization: 352d20ee67be67f6340b4c0605b044bc4
@@ -103,7 +103,7 @@ Adding the `suppress_reset` parameter and setting it to `1`, will cause Tyk to *
 
 #### Sample Request
 
-```
+```{.copyWrapper}
     {
         "allowance": 1000,
         "rate": 1000,
@@ -168,7 +168,7 @@ Deleting a key will remove it permanently from the system, however analytics rel
 
 #### Sample Request
 
-```
+```{.copyWrapper}
     DELETE /tyk/keys/sample-key-b3da0730-1d5a-11e4-8c21-0800200c9a66?api_id=90d2416f4710453663bcc376265f886e HTTP/1.1
     Host: localhost:8080
     x-tyk-authorization: 352d20ee67be67f6340b4c0605b044bc4
@@ -199,7 +199,7 @@ You can retrieve all the keys in your Tyk instance.
 
 #### Sample Request
 
-```
+```{.copyWrapper}
     GET /tyk/keys/?api_id=90d2416f4710453663bcc376265f886e HTTP/1.1
     Host: localhost:8080
     x-tyk-authorization: 352d20ee67be67f6340b4c0605b044bc4
@@ -245,7 +245,7 @@ But this request will now work, using the imported token:
 
 #### Example token.json file
 
-```
+```{.copyWrapper}
     {
       "allowance": 1000,
       "rate": 1000,

@@ -19,7 +19,7 @@ Alternatively, you could produce a dynamic response object that transforms or co
 
 To create one of these methods, create a file and place it in a subdirectory of the Tyk configuration environment (ideally under the `middleware` folder in your Tyk installation). Here is a sample method:
 
-```
+```{.copyWrapper}
     function sampleVirtual (request, session, config) {
         log("Virtual Test running")
     
@@ -55,7 +55,7 @@ The JSVM that this method runs in is the same as the plugins and middleware API,
 
 The most common use case for this functionality, as we see it, is to provide some form of aggregate data to your users, here's a snippet that will do just that using the new batch processing API:
 
-```
+```{.copyWrapper}
     function batchTest (request, session, config) {
         // Set up a response object
         var response = {
@@ -115,7 +115,7 @@ The above code is pretty self explanatory, so we won't go into great detail - th
 
 Virtual paths follow the same layout and setup as other elements in the `extended_path` section of the API definition:
 
-```
+```{.copyWrapper}
     ...
     virtual: [
         {

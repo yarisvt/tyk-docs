@@ -11,7 +11,7 @@ Configuring Tyk Pump is very simple.
 
 Create a `pump.conf` file:
 
-```
+```{.copyWrapper}
     {
         "analytics_storage_type": "redis",
         "analytics_storage_config": {

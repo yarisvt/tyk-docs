@@ -25,7 +25,7 @@ The organisation object is the most fundamental object in a Tyk setup, all other
 
 #### Sample Request
 
-```
+```{.copyWrapper}
     GET /admin/organisations/54bd0ad9ff4329b88985aafb HTTP/1.1
     Host: localhost:3000
     admin-auth: 12345

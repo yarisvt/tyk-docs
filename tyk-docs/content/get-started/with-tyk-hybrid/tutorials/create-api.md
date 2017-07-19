@@ -68,7 +68,7 @@ Select "Users" from the "System Management" section. Click **Edit** for your use
 ### Step 2: Create an API
 
 To create the API, let's send a definition to the admin endpoint:
-```
+```{.copyWrapper}
     curl -H "Authorization: 1238b7e0e2ff4c2957321724409ee2eb" \
      -s \
      -H "Content-Type: application/json" \
@@ -119,7 +119,7 @@ We just sent an API Definition to the Tyk `/apis` endpoint. API Definitions are 
 ## <a name="test-new-api"></a> Test your new API
 
 To access the proxied API via the gateway on Tyk Cloud:
-```
+```{.copyWrapper}
     curl -H "Authorization: null" https://your-organization.cloud.tyk.io/test-api/get
     
     Output:

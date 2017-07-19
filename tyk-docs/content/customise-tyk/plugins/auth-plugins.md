@@ -11,7 +11,7 @@ The ID extractor is a very useful mechanism that will let you cache your authent
 
 A sample usage will look like this:
 
-```
+```{.copyWrapper}
     "custom_middleware": {
       "pre": [
         {

@@ -21,7 +21,7 @@ Or, alternatively, you could just upgrade a single key to have more access, both
 
 Let's take a look at a key session definition:
 
-```
+```{.copyWrapper}
     {
         "last_check": 0,
         "allowance": 2,
@@ -61,7 +61,7 @@ Let's take a look at a key session definition:
 
 Within the `access_rights` section, in each version definition, we can see an `allowed_urls` section, here we can define which URLs are enabled in this key as follows:
 
-```
+```{.copyWrapper}
     "allowed_urls": [
         {
             "url": "/resource/(.*),
@@ -76,7 +76,7 @@ Each entry must be a valid Regex pattern and use the [Go syntax][1] (unfortunate
 
 This feature is much more powerful when applied to key templates and the policies feature, within the policy definition you can add the same section:
 
-```
+```{.copyWrapper}
     {
         "default": {
             "rate": 1000,

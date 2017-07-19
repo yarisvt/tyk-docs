@@ -509,7 +509,7 @@ This behaviour can be circumvented so that the `listen_path` is stripped from th
 * `proxy.service_discovery`: The service discovery section tells Tyk where to find information about the host to proxy to. In a clustered environment this is useful if servers are coming online and offline dynamically with new IP addresses. The service discovery module can pull out the required host data from any service discovery tool that exposes a RESTful endpoint that outputs a JSON object.
 
 ```
-    "enable_load_balancing": true,
+    enable_load_balancing: true,
     service_discovery: {
       use_discovery_service: true,
       query_endpoint: "http://127.0.0.1:4001/v2/keys/services/multiobj",

@@ -25,7 +25,7 @@ Tyk will create the event request object, and then MD5 checksum the raw string v
 
 The web hook event handler meta data looks like this when added to the event handlers sections:
 
-```
+```{.copyWrapper}
     {
         "handler_name":"eh_web_hook_handler",
         "handler_meta": {
@@ -45,7 +45,7 @@ The configuration data is pretty straight-forward, but it is important that all 
 
 *   `handler_meta.template_path`: By default Tyk will try to use `templates/default_webhook.json`, however it can be any text file, please examine the sample file for the tags to use to embed metadata into the request body. Currently a default POST will look like:
 
-```
+```{.copyWrapper}
     {
         "event": "{{.EventType}}",
         "message": "{{.EventMetaData.Message}}",

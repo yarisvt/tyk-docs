@@ -11,7 +11,7 @@ weight: 3
 
 To add a Python plugin to your API, you must specify the bundle name using the `custom_middleware_bundle` field:
 
-```
+```{.copyWrapper}
     {
         "name": "Tyk Test API",
         "api_id": "1",
@@ -52,7 +52,7 @@ To add a Python plugin to your API, you must specify the bundle name using the `
 
 To enable Python plugins you need to add the following block to `tyk.conf`:
 
-```
+```{.copyWrapper}
     "coprocess_options": {
       "enable_coprocess": true,
     },
@@ -75,12 +75,12 @@ To use Tyk with Python support you will need to use an alternative binary, it is
 
 Firstly stop the standard Tyk version:
 
-```
+```{.copyWrapper}
     service tyk-gateway stop
 ```
 
 and then start the Python build:
 
-```
+```{.copyWrapper}
     service tyk-gateway-python start
 ```

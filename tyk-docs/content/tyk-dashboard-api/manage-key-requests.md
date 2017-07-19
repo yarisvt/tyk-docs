@@ -19,7 +19,7 @@ weight: 8
 
 ### Sample Request
 
-```
+```{.copyWrapper}
     GET /api/portal/requests?p=0 HTTP/1.1
     Host: localhost
     authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
@@ -74,7 +74,7 @@ weight: 8
 
 #### Sample Request
 
-```
+```{.copyWrapper}
     GET /api/portal/requests/554c789030c55e4ca0000002 HTTP/1.1
     Host: localhost
     authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
@@ -108,7 +108,7 @@ weight: 8
 
 #### Sample Request
 
-```
+```{.copyWrapper}
     PUT /api/portal/requests/approve/554c789030c55e4ca0000002 HTTP/1.1
     Host: localhost
     authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
@@ -140,7 +140,7 @@ By default, all key requests created for new catalogue entries will be version 2
 
 #### Sample Request
 
-```
+```{.copyWrapper}
     POST /api/portal/requests HTTP/1.1
     Host: localhost
     authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
@@ -179,7 +179,7 @@ By default, all key requests created for new catalogue entries will be version 2
 
 #### Sample Request
 
-```
+```{.copyWrapper}
     DELETE /api/portal/requests/554c789030c55e4ca0000002 HTTP/1.1
     Host: localhost
     authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8

@@ -23,7 +23,7 @@ The only other admin endpoint is `/admin/users` which behaves the same way as th
 
 #### Sample Request
 
-```
+```{.copyWrapper}
     POST /admin/organisations/ HTTP/1.1
     Host: localhost:3000
     admin-auth: 12345
@@ -66,7 +66,7 @@ The only other admin endpoint is `/admin/users` which behaves the same way as th
 
 #### Sample Request
 
-```
+```{.copyWrapper}
     POST /admin/organisations/ HTTP/1.1
     Host: localhost:3000
     admin-auth: 12345
@@ -100,7 +100,7 @@ The only other admin endpoint is `/admin/users` which behaves the same way as th
 
 #### Sample Request
 
-```
+```{.copyWrapper}
     PUT /admin/organisations/54b53d3aeba6db5c35000002 HTTP/1.1
     Host: localhost:3000
     admin-auth: 12345
@@ -134,7 +134,7 @@ The only other admin endpoint is `/admin/users` which behaves the same way as th
 
 #### Sample Request
 
-```
+```{.copyWrapper}
     DELETE /admin/organisations/54b53d3aeba6db5c35000002 HTTP/1.1
     Host: localhost:3000
     admin-auth: 12345

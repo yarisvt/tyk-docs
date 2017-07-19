@@ -11,7 +11,7 @@ weight: 0
 
 Similarly to logging into an app using Tyk, OAuth and Google Plus, if we have our callback URL and client IDs set up with Google, we can use the following profile setup to access our Developer Portal using a social provider:
 
-```
+```{.copyWrapper}
     {
         "ActionType": "GenerateOrLoginUserProfile",
         "ID": "2",
@@ -60,7 +60,7 @@ TIB will use the OAuth credentials for GPlus to access and authenticate the user
 
 One quirk with the Tyk API is that requests for tokens go via the base APIs listen path (`{listen_path}/toauth/authorize`), so we will need to know the listen path and ID of this API so TIB can make the correct API calls on your behalf.
 
-```
+```{.copyWrapper}
     {
         "ActionType": "GenerateOAuthTokenForClient",
         "ID": "3",

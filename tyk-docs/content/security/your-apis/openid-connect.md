@@ -45,7 +45,7 @@ In order to make OIDC Access tokens meaningful in analytics data, Tyk will also 
 
 To set up an API Definition to use OIDC, add the following block to the definition, and ensure no other access methods are enabled:
 
-```
+```{.copyWrapper}
     "use_openid": false,
     "openid_options": {
         "providers": [

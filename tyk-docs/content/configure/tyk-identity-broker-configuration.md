@@ -12,7 +12,7 @@ Tyk Identity Broker is configured through two files: The configuration file tib.
 
 #### The `tib.conf` file
 
-```
+```{.copyWrapper}
 	{
 	    "Secret": "test-secret",
 	    "HttpServerOptions": {

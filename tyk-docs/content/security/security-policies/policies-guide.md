@@ -11,7 +11,7 @@ weight: 1
 
 A Tyk policy looks just like the session object that is used when you create a new access token:
 
-```
+```{.copyWrapper}
     {
       org_id: "53ac07777cbb8c2d53000002",
       rate: 3,
@@ -59,7 +59,7 @@ Although key expiry can be set in the session object on creation, when a key is 
 
 To set a trial key expiry, simply add:
 
-```
+```{.copyWrapper}
     `key_expires_in: 50000`
 ```
 
@@ -73,7 +73,7 @@ Tyk Pro (The dashboard) has policies enabled by default.
 
 If your Tyk configuration is standalone and configuration is being managed via the REST API without the support of the dashboard, then you will need to set the `policies section` in your configuration file as follows:
 
-```
+```{.copyWrapper}
     "policies": {
         "policy_source": "file",
         "policy_record_name": "./policies/policies.json"
@@ -82,7 +82,7 @@ If your Tyk configuration is standalone and configuration is being managed via t
 
 Here the `policy_source` section is set to `file` and tells Tyk to look for policy record in the file specified in the `policy_record_name` field. An example file is shipped with Tyk, and it will look like this:
 
-```
+```{.copyWrapper}
     {
         "default": {
             "rate": 1000,
@@ -110,7 +110,7 @@ The record is a single JSON object, with each named key representing the policy 
 
 To apply the above policy to a key, we simply need to call the `/create` (or `/add`) endpoint in the Tyk REST API with a session object that has the `apply_policy_id` flag set to the name `default` (or whatever you named your policy):
 
-```
+```{.copyWrapper}
     {
         "allowance": 2,
         "rate": 3,

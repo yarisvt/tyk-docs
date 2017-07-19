@@ -40,7 +40,7 @@ To enforce a request sizer on your API, you must first go into your Endpoint des
 
 To set up this middleware in your API Definition, simply add a new section to the `extended_paths` block of your API Definition configuration called `size_limits`:
 
-```
+```{.copyWrapper}
     "size_limits": [
         {
           "path": "widget/{id}",

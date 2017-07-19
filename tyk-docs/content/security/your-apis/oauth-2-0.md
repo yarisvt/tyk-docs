@@ -65,7 +65,7 @@ If this mode is used, only steps (1) and (4) are required, however the client ca
 
 To get OAuth set up in your API configuration, you will need to set up your API Definition like so:
 
-```
+```{.copyWrapper}
     {
       name: "OAuth Test API",
       ...
@@ -101,7 +101,7 @@ Once your application authorises a client to access data on a users behalf (Step
 
 `key_rules` is a form-encoded string representing a standard session object:
 
-```
+```{.copyWrapper}
     {
         "allowance": 1000,
         "rate": 1000,
@@ -152,7 +152,7 @@ The notification that is sent to the webhook you specify is a POST request with 
 
 And the POST body will have the following fields, they will be populated depending on the type of request that is being reacted to:
 
-```
+```{.copyWrapper}
     {
         "auth_code": "",
         "new_oauth_token": "",
