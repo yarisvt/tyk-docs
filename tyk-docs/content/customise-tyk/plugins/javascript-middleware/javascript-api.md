@@ -16,6 +16,7 @@ This list is regularly revised and any new suggestions should be made in our [Gi
 Below is the list of functions currently provided by Tyk.
 
 *   `log(string)`: Calling `log("this message")` will cause Tyk to log the string to Tyk's default logger output in the form `JSVM Log: this message` as an INFO statement. This function is especially useful for debugging your scripts. It is recommended to put a `log()` call at the end of your middleware and event handler module definitions to indicate on load that they have been loaded successfully - see the example scripts supplied with Tyk for more details.
+*   `rawlog(string)`: Calling `rawlog("this message")` will cause Tyk to log the string to Tyk's default logger output without any additional formatting, like adding prefix or date. This function can be used if you want to have own log format, and parse it later with custom tooling.
 
 *   `TykMakeHttpRequest(JSON.stringify(requestObject))`: This method is used to make an HTTP request, requests are encoded as JSON for deserialisation in the min binary and translation to a system HTTP call. The request object has the following structure:
 
