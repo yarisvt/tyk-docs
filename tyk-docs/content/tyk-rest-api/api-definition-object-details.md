@@ -120,7 +120,7 @@ Version data can be transferred as either a header key or as a query parameter i
 
 * `version_data.versions`: This is a keyed JSON object, in the form of:
 
-```
+```{.copyWrapper}
     {
         "version-1": {
             "name": "version-1",
@@ -169,7 +169,7 @@ Extended paths allow you to control which upstream paths are to be handled in a 
     
 Each entry in the ignored, blacklist and whitelist have the same specification. The path specification has the following format:
 
-```
+```{.copyWrapper}
     {
         "path": "{managed-path}",
         "method_actions": {
@@ -193,7 +193,7 @@ If you set `action` to `reply` Tyk will override the path and reply with setting
 
 * `global_headers`: Set global headers to inject using a `key:value` map:
 
-```
+```{.copyWrapper}
     "version_data": {
         "versions": {
             "Default": {
@@ -209,7 +209,7 @@ If you set `action` to `reply` Tyk will override the path and reply with setting
 
 * `global_headers_remove`: Remove headers from all requests:
 
-```
+```{.copyWrapper}
     "version_data": {
         "versions": {
             "Default": {
@@ -229,7 +229,7 @@ If you set `action` to `reply` Tyk will override the path and reply with setting
 
 An example entry:
 
-```
+```{.copyWrapper}
     ...
     "ignored": [
         {
@@ -264,7 +264,7 @@ An example entry:
 
 An example entry:
 
-```
+```{.copyWrapper}
     ...
     "black_list": [
         {
@@ -300,7 +300,7 @@ An example entry:
 
 An example entry:
 
-```
+```{.copyWrapper}
     ...
     "white_list": [
         {
@@ -359,7 +359,7 @@ You'll notice we've included the end user rate-limit check URL as a white listed
     
 A sample entry would be:
 
-```
+```{.copyWrapper}
     ...
     "cache": [
         "widgets/{widgetID}",
@@ -371,7 +371,7 @@ A sample entry would be:
 
 * `version_data.{version-name}.extended_paths.transform` and `version_data.{version-name}.extended_paths.transform_response`: This section determines which paths are to have a template applied to them in order to transform the body data in the request or response to another structure. Currently on JSON body data is supported as an input, however the template can output to any format, as it uses Golang templates so structure of outbound data is highly configurable.
 
-```
+```{.copyWrapper}
     ...
     "transform": [
         {
@@ -401,7 +401,7 @@ All the settings that apply to request transforms also apply to response transfo
 
 Entries look like this:
 
-```
+```{.copyWrapper}
     "transform_headers": [
         {
             "delete_headers": ["Content-Type", "authorization"],
@@ -423,7 +423,7 @@ Entries look like this:
 
 * `version_data.{version-name}.extended_paths.hard_timeouts`: This section enables you to set hard timeouts on a path-by-path basis, e.g. if you have a long-running microservice, but do not want to hold up a dependent client should a query take too long, you can enforce a timeout for that path so the requesting client is not held up forever.
 
-```
+```{.copyWrapper}
     ...
     extended_paths: {
         ...
@@ -448,7 +448,7 @@ The circuit breaker will also emit an event which you can hook into to perform s
 
 The `path` and `method` properties are the same as all other `extended_path` middleware actions
 
-```
+```{.copyWrapper}
     "circuit_breakers": [
         {
             "path": "get",
@@ -475,7 +475,7 @@ However, it is important to remember that wildcards like this `{id}` actually ge
     
 The transform is handled by the other two options, which can use any valid regex to group parameters:
 
-```
+```{.copyWrapper}
     "url_rewrites": [
         {
             "path": "virtual/{wildcard1}/{wildcard2}",
@@ -508,7 +508,7 @@ This behaviour can be circumvented so that the `listen_path` is stripped from th
 
 * `proxy.service_discovery`: The service discovery section tells Tyk where to find information about the host to proxy to. In a clustered environment this is useful if servers are coming online and offline dynamically with new IP addresses. The service discovery module can pull out the required host data from any service discovery tool that exposes a RESTful endpoint that outputs a JSON object.
 
-```
+```{.copyWrapper}
     enable_load_balancing: true,
     service_discovery: {
       use_discovery_service: true,
@@ -588,7 +588,7 @@ In the above example, the `port_data_path` would be `port`.
 
 * `allowed_ips`: A list of strings that defines the IP addresses that are allowed access via Tyk. This list is explicit and wildcards are currently not supported. e.g.:
 
-```
+```{.copyWrapper}
         ...
         "enable_ip_whitelisting": true,
         "allowed_ips": ["12.12.12.12", "12.12.12.13", "12.12.12.14"]
@@ -609,7 +609,7 @@ Tyk reconstructs the API request based on the data in the batch request, this is
 
 Batch requests are created by POSTing to the `/{api-id}/tyk/batch` endpoint, these requests **do not require a valid key**, but their request list does, here is a sample request body:
 
-```
+```{.copyWrapper}
     {
         "requests": [
             {
@@ -758,7 +758,7 @@ This behaviour can be bypassed on a case-by-case basis by using the `suppress_re
 
 * `response_processors`: Response processors need to be specifically defined so they are loaded on API creation, otherwise the middleware will not fire. In order to have the two main response middleware components fire, the following configuration object should be supplied:
 
-```
+```{.copyWrapper}
     "response_processors": [
         {
             "name": "header_injector",
@@ -780,7 +780,7 @@ The options for the `header_injector` are global, and will apply to all outbound
 
 It is possible to enable CORS for certain APIs so users can make browser-based requests. The `CORS` section is added to an API definition as follows:
 
-```
+```{.copyWrapper}
     "CORS": {
         "enable": true,
         "allowed_origins": [
@@ -821,7 +821,7 @@ Centralised JWTs add a `TykJWTSessionID` to the session meta data on create to e
 
 * `uptime_tests.check_list` A list of tests to run, takes the form:
 
-```
+```{.copyWrapper}
     uptime_tests: {
         check_list: [
             {

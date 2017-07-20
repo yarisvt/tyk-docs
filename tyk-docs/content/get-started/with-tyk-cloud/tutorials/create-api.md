@@ -119,7 +119,7 @@ We just sent an API Definition to the Tyk `/apis` endpoint. API Definitions are 
 ## <a name="test-new-api"></a>Test your new API
 
 To access the proxied API via the gateway on Tyk Cloud:
-```{.copyWrapper}
+```
     curl -H "Authorization: null" https://your-organization.cloud.tyk.io/test-api/get
     
     Output:
