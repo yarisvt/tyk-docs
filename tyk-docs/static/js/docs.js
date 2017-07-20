@@ -95,7 +95,7 @@ if (!window.debCfn) {
 	$(document).on("turbolinks:load", debCfn);
 }
 
-$(window).load(function(e){
+$(document).ready(function(e){
 
 	$.fn.copyToClipboard = function() {
 
