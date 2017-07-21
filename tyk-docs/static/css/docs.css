@@ -48,7 +48,7 @@ margin:-90px 0 0;
 .wysiwyg h2 {font-weight: bold; font-family: 'smoolthan'; border-top:1px solid #c8c8c8; padding-top: 55px; }
 .wysiwyg h2:first-of-type {margin-top: 0; border-top:0;}
 .wysiwyg h3 {font-size: 22px; font-family: 'Roboto', sans-serif; font-weight: bold; padding-top: 57px; margin-top: 0;}
-.wysiwyg h4 {font-size: 19px; margin-bottom: 26px; margin-top: 55px; font-family: 'Roboto', sans-serif;}
+.wysiwyg h4 {font-size: 19px; margin-bottom: 26px; margin-top: 55px; font-family: 'Roboto', sans-serif; font-weight: bold;}
 .wysiwyg h5 {font-size: 17.5px; margin-bottom: 26px; margin-top: 55px; font-family: 'Roboto', sans-serif;}
 .wysiwyg p {margin-bottom: 16px; margin-top: 16px;}
 
