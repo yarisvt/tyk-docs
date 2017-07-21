@@ -26,4 +26,4 @@ The concept of an organisation does not exist with the gateway itself, and gatew
 
 This means that all actions in a Pro (dashboard-based) installation of Tyk must use a base Organisation, and all actions should stem from a User owned by that organisation.
 
-> Note: A user that does not belong to an Organisation is sometimes referred to as an unbounded user, these users have visibility across all organisations, but should not be used for anything except READ access.
+> **Note**: A user that does not belong to an Organisation is sometimes referred to as an unbounded user, these users have visibility across all organisations, but should not be used for anything except READ access.

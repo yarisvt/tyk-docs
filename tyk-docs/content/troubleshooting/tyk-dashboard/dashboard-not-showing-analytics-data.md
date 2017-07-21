@@ -22,7 +22,7 @@ The user could try the following:
 1.  Cache issue: Restart the dashboard process
 2.  Check if you received any data by running the following query, e.g. get data from yesterday to today where “2016-09-26T23:59:00Z” should be yesterdays date:
 
-```
+```{.copyWrapper}
     db.getCollection('tyk_analytics_aggregates').find({timestamp: {$gte: new ISODate(“2016-09-26T23:59:00Z"")}})
 ```
 

@@ -22,22 +22,22 @@ We're installing on a `t2.micro` because this is a tutorial, you'll need more RA
 ### Step 1: Set up our APT repositories
 
 First, add our GPG key which signs our binaries:
-```
+```{.copyWrapper}
     curl https://packagecloud.io/gpg.key | sudo apt-key add -
 ``` 
 
 Run update:
-```
+```{.copyWrapper}
     sudo apt-get update
 ``` 
 
 Since our repositories are installed via HTTPS, you will need to make sure APT supports this:
-```
+```{.copyWrapper}
     sudo apt-get install -y apt-transport-https 
 ``` 
 
 Now lets add the required repos and update again (notice the `-a` flag in the second Tyk commands - this is important!):
-```
+```{.copyWrapper}
     echo "deb https://packagecloud.io/tyk/tyk-gateway/ubuntu/ trusty main" | sudo tee /etc/apt/sources.list.d/tyk_tyk-gateway.list
     
     echo "deb-src https://packagecloud.io/tyk/tyk-gateway/ubuntu/ trusty main" | sudo tee -a /etc/apt/sources.list.d/tyk_tyk-gateway.list
@@ -53,7 +53,7 @@ Now lets add the required repos and update again (notice the `-a` flag in the se
 ### Step 2: Install the Tyk Gateway
 
 We're now ready to install Tyk Gateway and Tyk Dashboard, along with all the main dependencies: Redis and MongoDB. To install everything run:
-```
+```{.copyWrapper}
     sudo apt-get install -y redis-server tyk-gateway
 ```
 
@@ -64,7 +64,7 @@ When Tyk is finished installing, it will have installed some init scripts, but i
 ## <a name="configure-tyk-community-edition"></a>Configure Tyk Gateway Community Edition
 
 You can set up the core settings for Tyk Gateway with a single setup script, however for more involved deployments, you will want to provide your own configuration file. To get things started, run:
-```
+```{.copyWrapper}
     sudo /opt/tyk-gateway/install/setup.sh --listenport=8080 --redishost=localhost --redisport=6379 --domain=""
 ``` 
 
@@ -80,7 +80,7 @@ In this example, we don't want Tyk to listen on a single domain, and we can alwa
 ### Starting Tyk
 
 The Tyk Gateway can be started now that it is configured. Use this commannd to start the Tyk Gateway:
-```
+```{.copyWrapper}
     sudo service tyk-gateway start
 ```
 
@@ -93,7 +93,7 @@ This configuration assumes that you have already installed Tyk Dashboard, and ha
 ### Set up Tyk
 
 You can set up the core settings for Tyk Gateway with a single setup script, however for more involved deployments, you will want to provide your own configuration file. To get things running let's run:
-```
+```{.copyWrapper}
     sudo /opt/tyk-gateway/install/setup.sh --dashboard=1 --listenport=8080 --redishost=localhost --redisport=6379
 ```
 

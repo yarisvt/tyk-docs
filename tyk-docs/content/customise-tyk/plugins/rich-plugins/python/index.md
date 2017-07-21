@@ -8,7 +8,7 @@ weight: 0
 url: "/customise-tyk/plugins/rich-plugins/python"
 ---
 ### Requirements
-Tyk supports [Python 3][1], the main requirement is to have the Python shared libraries installed, these are available as `libpython3.x` in most Linux distributions.
+Tyk supports [Python 3.4.x][1], the main requirement is to have the Python shared libraries installed, these are available as `libpython3.x` in most Linux distributions.
 
 These Python modules are required as well:
 
@@ -55,7 +55,7 @@ We have created a demo Python plugin repository [here][7].
 
 The project implements a simple middleware for header injection, using a Pre hook (see [Tyk custom middleware hooks][8]). A single Python script contains the code for it, see [mymiddleware.py][9].
 
- [1]: https://www.python.org/download/releases/3.0/
+ [1]: https://www.python.org/download/releases/3.4.0/
  [2]: https://pypi.python.org/pypi/protobuf
  [3]: https://developers.google.com/protocol-buffers/
  [4]: https://pypi.python.org/pypi/grpcio

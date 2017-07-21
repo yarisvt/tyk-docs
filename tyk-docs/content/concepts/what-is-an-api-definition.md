@@ -9,7 +9,7 @@ weight: 1
 
 ## Concept: API Definition
 
-Tyk handles APIs through files / objects called API Definitions – these are JSON objects – and either live in the /var/tyk-gateway/apps directory or in a MongoDB collection as part of a Pro Edition installation.
+Tyk handles APIs through files / objects called API Definitions – these are JSON objects – and either live in the `/var/tyk-gateway/apps` directory or in a MongoDB collection as part of a Pro Edition installation.
 
 An API Definition encapsulates the core settings for an API, as well as all of the actions to perform on an inbound request and an outbound response on a path-by-path basis, as well as on a global basis, where supported.
 

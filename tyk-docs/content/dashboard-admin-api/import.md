@@ -9,7 +9,7 @@ weight: 4
 
 The import API enables you to add Organisations, APIs and Policies back into a Tyk installation while retaining their base IDs so that they work together.
 
-> To enable this feature, the minimum required versions for the Gateway and Dashboard are v2.3 and v1.3.1.2, respectively.
+> **Note**: To enable this feature, the minimum required versions for the Gateway and Dashboard are v2.3 and v1.3.1.2, respectively.
 
 #### Import Organisation
 

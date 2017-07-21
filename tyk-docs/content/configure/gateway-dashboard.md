@@ -21,4 +21,4 @@ All of these steps will be notified in the Dashboard as events.
 
 ### Enabling the feature
 
-By default his feature is disabled at the Gateway level, to enable it, you must set the value of `allow_remote_config` set to `true`.
+By default his feature is disabled at the Gateway level, to enable it, you must set the value of `allow_remote_config` to `true`.

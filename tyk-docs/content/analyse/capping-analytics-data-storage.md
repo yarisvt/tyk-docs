@@ -15,13 +15,13 @@ To add an expiry index to your analytics log data simply follow these three step
 
 Run this command in your preferred MongoDB tool:
 
-```
+```{.copyWrapper}
     db.tyk_analytics.createIndex( { "expireAt": 1 }, { expireAfterSeconds: 0 } )
 ```
 
 ### Step 2. Create an organisation quota
 
-```
+```{.copyWrapper}
     curl --header "x-tyk-authorization: {tyk-gateway-secret}" --header "content-type: application/json" --data @expiry.txt http://{tyk-gateway-ip}:{port}/tyk/org/keys/{org-id}
 ```
 
