@@ -137,7 +137,7 @@ You can use the `config_data` special field in your API definition to pass custo
 
 Add the following to the root of your API definition:
 
-```
+```{.copyWrapper}
     "config_data": {
         "foo": "bar"
     },

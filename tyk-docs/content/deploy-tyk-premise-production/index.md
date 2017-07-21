@@ -156,7 +156,7 @@ In the file `/etc/sysctl.conf` add:
 
 For the file: `/etc/security/limits.conf`, add:
 
-```
+```{.copyWrapper}
     *          soft     nproc          80000
     *          hard     nproc          80000
     *          soft     nofile         80000
@@ -179,7 +179,7 @@ If you are using Upstart, then you'll need to set the file handle limits in the 
 
 Use this at your own peril - it's not always recommended and you need to be sure it fits your use case, but you can squeeze a bit more performance out of a Gateway install by running this on the command line:
 
-```
+```{.copyWrapper}
     sysctl -w net.ipv4.tcp_tw_recycle=1
 ```
 

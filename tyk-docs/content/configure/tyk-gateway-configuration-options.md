@@ -56,14 +56,14 @@ This section defines API loading and shard options, enable these settings to onl
 
 Set the URL to your Dashboard instance (or a load balanced instance), the URL should take the form of: `http://dashboard_host:port`
 
-> Note: the same will need to be done for Policy loading, see the policies section below.
+> **Note**: the same will need to be done for Policy loading, see the policies section below.
 
 
 ### <a name="use_db_app_options-node_is_segmented"></a> use_db_app_options.node_is_segmented
 
 Set to `true` to enable filtering (sharding) of APIs.
 
-> Note: If you set to `true` for multiple gateway nodes, you should ensure that `management_node` is set to `false`. This is to ensure visibility for the management node across all APIs. 
+> **Note**: If you set to `true` for multiple gateway nodes, you should ensure that `management_node` is set to `false`. This is to ensure visibility for the management node across all APIs. 
 
 ### <a name="use_db_app_options-tags"></a> use_db_app_options.tags
 
@@ -98,7 +98,7 @@ Set the number of maximum idle connections in the Redis connection pool, default
 
 Tyk is capable of recording every hit to your API into a database with various filtering parameters, set this value to `true` and fill in the sub-section below to enable logging.
 
-> Note: Tyk will store traffic data to Redis initially (for performance reasons) and then purge the data from Redis into MongoDB/CSV on a regular basis as determined by the `purge_delay` setting in your Tyk Pump configuration.
+> **Note**: Tyk will store traffic data to Redis initially (for performance reasons) and then purge the data from Redis into MongoDB/CSV on a regular basis as determined by the `purge_delay` setting in your Tyk Pump configuration.
 
 ### <a name="analytics_config"></a> analytics_config
 

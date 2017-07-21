@@ -11,7 +11,7 @@ Make sure you:
 
 Target the correct domain with your `bootstrap.sh` as it is very specific once you set up a Dashboard service with hostname set
 
-```
+```{.copyWrapper}
 	./bootstrap.sh my-tyk-instance.com
 
 ```

@@ -9,6 +9,8 @@ weight: 0
 
 Virtual endpoints are unique to Tyk. With a virtual endpoint, you can plug short JavaScript functions at the end of a Tyk route and have them run when the endpoint is called.
 
+> **Note**: Virtual endpoints are not available in the Tyk Cloud Edition.
+
 A sample use case for this might be aggregate functions that bring together related data from multiple services in your stack into a single object.
 
 Alternatively, you could produce a dynamic response object that transforms or computes data in some way from upstream services.
@@ -146,7 +148,7 @@ You can use the `config_data` special field in your API definition to pass custo
 
 Add the following to the root of your API definition:
 
-```
+```{.copyWrapper}
     "config_data": {
         "foo": "bar"
     },
