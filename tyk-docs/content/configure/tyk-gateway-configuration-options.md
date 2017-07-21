@@ -52,20 +52,20 @@ If you are a Tyk Pro user, this option will enable polling the Dashboard service
 
 This section defines API loading and shard options, enable these settings to only selectively load API definitions on a node from a Dashboard service.
 
-### <a name="use_db_app_options-connection_string"></a> use_db_app_options.connection_string
+#### <a name="use_db_app_options-connection_string"></a> use_db_app_options.connection_string
 
 Set the URL to your Dashboard instance (or a load balanced instance), the URL should take the form of: `http://dashboard_host:port`
 
 > **Note**: the same will need to be done for Policy loading, see the policies section below.
 
 
-### <a name="use_db_app_options-node_is_segmented"></a> use_db_app_options.node_is_segmented
+#### <a name="use_db_app_options-node_is_segmented"></a> use_db_app_options.node_is_segmented
 
 Set to `true` to enable filtering (sharding) of APIs.
 
 > **Note**: If you set to `true` for multiple gateway nodes, you should ensure that `management_node` is set to `false`. This is to ensure visibility for the management node across all APIs. 
 
-### <a name="use_db_app_options-tags"></a> use_db_app_options.tags
+#### <a name="use_db_app_options-tags"></a> use_db_app_options.tags
 
 The tags to use when filtering (sharding) Tyk Gateway nodes, tags are processed as OR operations. If you include a non-filter tag (e.g. an identifier such as `node-id-1`, this will become available to your analytics Dashboard).
 
@@ -73,24 +73,24 @@ The tags to use when filtering (sharding) Tyk Gateway nodes, tags are processed 
 
 This section of the configuration is to hold the Redis configuration.
 
-### <a name="storage-type"></a> storage.type
+#### <a name="storage-type"></a> storage.type
 
 This should be set to `"redis"` (lowercase), the previous backup and testing option of `csv` is deprecated.
 
-### <a name="storage-host"></a> storage.host
+#### <a name="storage-host"></a> storage.host
 
 The Redis host, by default this is set to `localhost`, but for production this should be set to a cluster.
 
-### <a name="storage-port"></a> storage.port
+#### <a name="storage-port"></a> storage.port
 
 The Redis isntance port.
 
-### <a name="storage-password"></a> storage.password
+#### <a name="storage-password"></a> storage.password
 
 If your Redis instance has a password set for access, you can tell Tyk about it here.
 
 
-### <a name="storage-optimisation_max_idle"></a> storage.optimisation_max_idle
+#### <a name="storage-optimisation_max_idle"></a> storage.optimisation_max_idle
 
 Set the number of maximum idle connections in the Redis connection pool, defaults to 100, set to higher if expecting more traffic.
 
@@ -100,37 +100,37 @@ Tyk is capable of recording every hit to your API into a database with various f
 
 > **Note**: Tyk will store traffic data to Redis initially (for performance reasons) and then purge the data from Redis into MongoDB/CSV on a regular basis as determined by the `purge_delay` setting in your Tyk Pump configuration.
 
-### <a name="analytics_config"></a> analytics_config
+#### <a name="analytics_config"></a> analytics_config
 
 This section defines options on what analytics data to store.
 
-### <a name="enable_analytics-enable_detailed_recording"></a> enable_analytics.enable_detailed_recording
+#### <a name="enable_analytics-enable_detailed_recording"></a> enable_analytics.enable_detailed_recording
 
 Set this value to `true` to have Tyk store the inbound request and outbound response data in HTTP Wire format as part of the Analytics data. Please note, this will greatly increase your analytics DB size and can cause performance degradation on analytics processing by the Dashboard. This setting can be overridden with an organisation flag.
 
 Setting `enforce_org_data_detail_logging` in the `tyk.conf` will enforce it (quotas must also be enforced for this to work), then setting `enable_detail_recording` in the org session object will enable or disable the logging method on a per-organisation basis. This can be useful for debugging live APIs.
 
-### <a name="enable_analytics-enable_geo_ip"></a> enable_analytics.enable_geo_ip
+#### <a name="enable_analytics-enable_geo_ip"></a> enable_analytics.enable_geo_ip
 
 As of Tyk API Gateway 2.0, Tyk can store GeoIP information based on MaxMind DB’s, to enable GeoIP tracking on inbound request analytics, set this value to `true` and assign a DB using the `geo_ip_db_path` setting.
 
-### <a name="enable_analytics-enable_geo_ip_db_path"></a> enable_analytics.enable_geo_ip_db_path
+#### <a name="enable_analytics-enable_geo_ip_db_path"></a> enable_analytics.enable_geo_ip_db_path
 
 Set this value to the absolute path the GeoIP Database file, e.g.: `./GeoLite2-City.mmdb`. The analytics GeoIP DB can be replaced on disk, it will cleanly auto-reload every hour.
 
-### <a name="enable_analytics-ignored_ips"></a> enable_analytics.ignored_ips
+#### <a name="enable_analytics-ignored_ips"></a> enable_analytics.ignored_ips
 
 Adding IP addresses to this list will cause Tyk to ignore these IPs in the analytics data, these IP addresses will not produce an analytics log record. This is useful for health checks and other samplers that might skew usage data. The IP addresses must be provided as a JSON array, with the values being single IPs. CIDR values are not supported.This is useful for health checks and other samplers that might skew usage data.
 
-### <a name="analytics_config-normalise_urls"></a> analytics_config.normalise_urls
+#### <a name="analytics_config-normalise_urls"></a> analytics_config.normalise_urls
 
 This section describes methods that enable you to normalise inbound URLs in your analytics so as to have more meaningful per-path data.
 
-### <a name="analytics_config-normalise_urls-enabled"></a> analytics_config.normalise_urls.enabled
+#### <a name="analytics_config-normalise_urls-enabled"></a> analytics_config.normalise_urls.enabled
 
 Set this to `true` to enable normalisation.
 
-### <a name="analytics_config-normalise_urls-normalise_uuids"></a> analytics_config.normalise_urls.normalise_uuids
+#### <a name="analytics_config-normalise_urls-normalise_uuids"></a> analytics_config.normalise_urls.normalise_uuids
 
 Set this to `true` to have Tyk automatically clean up UUIDs, it will match the following styles:
 
@@ -141,13 +141,13 @@ Set this to `true` to have Tyk automatically clean up UUIDs, it will match the f
 
 Each UUID will be replaced with a placeholder `{uuid}`
 
-### <a name="analytics_config-normalise_urls-normalise_numbers"></a> analytics_config.normalise_urls.normalise_numbers
+#### <a name="analytics_config-normalise_urls-normalise_numbers"></a> analytics_config.normalise_urls.normalise_numbers
 
 Set this to `true` to have Tyk automatically match for numeric ID’s, it will match with a preceding slash so as not to capture actual numbers:
 
 * `/widgets/123456/getParams will become /widgets/{id}/getParams`
 
-### <a name="analytics_config-normalise_urls-custom_patterns"></a> analytics_config.normalise_urls.custom_patterns
+#### <a name="analytics_config-normalise_urls-custom_patterns"></a> analytics_config.normalise_urls.custom_patterns
 
 This is a list of custom patterns you can add, these must be valid regex strings, Tyk will replace these values with a `{var}` placeholder.
 
