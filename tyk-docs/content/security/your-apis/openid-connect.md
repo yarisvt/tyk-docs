@@ -50,7 +50,7 @@ To set up an API Definition to use OIDC, add the following block to the definiti
     "openid_options": {
         "providers": [
             {
-                issuer: "accounts.google.com",
+                "issuer": "accounts.google.com",
                 "client_ids": {
                     "MTIzNDU2Nzc4OQ==": "5654566b30c55e3904000003"
                 }
