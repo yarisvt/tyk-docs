@@ -17,32 +17,32 @@ We're installing on a `t2.micro` because this is a tutorial, you'll need more RA
 
 **Pre-requisites**:
 
-*   Ensure port `3000` is open: This is used by the dashboard to provide the GUI and the Developer Portal.
+*   Ensure port `3000` is open: This is used by the Dashboard to provide the GUI and the Developer Portal.
 
 ### Step 1: Set up our APT repositories
 
 First, add our GPG key which signs our binaries:
-```
+```{.copyWrapper}
     curl https://packagecloud.io/gpg.key | sudo apt-key add -
 ``` 
 
 Do the same for MongoDB (this may change, correct at time of writing):
-```
+```{.copyWrapper}
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
 ``` 
 
 Run update:
-```
+```{.copyWrapper}
     sudo apt-get update
 ``` 
 
 Since our repositories are installed via HTTPS, you will need to make sure APT supports this:
-```
+```{.copyWrapper}
     sudo apt-get install -y apt-transport-https 
 ```
 
 Now lets add the required repos and update again (notice the `-a` flag in the second Tyk commands - this is important!):
-```
+```{.copyWrapper}
     echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list
     
     echo "deb https://packagecloud.io/tyk/tyk-dashboard/ubuntu/ trusty main" | sudo tee /etc/apt/sources.list.d/tyk_tyk-dashboard.list
@@ -61,7 +61,7 @@ Now lets add the required repos and update again (notice the `-a` flag in the se
 ### Step 2: Install the Tyk Dashboard
 
 We're now ready to install Tyk Gateway and Tyk Dashboard, along with all the main dependencies: Redis and MongoDB. To install everything run:
-```
+```{.copyWrapper}
     sudo apt-get install -y mongodb-org tyk-dashboard
 ``` 
 
@@ -71,8 +71,12 @@ When Tyk Dashboard is finished installing, it will have installed some init scri
 
 ## <a name="configure-tyk-dashboard"></a> Configure Tyk Dashboard
 
-We can set the dashboard up with a helper setup command script, the below will get the dashboard set up for the local instance:
-```
+### Pre-requisites
+
+You need to start the MongoDB service before proceeding.
+
+We can set the dashboard up with a helper setup command script. This will get the dashboard set up for the local instance:
+```{.copyWrapper}
     sudo /opt/tyk-dashboard/install/setup.sh --listenport=3000 --redishost=localhost --redisport=6379 --mongo=mongodb://127.0.0.1/tyk_analytics --tyk_api_hostname=$HOSTNAME --tyk_node_hostname=http://localhost --tyk_node_port=8080 --portal_root=/portal --domain="XXX.XXX.XXX.XXX"
 ``` 
 
@@ -80,22 +84,22 @@ We can set the dashboard up with a helper setup command script, the below will g
 
 What we have done here is:
 
-*   `--listenport=3000`: Told Tyk Dashboard (and Portal) to listen on port 3000.
-*   `--redishost=localhost`: Tyk Dashboard should use the local Redis instance.
-*   `--redisport=6379`: Tyk Dashboard should use the default port.
+*   `--listenport=3000`: Told the Tyk Dashboard (and Portal) to listen on port 3000.
+*   `--redishost=localhost`: The Tyk Dashboard should use the local Redis instance.
+*   `--redisport=6379`: The Tyk Dashboard should use the default port.
 *   `--domain="XXX.XXX.XXX.XXX"`: Bind the dashboard to the IP or DNS hostname of this instance (required).
 *   `--mongo=mongodb://127.0.0.1/tyk_analytics`: Use the local MongoDB (should always be the same as the gateway).
-*   `--tyk_api_hostname=$HOSTNAME`: Tyk Dashboard has no idea what hostname has been given to Tyk, so we need to tell it, in this instance we are just using the local HOSTNAME env variable, but you could set this to the public-hostname/IP of the instance.
-*   `--tyk_node_hostname=http://localhost`: Tyk Dashboard needs to see a Tyk node in order to create new tokens, so we need to tell it where we can find one, in this case, use the one installed locally.
+*   `--tyk_api_hostname=$HOSTNAME`: The Tyk Dashboard has no idea what hostname has been given to Tyk, so we need to tell it, in this instance we are just using the local HOSTNAME env variable, but you could set this to the public-hostname/IP of the instance.
+*   `--tyk_node_hostname=http://localhost`: The Tyk Dashboard needs to see a Tyk node in order to create new tokens, so we need to tell it where we can find one, in this case, use the one installed locally.
 *   `--tyk_node_port=8080`: Tell the dashboard that the Tyk node it should communicate with is on port 8080.
 *   `--portal_root=/portal`: We want the portal to be shown on `/portal` of whichever domain we set for the portal.
 
 ### Step 1: Start Tyk Dashboard
-```
+```{.copyWrapper}
     sudo service tyk-dashboard start
 ``` 
 
-Notice how we haven't actually started the gateway yet, because this is a Pro install, we need to enter a license first.
+Notice how we haven't actually started the Gateway yet, because this is a Pro install, we need to enter a license first.
 
 ### Step 2: Enter your dashboard license
 
@@ -103,33 +107,33 @@ Go to `http://your-host-name:3000/`.
 
 You will see a screen asking for a license, enter it in the section marked "**Already have a license?**" and click `Use this license`.
 
-That's it, your dashboard is now ready to be bootstrapped.
+That's it, your Dashboard is now ready to be bootstrapped.
 
 > **Note:** You can bypass this step by adding your license manually to the `/var/opt/tyk-dashboard/tyk_analytics.conf` file directly in the field marked `license`.
 
 If all is going well, you will be taken to a log in screen - we'll get to that soon.
 
-### Step 3: Restart the dashboard and start the gateway process
+### Step 3: Restart the Dashboard and start the gateway process
 
 Because we've just entered a license via the UI, we need to make sure that these changes get picked up, so to make sure things run smoothly, we restart the dashboard process (you only need to do this once) and then start the gateway:
-```
+```{.copyWrapper}
     sudo service tyk-dashboard restart 
     sudo service tyk-gateway start
 ``` 
 
-### Step 4: Bootstrap the dashboard with an initial user and organisation
+### Step 4: Bootstrap the Dashboard with an initial User and Organisation
 
-When Tyk Dashboard is created for the first time, it has no initial user base or organisation to add data to, so we need to add this.
+When the Tyk Dashboard is created for the first time, it has no initial user base or organisation to add data to, so we need to add this.
 
 The best way to add this data is with the Admin API, to make it really easy we've supplied a bootstrap script that will set you up. If you want to customise it, take a look at the file in `/opt/tyk-dashboard/install/bootstrap.sh`.
 
 **Pre-requisites for this command**:
 
 *   This command assumes you are running on a Linux shell such as Bash
-*   This command assumes you have Python 2.6 or 2.7 installed
+*   This command assumes you have Python 2.7 or 3.4 installed
 
 **To bootstrap your instance**:
-```
+```{.copyWrapper}
     sudo /opt/tyk-dashboard/install/bootstrap.sh XXX.XXX.XXX.XXX
 ``` 
 

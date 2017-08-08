@@ -41,7 +41,8 @@ All policies require a descriptive name, this helps you to reference it later, a
 ![Rate limit form][4]
 
 A rate limit is enforced on all keys, set the number of requests per second that a user of a key with this policy is allowed to use.
-**NOTE:** The Rate Limit set by a policy will override the limits applied to an individual key.
+
+> **NOTE:** The Rate Limit set by a policy will override the limits applied to an individual key.
 
 ### Step 5: Set Usage Quotas
 

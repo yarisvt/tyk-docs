@@ -4,7 +4,7 @@ title: API Catalogue
 menu:
   main:
     parent: "Concepts"
-weight: 6 
+weight: 7 
 ---
 
 ## Concept: API Catalogue
