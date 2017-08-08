@@ -21,7 +21,13 @@ This configuration should also work (with some tweaks) for CentOS.
 **Pre-requisites**:
 
 *   Ensure port `3000` is open: This is used by the Dashboard to provide the GUI and the Developer Portal
-*   We are assuming you have already installed the Tyk Gateway and Redis DB using EPEL
+*   EPEL (Extra Packages for Enterprise Linux) is a free, community based repository project from Fedora which provides high quality add-on software packages for Linux distribution including RHEL, CentOS, and Scientific Linux. EPEL isn't a part of RHEL/CentOS but it is designed for major Linux distributions. In our case we need it for Redis DB. Install EPEL using the instructions [here][3].
+*   Install Redis DB using EPEL
+*   Tyk requires Python 3.4. Install via the following command:
+
+```{.copyWrapper}
+sudo yum install python34
+```
 
 ### Step 1: Set up yum repositories
 
@@ -145,7 +151,7 @@ The best way to add this data is with the Admin API, to make it really easy we'v
 **Pre-requisites for this command**
 
 *   This command assumes you are running on a Linux shell such as Bash
-*   This command assumes you have Python 2.6 or 2.7 installed
+*   This command assumes you have Python 2.7 or 3.4 installed
 
 **To bootstrap your instance**:
 
@@ -226,3 +232,4 @@ You will now be able to log into and test your Tyk instance with the values give
 
  [1]: https://packagecloud.io
  [2]: http://aws.amazon.com
+ [3]: http://fedoraproject.org/wiki/EPEL#How_can_I_use_these_extra_packages.3F

@@ -24,7 +24,7 @@ The only other admin endpoint is `/admin/users` which behaves the same way as th
 #### Sample Request
 
 ```{.copyWrapper}
-    POST /admin/organisations/ HTTP/1.1
+    GET /admin/organisations/
     Host: localhost:3000
     admin-auth: 12345
 ```

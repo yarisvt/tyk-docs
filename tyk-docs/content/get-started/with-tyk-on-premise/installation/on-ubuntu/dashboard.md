@@ -22,27 +22,27 @@ We're installing on a `t2.micro` because this is a tutorial, you'll need more RA
 ### Step 1: Set up our APT repositories
 
 First, add our GPG key which signs our binaries:
-```
+```{.copyWrapper}
     curl https://packagecloud.io/gpg.key | sudo apt-key add -
 ``` 
 
 Do the same for MongoDB (this may change, correct at time of writing):
-```
+```{.copyWrapper}
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
 ``` 
 
 Run update:
-```
+```{.copyWrapper}
     sudo apt-get update
 ``` 
 
 Since our repositories are installed via HTTPS, you will need to make sure APT supports this:
-```
+```{.copyWrapper}
     sudo apt-get install -y apt-transport-https 
 ```
 
 Now lets add the required repos and update again (notice the `-a` flag in the second Tyk commands - this is important!):
-```
+```{.copyWrapper}
     echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list
     
     echo "deb https://packagecloud.io/tyk/tyk-dashboard/ubuntu/ trusty main" | sudo tee /etc/apt/sources.list.d/tyk_tyk-dashboard.list
@@ -61,7 +61,7 @@ Now lets add the required repos and update again (notice the `-a` flag in the se
 ### Step 2: Install the Tyk Dashboard
 
 We're now ready to install Tyk Gateway and Tyk Dashboard, along with all the main dependencies: Redis and MongoDB. To install everything run:
-```
+```{.copyWrapper}
     sudo apt-get install -y mongodb-org tyk-dashboard
 ``` 
 
@@ -71,8 +71,12 @@ When Tyk Dashboard is finished installing, it will have installed some init scri
 
 ## <a name="configure-tyk-dashboard"></a> Configure Tyk Dashboard
 
-We can set the dashboard up with a helper setup command script, the below will get the dashboard set up for the local instance:
-```
+### Pre-requisites
+
+You need to start the MongoDB service before proceeding.
+
+We can set the dashboard up with a helper setup command script. This will get the dashboard set up for the local instance:
+```{.copyWrapper}
     sudo /opt/tyk-dashboard/install/setup.sh --listenport=3000 --redishost=localhost --redisport=6379 --mongo=mongodb://127.0.0.1/tyk_analytics --tyk_api_hostname=$HOSTNAME --tyk_node_hostname=http://localhost --tyk_node_port=8080 --portal_root=/portal --domain="XXX.XXX.XXX.XXX"
 ``` 
 
@@ -91,7 +95,7 @@ What we have done here is:
 *   `--portal_root=/portal`: We want the portal to be shown on `/portal` of whichever domain we set for the portal.
 
 ### Step 1: Start Tyk Dashboard
-```
+```{.copyWrapper}
     sudo service tyk-dashboard start
 ``` 
 
@@ -112,7 +116,7 @@ If all is going well, you will be taken to a log in screen - we'll get to that s
 ### Step 3: Restart the dashboard and start the gateway process
 
 Because we've just entered a license via the UI, we need to make sure that these changes get picked up, so to make sure things run smoothly, we restart the dashboard process (you only need to do this once) and then start the gateway:
-```
+```{.copyWrapper}
     sudo service tyk-dashboard restart 
     sudo service tyk-gateway start
 ``` 
@@ -126,10 +130,10 @@ The best way to add this data is with the Admin API, to make it really easy we'v
 **Pre-requisites for this command**:
 
 *   This command assumes you are running on a Linux shell such as Bash
-*   This command assumes you have Python 2.6 or 2.7 installed
+*   This command assumes you have Python 2.7 or 3.4 installed
 
 **To bootstrap your instance**:
-```
+```{.copyWrapper}
     sudo /opt/tyk-dashboard/install/bootstrap.sh XXX.XXX.XXX.XXX
 ``` 
 
