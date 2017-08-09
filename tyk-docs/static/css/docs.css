@@ -12,6 +12,8 @@
 /* Edit on GitHub button */
 .button.medium { color: white; margin: 10px; padding-top: 0; height: 25px; padding-bottom: 0; min-width: 0; line-height: 26px}
 
+/* Table top margin */
+.wysiwyg table { margin-top: 20px; }
 
 /* Anchor tags */
 :target:before {

@@ -94,6 +94,7 @@ If a user is created and the password is set to empty, it will be hashed.
 | Body         | User Object          |
 | Param        | None                 |
 
+
 #### Sample Request
 
 ```{.copyWrapper}

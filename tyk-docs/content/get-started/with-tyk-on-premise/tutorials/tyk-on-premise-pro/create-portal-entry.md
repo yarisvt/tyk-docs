@@ -69,6 +69,8 @@ You can now visit your portal to see the API catalogue entry, to do so, simply s
 
 ![Portal nav menu location][7]
 
+For further details on adding APIs to your Portal, see [Publish an API to your Developer Portal][8]
+
 [1]: /docs/img/dashboard/portal-management/portal_catalogue.png
 [2]: /docs/img/dashboard/system-management/addAPIbutton.png
 [3]: /docs/img/dashboard/portal-management/portalPolicy.png
@@ -76,3 +78,4 @@ You can now visit your portal to see the API catalogue entry, to do so, simply s
 [5]: /docs/img/dashboard/portal-management/enableAPI.png
 [6]: /docs/img/dashboard/portal-management/saveAPI.png
 [7]: /docs/img/dashboard/portal-management/visitPortal.png
+[8]: /docs/publish/tutorials/publish-api-developer-portal/
