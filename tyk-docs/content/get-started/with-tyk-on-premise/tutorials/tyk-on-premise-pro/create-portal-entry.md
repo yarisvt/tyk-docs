@@ -8,74 +8,64 @@ menu:
 weight: 4
 ---
 
-## Tutorial: Create a portal entry
+Managing your portal is a key part of Tyk Dashboard, this section aims to provide some tutorials to help you get started working with your portal and publishing your API programmes to the public.
 
-Use the dashboard to create a portal entry, the process is very quick and only has a few prerequisites.
+## Publish to your Developer Portal
 
-#### Requirements for a portal entry:
+### Step 1: Create your first API
 
-*   An API configured and live on your gateway
-*   The API must be *Closed* (i.e. it must use either Auth Token or Basic Auth security mechanisms)
-*   A security policy configured to grant access to the API
+If you haven't already, create an API in your Dashboard, your Portal will not be visible or live until you have at least one live API being managed by Tyk, this tutorial assumes you've created your first API using the Dashboard and called it "Test API".
 
-#### Step 1: Navigate to the portal management catalogue page
+### Step 2: Initialise all your portal settings
 
-First you will need to navigate to the portal catalogue, to do so, select the option from the left hand nav:
+By default there is no Portal configured, you need to configure it by visiting the Portal settings screen, **even if you don't want to change the options**. Simply click on "Portal Management" -> "Settings", the notification view on the right will say that no configuration was detected so it was created. Your Portal won't work without this step, so it's important.
 
-![Catalogue menu link location][1]
+That's it, now you need to create the home page.
 
-#### Step 2: Click the *add new API* button
+### Step 3: Create the home page
 
-This page displays all of the catalogue entries you have defined, whether they have documentation attached and whether they are active on the portal or not. Select the *Add new API* button to continue:
+Go to "Pages" and Add a new page, give it any title you like (e.g. "Welcome") and then, select the "Default Home Page Template" from the Page Type section and then, at the bottom of the page, ensure "Make this page the home page" is set.
 
-![Add new API button location][2]
+Save the page.
 
-#### Step 3: Set name and associate a security policy
+### Step 4: Create a Policy
 
-When publishing an API with Tyk, you are not publishing a single API, but instead you are publishing access to a group of APIs. The reason for this is to ensure that it is possible to compose and bundle APIs that are managed into APIs that are published. Tyk treats these as separate, so the thing that is published on the portal is not the same as the actual API being managed by Tyk, one is a logical managed API and the other (the published catalogue version) is a facade.
+When you publish an API to the Portal, Tyk actually publishes a way for developers to enrol in a policy, not the API directly.
 
-Since API policies allow the bundling of access control lists of multiple APIs, it is actually this that you are granting access to. Any developer that signs up for this API, will be granted a bearer token that has this policy as a baseline template, or as a "plan".
+> **Why?**: A Tyk policy can grant access to multiple APIs (so long as they all use the same access control mechanism) and set a template for any keys that are generated for the portal for things such as Tags, Rate Limits and Quotas. Another useful feature with a policy and the Portal is that when the key is generated for a developer, it can be made to expire after a certain time - e.g. a trial key.
 
-![Portal name and security policy][3]
+To create a policy for your test API, under the Policies menu item, select "New Policy", you can leave all the defaults as is, except:
 
-Please note:
+1.  Name the policy "Default"
+2.  Select the "Test API" API in the access control section and click "Add" so it appears in the list
+3.  Check the box that says "Make this policy active"
 
-1.  You will only see security policies for valid APIs in the drop-down list for the policies
-2.  The policy must be "closed" (see the requirements above)
+Save the policy by clicking the "Create" button.
 
-#### Step 4: Add description
+### Step 5: Publish the API to the Portal
 
-All catalogue entries can have a description, these fields support markdown for formatting:
+The API that you defined earlier is active and will work as you've seen in the previous tutorial, this time we want to use the Portal to generate a token for a named developer.
 
-![Description form][4]
+Not all APIs are visible to the Portal, only the ones you tell it about, so under the "Catalogue" section, select "Add API", on the screen that appears, then:
 
-#### Step 5: Enable the API
+1.  Select your "Default" policy
+2.  Fill in the description fields
+3.  Ensure the "Enable this API" checkbox is checked
 
-An API will not be published until you mark it as active, make sure the check-box is `checked`, otherwise the API entry will not appear:
+Save the API Catalogue entry by clicking the "Update" button.
 
-![API active checkbox][5]
+### Step 6: Set your Portal hostname
 
-#### Step 6: Save the API
+When you set up your Tyk installation, you will have had to, at some point, define a hostname for your portal, either as a `/etc/hosts` file entry, or as a qualified hostname such as `portal.domain.com`. To make the Dashboard aware of this:
 
-You'll notice that you haven't added any docs yet, that's ok for now - you can always add these after you have created the API (in fact, you need to create the entry first before you can attach docs).
+1.  Select "Your Developer portal"
+2.  Select "Set Your Portal Domain"
+3.  Enter the hostname here and wait for Tyk to refresh
 
-To save the API, click the `update` button:
+This process will bind your organisations' Portal to the domain name you've specified.
 
-![Update button location][6]
+### Step 7: Log into your Portal
 
-#### Step 7: Take a look
+If you select "Your developer portal" -> "Open your portal", a new page will open with your new (most likely empty) Portal home page.
 
-You can now visit your portal to see the API catalogue entry, to do so, simply select the option from the top-nav:
-
-![Portal nav menu location][7]
-
-For further details on adding APIs to your Portal, see [Publish an API to your Developer Portal][8]
-
-[1]: /docs/img/dashboard/portal-management/portal_catalogue.png
-[2]: /docs/img/dashboard/system-management/addAPIbutton.png
-[3]: /docs/img/dashboard/portal-management/portalPolicy.png
-[4]: /docs/img/dashboard/portal-management/portalDescription.png
-[5]: /docs/img/dashboard/portal-management/enableAPI.png
-[6]: /docs/img/dashboard/portal-management/saveAPI.png
-[7]: /docs/img/dashboard/portal-management/visitPortal.png
-[8]: /docs/publish/tutorials/publish-api-developer-portal/
+> **A note for Docker users**: If you are using Docker, do not use the drop-down, instead, use the domain name you defined when you set up the forward proxy for your domains - if you followed the Docker setup guide, your Dashboard will be on: `www.tyk-portal-test.com`.
