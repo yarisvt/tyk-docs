@@ -68,7 +68,7 @@ This process will bind your organisations' Portal to the domain name you've spec
 
 ### Step 7: Log into your Portal
 
-Select **Open Your Portal** from the **Your Developer Portal**menu drop-down, a new page will open with your new (most likely empty) Portal home page.
+Select **Open Your Portal** from the **Your Developer Portal** menu drop-down, a new page will open with your new (most likely empty) Portal home page.
 
 > **A note for Docker users**: If you are using Docker, do not use the drop-down, instead, use the domain name you defined when you set up the forward proxy for your domains - if you followed the Docker setup guide, your Dashboard will be on: `www.tyk-portal-test.com`.
 
