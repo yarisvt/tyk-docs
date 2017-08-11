@@ -154,6 +154,63 @@ Adding the `suppress_reset` parameter and setting it to `1`, will cause Tyk to *
     }
 ```
 
+#### Example: Importing existing tokens into Tyk
+
+You can use the APIs as defined above to import existing tokens into Tyk.
+
+This example uses standard `authorization` header authentication, and assumes that the Dashboard is located at `127.0.0.1:8080` and the Tyk secret is `352d20ee67be67f6340b4c0605b044b7` - update these as necessary to match your environment.
+
+To import a token called `abc`, save the JSON contents as `token.json` (see example below), then run the following Curl command:
+
+```
+    curl http://127.0.0.1:8080/tyk/keys/abc -H 'x-tyk-authorization: 352d20ee67be67f6340b4c0605b044b7' -H 'Content-Type: application/json'  -d @token.json
+```
+
+The following request will fail as the key doesn't exist:
+
+```
+    curl http://127.0.0.1:8080/quickstart/headers -H 'Authorization: invalid123'
+```
+
+But this request will now work, using the imported token:
+
+```
+    curl http://127.0.0.1:8080/quickstart/headers -H 'Authorization: abc'
+```
+
+#### Example token.json file
+
+```{.copyWrapper}
+    {
+      "allowance": 1000,
+      "rate": 1000,
+      "per": 60,
+      "expires": -1,
+      "quota_max": -1,
+      "quota_renews": 1406121006,
+      "quota_remaining": 0,
+      "quota_renewal_rate": 60,
+      "access_rights": {
+        "3": {
+          "api_name": "Tyk Test API",
+          "api_id": "3"
+        }
+      },
+      "org_id": "53ac07777cbb8c2d53000002",
+      "basic_auth_data": {
+        "password": "",
+        "hash_type": ""
+      },
+      "hmac_enabled": false,
+      "hmac_string": "",
+      "is_inactive": false,
+      "apply_policy_id": "",
+      "monitor": {
+        "trigger_limits": []
+      }
+    }
+```
+
 ### Delete Key
 
 Deleting a key will remove it permanently from the system, however analytics relating to that key will still be available.
@@ -216,62 +273,5 @@ You can retrieve all the keys in your Tyk instance.
             "53ac07777cbb8c2d53000002d698728ce964432d7167596bc005c5fc",
             "53ac07777cbb8c2d530000028210d848c5854cb35917b2f013529d95"
         ]
-    }
-```
-
-### Example: Importing existing tokens into Tyk
-
-You can use the APIs as defined above to import existing tokens into Tyk.
-
-This example uses standard `authorization` header authentication, and assumes that the Dashboard is located at `127.0.0.1:8080` and the Tyk secret is `352d20ee67be67f6340b4c0605b044b7` - update these as necessary to match your environment.
-
-To import a token called `abc`, save the JSON contents as `token.json` (see example below), then run the following Curl command:
-
-```
-    curl http://127.0.0.1:8080/tyk/keys/abc -H 'x-tyk-authorization: 352d20ee67be67f6340b4c0605b044b7' -H 'Content-Type: application/json'  -d @token.json
-```
-
-The following request will fail as the key doesn't exist:
-
-```
-    curl http://127.0.0.1:8080/quickstart/headers -H 'Authorization: invalid123'
-```
-
-But this request will now work, using the imported token:
-
-```
-    curl http://127.0.0.1:8080/quickstart/headers -H 'Authorization: abc'
-```
-
-#### Example token.json file
-
-```{.copyWrapper}
-    {
-      "allowance": 1000,
-      "rate": 1000,
-      "per": 60,
-      "expires": -1,
-      "quota_max": -1,
-      "quota_renews": 1406121006,
-      "quota_remaining": 0,
-      "quota_renewal_rate": 60,
-      "access_rights": {
-        "3": {
-          "api_name": "Tyk Test API",
-          "api_id": "3"
-        }
-      },
-      "org_id": "53ac07777cbb8c2d53000002",
-      "basic_auth_data": {
-        "password": "",
-        "hash_type": ""
-      },
-      "hmac_enabled": false,
-      "hmac_string": "",
-      "is_inactive": false,
-      "apply_policy_id": "",
-      "monitor": {
-        "trigger_limits": []
-      }
     }
 ```
