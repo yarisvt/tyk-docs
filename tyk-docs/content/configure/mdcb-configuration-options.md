@@ -27,6 +27,11 @@ Tyk MDCB has a separate license, which you can request from your account represe
             "mongo_url": "mongodb://localhost/tyk_analytics"
         },
         "license": ""
+        },
+        "server_options": {
+            "use_ssl": true,
+            "certificate": { "cert_file": <path>, "key_file": <path> },
+            "min_version": 1.2
     }
 ```
 
