@@ -43,4 +43,6 @@ Tyk MDCB has a separate license, which you can request from your account represe
 
 *   `license`: Enter your license in this section so MDCB can start.
 
+*   `server_options`: If set to `true`, enter the `cert_file` and `key_file` names and `paths`.
+
 
