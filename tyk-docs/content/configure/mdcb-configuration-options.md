@@ -29,7 +29,7 @@ Tyk MDCB has a separate license, which you can request from your account represe
         "license": ""
         },
         "server_options": {
-            "use_ssl": true,
+            "use_ssl": false,
             "certificate": { "cert_file": <path>, "key_file": <path> },
             "min_version": 1.2
     }
@@ -43,6 +43,6 @@ Tyk MDCB has a separate license, which you can request from your account represe
 
 *   `license`: Enter your license in this section so MDCB can start.
 
-*   `server_options`: If set to `true`, enter the `cert_file` and `key_file` names and `paths`.
+*   `server_options`: If `use_ssl` is set to `true`, you need to enter the `cert_file` and `key_file` names and `paths` for `certificate`.
 
 
