@@ -163,7 +163,7 @@ From version 1.3.8, you can now add custom error messages
 
 #### Python Example
 
-```
+```{.copyWrapper}
 from tyk.decorators import *
 
 @Hook
