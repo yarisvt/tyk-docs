@@ -157,7 +157,23 @@ The intended way of using a Coprocess middleware is to specify it as part of an 
 > **Note**: All hook types support chaining except the custom auth check (`auth_check`).
 
 ### ReturnOverides
-From version 1.3.6, you can now  override response code, headers and body using ReturnOverrides. See the [Extend ReturnOverides][6] sample for details.
+From version 1.3.6, you can now  override response code, headers and body using ReturnOverrides.
+
+From version 1.3.8, you can now add custom error messages
+
+#### Python Example
+
+```
+from tyk.decorators import *
+
+@Hook
+def MyCustomMiddleware(request, session, spec):
+    print("my_middleware: MyCustomMiddleware")
+    request.object.return_overrides.headers['content-type'] = 'application/json'
+    request.object.return_overrides.response_code = 200
+    request.object.return_overrides.response_error = "{\"key\": \"value\"}\n"
+    return request, session
+```
 
 
  [1]: https://developers.google.com/protocol-buffers/
@@ -165,4 +181,3 @@ From version 1.3.6, you can now  override response code, headers and body using 
  [3]: https://github.com/TykTechnologies/tyk/blob/master/coprocess/api.h
  [4]: https://github.com/TykTechnologies/tyk/blob/master/coprocess.go
  [5]: http://cython.org/
- [6]: https://github.com/TykTechnologies/tyk/pull/763

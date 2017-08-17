@@ -450,6 +450,10 @@ This boolean option allows the use of self-signed certificates for the Gateway.
 
 > **NOTE:** This option is available from v2.3.5 onwards.
 
+### <a name="proxy_default"></a>proxy_default_timeout
 
+This can specify a default timeout for upstream API requests.
+
+> **NOTE:** This option is available from v2.3.8 onwards.
 
  [1]: /docs/others/Gateway-Environment-Vars.xlsx

@@ -52,7 +52,7 @@ Now lets add the required repos and update again (notice the `-a` flag in the se
 
 ### Step 2: Install the Tyk Gateway
 
-We're now ready to install Tyk Gateway and Tyk Dashboard, along with all the main dependencies: Redis and MongoDB. To install everything run:
+We're now ready to install the Tyk Gateway, along with all the main dependencies: Redis and MongoDB. To install everything run:
 ```{.copyWrapper}
     sudo apt-get install -y redis-server tyk-gateway
 ```
@@ -88,7 +88,7 @@ The Tyk Gateway can be started now that it is configured. Use this commannd to s
 
 ### Prerequisites
 
-This configuration assumes that you have already installed Tyk Dashboard, and have decided on the domain names for your Dashboard and your Portal. **They must be different**. For testing purposes, it is easiest to add hosts entries to your (and your servers) `/etc/hosts` file.
+This configuration assumes that you have already installed the Tyk Dashboard, and have decided on the domain names for your Dashboard and your Portal. **They must be different**. For testing purposes, it is easiest to add hosts entries to your (and your servers) `/etc/hosts` file.
 
 ### Set up Tyk
 
