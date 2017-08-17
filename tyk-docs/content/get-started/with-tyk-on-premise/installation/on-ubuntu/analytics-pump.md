@@ -68,7 +68,7 @@ Now lets add the required repos and update again (notice the `-a` flag in the se
 
 #### Step 2: Install the Tyk Pump
 
-We're now ready to install Tyk Gateway and Tyk Dashboard, along with all the main dependencies: MongoDB. To install everything run:
+We're now ready to install the Tyk Pump, along with all the main dependencies: MongoDB. To install everything run:
 ```{.copyWrapper}
     sudo apt-get install -y mongodb-org tyk-pump
 ```

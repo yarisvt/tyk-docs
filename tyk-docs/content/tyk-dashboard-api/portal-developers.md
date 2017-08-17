@@ -198,3 +198,28 @@ weight: 7
         "Meta":""
     }
 ```
+
+### Verify Developer Credentials
+
+> **NOTE**: This functionality is available from v2.3.8 onwards
+
+| **Property** | **Description**                             |
+| ------------ | ------------------------------------------- |
+| Resource URL | `/api/portal/developers/verify_credentials` |
+| Method       | POST                                        |
+| Type         | None                                        |
+| Body         | None                                        |
+| Param        | None                                        |
+
+```{.copyWrapper}
+    curl https://admin.cloud.tyk.io/api/portal/developers/verify_credentials \
+    -X POST \
+    -H "authorization: $TYK_API_KEY" \
+    -d \
+    '{
+        "username": "<developer-email>",
+        "password": "<developer-password>"
+    }'
+```
+
+If the user credentials are verified, the HTTP response code will be 200 (OK), otherwise credentials do match and a 401 error (Unauthorised) will be returned.

@@ -60,7 +60,7 @@ Now lets add the required repos and update again (notice the `-a` flag in the se
 
 ### Step 2: Install the Tyk Dashboard
 
-We're now ready to install Tyk Gateway and Tyk Dashboard, along with all the main dependencies: Redis and MongoDB. To install everything run:
+We're now ready to install the Tyk Dashboard, along with all the main dependencies: Redis and MongoDB. To install everything run:
 ```{.copyWrapper}
     sudo apt-get install -y mongodb-org tyk-dashboard
 ``` 
@@ -99,8 +99,6 @@ What we have done here is:
     sudo service tyk-dashboard start
 ``` 
 
-Notice how we haven't actually started the Gateway yet, because this is a Pro install, we need to enter a license first.
-
 ### Step 2: Enter your dashboard license
 
 Go to `http://your-host-name:3000/`.
@@ -113,12 +111,11 @@ That's it, your Dashboard is now ready to be bootstrapped.
 
 If all is going well, you will be taken to a log in screen - we'll get to that soon.
 
-### Step 3: Restart the Dashboard and start the gateway process
+### Step 3: Restart the Dashboard
 
 Because we've just entered a license via the UI, we need to make sure that these changes get picked up, so to make sure things run smoothly, we restart the dashboard process (you only need to do this once) and then start the gateway:
 ```{.copyWrapper}
     sudo service tyk-dashboard restart 
-    sudo service tyk-gateway start
 ``` 
 
 ### Step 4: Bootstrap the Dashboard with an initial User and Organisation

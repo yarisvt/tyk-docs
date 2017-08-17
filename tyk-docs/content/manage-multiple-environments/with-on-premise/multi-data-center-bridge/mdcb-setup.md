@@ -27,6 +27,12 @@ Tyk MDCB has a separate license, which you can request from your account represe
             "mongo_url": "mongodb://localhost/tyk_analytics"
         },
         "license": ""
+        },
+        "server_options": {
+            "use_ssl": false,
+            "certificate": { "cert_file": <path>, "key_file": <path> },
+            "min_version": 1.2
+        }
     }
 ```
 
@@ -34,6 +40,7 @@ Tyk MDCB has a separate license, which you can request from your account represe
 *   `hash_keys`: Set to `true` if you are using a hashed configuration install of Tyk, otherwise set to `false`.
 *   `analytics`: This section must point to your MongoDB replica set and must be a valid MongoDB replica set URL.
 *   `license`: Enter your license in this section so MDCB can start.
+*   `server_options`: If `use_ssl` is set to `true`, you need to enter the `cert_file` and `key_file` path names for `certificate`, `min_version` should be the minimum TLS protocol version required from the client.
 
 ## <a name="prepare-gateway-as-slave"></a> Prepare the Tyk Gateway as a Slave
 
