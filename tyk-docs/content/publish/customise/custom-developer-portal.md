@@ -12,7 +12,9 @@ weight: 0
 
 The Tyk Dashboard includes portal functionality by default, but in some cases it is required to have custom logic or, for example, embed the portal into an existing platform. Thankfully Tyk is flexible enough to provide an easy way of integrating the portal to any platform and language using a few API calls.
 
-A video covering the process of building a custom portal is available to view [here][2]:
+A video covering the process of building a custom portal is available to view here:
+
+<iframe src="https://drive.google.com/file/d/0BxZq5VCxj3LWckZ4bXIxM1FvWEE/preview" width="870" height="480" allowfullscreen></iframe>
 
 ## <a name="building-blocks"></a> Building Blocks
 
@@ -53,7 +55,7 @@ export TYK_API_KEY=1efdefd6c93046bc4102f7bf77f17f4e
 #### Response
 
 ```
-    # {"Status":"OK","Message":"598d4a33ac42130001c1257c","Meta":null}
+    {"Status":"OK","Message":"598d4a33ac42130001c1257c","Meta":null}
 ```
 
 Where `Message` contains the developer internal ID., You do not have to remember it, since you can find a developer by his email, using the API.
@@ -71,7 +73,7 @@ Where `Message` contains the developer internal ID., You do not have to remember
 #### Response
 
 ```
-    # {"id":"598d4a33ac42130001c1257c","email":"apidev@example.com","date_created":"2017-08-11T06:09:55.654Z","inactive":false,"org_id":"59368a6b5eeba30001786baf","api_keys":{},"subscriptions":{},"fields":{"Name":"John Snow","source":"google search"},"nonce":"","sso_key":""}
+    {"id":"598d4a33ac42130001c1257c","email":"apidev@example.com","date_created":"2017-08-11T06:09:55.654Z","inactive":false,"org_id":"59368a6b5eeba30001786baf","api_keys":{},"subscriptions":{},"fields":{"Name":"John Snow","source":"google search"},"nonce":"","sso_key":""}
 ```
 
 ### Developer Validation
@@ -113,7 +115,7 @@ Lets created an updated developer record, based on the example response provided
 #### Response
 
 ```
-    # {"Status":"OK","Message":"Data updated","Meta":null}
+    {"Status":"OK","Message":"Data updated","Meta":null}
 ```
 
 Note that all non-empty custom fields are shown in the Tyk Dashboard Developer view. Besides, all the keys created for this developer inherit his custom fields, if they are specified in the Portal settings **Signup fields** list.
@@ -126,7 +128,7 @@ If you need to implement own login workflow, you need be able to validate user p
 #### Request
 
 ```{.copyWrapper}
-curl https://admin.cloud.tyk.io/api/portal/developers/verify_credentials \
+    curl https://admin.cloud.tyk.io/api/portal/developers/verify_credentials \
     -X POST \
     -H "authorization: $TYK_API_KEY" \
     -d \
@@ -145,7 +147,7 @@ Inside the admin dashboard in the portal menu, you can define **catalogues** wit
 #### Request
 
 ```{.copyWrapper}
-curl https://admin.cloud.tyk.io/api/portal/catalogue \
+    curl https://admin.cloud.tyk.io/api/portal/catalogue \
     -X GET \
     -H "authorization: $TYK_API_KEY"
 ```
@@ -153,32 +155,32 @@ curl https://admin.cloud.tyk.io/api/portal/catalogue \
 #### Response
 
 ```
-#  {
-#   "id":"5940e3d29ba5330001647b21",
-#   "org_id":"59368a6b5eeba30001786baf",
-#   "apis":[
-#      {
-#         "name":"asdasd",
-#         "short_description":"",
-#         "long_description":"",
-#         "show":true,
-#         "api_id":"",
-#         "policy_id":"59527b8c375f1e000146556b",
-#         "documentation":"",
-#         "version":"v2"
-#      },
-#      {
-#         "name":"asdaszczxczx",
-#         "short_description":"",
-#         "long_description":"",
-#         "show":true,
-#         "api_id":"",
-#         "policy_id":"5944267f8b8e5500013082a5",
-#         "documentation":"",
-#         "version":"v2"
-#      }
-#   ]
-#}
+    {
+     "id":"5940e3d29ba5330001647b21",
+     "org_id":"59368a6b5eeba30001786baf",
+     "apis":[
+        {
+           "name":"asdasd",
+           "short_description":"",
+           "long_description":"",
+           "show":true,
+           "api_id":"",
+           "policy_id":"59527b8c375f1e000146556b",
+           "documentation":"",
+           "version":"v2"
+        },
+        {
+           "name":"asdaszczxczx",
+           "short_description":"",
+           "long_description":"",
+           "show":true,
+           "api_id":"",
+           "policy_id":"5944267f8b8e5500013082a5",
+           "documentation":"",
+           "version":"v2"
+        }
+     ]
+    }
 ```
 
 ### Issuing Keys
@@ -188,7 +190,7 @@ To generate a key for the developer, first he should send a request to the admin
 #### Request
 
 ```{.copyWrapper}
-curl https://admin.cloud.tyk.io/api/portal/requests \
+    curl https://admin.cloud.tyk.io/api/portal/requests \
     -X PUT \
     -H "authorization: $TYK_API_KEY" \
     -d \
@@ -205,7 +207,7 @@ curl https://admin.cloud.tyk.io/api/portal/requests \
 #### Response
 
 ```
-# {"Status":"OK","Message":"Data updated","Meta":null}
+    {"Status":"OK","Message":"Data updated","Meta":null}
 ```
 
 ### Checking User Subscriptions and Keys
@@ -215,7 +217,7 @@ The Developer object contains the `subscriptions` field with information about u
 #### Request
 
 ```{.copyWrapper}
-"subscriptions":{"<policy-id-1>": "<api-key-1>", "<policy-id-2>": "<api-key-2>"},
+    "subscriptions":{"<policy-id-1>": "<api-key-1>", "<policy-id-2>": "<api-key-2>"},
 ```
 
 ### Analytics
@@ -232,7 +234,7 @@ API Endpoint: `/api/activity/keys/aggregate/#{keys}/#{from}/#{to}?p=-1&res=day`
 #### Request
 
 ```{.copyWrapper}
-curl "https://admin.cloud.tyk.io/api/activity/keys/aggregate/add2b342,5f1d9603,/5/8/2017/13/8/2017?api_id=8e4d983609c044984ecbb286b8d25cd9&api_version=Non+Versioned&p=-1&res=day" \
+    curl "https://admin.cloud.tyk.io/api/activity/keys/aggregate/add2b342,5f1d9603,/5/8/2017/13/8/2017?api_id=8e4d983609c044984ecbb286b8d25cd9&api_version=Non+Versioned&p=-1&res=day" \
     -X GET \
     -H "authorization: $TYK_API_KEY"
 ```
@@ -240,16 +242,16 @@ curl "https://admin.cloud.tyk.io/api/activity/keys/aggregate/add2b342,5f1d9603,/
 #### Response
 
 ```
-# { "data":[
-#    {
-#        "id":{"day":9,"month":8,"year":2017,"hour":0,"code":200},
-#        "hits":13,
-#        "success":10,
-#        "error":3,
-#        "last_hit":"2017-08-09T12:31:02Z"
-#    },
-#    ...
-#  ],"pages":0}
+    { "data":[
+      {
+          "id":{"day":9,"month":8,"year":2017,"hour":0,"code":200},
+          "hits":13,
+          "success":10,
+          "error":3,
+          "last_hit":"2017-08-09T12:31:02Z"
+      },
+      ...
+    ],"pages":0}
 ```
 
 In example above `add2b342,5f1d9603`, is 2 users keys. Note that this example shows hashed key values as described [here][1]. Key hashing is turned on for the Cloud, but for Hybrid and On-premise you can turn it off. Hash keys means that API administrator do not have access to real user keys, but he still can use this hashed values for showing analytics.
@@ -266,8 +268,9 @@ Then run it like this: `TYK_PORTAL_PORT=8080 TYK_API_KEY=<your-api-key-here> rub
 
 You can also specify the `TYK_DASHBOARD_URL` if you are trying this portal with an On-Premises installation. By default, it is configured to work with Cloud or Hybrid.
 
-See the video demonstrating the building of a portal [here][2].
+See the video demonstrating the building of a portal here:
+
+<iframe src="https://drive.google.com/file/d/0BxZq5VCxj3LWckZ4bXIxM1FvWEE/preview" width="870" height="480" allowfullscreen></iframe>
 
 
 [1]: /docs/security/concepts/key-hashing/
-[2]: https://drive.google.com/open?id=0BxZq5VCxj3LWckZ4bXIxM1FvWEE

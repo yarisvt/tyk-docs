@@ -222,4 +222,4 @@ weight: 7
     }'
 ```
 
-If the user credentials are verified, the HTTP response code will be 200, otherwise credentials do match and a 401 error will be returned.
+If the user credentials are verified, the HTTP response code will be 200 (OK), otherwise credentials do match and a 401 error (Unauthorised) will be returned.
