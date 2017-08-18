@@ -226,6 +226,8 @@ If the user credentials are verified, the HTTP response code will be 200 (OK), o
 
 ### Reset Developer Password
 
+> **NOTE**: This functionality is available from v2.3.8 onwards
+
 | **Property** | **Description**                             |
 | ------------ | ------------------------------------------- |
 | Resource URL | `/api//portal/developers/password/:Id`      |
