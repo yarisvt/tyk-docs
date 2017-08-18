@@ -15,29 +15,6 @@ Each Tyk component supports `statsd_connection_string`. Additionally you can set
 
 ## <a name="pump-specific"></a>Pump Specific Settings
 
-You need to add the following to your `pump.conf` file
-
-```{.copyWrapper}
-    "statsd": {
-            "name": "statsd",
-            "meta": {
-                "address": "localhost:8125",
-                "fields": ["request_time"],
-                "tags":  ["path",
-                        "response_code",
-                        "api_key",
-                        "api_version",
-                        "api_name",
-                        "api_id",
-                        "raw_request",
-                        "ip_address",
-                        "org_id",
-                        "oauth_id"]
-            }
-        },
-```
-
-
 The Pump also requires setting the following environment variable: `TYK_INSTRUMENTATION=1`
 
 ## <a name="statsd-keys"></a>StatsD Keys
