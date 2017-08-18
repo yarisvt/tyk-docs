@@ -268,9 +268,5 @@ Then run it like this: `TYK_PORTAL_PORT=8080 TYK_API_KEY=<your-api-key-here> rub
 
 You can also specify the `TYK_DASHBOARD_URL` if you are trying this portal with an On-Premises installation. By default, it is configured to work with Cloud or Hybrid.
 
-See the video demonstrating the building of a portal here:
-
-<iframe src="https://drive.google.com/file/d/0BxZq5VCxj3LWckZ4bXIxM1FvWEE/preview" width="870" height="480" allowfullscreen></iframe>
-
 
 [1]: /docs/security/concepts/key-hashing/

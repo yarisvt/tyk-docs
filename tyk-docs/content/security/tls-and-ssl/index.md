@@ -14,7 +14,7 @@ Tyk supports TLS connections, and as of version 2.0 all TLS connections will als
     "http_server_options": {
         "use_ssl": true,
         "server_name": "yoursite.com",
-        "min_version": "1.2",
+        "min_version": 771,
         "certificates": [
             {
                 "domain_name": "*.yoursite.com",
@@ -28,5 +28,15 @@ Tyk supports TLS connections, and as of version 2.0 all TLS connections will als
 
 You can enter multiple certificates, that link to multiple domain names, this enables you to have multiple SSL certs for your gateways or dashboard domains if they are providing access to different domains via the same IP.
 
-The `min_version` setting is optional, you can set it to `1.0`, `1.1` or `1.2` to to have Tyk only accept connections from TLS V1.0, 1.1 and 1.2 respectively.
+The `min_version` setting is optional, you can set it to have Tyk only accept connections from TLS V1.0, 1.1 and 1.2 respectively.
+
+#### Values for TLS Versions
+
+You need to use the following values for setting the TLS `min_version`:
+
+| TLS Version   | Value to Use   |
+|---------------|----------------|
+|      1.0      |      769       |
+|      1.1      |      770       |
+|      1.2      |      771       |
 
