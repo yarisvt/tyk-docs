@@ -31,7 +31,7 @@ Tyk MDCB has a separate license, which you can request from your account represe
         "server_options": {
             "use_ssl": false,
             "certificate": { "cert_file": <path>, "key_file": <path> },
-            "min_version": 1.2
+            "min_version": 771
         }
     }
 ```
@@ -45,5 +45,15 @@ Tyk MDCB has a separate license, which you can request from your account represe
 *   `license`: Enter your license in this section so MDCB can start.
 
 *   `server_options`: If `use_ssl` is set to `true`, you need to enter the `cert_file` and `key_file` path names for `certificate`, `min_version` should be the minimum TLS protocol version required from the client.
+
+#### Values for TLS Versions
+
+You need to use the following values for setting the TLS `min_version`:
+
+| TLS Version   | Value to Use   |
+|---------------|----------------|
+|      1.0      |      769       |
+|      1.1      |      770       |
+|      1.2      |      771       |
 
 
