@@ -223,3 +223,43 @@ weight: 7
 ```
 
 If the user credentials are verified, the HTTP response code will be 200 (OK), otherwise credentials do match and a 401 error (Unauthorised) will be returned.
+
+### Reset Developer Password
+
+| **Property** | **Description**                             |
+| ------------ | ------------------------------------------- |
+| Resource URL | `/api//portal/developers/password/:Id`      |
+| Method       | POST                                        |
+| Type         | None                                        |
+| Body         | None                                        |
+| Param        | None                                        |
+
+#### Sample Request
+
+```{.copyWrapper}
+    curl https://admin.cloud.tyk.io/api//portal/developers/password/:Id \
+    -X POST \
+    -H "authorization: $TYK_API_KEY" \
+    -d \
+    '{
+        "password": "<new-pass>"
+    }'
+```
+
+#### Sample Response - Password Changed
+
+```
+    {
+        "Message":"Password changed"
+    }
+```
+
+#### Sample Response - Incorrect Developer ID
+
+```
+    {
+        "Message":""error": "Developer password validation failed
+    }
+```
+
+
