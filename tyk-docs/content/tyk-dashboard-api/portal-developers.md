@@ -239,7 +239,7 @@ If the user credentials are verified, the HTTP response code will be 200 (OK), o
 #### Sample Request
 
 ```{.copyWrapper}
-    curl https://admin.cloud.tyk.io/api//portal/developers/password/:Id \
+    curl https://admin.cloud.tyk.io/api/portal/developers/password/:Id \
     -X POST \
     -H "authorization: $TYK_API_KEY" \
     -d \

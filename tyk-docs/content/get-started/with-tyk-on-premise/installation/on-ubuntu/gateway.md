@@ -17,24 +17,26 @@ We're installing on a `t2.micro` because this is a tutorial, you'll need more RA
 
 **Pre-requisites**:
 
-*   Ensure port `8080` is open: this is used in this guide for Gateway traffic (API traffic to be proxied)
+*   Ensure port `8080` is open: this is used in this guide for Gateway traffic (API traffic to be proxied).
+*   You have MongoDB and Redis installed.
+*   You have installed firstly the Tyk Dashboard, then the Tyk Pump.
 
 ### Step 1: Set up our APT repositories
 
 First, add our GPG key which signs our binaries:
 ```{.copyWrapper}
     curl https://packagecloud.io/gpg.key | sudo apt-key add -
-``` 
+```
 
 Run update:
 ```{.copyWrapper}
     sudo apt-get update
-``` 
+```
 
 Since our repositories are installed via HTTPS, you will need to make sure APT supports this:
 ```{.copyWrapper}
     sudo apt-get install -y apt-transport-https 
-``` 
+```
 
 Now lets add the required repos and update again (notice the `-a` flag in the second Tyk commands - this is important!):
 ```{.copyWrapper}
@@ -43,7 +45,7 @@ Now lets add the required repos and update again (notice the `-a` flag in the se
     echo "deb-src https://packagecloud.io/tyk/tyk-gateway/ubuntu/ trusty main" | sudo tee -a /etc/apt/sources.list.d/tyk_tyk-gateway.list
     
     sudo apt-get update
-``` 
+```
 
 **What we've done here is:**
 
@@ -66,7 +68,7 @@ When Tyk is finished installing, it will have installed some init scripts, but i
 You can set up the core settings for Tyk Gateway with a single setup script, however for more involved deployments, you will want to provide your own configuration file. To get things started, run:
 ```{.copyWrapper}
     sudo /opt/tyk-gateway/install/setup.sh --listenport=8080 --redishost=localhost --redisport=6379 --domain=""
-``` 
+```
 
 What we've done here is told the setup script that:
 
