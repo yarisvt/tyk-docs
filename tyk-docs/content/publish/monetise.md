@@ -3,8 +3,8 @@ date: 2017-03-24T17:45:29Z
 title: Monetise
 menu:
   main:
-    parent: "Publish"
-weight: 0 
+    parent: "Portal Management"
+weight: 5 
 ---
 
 Out of the box, the Tyk Developer Portal does not have a billing component, however, this does not mean that it is not possible to enable monetisation within a Portal developer access flow.

@@ -3,8 +3,8 @@ date: 2017-03-24T17:10:33Z
 title: Portal Concepts
 menu:
   main:
-    parent: "Publish"
-weight: 0 
+    parent: "Portal Management"
+weight: 1 
 ---
 
 ## <a name="api-catalogue"></a> API Catalogue

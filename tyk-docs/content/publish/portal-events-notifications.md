@@ -3,8 +3,8 @@ date: 2017-03-24T17:42:45Z
 title: Portal events and notifications
 menu:
   main:
-    parent: "Publish"
-weight: 0 
+    parent: "Portal Management"
+weight: 4 
 ---
 
 Tyk enables you to actively monitor both user quotas. The machinery that manages these active notifications is the same as webhooks and provides an easy way to notify your stakeholders, your own organisation or the API end user when certain thresholds have been reached for their token.

@@ -1,9 +1,9 @@
 ---
 date: 2017-03-28T13:56:54+01:00
-title: Publish Tutorials
+title: Portal Management Tutorials
 menu:
   main:
-    parent: "Publish"
+    parent: "Portal Management"
 weight: 0
 url: "/publish/tutorials"
 ---
