@@ -3,8 +3,8 @@ date: 2017-03-24T17:33:13Z
 title: Developer Profiles
 menu:
   main:
-    parent: "Publish"
-weight: 0 
+    parent: "Portal Management"
+weight: 2 
 ---
 
 Users that are signed up to your portal are called "Developers", these users have access to a Dashboard page which show them their API usage over the past 7 days as well as the policy and quota limits on their relevant keys.

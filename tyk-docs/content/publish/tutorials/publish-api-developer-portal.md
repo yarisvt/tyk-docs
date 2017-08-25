@@ -3,7 +3,7 @@ date: 2017-03-28T13:57:55+01:00
 title: Publish an API to your Developer Portal
 menu:
   main:
-    parent: "Publish Tutorials"
+    parent: "Portal Management Tutorials"
 weight: 0 
 ---
 

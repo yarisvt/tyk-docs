@@ -1,6 +1,6 @@
 ---
 date: 2017-03-24T17:09:48Z
-title: Publish
+title: Portal Management
 weight: 160
 menu: "main"
 url: "/publish"

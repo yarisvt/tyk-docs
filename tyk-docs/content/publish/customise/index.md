@@ -3,7 +3,7 @@ date: 2017-03-24T17:17:21Z
 title: Customise
 menu:
   main:
-    parent: "Publish"
+    parent: "Portal Management"
 weight: 0
 url: "/publish/customise"
 ---
