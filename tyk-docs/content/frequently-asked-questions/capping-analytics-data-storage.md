@@ -57,23 +57,26 @@ Set the data expires to a time in seconds for it to expire. Tyk will calculate t
 
 ## <a name="size-based"></a> Size Based Cap
 
-### Step 1: Add the Size Cap
+### Add the Size Cap
 
 >  **Note**: The size value should be in bytes, and we recommend using a value just under the amount of RAM on your machine.
 
-Run this command in your preferred MongoDB tool:
+Run this command in your MongoDB shell:
 
 ```{.copyWrapper}
     use tyk_analytics
     db.runCommand({"convertToCapped": "tyk_analytics", size: 100000});
 ```
 
-### Step 2: Run again on the Secondary Analytics Log
+### Adding the Size Cap if using a mongo_selective Pump
+
+The `mongo_selective` pump stores data on a per organisation basis. You will have to run the following command for an individual organisation as follows.
+
 
 >  **Note**: The `LogId` will be a long number.
 
-Run this command in your preferred MongoDB tool:
+Run this command in your MongoDB shell:
 
 ```{.copyWrapper}
-    db.runCommand({"convertToCapped": "tyk_analytics_LogId", size: 100000});
+    db.runCommand({"convertToCapped": "z_tyk_analyticz_LogId", size: 100000});
 ```
