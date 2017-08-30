@@ -7,7 +7,9 @@ menu:
 weight: 0 
 ---
 
-If you wish to reduce or manage the amount of data in your MongoDB, you can also add an expire index to the collection and have Tyk enforce organisation quotas.
+If you wish to reduce or manage the amount of data in your MongoDB, you can also add an expire index to the collection and have Tyk enforce organisation quotas. You have two ways of doing this. A time based cap and a size based cap.
+
+## <a name="time-based"></a> Time Based Cap
 
 To add an expiry index to your analytics log data simply follow these three steps.
 
@@ -52,3 +54,31 @@ Set the data expires to a time in seconds for it to expire. Tyk will calculate t
 ```
 
 > **Note**: This will only work for v2.2.0.23, if you are running an earlier patch, you will need to `enforce_org_quota` set to `true`.
+
+## <a name="size-based"></a> Size Based Cap
+
+### Step 1: Run tyk_analytics
+
+```{.copyWrapper}
+    use tyk_analytics
+```
+
+### Step 2: Add the Size Cap
+
+>  **Note**: The size value should be in bytes, and we recommend using a value just under the amount of RAM on your machine.
+
+Run this command in your preferred MongoDB tool:
+
+```{.copyWrapper}
+    db.runCommand({"convertToCapped": "tyk_analytics", size: 100000});
+```
+
+### Step 3: Run again on the Secondary Analytics Log
+
+>  **Note**: The `LogId` will be a long number.
+
+Run this command in your preferred MongoDB tool:
+
+```{.copyWrapper}
+    db.runCommand({"convertToCapped": "tyk_analytics_LogId", size: 100000});
+```
