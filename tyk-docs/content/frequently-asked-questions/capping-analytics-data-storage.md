@@ -72,11 +72,8 @@ Run this command in your MongoDB shell:
 
 The `mongo_selective` pump stores data on a per organisation basis. You will have to run the following command for an individual organisation as follows.
 
-
->  **Note**: The `LogId` will be a long number.
-
 Run this command in your MongoDB shell:
 
 ```{.copyWrapper}
-    db.runCommand({"convertToCapped": "z_tyk_analyticz_LogId", size: 100000});
+    db.runCommand({"convertToCapped": "z_tyk_analyticz_<org-id>", size: 100000});
 ```
