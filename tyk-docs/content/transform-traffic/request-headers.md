@@ -155,6 +155,18 @@ The context variables that are available are:
 
 > **Note**: `request_id` is available from v1.3.6
 
+As headers are already exposed to context data, you can also access any header from context variables by using:
+
+```{.copyWrapper}
+    $tyk_context.headers_HEADERNAME
+```
+
+Or (for body transforms):
+
+```{.copyWrapper}
+    {{._tyk_context.headers_HEADERNAME}}
+```
+
 For more information, see [Context Variables][5].
 
 ### Example `global_headers` section
