@@ -198,6 +198,18 @@ The context variables that are available are:
 *   `path`: The path that is being requested.
 *   `remote_addr`: The IP address of the connecting client.
 
+As headers are already exposed to context data, you can also access any header from context variables by using:
+
+```{.copyWrapper}
+    $tyk_context.headers_HEADERNAME
+```
+
+Or (for body transforms):
+
+```{.copyWrapper}
+{{._tyk_context.headers_HEADERNAME}}
+```
+
 ## <a name="form-data"></a> Form Data
 
 It is possible to work with inbound form data by making use of the Context Variable feature built into Tyk. If context variables are enabled in your API definition, then it is possible to iterate through form or querystring data in your template.
