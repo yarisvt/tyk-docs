@@ -8,7 +8,8 @@ weight: 1
 ---
 
 ## <a name="introduction"></a>Introduction
-This tutorial will walk you through using custom authentication for an API, using a Python plugin. We have tested this plugin with Ubuntu 14.
+This tutorial will guide you through the creation of a custom authentication plugin, written in Python.
+A custom authentication plugin allows you to implement your own authentication logic and override the default Tyk authentication mechanism. The sample code implements a very simple key check; currently it supports a single, hard-coded key. It could serve as a starting point for your own authentication logic. We have tested this plugin with Ubuntu 14.
 
 ## <a name="requirements"></a>Requirements
 
@@ -43,7 +44,8 @@ This file should be named "manifest.json" and needs to have the following conten
 ```
 
 * The `file_list` block contains the list of files to be included in the bundle, the CLI tool expects to find these files in the current working directory.
-* The `custom_middleware` block contains the middleware settings like the plugin driver we want to use (`driver`) and the hooks that our plugin will expose. We use the `auth_check` for this tutorial.
+* The `custom_middleware` block contains the middleware settings like the plugin driver we want to use (`driver`) and the hooks that our plugin will expose. We use the `auth_check` for this tutorial. For other hooks see [here][4].
+* The `name` field references the name of the function that we implement in our plugin code: `MyAuthMiddleware`.
 * We add an additional file called `middleware.py`, this will contain the main implementation of our middleware.
 
 ### Contents of middleware.py
@@ -51,7 +53,7 @@ This file should be named "manifest.json" and needs to have the following conten
 We import decorators from the Tyk module (this gives us the `Hook` decorator:
 from `tyk.decorators import *`.
 
-We implement a middleware function and register it as a hook, the input includes the request object, the session object, the API metadata and its specification:
+We implement a middleware function and register it as a hook, the input includes the request object, the session object, the API meta data and its specification:
 
 ```
 @Hook
@@ -73,7 +75,7 @@ To bundle our plugin we run the following command in the working directory. Chec
 
 `/opt/tyk-gateway/utils/tyk-cli bundle build -y`
 
-A plugin bundle is a packaged version of the plugin, it may also contain a cryptographic signature of its contents. The `-y` flag tells the Tyk CLI tool to skip the signing process in order to simplify the flow of this tutorial (add a section about plugin bundle signing).
+A plugin bundle is a packaged version of the plugin, it may also contain a cryptographic signature of its contents. The `-y` flag tells the Tyk CLI tool to skip the signing process in order to simplify the flow of this tutorial. For more information on the Tyk CLI tool, see [here][3].
 
 You should now have a `bundle.zip` file in the plugin directory.
 
@@ -107,7 +109,7 @@ You will need to modify the Tyk global configuration file (`tyk.conf`) to use Py
 
 * `enable_coprocess`: This enables the plugin
 * `enable_bundle_downloader`: This enables the bundle downloader
-* `bundle_base_url`: This is a base URL that will be used to download the bundle. You should replace the `bundle_base_url` with the appropriate URL of the web server that's serving your plugin bundles. For now HTTP and HTTPS are supported but we plan to add more options in the future (like pulling directly from S3 buckets).
+* `bundle_base_url`: This is a base URL that will be used to download the bundle. You should replace the `bundle_base_url` with the appropriate URL of the web server that's serving your plugin bundles. For now HTTP and HTTPS are supported but we plan to add more options in the future (like pulling directly from S3 buckets). We use the URL that's exposed by the test HTTP server in the previous step.
 * `public_key_path`: Modify `public_key_path` in case you want to enforce the cryptographic check of the plugin bundle signatures. If the `public_key_path` isn't set, the verification process will be skipped and unsigned plugin bundles will be loaded normally.
 
 ## <a name="configure-api"></a>Configuring the API
@@ -180,5 +182,7 @@ In this tutorial we learned how Tyk plugins work. For a production-level setup w
 
 [1]: https://tyk.io/docs/get-started/with-tyk-on-premise/installation/
 [2]: https://github.com/TykTechnologies/tyk-cli
+[3]: https://tyk.io/docs/customise-tyk/plugins/rich-plugins/plugin-bundles/#using-the-bundler-tool
+[4]: https://tyk.io/docs/customise-tyk/plugins/rich-plugins/rich-plugins-work/#coprocess-dispatcher-hooks
 
 
