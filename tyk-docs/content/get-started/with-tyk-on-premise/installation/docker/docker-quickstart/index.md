@@ -12,6 +12,8 @@ url: "/get-started/with-tyk-on-premise/installation/docker/docker-quickstart"
 
 Getting started with Tyk and Docker is very quick, we have set up a Docker Compose configuration that will get you up and running with a few commands. To get started with his tutorial, make sure you have both Docker and Docker Compose installed on your machine.
 
+> **Warning!** Our Docker Quickstart setup involves some workarounds, and should be installed for demonstration purposes, not on a production machine.
+
 What we will do in this setup guide is build the entire stack (the Gateway and the Dashboard) in one go.
 
 The way the Tyk Docker images are set up is:
