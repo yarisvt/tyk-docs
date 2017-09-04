@@ -14,8 +14,10 @@ A custom authentication plugin allows you to implement your own authentication l
 ## <a name="requirements"></a>Requirements
 
 * Tyk API Gateway: This can be installed using standard package management tools like Yum or APT, or from source code. See [here][1] for more installation options.
-* Check you have the Tyk CLI installed: find `/opt/ | grep "tyk-cli"`. It should be found in `/opt/tyk-gateway/utils/tyk-cli`.
-* If required the Tyk CLI utility is available from [https://github.com/TykTechnologies/tyk-cli][2]
+
+### Dependencies
+
+* The Tyk CLI utility, available from [https://github.com/TykTechnologies/tyk-cli][2]
 * Python 3.4
 
 ## <a name="create-plugin"></a>Create the Plugin
