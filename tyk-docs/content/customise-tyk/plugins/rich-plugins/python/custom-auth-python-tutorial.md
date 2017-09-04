@@ -17,7 +17,7 @@ A custom authentication plugin allows you to implement your own authentication l
 
 ### Dependencies
 
-* The Tyk CLI utility, available from [https://github.com/TykTechnologies/tyk-cli][2]
+* The Tyk CLI utility, which is bundled with our RPM and DEB packages, and can be installed separately from [https://github.com/TykTechnologies/tyk-cli][2]
 * Python 3.4
 
 ## <a name="create-plugin"></a>Create the Plugin
