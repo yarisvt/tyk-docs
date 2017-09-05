@@ -24,8 +24,8 @@ A custom authentication plugin allows you to implement your own authentication l
 The first step is to create a new directory for our plugin file:
 
 ```{.copyWrapper}
-    mkdir ~/my-tyk-plugin
-    cd ~/my-tyk-plugin
+mkdir ~/my-tyk-plugin
+cd ~/my-tyk-plugin
 ```
 
 Next we need to create a manifest file. This file contains information about our plugin file structure and how we expect it to interact with the API that will load it.
@@ -99,12 +99,12 @@ If a bundle already exists, Tyk will skip the download process and load the vers
 You will need to modify the Tyk global configuration file (`tyk.conf`) to use Python plugins. The following block should be present in this file:
 
 ```{.copyWrapper}
-    "coprocess_options": {
-      "enable_coprocess": true,
-    },
-    "enable_bundle_downloader": true,
-    "bundle_base_url": "http://dummy-bundle-server.com/bundles/",
-    "public_key_path": "/path/to/my/pubkey"
+"coprocess_options": {
+    "enable_coprocess": true,
+},
+"enable_bundle_downloader": true,
+"bundle_base_url": "http://dummy-bundle-server.com/bundles/",
+"public_key_path": "/path/to/my/pubkey"
 ```
 
 ### Options
@@ -128,13 +128,25 @@ The second parameter is specific to this tutorial, and should be used in combina
 
 `"enable_coprocess_auth"` will instruct the Tyk gateway to authenticate this API using the associated custom authentication function that's implemented by the plugin.
 
+## <a name="dashboard"></a>Dashboard Configuration Options
+
+To attach the plugin to an API, From the **Advanced Options** tab in the **API Designer** enter **bundle.zip** in the **Plugin Bundle ID** field.
+
+![Plugin Options][5]
+
+We also need to modify the authentication mechanism that's used by the API.
+From the **Core Settings** tab in the **API Designer** select **Use Custom Auth (plugin)** from the **Target Details - Authentication Mode** drop-down list. 
+
+![Advanced Options][6]
+
+
 ## <a name="testing"></a>Testing the Plugin
 
 At this point we have our test HTTP server ready to serve the plugin bundle and the configuration with all the required parameters.
-The final step is to start -or restart- the Tyk Gateway (this may vary depending on how you setup Tyk):
+The final step is to start or restart the **Tyk Gateway** (this may vary depending on how you setup Tyk):
 
 ```{.copyWrapper}
-    service tyk-gateway start
+service tyk-gateway start
 ```
 
 
@@ -164,27 +176,11 @@ In this tutorial we learned how Tyk plugins work. For a production-level setup w
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 [1]: https://tyk.io/docs/get-started/with-tyk-on-premise/installation/
 [2]: https://github.com/TykTechnologies/tyk-cli
 [3]: https://tyk.io/docs/customise-tyk/plugins/rich-plugins/plugin-bundles/#using-the-bundler-tool
 [4]: https://tyk.io/docs/customise-tyk/plugins/rich-plugins/rich-plugins-work/#coprocess-dispatcher-hooks
+[5]: /docs/img/dashboard/system-management/plugin_options.png
+[6]: /docs/img/dashboard/system-management/plugin_auth_mode.png
 
 
