@@ -40,7 +40,7 @@ As you can see, the parameters are all dynamic, so you will need to ensure that 
 
 *   `pre`: Defines a list of custom middleware objects to run *in order* from top to bottom. That will be executed *before* any authentication information is extracted from the header or parameter list of the request. Use middleware in this section to pre-process a request before feeding it through the Tyk middleware.
 
-*   `pre[].name`: The name of the middleware object to call. This is case sensitive, it should match the name of the middleware object that was created, so in our example - we created `sampleMiddleware` by calling:
+*   `pre[].name`: The name of the middleware object to call. This is case sensitive, and **must** match the name of the middleware object that was created, so in our example - we created `sampleMiddleware` by calling:
     
     `var sampleMiddleware = new TykJS.TykMiddleware.NewMiddleware({});`
 
