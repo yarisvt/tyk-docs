@@ -50,7 +50,7 @@ As you can see, the parameters are all dynamic, so you will need to ensure that 
 
 *   `post`: Defines a list of custom middleware objects to run *in order* from top to bottom. That will be executed *after* the authentication, validation, throttling, and quota-limiting middleware has been executed, just before the request is proxied upstream. Use middleware in this section to post-process a request before sending it to your upstream API.
 
-*   `post[].name`: The name of the middleware object to call. This is case sensitive, it should match the name of the middleware object that was created, so in our example - we created `sampleMiddleware` by calling:
+*   `post[].name`: The name of the middleware object to call. This is case sensitive, and **must** match the name of the middleware object that was created, so in our example - we created `sampleMiddleware` by calling:
     
     `var sampleMiddleware = new TykJS.TykMiddleware.NewMiddleware({});`
 
