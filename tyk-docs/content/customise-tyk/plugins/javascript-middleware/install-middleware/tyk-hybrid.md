@@ -24,6 +24,8 @@ The URL structure looks like this:
                 ? {middlewareObject2Name}.js
 ```
 
-Tyk will check for a folder that matches the `{API Id}` being loaded, and then load the `pre` and `post` middleware from the respective folders. The filename *must* match the object to be loaded exactly.
+Tyk will check for a folder that matches the `{API Id}` being loaded, and then load the `pre` and `post` middleware from the respective folders.
+ 
+> **NOTE**:The filename **must** match the object to be loaded exactly.
 
 If your middleware requires session injection, then append `_with_session` to the filename.
