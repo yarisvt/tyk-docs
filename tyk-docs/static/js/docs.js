@@ -143,6 +143,6 @@ $(document).ready(function(e){
 		});   
 	};
 
-	$('.language-copyWrapper').copyToClipboard();
+	$('[class^="language"]').copyToClipboard();
 
 });
