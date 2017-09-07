@@ -17,7 +17,7 @@ This guide will walk you through the steps to create a Cloud account and then up
 
 To create an account with Tyk Cloud is very quick and free, to do:
 
-Visit our Tyk [Cloud Signup Page][1] and enter your details:
+Visit our Tyk [Cloud Signup Page](https://cloud.tyk.io) and enter your details:
 
 ![Tyk Cloud signup form][2]
 
