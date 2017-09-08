@@ -4,7 +4,7 @@ title: gRPC
 menu:
   main:
     parent: "Rich Plugins"
-weight: 0
+weight: 5
 url: "/customise-tyk/plugins/rich-plugins/grpc"
 ---
 ### What is gRPC?
