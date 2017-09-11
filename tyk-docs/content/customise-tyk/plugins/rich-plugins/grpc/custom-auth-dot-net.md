@@ -1,6 +1,6 @@
 ---
 date: 2017-03-24T13:28:45Z
-title: Create Custom Authentication Plugin with .Net
+title: Create Custom Authentication Plugin with .NET
 menu:
   main:
     parent: "gRPC"
@@ -9,12 +9,14 @@ weight: 2
 
 ## <a name="introduction"></a>Introduction
 
-This tutorial will guide you through the creation of a custom authentication plugin for Tyk using a gRPC based plugin with .NET and C#.
+This tutorial will guide you through the creation of a custom authentication plugin for Tyk with a gRPC based plugin with .NET and C#.
+
+For additional information about gRPC, check the official documentation [here](https://grpc.io/docs/guides/index.html).
 
 ## <a name="Requirements"></a>Requirements
 
 * Tyk Gateway: This can be installed using standard package management tools like Yum or APT, or from source code. See [here][1] for more installation options.
-* he Tyk CLI utility, which is bundled with our RPM and DEB packages, and can be installed separately from [https://github.com/TykTechnologies/tyk-cli][2]
+* The Tyk CLI utility, which is bundled with our RPM and DEB packages, and can be installed separately from [https://github.com/TykTechnologies/tyk-cli][2]
 * .NET Core for your OS: https://www.microsoft.com/net/core
 * gRPC tools: https://grpc.io/docs/quickstart/csharp.html#generate-grpc-code
 
@@ -28,17 +30,16 @@ When it comes to built-in plugins, we have been able to integrate several langua
 
 * Tyk receives a HTTP request.
 * A request object is created using Protocol Buffers.
-* The request object is send to your own gRPC server, using HTTP2.
+* The request object is sent to your own gRPC server, using HTTP2.
 * Your gRPC server performs the middleware operations (like any modification of the request object).
 * Your gRPC server sends the request back to Tyk.
 * Tyk proxies the request to your upstream API.
 
 The sample code that we'll use implements a very simple authentication layer using .NET and the proper gRPC bindings generated from our Protocol Buffers definition files.
-For additional information about gRPC, check the official documentation [here](https://grpc.io/docs/guides/index.html).
 
 ## <a name="create"></a>Create the Plugin
 
-### Setting up the .Net Project
+### Setting up the .NET Project
 
 We use the .NET CLI tool to generate the initial files for our project:
 
@@ -57,9 +58,9 @@ dotnet add package System.Threading.ThreadPool --version 4.3.0
 dotnet add package Google.Protobuf --version 3.4.0
 ```
 
-* The `Grpc` package provides base code for our server implementation
+* The `Grpc` package provides base code for our server implementation.
 * The `ThreadPool` package is used by `Grpc`.
-* The `Protobuf` package will be used by our gRPC bindings
+* The `Protobuf` package will be used by our gRPC bindings.
 
 ### gRPC Tools and Bindings Generation
 
@@ -90,13 +91,13 @@ export GRPC_TOOLS=packages/Grpc.Tools.1.6.x/tools/macosx_x64
 export GRPC_TOOLS=packages/Grpc.Tools.1.6.x/tools/linux_x64
 ```
 
-The `GRPC_TOOLS` environment variable will point to the appropriate GrpcTools path that matches our operating system and architecture. The last step is to export a variable for the `protoc` program, this is the main program used to generate bindings:
+The `GRPC_TOOLS` environment variable will point to the appropriate GrpcTools path that matches our operating system and architecture. The last step is to export a variable for the `protoc` program; this is the main program used to generate bindings:
 
 ```{.copyWrapper}
 export GRPC_PROTOC=$GRPC_TOOLS/protoc
 ```
 
-Now that we can safely run `protoc`, we can download the Tyk Protocol Buffers definition files. These files contains the data structures used by Tyk:
+Now that we can safely run `protoc`, we can download the Tyk Protocol Buffers definition files. These files contain the data structures used by Tyk:
 
 ```{.copyWrapper}
 cd ~/tyk-plugin
@@ -113,7 +114,7 @@ $GRPC_PROTOC -I=tyk-protobuf/proto --csharp_out=Coprocess --grpc_out=Coprocess -
 Run the following command to check the binding directory:
 
 ```{.copyWrapper}
-ls -l Coprocess
+ls Coprocess
 ```
 
 The output will look like this:
@@ -125,18 +126,131 @@ CoprocessMiniRequestObject.cs   CoprocessObjectGrpc.cs              CoprocessSes
 
 ### Server Implementation
 
-Create a file called `Server.cs`
+Create a file called `Server.cs`.
 
-Add the contents of the following file into `Server.cs`.
+Add the following code to `Server.cs`.
 
-https://gist.github.com/matiasinsaurralde/7b2e01fa6a2bfa1543ca8ea4a7e3f491
+```{.copyWrapper}
+using System;
+using System.Threading.Tasks;
+using Grpc.Core;
+
+using Coprocess;
+
+class DispatcherImpl : Dispatcher.DispatcherBase
+{
+    public DispatcherImpl()
+    {
+        Console.WriteLine("Instantiating DispatcherImpl");
+    }
+
+
+    // The Dispatch method will be called by Tyk for every configured hook, we'll implement a very simple dispatcher here:
+    public override Task<Coprocess.Object> Dispatch(Coprocess.Object thisObject, ServerCallContext context)
+    {
+        // thisObject is the request object:
+        Console.WriteLine("Receiving object: " + thisObject.ToString());
+
+        // hook contains the hook name, this will be defined in our plugin bundle and the implementation will be a method in this class (DispatcherImpl), we'll look it up:
+        var hook = this.GetType().GetMethod(thisObject.HookName);
+
+        // If hook is null then a handler method for this hook isn't implemented, we'll log this anyway:
+        if (hook == null)
+        {
+            Console.WriteLine("Hook name: " + thisObject.HookName + " (not implemented!)");
+            // We return the unmodified request object, so that Tyk can proxy this in the normal way.
+            return Task.FromResult(thisObject);
+        };
+
+        // If there's a handler method, let's log it and proceed with our dispatch work:
+        Console.WriteLine("Hook name: " + thisObject.HookName + " (implemented)");
+
+        // This will dynamically invoke our hook method, and cast the returned object to the required Protocol Buffers data structure:
+        var output = hook.Invoke(this, new object[] { thisObject, context });
+        return (Task<Coprocess.Object>)output;
+    }
+
+    // MyPreMiddleware implements a PRE hook, it will be called before the request is proxied upstream and before the authentication step:
+    public Task<Coprocess.Object> MyPreMiddleware(Coprocess.Object thisObject, ServerCallContext context)
+    {
+        Console.WriteLine("Calling MyPreMiddleware.");
+        // We'll inject a header in this request:
+        thisObject.Request.SetHeaders["my-header"] = "my-value";
+        return Task.FromResult(thisObject);
+    }
+
+    // MyAuthCheck implements a custom authentication mechanism, it will initialize a session object if the token matches a certain value:
+    public Task<Coprocess.Object> MyAuthCheck(Coprocess.Object thisObject, ServerCallContext context)
+    {
+        // Request.Headers contains all the request headers, we retrieve the authorization token:
+        var token = thisObject.Request.Headers["Authorization"];
+        Console.WriteLine("Calling MyAuthCheck with token = " + token);
+
+        // We initialize a session object if the token matches "abc123":
+        if (token == "abc123")
+        {
+            Console.WriteLine("Successful auth!");
+            var session = new Coprocess.SessionState();
+            session.Rate = 1000;
+            session.Per = 10;
+            session.QuotaMax = 60;
+            session.QuotaRenews = 1479033599;
+            session.QuotaRemaining = 0;
+            session.QuotaRenewalRate = 120;
+            session.Expires = 1479033599;
+
+            session.LastUpdated = 1478033599.ToString();
+
+            thisObject.Metadata["token"] = token;
+            thisObject.Session = session;
+            return Task.FromResult(thisObject);
+
+        }
+
+        // If the token isn't "abc123", we return the request object in the original state, without a session object, Tyk will reject this request:
+        Console.WriteLine("Rejecting auth!");
+        return Task.FromResult(thisObject);
+    }
+}
+```
 
 
 Create a file called `Program.cs` to instantiate our dispatcher implementation and start a gRPC server.
 
-Add the contents of the following file into `Program.cs`. 
+Add the following code to `Program.cs`. 
 
-https://gist.github.com/matiasinsaurralde/e3f947a5c5e702ceb66d8f993e0a7832)
+```{.copyWrapper}
+using System;
+using Grpc.Core;
+
+namespace tyk_plugin
+{
+    class Program
+    {
+
+        // Port to attach the gRPC server to:
+        const int Port = 5555;
+
+        static void Main(string[] args)
+        {
+            // We initialize a  Grpc.Core.Server and attach our dispatcher implementation to it:
+            Server server = new Server
+            {
+                Services = { Coprocess.Dispatcher.BindService(new DispatcherImpl()) },
+                Ports = { new ServerPort("localhost", Port, ServerCredentials.Insecure) }
+            };
+            server.Start();
+
+            Console.WriteLine("gRPC server listening on " + Port);
+            Console.WriteLine("Press any key to stop the server...");
+            Console.ReadKey();
+
+            server.ShutdownAsync().Wait();
+
+        }
+    }
+}
+```
 
 To run the gRPC server use the following command from the plugin directory:
 
@@ -163,7 +277,7 @@ We need to create a manifest file within the `tyk-plugin` directory. This file c
 }
 ```
 
-* The `file_list` block contains the list of files to be included in the bundle, this is not used by gRPC plugins and should be left blank.
+* The `file_list` block contains the list of files to be included in the bundle. **This is not used by gRPC plugins and should be left blank**.
 * The `custom_middleware` block contains the middleware settings like the plugin driver we want to use (`driver`) and the hooks that our plugin will expose. We use the `auth_check` hook for this tutorial. For other hooks see [here](https://tyk.io/docs/customise-tyk/plugins/rich-plugins/rich-plugins-work/#coprocess-dispatcher-hooks).
 * The `name` field references the name of the function that we implement in our plugin code - `MyAuthMiddleware`. This will be handled by our dispatcher gRPC method (implemented in `Server.cs`).
 
@@ -175,7 +289,7 @@ To bundle our plugin run the following command in the `tyk-plugin` directory. Ch
 ```
 
 
-A plugin bundle is a packaged version of the plugin It may also contain a cryptographic signature of its contents. The `-y` flag tells the Tyk CLI tool to skip the signing process in order to simplify the flow of this tutorial. 
+A plugin bundle is a packaged version of the plugin. It may also contain a cryptographic signature of its contents. The `-y` flag tells the Tyk CLI tool to skip the signing process in order to simplify the flow of this tutorial. 
 
 For more information on the Tyk CLI tool, see [here](https://tyk.io/docs/customise-tyk/plugins/rich-plugins/plugin-bundles/#using-the-bundler-tool).
 
@@ -183,7 +297,7 @@ You should now have a `bundle.zip` file in the `tyk-plugin` directory.
 
 ## <a name="publish"></a>Publish the Plugin
 
-To publish the plugin, copy or upload `bundle.zip` to a local web server like Nginx or Apache. For this tutorial we'll assume you have a web server listening on localhost and accessible through `http://localhost`.
+To publish the plugin, copy or upload `bundle.zip` to a local web server like Nginx or Apache. For this tutorial we'll assume you have a web server listening on `localhost` and accessible through `http://localhost`.
 
 ## <a name="configure-tyk"></a>Configure Tyk
 
@@ -192,7 +306,7 @@ You will need to modify the Tyk global configuration file `tyk.conf` to use gRPC
 ```{.copyWrapper}
 "coprocess_options": {
     "enable_coprocess": true,
-    "coprocess_grpc_server": "tcp://127.0.0.1:5555"
+    "coprocess_grpc_server": "tcp://localhost:5555"
 },
 "enable_bundle_downloader": true,
 "bundle_base_url": "http://localhost/bundles/",
@@ -202,11 +316,11 @@ You will need to modify the Tyk global configuration file `tyk.conf` to use gRPC
 
 ### tyk.conf Options
 
-* `enable_coprocess`: This enables the plugin
-* `coprocess_grpc_server`: It's the URL of our gRPC server.
-* `enable_bundle_downloader`: This enables the bundle downloader
+* `enable_coprocess`: This enables the plugin.
+* `coprocess_grpc_server`: This is the URL of our gRPC server.
+* `enable_bundle_downloader`: This enables the bundle downloader.
 * `bundle_base_url`: This is a base URL that will be used to download the bundle. You should replace the bundle_base_url with the appropriate URL of the web server that's serving your plugin bundles. For now HTTP and HTTPS are supported but we plan to add more options in the future (like pulling directly from S3 buckets).
-* `public_key_path`: Modify public_key_path in case you want to enforce the cryptographic check of the plugin bundle signatures. If the public_key_path isn't set, the verification process will be skipped and unsigned plugin bundles will be loaded normally.
+* `public_key_path`: Modify `public_key_path` in case you want to enforce the cryptographic check of the plugin bundle signatures. If the `public_key_path` isn't set, the verification process will be skipped and unsigned plugin bundles will be loaded normally.
 
 
 ### Configure an API Definition
@@ -214,16 +328,19 @@ You will need to modify the Tyk global configuration file `tyk.conf` to use gRPC
 There are two important parameters that we need to add or modify in the API definition.
 The first one is `custom_middleware_bundle` which must match the name of the plugin bundle file. If we keep this with the default name that the Tyk CLI tool uses, it will be `bundle.zip`:
 
-`custom_middleware_bundle: bundle.zip`
-
-Assuming the `bundle_base_url` is http://localhost/bundles/, Tyk will use the following URL to download our file:
-http://localhost/bundles/bundle.zip
-
-The second parameter is specific to this tutorial, and should be used in combination with use_keyless to allow an API to authenticate against our plugin:
-
+```{json}
+"custom_middleware_bundle": "bundle.zip"
 ```
-use_keyless: false
-enable_coprocess_auth: true
+
+Assuming the `bundle_base_url` is `http://localhost/bundles/`, Tyk will use the following URL to download our file:
+
+`http://localhost/bundles/bundle.zip`
+
+The second parameter is specific to this tutorial, and should be used in combination with `use_keyless` to allow an API to authenticate against our plugin:
+
+```{json}
+"use_keyless": false,
+"enable_coprocess_auth": true
 ```
 
 
@@ -231,7 +348,7 @@ enable_coprocess_auth: true
 
 ### Configuration via the Tyk Dashboard
 
-To attach the plugin to an API, From the **Advanced Options** tab in the **API Designer** enter **bundle.zip** in the **Plugin Bundle ID** field.
+To attach the plugin to an API, from the **Advanced Options** tab in the **API Designer** enter `bundle.zip` in the **Plugin Bundle ID** field.
 
 ![Plugin Options][3]
 
@@ -244,7 +361,7 @@ From the **Core Settings** tab in the **API Designer** select **Use Custom Auth 
 
 
 At this point we have our test HTTP server ready to serve the plugin bundle and the configuration with all the required parameters.
-The final step is to start or restart the **Tyk Gateway** (this may vary depending on how you setup Tyk):
+The final step is to start or restart the **Tyk Gateway** (this may vary depending on how you set up Tyk):
 
 ```{.copyWrapper}
 service tyk-gateway start
@@ -253,22 +370,22 @@ service tyk-gateway start
 
 A simple CURL request will be enough for testing our custom authentication middleware.
 
-This request will trigger a bad authentication:
+This request will trigger an authentication error:
 
 ```{.copyWrapper}
-curl http://<IP Address>:8080/my-api/my-path -H 'Authorization: badtoken'
+curl http://localhost:8080/my-api/my-path -H 'Authorization: badtoken'
 ```
 
 This will trigger a successful authentication. We're using the token that's specified in our server implementation (see line 57 in `Server.cs`):
 
 
 ```{.copyWrapper}
-curl http://<IP Address>:8080/my-api/my-path -H 'Authorization: abc123'
+curl http://localhost:8080/my-api/my-path -H 'Authorization: abc123'
 ```
 
 ## <a name="next"></a>What's Next?
 
-In this tutorial we learned how Tyk gRPC plugins work. For a production-level setup we suggest the following steps:
+In this tutorial we learned how Tyk gRPC plugins work. For a production-level setup we suggest the following:
 
 * Configure an appropriate web server and path to serve your plugin bundles.
 
