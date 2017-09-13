@@ -67,18 +67,7 @@ with this:
     vagrant up && vagrant ssh
 ```
 
-### Step 6: Update Vagrant box hosts file
-```{.copyWrapper}
-    sudo vim /etc/hosts
-```
-
-Add:
-```{.copyWrapper}
-    127.0.0.1       my-tyk-instance.com
-    127.0.0.1       portal-instance.com
-```
-
-### Step 7: Install MongoDB and Redis
+### Step 6: Install MongoDB and Redis
 
 In order for everything to work, you'll need MongoDB and Redis installed, this can be done as follows (instructions accurate at time of writing):
 ```{.copyWrapper}
@@ -92,6 +81,17 @@ In order for everything to work, you'll need MongoDB and Redis installed, this c
 ```
 
 This could take a while as there's a lot to install, but it will set up a default MongoDB instance and Redis instance on your Vagrant box, we don't recommend doing this in production.
+
+### Step 7: Update Vagrant box hosts file
+```{.copyWrapper}
+    sudo vim /etc/hosts
+```
+
+Add:
+```{.copyWrapper}
+    127.0.0.1       my-tyk-instance.com
+    127.0.0.1       portal-instance.com
+```
 
 ### Step 8: Install Tyk
 
