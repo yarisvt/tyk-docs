@@ -29,8 +29,7 @@ gRPC is a very powerful framework for RPC communication across different languag
 When it comes to built-in plugins, we have been able to integrate several languages like Python, Javascript & Lua in a native way: this means the middleware you write using any of these languages runs in the same process. For supporting additional languages we have decided to integrate gRPC connections and perform the middleware operations outside of the Tyk process. The flow of this approach is as follows: 
 
 * Tyk receives a HTTP request.
-* A request object is created using Protocol Buffers.
-* The request object is sent to your own gRPC server, using HTTP2.
+* A request object is serialised using Protocol Buffers and then sent to your own gRPC server.
 * Your gRPC server performs the middleware operations (like any modification of the request object).
 * Your gRPC server sends the request back to Tyk.
 * Tyk proxies the request to your upstream API.
@@ -266,8 +265,6 @@ We need to create a manifest file within the `tyk-plugin` directory. This file c
 
 ```{json}
 {
-    "file_list": [
-    ],
     "custom_middleware": {
         "driver": "grpc",
         "auth_check": {
@@ -277,7 +274,6 @@ We need to create a manifest file within the `tyk-plugin` directory. This file c
 }
 ```
 
-* The `file_list` block contains the list of files to be included in the bundle. **This is not used by gRPC plugins and should be left blank**.
 * The `custom_middleware` block contains the middleware settings like the plugin driver we want to use (`driver`) and the hooks that our plugin will expose. We use the `auth_check` hook for this tutorial. For other hooks see [here](https://tyk.io/docs/customise-tyk/plugins/rich-plugins/rich-plugins-work/#coprocess-dispatcher-hooks).
 * The `name` field references the name of the function that we implement in our plugin code - `MyAuthMiddleware`. This will be handled by our dispatcher gRPC method (implemented in `Server.cs`).
 
