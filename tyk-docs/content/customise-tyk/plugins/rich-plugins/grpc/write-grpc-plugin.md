@@ -4,7 +4,7 @@ title: How to write gRPC Plugin
 menu:
   main:
     parent: "gRPC"
-weight: 0 
+weight: 1 
 ---
 
 A gRPC plugin uses the standard bundling mechanism that you use for the rest of the rich plugins. The essential difference with a standard rich plugin is that a rich plugin bundle contains the actual code, which will be executed by Tyk, while a gRPC plugin bundle contains just a custom middleware definition, and you handle the execution of your code, independently, e.g. a gRPC server, listening on port 8080.

@@ -12,7 +12,7 @@ There's a few things worth noting that can ensure your the performance of your T
 
 ### What to expect
 
-Tyk is pretty high performance, with the optimisations below, and our new rate limiter, we can get a single 2-core/2GB Digital Ocean Gateway node to easily handle ~2,000 requests per second with analytics, key authentication, and quota checks enabled.
+With the optimisations outlined below, and using our distributed rate limiter, we can get a single 2-core/2GB Digital Ocean Gateway node to easily handle ~2,000 requests per second with analytics, key authentication, and quota checks enabled.
 
 In the results below, Tyk is evaluating each request through its access control list, rate limiter, quota evaluator, and analytics recorder across a single test token and still retains a latency firmly under 80 milliseconds:
 
