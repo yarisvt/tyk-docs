@@ -29,8 +29,7 @@ gRPC is a very powerful framework for RPC communication across different languag
 When it comes to built-in plugins, we have been able to integrate several languages like Python, Javascript & Lua in a native way: this means the middleware you write using any of these languages runs in the same process. For supporting additional languages we have decided to integrate gRPC connections and perform the middleware operations outside of the Tyk process. The flow of this approach is as follows: 
 
 * Tyk receives a HTTP request.
-* A request object is serialised using Protocol Buffers and then sent to your own gRPC server.
-* Your gRPC server performs the middleware operations (like any modification of the request object).
+* Your gRPC server performs the middleware operations (for example, any modification of the request object).
 * Your gRPC server sends the request back to Tyk.
 * Tyk proxies the request to your upstream API.
 
@@ -261,7 +260,7 @@ The gRPC server will listen on port 5555 (as defined in `Program.cs`). In the ne
 
 ## <a name="bundle"></a>Setting up the Plugin Bundle
 
-We need to create a manifest file within the `tyk-plugin` directory. This file contains information about our plugin file structure and how we expect it to interact with the API that will load it. This file should be named `manifest.json` and needs to contain the following:
+We need to create a manifest file within the `tyk-plugin` directory. This file contains information about our plugin and how we expect it to interact with the API that will load it. This file should be named `manifest.json` and needs to contain the following:
 
 ```{json}
 {
@@ -293,7 +292,7 @@ You should now have a `bundle.zip` file in the `tyk-plugin` directory.
 
 ## <a name="publish"></a>Publish the Plugin
 
-To publish the plugin, copy or upload `bundle.zip` to a local web server like Nginx or Apache. For this tutorial we'll assume you have a web server listening on `localhost` and accessible through `http://localhost`.
+To publish the plugin, copy or upload `bundle.zip` to a local web server like Nginx, or Apache or storage like Amazon S3. For this tutorial we'll assume you have a web server listening on `localhost` and accessible through `http://localhost`.
 
 ## <a name="configure-tyk"></a>Configure Tyk
 
