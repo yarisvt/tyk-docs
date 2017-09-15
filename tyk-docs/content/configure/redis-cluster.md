@@ -51,7 +51,7 @@ To configure the Tyk Dashboard to work with your Redis Cluster, add the Redis ho
 
 ## <a name="redis-cluster-pump"></a> Redis Cluster & Tyk Pump
 
-To configure the Tyk Pump to work with your Redis Cluster, set `enable_cluster` to `true` and list your servers under `hosts` in your `the pump.conf` file:
+To configure the Tyk Pump to work with your Redis Cluster, set `enable_cluster` to `true` and list your servers under `hosts` in your `pump.conf` file:
 
 ```{json}
 	"analytics_storage_config": {
