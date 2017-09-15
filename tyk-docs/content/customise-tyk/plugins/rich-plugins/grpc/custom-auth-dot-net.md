@@ -383,6 +383,7 @@ curl http://localhost:8080/my-api/my-path -H 'Authorization: abc123'
 In this tutorial we learned how Tyk gRPC plugins work. For a production-level setup we suggest the following:
 
 * Configure an appropriate web server and path to serve your plugin bundles.
+* See the following [GitHub repo](https://github.com/TykTechnologies/tyk-plugin-demo-dotnet) for a gRPC based .NET plugin that incorporates authentication based on Microsoft SQL Server. 
 
 
 
