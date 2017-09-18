@@ -1,6 +1,6 @@
 ---
 date: 2017-03-24T11:02:59Z
-title: Circuit Brakers
+title: Circuit Breakers
 menu:
   main:
     parent: "Ensure High Availability"
