@@ -7,18 +7,25 @@ menu:
 weight: 7 
 ---
 
+## <a name="introduction"></a>Introduction
+
+Our Gateway, Dashboard and Pump all support integration with Redis Cluster. Redis Cluster allows data to be automatically sharded across multiple Redis Nodes. To setup Redis Cluster correctly, we recommend you read the [Redis Cluster Tutorial](https://redis.io/topics/cluster-tutorial). You must use the same settings across the Gateway, Dashboard and Pump.
+
+> **NOTE**: Redis Cluster is different to a Redis Master/Slave setup.
+
+
 ## <a name="redis-cluster-gateway"></a> Redis Cluster & Tyk Gateway 
 
-Tyk supports Redis cluster integration (please note this is different from a Redis master/slave setup). To work with a Redis cluster, simply specify it in your `tyk.conf` file:
+To configure the Tyk Gateway to work with your Redis Cluster, set `enable_cluster` to `true` and list your servers under `hosts` in your `tyk.conf` file:
 
-```{.copyWrapper}
+```{json}
 	"storage": {
 	    "type": "redis",
 	    "enable_cluster": true,
 	    "hosts" : {
 	        "server1": "6379",
 	        "server2": "6380",
-	        "server3: "6381",
+	        "server3": "6381"
 	    },
 	    "username": "",
 	    "password": "",
@@ -27,35 +34,33 @@ Tyk supports Redis cluster integration (please note this is different from a Red
 	},
 ```
 
-Tyk Dashboard and Tyk Pump also support Redis cluster, and must have this setting enabled as well in their respective settings files in order to operate effectively.
 
 ## <a name="redis-cluster-dashboard"></a> Redis Cluster & Tyk Dashboard
 
-Tyk Dashboard also supports Redis cluster, simply update the `tyk_analytics.conf` to use the cluster like so:
+To configure the Tyk Dashboard to work with your Redis Cluster, add the Redis hosts information to your `tyk_analytics.conf` file:
 
-```{.copyWrapper}
+```{json}
 	"redis_hosts": {
 	    "server1": "6379",
 	    "server2": "6380",
-	    "server3: "6381",
+	    "server3": "6381"
 	},
 	"enable_cluster": true
 ```
 
-Cluster settings must be the same across all Tyk components. 
 
 ## <a name="redis-cluster-pump"></a> Redis Cluster & Tyk Pump
 
-Tyk Pump also supports Redis cluster, simply update the pump.conf to use the cluster like so:
+To configure the Tyk Pump to work with your Redis Cluster, set `enable_cluster` to `true` and list your servers under `hosts` in your `pump.conf` file:
 
-```{.copyWrapper}
+```{json}
 	"analytics_storage_config": {
 	    "type": "redis",
 	    "enable_cluster": true,
 	    "hosts" : {
 	        "server1": "6379",
 	        "server2": "6380",
-	        "server3: "6381",
+	        "server3": "6381"
 	    },
 	    "username": "",
 	    "password": "",
@@ -63,11 +68,11 @@ Tyk Pump also supports Redis cluster, simply update the pump.conf to use the clu
 	    "optimisation_max_idle": 100
 	},
 ```
-Then the cluster driver should be invoked instead of the standard Redis driver.
+Then the Cluster driver should be invoked instead of the standard Redis driver.
 
 ## <a name="redis-cluster-docker"></a> Redis Cluster with Docker
 
-For Redis clustered mode to work with Tyk using Docker and Elasticache, follow these two steps:
+For Redis clustered mode to work with Tyk using Docker and Amazon ElastiCache, follow these two steps:
 
 ### Step 1: Make sure cluster mode is enabled
 
@@ -75,11 +80,11 @@ Set the environment variable `TYK_GW_STORAGE_ENABLECLUSTER` to `true`.
 
 ### Step 2: Add all cluster endpoints to the config
 
-Add all the cluster endpoints into Tyk, not just the primary. If Tyk can't see the whole cluster, then it will not work.
+Add all the Redis Cluster endpoints into Tyk, not just the primary. If Tyk can't see the whole cluster, then it will not work.
 
-For Elasticache Redis, you can bypass having to list all your nodes, and instead just use the *configuration endpoint*, this allows read and write operations and the endpoint will determine the correct node to target.
+For ElastiCache Redis, you can bypass having to list all your nodes, and instead just use the *configuration endpoint*, this allows read and write operations and the endpoint will determine the correct node to target.
 
-If this does not work, you can still list out the hosts using an environment variable, to do so, set the environment variable
+If this does not work, you can still list out the hosts using an environment variable. To do so, set the environment variable:
 
 ```{.copyWrapper}
     TYK_GW_STORAGE_HOSTS="redis_master1:port,redis_slave1:port,redis_master2:port,redis_slave2:port,redis_master3:port,redis_slave3:port"
@@ -87,7 +92,7 @@ If this does not work, you can still list out the hosts using an environment var
 
 It is important that Tyk can connect to all masters and slaves.
 
-It is recommended to ensure that the connection pool is big enough. To do this, set the following environment variables:
+It is recommended to ensure that the connection pool is big enough. To do so, set the following environment variables:
 
 ```{.copyWrapper}
     TYK_GW_STORAGE_MAXIDLE=6000
@@ -95,5 +100,9 @@ It is recommended to ensure that the connection pool is big enough. To do this, 
 ```
 
 > **Note**: These are suggested settings, please verify them by load testing.
+
+## <a name="sentinel"></a>Tyk and Redis Sentinel
+We do not support direct integration with Redis Sentinel. You will need to implement it in association with a HAProxy. As we do support Amazon ElastiCache, we recommend using this with Redis Sentinel. For more details on Amazon ElastiCache, see [here](https://aws.amazon.com/elasticache/). The following article also details how to setup Redis Sentinel and HAProxy: [Setup Redis Sentinel and HAProxy](https://discuss.pivotal.io/hc/en-us/articles/205309388-How-to-setup-HAProxy-and-Redis-Sentinel-for-automatic-failover-between-Redis-Master-and-Slave-servers).
+
 
 

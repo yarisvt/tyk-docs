@@ -165,7 +165,7 @@ And you will see a screen asking for a license, enter it in the section marked "
 
 That's it, your Dashboard is now ready to be bootstrapped.
 
-> **Note:** You can bypass this step by adding your license manually to the `/var/opt/tyk-dashboard/tyk_analytics.conf` file directly in the field marked `license`.
+> **Note:** You can bypass this step by adding your license manually to the `/opt/tyk-dashboard/tyk_analytics.conf` file directly in the field marked `license`.
 
 If all is going well, you will be taken to a log in screen - we'll get to that soon.
 
