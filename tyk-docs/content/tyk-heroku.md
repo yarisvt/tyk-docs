@@ -12,7 +12,7 @@ notoc: true
 5. After logging in, a Create App page is displayed.
 ![Create App][3]
 6. Give it a suitable name and click "Deploy App", (you may need to provide Heroku with a Credit Card to proceed past this point, depending on your account setup).
-7. Your Heroku app is deployed. Click "Manage App" to  manage the app from Heroku or click "View" to follow the Tyk Hybrid tutorials to get your first API set up wit Tyk.
+7. Your Heroku app is deployed. Click "Manage App" to  manage the app from Heroku or click "View" to follow the Tyk Hybrid tutorials to get your first API set up with Tyk.
 ![Manage App][4]
 
 
