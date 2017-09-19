@@ -4,7 +4,7 @@ Title: On Redhat (RHEL) / CentOS
 menu:
   main:
     parent: "Installation"
-weight: 0
+weight: 3
 url: "/get-started/with-tyk-on-premise/installation/redhat-rhel-centos"
 ---
 

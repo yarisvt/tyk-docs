@@ -4,7 +4,7 @@ Title: On Ubuntu
 menu:
   main:
     parent: "Installation"
-weight: 0
+weight: 2
 url: "/get-started/with-tyk-on-premise/installation/on-ubuntu"
 ---
 

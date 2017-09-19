@@ -4,7 +4,7 @@ Title: With Docker
 menu:
   main:
     parent: "Installation"
-weight: 0
+weight: 1
 url: "/get-started/with-tyk-on-premise/installation/docker"
 ---
 
