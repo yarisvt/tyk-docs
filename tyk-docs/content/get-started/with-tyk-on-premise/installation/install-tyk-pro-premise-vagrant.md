@@ -4,20 +4,22 @@ title: Install Tyk Pro On-Premises on Vagrant
 menu:
   main:
     parent: "Installation"
-weight: 0 
+weight: 4 
 ---
 
 ## Install Tyk on Vagrant
 
-Tyk has a streamlined quickstart setup for Vagrant, this demo works with Ubuntu Precise and makes use of direct-pipes to Bash from a web script, we **do not recommend** doing any of this on a production machine.
+Tyk has a streamlined quickstart setup for Vagrant. This demo works with Ubuntu Precise and makes use of direct-pipes to Bash from a web script. We **do not recommend** doing any of this on a production machine.
 
-Full, detailed instructions on how to [install Tyk on Ubuntu Server (LTS)][1] or how to [install Tyk on Red Hat Enterprise Linux (RHEL)][2] are available and go through the entire process manually.
+### Prerequisites
+
+You need to have [Virtual Box](https://www.virtualbox.org/wiki/Downloads) installed before using our Vagrant setup.
+
+Full, detailed instructions on how to [install Tyk on Ubuntu Server (LTS)](/docs/get-started/with-tyk-on-premise/installation/on-ubuntu/) or how to [install Tyk on Red Hat Enterprise Linux (RHEL)](/docs/get-started/with-tyk-on-premise/installation/redhat-rhel-centos/) are also available and go through the entire process manually.
 
 Given this caveat, lets get you up and running.
 
-Since we are installing on Vagrant, we're assuming that you are demoing Tyk, and so we'll be going through a full **Tyk Pro** install. This demo will install Tyk Gateway, Tyk Pump and Tyk Dashboard on an Ubuntu box in a Vagrant instance, we are going to do a little bit of hosts hacking to make your portal URL work properly, but apart from that this is a standard installation.
-
-To make this easier to follow, commands that are run in the host machine will start with a "%" and commands run from within Vagrant will start with a "$" sign.
+Since we are installing on Vagrant, we're assuming that you are demoing Tyk, and so we'll be going through a full **Tyk Pro** install. This demo will install Tyk Gateway, Tyk Pump and Tyk Dashboard on an Ubuntu box in a Vagrant instance. We are going to do a little bit of hosts hacking to make your portal URL work properly, but apart from that this is a standard installation.
 
 ### Step 1: Update hosts file
 
@@ -98,18 +100,45 @@ Add:
 
 We're going to install Tyk the fast and dirty way, using a special script that detects your environment and handles the full installation from our APT repository:
 ```{.copyWrapper}
-    curl -s https://packagecloud.io/install/repositories/tyk/tyk-gateway/script.deb.sh | sudo bash
-    
     curl -s https://packagecloud.io/install/repositories/tyk/tyk-dashboard/script.deb.sh | sudo bash
     
     curl -s https://packagecloud.io/install/repositories/tyk/tyk-pump/script.deb.sh | sudo bash
+
+    curl -s https://packagecloud.io/install/repositories/tyk/tyk-gateway/script.deb.sh | sudo bash
     
     sudo apt-get install tyk-gateway tyk-dashboard tyk-pump
 ```
 
 Your terminal will update as dependencies and packages are installed, at the end you will be able to bootstrap your new Tyk services.
 
-### Step 9: Configure Tyk Gateway
+
+### Step 9: Configure Tyk Dashboard
+
+We can set the Dashboard up with a similar setup command, the below will get the Dashboard set up for the local instance, **make sure to use the actual DNS hostname or the public IP of your instance as the last parameter**:
+```{.copyWrapper}
+    sudo /opt/tyk-dashboard/install/setup.sh --listenport=3000 --redishost=localhost --redisport=6379 --mongo=mongodb://127.0.0.1/tyk_analytics --tyk_api_hostname=my-tyk-instance.com:8080 --tyk_node_hostname=http://localhost --tyk_node_port=8080 --portal_root=/portal --domain="my-tyk-instance.com"
+```
+
+What we have done here is:
+
+*   `--listenport=3000`: Told Tyk Dashboard (and Portal) to listen on port 3000.
+*   `--redishost=localhost`: Tyk Dashboard should use the local Redis instance.
+*   `--redisport=6379`: Tyk Dashboard should use the default port.
+*   `--domain="XXX.XXX.XXX.XXX"`: Bind the Dashboard to the IP or DNS hostname of this instance (required).
+*   `--mongo=mongodb://127.0.0.1/tyk_analytics`: Use the local MongoDB (should always be the same as the Gateway).
+*   `--tyk_api_hostname=my-tyk-instance.com:8080`: Tyk Dashboard has no idea what hostname has been given to Tyk, so we need to tell it. This is the value that will be displayed in your Dashboard.
+*   `--tyk_node_hostname=http://localhost`: Tyk Dashboard needs to see a Tyk node in order to create new tokens, so we need to tell it where we can find one, in this case, use the one installed locally.
+*   `--tyk_node_port=8080`: Tell the Dashboard that the Tyk node it should communicate with is on port 8080.
+*   `--portal_root=/portal`: We want the portal to be shown on /portal of whichever domain we set for the portal.
+
+### Step 10: Configure Tyk Pump
+
+If you don't complete this step, you won't see any analytics in your Dashboard, so to enable the analytics service, we need to ensure Tyk Pump is running and configured properly. To configure Tyk Pump is very simple:
+```{.copyWrapper}
+    sudo /opt/tyk-pump/install/setup.sh --redishost=localhost --redisport=6379 --mongo=mongodb://127.0.0.1/tyk_analytics
+```
+
+### Step 11: Configure Tyk Gateway
 
 You can set up the core settings for Tyk Gateway with a single setup script, however for more involved deployments, you will want to provide your own configuration file, to get things running lets run:
 ```{.copyWrapper}
@@ -124,38 +153,13 @@ What we've done here is told the setup script that:
 *   `--redisport=6379`: Use the default Redis port.
 *   `--domain=""`: Do not set a domain for the Gateway, see the note on domains below for more about this.
 
-### Step 10: Configure Tyk Dashboard
-
-We can set the Dashboard up with a similar setup command, the below will get the Dashboard set up for the local instance, **make sure to use the actual DNS hostname or the public IP of your instance as the last parameter**:
-```{.copyWrapper}
-    sudo /opt/tyk-dashboard/install/setup.sh --listenport=3000 --redishost=localhost --redisport=6379 --mongo=mongodb://127.0.0.1/tyk_analytics --tyk_api_hostname=$HOSTNAME --tyk_node_hostname=http://localhost --tyk_node_port=8080 --portal_root=/portal --domain="my-tyk-instance.com"
-```
-
-What we have done here is:
-
-*   `--listenport=3000`: Told Tyk Dashboard (and Portal) to listen on port 3000.
-*   `--redishost=localhost`: Tyk Dashboard should use the local Redis instance.
-*   `--redisport=6379`: Tyk Dashboard should use the default port.
-*   `--domain="XXX.XXX.XXX.XXX"`: Bind the Dashboard to the IP or DNS hostname of this instance (required).
-*   `--mongo=mongodb://127.0.0.1/tyk_analytics`: Use the local MongoDB (should always be the same as the Gateway).
-*   `--tyk_api_hostname=$HOSTNAME`: Tyk Dashboard has no idea what hostname has been given to Tyk, so we need to tell it, in this instance we are just using the local HOSTNAME env variable, but you could set this to the public-hostname/IP of the instance.
-*   `--tyk_node_hostname=http://localhost`: Tyk Dashboard needs to see a Tyk node in order to create new tokens, so we need to tell it where we can find one, in this case, use the one installed locally.
-*   `--tyk_node_port=8080`: Tell the Dashboard that the Tyk node it should communicate with is on port 8080.
-*   `--portal_root=/portal`: We want the portal to be shown on /portal of whichever domain we set for the portal.
-
-### Step 11: Configure Tyk Pump
-
-If you don't complete this step, you won't see any analytics in your Dashboard, so to enable the analytics service, we need to ensure Tyk Pump is running and configured properly. To configure Tyk Pump is very simple:
-```{.copyWrapper}
-    sudo /opt/tyk-pump/install/setup.sh --redishost=localhost --redisport=6379 --mongo=mongodb://127.0.0.1/tyk_analytics
-```
-
 ### Step 12: Start Tyk Pump and Tyk Dashboard
 ```{.copyWrapper}
     sudo service tyk-dashboard start
 
     sudo service tyk-pump start
 ```
+
 
 ### Step 13: Enter Dashboard license
 

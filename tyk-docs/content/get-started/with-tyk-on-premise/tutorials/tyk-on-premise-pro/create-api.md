@@ -102,7 +102,7 @@ To create the API, let's send a definition to the admin endpoint:
             },
             "active": true
         }
-     }' https://localhost:3000/api/apis/ | python -mjson.tool
+     }' http://localhost:3000/api/apis/ | python -mjson.tool
 ```
 
 If the command succeeds, you will see:
