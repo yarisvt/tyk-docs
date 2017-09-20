@@ -116,7 +116,7 @@ Your terminal will update as dependencies and packages are installed, at the end
 
 We can set the Dashboard up with a similar setup command, the below will get the Dashboard set up for the local instance, **make sure to use the actual DNS hostname or the public IP of your instance as the last parameter**:
 ```{.copyWrapper}
-    sudo /opt/tyk-dashboard/install/setup.sh --listenport=3000 --redishost=localhost --redisport=6379 --mongo=mongodb://127.0.0.1/tyk_analytics --tyk_api_hostname=$my-tyk-instance.com:8080 --tyk_node_hostname=http://localhost --tyk_node_port=8080 --portal_root=/portal --domain="my-tyk-instance.com"
+    sudo /opt/tyk-dashboard/install/setup.sh --listenport=3000 --redishost=localhost --redisport=6379 --mongo=mongodb://127.0.0.1/tyk_analytics --tyk_api_hostname=my-tyk-instance.com:8080 --tyk_node_hostname=http://localhost --tyk_node_port=8080 --portal_root=/portal --domain="my-tyk-instance.com"
 ```
 
 What we have done here is:
@@ -126,7 +126,7 @@ What we have done here is:
 *   `--redisport=6379`: Tyk Dashboard should use the default port.
 *   `--domain="XXX.XXX.XXX.XXX"`: Bind the Dashboard to the IP or DNS hostname of this instance (required).
 *   `--mongo=mongodb://127.0.0.1/tyk_analytics`: Use the local MongoDB (should always be the same as the Gateway).
-*   `--tyk_api_hostname=$my-tyk-instance.com:8080`: Tyk Dashboard has no idea what hostname has been given to Tyk, so we need to tell it. This is the value that will be displayed in your Dashboard.
+*   `--tyk_api_hostname=my-tyk-instance.com:8080`: Tyk Dashboard has no idea what hostname has been given to Tyk, so we need to tell it. This is the value that will be displayed in your Dashboard.
 *   `--tyk_node_hostname=http://localhost`: Tyk Dashboard needs to see a Tyk node in order to create new tokens, so we need to tell it where we can find one, in this case, use the one installed locally.
 *   `--tyk_node_port=8080`: Tell the Dashboard that the Tyk node it should communicate with is on port 8080.
 *   `--portal_root=/portal`: We want the portal to be shown on /portal of whichever domain we set for the portal.
