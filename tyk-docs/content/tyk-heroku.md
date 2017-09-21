@@ -23,7 +23,7 @@ When you click "Manage App", the Heroku Dashboard is displayed:
 
 The Heroku dashboard contains information and settings about your deployed Tyk App.
 
-> **NOTE**: Before you can click "Open app" from the Heroku Dashboard, you must have an API configured in Tyk. You can log in to your Tyk Dashboard from https://admin.cloud.tyk.io/#/. For tutorials on creating APIs, Keys and Policies, see [here](/docs/get-started/with-tyk-cloud/tutorials/).
+> **NOTE**: Before you can click "Open app" from the Heroku Dashboard, you must have an API configured in Tyk. You can log in to your Tyk Dashboard from https://admin.cloud.tyk.io/#/. For tutorials on creating APIs, Keys and Policies, see [here](/docs/get-started/with-tyk-hybrid/tutorials/).
 
 ### Overview
 The Overview screen displays information about your Heroku add-ons and the latest activity for your deployed app.
@@ -33,6 +33,20 @@ The Resources screen lists Any Heroku dynos that are available to you. The dynos
 The Deploy screen displays the various deployment methods and pipelines you can use with your app.
 ### Metrics
 Depending on your account, you can see various metrics for your Tyk deployed app.
+### Activity
+The Activity screen gives you a history of all activity relating to your app.
+### Access
+From the Access screen, you can see the list of current collaborators, and you can add new collaborators if necessary.
+### Settings
+From the Settings page, you can see the Config Variables by from the "Reveal Config Vars" button.
+![Reveal Vars][6]
+
+You can edit existing vars or create new ones from this screen.
+The Settings screen also displays Info, Buildpack, Domains and Certificate, and Transfer Ownership.
+
+You can also take your app offline by turning Maintenance Mode on.
+
+You can also delete your app from this screen if required.
 
 
 
@@ -41,3 +55,4 @@ Depending on your account, you can see various metrics for your Tyk deployed app
 [3]: /docs/img/cloud/deploy_heroku_app.png
 [4]: /docs/img/cloud/manage_heroku_app.png
 [5]: /docs/img/cloud/heroku-dashboard.png
+[6]: /docs/img/cloud/heroku_reveal_config_vars.png
