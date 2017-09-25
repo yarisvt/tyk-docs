@@ -67,7 +67,7 @@ Select "Users" from the "System Management" section. Click **Edit** for your use
 
 ### Step 2: Create an API
 
-To create the API, let's send a definition to the admin endpoint:
+To create the API, let's send a definition to the admin endpoint replacing the `Authorization` header with your own`:
 ```{.copyWrapper}
     curl -H "Authorization: 1238b7e0e2ff4c2957321724409ee2eb" \
      -s \
@@ -106,9 +106,9 @@ To create the API, let's send a definition to the admin endpoint:
 If the command succeeds, you will see:
 ```
     {
-        "action": "added",
-        "key": "1",
-        "status": "ok"
+        "Status": "OK",
+        "Message": "API created",
+        "Meta": "59c8cdfd4913111112b0b5ec"
     }
 ```
 
