@@ -78,16 +78,16 @@ Once you have these values, you can use them to access the dashboard API, the be
      }' http://admin.cloud.tyk.io/api/keys | python -mjson.tool
 ```
 
-You will see a response with your new token:
+You will see a 200 response with your new token:
 ```
     {
-        "action": "create",
-        "key": "c2cb92a78f944e9a46de793fe28e847e",
-        "status": "ok"
+        "api_model": {},
+        "key_id": "59bf9159adbab8abcdefghijac9299a1271641b94fbaf9913e0e048c",
+        "data": {...}
     }
 ```
 
-The value returned in the `key` parameter of the response is the access token you can now use to access the API that was specified in the `access_rights` section of the call.
+The value returned in the `key_id` parameter of the response is the access token you can now use to access the API that was specified in the `access_rights` section of the call.
 
 [1]: /docs/img/dashboard/system-management/NavKeys.png
 [2]: /docs/img/dashboard/system-management/addKeyButton.png
