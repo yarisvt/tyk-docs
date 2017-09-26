@@ -4,7 +4,7 @@ Contains the Tyk Documentation source.
 
 ## How to contribute
 
-We recommend to follow the below flow
+We recommend contributing in the following way:
 
 * Fork this repository
 * Clone the forked repository on your machine
@@ -20,7 +20,7 @@ This pipeline uses [hugo](http://gohugo.io/).
 
 **To use:**
 
-1. Install Hugo - v0.20.2 or later
+1. Install Hugo - v0.27.1 or later
 2. Clone this repository 
 3. Run `hugo server --theme=tykio --buildDrafts`
 4. Go to  http://localhost:1313/docs to visit the landing page.
