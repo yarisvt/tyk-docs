@@ -15,6 +15,8 @@ To find a balance between performance and security, the current algorithm used b
 
 It is possible to disable key hashing in Tyk using a configuration setting in the `tyk.conf` file (and the `tyk_analytics.conf` file) called `hash_keys`.
 
+See the [Gateway Configuration Options](/docs/configure/tyk-gateway-configuration-options/) for more details.
+
 A hashed installation imposes some constraints on how Tyk is used:
 
 *   Listing tokens is not possible
