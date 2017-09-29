@@ -9,7 +9,7 @@ weight: 3
 
 ## <a name="introduction"></a>Introduction
 
-This tutorial will guide you through the creation of a custom authentication plugin for Tyk with a gRPC based plugin with NodeJS.
+This tutorial will guide you through the creation of a custom authentication plugin for Tyk with a gRPC based plugin written in NodeJS.
 
 For additional information about gRPC, check the official documentation [here](https://grpc.io/docs/guides/index.html).
 
@@ -156,7 +156,7 @@ To run the gRPC server run:
 node main.js
 ```
 
-The gRPC server will listen on port 5555 (see the `listenAddr` constant). In the next steps we'll setup the plugin bundle and modify Tyk to connect to our gRPC server.
+The gRPC server will listen on port `5555` (see the `listenAddr` constant). In the next steps we'll setup the plugin bundle and modify Tyk to connect to our gRPC server.
 
 
 ## <a name="bundle"></a>Setting up the Plugin Bundle
