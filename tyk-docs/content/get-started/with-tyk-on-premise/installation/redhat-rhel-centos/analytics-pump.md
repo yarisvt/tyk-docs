@@ -84,7 +84,7 @@ That's it, the Pump should now be up and running.
 
 You can verify if Tyk Pump is running and working by tailing the log file:
 ```{.copyWrapper}
-    sudo tail -f /var/log/tyk-pump.log
+    sudo tail -f /var/log/tyk-pump.stderr /var/log/tyk-pump.stdout
 ```
  [1]: https://packagecloud.io
  [2]: http://aws.amazon.com
