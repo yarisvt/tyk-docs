@@ -146,8 +146,11 @@ Since users are created with a random password, you will need to reset the passw
     POST /api/users/54c25e845d932847067402e2/actions/reset HTTP/1.1
     Host: localhost:3000
     authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
-    
-    {"new_password":"test123456"}
+
+    {
+      "current_password": "12345",
+      "new_password":"test123456"
+    }
 ```
 
 #### Sample Response
