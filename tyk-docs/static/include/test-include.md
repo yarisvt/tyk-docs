@@ -82,12 +82,6 @@ This will trigger a successful authentication. We're using the token that's spec
 curl http://localhost:8080/my-api/my-path -H 'Authorization: abc123'
 ```
 
-## <a name="next"></a>What's Next?
-
-In this tutorial we learned how Tyk gRPC plugins work. For a production-level setup we suggest the following:
-
-* Configure an appropriate web server and path to serve your plugin bundles.
-
 
 [3]: /docs/img/dashboard/system-management/plugin_options.png
 [4]: /docs/img/dashboard/system-management/plugin_auth_mode.png
