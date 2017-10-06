@@ -84,3 +84,9 @@ and then start the Python build:
 ```{.copyWrapper}
     service tyk-gateway-python start
 ```
+
+To restart Tyk use:
+
+```{.copyWrapper}
+    service tyk-gateway-python restart
+```

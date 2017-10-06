@@ -145,12 +145,19 @@ From the **Core Settings** tab in the **API Designer** select **Use Custom Auth 
 ## <a name="testing"></a>Testing the Plugin
 
 At this point we have our test HTTP server ready to serve the plugin bundle and the configuration with all the required parameters.
-The final step is to start or restart the **Tyk Gateway** (this may vary depending on how you setup Tyk):
+The final step is to start or restart the **Tyk Gateway** (this may vary depending on how you setup Tyk).
+A separate service is used to load the Tyk version that supports Python (tyk-gateway-python), so we need to stop the standard one first (tyk-gateway):
 
 ```{.copyWrapper}
-service tyk-gateway start
+service tyk-gateway stop
+service tyk-gateway-python start
 ```
 
+From now on you should use the following command to restart the service:
+
+```{.copyWrapper}
+service tyk-gateway-python restart
+```
 
 A simple CURL request will be enough for testing our custom authentication middleware.
 
