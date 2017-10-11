@@ -21,7 +21,7 @@ Tyk manages timestamps in the Unix timestamp format - this means that when a dat
 
 Key sessions are created and updated using the Tyk REST API, in order to set the expiry date for a key, update the `expires` value with the timestamp of when the key should expire.
 
-> **Note:** `expires` can only be a positive number, or -1 (unlimited). Zero (0) or other negative numbers, will not work.
+Leave this field empty for a token never to expire.
 
 ### How to delete expired tokens
 

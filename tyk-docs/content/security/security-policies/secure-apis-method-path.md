@@ -27,7 +27,7 @@ Let's take a look at a key session definition:
         "allowance": 2,
         "rate": 3,
         "per": 1,
-        "expires": -1,
+        "expires": 0,
         "quota_max": 1000,
         "quota_renews": 1429804261,
         "quota_remaining": 994,
