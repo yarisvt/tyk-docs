@@ -40,8 +40,8 @@ The key elements that manage access control are the fields:
 
 *   `allowance` & `rate`: these should be set to the same value, these are the users allowance during a period as set by `per`.
 *   `per`: The time in seconds where a rate limit is applied.
-*   `expires`: The date when the key expires.
-*   `quota_max`: The usage quota for the user.
+*   `expires`: The date when the key expires. **Note:** `expires` can only be a positive number, or -1 (unlimited).
+*   `quota_max`: The usage quota for the user. **Note:** `quota_max` can only be a positive number, or -1 (unlimited).
 *   `quota_renews`: the Unix timestamp when the quota is renewed.
 *   `quota_renewal_rate`: The time, in seconds, of when the quota gets renewed (e.g. 86400 would represent 1 day).
 
@@ -73,6 +73,8 @@ In order to set a quota for a user:
 3.  Set the `quota_renewal_rate` to the value, in seconds, of when the quota should renew. For example, if you would like it to renew every 30 days, you would have `2592000` seconds (`((60*60) * 24) * 30 = 2592000`).
 
 To set an unlimited quota, set `quota_max` to `-1`.
+
+> **Note:** `quota_max` can only be a positive number, or -1 (unlimited).
 
 #### Key Expiry
 
