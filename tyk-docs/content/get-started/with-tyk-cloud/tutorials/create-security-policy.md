@@ -52,6 +52,7 @@ Usage quotas can only be a positive number, or -1 (unlimited).
 
 > **NOTE:** The Usage Quota set by a policy will override a quota applied to an individual key.
 
+
 ### Step 6: Add a security entry
 
 ![Add an access rule][6]

@@ -7,7 +7,7 @@ menu:
 weight: 5 
 ---
 
-### List Users
+### List users
 
 | **Property** | **Description** |
 | ------------ | --------------- |
@@ -91,11 +91,9 @@ weight: 5
     }
 ```
 
-### Add User
+### Add users
 
-> **Note:** You can add a user via the API without a password by leaving out the `password` field. You then use **Set User Password** request to add a password.
-
-If you do set a password, you need to keep a record of it, to enable the password to be reset in the future.
+Users are created with a random password, you will need to reset the password in a second API call to set the password correctly.
 
 | **Property** | **Description** |
 | ------------ | --------------- |
@@ -108,7 +106,7 @@ If you do set a password, you need to keep a record of it, to enable the passwor
 #### Sample Request
 
 ```{.copyWrapper}
-    POST /api/users HTTP/1.1
+    GET /api/users HTTP/1.1
     Host: localhost:3000
     authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
     
@@ -116,8 +114,7 @@ If you do set a password, you need to keep a record of it, to enable the passwor
         "first_name": "Jason",
         "last_name": "Jasonson",
         "email_address": "jason@jasonsonson.com",
-        "active": true,
-        "password": "thisisatest"
+        "active": true
     }
 ```
 
@@ -131,9 +128,9 @@ If you do set a password, you need to keep a record of it, to enable the passwor
     }
 ```
 
-### Set User Password
+### Set user password
 
-If a user is created with a blank password, you will need to add a password in a second API call to set a password. In this scenario, the `current_password` field is not required. To change an current password, you need to know the existing password set in **Add User**.
+Since users are created with a random password, you will need to reset the password in a second API call to set the password correctly.
 
 | **Property** | **Description**                      |
 | ------------ | -------------------------------------|
@@ -217,7 +214,7 @@ If a user is created with a blank password, you will need to add a password in a
     }
 ```
 
-### Update User
+### Update user
 
 | **Property** | **Description**        |
 | ------------ | -----------------------|
@@ -252,7 +249,7 @@ If a user is created with a blank password, you will need to add a password in a
     }
 ```
 
-### Delete User
+### Delete user
 
 | **Property** | **Description**        |
 | ------------ | -----------------------|

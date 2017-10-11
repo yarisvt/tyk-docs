@@ -16,7 +16,7 @@ Tyk will store each access key as a record in Redis, this key will have certain 
         "allowance": 1000,
         "rate": 1000,
         "per": 60,
-        "expires": -1,
+        "expires": 0,
         "quota_max": -1,
         "quota_renews": 1406121006,
         "quota_remaining": 0,
