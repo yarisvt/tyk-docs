@@ -17,4 +17,4 @@ It is encouraged to integrate with the Dashboard API in a Pro Edition installati
 
 ![API Overview][1]
 
-[1]: /docs/img/diagrams/dashboardapi2.png
+[1]: /docs/img/diagrams/dashboardapi.png
