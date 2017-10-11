@@ -49,7 +49,10 @@ A rate limit is enforced on all keys, set the number of requests per second that
 ![Quota form][5]
 
 Usage quotas limit the number of total requests a user is allowed to have over a longer period of time. So while a rate limit is a rolling window, a quota is an absolute maximum that a user is allowed to have over a week, a day or a month.
-**NOTE:** The Usage Quota set by a policy will override a quota applied to an individual key.
+
+Usage quotas can only be a positive number, or -1 (unlimited). Zero (0) or other negative numbers, will not work.
+
+> **NOTE:** The Usage Quota set by a policy will override a quota applied to an individual key.
 
 ### Step 6: Add a security entry
 

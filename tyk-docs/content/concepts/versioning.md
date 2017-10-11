@@ -91,7 +91,7 @@ To activate versioning in an API, create a version entry in the version_data.ver
 {
     "version-1": {
         "name": "version-1",
-        "expires": "",            
+        "expires": "-1",            
         "use_extended_paths": true,
         "extended_paths": {
             "ignored": [

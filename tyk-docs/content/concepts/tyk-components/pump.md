@@ -17,10 +17,10 @@ When deployed as part of a standard installation, Tyk Pump moves data between Re
 
 Tyk Pump can be horizontally scaled without causing duplicate data.
 
-Tyk Pump is an open-source project from the team here at Tyk and you can find it’s GitHub repository [here][1].
+Tyk Pump is an open-source project from the team here at Tyk and you can find its GitHub repository [here][1].
 
 ![Tyk Pump Data Transport Service][2]
 
  [1]: https://github.com/TykTechnologies/tyk-pump
- [2]: /docs/img/diagrams/pump2.png
+ [2]: /docs/img/diagrams/pump3.png
 
