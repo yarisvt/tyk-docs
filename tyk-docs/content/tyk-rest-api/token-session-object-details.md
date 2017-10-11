@@ -63,9 +63,9 @@ A session object takes the following form:
 
 * `per`: The number of seconds that the rate window should encompass.
 
-* `expires`: An epoch that defines when the key should expire.
+* `expires`: An epoch that defines when the key should expire. **Note:** `expires` can only be a positive number, or -1 (unlimited). Zero (0) or other negative numbers, will not work.
 
-* `quota_max`: The maximum number of requests allowed during the quota period.
+* `quota_max`: The maximum number of requests allowed during the quota period. **Note:** `quota_max` can only be a positive number, or -1 (unlimited). Zero (0) or other negative numbers, will not work.
 
 * `quota_renews`: An epoch that defines when the quota renews.
 
