@@ -7,3 +7,8 @@ menu:
 weight: 5
 url: "/troubleshooting/tyk-pump"
 ---
+
+[Tyk Pump Panic “stack exceeds 1000000000-byte limit“](/docs/troubleshooting/tyk-pump/panic-stack-exceeds-1000000000-byte-limit/)
+
+[“Connection dropped, connecting...“](/docs/troubleshooting/tyk-pump/connection-dropped-connecting/)
+

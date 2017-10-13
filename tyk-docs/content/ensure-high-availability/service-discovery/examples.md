@@ -65,7 +65,7 @@ For integrating service discovery with Consul, you can use the following configu
 
 ## <a name="linkerd"></a> Linkerd Example
 
-**Note**: This configuration is a Tyk Community Contribution.
+> **Note**: This configuration is a Tyk Community Contribution.
 
 To integrate Tyk with Linkerd perform the following:
 
@@ -93,7 +93,7 @@ For integrating with Linkerd, you need to add the following configuration to you
 
 This is needed since Tyk appends a "Host" header when proxying the request and the "Host" header is also the default header expected by Linkerd.
 
-#### For further reading, visit:
+#### For further Linkerd information, see:
 
 [Linkerd - HTTP proxy documentation][1] (Alternatives Section)
 

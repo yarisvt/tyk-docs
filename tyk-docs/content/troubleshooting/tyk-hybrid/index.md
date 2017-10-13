@@ -7,3 +7,6 @@ menu:
 weight: 5
 url: "/troubleshooting/tyk-hybrid"
 ---
+
+[Token information doesn't appear in Dashboard for Tyk Hybrid users](/docs/troubleshooting/tyk-hybrid/token-information-doesnt-appear-dashboard-tyk-hybrid-users/)
+
