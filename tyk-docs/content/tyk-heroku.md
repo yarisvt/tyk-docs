@@ -13,6 +13,9 @@ notoc: true
 5. After logging in, a Create App page is displayed.
 ![Create App][3]
 6. Give it a suitable name and click "Deploy App", (you may need to provide Heroku with a Credit Card to proceed past this point, depending on your account setup).
+
+> **Note:** You can run Tyk free of charge on a single dyno. However a production installation requires two dynos, which are chargeable.
+
 7. Your Heroku app is deployed. Click "Manage App" to  manage the app from Heroku or click "View" to follow the Tyk Hybrid tutorials to get your first API set up with Tyk.
 ![Manage App][4]
 
@@ -28,7 +31,7 @@ The Heroku dashboard contains information and settings about your deployed Tyk A
 ### Overview
 The Overview screen displays information about your Heroku add-ons and the latest activity for your deployed app.
 ### Resources
-The Resources screen lists Any Heroku dynos that are available to you. The dynos available may depend on the level of account you have.
+The Resources screen shows what resources your app is consuming and any associated costs. It also lists Any Heroku dynos that are available to you. The dynos available may depend on the level of account you have.
 ### Deploy
 The Deploy screen displays the various deployment methods and pipelines you can use with your app.
 ### Metrics
