@@ -1,12 +1,4 @@
----
-date: 2017-03-22T14:39:43Z
-Title: Create an API with Hybrid
-menu:
-  main:
-    parent: /with-tyk-hybrid
-weight: 2
----
-
+<!-- START OMIT -->
 ## <a name="with-dashboard"></a>Tutorial: Create an API with the Dashboard
 
 We will use the Tyk Dashboard to create a very simple API that has no special elements set up.
@@ -32,7 +24,7 @@ In this section:
 
 #### Step 4: Set up the security option for your API
 
-From the Target Details section:
+From the **Target Details** section:
 
 ![Target details form][4]
 
@@ -67,7 +59,7 @@ Select "Users" from the "System Management" section. Click **Edit** for your use
 
 ### Step 2: Create an API
 
-To create the API, let's send a definition to the admin endpoint:
+To create the API, let's send a definition to the admin endpoint replacing the `Authorization` header with your own`:
 ```{.copyWrapper}
     curl -H "Authorization: 1238b7e0e2ff4c2957321724409ee2eb" \
      -s \
@@ -103,12 +95,14 @@ To create the API, let's send a definition to the admin endpoint:
      }' https://admin.cloud.tyk.io/api/apis/ | python -mjson.tool
 ```
 
+<!-- END OMIT -->
+
 If the command succeeds, you will see:
 ```
     {
-        "action": "added",
-        "key": "1",
-        "status": "ok"
+        "Status": "OK",
+        "Message": "API created",
+        "Meta": "59c8cdfd4913111112b0b5ec"
     }
 ```
 
@@ -116,10 +110,10 @@ If the command succeeds, you will see:
 
 We just sent an API Definition to the Tyk `/apis` endpoint. API Definitions are described further [here][8]. These objects encapsulate all of the settings for an API within Tyk Cloud.
 
-## <a name="test-new-api"></a> Test your new API
+## <a name="test-new-api"></a>Test your new API
 
 To access the proxied API via the gateway on Tyk Cloud:
-```{.copyWrapper}
+```
     curl -H "Authorization: null" https://your-organization.cloud.tyk.io/test-api/get
     
     Output:

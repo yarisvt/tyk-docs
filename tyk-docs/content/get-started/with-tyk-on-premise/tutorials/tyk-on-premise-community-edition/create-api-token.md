@@ -1,6 +1,6 @@
 ---
 date: 2017-03-13T15:08:55Z
-Title: Create an API Token - Community Edition
+Title: Create an API Key - Community Edition
 menu:
   main:
     parent: Community Edition
@@ -8,13 +8,13 @@ menu:
 weight: 2
 ---
 
-To create an API token, we will need the API ID that we wish to grant the token access to, then creating the token is a very simple API call to the endpoint.
+To create an API Key, we will need the API ID that we wish to grant the key access to, then creating the key is a very simple API call to the endpoint.
 
 **Prerequisite**
 
 *   You will need your API secret, this is the `secret` property of the `tyk.conf` file.
 
-Once you have this value, you can use them to access the Gateway API, the below `curl` command will generate a token for one of your APIs, remember to replace `{API-SECRET}`, `{API-ID}` and `{API-NAME}` with the real values as well as the `curl` domain name and port to be the correct values for your environment.
+Once you have this value, you can use them to access the Gateway API, the below `curl` command will generate a key for one of your APIs, remember to replace `{API-SECRET}`, `{API-ID}` and `{API-NAME}` with the real values as well as the `curl` domain name and port to be the correct values for your environment.
 
 ```{.copyWrapper}
     curl -X POST -H "x-tyk-authorization: {API-SECRET}" \
@@ -42,7 +42,7 @@ Once you have this value, you can use them to access the Gateway API, the below 
      }' http://localhost:8080/tyk/keys/create | python -mjson.tool
 ```
 
-You will see a response with your new token:
+You will see a response with your new key:
 
 ```
     {

@@ -1,6 +1,6 @@
 ---
 date: 2017-03-23T11:04:58Z
-title: Create an API Token - Pro Edition
+title: Create an API Key - Pro Edition
 menu:
   main:
     parent: "Pro Edition"
@@ -8,10 +8,10 @@ menu:
 weight: 2
 ---
 
-## <a name="with-dashboard"></a>Tutorial: Create an API Token with the Dashboard
+## <a name="with-dashboard"></a>Tutorial: Create an API Key with the Dashboard
 
 
-The Tyk Dashboard is the simplest way to generate a new token.
+The Tyk Dashboard is the simplest way to generate a new Key.
 
 ### Step 1: Select "Keys" from the "System Management" section
 
@@ -84,7 +84,7 @@ Once you have these values, you can use them to access the dashboard API, the be
      }' http://localhost:3000/api/keys | python -mjson.tool
 ```
 
-You will see a response with your new token:
+You will see a response with your new key:
 ```
     {
         "action": "create",
