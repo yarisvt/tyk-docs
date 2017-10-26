@@ -28,7 +28,7 @@ Parameters:
 *   `insert_into_api`: If set to `true` the import will replace an existing API. Setting to `false` will import into a new API.
 *   `api_id`: The id for your API.
 *   `version_name`: Your versioning convention name for the imported API.
-*   `upstream_url`: The URl the API is served by.
+*   `upstream_url`: The URL the API is served by.
 
 
 #### Sample Response
@@ -75,7 +75,7 @@ Parameters:
 *   `api_id`: The id for your API.
 *   `as_mock`: If set to true, enables our mocking support for Blueprint imported API. See **Mocks** above for more details.
 *   `version_name`: Your versioning convention name for the imported API.
-*   `upstream_url`: The URl the API is served by.
+*   `upstream_url`: The URL the API is served by.
 
 
 #### Sample Response

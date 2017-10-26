@@ -8,7 +8,7 @@ menu:
 weight: 11 
 ---
 
-Tyk supports importing both API Blueprint and Swagger JSON definitions from either the GAteway or the Dashboard. Tyk will output the converted file to to `stdout`. Below are the commands you can use to get Tyk to switch to command mode and generate the respective API definitions for both API Blueprint and Swagger files.
+Tyk supports importing both API Blueprint and Swagger JSON definitions from either the Gateway or the Dashboard. Tyk will output the converted file to to `stdout`. Below are the commands you can use to get Tyk to switch to command mode and generate the respective API definitions for both API Blueprint and Swagger files.
 
 ## <a name="import-gateway"></a> Import APIs via the Gateway
 
@@ -19,8 +19,6 @@ Tyk supports an easy way to import Apiary API Blueprints in JSON format using th
 Blueprints can be imported and turned into standalone API definitions (for new APIs) and also imported as versions into existing APIs.
 
 It is possible to import APIs and generate mocks or to generate White Lists that pass-through to an upstream URL.
-
-Importing APIs is possible using Tyk's new command-line mode.
 
 All imported Blueprints must be in the JSON representation of Blueprint's markdown documents. This can be created using Apiary's [Snow Crash tool](https://github.com/apiaryio/snowcrash).
 
@@ -39,7 +37,7 @@ Create a new definition from the Blueprint:
 Add a version to a definition:
 
 ```{.copyWrapper}
-./tyk --import-blueprint=blueprint.json --for-api=<path> --as-version="2.0"
+./tyk --import-blueprint=blueprint.json --for-api=<path> --as-version="version_number"
 ```
 
 ### Creating your API versions as a mock
@@ -63,12 +61,12 @@ Create a new definition from Swagger:
 Add a version to a definition:
 
 ```{.copyWrapper}
-./tyk --import-swagger=petstore.json --for-api=<path> --as-version="2.0"
+./tyk --import-swagger=petstore.json --for-api=<path> --as-version="version_number"
 ```
 
 #### Mocks
 
-Tyk supports API mocking using our versioning `use_extended_paths` setup, adding mocked URL data to one of the three list types (white-list, black-list or ignored). In order to handle a mocked path, use an entry that has `action`  set to `reply`:
+Tyk supports API mocking using our versioning `use_extended_paths` setup, adding mocked URL data to one of the three list types (white-list, black-list or ignored). In order to handle a mocked path, use an entry that has `action` set to `reply`:
 
 ```{json}
 "ignored": [
@@ -78,10 +76,9 @@ Tyk supports API mocking using our versioning `use_extended_paths` setup, adding
             "GET": {
                 "action": "reply",
                 "code": 200,
-                "data": "Hello World
-",
+                "data": "Hello World",
                 "headers": {
-                    "x-tyk-override": "tyk-override",
+                    "x-tyk-override": "tyk-override"
                 }
             }
         }
