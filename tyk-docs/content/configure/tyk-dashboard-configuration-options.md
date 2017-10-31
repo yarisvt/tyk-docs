@@ -65,7 +65,7 @@ The file will look like the sample below, the various fields are explained in th
             "portal_domains": {},
             "portal_root_path": "/portal",
             "generate_secure_paths": true,
-            "secure_cookie": false
+            "secure_cookies": false
         },
         "http_server_options": {
             "use_ssl": false,
@@ -187,7 +187,7 @@ For legacy installs or upgrades using the host manager, leave this value as `fal
 
 *   `generate_secure_paths`: As of v2.1, Tyk Dashboard tries to generate URLs for you that can be used straight from the Dashboard, if you prefer to have the URLs start with `https`, set this option to `true`. This is a purely aesthetic change.
 
-*   `secure_cookie`: This enables HTTPS “secure” cookies.
+*   `secure_cookies`: This enables HTTPS “secure” cookies.
 
 > **NOTE:** This option is available from v1.3.5 onwards.
 
