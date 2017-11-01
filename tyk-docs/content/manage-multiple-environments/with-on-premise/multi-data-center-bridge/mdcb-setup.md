@@ -178,7 +178,7 @@ Lastly, we add the sections that enforce the RPC Slave mechanism:
         "connection_string": "{your-mdcb-instance-domain:9090}",
         "enable_rpc_cache": true,
         "bind_to_slugs": true,
-        "group-id": "ny",
+        "group_id": "ny",
         "use_ssl" : true,
         "ssl_insecure_skip_verify", true
     },
