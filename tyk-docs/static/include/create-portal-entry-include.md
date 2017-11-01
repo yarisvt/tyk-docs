@@ -1,15 +1,6 @@
----
-date: 2017-03-22T14:36:21Z
-title: Create a portal entry - Hybrid
-menu:
-  main:
-    parent: /with-tyk-hybrid
-weight: 5
----
-
 ## Tutorial: Create a portal entry
 
-Use the dashboard to create a portal entry, the process is very quick and only has a few prerequisites.
+You can use the dashboard to create a portal that allows developers to access the APIs you create.
 
 ### Prerequisites for a portal catalogue entry:
 
@@ -25,7 +16,7 @@ First you will need to navigate to the portal catalogue, to do so, select the op
 
 ### Step 2: Click Add new API
 
-This page displays all of the catalogue entries you have defined, whether they have documentation attached and whether they are active on the portal or not. Select the *Add new API* button to continue:
+This page displays all of the catalogue entries you have defined, whether they have documentation attached and whether they are active on the portal or not. Click **Add new API**.
 
 ![Add new API button location][2]
 
@@ -75,5 +66,3 @@ You can now visit your portal to see the API catalogue entry. Select Open Your P
 [5]: /docs/img/dashboard/portal-management/enableAPI.png
 [6]: /docs/img/dashboard/portal-management/saveAPI.png
 [7]: /docs/img/dashboard/portal-management/visitPortal.png
-
-
