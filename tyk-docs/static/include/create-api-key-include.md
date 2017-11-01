@@ -68,3 +68,13 @@ Once you have these values, you can use them to access the dashboard API, the be
         "meta_data": {}
      }' http://admin.cloud.tyk.io/api/keys | python -mjson.tool
 ```
+
+
+
+[1]: /docs/img/dashboard/system-management/NavKeys.png
+[2]: /docs/img/dashboard/system-management/addKeyButton.png
+[3]: /docs/img/dashboard/system-management/accessRights.png
+[4]: /docs/img/dashboard/system-management/createKeyButton.png
+[5]: /docs/img/dashboard/system-management/keyAdded.png
+[6]: /docs/img/dashboard/system-management/APIKey.png
+[7]: /docs/img/dashboard/system-management/APIId.png

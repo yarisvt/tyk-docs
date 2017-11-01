@@ -95,6 +95,14 @@ To create the API, let's send a definition to the admin endpoint replacing the `
      }' https://admin.cloud.tyk.io/api/apis/ | python -mjson.tool
 ```
 
+[1]: /docs/img/dashboard/system-management/nav_apis.png
+[2]: /docs/img/dashboard/system-management/addAPIbutton.png
+[3]: /docs/img/dashboard/system-management/APIDesigner.png
+[4]: /docs/img/dashboard/system-management/targetDetails.png
+[5]: /docs/img/dashboard/system-management/saveAPI.png
+[6]: /docs/img/dashboard/system-management/APIURLLocation.png
+[7]: /docs/img/dashboard/system-management/APIKey.png
+[8]: /docs/tyk-rest-api/api-definition-object-details/
 <!-- END OMIT -->
 
 If the command succeeds, you will see:
