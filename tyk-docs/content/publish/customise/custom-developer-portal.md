@@ -12,6 +12,8 @@ weight: 0
 
 The Tyk Dashboard includes portal functionality by default, but in some cases it is required to have custom logic or, for example, embed the portal into an existing platform. Thankfully Tyk is flexible enough to provide an easy way of integrating the portal to any platform and language using a few API calls.
 
+The source code is available from the following GitHub repo - [https://github.com/TykTechnologies/tyk-custom-portal](https://github.com/TykTechnologies/tyk-custom-portal) 
+
 A video covering the process of building a custom portal is available to view here:
 
 <iframe src="https://drive.google.com/file/d/0BxZq5VCxj3LWckZ4bXIxM1FvWEE/preview" width="870" height="480" allowfullscreen></iframe>
