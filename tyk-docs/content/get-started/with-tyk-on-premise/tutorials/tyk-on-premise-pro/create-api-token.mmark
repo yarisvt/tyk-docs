@@ -1,0 +1,31 @@
+---
+date: 2017-03-23T11:04:58Z
+title: Create an API Key - Pro Edition
+menu:
+  main:
+    parent: "Pro Edition"
+    identifier: pro-edition-create-api-token
+weight: 2
+---
+
+{{./static/include/create-api-key-include.md}}
+
+You will see a response with your new key:
+```
+    {
+        "action": "create",
+        "key": "c2cb92a78f944e9a46de793fe28e847e",
+        "status": "ok"
+    }
+```
+
+The value returned in the `key` parameter of the response is the access token you can now use to access the API that was specified in the `access_rights` section of the call
+
+
+[1]: /docs/img/dashboard/system-management/NavKeys.png
+[2]: /docs/img/dashboard/system-management/addKeyButton.png
+[3]: /docs/img/dashboard/system-management/accessRights.png
+[4]: /docs/img/dashboard/system-management/createKeyButton.png
+[5]: /docs/img/dashboard/system-management/keyAdded.png
+[6]: /docs/img/dashboard/system-management/APIKey.png
+[7]: /docs/img/dashboard/system-management/APIId.png
