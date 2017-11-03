@@ -14,6 +14,8 @@ Tyk supports the use of the following plugins to extend Tyk functionality:
 *   [JavaScript Vitual Machine Middleware][2] (JSVM Middleware)
 *   [Authentication Plugins][3]
 
+> **Note**: Plugins are only available for Hybrid and On-Premises installations.
+
 ## <a name="plugin-requirements"></a>Requirements
 All plugins require the following addition to be made to your `tyk.conf` file:
 
