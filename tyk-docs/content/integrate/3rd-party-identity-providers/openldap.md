@@ -3,7 +3,7 @@ date: 2017-03-24T17:02:11Z
 title: LDAP
 menu:
   main:
-	parent: "3rd Party Identity Providers"
+parent: "3rd Party Identity Providers"
 weight: 0 
 ---
 
