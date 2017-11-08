@@ -1,15 +1,15 @@
 ---
 date: 2017-03-24T17:02:11Z
-title: OpenLDAP
+title: LDAP
 menu:
   main:
     parent: "3rd Party Identity Providers"
 weight: 0 
 ---
 
-## Integration Tutorials: OpenLDAP
+## Integration Tutorials: LDAP
 
-The LDAP Identity Provider is experimental currently and provides limited functionality to bind a user to an LDAP server based on a username and password configuration. The LDAP provider currently does not extract user data from the server to populate a user object, but will provide enough defaults to work with all handlers.
+The LDAP Identity Provider gives you functionality to bind a user to an LDAP server based on a username and password configuration. The LDAP provider currently does not extract user data from the server to populate a user object, but will provide enough defaults to work with all handlers. 
 
 ## <a name="log-into-the-dashboard-using-ldap"></a> Log into the Dashboard using LDAP
 
@@ -33,7 +33,6 @@ Below is a sample TIB profile that can be used to log a user into the Dashboard 
     }
 
 ```
-    
 
 The only step necessary to perform this is to send a POST request to the LDAP URL.
 
@@ -116,7 +115,51 @@ LDAP requires little configuration, we can use the same provider config that we 
         "Type": "passthrough"
     }
 ```
-    
 
 Once again, a simple `POST` request is all that is needed to validate a user via an LDAP provider.
+
+## <a name="ldap-search-filters"></a>Using advanced LDAP search
+In some cases validation user CN is not enough, and it require verifying if user match some specific rules, like internal team ID. In this case TIB provides support for doing additional LDAP search check, and if result of this search returns only 1 record, it will pass the user. 
+
+To make it work you need to specify 3 additional attributes in profile configuration file:
+* `LDAPBaseDN` — base DN used for doing LDAP search, for example `cn=dashboard,ou=Group`
+* `LDAPFilter` — filter applied to the search, should include \*USERNAME\* variable. For example: `((objectCategory=person)(objectClass=user)(cn=*USERNAME*))`
+* `LDAPSearchScope` — This specifies the portion of the target subtree that should be considered. Supported search scope values include: 0 - baseObject (often referred to as "base”), 1 - singleLevel (often referred to as "one”), 2 - wholeSubtree (often referred to as "sub")
+
+Additional information about[\[LDAP search protocol]https://www.ldap.com/the-ldap-search-operation]()
+
+Example profile using LDAP search filters:
+```
+{
+	"ActionType": "GenerateOAuthTokenForClient",
+	"ID": "2",
+	"IdentityHandlerConfig": {
+		"DashboardCredential": "ADVANCED-API-USER-API-TOKEN",
+		"DisableOneTokenPerAPI": false,
+		"OAuth": {
+			"APIListenPath": "oauth-1",
+			"BaseAPIID": "API-To-GRANT-ACCESS-TO",
+			"ClientId": "TYK-OAUTH-CLIENT-ID",
+			"RedirectURI": "http://your-app-domain.com/target-for-fragment",
+			"ResponseType": "token",
+			"Secret": "TYK-OAUTH-CLIENT-SECRET"
+		}
+	},
+	"MatchedPolicyID": "POLICY-TO-ATTACH-TO-KEY",
+	"OrgID": "53ac07777cbb8c2d53000002",
+	"ProviderConfig": {
+		"FailureRedirect": "http://yourdomain.com/failure-url",
+		"LDAPAttributes": [],
+		"LDAPBaseDN": "cn=dashboard,ou=Group,dc=ldap,dc=tyk-test,dc=com",
+		"LDAPEmailAttribute": "mail",
+		"LDAPSearchScope": 2,
+		"LDAPFilter": "(&(objectcategory=user)(sAMAccountName=*USERNAME*)(memberOf=CN=RL - PAT - T1-00002,OU=Role,OU=Security Roles,DC=company,DC=net))",
+		"LDAPPort": "389",
+		"LDAPServer": "ldap.company.com",
+		"LDAPUserDN": "*USERNAME*@company.com"
+	},
+	"ProviderName": "ADProvider",
+	"ReturnURL": "",
+	"Type": "passthrough"
+}
 
