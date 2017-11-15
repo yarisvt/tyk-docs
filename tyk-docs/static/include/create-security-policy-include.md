@@ -109,6 +109,7 @@ When you send this request, you should see the following reply with your Policy 
 ```
 
 You can then use this policy ID in the `apply_policy_id` field of an API token. Please see the relevant documentation on session objects for more information about how tokens are attached to policies.
+> **NOTE**: `apply_policy_id` is supported, but has now been deprecated. `apply_policies` is now used to list your policy IDs as an array. This supports the **Multiple Policy** feature introduced in the  **v2.4/1.4** release.
 
 For more information on how policies are constructed and a detailed explanation of their properties, please see the [Security Policies](/docs/security/security-policies/) section.
 

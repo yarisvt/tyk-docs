@@ -12,6 +12,7 @@ weight: 4
 Create keys will generate a new key - Tyk will generate the access token based on the OrgID specified in the API Definition and a random UUID. This ensures that keys can be "owned" by different API Owners should segmentation be needed at an organisational level.
 
 > **NOTE**: You need to prepend your keys with the `org_id` for the dashboard to list them.
+> **NOTE**: `"apply_policy_id": "",` is supported, but has now been deprecated. `apply_policies` is now used to list your policy IDs as an array. This supports the **Multiple Policy** feature introduced in the  **v2.4/1.4** release. 
 
 API keys without access_rights data will be written to *all* APIs on the system (this also means that they will be created across all SessionHandlers and StorageHandlers, it is recommended to always embed `access_rights` data in a key to ensure that only targeted APIs and their back-ends are written to.
 
@@ -68,7 +69,12 @@ Adding the `suppress_reset` parameter and setting it to `1`, will cause Tyk to *
         "hmac_enabled": false,
         "hmac_string": "",
         "is_inactive": false,
-        "apply_policy_id": ""
+        "apply_policy_id": "",
+        "apply_policies": [
+            "59672779fa4387000129507d",
+            "53222349fa4387004324324e",
+            "543534s9fa4387004324324d"
+            ],
         "monitor": {
             "trigger_limits": []
         },
@@ -136,7 +142,12 @@ Adding the `suppress_reset` parameter and setting it to `1`, will cause Tyk to *
         "hmac_enabled": false,
         "hmac_string": "",
         "is_inactive": false,
-        "apply_policy_id": ""
+        "apply_policy_id": "",
+        "apply_policies": [
+            "59672779fa4387000129507d",
+            "53222349fa4387004324324e",
+            "543534s9fa4387004324324d"
+            ],
         "monitor": {
             "trigger_limits": []
         },
@@ -205,6 +216,11 @@ But this request will now work, using the imported token:
       "hmac_string": "",
       "is_inactive": false,
       "apply_policy_id": "",
+      "apply_policies": [
+            "59672779fa4387000129507d",
+            "53222349fa4387004324324e",
+            "543534s9fa4387004324324d"
+            ],
       "monitor": {
         "trigger_limits": []
       }

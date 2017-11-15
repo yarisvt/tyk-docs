@@ -124,6 +124,16 @@ This example would produce the following output:
     }
 ```
 
+### jsonMarshal
+
+For v2.4 We have added the `jsonMarshal` helper to the body transform templates. You can apply `jsonMarshal` on a string in order to perform JSON style character escaping, and on complex objects to serialise them to a JSON string. 
+ 
+Example:
+
+```{.copyWrapper}
+{{ .myField | jsonMarshal }} 
+```
+
 ## <a name="xml-data"></a> XML Data
 
 With an XML document it is a little different from JSON as XML cannot be as easily decoded into strict structures as JSON, so the syntax is a little different. Here is an example to illustrate.

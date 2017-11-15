@@ -14,6 +14,13 @@ The Tyk Gateway server is configured primarily via the `tyk.conf` file, this fil
 
 Environment variables can be used to override settings defined in the configuration file. The [Tyk Gateway environment variable mappings][1] spreadsheet shows how the JSON member keys map to the environment variables. Where an environment variable is specified, its value will take precendence over the value in the configuration file.
 
+### <a name="linter"></a> tyk lint
+In v2.4 we have added a new `tyk lint` command which takes the `tyk.conf` file path as argument, and validates it for syntax correctness, misspelled attribute names or format of values. For example: 
+
+```{.copyWrapper}
+tyk lint ./tyk.conf
+```
+
 ### <a name="listen_port"></a> listen_port
 
 Setting this value will change the port that Tyk listens on, by default Tyk will try to listen on port 8080.
@@ -455,5 +462,20 @@ This boolean option allows the use of self-signed certificates for the Gateway.
 This can specify a default timeout in seconds for upstream API requests.
 
 > **NOTE:** This option is available from v2.3.8 onwards.
+
+### <a name="control-api"></a>control_api_port
+
+This allows you to run the admin control api on separate port, and hide it behind a firewall if needed.
+
+> **NOTE:** This option is available from v2.4 onwards.
+
+### <a name="log-level">log_level
+You now set a logging level via the `tyk.conf` file. The following levels can be set:
+* debug
+* info
+* warn
+* error
+
+> **NOTE:** This option is available from v2.4 onwards.
 
  [1]: /docs/others/Gateway-Environment-Vars.xlsx
