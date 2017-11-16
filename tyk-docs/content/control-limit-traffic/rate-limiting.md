@@ -31,6 +31,19 @@ This approach means that Tyk will continually measure load on each instance that
 
 The benefit of this approach is scalability and speed - the DRL is much more performant and puts much less pressure on Redis, meaning smaller deployments and higher availability.
 
+### Global Rate Limiter
+
+New in Gateway v2.4 and Dashboard v1.4 we have added a new API definition field `global_rate_limit` which specifies a global API rate 
+limit in the following format: `{"rate": 10, "per": 1}` similar to policies or keys. 
+ 
+The API rate limit is an aggregate value across all users, which works in parallel with user rate limits, but has higher priority.
+
+### Setting Global Rate Limits from the Dashboard 
+ 
+From the Dashboard, you can specify the Global Rate Limits from the API Designer: 
+
+![global-limits][2]
+
 ### Can I disable the rate limiter?
 
 Yes, the rate limiter can be disabled for an API Definition by checking **Disable Rate Limits** in your API Designer, or by setting the value of `disable_rate_limit` to `true` in your API definition.
@@ -39,13 +52,13 @@ Yes, the rate limiter can be disabled for an API Definition by checking **Disabl
 
 Not yet, though IP-based rate limiting is possible using custom pre-processor middleware JavaScript that generates tokens based on IP addresses.
 
-## <a name="with-dashboard"></a> Set a rate limit with the Dashboard
+## <a name="with-dashboard"></a> Setting a rate limit from the Dashboard
 
-1.  Visit the key creation screen by browsing to "System Management" -> "Keys" -> "Add Key".
+1.  From **System Management** > **Keys** > **Add Key**.
 
-2.  Ensure the new key has access to the APIs you wish it work with by selecting the API from the "Access Rights" -> "Add Access Rule" and clicking the "add" button.
+2.  Ensure the new key has access to the APIs you wish it work with by selecting the API from **Access Rights** > **Add Access Rule** and click **Add**
 
-3.  Under the "Rate Limit" section of the page, select the rate (number of requests) and the "per" period. If the period is not available in the drop down, you can set it to a custom value using the Dashboard REST API.
+3.  From the **Rate Limit** section, select the **rate** (number of requests) and the **per** period. If the period is not available in the drop down, you can set it to a custom value using the Dashboard REST API.
     
 ![Tyk API Gateway Rate Limits][1]
 
@@ -62,4 +75,5 @@ All actions on the session object must be done via the Dashboard or Gateway REST
 
 
  [1]: /docs/img/dashboard/system-management/rateLimit.png
+ [2]: /docs/img/dashboard/system-management/global_rate_limits.png
 

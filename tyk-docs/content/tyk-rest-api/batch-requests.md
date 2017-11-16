@@ -46,9 +46,9 @@ Batch requests are created by POSTing to the `/{api-id}/tyk/batch` endpoint. The
     }
 ```
 
-The response will will be a structured reply that encapsulates the responses for each of the outbound requests. If `suppress_parallel_execution` is set to `true`, requests will be made synchronously. <I></I>f set to `false` then they will run in parallel and the response order is not guaranteed.
+The response will will be a structured reply that encapsulates the responses for each of the outbound requests. If `suppress_parallel_execution` is set to `true`, requests will be made synchronously. If set to `false` then they will run in parallel and the response order is not guaranteed.
 
-A response to the above when pointing at the httpbin(1) would look like:
+A response to the above when pointing at [httpbin](https://httpbin.org/) would look like:
 
 ```
     [
@@ -149,7 +149,7 @@ With the body for each request string encoded in the `body` field.
 
 * `expire_analytics_after`: If you are running a busy API, you may want to ensure that your MongoDB database does not overflow with old data. Set the `expire_analytics_after` value to the number of seconds you would like the data to last for. Setting this flag to anything above `0` will set an `expireAt` field for each record that is written to the database.
     
-> **Important:** Tyk will not create the expiry index for you. In order to implement data expiry for your analytics data, ensure that the index is created This is very easily achieved using the MongoDB command line interface [as described here][7].
+> **Important:** Tyk will not create the expiry index for you. In order to implement data expiry for your analytics data, ensure that the index is created This is very easily achieved using the [MongoDB command line interface](https://docs.mongodb.com/getting-started/shell/client/).
 
 * `dont_set_quota_on_create`: This setting defaults to `false`, but if it is set to `true`, when the API is used to edit, create or add keys, the quota cache in Redis will not be re-set. By default, all updates or creates to Keys that have Quotas set will re-set the quota (This has been the default behaviour since 1.0).
     
@@ -163,7 +163,7 @@ This behaviour can be bypassed on a case-by-case basis by using the `suppress_re
 
 * `cache_options.cache_all_safe_requests`: Set this to `true` if you want all *safe* requests (GET, HEAD, OPTIONS) to be cached. This is a blanket setting for APIs where caching is required but you don't want to set individual paths up in the definition.
 
-* `cache_options.enable_upstream_cache_control`: Set this to `true` if you want your application to control the cache options for Tyk (TTL and whether to cache or not). See [Caching][10] for implementation details.
+* `cache_options.enable_upstream_cache_control`: Set this to `true` if you want your application to control the cache options for Tyk (TTL and whether to cache or not). See [Caching](/docs/reduce-latency/caching/) for more details.
 
 * `response_processors`: Response processors need to be specifically defined so they are loaded on API creation, otherwise the middleware will not fire. In order to have the two main response middleware components fire, the following configuration object should be supplied:
 

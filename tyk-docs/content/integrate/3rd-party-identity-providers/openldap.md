@@ -122,9 +122,10 @@ Once again, a simple `POST` request is all that is needed to validate a user via
 In some cases validation of a user CN is not enough, and it requires verifying if a user match some specific rules, like internal team ID. In this case TIB provides support for doing additional LDAP search check, and if result of this search returns only 1 record, it will pass the user. 
 
 To make it work you need to specify 3 additional attributes in profile configuration file:
-* `LDAPBaseDN` — base DN used for doing LDAP search, for example `cn=dashboard,ou=Group`
-* `LDAPFilter` — filter applied to the search, should include \*USERNAME\* variable. For example: `((objectCategory=person)(objectClass=user)(cn=*USERNAME*))`
-* `LDAPSearchScope` — This specifies the portion of the target subtree that should be considered. Supported search scope values include: 0 - baseObject (often referred to as "base”), 1 - singleLevel (often referred to as "one”), 2 - wholeSubtree (often referred to as "sub")
+
+* `LDAPBaseDN` - base DN used for doing LDAP search, for example `cn=dashboard,ou=Group`
+* `LDAPFilter` - filter applied to the search, should include the `*USERNAME*`variable. For example: `((objectCategory=person)(objectClass=user)(cn=*USERNAME*))`
+* `LDAPSearchScope` - This specifies the portion of the target subtree that should be considered. Supported search scope values include: 0 - baseObject (often referred to as "base"), 1 - singleLevel (often referred to as "one"), 2 - wholeSubtree (often referred to as "sub")
 
 For additional information about [LDAP search protocol](https://www.ldap.com/the-ldap-search-operation)
 
