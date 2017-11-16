@@ -8,9 +8,7 @@ You can use the dashboard to create a portal that allows developers to access th
 *   The API must be *Closed* (i.e. it must use either Auth Token or Basic Auth security mechanisms)
 *   A security policy configured to grant access to the API
 
-### Step 1: Select “Catalogue” from the “Portal Management” section
-
-First you will need to navigate to the portal catalogue, to do so, select the option from the left hand nav:
+### Step 1: Select "Catalogue" from the "Portal Management" section
 
 ![Catalogue menu link location][1]
 
@@ -39,19 +37,25 @@ All catalogue entries can have a description. You can use Markdown formatting in
 
 ![Description form][4]
 
-### Step 5: Enable the API
+### Step 5: Show the API
 
-An API will not be published until you mark it as active. Ensure this option is selected, otherwise the API entry will not appear:
+An API will not be published until you select **Show API**:
 
 ![API active checkbox][5]
 
+### Step 6: Add Documentation
+You can add import documentation in the following formats:
+* From a Swagger file
+* From a Swagger URL
+* From API Blueprint
+
+From v1.4, you can add your documentation before or after saving your API.
+
+![Add Docs][8]
+
 ### Step 6: Save the API
 
-You'll notice that you haven't added any docs yet. You can only add these after you have created the API.
-
-To save the API, click the `update` button:
-
-![Update button location][6]
+To save the API, click **Update**.
 
 ### Step 7: Take a look
 
@@ -59,10 +63,11 @@ You can now visit your portal to see the API catalogue entry. Select Open Your P
 
 ![Portal nav menu location][7]
 
-[1]: /docs/img/dashboard/portal-management/portal_catalogue.png
-[2]: /docs/img/dashboard/system-management/addAPIbutton.png
+[1]: /docs/img/dashboard/portal-management/nav_catalogue_new.png
+[2]: /docs/img/dashboard/portal-management/add_api_cat_button_new.png
 [3]: /docs/img/dashboard/portal-management/portalPolicy.png
 [4]: /docs/img/dashboard/portal-management/portalDescription.png
-[5]: /docs/img/dashboard/portal-management/enableAPI.png
+[5]: /docs/img/dashboard/portal-management/show_api_cat_new.png
 [6]: /docs/img/dashboard/portal-management/saveAPI.png
 [7]: /docs/img/dashboard/portal-management/visitPortal.png
+[8]: /docs/img/dashboard/portal-management/cat_add_docs_new.png

@@ -54,7 +54,7 @@ Usage quotas can only be a positive number, or -1 (unlimited).
 
 ![Save a Policy][7]
 
-To make the policy active, click **Create** . Once the policy is saved, you will be able to use it when generating keys, OAuth clients and custom JWT tokens.
+To make the policy active, click **Create** . Once the policy is saved, you will be able to use it when creating keys, OAuth clients and custom JWT tokens.
 
 ## <a name="with-api"></a>Tutorial: Create a security policy with the API
 
@@ -113,8 +113,8 @@ You can then use this policy ID in the `apply_policy_id` field of an API token. 
 
 For more information on how policies are constructed and a detailed explanation of their properties, please see the [Security Policies](/docs/security/security-policies/) section.
 
- [1]: /docs/img/dashboard/system-management/nav_policies.png
- [2]: /docs/img/dashboard/system-management/AddPolicyButton.png
+ [1]: /docs/img/dashboard/system-management/nav_policies_new.png
+ [2]: /docs/img/dashboard/system-management/add_policy_button_new.png
  [3]: /docs/img/dashboard/system-management/policyNameField.png
  [4]: /docs/img/dashboard/system-management/rateLimit.png
  [5]: /docs/img/dashboard/system-management/usageQuotas.png

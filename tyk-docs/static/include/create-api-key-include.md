@@ -22,8 +22,7 @@ You can leave all other options at their default settings.
 
 ![Create button location][4]
 
-The page should scroll to the top and you will see the new key on the right-hand side in a green box.
-**NOTE:** You need to copy and save this key for later reference when it is displayed as it is cannot be retrieved later.
+A **Key successfully generated** pop-up will be displayed with the key shown. You **must** save this somewhere for future reference as it will not be displayed again. Click **Copy to clipboard** and paste into a text document.
 
 ![Key success message location][5]
 
@@ -71,10 +70,10 @@ Once you have these values, you can use them to access the dashboard API, the be
 
 
 
-[1]: /docs/img/dashboard/system-management/NavKeys.png
-[2]: /docs/img/dashboard/system-management/addKeyButton.png
-[3]: /docs/img/dashboard/system-management/accessRights.png
-[4]: /docs/img/dashboard/system-management/createKeyButton.png
-[5]: /docs/img/dashboard/system-management/keyAdded.png
-[6]: /docs/img/dashboard/system-management/APIKey.png
+[1]: /docs/img/dashboard/system-management/nav_keys_new.png
+[2]: /docs/img/dashboard/system-management/add_key_button_new.png
+[3]: /docs/img/dashboard/system-management/access_rights_new.png
+[4]: /docs/img/dashboard/system-management/create_key_button_new.png
+[5]: /docs/img/dashboard/system-management/copy_key_popup.png
+[6]: /docs/img/dashboard/system-management/API_key_new.png
 [7]: /docs/img/dashboard/system-management/APIId.png
