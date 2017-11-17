@@ -221,7 +221,7 @@ For more information see the [SSL section in the documentation][1]
 
 *   `home_dir`: The path to the home directory of Tyk Dashboard, this must be set in order for Portal templates and other files to be loadable. By default this is `/opt/tyk-dashboard/`.
 
-*   `dashboard_session_lifetime` The timeout setting for a Dashboard session in seconds. Defaults to 60 seconds.
+*   `dashboard_session_lifetime` The timeout setting for a Dashboard session in minutes. Defaults to 60 minutes.
 
 > **NOTE:** `dashboard_session_lifetime` is available from v1.3.6 onwards
 

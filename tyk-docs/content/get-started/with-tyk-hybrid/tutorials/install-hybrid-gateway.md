@@ -22,7 +22,7 @@ To install the Tyk Hybrid Gateway, you need:
 ### Step 1: Get your credentials
 
 1.  Go to <https://admin.cloud.tyk.io> and login with your new details.
-2.  Click "Users" and select your name, you will see your RPC credentials, take note of these:
+2.  Click "Users" and select your name, you will see your Organisation ID, take note of this:
     
     ![RPC credentials][1]
 
@@ -54,7 +54,7 @@ The parameters explained:
 
 *   `PORT`: The port for Tyk to listen on (usually 8080).
 *   `TYK-SECRET`: The secret key to use so you can interact with your Tyk node via the REST API.
-*   `RPC-CREDENTIALS`: Your organisation ID, this can be found in the Dashboard Users -> User section.
+*   `RPC-CREDENTIALS`: Your Organisation ID, this can be found in the Dashboard Users -> User section. See Step 1 above.
 *   `API-CREDENTIALS`: Your Tyk Cloud API credentials - these can be found in the Users section of your dashboard.
 
 The `TYK-SECRET` should be a secret key you define so you can interact with your Tyk node programatically.

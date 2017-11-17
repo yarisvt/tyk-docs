@@ -77,13 +77,13 @@ Tyk allows you to define a list of trusted certificates at the API level or Gate
 definition: 
 `use_mutual_tls_auth` to `true`, and `client_certificates` as an array of strings - certificate IDs. 
 
-From the Tyk Dashboard, to do the same, from the API designer Core settings section you need to choose Mutual TLS authentication mode from the Authentication sub-section, and white-list the certificates using the built-in widget, as below:
+From the Tyk Dashboard, to do the same, from the **API Designer Core settings**section you need to select **Mutual TLS** authentication mode from the **Authentication** section, and white-list the certificates using the built-in widget, as below:
 
 ![mutual_tls_auth][1]
 
 If all your APIs have a common set of certificates, you can define them on Gateway configuration file via the `security.certificates.apis` key - string array of certificate IDs or paths.
 
-Be aware that Mutual TLS authorization has special treatment, because it is not "authentication" and do not provide any identifying functionality, like keys, so you need to mix it with another authorization modes options like **Auth Key** or **Keyless**. On the dashboard, you need to choose **Use multiple auth mechanism** in **Authentification mode** dropdown, where you should select **Mutual TLS** and another option which suite your use-case. 
+Be aware that Mutual TLS authorisation has special treatment, because it is not "authentication" and do not provide any identifying functionality, like keys, so you need to mix it with another authentication modes options like **Auth Key** or **Keyless**. On the dashboard, you need to choose **Use multiple auth mechanism** in **Authentication mode** dropdown, where you should select **Mutual TLS** and another option which suite your use-case. 
 
 ## Fallback to HTTP Authorisation 
 The TLS protocol has no access to the HTTP payload and works on the lower level; thus the only information we have at the TLS handshake level is the domain. In fact, even a domain is not included into a TLS handshake by default, but there is TLS extension called SNI (Server Name Indication) 

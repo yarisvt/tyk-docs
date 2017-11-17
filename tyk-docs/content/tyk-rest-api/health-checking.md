@@ -9,7 +9,7 @@ weight: 5
 
 ### Check the health of a Tyk Node and upstream API
 
-> **Note**: The health-check API is being deprecated, and we no longer recommend its use.
+> **Note**: As of v2.4, the health-check API has been deprecated.We no longer recommend its use.
 
 Tyk retains health data in Redis which reflects the current state of the API, in particular, the health-check API will return:
 

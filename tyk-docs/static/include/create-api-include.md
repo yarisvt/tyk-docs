@@ -17,10 +17,10 @@ We will use the Tyk Dashboard to create a very simple API that has no special el
 
 In this section:
 
-*   **API Name**: The name you want to give this group of endpoints, this will represent the API.
+*   **API Name**: The name you want to give this group of endpoints. This will represent the API.
 *   **API Slug**: The URL segment that will map to this API, e.g. if set to `widgets` then the full API URL will be `https://your-organisation.cloud.tyk.io/widgets`.
 *   **Target URL**: The upstream origin that hosts the service you want to proxy to.
-*   **Enable round-robin load balancing**: This allows you to enter more than one target URL, we will ignore this for now.
+*   **Enable round-robin load balancing**: This allows you to enter more than one target URL. We will ignore this for now.
 
 #### Step 4: Set up the security option for your API
 
@@ -30,10 +30,11 @@ From the **Target Details** section:
 
 You have the following options:
 
-*   **Authentication mode**: This is the security method to use with your API, there can be only one per API. In this case, set it to `Auth Token`, this is the simplest security mechanism to use.
+*   **Authentication mode**: This is the security method to use with your API. There can be only one per API. In this case, set it to `Auth Token`, as this is the simplest security mechanism to use.
 *   **Auth Key Header Name**: The header name that will hold the token on inbound requests. The default for this is `Authorization`.
-*   **Allow Query Parameter As Well As Header**: Set this option to enable checking the query parameter as well as the header for an auth token, for this guide, leave this `unchecked`.
+*   **Allow Query Parameter As Well As Header**: Set this option to enable checking the query parameter as well as the header for an auth token. For this tutorial, leave this `unchecked`.
 *   **Use Cookie Value**: It is possible to use a cookie value as well as the other two token locations. Set this as `unchecked`.
+*   **Enable client certificate**: Select this to use the Mutual TLS functionality introduced in v1.4. See [Mutual TLS](/docs/security/tls-and-ssl/mutual-tls/) for details on implementing Mutual TLS.
 
 ### Step 5: Save the API
 
@@ -95,13 +96,13 @@ To create the API, let's send a definition to the admin endpoint replacing the `
      }' https://admin.cloud.tyk.io/api/apis/ | python -mjson.tool
 ```
 
-[1]: /docs/img/dashboard/system-management/nav_apis.png
-[2]: /docs/img/dashboard/system-management/addAPIbutton.png
+[1]: /docs/img/dashboard/system-management/nav_apis_new.png
+[2]: /docs/img/dashboard/system-management/add_API_button_new.png
 [3]: /docs/img/dashboard/system-management/APIDesigner.png
-[4]: /docs/img/dashboard/system-management/targetDetails.png
+[4]: /docs/img/dashboard/system-management/Target_Details_new.png
 [5]: /docs/img/dashboard/system-management/saveAPI.png
 [6]: /docs/img/dashboard/system-management/APIURLLocation.png
-[7]: /docs/img/dashboard/system-management/APIKey.png
+[7]: /docs/img/dashboard/system-management/API_key_new.png
 [8]: /docs/tyk-rest-api/api-definition-object-details/
 <!-- END OMIT -->
 
@@ -132,12 +133,3 @@ To access the proxied API via the gateway on Tyk Cloud:
 ```
 
 If you see the above output, then the API is loaded and is being protected by Tyk. You can now generate a token and try the same command in place of `null` to see if the request proxies.
-
-[1]: /docs/img/dashboard/system-management/nav_apis.png
-[2]: /docs/img/dashboard/system-management/addAPIbutton.png
-[3]: /docs/img/dashboard/system-management/APIDesigner.png
-[4]: /docs/img/dashboard/system-management/targetDetails.png
-[5]: /docs/img/dashboard/system-management/saveAPI.png
-[6]: /docs/img/dashboard/system-management/APIURLLocation.png
-[7]: /docs/img/dashboard/system-management/APIKey.png
-[8]: /docs/tyk-rest-api/api-definition-object-details/
