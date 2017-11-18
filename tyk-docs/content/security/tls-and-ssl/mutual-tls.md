@@ -136,6 +136,9 @@ To solve this issue, you need set `security. private_certificate_encoding_secret
 send them to client without password. Using secure connection between slave Gateways and MDCB is required in this case. See MDCB setup page for use_ssl usage.
 
 ## Admin APIs and internal communication between Tyk products 
+
+> NOTE: This feature will is planned for Gateway 2.5, Dashboard 1.5 and later. API and variable names may change.
+
 All internal Tyk APIs can be protected with Mutual TLS. So you can additionally protect both Admin APIs from external access, and at the same time protect internal link connecting the Tyk Gateway, Dashboard, and MDCB.
 
 For specifying client certificates Tyk re-uses the  `security.certificates.upstream` configuration 
