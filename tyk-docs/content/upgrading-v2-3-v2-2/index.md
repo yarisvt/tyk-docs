@@ -1,8 +1,8 @@
 ---
 date: 2017-03-28T12:47:56+01:00
 title: Upgrading to v2.3 from v2.2
+notoc: true
 weight: 220
-menu: "main"
 url: "/upgrading-v2-3-v2-2"
 ---
 
