@@ -8,7 +8,7 @@ weight: 2
 
 ## <a name="what-is"></a> What is Mutual TLS?
 
-> NOTE: Mutual TLS is supporting starting from Tyk Gateway 2.4, Tyk Dashboard 1.4 and MDCB 1.4
+> NOTE: Mutual TLS feature supported starting from Tyk Gateway 2.4, Tyk Dashboard 1.4 and MDCB 1.4
 
 Mutual TLS is a common security practice, that uses client TLS certificates to provide an additional layer of protection, allowing to cryptographically verify the client information.
 
