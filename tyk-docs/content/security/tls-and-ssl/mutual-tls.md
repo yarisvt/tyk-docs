@@ -8,6 +8,8 @@ weight: 2
 
 ## <a name="what-is"></a> What is Mutual TLS?
 
+> NOTE: Mutual TLS is supporting starting from Tyk Gateway 2.4, Tyk Dashboard 1.4 and MDCB 1.4
+
 Mutual TLS is a common security practice, that uses client TLS certificates to provide an additional layer of protection, allowing to cryptographically verify the client information.
 
 In most of the cases when you try to access secured HTTPS/TLS endpoint, you experience only the client-side check of the server certificate. The purpose of this check is to ensure that no fraud is involved and data transfer between the client and server is encrypted. In fact, the TLS standard allows specifying the client certificate as well, so the server can accept connections only for clients with certificates registered with the server certificate authority, or provide additional security checks based on the information stored in the client certificate. This is what we call "Mutual TLS" - when both sides of the connection verify certificates.
