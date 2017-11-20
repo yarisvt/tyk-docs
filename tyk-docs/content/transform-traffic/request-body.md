@@ -124,9 +124,10 @@ This example would produce the following output:
     }
 ```
 
-### jsonMarshal
+### Escaping characters using `jsonMarshal`
+> Available starting from Gateway 2.4
 
-For v2.4 We have added the `jsonMarshal` helper to the body transform templates. You can apply `jsonMarshal` on a string in order to perform JSON style character escaping, and on complex objects to serialise them to a JSON string. 
+Using `jsonMarshal` template helper you can perform JSON style character escaping, and for complex objects serialise them to a JSON string. 
  
 Example:
 
