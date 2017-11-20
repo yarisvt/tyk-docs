@@ -84,7 +84,7 @@ If all your APIs have a common set of certificates, you can define them on Gatew
 
 Be aware that Mutual TLS authorisation has special treatment, because it is not "authentication" and do not provide any identifying functionality, like keys, so you need to mix it with another authentication modes options like **Auth Key** or **Keyless**. On the dashboard, you need to choose **Use multiple auth mechanism** in **Authentication mode** dropdown, where you should select **Mutual TLS** and another option which suite your use-case. 
 
-## <a name="fallback-http-authorisation"></a> Fallback to HTTP Authorisation 
+### <a name="fallback-http-authorisation"></a> Fallback to HTTP Authorisation 
 The TLS protocol has no access to the HTTP payload and works on the lower level; thus the only information we have at the TLS handshake level is the domain. In fact, even a domain is not included into a TLS handshake by default, but there is TLS extension called SNI (Server Name Indication) 
 which allows the client to send the domain name to the TLS handshake level. 
 
@@ -109,7 +109,7 @@ While creating a Key, select **Authenticate using your client certificate**  and
 
 ![keys_cert][3]
 
-## <a name="using-with-authorization"></a> Using with authorization 
+### <a name="using-with-authorization"></a> Using with authorization 
 Mutual TLS authentication does not require Mutual TLS authorisation to be turned on, and can be used separately. For example you may allow some of the users be authenticated by using a token in the header or similar, and some of the users via client certificates. 
 
 If you want use them both, just configure them separately, no additional knowledge is required.
