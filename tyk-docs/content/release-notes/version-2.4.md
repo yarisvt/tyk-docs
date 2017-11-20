@@ -1,23 +1,25 @@
 ---
 date: 2017-03-24T09:58:52Z
-title: Version 2.4 & 1.4 & 0.5
+title: Tyk Gateway v2.4 and more
 menu:
   main:
     parent: "Release Notes"
 weight: 0 
 ---
-# Tyk Gateway v2.4, Tyk Dashboard v1.4, Tyk Pump v0.5
 
-## <a name="new"></a>New in this release:
+# <a name="new"></a>New in this release:
 
-## <a name="gateway-dashboard"></a>Tyk Gateway & Tyk Dashboard
+This release touch all our products and brings you numerous long awaited features and fixes. 
+Here are the packages and their versions we are releasing today: Tyk Gateway v2.4.0, Tyk Dashboard v1.4.0, Tyk Pump v0.5.0, MDCB v1.4.0, TIB v0.2.
 
-### Mutual TLS
+# <a name="major-highlights"></a>Major highlights
 
-A major feature of this release is the implementation of Mutual TLS. For details, see [Mutual TLS](/docs/security/tls-and-ssl/mutual-tls/).
+## Mutual TLS
+
+A major feature of this release is the implementation of Mutual TLS. Now you can protect your APIs by white-listing certificates, idenitfy users based on them, and increase security between Tyk and upstream API. For details, see [Mutual TLS](/docs/security/tls-and-ssl/mutual-tls/).
 
 
-### Extended use of Multiple Policies
+## Extended use of Multiple Policies
 
 We have extended support for partitioned policies, and you can now mix them up when creating a key. Each policy should have own partition, and will not intersect, to avoid conflicts while merging their rules. 
 
@@ -34,28 +36,21 @@ We have updated the Dashboard **Apply Policies** section of the **Add Key** sect
 
 For this release multiple policies are only supported only via the Add Key section and via the API. Support for OIDC, oAuth, and Portal API Catalogues are planned for subsequent releases.
 
-https://github.com/TykTechnologies/tyk/issues/355
+[Docs](/docs/security/security-policies/partitioned-policies/)
 
-### Improved Swagger API import defaults
-
-When importing Swagger based APIs they now generate tracked URLs instead of white listed ones.
-
-https://github.com/TykTechnologies/tyk/issues/643
-
-### Global API Rate Limits
+## Global API Rate Limits
 
 We have added a new API definition field `global_rate_limit` which specifies a global API rate limit in the following format: `{"rate": 10, "per": 1}`, similar to policies or keys. 
 
 The API rate limit is an aggregate value across all users, which works in parallel with user rate limits, but has higher priority.
 
-Extended Dashboard API designer Rate Limiting and Quotas section in Core 
-settings:
+Extended Dashboard API designer Rate Limiting and Quotas section in Core settings:
 
 ![rate-limits][2]
 
-https://github.com/TykTechnologies/tyk/issues/356
+[Docs](/docs/control-limit-traffic/rate-limiting/)
 
-### Specify custom analytics tags using HTTP headers
+## Specify custom analytics tags using HTTP headers
 
 We have added a new API definition field `tag_headers` which specifies a string array of HTTP headers which can be extracted and turned to tags. 
 
@@ -67,33 +62,53 @@ We have added a new **Tag headers** section to the Dashboard **API Designer Adva
 
 ![tag_headers][3]
 
-## <a name="gateway"></a>Tyk Gateway
+[Docs](/docs/analyse/log-browser/)
+
+## Single-Sign-On (SSO) improvements
+
+More SSO functionality is something that a lot of our customers have been asking for. In this release we’ve significantly improved our support for SSO, and you can now:
+
+* Enable Tyk Identity Brokey to apply LDAP filters to user search [Docs](/docs/integrate/3rd-party-identity-providers/openldap/)
+* Set permissions for your users, logged via SSO, via `sso_permission_defaults` in Dashboard config file. [Docs](/docs/integrate/3rd-party-identity-providers/)
+* Setup a login page redirect, using `sso_custom_login_url` and `sso_custom_portal_login_url` Dashboard config options to enable users login using a custom SSO login page. [Docs](/docs/integrate/3rd-party-identity-providers/)
+* For those who loves to build everything in-house, we added new API for custom dasboard authentification integrations. [Docs](/docs/integrate/3rd-party-identity-providers/custom/)
+
+# Moar!
+This release is packed with way more more cool stuff. Here are detailed release notes for each product:
+
+## <a name="gateway"></a>Tyk Gateway v2.4.0
+
+### Mutual TLS support
+[Docs](/docs/security/tls-and-ssl/mutual-tls/)
+
+### Global API rate limits
+[Docs](/docs/control-limit-traffic/rate-limiting/)
+
+### Specify custom analytics tags using HTTP headers
+[Docs](/docs/analyse/log-browser/)
+
+### Attaching Multiple Policies to the Keys
+[Docs](/docs/security/security-policies/partitioned-policies/)
 
 ### Default User Agent set to Tyk/$VERSION
-
 If no user agent is specified in a request, it is now set as `Tyk/$VERSION`.
 
-https://github.com/TykTechnologies/tyk/issues/422
+### Include `x-tyk-api-expires` date header for versioned APIs
+If a request is made for an API which has an expiry date, the response will include the `x-tyk-api-expires` header with expiry date. 
 
-### Include x-tyk-api-expires date header for versioned APIs
-
-If a request is made for an API which has an expiry date, the response will include the expiry date as meta data in the header.
-
-https://github.com/TykTechnologies/tyk/issues/437
+[Docs](/docs/concepts/versioning/)
 
 ### Run Admin Control API on a separate port
+Using `control_api_port` option in configuration file, you can run the admin control api on a separate port, and hide it behind firewall if needed.
 
-We have added a new `control_api_port` option to the Gateway configuration file, which allows you to run the admin control api on a separate port, and hide it behind firewall if needed.
-
-https://github.com/TykTechnologies/tyk/issues/354
+[Docs](/docs/security/gateway/gateway-api/)
 
 ### Added a Configuration Linter
-
-We have Added a new `tyk lint` command which takes the Gateway configuration file path as argument, and validates the syntax, misspelled attribute names or values format. 
+The new `tyk lint` command which takes the Gateway configuration file path as argument, and validates the syntax, misspelled attribute names or values format. It can be good include this step to your CI/CD pipeline.
 
 For example: `tyk lint ./tyk.conf`
 
-https://github.com/TykTechnologies/tyk/issues/336
+[Docs](/docs/configure/tyk-gateway-configuration-options/)
 
 ### Set log_level from tyk.conf
 
@@ -101,7 +116,7 @@ We have added a new `log_level` configuration variable to `tyk.conf` to control 
 
 Possible values are: `debug`, `info`, `warn`, `error`
 
-https://github.com/TykTechnologies/tyk/issues/1182
+[Docs](/docs/configure/tyk-gateway-configuration-options/)
 
 ### Added jsonMarshal to body transform templates
 
@@ -109,73 +124,125 @@ We have added the `jsonMarshal` helper to the body transform templates. You can 
 
 Example: `{{ .myField | jsonMarshal }}`
 
-https://github.com/TykTechnologies/tyk/pull/1175
+[Docs](/docs/transform-traffic/request-body/)
 
 ### Added a blocking reload endpoint
 
 Now you can add a `?block=true` argument to the `/tyk/reload` API endpoint, which will block a response, until the reload is performed. This can be useful in scripting environments like CI/CD workflows.
 
-https://github.com/TykTechnologies/tyk/issues/703
+[Docs](/docs/tyk-rest-api/hot-reload/)
 
-### TykJSPath now User Code only
+### `tyk_js_path` file now contains only user code
 
-If never used, users should now delete the `js/tyk.js` file or only keep user specific code in it. The Tyk code has now been included in our installation binaries.
+Internal JS API not budled into tyk binary, and `js/tyk.js` file used only for custom user code. It is recommended to delete this file, if you are not using it, or remove Tyk internal code from it. New releases do not ship this file by default.
 
-https://github.com/TykTechnologies/tyk/issues/739
+### Improved Swagger API import defaults
+
+When importing Swagger based APIs they now generate tracked URLs instead of white listed ones.
+
+[More](https://github.com/TykTechnologies/tyk/issues/643)
+
+### Respond with 503 if all hosts are down.
+Previously, the internal load balancer was cycling though hosts even if they were known as down.
+
+### Request with OPTIONS method should not be cached.
+[More](https://github.com/TykTechnologies/tyk/issues/376)
+
+### Health check API is officially deprecated.
+This was very resource consuming and unstable feature. We recommend using load balancers of your choice for this.
+
+### Fixed custom error templates for authentication errors.
+[More](https://github.com/TykTechnologies/tyk/issues/438)
 
 
+## <a name="dashboard"></a>Tyk Dashboard v2.4.0
 
-## <a name="dashboard"></a>Tyk Dashboard
+### Mutual TLS support
+[Docs](/docs/security/tls-and-ssl/mutual-tls/)
+
+### Global API rate limits
+[Docs](/docs/control-limit-traffic/rate-limiting/)
+
+### Specify custom analytics tags using HTTP headers
+[Docs](/docs/analyse/log-browser/)
+
+### Attaching Multiple Policies to the Keys
+[Docs](/docs/security/security-policies/partitioned-policies/)
+
+### Set permissions for users logged via SSO (Tyk Identity Broker)
+Added new option `sso_permission_defaults` in Dashboard config file. 
+Example:
+```
+"sso_permission_defaults": {
+  "oauth" : "read",
+  "apis" : "read",
+  "log" : "read",
+  "policy" : "read",
+  "keys" : "read",
+  "hooks" : "read",
+  "analytics" : "read"
+},
+```
+[Docs](/docs/integrate/3rd-party-identity-providers/)
+
+### Set custom login pages for portal and dashboard
+If you are using 3-rd party authentification like TIB, you maybe want to redirect from standard login pages to your own using following attributes in dashboard config: `sso_custom_login_url`, `sso_custom_portal_login_url`.
+
+[Docs](/docs/integrate/3rd-party-identity-providers/)
+
+### Added new set of APIs for custom dashboard authentification
+Added new `/admin/sso` endpoint for custom integration. In fact, the same API is used by our own Tyk Identity Broker. 
+
+[Docs](/docs/integrate/3rd-party-identity-providers/custom/)
+
 
 ### Service discovery form improved with most common pre-defined templates
 
+Now you can pre-fill the form with most popular templates like consul or etcd.
+
 ### RPC credentials renamed to Organization ID
+Yay!
 
 ### Replaced text areas with a code editors
 
-We have replaced multi-line text fields with a code editors. For example when importing API definitions.
-
-![editors][4]
-
-https://github.com/TykTechnologies/tyk-analytics/issues/488
+All multi-line text fields now replaced with a code editors.
 
 ### Replace dropdowns with the live search component
 
-We have changed all the dropdown lists with the live search component. Now all dropdowns, like API or Policiy lists, work with large list of elements, and have ability to search over the results.
-
-![live-search][5]
-
-https://github.com/TykTechnologies/tyk-analytics-ui/issues/222
+All the dropdown lists now support live search, and work with a large number of elements (especially handy for API or Policiy lists).
 
 ### Display user ID and email on when listing users
 
 The **Users list** now displays the **User ID** and **Email**.
 
-![user-list][6]
-
-https://github.com/TykTechnologies/tyk-analytics/issues/361
-
-https://github.com/TykTechnologies/tyk-analytics/issues/363
-
 ### Added search for portal developers
 
 We have added search for the users listed in the developer portal.
-
-![search][7]
 
 ### Key request email link to developer details
 
 The email address in a **Key Request** from the **Developer Portal** is now a link to the relevant developer profile.
 
-![key][8]
-
 ### Country code in log browser links to geo report
 
 The country code in the log browser has been changed to a link to the geographic report.
 
-https://github.com/TykTechnologies/tyk-analytics/issues/369
+### Added support for HEAD methods in the Dashboard API Designer.
 
-## Other UX Improvements
+### Redirect user to the login page if session is timed out.
+
+### When creating a portal API catalogue, you can now attach documentation without saving the catalogue first.
+
+### Fixed the` proxy.preserve_host_header` field when saved via the UI.
+Previously, the field was available in the API definition, but got removed if the API was saved via the UI.
+
+### Fixed the port removal in service discovery properties.
+https://github.com/TykTechnologies/tyk-analytics-ui/issues/12
+
+### Prevent an admin user revoking their own permissions.
+This is a  UI only fix, it is still allowable via the API (which is OK).
+
+### Other UX Improvements
 
 * Key pieces of data made accessible to quickly copy+paste
 * Improved help tips
@@ -185,56 +252,25 @@ https://github.com/TykTechnologies/tyk-analytics/issues/369
 * Improved charts
 * Improved analytics search
 
-## <a name="pump"></a>Tyk Pump
+## <a name="pump"></a> Tyk Pump v0.5.0
 
 ### Support added for Mongo SSL connections
 
-We have added support for **Mongo SSL connections**.
-
 See https://tyk.io/docs/configure/tyk-pump-configuration/ for a sample pump.conf file.
 
-## <a name="fixed"></a>Issues fixed in this release
+## <a name="mdcb"></a> MDCB v1.4.0
+Added support for Mutual TLS, mentioned by Gateway and Dashboard above. See [Docs](/docs/security/tls-and-ssl/mutual-tls/#mdcb)
+  
+Also fixed bug when Mongo connections became growing though the roof if client with wrong credentials tries to connect.
 
-### Gateway
 
-Respond with 503 if all hosts are down.
-Previously, the internal load balancer was cycling though hosts even if they were known as down.
-https://github.com/TykTechnologies/tyk/issues/836
+## <a name="tib"></a> TIB v0.2
+  
+Tyk Identity Broker now fully support LDAP search with complex filters! [Docs](/docs/integrate/3rd-party-identity-providers/openldap/)
 
-Request with OPTIONS method should not be cached.
-https://github.com/TykTechnologies/tyk/issues/376
+## <a name="upgrade"></a>Upgrading
 
-Health check API is officially deprecated.
-https://github.com/TykTechnologies/tyk/issues/784
-
-Fix custom error templates for authentication errors.
-https://github.com/TykTechnologies/tyk/issues/438
-
-### Dashboard
-
-Redirect user to the login page if session is timed out.
-https://github.com/TykTechnologies/tyk-analytics/issues/387
-
-When creating a portal API catalogue, you can now attach documentation without saving the catalogue first.
-https://github.com/TykTechnologies/tyk-analytics-ui/pull/175
-
-Fixed the proxy.preserve_host_header field when saved via the UI.
-Previously, the field was available in the API definition, but got removed if the API was saved via the UI.
-https://github.com/TykTechnologies/tyk-analytics/issues/392
-
-Fixed the port removal in service discovery properties.
-https://github.com/TykTechnologies/tyk-analytics-ui/issues/12
-
-Prevent an admin user revoking their own permissions.
-This is a  UI only fix, it is still allowable via the API.
-https://github.com/TykTechnologies/tyk-analytics-ui/issues/200
-
-Added support for HEAD methods in the Dashboard API Designer.
-https://github.com/TykTechnologies/tyk/issues/1055
-
-## <a name="upgrade"></a>Upgrading to 2.4
-
-> **NOTE**: Gateway v2.4 is fully compatible with v2.3.
+> **NOTE**: This release is fully compatitable with previous one, except that if you want to use new features, like Mutual TLS, you need to upgrade all the related components.
 
 Cloud users will be automatically upgraded to the new release.
 
