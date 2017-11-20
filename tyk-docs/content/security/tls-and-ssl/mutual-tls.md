@@ -30,8 +30,7 @@ If you have had to configure an SSL server or SSH access, the following informat
 
 Let's start with certificate definition. Here is what [Wikipedia](https://en.wikipedia.org/wiki/Public_key_certificate) says:
 
-In cryptography, a public key certificate, also known as a digital 
-certificate or identity certificate, is an electronic document used to prove the ownership of a public key. The certificate includes information about the key, information about the identity of its owner (called the subject), and the digital signature of an entity that has verified the certificate's contents (called the issuer). If the signature is valid, and the software examining the certificate trusts the issuer, then it can use that key to communicate securely with the certificate's subject.
+> In cryptography, a public key certificate, also known as a digital certificate or identity certificate, is an electronic document used to prove the ownership of a public key. The certificate includes information about the key, information about the identity of its owner (called the subject), and the digital signature of an entity that has verified the certificate's contents (called the issuer). If the signature is valid, and the software examining the certificate trusts the issuer, then it can use that key to communicate securely with the certificate's subject.
 
 When it comes to authorisation, it is enough for the server that has public client certificate in its trusted certificate storage, to trust it. However, if you need send a request to the server protected by mutual TLS, or need to configure the TLS server itself, you also need to have a private key, used while certificate generation, to sign the request.
 
