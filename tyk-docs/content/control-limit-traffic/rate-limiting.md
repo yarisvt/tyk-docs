@@ -32,13 +32,13 @@ This approach means that Tyk will continually measure load on each instance that
 The benefit of this approach is scalability and speed - the DRL is much more performant and puts much less pressure on Redis, meaning smaller deployments and higher availability.
 
 ### Global Rate Limiter
+> Supported since Gateway v2.4 and Dashboard v1.4
 
-New in Gateway v2.4 and Dashboard v1.4 we have added a new API definition field `global_rate_limit` which specifies a global API rate 
-limit in the following format: `{"rate": 10, "per": 1}` similar to policies or keys. 
+Using `global_rate_limit` API definition field you can specifies a global API rate limit in the following format: `{"rate": 10, "per": 1}` similar to policies or keys. 
  
 The API rate limit is an aggregate value across all users, which works in parallel with user rate limits, but has higher priority.
 
-### Setting Global Rate Limits from the Dashboard 
+#### Setting Global Rate Limits from the Dashboard 
  
 From the Dashboard, you can specify the Global Rate Limits from the API Designer: 
 
