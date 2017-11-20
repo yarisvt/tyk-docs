@@ -276,7 +276,7 @@ Cloud users will be automatically upgraded to the new release.
 
 Hybrid users should follow the upgrade instructions [here](/docs/get-started/with-tyk-hybrid/tutorials/install-hybrid-gateway/#upgrade-hybrid).
 
-On-Premises users can download the new release packages from:
+On-Premises users can download the new release packages from their usual repositories.
 
 
 

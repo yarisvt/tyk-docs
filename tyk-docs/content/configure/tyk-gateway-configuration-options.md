@@ -390,13 +390,13 @@ If you do not wish for virtual path JavaScript code that is loaded from the dash
 
 ### <a name="experimental_process_org_off_thread"></a> experimental_process_org_off_thread
 
-Setting this option to `true` will cause the organisation quota checker to handle quota limits off the main request pipeline, this can provide a speed boost in some situations. enabling this will cause quotas to be enforced by a “lock”, in order to re-access the API once the quota has reset, the lock must be broken by sending one failed request, this will cause the sentinel to be disabled and allow traffic to pass normally again.
+Setting this option to `true` will cause the organisation quota checker to handle quota limits off the main request pipeline, this can provide a speed boost in some situations. enabling this will cause quotas to be enforced by a "lock", in order to re-access the API once the quota has reset, the lock must be broken by sending one failed request, this will cause the sentinel to be disabled and allow traffic to pass normally again.
 
 ### <a name="enable_sentinel_rate_limiter"></a> enable_sentinel_rate_limiter
 
 To enable, set to `true`. The sentinel-based rate limiter provides a smoother performance curve as rate-limit calculations happen off-thread, but a stricter time-out based cool-down for clients, i.e. when a throttling action is triggered, they are required to cool-down for the period of the rate limit.
 
-Disabling the sentinel based limiter will make rate-limit calculations happen on-thread and therefore offers staggered cool-down and a smoother rate-limit experience for the client. I.e. the client can slow their connection throughput to regain entry into their rate limit, this is more of a “throttle” than a “block”. The standard rate limiter offers similar performance as the sentinel-based limiter. This is disabled by default.
+Disabling the sentinel based limiter will make rate-limit calculations happen on-thread and therefore offers staggered cool-down and a smoother rate-limit experience for the client. I.e. the client can slow their connection throughput to regain entry into their rate limit, this is more of a "throttle" than a "block". The standard rate limiter offers similar performance as the sentinel-based limiter. This is disabled by default.
 
 ### <a name="enable_non_transactional_rate_limiter"></a> enable_non_transactional_rate_limiter
 
@@ -432,11 +432,11 @@ Set this value to `true` to have Tyk manage session data using a goroutine, this
 
 ### <a name="disable_dashboard_zeroconf"></a> disable_dashboard_zeroconf
 
-Disable the capability of the Gateway to “autodiscover” the Dashboard through heartbeat messages via Redis.
+Disable the capability of the Gateway to "autodiscover" the Dashboard through heartbeat messages via Redis.
 
 ### <a name="auth_override"></a> auth_override
 
-Is used as part of the RPC / Hybrid back-end configuration when using Tyk Enterprise and isn’t used anywhere else.
+Is used as part of the RPC / Hybrid back-end configuration when using Tyk Enterprise and isn't used anywhere else.
 
 ### <a name="use_redis_log"></a> use_redis_log
 
@@ -469,8 +469,8 @@ This allows you to run the admin control api on separate port, and hide it behin
 
 > **NOTE:** This option is available from v2.4 onwards.
 
-### <a name="log-level">log_level
-You now set a logging level via the `tyk.conf` file. The following levels can be set:
+### <a name="log-level"></a>log_level
+You can now set a logging level via the `tyk.conf` file. The following levels can be set:
 * debug
 * info
 * warn
