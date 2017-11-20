@@ -90,5 +90,5 @@ If you have modified your Docker container in the current version, you should ta
 ### Step 2: Run the start.sh script again
 Run the start.sh script again as in [Step 2] (/docs/get-started/with-tyk-hybrid/tutorials/install-hybrid-gateway/#installation) in the Install section.
 
- [1]: /docs/img/dashboard/system-management/userCredentials.png
+ [1]: /docs/img/dashboard/system-management/org_id.png
  [2]: /docs/get-started/with-tyk-hybrid/create-an-account/

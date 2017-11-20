@@ -668,6 +668,28 @@ See [Uptime Tests][11] for details on how uptime tests work and how to configure
 
 * `do_not_track`: Set this value to true to have traffic for this API completely ignored.
 
+### Custom Analytics Tags using HTTP Headers
+
+`tag_headers`:  This specifies a string array of HTTP headers which can be extracted and turned to tags. 
+
+For example if you include `X-Request-ID` header to tag_headers, for each incoming request it will include a `x-request-id-<header_value>` tag to request an analytic record.
+
+This functionality can be useful if you need to pass additional information from the request to the analytics, without enabling detailed logging, which records the full request and response objects.
+
+See [Log Browser](/docs/analyse/log-browser/) for more details on setting via the Dashboard.
+
+> **NOTE**: This functionality is available from Gateway v2.4 and Dashboard v1.4.
+
+### Global Rate Limit
+
+`global_rate_limit`: This specifies a global API rate limit in the following format: `{"rate": 10, "per": 1}`, similar to policies or keys. 
+
+The API rate limit is an aggregate value across all users, which works in parallel with user rate limits, but has higher priority.
+
+See [Rate Limiting](/docs/control-limit-traffic/rate-limiting) for more details including setting via the Dashboard.
+
+> **NOTE**: This functionality is available from Gateway v2.4 and Dashboard v1.4.
+
 [1]: /docs/security/your-apis/basic-auth/
 [2]: /docs/tyk-rest-api/token-management
 [3]: https://web-payments.org/specs/ED/http-signatures/2014-02-01/#page-3
