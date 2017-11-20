@@ -38,7 +38,7 @@ To reload a whole group of Tyk nodes (without using the Dashboard or host manage
 
 ### Hot-reload a single node
 
-Tyk is capable of reloading configurations without having to stop serving requests, this means that API configurations can be added at runtime, or even modified at runtime and those rules applied immediately without any downtime.
+Tyk is capable of reloading configurations without having to stop serving requests, this means that API configurations can be added at runtime, or even modified at runtime and those rules applied immediately without any downtime. You can add a `?block=true`, which will block a response, until the reload is performed. This can be useful in scripting environments like CI/CD workflows.
 
 | **Property** | **Description** |
 | ------------ | --------------- |
