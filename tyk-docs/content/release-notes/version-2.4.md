@@ -6,66 +6,9 @@ menu:
     parent: "Release Notes"
 weight: 0 
 ---
-
 # Tyk Gateway v2.4, Tyk Dashboard v1.4, Tyk Pump v0.5
 
 ## <a name="new"></a>New in this release:
-
-## <a name="gateway"></a>Tyk Gateway
-
-### Default User Agent set to Tyk/$VERSION
-
-If no user agent is specified in a request, it is now set as `Tyk/$VERSION`.
-
-https://github.com/TykTechnologies/tyk/issues/422
-
-### Include x-tyk-api-expires date header for versioned APIs
-
-If a request is made for an API which has an expiry date, the response will include the expiry date as meta data in the header.
-
-https://github.com/TykTechnologies/tyk/issues/437
-
-### Run Admin Control API on a separate port
-
-We have added a new `control_api_port` option to the Gateway configuration file, which allows you to run the admin control api on a separate port, and hide it behind firewall if needed.
-
-https://github.com/TykTechnologies/tyk/issues/354
-
-### Added a Configuration Linter
-
-We have Added a new `tyk lint` command which takes the Gateway configuration file path as argument, and validates the syntax, misspelled attribute names or values format. 
-
-For example: `tyk lint ./tyk.conf`
-
-https://github.com/TykTechnologies/tyk/issues/336
-
-### Set log_level from tyk.conf
-
-We have added a new `log_level` configuration variable to `tyk.conf` to control logging level.
-
-Possible values are: `debug`, `info`, `warn`, `error`
-
-https://github.com/TykTechnologies/tyk/issues/1182
-
-### Added jsonMarshal to body transform templates
-
-We have added the `jsonMarshal` helper to the body transform templates. You can apply jsonMarshal on a string in order to perform JSON style character escaping, and on complex objects to serialise them to a JSON string.
-
-Example: `{{ .myField | jsonMarshal }}`
-
-https://github.com/TykTechnologies/tyk/pull/1175
-
-### Added a blocking reload endpoint
-
-Now you can add a `?block=true` argument to the `/tyk/reload` API endpoint, which will block a response, until the reload is performed. This can be useful in scripting environments like CI/CD workflows.
-
-https://github.com/TykTechnologies/tyk/issues/703
-
-### TykJSPath now User Code only
-
-If never used, users should now delete the `js/tyk.js` file or only keep user specific code in it. The Tyk code has now been included in our installation binaries.
-
-https://github.com/TykTechnologies/tyk/issues/739
 
 ## <a name="gateway-dashboard"></a>Tyk Gateway & Tyk Dashboard
 
@@ -123,6 +66,64 @@ This functionality can be useful if you need to pass additional information from
 We have added a new **Tag headers** section to the Dashboard **API Designer Advanced** tab.
 
 ![tag_headers][3]
+
+## <a name="gateway"></a>Tyk Gateway
+
+### Default User Agent set to Tyk/$VERSION
+
+If no user agent is specified in a request, it is now set as `Tyk/$VERSION`.
+
+https://github.com/TykTechnologies/tyk/issues/422
+
+### Include x-tyk-api-expires date header for versioned APIs
+
+If a request is made for an API which has an expiry date, the response will include the expiry date as meta data in the header.
+
+https://github.com/TykTechnologies/tyk/issues/437
+
+### Run Admin Control API on a separate port
+
+We have added a new `control_api_port` option to the Gateway configuration file, which allows you to run the admin control api on a separate port, and hide it behind firewall if needed.
+
+https://github.com/TykTechnologies/tyk/issues/354
+
+### Added a Configuration Linter
+
+We have Added a new `tyk lint` command which takes the Gateway configuration file path as argument, and validates the syntax, misspelled attribute names or values format. 
+
+For example: `tyk lint ./tyk.conf`
+
+https://github.com/TykTechnologies/tyk/issues/336
+
+### Set log_level from tyk.conf
+
+We have added a new `log_level` configuration variable to `tyk.conf` to control logging level.
+
+Possible values are: `debug`, `info`, `warn`, `error`
+
+https://github.com/TykTechnologies/tyk/issues/1182
+
+### Added jsonMarshal to body transform templates
+
+We have added the `jsonMarshal` helper to the body transform templates. You can apply jsonMarshal on a string in order to perform JSON style character escaping, and on complex objects to serialise them to a JSON string.
+
+Example: `{{ .myField | jsonMarshal }}`
+
+https://github.com/TykTechnologies/tyk/pull/1175
+
+### Added a blocking reload endpoint
+
+Now you can add a `?block=true` argument to the `/tyk/reload` API endpoint, which will block a response, until the reload is performed. This can be useful in scripting environments like CI/CD workflows.
+
+https://github.com/TykTechnologies/tyk/issues/703
+
+### TykJSPath now User Code only
+
+If never used, users should now delete the `js/tyk.js` file or only keep user specific code in it. The Tyk code has now been included in our installation binaries.
+
+https://github.com/TykTechnologies/tyk/issues/739
+
+
 
 ## <a name="dashboard"></a>Tyk Dashboard
 
@@ -230,6 +231,18 @@ https://github.com/TykTechnologies/tyk-analytics-ui/issues/200
 
 Added support for HEAD methods in the Dashboard API Designer.
 https://github.com/TykTechnologies/tyk/issues/1055
+
+## <a name="upgrade"></a>Upgrading to 2.4
+
+> **NOTE**: Gateway v2.4 is fully compatible with v2.3.
+
+Cloud users will be automatically upgraded to the new release.
+
+Hybrid users should follow the upgrade instructions [here](/docs/get-started/with-tyk-hybrid/tutorials/install-hybrid-gateway/#upgrade-hybrid).
+
+On-Premises users can download the new release packages from:
+
+
 
 [1]: /docs/img/release-notes/apply_policy.png
 [2]: /docs/img/release-notes/rate_limits.png
