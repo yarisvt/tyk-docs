@@ -8,11 +8,20 @@ weight: 0
 url: "/integrate/3rd-party-identity-providers"
 ---
 
+## Dashboard SSO API
+Dashboard expose special API to implement custom authentications for the Dashboard and Portal. See the [Docs](/docs/dashboard-admin-api/sso).
+
+You can use `sso_permission_defaults` dashboard configuration option to configure permissions of users created via SSO API. See the SSO API docs above.
+
+In addition you can set custom login pages for the dashboard and portal using `sso_custom_login_url` and `sso_custom_portal_login_url` dashboard configuration options.
+
 ## Tyk Identity Broker Overview 
 
 ### What is Tyk Identity Broker?
 
 The Tyk Identity Broker provides a service-level component that enables delegated identities to be authorized and provide authenticated access to various Tyk-powered components such as the Tyk Dashboard, the Tyk Developer Portal and Tyk Gateway API flows such as OAuth access tokens, and regular API tokens.
+
+Internally TIB use Dashboard SSO API mentioned above.
 
 ### How it works
 
