@@ -14,12 +14,12 @@ Here are the packages and their versions we are releasing today: Tyk Gateway v2.
 
 # <a name="major-highlights"></a>Major highlights
 
-## Mutual TLS
+## <a name="mutualtls"></a>Mutual TLS
 
 A major feature of this release is the implementation of Mutual TLS. Now you can protect your APIs by white-listing certificates, idenitfy users based on them, and increase security between Tyk and upstream API. For details, see [Mutual TLS](/docs/security/tls-and-ssl/mutual-tls/).
 
 
-## Extended use of Multiple Policies
+## <a name="multi-policies"></a>Extended use of Multiple Policies
 
 We have extended support for partitioned policies, and you can now mix them up when creating a key. Each policy should have own partition, and will not intersect, to avoid conflicts while merging their rules. 
 
@@ -38,7 +38,7 @@ For this release multiple policies are only supported only via the Add Key secti
 
 [Docs](/docs/security/security-policies/partitioned-policies/)
 
-## Global API Rate Limits
+## <a name="global-api"></a>Global API Rate Limits
 
 We have added a new API definition field `global_rate_limit` which specifies a global API rate limit in the following format: `{"rate": 10, "per": 1}`, similar to policies or keys. 
 
@@ -50,7 +50,7 @@ Extended Dashboard API designer Rate Limiting and Quotas section in Core setting
 
 [Docs](/docs/control-limit-traffic/rate-limiting/)
 
-## Specify custom analytics tags using HTTP headers
+## <a name="cust-analytics"></a>Specify custom analytics tags using HTTP headers
 
 We have added a new API definition field `tag_headers` which specifies a string array of HTTP headers which can be extracted and turned to tags. 
 
@@ -64,14 +64,14 @@ We have added a new **Tag headers** section to the Dashboard **API Designer Adva
 
 [Docs](/docs/analyse/log-browser/)
 
-## Single-Sign-On (SSO) improvements
+## <a name="sso"></a>Single-Sign-On (SSO) improvements
 
-More SSO functionality is something that a lot of our customers have been asking for. In this release we’ve significantly improved our support for SSO, and you can now:
+More SSO functionality is something that a lot of our customers have been asking for. In this release we've significantly improved our support for SSO, and you can now:
 
-* Enable Tyk Identity Brokey to apply LDAP filters to user search [Docs](/docs/integrate/3rd-party-identity-providers/openldap/)
+* Enable Tyk Identity Broker to apply LDAP filters to user search [Docs](/docs/integrate/3rd-party-identity-providers/openldap/)
 * Set permissions for your users, logged via SSO, via `sso_permission_defaults` in Dashboard config file. [Docs](/docs/integrate/3rd-party-identity-providers/)
 * Setup a login page redirect, using `sso_custom_login_url` and `sso_custom_portal_login_url` Dashboard config options to enable users login using a custom SSO login page. [Docs](/docs/integrate/3rd-party-identity-providers/)
-* For those who loves to build everything in-house, we added new API for custom dasboard authentification integrations. [Docs](/docs/integrate/3rd-party-identity-providers/custom/)
+* For those who love to build everything in-house, we have added new API for custom dashboard authentication integrations. [Docs](/docs/integrate/3rd-party-identity-providers/custom/)
 
 # Moar!
 This release is packed with way more more cool stuff. Here are detailed release notes for each product:
@@ -264,13 +264,13 @@ Added support for Mutual TLS, mentioned by Gateway and Dashboard above. See [Doc
 Also fixed bug when Mongo connections became growing though the roof if client with wrong credentials tries to connect.
 
 
-## <a name="tib"></a> TIB v0.2
+## <a name="tib"></a>TIB v0.2
   
 Tyk Identity Broker now fully support LDAP search with complex filters! [Docs](/docs/integrate/3rd-party-identity-providers/openldap/)
 
-## <a name="upgrade"></a>Upgrading
+## <a name="upgrade"></a>Upgrading all new Components
 
-> **NOTE**: This release is fully compatitable with previous one, except that if you want to use new features, like Mutual TLS, you need to upgrade all the related components.
+> **NOTE**: This release is fully compatible with the previous version, except that if you want to use new features, like Mutual TLS, you need to upgrade all the related components.
 
 Cloud users will be automatically upgraded to the new release.
 

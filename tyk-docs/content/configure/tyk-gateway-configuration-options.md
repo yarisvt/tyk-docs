@@ -150,7 +150,7 @@ Each UUID will be replaced with a placeholder `{uuid}`
 
 #### <a name="analytics_config-normalise_urls-normalise_numbers"></a> analytics_config.normalise_urls.normalise_numbers
 
-Set this to `true` to have Tyk automatically match for numeric ID’s, it will match with a preceding slash so as not to capture actual numbers:
+Set this to `true` to have Tyk automatically match for numeric ID's, it will match with a preceding slash so as not to capture actual numbers:
 
 * `/widgets/123456/getParams will become /widgets/{id}/getParams`
 
@@ -475,6 +475,7 @@ You now set a logging level via the `tyk.conf` file. The following levels can be
 * info
 * warn
 * error
+If unset or left empty, it will default to `info`.
 
 > **NOTE:** This option is available from v2.4 onwards.
 
