@@ -155,7 +155,7 @@ This was very resource consuming and unstable feature. We recommend using load b
 [More](https://github.com/TykTechnologies/tyk/issues/438)
 
 
-## <a name="dashboard"></a>Tyk Dashboard v2.4.0
+## <a name="dashboard"></a>Tyk Dashboard v1.4.0
 
 ### Mutual TLS support
 [Docs](/docs/security/tls-and-ssl/mutual-tls/)
