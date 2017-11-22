@@ -39,6 +39,8 @@ When an HMAC-signed request comes into Tyk, the key is extracted from the Author
 
 Tyk API Gateway supports full header signing through the use of the `headers` HMAC signature field. This includes the request method and path using the`(request-target)` value. For body signature verification, HTTP Digest headers should be included in the request and in the header field value.
 
+> **NOTE**: All headers should be in lowercase.
+
 ### A sample signature generation snippet
 
 ```{.copyWrapper}
@@ -53,13 +55,10 @@ Tyk API Gateway supports full header signing through the use of the `headers` HM
     req.Header.Add("X-Test-2", "world")
     
     // Prepare the signature to include those headers:
-    signatureString := strings.ToLower("(request-target): ") + "get /
-    "
-    signatureString += strings.ToLower("Date") + ": " + tim + "
-    "
-    signatureString += strings.ToLower("X-Test-1") + ": " + "hello" + "
-    "
-    signatureString += strings.ToLower("X-Test-2") + ": " + "world"
+    signatureString := "(request-target): " + "get /"
+    signatureString += "date:" + tim + " "
+    signatureString += "x-test-1:" + "hello" + " "
+    signatureString += "x-test-2:" + "world"
     
     // SHA1 Encode the signature
     HmacSecret := "secret-key"
