@@ -24,56 +24,58 @@ This configuration should also work (with some tweaks) for CentOS.
 ### Step 1: Set up yum repositories
 
 First, we need to install some software that allows us to use signed packages:
-```
-    sudo yum install pygpgme yum-utils wget
+```{.copyWrapper}
+sudo yum install pygpgme yum-utils wget
 ```
 
 Next, we need to set up the various repository configurations for Tyk and MongoDB:
 
 ### Step 2: Create Tyk Gateway repository configuration
 
-Create a file named `/etc/yum.repos.d/tyk_tyk-gateway.repo` that contains the repository configuration below:
+Create a file named `/etc/yum.repos.d/tyk_tyk-gateway.repo` that contains the repository configuration below https://packagecloud.io/tyk/tyk-gateway/install#manual-rpm:
 ```{.copyWrapper}
-    [tyk_tyk-gateway]
-    name=tyk_tyk-gateway
-    baseurl=https://packagecloud.io/tyk/tyk-gateway/el/7/$basearch
-    repo_gpgcheck=1
-    enabled=1
-    gpgkey=http://keyserver.tyk.io/tyk.io.rpm.signing.key
-           https://packagecloud.io/gpg.key
-    sslverify=1
-    sslcacert=/etc/pki/tls/certs/ca-bundle.crt
-    
-    [tyk_tyk-gateway-source]
-    name=tyk_tyk-gateway-source
-    baseurl=https://packagecloud.io/tyk/tyk-gateway/el/7/SRPMS
-    repo_gpgcheck=1
-    enabled=1
-    gpgkey=http://keyserver.tyk.io/tyk.io.rpm.signing.key
-           https://packagecloud.io/gpg.key
-    sslverify=1
-    sslcacert=/etc/pki/tls/certs/ca-bundle.crt
+[tyk_tyk-gateway]
+name=tyk_tyk-gateway
+baseurl=https://packagecloud.io/tyk/tyk-gateway/el/7/$basearch
+repo_gpgcheck=1
+gpgcheck=0
+enabled=1
+gpgkey=https://packagecloud.io/tyk/tyk-gateway/gpgkey
+sslverify=1
+sslcacert=/etc/pki/tls/certs/ca-bundle.crt
+metadata_expire=300
+
+[tyk_tyk-gateway-source]
+name=tyk_tyk-gateway-source
+baseurl=https://packagecloud.io/tyk/tyk-gateway/el/7/SRPMS
+repo_gpgcheck=1
+gpgcheck=0
+enabled=1
+gpgkey=https://packagecloud.io/tyk/tyk-gateway/gpgkey
+sslverify=1
+sslcacert=/etc/pki/tls/certs/ca-bundle.crt
+metadata_expire=300
 ```
 
 ### Step 3: Install EPEL
 
 EPEL (Extra Packages for Enterprise Linux) is a free, community based repository project from Fedora which provides high quality add-on software packages for Linux distribution including RHEL, CentOS, and Scientific Linux. EPEL isn't a part of RHEL/CentOS but it is designed for major Linux distributions. In our case we need it for Redis, run this command to get it:
 ```{.copyWrapper}
-    wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-8.noarch.rpm
+wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-8.noarch.rpm
     
-    sudo rpm -ivh epel-release-7-8.noarch.rpm
+sudo rpm -ivh epel-release-7-8.noarch.rpm
 ```
 
 Finally we'll need to update our local cache, so run:
 ```{.copyWrapper}
-    sudo yum -q makecache -y --disablerepo='*' --enablerepo='tyk_tyk-gateway' --enablerepo=epel info zabbix
+sudo yum -q makecache -y --disablerepo='*' --enablerepo='tyk_tyk-gateway' --enablerepo=epel
 ```
 
 ### Step 4: Install packages
 
 We're ready to go, you can now install the relevant packages using yum:
 ```{.copyWrapper}
-    sudo yum install -y redis tyk-gateway
+sudo yum install -y redis tyk-gateway
 ```
 
 *(you may be asked to accept the GPG key for our two repos and when the package installs, hit yes to continue)*
@@ -82,7 +84,7 @@ We're ready to go, you can now install the relevant packages using yum:
 
 In many cases Redis will not be running, so let's start those:
 ```{.copyWrapper}
-    sudo service redis start
+sudo service redis start
 ```
 
 When Tyk is finished installing, it will have installed some init scripts, but it will not be running yet. The next step will be to setup the Gateway – thankfully this can be done with three very simple commands, however it does depend on whether you are configuring Tyk Gateway for use with the Dashboard or without (Community Edition).
@@ -91,7 +93,7 @@ When Tyk is finished installing, it will have installed some init scripts, but i
 
 You can set up the core settings for Tyk Gateway with a single setup script, however for more involved deployments, you will want to provide your own configuration file. To get things started, run:
 ```{.copyWrapper}
-    sudo /opt/tyk-gateway/install/setup.sh --listenport=8080 --redishost=localhost --redisport=6379 --domain=""
+sudo /opt/tyk-gateway/install/setup.sh --listenport=8080 --redishost=localhost --redisport=6379 --domain=""
 ```
 
 What we've done here is told the setup script that:
@@ -107,7 +109,7 @@ In this example, we don't want Tyk to listen on a single domain, and we can alwa
 
 The Tyk Gateway can be started now that it is configured. Use this commannd to start the Tyk Gateway:
 ```{.copyWrapper}
-    sudo service tyk-gateway start
+sudo service tyk-gateway start
 ```
 
 ## <a name="configure-with-dashboard"></a>Configure Tyk Gateway with the Dashboard
@@ -120,7 +122,7 @@ This configuration assumes that you have already installed Tyk Dashboard, and ha
 
 You can set up the core settings for Tyk Gateway with a single setup script, however for more involved deployments, you will want to provide your own configuration file. To get things running let's run:
 ```{.copyWrapper}
-    sudo /opt/tyk-gateway/install/setup.sh --dashboard=1 --listenport=8080 --redishost=localhost --redisport=6379
+sudo /opt/tyk-gateway/install/setup.sh --dashboard=1 --listenport=8080 --redishost=localhost --redisport=6379
 ```
 
 What we've done here is told the setup script that:
