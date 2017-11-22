@@ -1,6 +1,6 @@
 ---
 date: 2017-03-27T11:37:16+01:00
-title: Token Management
+title: Key Management
 menu:
   main:
     parent: "Tyk Rest API"
@@ -165,13 +165,13 @@ Adding the `suppress_reset` parameter and setting it to `1`, will cause Tyk to *
     }
 ```
 
-#### Example: Importing existing tokens into Tyk
+#### Example: Importing Existing Keys into Tyk
 
-You can use the APIs as defined above to import existing tokens into Tyk.
+You can use the APIs as defined above to import existing keys into Tyk.
 
 This example uses standard `authorization` header authentication, and assumes that the Dashboard is located at `127.0.0.1:8080` and the Tyk secret is `352d20ee67be67f6340b4c0605b044b7` - update these as necessary to match your environment.
 
-To import a token called `abc`, save the JSON contents as `token.json` (see example below), then run the following Curl command:
+To import a key called `abc`, save the JSON contents as `token.json` (see example below), then run the following Curl command:
 
 ```
     curl http://127.0.0.1:8080/tyk/keys/abc -H 'x-tyk-authorization: 352d20ee67be67f6340b4c0605b044b7' -H 'Content-Type: application/json'  -d @token.json
@@ -183,7 +183,7 @@ The following request will fail as the key doesn't exist:
     curl http://127.0.0.1:8080/quickstart/headers -H 'Authorization: invalid123'
 ```
 
-But this request will now work, using the imported token:
+But this request will now work, using the imported key:
 
 ```
     curl http://127.0.0.1:8080/quickstart/headers -H 'Authorization: abc'
