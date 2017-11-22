@@ -33,7 +33,7 @@ sudo yum install python34
 
 First, we need to install some software that allows us to use signed packages:
 ```{.copyWrapper}
-    sudo yum install pygpgme yum-utils wget
+sudo yum install pygpgme yum-utils wget
 ``` 
 
 Next, we need to set up the various repository configurations for Tyk Dashboard and MongoDB:
@@ -42,48 +42,50 @@ Next, we need to set up the various repository configurations for Tyk Dashboard 
 
 Create a file named `/etc/yum.repos.d/tyk_tyk-dashboard.repo` that contains the repository configuration below.
 ```{.copyWrapper}
-    [tyk_tyk-dashboard]
-    name=tyk_tyk-dashboard
-    baseurl=https://packagecloud.io/tyk/tyk-dashboard/el/7/$basearch
-    repo_gpgcheck=1
-    enabled=1
-    gpgkey=http://keyserver.tyk.io/tyk.io.rpm.signing.key
-           https://packagecloud.io/gpg.key
-    sslverify=1
-    sslcacert=/etc/pki/tls/certs/ca-bundle.crt
-    
-    [tyk_tyk-dashboard-source]
-    name=tyk_tyk-dashboard-source
-    baseurl=https://packagecloud.io/tyk/tyk-dashboard/el/7/SRPMS
-    repo_gpgcheck=1
-    enabled=1
-    gpgkey=http://keyserver.tyk.io/tyk.io.rpm.signing.key
-           https://packagecloud.io/gpg.key
-    sslverify=1
-    sslcacert=/etc/pki/tls/certs/ca-bundle.crt
+[tyk_tyk-dashboard]
+name=tyk_tyk-dashboard
+baseurl=https://packagecloud.io/tyk/tyk-dashboard/el/7/$basearch
+repo_gpgcheck=1
+gpgcheck=0
+enabled=1
+gpgkey=https://packagecloud.io/tyk/tyk-dashboard/gpgkey
+sslverify=1
+sslcacert=/etc/pki/tls/certs/ca-bundle.crt
+metadata_expire=300
+
+[tyk_tyk-dashboard-source]
+name=tyk_tyk-dashboard-source
+baseurl=https://packagecloud.io/tyk/tyk-dashboard/el/7/SRPMS
+repo_gpgcheck=1
+gpgcheck=0
+enabled=1
+gpgkey=https://packagecloud.io/tyk/tyk-dashboard/gpgkey
+sslverify=1
+sslcacert=/etc/pki/tls/certs/ca-bundle.crt
+metadata_expire=300
 ```
 
 ### Step 3: Configure MongoDB
 
 Create a `/etc/yum.repos.d/mongodb-org-3.0.repo` file so that you can install MongoDB directly, using yum.
 ```{.copyWrapper}
-    [mongodb-org-3.0]
-    name=MongoDB Repository
-    baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.0/x86_64/
-    gpgcheck=0
-    enabled=1
+[mongodb-org-3.0]
+name=MongoDB Repository
+baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.0/x86_64/
+gpgcheck=0
+enabled=1
 ```
 
 Finally we'll need to update our local cache, so run:
 ```{.copyWrapper}
-    sudo yum -q makecache -y --disablerepo='*' --enablerepo='tyk_tyk-dashboard' info zabbix
+sudo yum -q makecache -y --disablerepo='*' --enablerepo='tyk_tyk-dashboard' info zabbix
 ```
 
 ### Step 4: Install packages
 
 We're ready to go, you can now install the relevant packages using yum:
 ```{.copyWrapper}
-    sudo yum install -y mongodb-org tyk-dashboard
+sudo yum install -y mongodb-org tyk-dashboard
 ```
 
 *(you may be asked to accept the GPG key for our repos and when the package installs, hit yes to continue)*
@@ -92,14 +94,14 @@ We're ready to go, you can now install the relevant packages using yum:
 
 In many cases MongoDB not be running, so let's start that:
 ```{.copyWrapper}
-    sudo service mongod start
+sudo service mongod start
 ```
 
 ### Step 6: Configure Tyk Dashboard
 
 We can set the Dashboard up with a similar setup command, the below will get the Dashboard set up for the local instance:
 ```{.copyWrapper}
-    sudo /opt/tyk-dashboard/install/setup.sh --listenport=3000 --redishost=localhost --redisport=6379 --mongo=mongodb://127.0.0.1/tyk_analytics --tyk_api_hostname=$HOSTNAME --tyk_node_hostname=http://localhost --tyk_node_port=8080 --portal_root=/portal --domain="XXX.XXX.XXX.XXX"
+sudo /opt/tyk-dashboard/install/setup.sh --listenport=3000 --redishost=localhost --redisport=6379 --mongo=mongodb://127.0.0.1/tyk_analytics --tyk_api_hostname=$HOSTNAME --tyk_node_hostname=http://localhost --tyk_node_port=8080 --portal_root=/portal --domain="XXX.XXX.XXX.XXX"
 ```
 
 > **Note**: Make sure to use the actual DNS hostname or the public IP of your instance as the last parameter.
@@ -118,7 +120,7 @@ What we have done here is:
 
 ### Step 7: Start Tyk Dashboard
 ```{.copyWrapper}
-    sudo service tyk-dashboard start
+sudo service tyk-dashboard start
 ``` 
 
 Notice how we haven't actually started the gateway yet, because this is a Dashboard install, we need to enter a license first.
@@ -139,7 +141,7 @@ If all is going well, you will be taken to a log in screen - we'll get to that s
 
 Because we've just entered a license via the UI, we need to make sure that these changes get picked up, so to make sure things run smoothly, we restart the Dashboard process (you only need to do this once) and (if you have it installed) then start the gateway:
 ```{.copyWrapper}
-    sudo service tyk-dashboard restart 
+sudo service tyk-dashboard restart 
 ```
 
 ### Step 10: Bootstrap the Dashboard with an initial user and organisation
@@ -155,8 +157,9 @@ The best way to add this data is with the Admin API, to make it really easy we'v
 
 **To bootstrap your instance**:
 
-    sudo /opt/tyk-dashboard/install/bootstrap.sh XXX.XXX.XXX.XXX
-    
+```{.copyWrapper}
+sudo /opt/tyk-dashboard/install/bootstrap.sh XXX.XXX.XXX.XXX
+``` 
 
 This command tells the bootstrap script to use the localhost as the base for the API calls, you can run the bootstrap remotely and change the first command line parameter to the DNS hostname of your instance.
 
@@ -166,7 +169,7 @@ You will now be able to log into and test your Tyk instance with the values give
 
 We can set the Dashboard up with a helper setup command script, the below will get the Dashboard set up for the local instance:
 ```{.copyWrapper}
-    sudo /opt/tyk-dashboard/install/setup.sh --listenport=3000 --redishost=localhost --redisport=6379 --mongo=mongodb://127.0.0.1/tyk_analytics --tyk_api_hostname=$HOSTNAME --tyk_node_hostname=http://localhost --tyk_node_port=8080 --portal_root=/portal --domain="XXX.XXX.XXX.XXX"
+sudo /opt/tyk-dashboard/install/setup.sh --listenport=3000 --redishost=localhost --redisport=6379 --mongo=mongodb://127.0.0.1/tyk_analytics --tyk_api_hostname=$HOSTNAME --tyk_node_hostname=http://localhost --tyk_node_port=8080 --portal_root=/portal --domain="XXX.XXX.XXX.XXX"
 ```
 
 > **Note**: Make sure to use the actual DNS hostname or the public IP of your instance as the last parameter.
@@ -185,7 +188,7 @@ What we have done here is:
 
 ### Step 1: Start Tyk Dashboard
 ```{.copyWrapper}
-    sudo service tyk-dashboard start
+sudo service tyk-dashboard start
 ```
 
 Notice how we haven't actually started the gateway yet, because this is a Pro install, we need to enter a license first.
@@ -206,8 +209,8 @@ If all is going well, you will be taken to a log in screen - we'll get to that s
 
 Because we've just entered a license via the UI, we need to make sure that these changes get picked up, so to make sure things run smoothly, we restart the dashboard process (you only need to do this once) and then start the gateway:
 ```{.copyWrapper}
-    sudo service tyk-dashboard restart 
-    sudo service tyk-gateway start
+sudo service tyk-dashboard restart 
+sudo service tyk-gateway start
 ```
 
 ### Step 4: Bootstrap the Dashboard with an initial User and Organisation
@@ -223,7 +226,7 @@ The best way to add this data is with the Admin API, to make it really easy we'v
 
 **To bootstrap your instance**:
 ```{.copyWrapper}
-    sudo /opt/tyk-dashboard/install/bootstrap.sh XXX.XXX.XXX.XXX
+sudo /opt/tyk-dashboard/install/bootstrap.sh XXX.XXX.XXX.XXX
 ```
 
 This command tells the bootstrap script to use the localhost as the base for the API calls, you can run the bootstrap remotely and change the first command line parameter to the DNS hostname of your instance.
