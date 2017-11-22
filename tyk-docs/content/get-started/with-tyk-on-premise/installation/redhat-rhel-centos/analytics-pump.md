@@ -25,46 +25,48 @@ This configuration should also work (with some tweaks) for CentOS.
 
 First, we need to install some software that allows us to use signed packages:
 ```{.copyWrapper}
-    sudo yum install pygpgme yum-utils wget
+sudo yum install pygpgme yum-utils wget
 ```
 
 Next, we need to set up the various repository configurations for Tyk and MongoDB:
 
-Create a file named `/etc/yum.repos.d/tyk_tyk-pump.repo` that contains the repository configuration below.
+Create a file named `/etc/yum.repos.d/tyk_tyk-pump.repo` that contains the repository configuration below: 
 
 Make sure to replace `el` and `7` in the config below with your Linux distribution and version:
 ```{.copyWrapper}
-    [tyk_tyk-pump]
-    name=tyk_tyk-pump
-    baseurl=https://packagecloud.io/tyk/tyk-pump/el/7/$basearch
-    repo_gpgcheck=1
-    enabled=1
-    gpgkey=http://keyserver.tyk.io/tyk.io.rpm.signing.key
-           https://packagecloud.io/gpg.key
-    sslverify=1
-    sslcacert=/etc/pki/tls/certs/ca-bundle.crt
-    
-    [tyk_tyk-pump-source]
-    name=tyk_tyk-pump-source
-    baseurl=https://packagecloud.io/tyk/tyk-pump/el/7/SRPMS
-    repo_gpgcheck=1
-    enabled=1
-    gpgkey=http://keyserver.tyk.io/tyk.io.rpm.signing.key
-           https://packagecloud.io/gpg.key
-    sslverify=1
-    sslcacert=/etc/pki/tls/certs/ca-bundle.crt
+[tyk_tyk-pump]
+name=tyk_tyk-pump
+baseurl=https://packagecloud.io/tyk/tyk-pump/el/7/$basearch
+repo_gpgcheck=1
+gpgcheck=0
+enabled=1
+gpgkey=https://packagecloud.io/tyk/tyk-pump/gpgkey
+sslverify=1
+sslcacert=/etc/pki/tls/certs/ca-bundle.crt
+metadata_expire=300
+
+[tyk_tyk-pump-source]
+name=tyk_tyk-pump-source
+baseurl=https://packagecloud.io/tyk/tyk-pump/el/7/SRPMS
+repo_gpgcheck=1
+gpgcheck=0
+enabled=1
+gpgkey=https://packagecloud.io/tyk/tyk-pump/gpgkey
+sslverify=1
+sslcacert=/etc/pki/tls/certs/ca-bundle.crt
+metadata_expire=300
 ```
 
 Finally we'll need to update our local cache, so run:
 ```{.copyWrapper}
-    sudo yum -q makecache -y --disablerepo='*' --enablerepo='tyk_tyk-pump' info zabbix
+sudo yum -q makecache -y --disablerepo='*' --enablerepo='tyk_tyk-pump'
 ```
 
 ### Step 2: Install packages
 
 We're ready to go, you can now install the relevant packages using yum:
 ```{.copyWrapper}
-    sudo yum install -y tyk-pump
+sudo yum install -y tyk-pump
 ```
 
 *(You may be asked to accept the GPG key for our repos and when the package installs, hit yes to continue.)*
@@ -73,18 +75,18 @@ We're ready to go, you can now install the relevant packages using yum:
 
 If you don't complete this step, you won't see any analytics in your Dashboard, so to enable the analytics service, we need to ensure Tyk Pump is running and configured properly, to configure Tyk Pump is very simple:
 ```{.copyWrapper}
-    sudo /opt/tyk-pump/install/setup.sh --redishost=localhost --redisport=6379 --mongo=mongodb://127.0.0.1/tyk_analytics
+sudo /opt/tyk-pump/install/setup.sh --redishost=localhost --redisport=6379 --mongo=mongodb://127.0.0.1/tyk_analytics
 ```
 ### Step 4: Start Tyk Pump
 ```{.copyWrapper}
-    sudo service tyk-pump start
+sudo service tyk-pump start
 ```
 
 That's it, the Pump should now be up and running.
 
 You can verify if Tyk Pump is running and working by tailing the log file:
 ```{.copyWrapper}
-    sudo tail -f /var/log/tyk-pump.stderr /var/log/tyk-pump.stdout
+sudo tail -f /var/log/tyk-pump.stderr /var/log/tyk-pump.stdout
 ```
  [1]: https://packagecloud.io
  [2]: http://aws.amazon.com
