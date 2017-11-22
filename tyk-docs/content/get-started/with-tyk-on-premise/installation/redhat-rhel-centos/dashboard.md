@@ -78,7 +78,7 @@ enabled=1
 
 Finally we'll need to update our local cache, so run:
 ```{.copyWrapper}
-sudo yum -q makecache -y --disablerepo='*' --enablerepo='tyk_tyk-dashboard' info zabbix
+sudo yum -q makecache -y --disablerepo='*' --enablerepo='tyk_tyk-dashboard'
 ```
 
 ### Step 4: Install packages
