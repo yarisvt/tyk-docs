@@ -1,6 +1,10 @@
 <!-- START OMIT -->
 ## <a name="with-dashboard"></a>Tutorial: Create an API with the Dashboard
 
+We have a video walkthrough for creating an API
+
+<iframe width="870" height="480" src="https://www.youtube.com/embed/nO0lLWxvpH4" frameborder="0" gesture="media" allowfullscreen></iframe>
+
 We will use the Tyk Dashboard to create a very simple API that has no special elements set up.
 
 ### Step 1: Select "APIs" from the "System Management" section
