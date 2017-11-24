@@ -8,47 +8,47 @@ weight: 3
 ---
 
 
-Tyk Identity Broker is configured through two files: The configuration file tib.conf and the profiles file profiles.json. TIB can also be managed via the REST API (detailed below) for automated configurations.
+The Tyk Identity Broker (TIB) is configured through two files: The configuration file `tib.conf` and the profiles file `profiles.json`. TIB can also be managed via the [TIB REST API](/docs/integrate/3rd-party-identity-providers/tib-rest-api/) for automated configurations.
 
 #### The `tib.conf` file
 
 ```{.copyWrapper}
-	{
-	    "Secret": "test-secret",
-	    "HttpServerOptions": {
-	        "UseSSL": true,
-	        "CertFile": "./certs/server.pem",
-	        "KeyFile": "./certs/server.key"
-	    },
-	    "BackEnd": {
-	        "Name": "in_memory",
-	        "IdentityBackendSettings": {
-	            "Hosts" : {
-	                "localhost": "6379"
-	            },
-	            "Password": "",
-	            "Database": 0,
-	            "EnableCluster": false,
-	            "MaxIdle": 1000,
-	            "MaxActive": 2000
-	        }
-	    },
-	    "TykAPISettings": {
-	        "GatewayConfig": {
-	            "Endpoint": "http://{GATEWAY-DOMAIN}",
-	            "Port": "80",
-	            "AdminSecret": "352d20ee67be67f6340b4c0605b044b7"
-	        },
-	        "DashboardConfig": {
-	            "Endpoint": "http://{DASHBOARD-DOMAIN}",
-	            "Port": "3000",
-	            "AdminSecret": "12345"
-	        }
-	    }
-	}
+{
+	   "Secret": "test-secret",
+	   "HttpServerOptions": {
+	       "UseSSL": true,
+	       "CertFile": "./certs/server.pem",
+	       "KeyFile": "./certs/server.key"
+	   },
+	   "BackEnd": {
+	       "Name": "in_memory",
+	       "IdentityBackendSettings": {
+	           "Hosts" : {
+	               "localhost": "6379"
+	           },
+	           "Password": "",
+	           "Database": 0,
+	           "EnableCluster": false,
+	           "MaxIdle": 1000,
+	           "MaxActive": 2000
+	       }
+	   },
+	   "TykAPISettings": {
+	       "GatewayConfig": {
+	           "Endpoint": "http://{GATEWAY-DOMAIN}",
+	           "Port": "80",
+	           "AdminSecret": "352d20ee67be67f6340b4c0605b044b7"
+	       },
+	       "DashboardConfig": {
+	           "Endpoint": "http://{DASHBOARD-DOMAIN}",
+	           "Port": "3000",
+	           "AdminSecret": "12345"
+	       }
+	   }
+}
 ```
 
-The various options for this configuration file are enumerated in detail below.
+The various options for `tib.conf` file are:
 
 ### <a name="secret"></a> secret
 
@@ -70,7 +70,7 @@ The path to the certificate file for this server, required for SSL.
 
 TIB is quite modular and different back-ends can be generated quite easily. By default, TIB will store profile configurations in memory, which does not require any new configuration.
 
-For Identity Handlers that provide token-based access, it is possible to enforce a “One token per provider, per user” policy, which keeps a cache of tokens assigned to identities in Redis, this is so that the broker can be scaled and share the cache across instances.
+For Identity Handlers that provide token-based access, it is possible to enforce a "One token per provider, per user" policy, which keeps a cache of tokens assigned to identities in Redis, this is so that the broker can be scaled and share the cache across instances.
 
 Since profiles are unlikely to change often, profiles are kept in-memory, but can be added, removed and modified using an API for automated setups if required.
 
