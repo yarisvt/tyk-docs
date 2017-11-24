@@ -584,7 +584,7 @@ In the above example, the `port_data_path` would be `port`.
 
 See [Versioning][9] for more details on versioning your APIs.
 
-### IP White-listing (Middleware)
+### IP Whitelisting (Middleware)
 
 * `enable_ip_whitelisting`: If set to `true`, only requests coming from the explicit list of IP addresses (`allowed_ips`) are allowed through.
 
