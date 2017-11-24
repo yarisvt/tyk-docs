@@ -11,7 +11,7 @@ weight: 1
 
 Tyk enables you to modify header information before it leaves the proxy and is passed to your upstream API or when a response is proxied back to the client. This can be very useful in cases where you have an upstream API that has a single authentication key, and you want to add multi-user access to it without modifying it or adding clunky authentication methods to it to support new users.
 
-### Example scenario
+### Example Scenario
 
 You have an API called WidgetsAPI, that takes an x-widgets-secret header to allow access, this is an internal API used by your teams but you want to expose it to your customers and charge them for access.
 
@@ -22,21 +22,21 @@ You could either modify the API and add a whole user, key and access management 
 Using Tyk, you would set up your API Definition with these additions to the `extended_paths.transform_headers` field:
 
 ```{.copyWrapper}
-    "extended_paths": {
-        "ignored": [],
-        "white_list": [],
-        "black_list": [],
-        "cache": ["get"],
-        "transform": [],
-        "transform_headers": [
-            {
-                "delete_headers": ["authorization"],
-                "add_headers": {"x-widgets-secret": "the-secret-widget-key-is-secret"},
-                "path": "widgets{rest}",
-                 "method": "GET"
-            }
-        ]
-    }
+"extended_paths": {
+    "ignored": [],
+    "white_list": [],
+    "black_list": [],
+    "cache": ["get"],
+    "transform": [],
+    "transform_headers": [
+        {
+            "delete_headers": ["authorization"],
+            "add_headers": {"x-widgets-secret": "the-secret-widget-key-is-secret"},
+            "path": "widgets{rest}",
+            "method": "GET"
+        }
+    ]
+}
 ```
 
 Now Tyk keys that you create with an Access Definition rule that is set to this API and version, can have quotas, throttling and access checks applied without needing to add any new code or functionality to your existing API.
@@ -73,35 +73,35 @@ Once the API is saved, if a request path and method matches your pattern, then t
 
 ## <a name="global-edits"></a> Modifying Request Headers Globally
 
-### Injecting and removing headers globally
+### Injecting and Removing Headers Globally
 
 In some cases you may wish to add a secure header to all outbound requests (e.g. to verify that traffic is coming from the gateway), to do so, add this to your version block in your API Definition:
 
 ```{.copyWrapper}
-    "version_data": {
-        "versions": {
-          "Default": {
-            ...
-            "global_headers": {
-                "X-Static": "foo",
-                "X-Request-ID":"$tyk_context.request_id",
-                "X-Path": "$tyk_context.path",
-                "X-Remote-Addr": "$tyk_context.remote_addr"
-            },
-            "global_headers_remove": [
-                "auth_id"
-            ]
-            ...
-          }
+"version_data": {
+    "versions": {
+        "Default": {
+        ...
+        "global_headers": {
+            "X-Static": "foo",
+            "X-Request-ID":"$tyk_context.request_id",
+            "X-Path": "$tyk_context.path",
+            "X-Remote-Addr": "$tyk_context.remote_addr"
+        },
+        "global_headers_remove": [
+            "auth_id"
+        ]
+        ...
         }
-    },
+    }
+},
 ```
 
 Using the `global_headers_remove` field it is possible to remove headers from all inbound requests before they are passed to your service.
 
-### Adding global injections via the GUI
+### Adding Global Injections via the Dashboard
 
-You can also achieve this with the GUI, in your Endpoint Designer, by selecting the **Global Version Settings** drawer:
+You can also achieve this with the Dashboard, via your API Endpoint Designer, by selecting the **Global Version Settings** drawer:
 
 ![GLobal version settings drawer][4]
 
@@ -114,26 +114,26 @@ To use this data in your header transform simply access the special `$tyk_meta` 
 Say in your session object you have included the following metadata:
 
 ```
-    "meta_data": {
-        "uid": 12345,
-        "username": "norman_bates"
-    }
+"meta_data": {
+    "uid": 12345,
+    "username": "norman_bates"
+}
 ```
 
 To use this in your header transform, your API definition path would be:
 
 ```{.copyWrapper}
-    "transform_headers": [
-        {
-            "delete_headers": [],
-            "add_headers": {"user-id": "$tyk_meta.uid", "user-name": "$tyk_meta.username"},
-            "path": "widgets/{id}",
-            "method": "GET"
-        },
-    ]
+"transform_headers": [
+    {
+        "delete_headers": [],
+        "add_headers": {"user-id": "$tyk_meta.uid", "user-name": "$tyk_meta.username"},
+        "path": "widgets/{id}",
+        "method": "GET"
+    },
+]
 ```
 
-### Meta data in the dashboard
+### Meta Data in the Dashboard
 
 The variable names (`$tyk_meta`) are also available in the Dashboard fields and will work the same way.
 
@@ -158,40 +158,40 @@ The context variables that are available are:
 As headers are already exposed to context data, you can also access any header from context variables by using:
 
 ```{.copyWrapper}
-    $tyk_context.headers_HEADERNAME
+$tyk_context.headers_HEADERNAME
 ```
 
 Or (for body transforms):
 
 ```{.copyWrapper}
-    {{._tyk_context.headers_HEADERNAME}}
+{{._tyk_context.headers_HEADERNAME}}
 ```
 
 For more information, see [Context Variables][5].
 
 ### Example `global_headers` section
 ```{.copyWrapper}
-    "version_data": {
-        "not_versioned": true,
-        "versions": {
-            "v1": {
-                "name": "v1",
-                "expires": "2100-01-02 15:04",
-                "use_extended_paths": true,
-                "paths": {
-                    "ignored": [],
-                    "white_list": [],
-                    "black_list": []
-                },
-                "global_headers":{
-                    "X-Static": "foo",
-                    "X-Request-ID":"$tyk_context.request_id",
-                    "X-Path": "$tyk_context.path",
-                    "X-Remote-Addr": "$tyk_context.remote_addr"
-                }
+"version_data": {
+    "not_versioned": true,
+    "versions": {
+        "v1": {
+            "name": "v1",
+            "expires": "2100-01-02 15:04",
+            "use_extended_paths": true,
+            "paths": {
+                "ignored": [],
+                "white_list": [],
+                "black_list": []
+            },
+            "global_headers":{
+                "X-Static": "foo",
+                "X-Request-ID":"$tyk_context.request_id",
+                "X-Path": "$tyk_context.path",
+                "X-Remote-Addr": "$tyk_context.remote_addr"
             }
         }
-     }
+    }
+}
 ```
 
 

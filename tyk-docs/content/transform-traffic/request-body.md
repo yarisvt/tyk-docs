@@ -16,22 +16,22 @@ As of Tyk 1.5 it is possible to modify inbound JSON requests and as of v2.2 XML 
 Setting up transforms in your API definition is easy:
 
 ```{.copyWrapper}
-    "extended_paths": {
-        "ignored": [],
-        "white_list": [],
-        "black_list": [],
-        "cache": ["get"],
-        "transform": [
-            {
-                "path": "widgets/{id}",
-                "method": "POST",
-                "template_data": {
-                    "template_mode": "file",
-                    "template_source": "./templates/transform_test.tmpl"
-                }
+"extended_paths": {
+    "ignored": [],
+    "white_list": [],
+    "black_list": [],
+    "cache": ["get"],
+    "transform": [
+        {
+            "path": "widgets/{id}",
+            "method": "POST",
+            "template_data": {
+                "template_mode": "file",
+                "template_source": "./templates/transform_test.tmpl"
             }
-        ]
-    }
+        }
+    ]
+}
 ```
 
 Tyk will load and evaluate the template on start, if you modify the template, you will need to restart Tyk in order for the changes to take effect.
@@ -47,21 +47,21 @@ The field representations are:
 
 ## <a name="with-dashboard"></a> Modification with the Dashboard
 
-Adding a body transformation using the endpoint designer is very straightforward, you can use the same examples that are set out in the API Definition Object configuration transformation documentation with the dashboard.
+Adding a body transformation using the Endpoint Designer is very straightforward. You can use the same example as above in the API Definition.
 
-### Step 1: Create the transform
+### Step 1: Create the Transform
 
 Create a new Endpoint and select the **Body Transforms** plugin.
 
 ![Endpoint designer][1]
 
-### Step 2: Define the transform
+### Step 2: Define the Transform
 
 Select your input type, and then add the template you would like to use to the **Template** input box.
 
 ![Body transform][2]
 
-### Step 3: Test the transform
+### Step 3: Test the Transform
 
 If you have sample input data, you can use the input box to add it, and then test it using the **Test** button.
 
@@ -93,19 +93,19 @@ Assume your inbound date structure is as follows:
 You could use a golang template that looks like this to transform it into a different format:
 
 ```{.copyWrapper}
-    {
-        "value1": "{{.value2}}",
-        "value2": "{{.value1}}",
-        "transformed_list": [
-            {{range $index, $element := .value_list}}
-                {{if $index}}
-                , "{{$element}}"
-                {{else}}
-                     "{{$element}}"
-                {{end}}
+{
+    "value1": "{{.value2}}",
+    "value2": "{{.value1}}",
+    "transformed_list": [
+        {{range $index, $element := .value_list}}
+            {{if $index}}
+            , "{{$element}}"
+            {{else}}
+                    "{{$element}}"
             {{end}}
-        ]
-    }
+        {{end}}
+    ]
+}
 ```
 
 ### Output
@@ -113,21 +113,21 @@ You could use a golang template that looks like this to transform it into a diff
 This example would produce the following output:
 
 ```
-    {
-        "value1": "value-1",
-        "value2": "value-2",
-        "transformed_list": [
-            "one",
-            "two",
-            "three"
-        ]
-    }
+{
+    "value1": "value-1",
+    "value2": "value-2",
+    "transformed_list": [
+        "one",
+        "two",
+        "three"
+    ]
+}
 ```
 
 ### Escaping characters using `jsonMarshal`
 > Available starting from Gateway 2.4
 
-Using `jsonMarshal` template helper you can perform JSON style character escaping, and for complex objects serialise them to a JSON string. 
+Using the `jsonMarshal` template helper you can perform JSON style character escaping, and for complex objects serialise them to a JSON string. 
  
 Example:
 
@@ -144,17 +144,17 @@ With an XML document it is a little different from JSON as XML cannot be as easi
 For this XML:
 
 ```{.copyWrapper}
-    <?xml version="1.0" encoding="utf-8"?>
-    <servers version="1">
-        <server>
-            <serverName>Shanghai_VPN</serverName>
-            <serverIP>127.0.0.1</serverIP>
-        </server>
-        <server>
-            <serverName>Beijing_VPN</serverName>
-            <serverIP>127.0.0.2</serverIP>
-        </server>
-    </servers>
+<?xml version="1.0" encoding="utf-8"?>
+<servers version="1">
+    <server>
+        <serverName>Shanghai_VPN</serverName>
+        <serverIP>127.0.0.1</serverIP>
+    </server>
+    <server>
+        <serverName>Beijing_VPN</serverName>
+        <serverIP>127.0.0.2</serverIP>
+    </server>
+</servers>
 ```
 
 ### Template
@@ -162,10 +162,10 @@ For this XML:
 And this Template:
 
 ```{.copyWrapper}
-    {
-    {{range $x, $s := .servers.server}}    "{{$s.serverName}}": "{{$s.serverIP}}"{{if not $x}},{{end}}
-    {{end}}
-    }
+{
+{{range $x, $s := .servers.server}}    "{{$s.serverName}}": "{{$s.serverIP}}"{{if not $x}},{{end}}
+{{end}}
+}
 ```
 
 ### Output
@@ -173,26 +173,26 @@ And this Template:
 You get this output:
 
 ```
-    {
-        "Shanghai_VPN": "127.0.0.1",
-        "Beijing_VPN": "127.0.0.2"
-    }
+{
+    "Shanghai_VPN": "127.0.0.1",
+    "Beijing_VPN": "127.0.0.2"
+}
 ```
 ## <a name="meta-data"></a> Meta Data
 
 It is also possible to insert key meta data into a body transform, you can do this by calling the `._tyk_meta.KEYNAME` namespace, e.g.:
 
 ```{.copyWrapper}
-    {
-        "value1": "value-1",
-        "value2": "value-2",
-        "transformed_list": [
-            "one",
-            "two",
-            "three"
-        ],
-        "user-id": "._tyk_meta.uid"
-    }
+{
+    "value1": "value-1",
+    "value2": "value-2",
+    "transformed_list": [
+        "one",
+        "two",
+        "three"
+    ],
+    "user-id": "._tyk_meta.uid"
+}
 ```
 
 This mechanism operates the same way as the header injection middleware.
@@ -212,7 +212,7 @@ The context variables that are available are:
 As headers are already exposed to context data, you can also access any header from context variables by using:
 
 ```{.copyWrapper}
-    $tyk_context.headers_HEADERNAME
+$tyk_context.headers_HEADERNAME
 ```
 
 Or (for body transforms):
