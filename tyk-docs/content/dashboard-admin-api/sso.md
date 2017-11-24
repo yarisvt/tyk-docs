@@ -7,12 +7,12 @@ menu:
 weight: 5
 ---
 
-SSO API allows you to implement custom authentification schemes for the Dashboard and Portal. 
-In fact Tyk Identity Broker internally use this API. 
+Our SSO API allows you to implement custom authentication schemes for the Dashboard and Portal. 
+Our Tyk Identity Broker (TIB) internally also uses this API. 
 
 ### Generate authentication token
 
-Dashboard expose `/admin/sso` Admin API which allows you to generate temporary authentication token, valid for 60 seconds. You should provide JSON payload with the scope `ForSection`, possible values "dashboard" and "portal". In addition you should provide organization id via "OrgID" attribute.
+The Dashboard exposes the `/admin/sso` Admin API which allows you to generate a temporary authentication token, valid for 60 seconds. You should provide JSON payload with the scope `ForSection`, with possible values of `"dashboard"` or `"portal"`. In addition you should provide an organisation id via the "`OrgID"` attribute.
 
 
 | **Property** | **Description**              |
@@ -24,14 +24,14 @@ Dashboard expose `/admin/sso` Admin API which allows you to generate temporary a
 #### Sample Request
 
 ```{.copyWrapper}
-    POST /admin/sso HTTP/1.1
-    Host: localhost:3000
-    admin-auth: 12345
+POST /admin/sso HTTP/1.1
+Host: localhost:3000
+admin-auth: 12345
     
-    {
-        "ForSection": "dashboard",
-        "OrgID": "588b4f0bb275ff0001cc7471"
-    }
+{
+    "ForSection": "dashboard",
+    "OrgID": "588b4f0bb275ff0001cc7471"
+}
 ```
 
 #### Sample Response:
@@ -39,27 +39,29 @@ Dashboard expose `/admin/sso` Admin API which allows you to generate temporary a
 {"Status":"OK","Message":"SSO Nonce created","Meta":"YTNiOGUzZjctYWZkYi00OTNhLTYwODItZTAzMDI3MjM0OTEw"}
 ```
 
-### Using token
+### Using the Token
 
-Once you issued a token you can login to the dashboard using `/tap` url, or to the portal using `<portal-url>/sso` url, and provide authentication token via `nonce` query param.
-If `nonce` is valid, Tyk will create temporary user and log him in. If used for `dashboard`, you can use `sso_permission_defaults` configuration option in Dashboard config file, to specify SSO user permissions, in the following format:
+Once you have issued a token you can login to the dashboard using the `/tap` url, or to the portal using the `<portal-url>/sso` URL, and provide an authentication token via the `nonce` query param.
+If `nonce` is valid, Tyk will create a temporary user and log them in. If used for `dashboard`, you can use the `sso_permission_defaults` configuration option in the Dashboard config file to specify SSO user permissions in the following format:
 
 ```
 "sso_permission_defaults": {
-  "oauth" : "read",
-  "apis" : "read",
-  "log" : "read",
-  "policy" : "read",
-  "keys" : "write",
-  "hooks" : "read",
-  "analytics" : "read"
+  "analytics": "read",
+  "apis": "write",
+  "hooks": "write",
+  "idm": "write",
+  "keys": "write",
+  "policy": "write",
+  "portal": "write",
+  "system": "write",
+  "users": "write"
 }
 ```
 
 #### Sample Request
 
 ```{.copyWrapper}
-    GET /tap?nonce=YTNiOGUzZjctYWZkYi00OTNhLTYwODItZTAzMDI3MjM0OTEw HTTP/1.1
-    Host: localhost:3000    
+GET /tap?nonce=YTNiOGUzZjctYWZkYi00OTNhLTYwODItZTAzMDI3MjM0OTEw HTTP/1.1
+Host: localhost:3000    
 ```
 
