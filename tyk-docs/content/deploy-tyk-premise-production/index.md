@@ -112,6 +112,20 @@ The `tyk_analytics` collection contains granular log data, which is why it can g
 
 If you've got an existing collection which you want to convert to be capped you can use the `convertToCapped` [MongoDB command][6].
 
+If you wish to configure the pump to cap the collections for you upon creating the collection, you may add the following
+configurations to your `uptime_pump_config` and / or `mongo.meta` objects in `pump.conf`.
+
+```
+"collection_cap_max_size_bytes": 1048577,
+"collection_cap_enable": false
+```
+
+`collection_cap_max_size_bytes` sets the maximum size of the capped collection.
+`collection_cap_enable` enables capped collections.
+
+If capped collections are enabled and a max size is not set, a default cap size of `5Gib` is applied. 
+Existing collections will never be modified.
+
 ### Health checks are expensive
 
 In order to keep real-time health-check data and make it available to the Health-check API, Tyk needs to record information for every request, in a rolling window - this is an expensive operation and can limit throughput - you have two options: switch it off, or get a box with more cores.
