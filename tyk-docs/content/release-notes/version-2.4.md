@@ -104,9 +104,15 @@ Using `control_api_port` option in configuration file, you can run the admin con
 [Docs](/docs/security/gateway/gateway-api/)
 
 ### Added a Configuration Linter
-The new `tyk lint` command which takes the Gateway configuration file path as argument, and validates the syntax, misspelled attribute names or values format. It can be good include this step to your CI/CD pipeline.
 
-For example: `tyk lint ./tyk.conf`
+We have added a new `tyk lint ` command which will validate your `tyk.conf` file and validate it for syntax correctness, misspelled attribute names or format of values. The Syntax can be:
+
+`tyk lint` or `tyk --conf=path lint`
+
+If `--conf` is not used, the following paths are used:
+
+`./tyk.conf`
+`/etc/tyk/tyk.conf`
 
 [Docs](/docs/configure/tyk-gateway-configuration-options/)
 
