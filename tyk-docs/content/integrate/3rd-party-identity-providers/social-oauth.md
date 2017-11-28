@@ -54,6 +54,13 @@ What the broker will do is essentially the final leg of the authentication proce
 
 Assuming we have created an client ID and secret in Google Apps to grant ourselves access to the users data, we need those details, and some additional ones from Tyk itself.
 
+### To Set up an OAuth client with Google Apps
+
+1. Go to the [Google Developer Console](https://console.developers.google.com/) and create a new app
+2. Register a new OAuth client. Let's call it WebApp 1 (Select "New Credentials -> OAuth Client ID")
+3. Select Web App
+4. Add the following URL (modify for your domain) to the "Authorized redirect URIs" section: `http://tib-hostname:TIB-PORT/auth/{PROFILE-ID}/gplus/callback`
+
 #### Create an OAuth Client in Tyk Dashboard
 
 TIB will use the OAuth credentials for GPlus to access and authenticate the user, it will then use another set of client credentials to make the request to Tyk to generate a token response and redirect the user, this means we need to create an OAuth client in Tyk Dashboard before we can proceed.
@@ -128,4 +135,4 @@ The social provider for the Tyk Identity Broker is a thin wrapper around the exc
 
 The social provider is ideal for SSO-style logins for the Dashboard or for the Portal, for certain providers (mainly Google+), where email addresses are returned as part of the user data, a constraint can be added to validate the users domain. This is useful for Google For Business Apps users that want to grant access to their domain users for the Dashboard.
 
-We've outlined a series of example configurations in this section for use with the social handler.
+For more social provider examples see the Tyk Identity Broker (TIB) v0.2 Repo [Readme](https://github.com/TykTechnologies/tyk-identity-broker/blob/master/README.md#social).
