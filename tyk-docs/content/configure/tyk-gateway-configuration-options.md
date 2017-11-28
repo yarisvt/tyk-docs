@@ -15,11 +15,14 @@ The Tyk Gateway server is configured primarily via the `tyk.conf` file, this fil
 Environment variables can be used to override settings defined in the configuration file. The [Tyk Gateway environment variable mappings][1] spreadsheet shows how the JSON member keys map to the environment variables. Where an environment variable is specified, its value will take precendence over the value in the configuration file.
 
 ### <a name="linter"></a> tyk lint
-In v2.4 we have added a new `tyk lint` command which takes the `tyk.conf` file path as argument, and validates it for syntax correctness, misspelled attribute names or format of values. For example: 
+In v2.4 we have added a new `tyk lint ` command which will validate your `tyk.conf` file and validate it for syntax correctness, misspelled attribute names or format of values. The Syntax can be:
 
-```{.copyWrapper}
-tyk lint ./tyk.conf
-```
+`tyk lint` or `tyk --conf=path lint`
+
+If `--conf` is not used, the first of the following paths to exist is used:
+
+`./tyk.conf`
+`/etc/tyk/tyk.conf`
 
 ### <a name="listen_port"></a> listen_port
 
