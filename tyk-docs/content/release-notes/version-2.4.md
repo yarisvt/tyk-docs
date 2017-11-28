@@ -109,7 +109,7 @@ We have added a new `tyk lint ` command which will validate your `tyk.conf` file
 
 `tyk lint` or `tyk --conf=path lint`
 
-If `--conf` is not used, the following paths are used:
+If `--conf` is not used, the first of the following paths to exist is used:
 
 `./tyk.conf`
 `/etc/tyk/tyk.conf`
