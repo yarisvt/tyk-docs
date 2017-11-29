@@ -7,6 +7,4 @@ menu:
 weight: 0 
 ---
 
-It’s not possible to segregate out the error locations in the `tyk.conf`, but you can modify the actual initialisation files to specify the log location, we supply initialisation scripts for `SysV`, s`ystemd` and `upstart`.
-
-
+It's not possible to segregate out the error locations in the `tyk.conf`, but you can modify the actual initialisation files to specify the log location, we supply initialisation scripts for `SysV`, `systemd` and `upstart`.
