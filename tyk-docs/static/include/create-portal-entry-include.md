@@ -8,6 +8,8 @@ You can use the dashboard to create a portal that allows developers to access th
 *   The API must be *Closed* (i.e. it must use either Auth Token or Basic Auth security mechanisms)
 *   A security policy configured to grant access to the API
 
+> **Warning**: Without these prerequisites, you may get a 404 error when trying to access the portal.
+
 ### Step 1: Select "Catalogue" from the "Portal Management" section
 
 ![Catalogue menu link location][1]
