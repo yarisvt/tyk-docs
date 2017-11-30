@@ -17,18 +17,20 @@ Below is the list of functions currently provided by Tyk.
 
 *   `log(string)`: Calling `log("this message")` will cause Tyk to log the string to Tyk's default logger output in the form `JSVM Log: this message` as an INFO statement. This function is especially useful for debugging your scripts. It is recommended to put a `log()` call at the end of your middleware and event handler module definitions to indicate on load that they have been loaded successfully - see the example scripts supplied with Tyk for more details.
 *   `rawlog(string)`: Calling `rawlog("this message")` will cause Tyk to log the string to Tyk's default logger output without any additional formatting, like adding prefix or date. This function can be used if you want to have own log format, and parse it later with custom tooling.
-
+*   `b64enc` - Decode base64 string
+*   `b64dec` - Encode string to base64
+*   `TykBatchRequest` this function is similar to `TykMakeHttpRequest` but makes use of the Tyk Batch API. See [Batch Requests](/docs/tyk-rest-api/batch-requests/) for more details.
 *   `TykMakeHttpRequest(JSON.stringify(requestObject))`: This method is used to make an HTTP request, requests are encoded as JSON for deserialisation in the min binary and translation to a system HTTP call. The request object has the following structure:
 
 ```{.copyWrapper}
-    newRequest = {
-        "Method": "POST",
-        "Body": JSON.stringify(event),
-        "Headers": {},
-        "Domain": "http://foo.com",
-        "Resource": "/event/quotas",
-        "FormData": {"field": "value"}
-    };
+newRequest = {
+    "Method": "POST",
+    "Body": JSON.stringify(event),
+    "Headers": {},
+    "Domain": "http://foo.com",
+    "Resource": "/event/quotas",
+    "FormData": {"field": "value"}
+};
 ```
     
 > **Note**: If you want to include querystring values, add them as part of the `Domain` property.
@@ -36,19 +38,19 @@ Below is the list of functions currently provided by Tyk.
 Tyk passes a simplified response back which looks like this:
 
 ```{.copyWrapper}
-    type TykJSHttpResponse struct {
-        Code int
-        Body string
-        Headers map[string][]string
-    }
+type TykJSHttpResponse struct {
+    Code int
+    Body string
+    Headers map[string][]string
+}
 ```
     
 The response is JSON string encoded, and so will need to be decoded again before it is usable:
     
 ```{.copyWrapper}
-    usableResponse = JSON.parse(response);
-    log("Response code: " + usableResponse.Code);
-    log("Response body: " + usableResponse.Body);
+usableResponse = JSON.parse(response);
+log("Response code: " + usableResponse.Code);
+log("Response body: " + usableResponse.Body);
 ```
     
 This method does not execute asynchronously, so execution will block until a response is received.
@@ -56,21 +58,19 @@ This method does not execute asynchronously, so execution will block until a res
 * `TykGetKeyData(api_key, api_id)`: Use this method to retrieve a session object for the key and the API provided:
 
 ```{.copyWrapper}
-    // In an event handler, we can get the key idea from the event, and the API ID from the context variable.
-    var thisSession = JSON.parse(TykGetKeyData(event.EventMetaData.Key, context.APIID))
-    log("Expires: " + thisSession.expires)
+// In an event handler, we can get the key idea from the event, and the API ID from the context variable.
+var thisSession = JSON.parse(TykGetKeyData(event.EventMetaData.Key, context.APIID))
+log("Expires: " + thisSession.expires)
 ```
 
-* `TykSetKeyData(api_key, api_id)`:
+* `TykSetKeyData(api_key, api_id)`: Use this method to write data back into the Tyk session store:
 
 ```{.copyWrapper}
-    Use this method to write data back into the Tyk session store:
-    
-        // You can modify the object just like with the REST API
-        thisSession.expires = thisSession.expires + 1000;
+// You can modify the object just like with the REST API
+thisSession.expires = thisSession.expires + 1000;
         
-        // Use TykSetKeyData to set the key data back in the session store
-        TykSetKeyData(event.EventMetaData.Key, JSON.stringify(thisSession));
+// Use TykSetKeyData to set the key data back in the session store
+TykSetKeyData(event.EventMetaData.Key, JSON.stringify(thisSession));
 ```
     
 All of these methods are described in functional examples in the Tyk `middleware/` and `event_handlers/` folders.
