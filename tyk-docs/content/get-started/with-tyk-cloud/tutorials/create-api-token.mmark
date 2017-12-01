@@ -9,7 +9,7 @@ weight: 2
 
 {{./static/include/create-api-key-include.md}}
 
-You will see a 200 response with your new token:
+You will see a 200 response with your new key:
 ```
     {
         "api_model": {},
@@ -18,4 +18,4 @@ You will see a 200 response with your new token:
     }
 ```
 
-The value returned in the `key_id` parameter of the response is the access token you can now use to access the API that was specified in the `access_rights` section of the call.
+The value returned in the `key_id` parameter of the response is the access key you can now use to access the API that was specified in the `access_rights` section of the call.
