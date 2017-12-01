@@ -7,11 +7,11 @@ menu:
 weight: 3
 ---
 
-Creating an API Key with Tyk Hybrid is the same process as with Tyk Cloud. The only difference is that when you use the API token, you can use it either against your Cloud endpoints or against your Hybrid Gateway, both are valid.
+Creating an API Key with Tyk Hybrid is the same process as with Tyk Cloud. The only difference is that when you use the API key, you can use it either against your Cloud endpoints or against your Hybrid Gateway. Both are valid.
 
 {{./static/include/create-api-key-include.md}}
 
-You will see a response with your new token:
+You will see a response with your new key:
 ```
     {
         "action": "create",
@@ -20,5 +20,5 @@ You will see a response with your new token:
     }
 ```
 
-The value returned in the `key` parameter of the response is the access token you can now use to access the API that was specified in the `access_rights` section of the call.
+The value returned in the `key` parameter of the response is the access key you can now use to access the API that was specified in the `access_rights` section of the call.
 

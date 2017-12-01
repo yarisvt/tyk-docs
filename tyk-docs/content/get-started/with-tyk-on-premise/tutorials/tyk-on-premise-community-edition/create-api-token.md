@@ -52,4 +52,4 @@ You will see a response with your new key:
     }
 ```
 
-The value returned in the `key` parameter of the response is the access token you can now use to access the API that was specified in the `access_rights` section of the call.
+The value returned in the `key` parameter of the response is the access key you can now use to access the API that was specified in the `access_rights` section of the call.
