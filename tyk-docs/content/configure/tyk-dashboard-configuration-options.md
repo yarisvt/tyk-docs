@@ -8,7 +8,7 @@ weight: 2
 ---
 
 
-The Tyk Dashboard has a separate configuration file, it is small and comes packaged with the tarball. Tyk Dashboard uses a separate configuration file as it may be installed on a different host to your Tyk nodes.
+The Tyk Dashboard has a separate configuration file, it is small and comes packaged with the tarball. The Tyk Dashboard uses a separate configuration file as it may be installed on a different host to your Tyk nodes.
 
 The dashboard configuration file can be found in the `tyk-dashboard` folder and by default is called `tyk_analytics.conf`, though it can be renamed and specified using the `--conf` flag.
 
@@ -256,7 +256,7 @@ If you set this value to `true`, then the `id` parameter in a stored policy (or 
 
 ### Environment variables
 
-Environment variables can be used to override settings defined in the configuration file. The [Tyk Dashboard environment variable mappings][2] spreadsheet shows how the JSON member keys map to the environment variables. Where an environment variable is specified, its value will take precendence over the value in the configuration file.
+Environment variables can be used to override settings defined in the configuration file. The [Tyk Dashboard environment variables page](/docs/configure/dashboard-env-variables/) shows how the JSON member keys map to the environment variables. Where an environment variable is specified, its value will take precedence over the value in the configuration file.
 
  [1]: /docs/security/tls-and-ssl/
  [2]: /docs/others/Gateway-Environment-Vars.xlsx
