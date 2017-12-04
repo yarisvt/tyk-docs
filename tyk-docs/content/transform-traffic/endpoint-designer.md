@@ -35,7 +35,7 @@ Adding a path to a blacklist will force it to be blocked. This can be useful if 
 
 ### Body Transform
 
-The Body Transform plugin  allows Body Transforms for both the Request and the Response. See [Request Body](/docs/transform-traffic/request-body/)and [Response Body](/docs/transform-traffic/response-body/) for more details.
+The Body Transform plugin  allows Body Transforms for both the Request and the Response. See [Request Body](/docs/transform-traffic/request-body/) and [Response Body](/docs/transform-traffic/response-body/) for more details.
 
 ### Cache
 
