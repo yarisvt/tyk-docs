@@ -1,6 +1,6 @@
 ---
 date: 2017-03-24T16:28:03Z
-title: Other data stores
+title: Other Data Stores
 menu:
   main:
     parent: "Analyse"
@@ -51,7 +51,7 @@ Create a `pump.conf` file:
                 "name": "elasticsearch",
                 "meta": {
                     "index_name": "tyk_analytics",
-                    "elasticsearch_url": "localhost:9200",
+                    "elasticsearch_url": "http://localhost:9200",
                     "enable_sniffing": "false",
                     "document_type": "tyk_analytics"
                 }
@@ -82,7 +82,7 @@ The Elasticsearch pump configuration looks like this:
             "name": "elasticsearch",
             "meta": {
                 "index_name": "tyk_analytics",
-                "elasticsearch_url": "localhost:9200",
+                "elasticsearch_url": "http://localhost:9200",
                 "enable_sniffing": false,
                 "document_type": "tyk_analytics",
                 "rolling_index": false
@@ -91,7 +91,7 @@ The Elasticsearch pump configuration looks like this:
 ```
 
 *   `index_name`: The name of the index that all the analytics data will be placed in. Defaults to `tyk_analytics`.
-*   `elasticsearch_url`: If sniffing is disabled, the URL that all data will be sent to. Defaults to `http://localhost:9200`.
+*   `elasticsearch_url`: If sniffing is disabled, the URL that all data will be sent to. Defaults to `http://localhost:9200`. Note if you are using `https`, you need to change the protocol of `elasticsearch_url` to `https`.
 *   `enable_sniffing`: If sniffing is enabled, the `elasticsearch_url` will be used to make a request to get a list of all the nodes in the cluster, the returned addresses will then be used. Defaults to `false`.
 *   `document_type`: The type of the document that is created in Elasticsearch. Defaults to `tyk_analytics`.
 
