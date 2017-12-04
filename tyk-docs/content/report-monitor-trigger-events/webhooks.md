@@ -62,7 +62,7 @@ So if your endpoint takes XML input or prefers CSV as a format, then this is equ
 
 *   `handler_meta.event_timeout`: This is the cool-down period for duplicate events in seconds. Set this to offset flooding of endpoints when multiple events are fired in quick succession.
 
-## <a name="setup-with-dashboard"></a> Set up an event web hook with Dashboard
+## <a name="setup-with-dashboard"></a> Set up an event webhook with Dashboard
 
 To add a webhook to an event with the dashboard is very simple, it requires two steps: 
 *  Create the webhook.
