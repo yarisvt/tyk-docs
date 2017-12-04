@@ -284,7 +284,7 @@ weight: 1
 
 ### Create API Definition
 
-Creating API definitions is slightly different to the core API, API definitions are wrapped inside an `api_definition` field and event handlers, such as web hooks are not embedded in the main `api_defintion` object (though they can be), webhooks are instead appended as references into the `hook_references` field, the API will embed the correct webhook data into the event handler interface.
+Creating API definitions is slightly different to the core API, API definitions are wrapped inside an `api_definition` field and event handlers, such as webhooks are not embedded in the main `api_defintion` object (though they can be), webhooks are instead appended as references into the `hook_references` field, the API will embed the correct webhook data into the event handler interface.
 
 | **Property** | **Description**         |
 | ------------ | ----------------------- |
