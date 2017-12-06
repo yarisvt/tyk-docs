@@ -35,7 +35,7 @@ It is useful for the downstream service to be able to query this data somehow in
 
 It is possible to inject this as a header into the request moving upstream to the underlying service using header injection and invoking the reserved metadata field: `$tyk_meta.TykJWTSessionID`.
 
-Also possible to access the JWT claims, using `$tyk_context.jwt_claims_CLAIMNAME` by injecting as a context variable in a request header. See [Request Headers][2] for more details.
+It is also possible to access the JWT claims, using `$tyk_context.jwt_claims_CLAIMNAME` by injecting as a context variable in a request header. See [Request Headers][2] for more details.
 
 ### Aliases
 
@@ -46,27 +46,27 @@ In order to make OIDC Access tokens meaningful in analytics data, Tyk will also 
 To set up an API Definition to use OIDC, add the following block to the definition, and ensure no other access methods are enabled:
 
 ```{.copyWrapper}
-    "use_openid": true,
-    "openid_options": {
-        "providers": [
-            {
-                "issuer": "accounts.google.com",
-                "client_ids": {
-                    "MTIzNDU2Nzc4OQ==": "5654566b30c55e3904000003"
-                }
+"use_openid": true,
+"openid_options": {
+    "providers": [
+        {
+            "issuer": "accounts.google.com",
+            "client_ids": {
+                "MTIzNDU2Nzc4OQ==": "5654566b30c55e3904000003"
             }
-        ],
-        "segregate_by_client": false
-    }
+        }
+    ],
+    "segregate_by_client": false
+}
 ```
 
 *   `use_openid`: Set to true to enable the OpenID Connect check.
 *   `openid_options.providers`: A list of authorised providers and their client IDs/Matched Policies.
 *   `openid_options.providers.client_ids`: The list of client IDs and policy IDs to apply to users thereof. **Note:** Client IDs are Base64 encoded, so the map is `base64(clientid):policy_id` .When a valid user appears from a matching IDP/Client ID, the policy listed in this entry will be applied to their token across OIDC ID Tokens.
 *   `openid_options.segregate_by_client`: Enable this to have the policy applied to the combination of the User ID AND the Client ID. For example: 
-    *   **If disabled**: when alice uses the mobile app to log into the API, Tyk applies the same rate limit and access rules as if she had logged in via the web app or the desktop client. 
-    *   **If enabled**: when alice uses the mobile app to log into the API, Tyk applies different rate limit and access rules than if she had logged in via the web app or the desktop client, in fact, each client and user combination will have its *own* internal representation.
+    *   **If disabled**: When Alice uses the mobile app to log into the API, Tyk applies the same rate limit and access rules as if she had logged in via the web app or the desktop client. 
+    *   **If enabled**: When Alice uses the mobile app to log into the API, Tyk applies different rate limit and access rules than if she had logged in via the web app or the desktop client, in fact, each client and user combination will have its **own** internal representation.
 
 
-[1]: /docs/img/diagrams/openidFlow.png
+[1]: /docs/img/diagrams/openid_connect.png
 [2]: /docs/transform-traffic/request-headers/
