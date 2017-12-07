@@ -191,7 +191,7 @@ It is also possible to insert key meta data into a body transform, you can do th
         "two",
         "three"
     ],
-    "user-id": "._tyk_meta.uid"
+    "user-id": "{{._tyk_meta.uid}}"
 }
 ```
 
@@ -212,7 +212,7 @@ The context variables that are available are:
 As headers are already exposed to context data, you can also access any header from context variables by using:
 
 ```{.copyWrapper}
-$tyk_context.headers_HEADERNAME
+{{$tyk_context.headers_HEADERNAME}}
 ```
 
 Or (for body transforms):
