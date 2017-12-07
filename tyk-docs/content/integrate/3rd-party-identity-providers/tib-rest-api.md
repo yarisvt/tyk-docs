@@ -253,8 +253,9 @@ Authorization: test-secret
 ### Sample Request
 
 ```{.copyWrapper}
-POST /aAuthorization: test-secret
-[emtpy body]pi/profiles/save
+POST /api/profiles/save
+Authorization: test-secret
+[empty body]
 ```
 
 ### Sample Response
@@ -269,4 +270,4 @@ POST /aAuthorization: test-secret
 
 ## <a name="outcome"></a> Outcome
 
-The existing `profiles.json` file will be backed up to a new file, and the current profiles data in memory will be flushed to disk as the new `priofiles.json` file. Backups are time stamped (e.g. `profiles_backup_1452677499.json`).
+The existing `profiles.json` file will be backed up to a new file, and the current profiles data in memory will be flushed to disk as the new `profiles.json` file. Backups are time stamped (e.g. `profiles_backup_1452677499.json`).
