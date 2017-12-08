@@ -13,13 +13,13 @@ Tyk comes with support for OpenID Connect Identity Tokens provided by any standa
 
 1.  User requests access to resource via a supported OIDC Provider (e.g. Google).
 2.  User logs into resource provider and grants scope access to their data.
-3.  Identity Provider generates OAuth token set and OIDC ID Token, ID Token is signed by provider with their public key.
+3.  Identity Provider generates OAuth token set and OIDC ID Token. ID Token is signed by provider with their public key.
 4.  User's client utilises OIDC ID Token as access token for an API managed by Tyk Gateway.
 5.  Tyk Gateway validates OIDC ID Token signature.
 6.  Tyk Gateway checks the IDP is a recognised IDP (registered as approved).
-7.  Tyk verifies the client ID as one that is trusted and pre-registered with Tyk Gateway.
+7.  Tyk verifies the client ID as one that is trusted and pre-registered with the Tyk Gateway.
 8.  If the client ID is valid, Tyk applies the policy ID matched with this client to the user session.
-9.  Tyk then validates the users session according to the quotas, rate limits and access rules for the matching policy for *either* the bearer of the token across all clients they use from this IDP *or* validates the session on a per client / per identity basis, e.g. User Alice will have different Access Rules depending on whether they are using a mobile client or a web client.
+9.  Tyk then validates the users session according to the quotas, rate limits and access rules for the matching policy for **either** the bearer of the token across all clients they use from this IDP **or** validates the session on a per client / per identity basis, e.g. User Alice will have different Access Rules depending on whether they are using a mobile client or a web client.
 
 With this flow, Tyk does not need to be aware of the user or the token in advance, it only needs to know about the approved IDPs, approved ClientIDs within those IDPs and which Policy to apply to those Client IDs.
 
@@ -62,7 +62,7 @@ To set up an API Definition to use OIDC, add the following block to the definiti
 *   `openid_options.providers`: A list of authorised providers and their client IDs/Matched Policies.
 *   `openid_options.providers.client_ids`: The list of client IDs and policy IDs to apply to users thereof. **Note:** Client IDs are Base64 encoded, so the map is `base64(clientid):policy_id` .When a valid user appears from a matching IDP/Client ID, the policy listed in this entry will be applied to their token across OIDC ID Tokens.
 *   `openid_options.segregate_by_client`: Enable this to have the policy applied to the combination of the User ID AND the Client ID. For example: 
-    *   **If disabled**: when alice uses the mobile app to log into the API, Tyk applies the same rate limit and access rules as if she had logged in via the web app or the desktop client. 
-    *   **If enabled**: when alice uses the mobile app to log into the API, Tyk applies different rate limit and access rules than if she had logged in via the web app or the desktop client, in fact, each client and user combination will have its *own* internal representation.
+    *   **If disabled**: When Alice uses the mobile app to log into the API, Tyk applies the same rate limit and access rules as if she had logged in via the web app or the desktop client. 
+    *   **If enabled**: When Alice uses the mobile app to log into the API, Tyk applies different rate limit and access rules than if she had logged in via the web app or the desktop client. In fact, each client and user combination will have its **own** internal representation.
 
- [1]: /docs/img/diagrams/openIDDiagram.png
+ [1]: /docs/img/diagrams/openid_connect.png
