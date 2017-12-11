@@ -22,7 +22,7 @@ Below is the list of functions currently provided by Tyk.
 *   `TykBatchRequest` this function is similar to `TykMakeHttpRequest` but makes use of the Tyk Batch API. See [Batch Requests](/docs/tyk-rest-api/batch-requests/) for more details.
 *   `TykMakeHttpRequest(JSON.stringify(requestObject))`: This method is used to make an HTTP request, requests are encoded as JSON for deserialisation in the min binary and translation to a system HTTP call. The request object has the following structure:
 
-```{.copyWrapper}
+```{.javascript}
 newRequest = {
     "Method": "POST",
     "Body": JSON.stringify(event),
