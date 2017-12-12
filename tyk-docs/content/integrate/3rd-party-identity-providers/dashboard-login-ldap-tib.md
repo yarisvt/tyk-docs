@@ -17,7 +17,7 @@ Good news, Tyk supports this!
 
 ## <a name="how"></a> How it works
 
-The Tyk Identity Broker (TIB) is an open-source project which can be used to integrate Tyk authentication with 3rd party identity providers (IDPs). You can use this to enable your Dashboard to authenticate users with your LDAP-powered identity providers such as Active Directory. TIB has been designed as a glue-code solution so it can integrate with almost any identity provider (IDP). See [here](/docs/configure/tyk-identity-broker-configuration/) for details on configuring the TIB.
+The Tyk Identity Broker (TIB) is an open-source project which can be used to integrate Tyk authentication with 3rd party identity providers (IDPs). You can use this to enable your Dashboard to authenticate users with your LDAP-powered identity providers such as Active Directory. TIB has been designed as a glue-code solution, so it can integrate with almost any identity provider (IDP). See [here](/docs/configure/tyk-identity-broker-configuration/) for details on configuring the TIB.
 
 ### The High Level TIB Flow:
 
@@ -25,7 +25,7 @@ The Tyk Identity Broker (TIB) is an open-source project which can be used to int
 2. TIB makes request against IDP using the credentials provided
 3. TIB interprets the IDP response:
 
-   * If successful then TIB creates a user session in the Dashboard and redirects the user to the Dashboard.
+   * If successful then TIB creates a user session in the Dashboard and redirects the user to the Dashboard
 
    * If unsuccessful, TIB redirects the user to a failure URL
 
@@ -37,7 +37,7 @@ The environment used for this guide is, for simplicity's sake, all contained on 
 
 All commands shown are run from inside the Tyk host environment.
 
-1. Download TIB
+### 1. Download TIB
 
 You can download TIB from the [releases page of the TIB repository on GitHub](https://github.com/TykTechnologies/tyk-identity-broker/releases). The release names contain the architecture and version i.e. `tib-linux-<architecture>-<version>.tar.gz`. This example uses `amd64` and `0.2.1` for all the commands, but you should update them to use the latest version and relevant architecture for your platform.
 
@@ -47,7 +47,7 @@ First step is to download TIB onto the environment:
 wget https://github.com/TykTechnologies/tyk-identity-broker/releases/download/v0.2.1/tib-linux-amd64-0.2.1.tar.gz
 ```
 
-2. Extract and store TIB
+### 2. Extract and store TIB
 
 As the other Tyk components are installed in your `/opt` directory, we recommend you install TIB there too:
 
@@ -62,22 +62,22 @@ sudo mv tib-0.2.1 /opt
 cd /opt/tib-0.2.1
 ```
 
-3. Conifgure TIB
+### 3. Conifgure TIB
 
 There are two configuration files for TIB: 
 
-1. `tib.conf` for the main application configuration settings. 
-2. `profiles.json` to configure the profiles which TIB will attempt to authenticate against.
+1. `tib.conf` for the main application configuration settings 
+2. `profiles.json` to configure the profiles which TIB will attempt to authenticate against
 
 Out of the box you don't need to change much, but there are several attributes you should check to make sure they are correct for your environment:
 
 * `Secret`: The REST API secret used when configuring TIB remotely
 * `TykAPISettings.GatewayConfig.Endpoint`: The URL through which TIB can communicate with your Tyk Gateway
 * `TykAPISettings.GatewayConfig.Port`: The port through which TIB can communicate with your Tyk Gateway
-* `TykAPISettings.GatewayConfig.AdminSecret`: The secret required for TIB to communicate with your Tyk Gateway REST API
+* `TykAPISettings.GatewayConfig.AdminSecret`: The secret required for TIB to communicate with your Tyk Gateway REST API - must match the `secret` property in your Gateway's `tyk.conf`
 * `TykAPISettings.DashboardConfig.Endpoint`: The URL through which TIB can communicate with your Tyk Dashboard
 * `TykAPISettings.DashboardConfig.Port`: The port through which TIB can communicate with your Tyk Dashboard
-* `TykAPISettings.DashboardConfig.AdminSecret`: The secret required for TIB to communicate with your Tyk Dashboard Admin REST API
+* `TykAPISettings.DashboardConfig.AdminSecret`: The secret required for TIB to communicate with your Tyk Dashboard Admin REST API - must match the `admin_secret` property in your Dashboard's `tyk_analytics.conf`
 
 The `tib.conf` for this example is as follows (yours might require different values):
 
@@ -118,14 +118,14 @@ The `tib.conf` for this example is as follows (yours might require different val
 }
 ```
 
-4. Set up the LDAP profile
+### 4. Set up the LDAP profile
 
 TIB ships with a default `profiles.json` file which contains many example configuration for different scenarios. This guide is focused on LDAP authentication for the Dashboard, so we will update `profiles.json` to contain a single profile for this purpose.
 
 The key attributes for LDAP profile are:
 
 * `ID`: The ID by which we will activate the profile by calling the appropriate TIB endpoint
-* `OrgId`: The organisation id which the profile is connected to - make sure this is the correct id for your organisation (see the [Dashboard Admin API documentation](https://tyk.io/docs/dashboard-admin-api/organisations/) for details on how to retrieve this
+* `OrgId`: The organisation id which the profile is connected to - make sure this is the correct id for your organisation (see the [Dashboard Admin API documentation](https://tyk.io/docs/dashboard-admin-api/organisations/) for details on how to retrieve this)
 * `ProviderConfig.FailureRedirect`: The URL which TIB will redirect to if the authentication fails
 * `ProviderConfig.LDAPPort`: The port through which TIB can communicate with your LDAP server
 * `ProviderConfig.LDAPServer`: The URL through which TIB can communicate with your LDAP server
@@ -136,21 +136,21 @@ The `profiles.json` for this example is as follows (again, update values for you
 
 ```{.copyWrapper}
 [
-{
-    "ActionType": "GenerateOrLoginUserProfile",
-    "ID": "1",
-    "OrgID": "59bfdf5b56c02c065d24638e",
-    "ProviderConfig": {
-        "FailureRedirect": "http://my-tyk-instance.com:3000/?fail=true",
-        "LDAPAttributes": [],
-        "LDAPPort": "389",
-        "LDAPServer": "ldap.forumsys.com",
-        "LDAPUserDN": "cn=*USERNAME*,dc=example,dc=com"
-    },
-    "ProviderName": "ADProvider",
-    "ReturnURL": "http://my-tyk-instance.com:3000/tap",
-    "Type": "passthrough"
-}
+  {
+      "ActionType": "GenerateOrLoginUserProfile",
+      "ID": "1",
+      "OrgID": "59bfdf5b56c02c065d24638e",
+      "ProviderConfig": {
+          "FailureRedirect": "http://my-tyk-instance.com:3000/?fail=true",
+          "LDAPAttributes": [],
+          "LDAPPort": "389",
+          "LDAPServer": "ldap.forumsys.com",
+          "LDAPUserDN": "cn=*USERNAME*,dc=example,dc=com"
+      },
+      "ProviderName": "ADProvider",
+      "ReturnURL": "http://my-tyk-instance.com:3000/tap",
+      "Type": "passthrough"
+  }
 ]
 ```
 
