@@ -138,7 +138,8 @@ weight: 12
 | checker_pool_size                     | TYK_GW_CONFIG_CHECKERPOOLSIZE                       |
 | enable_uptime_analytics               | TYK_GW_CONFIG_ENABLEUPTIMEANALYTICS                 |
 | hostname                              | TYK_GW_HOSTNAME                                     |
-| enable_api_segregation                | TYK_GW_ENABLEAPISEGREGATION                         |
+| enable_api_segregation (deprecated)                | TYK_GW_ENABLEAPISEGREGATION                         |
+| control_api_port                | TYK_GW_CONTROLAPIPORT                         |
 | control_api_hostname                  | TYK_GW_CONTROLAPIHOSTNAME                           |
 | enable_custom_domains                 | TYK_GW_ENABLECUSTOMDOMAINS                          |
 | enable_jsvm                           | TYK_GW_ENABLEJSVM                                   |

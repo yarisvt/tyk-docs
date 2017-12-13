@@ -371,9 +371,18 @@ Change the expiry time of refresh token, by default 1 hour (in seconds).
 
 The hostname to bind the REST API to.
 
+### <a name="control-api"></a>control_api_port
+
+This allows you to run the Admin Control API on separate port, and hide it behind a firewall if needed.
+
+> **NOTE:** This option is available from v2.4 onwards.
+
 ### <a name="enable_api_segregation"></a> enable_api_segregation
 
 For additional security it is possible to have Tyk put its REST API on a separate hostname, this means that all calls to the `/api` functions must go via this hostname for this node otherwise they will 404. This is useful if you do not wish to expose the Tyk API to proxy API users.
+
+> **NOTE**: This has been deprecated. Enter a value for `control_api_hostname` instead.
+
 
 ### <a name="enable_jsvm"></a> enable_jsvm
 
@@ -465,12 +474,6 @@ This boolean option allows the use of self-signed certificates for the Gateway.
 This can specify a default timeout in seconds for upstream API requests.
 
 > **NOTE:** This option is available from v2.3.8 onwards.
-
-### <a name="control-api"></a>control_api_port
-
-This allows you to run the admin control api on separate port, and hide it behind a firewall if needed.
-
-> **NOTE:** This option is available from v2.4 onwards.
 
 ### <a name="log-level"></a>log_level
 You can now set a logging level via the `tyk.conf` file. The following levels can be set:
