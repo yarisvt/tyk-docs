@@ -133,7 +133,7 @@ Now modify this object so that it has MDCB enabled by setting `hybrid_enabled: t
     }
 ```
 
-The first setting allows a slave to login as an organisation member into MDCB, while the second setting under `event_options`, enables key events such as updates an deletes, to be propagated to the various instance zones. API Definitions and Policies will be propagated by default.
+The first setting allows a slave to login as an organisation member into MDCB, while the second setting under `event_options`, enables key events such as updates and deletes, to be propagated to the various instance zones. API Definitions and Policies will be propagated by default.
 
 ### Step 2: Configure a Tyk Gateway for MDCB access
 
