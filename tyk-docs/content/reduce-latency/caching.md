@@ -9,12 +9,12 @@ weight: 0
 
 ## <a name="overview"></a> Overview
 
-Tyk supports various ways of caching requests. At its simplest level, Tyk can cache all safe requests, however you can also manually set exactly which endpoint patterns to cache, and if that doesn’t suffice, or you require more granular control, then you can enable upstream control and have your application tell Tyk whether to cache a request or not and for how long.
+Tyk supports various ways of caching requests. At its simplest level, Tyk can cache all safe requests, however you can also manually set exactly which endpoint patterns to cache, and if that doesn't suffice, or you require more granular control, then you can enable upstream control and have your application tell Tyk whether to cache a request or not and for how long.
 
 
 ## <a name="global"></a> Global
 
-### Enabling caching via the API definition
+### Enabling Caching via the API Definition
 
 To enable caching in your API, within your API definition you will need to set the `cache_options` flags in the main body of the definition:
 
@@ -30,29 +30,29 @@ To enable caching in your API, within your API definition you will need to set t
 
 > **Note**: If you set `cache_all_safe_requests` to true, then the cache will be global and *all* inbound requests will be evaluated by the caching middleware. This is great for simple APIs, but for most a finer-grained control is required.
 
-### Enabling caching via the Dashboard
+### Enabling Caching via the Dashboard
 
 Follow these steps to enable caching via the dashboard.
 
-####   Step 1: Go to *advanced options*
+#### Step 1: Go to the Advanced Options
 
-Go to the caching options in the API Editor, select the "Advanced Options" tab:
+From the API Editor, select the **Advanced Options** tab:
 
 ![Advanced options tab location][1]
 
-####   Step 2: Set the cache options for the *global* cache
+#### Step 2: Set the Cache Options for the Global Cache
 
 ![Cache settings][2]
 
 Here you must set:
 
 1.  **Enable caching**: To enable the cache middleware.
-2.  **Cache timeout**: To set the timeout for cached requests.
-3.  **Cache only these status codes**: To set which response codes to cache (remember to click the *add* button).
+2.  **Cache timeout**: To set the timeout (in seconds) for cached requests.
+3.  **Cache only these status codes**: To set which response codes to cache (remember to click **Add** after entering a response code).
 4.  **Global cache**: Enable the global cache.
 
 
-## <a name="per-path"></a> Per-path
+## <a name="per-path"></a> Per-Path
 
 To cache only specific endpoints, within the version data under the `extended_paths` section, you will need to define the paths to cache in the `cache` list:
 
@@ -71,57 +71,58 @@ To cache only specific endpoints, within the version data under the `extended_pa
     }
 ```
 
-Now Tyk will only cache the `/widget`, `/badger`, and `/fish` endpoints. Tyk will only cache safe requests, so `GET`, `OPTIONS` and `HEAD` requests. For many this will suffice with regards to caching requests, however in some cases you may wish to have full control over when to cache and be reactive about the time to live of the cached response.
+Now Tyk will only cache the `/widget`, `/badger`, and `/fish` endpoints. Tyk will only cache safe requests, so `GET`, `OPTIONS` and `HEAD` requests. For many this will suffice with regards to caching requests; however in some cases you may wish to have full control over when to cache and be reactive about the time to live of the cached response.
 
-You will still need to set the timeout, and the response codes to validate in the cache configuration section.
+You will still need to set the timeout and the response codes to validate in the cache configuration section.
 
-### Setting up a per-path cache in the dashboard
+### Setting Up a Per-Path Cache in the Dashboard
 
-#### Step 1: Disable global cache
+#### Step 1: Disable Global Cache
 
-Ensure that the global cache is disabled (*Cache all safe requests* is not checked).
+Ensure that the global cache is disabled (*Cache all safe requests* is not selected).
 
 ![Cache options form][1]
 
 You must also set:
 
 1.  **Caching middleware**: To enable the cache middleware.
-2.  **Cache timeout**: To set the timeout for cached requests.
-3.  **Cache only these status codes**: To set which response codes to cache (remember to click the *add* button).
+2.  **Cache timeout**: To set the timeout (in seconds) for cached requests.
+3.  **Cache only these status codes**: To set which response codes to cache (remember to click **Add** after entering a response code).
 
-#### Step 2: Set the path to cache
+#### Step 2: Set the Path to Cache
 
 Open the endpoint designer and the path you want to cache.
 
-![Cache entry on endpoint designer][2]
+![Cache entry on endpoint designer][4]
 
-#### Step 3: Select the cache plugin
+#### Step 3: Select the Cache Plugin
 
 Select the cache plugin option from the drop down.
 
-![Plugin dropdown list][3]
+![Plugin dropdown list][5]
 
  
-## <a name="upstream-control"></a> Upstream control
+## <a name="upstream-control"></a> Upstream Control
 
 Upstream cache control enables you to set whether a response should be cached, and for how long. To enable this, you will need to set `enable_cache` to and `enable_upstream_cache_control` to `true`.
 
 Now you will also need to set on which paths to act, so add these paths to the `cache` list in the extended path section of your API version.
 
-Tyk will evaluate the response headers sent from your application for these paths and based on the data in the response activate and set the cache values.
+Tyk will evaluate the response headers sent from your application for these paths and based on the data in the response, activate and set the cache values.
 
 The two response headers that Tyk looks for are:
 
 1.  `x-tyk-cache-action-set`: If Tyk finds this header set to `1`, the request will be cached.
 2.  `x-tyk-cache-action-set-ttl`: If Tyk finds this header, it will override the TTL of the cached response, otherwise it will default to `cache_options.cache_timeout`.
 
-Utilising this method gives the most control as it will also only cache requests based on their method, so if you only want `OPTIONS` requests to be cached, then only that method/URL combination will be cached, ignoring other methods for the same path.
+Utilising this approach gives the most control. So if you only want `OPTIONS` requests to be cached, and return cache control headers only for this method, then only that method/URL combination will be cached, ignoring other methods for the same path.
+
 
 ### Configuration via the Dashboard
 
-Under the advanced settings, ensure that *Enable upstream control* is activated and the global cache is deactivated, then follow the steps for per-path caching.
+Under the advanced settings, ensure that **Enable upstream control** is activated and the global cache is deactivated, then follow the steps for per-path caching.
 
-## <a name="separate-redis-cache"></a> Configuring a separate Redis cache
+## <a name="separate-redis-cache"></a> Configuring a Separate Redis Cache
 
 For high-traffic systems that make heavy use of caching as well as rate limiting, it makes sense to separate out the Redis cache server from the Redis configuration server that supplies auth tokens and handles rate limiting configuration.
 
