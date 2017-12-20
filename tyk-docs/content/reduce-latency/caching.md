@@ -79,7 +79,7 @@ You will still need to set the timeout and the response codes to validate in the
 
 #### Step 1: Disable Global Cache
 
-Ensure that the global cache is disabled (*Cache all safe requests* is not selected).
+Ensure that the global cache is disabled (**Cache all safe requests** is not selected).
 
 ![Cache options form][1]
 
@@ -115,12 +115,12 @@ The two response headers that Tyk looks for are:
 1.  `x-tyk-cache-action-set`: If Tyk finds this header set to `1`, the request will be cached.
 2.  `x-tyk-cache-action-set-ttl`: If Tyk finds this header, it will override the TTL of the cached response, otherwise it will default to `cache_options.cache_timeout`.
 
-Utilising this approach gives the most control. So if you only want `OPTIONS` requests to be cached, and return cache control headers only for this method, then only that method/URL combination will be cached, ignoring other methods for the same path.
+Utilising this approach gives the most control as it will also only cache responses based on request method. So if you only want `OPTIONS` requests to be cached, and return cache control headers only for this method, then only that method/URL combination will be cached, ignoring other methods for the same path.
 
 
 ### Configuration via the Dashboard
 
-Under the advanced settings, ensure that **Enable upstream control** is activated and the global cache is deactivated, then follow the steps for per-path caching.
+Under the advanced settings, ensure that **Enable upstream cache control** is selected and **Global cache** is not selected, then follow the steps for per-path caching.
 
 ## <a name="separate-redis-cache"></a> Configuring a Separate Redis Cache
 
