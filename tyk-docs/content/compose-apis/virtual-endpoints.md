@@ -116,7 +116,7 @@ The above code is pretty self explanatory, so we won't go into great detail - th
 
 ### Adding Virtual Endpoints to your API Definition
 
-Virtual paths follow the same layout and setup as other elements in the `extended_path` section of the API definition:
+Virtual endpoints follow the same layout and setup as other elements in the `extended_path` section of the API definition:
 
 ```{.copyWrapper}
 ...
@@ -134,7 +134,7 @@ virtual: [
 
 The parameters are as follows:
 
-*   `response_function_name`: This is the function to run when this virtual path is requested. The function name must match exactly (including casing) the function name in your virtual middleware. We need to know this as it will be the entry point into your code, this will be called first. Make sure it is unique, all plugins run in the same VM, so if there are naming collisions you may end up with unpredictable behaviour.
+*   `response_function_name`: This is the function to run when this virtual endpoint is requested. The function name must match exactly (including casing) the function name in your virtual middleware. We need to know this as it will be the entry point into your code, this will be called first. Make sure it is unique, all plugins run in the same VM, so if there are naming collisions you may end up with unpredictable behaviour.
 *   `function_source_type`: This can be `file` or `blob` If set to `file`, then Tyk will pre-load the JS from disk, if set to blob, then Tyk will base64-decode a string from the `function_source_uri` section.
 *   `function_source_uri`: This will be the relative path to the source of the functionality (e.g. `myfile.js`), or a blob of base64-encoded data that represents the same information. Blob mode is mainly used by the dashboard to make code injection easier on multiple node deployments.
 *   `path`: This is the relative URI path to which the virtual middleware will respond. For example, `http://domain/path`.
