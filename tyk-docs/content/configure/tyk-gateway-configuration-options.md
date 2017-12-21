@@ -386,7 +386,7 @@ For additional security it is possible to have Tyk put its REST API on a separat
 
 ### <a name="enable_jsvm"></a> enable_jsvm
 
-By default we have now disabled the JavaScript middleware system to ensure higher performance on nodes. If you are using the JSVM (custom middleware, or virtual paths), then enable this setting.
+By default we have now disabled the JavaScript middleware system to ensure higher performance on nodes. If you are using the JSVM (custom middleware, or virtual endpoints), then enable this setting.
 
 ### <a name="enable_custom_domains"></a> enable_custom_domains
 
