@@ -71,7 +71,7 @@ Within an API Catalogue entry, documentation must be "Attached" to the catalogue
 
 ## <a name="developers"></a> Developers
 
-Within the developer portal, the concept of a developer is pretty key. A developer here is an end-user that has access to the developer portal section of the portal website. This user is completely separate from the dashboard users and they do not ever intersect (they are also stored separately).
+Within the developer portal, a developer is an end-user that has access to the developer portal section of the portal website. This user is completely separate from Tyk Dashboard users and they do not ever intersect (they are also stored separately).
 
 A developer record consists of some basic sign-up information and a set of admin-definable fields that get attached to the developer as metadata.
 

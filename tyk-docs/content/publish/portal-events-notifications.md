@@ -7,13 +7,13 @@ menu:
 weight: 4 
 ---
 
-Tyk enables you to actively monitor both user quotas. The machinery that manages these active notifications is the same as webhooks and provides an easy way to notify your stakeholders, your own organisation or the API end user when certain thresholds have been reached for their token.
+Tyk enables you to actively monitor both user and organisation quotas. These active notifications are managed in the same way as webhooks and provides an easy way to notify your stakeholders, your own organisation or the API end user when certain thresholds have been reached for their token.
 
-### Tyk cloud users
+### Tyk Cloud Users
 
 Monitors are disabled by default in Tyk cloud. Portal events are enabled and can be defined by raising a support ticket.
 
-### Enable monitors in your `tyk.conf`
+### Enable Monitors in your `tyk.conf`
 
 Enabling monitors in your Tyk node means adding a new configuration section to your `tyk.conf`:
 
@@ -43,7 +43,7 @@ Enabling monitors in your Tyk node means adding a new configuration section to y
 
 *   `monitor_org_keys`: Set to `true` to have global organisation quotas monitored.
 
-#### Setting custom triggers on a per key or a per-organisation basis
+#### Setting Custom Triggers on a Per Key or a Per-Organisation Basis
 
 Sometimes you will not want to have every user have a trigger event at the same levels, you can set manual trigger levels by adding a `monitor` section to the Session Object that defines a keys access details, this can also be added to the session object of an organisation ID:
 
@@ -55,7 +55,7 @@ Sometimes you will not want to have every user have a trigger event at the same 
 
 The trigger limits should be in *descending* order and represent the percentage of the quota that must be reached in order for the trigger to be fired.
 
-### Webhook data
+### Webhook Data
 
 The webhook payload will take the following format:
 
@@ -75,7 +75,7 @@ If the event is triggered by an organisation, then the key field will be empty, 
 
 Tyk Dashboard and the Portal now support email notifications powered by Mandrill, Sendgrid, Mailgun and Amazon SES.
 
-#### How email notifications work.
+#### How Email Notifications Work
 
 If you have enabled email notifications, the Portal will attempt to send notifications regarding a user's sign-up status or key request status to their username email-address. These templates can be found in the `portal/email_templates` folder.
 
