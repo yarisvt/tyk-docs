@@ -188,7 +188,7 @@ weight: 2
 ```{.copyWrapper}
     PUT /api/apis/39d2c98be05c424371c600bd8b3e2242/keys/54b53d3aeba6db5c3500000272d97a10538248e9523ca09e425090b8 HTTP/1.1
     Host: localhost:3000
-    admin-auth: 12345
+    authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
     
     {
         "last_check": 0,
