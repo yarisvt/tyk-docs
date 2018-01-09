@@ -11,25 +11,25 @@ weight: 2
 
 A quota is similar to a rate limit, as it allows a certain number of requests through in a time period. However traditionally these periods are much longer, For example, if you would like to have a user only have 10,000 requests to the API per month, you can create a key that has no rate limiting but will disallow access once the quota is empty. Tyk will automatically reset the quota if the time limit on reset has been exceeded.
 
-### How do quotas work?
+### How do Quotas Work?
 
 Quotas in Tyk use a decrementing counter in the token's session object to measure when to block inbound requests.
 
-### How do quotas renew?
+### How do Quotas Renew?
 
 In Tyk, most things are event-driven, the same goes for quotas, since all quotas have a reset time limit, they do not "reset" on a specific date (e.g. 1st of the month), instead they "reset" on or after a date has passed, and only when the key is actively being used. This means that the period can "move" if the token is only partially active.
 
-### Why is the quota system like this?
+### Why is the Quota System Like This?
 
 In a system with 1,000,000 tokens, managing timers to watch and monitor each token is extremely expensive and inefficient. So in order to keep quotas sane and not clutter up the DB with unnecessary timers, quotas are event-driven.
 
 It is possible to have monthly quotas that set on a specific date, using the Tyk Gateway API it is possible to reset known token quotas periodically using an external timer.
 
-### Can I disable quotas?
+### Can I Disable Quotas?
 
-Yes you can - to disable the quota middleware in an API definition, select the *Disable Quotas* option in your API designer, or set the value of `disable_quota` to `true` in your API Definition.
+Yes you can - to disable the quota middleware in an API definition, select the **Disable Quotas** option in the API designer, or set the value of `disable_quota` to `true` in your API Definition.
 
-## <a name="with-dashboard"></a> Set a quota with the Dashboard
+## <a name="with-dashboard"></a> Set a Quota with the Dashboard
 
 1.  Visit the key creation screen by browsing to "System Management" -> "Keys" -> "Add Key".
 
@@ -43,7 +43,7 @@ Yes you can - to disable the quota middleware in an API definition, select the *
 
 5.  Save the token, it will be created instantly.
 
-## <a name="with-session-object"></a> Set a quota with the Session Object
+## <a name="with-session-object"></a> Set a Quota with the Session Object
 
 In order to set a quota for a token:
 
