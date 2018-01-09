@@ -8,7 +8,7 @@ weight: 4
 url: "/report-monitor-trigger-events/custom-handlers-javascript"
 ---
 
-## Events: JS Functions
+## Events: JavaScript Functions
 
 ### Overview
 
@@ -18,7 +18,7 @@ It is important to note that unlike Tyk JSVM middleware, Tyk JSVM event handlers
 
 Tyk JSVM event handlers have access to the Tyk JSVM API, which gives access to the session object store, and enables the ability for making HTTP calls outside of the Tyk environment, this is particularly useful if you want to interface with another API with a complex request/response cycle.
 
-### Creating an event handler
+### Creating an Event Handler
 
 Creating an event handler is very similar to creating middleware, simply invoke the correct constructors with a closure in the TykJS namespace:
 
@@ -54,7 +54,7 @@ A handler consists of a function that accepts two variables called `event` and `
 
 An event handler has no return value, however it can interact with the outside world in various ways, as is described in the Tyk JSVM API section. Event handlers like this can be very powerful for automating session, user and API-level functions.
 
-### The `context` variable
+### The `context` Variable
 
 In order to provide more context around an event, Tyk injects a context object into your event handler, this gives more information around the Key, such as the Org and API ID of the request in order to interact better with the Tyk REST API functions:
 
@@ -73,7 +73,7 @@ This can be used as follows:
     log("Expires: " + thisSession.expires)
 ```
 
-### Hooking up a dynamic event handler
+### Hooking up a Dynamic Event Handler
 
 Adding a dynamic event handler to your API is the same as adding a regular event handler, however there is now a new type: `eh_dynamic_handler`. It can be invoked and configured as follows:
 
@@ -96,7 +96,7 @@ Adding a dynamic event handler to your API is the same as adding a regular event
     ...
 ```
 
-The key differentiators here are the `handler_meta` configuration section, here there are two fields: `name` and `path`, similarly to dynamic middleware, the name represents the unique name of your middleware object, and the path is the relative path to the file (it can be absolute).
+The key differentiators here are the `handler_meta` configuration section. There are two fields: `name` and `path`. Similarly to dynamic middleware, the name represents the unique name of your middleware object, and the path is the relative path to the file (it can be absolute).
 
 The JS files are loaded on API reload into the global JSVM. If a hot-reload event occurs, the global JSVM is re-set and files are re-loaded. This could cause event handlers that are currently executing to get abandoned. This is a measured risk and should not cause instability, however it should be noted that because of this, in an environment where reloads occur frequently, there is risk that event handler may not fire correctly.
 
