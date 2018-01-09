@@ -196,7 +196,6 @@ Lastly, we add the sections that enforce the RPC Slave mechanism:
 The most important elements here are:
 
 *   `group_id`: This is the "zone" that his instance inhabits, e.g. the DC it lives in.
-*   `tags`: These are the tags (`ny-1-qa` in the example) that the instance will use to download API definitions, Tyk will download all definitions that match each tag set.
 *   `connection_string`: The MDCB instance or load balancer.
 
 Once this is complete, you can start the Tyk MDCB instance and start having Tyk Slave instances connect to it.
