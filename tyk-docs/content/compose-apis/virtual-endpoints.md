@@ -40,7 +40,7 @@ function sampleVirtual (request, session, config) {
     log(request.Params["param1"])
     
     var responseObject = {
-        Body: "THIS IS A  VIRTUAL RESPONSE"
+        Body: "THIS IS A  VIRTUAL RESPONSE",
         Headers: {
             "test": "virtual",
             "test-2": "virtual"
