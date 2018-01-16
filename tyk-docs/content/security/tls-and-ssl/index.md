@@ -40,3 +40,20 @@ You need to use the following values for setting the TLS `min_version`:
 |      1.1      |      770       |
 |      1.2      |      771       |
 
+
+#### Specify TLS Cipher Suites
+
+You can optionally add the additional `http_server_options` config option `ssl_ciphers` which takes an array of strings as it's value.
+
+Each string must be one of the allowed cipher suites as defined at https://golang.org/pkg/crypto/tls/#pkg-constants
+
+For example:
+
+```{.copyWrapper}
+    "http_server_options": {
+        "ssl_ciphers": [
+            "TLS_RSA_WITH_AES_128_GCM_SHA256", 
+            "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"
+        ]
+    },
+```

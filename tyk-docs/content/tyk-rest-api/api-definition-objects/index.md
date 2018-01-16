@@ -7,7 +7,7 @@ weight: 1
 url: "/tyk-rest-api/api-definition-objects"
 ---
 
-Tyk handles APIs through files / objects called Definitions. These either sit in the `/etc/tyk/apps` directory or in a MongoDB collection.
+Tyk stores API configurations as JSON objects called API Definitions. If you are using the Dashboard to manage Tyk then these are stored in MongoDB, otherwise they are stored as files in the `/apps` directory of the Gateway (default `/opt/tyk-gateway`).
 
 An API Definition has many switches that change the way an incoming request is handled. It is possible to set too many options in a definition which can lead to unexpected behaviour. Below is a sample API Definition.
 
