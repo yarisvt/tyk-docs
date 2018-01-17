@@ -95,7 +95,7 @@ The file will look like the sample below, the various fields are explained in th
 
 *   `tyk_api_config.Secret`: The secret that you have set in the `tyk.conf` file, this is the key that Tyk Dashboard will use to speak to the Tyk node's REST API. Please note that this value should match with the `secret` value in `tyk.conf`.
 
-*   `tyk_api_config.shared_node_secret`: As of Tyk v2.0 and Tyk Dashboard 1.0 all Tyk API Gateway nodes that are configured to use the Dashboard as a back-end API Definition service (i.e. are managed by a Dashboard) will register with the Dashboard service on load, and claim a node ID that is provided by the license for the Dashboard. Please note that this value should match with [`node_secret`][3] Gateway configuration option value.
+*   `shared_node_secret`: As of Tyk v2.0 and Tyk Dashboard 1.0 all Tyk API Gateway nodes that are configured to use the Dashboard as a back-end API Definition service (i.e. are managed by a Dashboard) will register with the Dashboard service on load, and claim a node ID that is provided by the license for the Dashboard. Please note that this value should match with [`node_secret`][3] Gateway configuration option value.
     
 Each node communicates with the Dashboard via a shared secret (this setting) and a nonce to ensure that out-of-band requests cannot be made. Nodes will send a heartbeat every few seconds to notify the Dashboard that they are running.
 
@@ -163,11 +163,11 @@ Each node communicates with the Dashboard via a shared secret (this setting) and
 
 Setting this option to `true` will cause the dashboard to not validate against other listen paths.
 
-*   `[host_config]`: The host config section replaces the old `hostname` option in the `tyk_analytics.conf` as we have more options around managing host names and domains in this version.
+*   `host_config`: The host config section replaces the old `hostname` option in the `tyk_analytics.conf` as we have more options around managing host names and domains in this version.
 
-*   `override_hostname`: This is the equivalent of v1.8 `hostname` parameter, it will essentially stop Tyk from trying to guess which hostname to use when building URLs for the interface, set this value to whatever hostname your Tyk Gateway is running on.
+*   `host_config.override_hostname`: This is the equivalent of v1.8 `hostname` parameter, it will essentially stop Tyk from trying to guess which hostname to use when building URLs for the interface, set this value to whatever hostname your Tyk Gateway is running on.
 
-*   `disable_org_slug_prefix`: Tyk will by default try to manage domain names based on the organisation slug, so domains are like this if using the Host Manager:
+*   `host_config.disable_org_slug_prefix`: Tyk will by default try to manage domain names based on the organisation slug, so domains are like this if using the Host Manager:
 
 ```
         org-slug.hostname.com/api-slug
@@ -177,25 +177,25 @@ However, if you are not using the host manager, then domains are hard-coded per 
     
 For legacy installs or upgrades using the host manager, leave this value as `false`.
 
-*   `enable_host_names`: Tyk Dashboard can bind the Dashboard application to a specific domain name, enable this option to have Tyk Dashboard only allow access on a specific domain and 404 on any other host access (not recommended).
+*   `host_config.enable_host_names`: Tyk Dashboard can bind the Dashboard application to a specific domain name, enable this option to have Tyk Dashboard only allow access on a specific domain and 404 on any other host access (not recommended).
 
-*   `hostname`: The hostname to bind the dashboard to. This must be a proper hostname and **not** `localhost`.
+*   `host_config.hostname`: The hostname to bind the dashboard to. This must be a proper hostname and **not** `localhost`.
 
-*   `portal_domains`: It is possible to hard-code portal domains (these override settings set by the dashboard for routing purposes). Set `ORGID:Domainname` here so that Tyk can route domain names for the portals of those organisations.
+*   `host_config.portal_domains`: It is possible to hard-code portal domains (these override settings set by the dashboard for routing purposes). Set `ORGID:Domainname` here so that Tyk can route domain names for the portals of those organisations.
 
-*   `portal_root_path`: The root path for the portal.
+*   `host_config.portal_root_path`: The root path for the portal.
 
-*   `generate_secure_paths`: As of v2.1, Tyk Dashboard tries to generate URLs for you that can be used straight from the Dashboard, if you prefer to have the URLs start with `https`, set this option to `true`. This is a purely aesthetic change.
+*   `host_config.generate_secure_paths`: As of v2.1, Tyk Dashboard tries to generate URLs for you that can be used straight from the Dashboard, if you prefer to have the URLs start with `https`, set this option to `true`. This is a purely aesthetic change.
 
-*   `secure_cookies`: This enables HTTPS “secure” cookies.
+*   `host_config.secure_cookies`: This enables HTTPS “secure” cookies.
 
 > **NOTE:** This option is available from v1.3.5 onwards.
 
-*   `[http_server_options]`: This section is reserved for settings relating to the HTTP server that powers the Dashboard.
+*   `http_server_options`: This section is reserved for settings relating to the HTTP server that powers the Dashboard.
 
-*   `use_ssl`: Enable to use SSL.
+*   `http_server_options.use_ssl`: Enable to use SSL.
 
-*   `certificates`: Add a certificate block for each domain being covered by the application:
+*   `http_server_options.certificates`: Add a certificate block for each domain being covered by the application:
 
 ```{.copyWrapper}
         {
@@ -207,17 +207,17 @@ For legacy installs or upgrades using the host manager, leave this value as `fal
     
 For more information see the [SSL section in the documentation][1]
 
-*   `[security]`: This section controls login limits for both the Dashboard and the Developer Portal. The path for you audit log is also set here.
+*   `security`: This section controls login limits for both the Dashboard and the Developer Portal. The path for you audit log is also set here.
 
 > **NOTE:** This section is available from v1.3.5 onwards
 
-*   `login_failure_username_limit`: Controls how many time a user can attempt to log in before being denied access. The default is 0.
+*   `security.login_failure_username_limit`: Controls how many time a user can attempt to log in before being denied access. The default is 0.
 
-*   `login_failure_ip_limit`: Controls how many times an IP Address can be used to attempt to log in before being denied access. The default is 0.
+*   `security.login_failure_ip_limit`: Controls how many times an IP Address can be used to attempt to log in before being denied access. The default is 0.
 
-*   `login_failure_expiration`: Controls how long before the failure limits are reset in seconds. The default is 900 seconds.
+*   `security.login_failure_expiration`: Controls how long before the failure limits are reset in seconds. The default is 900 seconds.
 
-*   `audit_log_path`: This sets the path to your audit log. It will log all user actions and response statuses to it. Security information such as passwords are not logged.
+*   `security.audit_log_path`: This sets the path to your audit log. It will log all user actions and response statuses to it. Security information such as passwords are not logged.
 
 *   `home_dir`: The path to the home directory of Tyk Dashboard, this must be set in order for Portal templates and other files to be loadable. By default this is `/opt/tyk-dashboard/`.
 
@@ -225,15 +225,15 @@ For more information see the [SSL section in the documentation][1]
 
 > **NOTE:** `dashboard_session_lifetime` is available from v1.3.6 onwards
 
-*   `[identity_broker]`: Tyk Dashboard 1.0 has some preset Tyk Identity Broker configurations set up, for this integration to work, Tyk Dashboard must be able to see an Identity Broker instance. The settings in this section are to enable this integration.
+*   `identity_broker`: Tyk Dashboard 1.0 has some preset Tyk Identity Broker configurations set up, for this integration to work, Tyk Dashboard must be able to see an Identity Broker instance. The settings in this section are to enable this integration.
 
 *   `identity_broker.enabled`: Enable the TIB integration (otherwise it will not appear in the UI).
 
-*   `[identity_broker.host]`: This section defines the host connection details for TIB.
+*   `identity_broker.host`: This section defines the host connection details for TIB.
 
-*   `identity_broker.connection_string`: The URL to the host, must be in the form: `http://domain:port`.
+*   `identity_broker.host.connection_string`: The URL to the host, must be in the form: `http://domain:port`.
 
-*   `identity_broker.secret`: The shared secret between TIB and the Dashboard, this ensures all API requests between Dashboard and TIB are valid.
+*   `identity_broker.host.secret`: The shared secret between TIB and the Dashboard, this ensures all API requests between Dashboard and TIB are valid.
 
 *   `allow_explicit_policy_id`: As of v1.1, by default in a Pro installation, Tyk will load Policy IDs and use the internal object-ID as the ID of the policy. This is not portable in cases where the data needs to be moved from installation to installation.
     
