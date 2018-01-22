@@ -47,7 +47,7 @@ The request should be a `POST`.
 
 If you make this request with a valid user that can bind to the LDAP server, Tyk will redirect the user to the dashboard with a valid session. There's no more to it, this mechanism is pass-through and is transparent to the user, with TIB acting as a direct client to the LDAP provider.
 
-> **Note**: The `LDAPUserDN` field MUST contain the special `*USERNAME*` marker in order to construct the users OU properly.
+> **Note**: The `LDAPUserDN` field MUST contain the special `*USERNAME*` marker in order to construct the users DN properly.
 
 
 ## <a name="generate-an-oauth-token-using-ldap"></a> Generate an OAuth token using LDAP
