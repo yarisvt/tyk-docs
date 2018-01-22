@@ -116,7 +116,7 @@ For more information on how policies are constructed and a detailed explanation 
  [1]: /docs/img/dashboard/system-management/policies_menu_new_2.5.png
  [2]: /docs/img/dashboard/system-management/add_policy_new_2.5.png
  [3]: /docs/img/dashboard/system-management/policy_name_2.5.png
- [4]: /docs/img/dashboard/system-management/rate_limits_2.5.png
+ [4]: /docs/img/dashboard/system-management/rate_limit_2.5.png
  [5]: /docs/img/dashboard/system-management/usage_quotas_2.5.png
  [6]: /docs/img/dashboard/system-management/access_rights_2.5.png
  [7]: /docs/img/dashboard/system-management/keys_create_2.5.png
