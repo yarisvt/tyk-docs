@@ -32,7 +32,9 @@ In the snippet above we can also see a set of settings fields, in order to react
 
 ### Customising the menu with the Dashboard
 
-The Dashboard has a simple menu editor, you can create the above data structures by going to "Portal Management" -> "Menus".
+The Dashboard has a simple menu editor, you can create the above data structures from "Portal Management" -> "Menus":
+
+![Menus nav][4]
 
 The Portal will come with two menus built in, "Main" and "Secondary", the "Main" menu will appear in the primary navigation (top nav) of the templates supplied with the Portal, while the secondary will show on the right hand side of the Default Page Templates.
 
@@ -40,7 +42,7 @@ To add a new menu item to the Dashboard main navigation, select the "Main" Menu 
 
 ![Manage portal menu][1]
 
-Then add the new menu item to the text box marked "Create a new Entry", and select the "Add" button:
+Click **ADD**:
 
 ![Manage portal menu][2]
 
@@ -50,7 +52,8 @@ Once added, you can select it from the drop down and add the title and URL field
 
 The menu item, once saved, will appear in your Portal navigation instantly.
 
-[1]: /docs/img/dashboard/portal-management/portalMenus.png
-[2]: /docs/img/dashboard/portal-management/addPortalMenus.png
-[3]: /docs/img/dashboard/portal-management/portalMenusDropdown.png
+[1]: /docs/img/dashboard/portal-management/portal_menus_2.5.png
+[2]: /docs/img/dashboard/portal-management/add_portal_menu_2.5.png
+[3]: /docs/img/dashboard/portal-management/portal_menu_dropdown_2.5.png
+[4]: /docs/img/dashboard/portal-management/portal_nav_menus_2.5.png
 

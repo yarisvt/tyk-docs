@@ -7,6 +7,8 @@ menu:
 weight: 5 
 ---
 
+> **NOTE**: This option is only available on On-Premises installations.
+
 When you look through your Dashboard and your error breakdown statistics, you'll find that you will want to drill down to the root cause of the errors. This is what the log-browser is for.
 
 The log browser will isolate individual log lines in your analytics data set and allow you to filter them by:
@@ -22,9 +24,6 @@ You will be presented with a list of requests, and their meta-data:
 
 If you then select the **View Details** section of a request line, you can drill down into the meta-data of that request. If you have request and response logging enabled, then you can also view the request payload and response if it is available.
 To enable request and response logging, set `enable_analytics.enable_detailed_recording` to `true` in your `tyk.conf` file.
-
-> **NOTE**: This option is only available on On-Premises installations.
-
 
 ![Log Viewer Details][2]
 
