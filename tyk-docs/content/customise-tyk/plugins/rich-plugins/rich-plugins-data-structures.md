@@ -47,6 +47,7 @@ message MiniRequestObject {
 
                            ReturnOverrides return_overrides = 10;
 
+                           string method = 11;
                           }
 ```
 
@@ -78,6 +79,9 @@ This field contains an array of parameter keys to be removed from the request.
 
 `return_overrides`
 See `ReturnOverrides` for more information.
+
+`method`
+The request method, e.g. GET, POST, etc.
 
 ### Object (coprocess_object.proto)
 
