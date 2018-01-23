@@ -64,6 +64,7 @@ Add the regex capture groups and the new URL to the relevant sections.
 
 #### Create Advanced Trigger
 
+![Advanced trigger][4]
 **New Function**
 
 ### Step 3: Save the API
@@ -85,6 +86,7 @@ As of v2.3 it is possible to inject meta data from a Tyk Session Object linked t
 [1]: /docs/img/dashboard/system-management/url_rewrite_endpoint_2.5.png
 [2]: /docs/img/dashboard/system-management/config_url_rewrite_2.5.png
 [3]: /docs/concepts/context-variables/
+[4]: /docs/img/dashboard/system-management/advanced_trigger_2.5.png
 
 
 

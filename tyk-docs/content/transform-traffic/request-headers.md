@@ -61,7 +61,7 @@ This ensures that this will only be applied to inbound requests.
 
 Select set the headers to delete and insert using the provided fields.
 
-> **Important**: Remember to press the "+" button to ensure they are added to the list.
+> **Important**: Remember to click **ADD** to ensure they are added to the list.
 
 ![Header transforms][3]
 

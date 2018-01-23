@@ -69,7 +69,7 @@ This plugin allows you to change the method of a request. See [Method Transforms
 
 This plugin allows you to mock responses for an API endpoint. This can be useful when creating a new API, or when making a development API available to an external team.
 
-> **Note**: In order for mocks to be enabled, the path must also be in a list, we recommend adding the path to a whitelist. If this isn't done, then the mock will not be saved on update.
+> **Note**: In order for mocks to be enabled, the path must also be in a list. We recommend adding the path to a whitelist. If this isn't done, then the mock will not be saved on an update.
 
 **API Blueprint**: If you have imported an API Blueprint definition, and selected the mocks option in the importer, then your whole API will be a white list.
 
