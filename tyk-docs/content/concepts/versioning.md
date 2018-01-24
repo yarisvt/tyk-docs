@@ -18,7 +18,7 @@ Clear the **Do not use versioning** option from the **Versions** tab to display 
 
 ![version options][2]
 
-The versions fields define the value that Tyk expects to find either in the versions headers or query parameter, so if your version name is v1 then tyk will look for a header key that matches v1 exactly on the key that you specify (default version).
+The versions fields define the value that Tyk expects to find either in the versions headers or query parameter, so if your version name is v1 then Tyk will look for a header key that matches v1 exactly on the key that you specify (default version).
 
 The target override field will replace the target path that was set in the base configuration for the version. This is not compatible with Service Discovery or Load Balanced settings.
 
@@ -200,6 +200,10 @@ Finally, ensure that the API is actually set to allow versioning, this is done b
 *   Version ignored / white-listing / black listing is applied to all keys
 *   Version access control is only applied to keys which have access-control parameters applied to them. If a key has no access_rights data in the session key, then the request will be allowed through to the underlying API.
 
+#### Step 4
+
+By default, Tyk require version information in a header key, a query parameter or the first part of a URL. Optionally, you can set default API version using `version_data.default_version`, which will be used, if version info not specified in request.
+
 
 ### Targeting a Different API Host Per API Version with Tyk
 
@@ -210,8 +214,8 @@ See  [API Definition Object Details][3] for details of the the available keys in
  
 
 
- [1]: /docs/img/dashboard/system-management/no_versioning.png
- [2]: /docs/img/dashboard/system-management/versioning_options.png
+ [1]: /docs/img/dashboard/system-management/no_versioning_2.5.png
+ [2]: /docs/img/dashboard/system-management/version_options_2.5.png
  [3]: /docs/tyk-rest-api/api-definition-object-details/
 
 
