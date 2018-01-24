@@ -15,6 +15,8 @@ To rewrite a URL with Tyk, you must specify the components of the URL to capture
 
 Unlike other web servers, Tyk uses a wide match to capture the URL and then a fixed regex to handle the restructuring. So as with other middleware components you must set a path to match on.
 
+Starting from Tyk Gateway 2.5 and Tyk Dashboard 1.5, rewriting functionality significatnly extended, allowing you to add conditional rewriting logic, based on multiple rules, checking url, body, headers or session meta data. See **Advanced rewrites** section for more details.
+
 ## <a name="url-rewrite-with-api"></a> Rewrite a URL with the API Definition
 
 To rewrite a URL with the API Definition, you must add a new object to the `extended_paths` section of an API definition:
@@ -77,6 +79,10 @@ For more details see [Context Variables][3]
 ### Meta Data
 
 As of v2.3 it is possible to inject meta data from a Tyk Session Object linked to a token into your URL Rewrite commands. In a similar way to the context variables, the values are in a reserved namespace: `$tyk_meta.FIELDNAME`. This can be especially useful if you wish to incorporate custom query string parameters into a URL structure.
+
+## Advanced rewriting
+
+There are plenty of cases when path based rewriting is not enough. To cover this, starting from Tyk Gateway 2.5 and Dashboard 1.5, you can define complex conditional rewrites. A few ideas how you can use them:
 
 [1]: /docs/img/dashboard/system-management/rewriteEndpointDesigner.png
 [2]: /docs/img/dashboard/system-management/configureRewrite.png

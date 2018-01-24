@@ -41,7 +41,7 @@ Here is an example implementation:
     
     // Initialise it with your functionality by passing a closure that accepts two objects
     // into the NewProcessRequest() function:
-    sampleMiddleware.NewProcessRequest(function(request, session) {
+    sampleMiddleware.NewProcessRequest(function(request, session, spec) {
     
         console.log("This middleware does nothing, but will print this to your terminal.")
     
@@ -52,9 +52,9 @@ Here is an example implementation:
 
 #### Middleware component variables
 
-As well as the API functions that all JSVM components share, the middleware components have access to some data structures that are performant and allow for the modification of both the request itself and the session. These objects are exposed to the middleware in the form of the `request` and `session` objects in the `NewProcessRequest(function(request, session) {};` call.
+As well as the API functions that all JSVM components share, the middleware components have access to some data structures that are performant and allow for the modification of both the request itself and the session. These objects are exposed to the middleware in the form of the `request`, `session` and `spec` objects in the `NewProcessRequest(function(request, session) {};` call.
 
-In the example above, we can see that we return these variables - this is a requirement, and omitting it can cause the middleware to fail, this line should be called at the end of each process:
+In the example above, we can see that we return 2 of these variables (`request` and `session` meta data) - this is a requirement, and omitting it can cause the middleware to fail, this line should be called at the end of each process:
 
 ```
     return sampleMiddleware.ReturnData(request, session.meta_data);
@@ -147,8 +147,8 @@ Add the following to the root of your API definition:
 
 ```
 var testJSVMData = new TykJS.TykMiddleware.NewMiddleware({});
-testJSVMData.NewProcessRequest(function(request, session, config) {
-    request.SetHeaders["data-foo"] = config.config_data.foo;
+testJSVMData.NewProcessRequest(function(request, session, spec) {
+    request.SetHeaders["data-foo"] = spec.config_data.foo;
     return testJSVMData.ReturnData(request, {});
 });
 ```
