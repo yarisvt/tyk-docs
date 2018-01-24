@@ -23,5 +23,14 @@ method_transforms: [
 
 ### Using the Dashboard
 
-To do this from the Dashboard, from the API Endpoint Designer select *method transform* from the plugins drop down for the path you wish to target.
+To do this from the Dashboard, from the **API Endpoint Designer** select **method transform** from the plugins drop-down list on the endpoint you want to transform from.
 
+![Method Transform][1]
+
+Then select the path you wish to change to.
+
+![Method Path][2]
+
+
+ [1]: /docs/img/dashboard/system-management/method_transform_2.5.png
+ [2]: /docs/img/dashboard/system-management/method_to_path_2.5.png

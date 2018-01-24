@@ -10,7 +10,7 @@ weight: 0
 # <a name="new"></a>New in this release:
 
 This release touch all our products and brings you numerous long awaited features and fixes. 
-Here are the packages and their versions we are releasing today: Tyk Gateway v2.4.0, Tyk Dashboard v1.4.0, Tyk Pump v0.5.0, MDCB v1.4.0, TIB v0.2.
+Here are the packages and their versions we are releasing today: Tyk Gateway v2.4.0, Tyk Dashboard v1.4.0, Tyk Pump v0.4.2, MDCB v1.4.0, TIB v0.2.
 
 # <a name="major-highlights"></a>Major highlights
 
@@ -261,7 +261,7 @@ This is a  UI only fix, it is still allowable via the API (which is OK).
 * Improved charts
 * Improved analytics search
 
-## <a name="pump"></a> Tyk Pump v0.5.0
+## <a name="pump"></a> Tyk Pump v0.4.2
 
 ### Support added for Mongo SSL connections
 

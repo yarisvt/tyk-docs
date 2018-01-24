@@ -15,7 +15,7 @@ Tyk supports forcing request size limits on a global and on a per-endpoint level
 
 ## <a name="max-request-size-with-dashboard"></a> Max Request Size with the Dashboard
 
-To enforce a request sizer on your API, you must first go into your Endpoint designer:
+To enforce a request size on your API, from your **Endpoint Designer**:
 
 ![Endpoint designer tab location][1]
 

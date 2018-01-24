@@ -64,10 +64,6 @@ Add the regex capture groups and the new URL to the relevant sections.
 
 ![URL rewrite configuration][2]
 
-#### Create Advanced Trigger
-
-**New Function**
-
 ### Step 3: Save the API
 
 Use the *save* or *create* buttons to save the changes and make the URL rewrite active.
@@ -88,7 +84,7 @@ As of v2.3 it is possible to inject meta data from a Tyk Session Object linked t
 
 There are plenty of cases when path based rewriting is not enough. To cover this, starting from Tyk Gateway 2.5 and Dashboard 1.5, you can define complex conditional rewrites.
 
-To make it work you should set "triggers" field, defining rules. If there is no trigger match, the rewrite will fallback to the parent rewrite_to, but if either of the other two are triggered, the rewrite target is changed.
+To make it work you should set the "triggers" field, defining rules. If there is no trigger match, the rewrite will fallback to the parent rewrite_to, but if either of the other two are triggered, the rewrite target is changed.
 
 Additionally, each trigger also sets a context variable for each match it finds, these context vars can then be used in the rewrites. Trigger contexts take the format: `$tyk_context.trigger-{n}-{name}-{i}` where n is the trigger index in the array, `name` is the regexp matcher name and `i` is the index of that match (since querystrings and headers can be arrays of values).
 
@@ -137,7 +133,7 @@ The Trigger functionality supports:
 * Session meta data values — `session_meta_matches`
 * Payload matches — `payload_matches`
 
-All of the triggers above, except `payload_matches`, has the same structure, shown in example above. `payload_matches` require definiting only regexp like this: `"payload_matches": { "match_rx": "regexp" }`.
+All of the triggers above, except `payload_matches`, have the same structure, shown in the example above. `payload_matches` require defining only regexp like this: `"payload_matches": { "match_rx": "regexp" }`.
 
 
 For each trigger, the trigger can either use the on: `any` or on: `all` formatting, for any, if any one of the options in the trigger is true, the rewrite rule is fired. for all, all the options must be satisfied. This is limited to triggers, not groups of triggers, these will be evaluated one by one.
@@ -164,9 +160,9 @@ Additionally you also mix multiple matchers in the same trigger. In example belo
 ]
 ```
 
-### Using Endpoint designer
+### Using the Endpoint Designer
 
-You can define advanced url rewrites using user interface as well, by pressing "Create Advanced Trigger" button in "URL Rewriter" plugin, and should see screen like this:
+You can define advanced URL rewrites using user interface as well, by using the **Create Advanced Trigger** option from the **URL Rewriter** plugin You will see a screen like this:
 
 ![URL rewrite add trigger][4]
 
