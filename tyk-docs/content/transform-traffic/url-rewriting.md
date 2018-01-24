@@ -82,11 +82,100 @@ As of v2.3 it is possible to inject meta data from a Tyk Session Object linked t
 
 ## Advanced rewriting
 
-There are plenty of cases when path based rewriting is not enough. To cover this, starting from Tyk Gateway 2.5 and Dashboard 1.5, you can define complex conditional rewrites. A few ideas how you can use them:
+There are plenty of cases when path based rewriting is not enough. To cover this, starting from Tyk Gateway 2.5 and Dashboard 1.5, you can define complex conditional rewrites.
+
+To make it work you should set "triggers" field, defining rules. If there is no trigger match, the rewrite will fallback to the parent rewrite_to, but if either of the other two are triggered, the rewrite target is changed.
+
+Additionally, each trigger also sets a context variable for each match it finds, these context vars can then be used in the rewrites. Trigger contexts take the format: `$tyk_context.trigger-{n}-{name}-{i}` where n is the trigger index in the array, `name` is the regexp matcher name and `i` is the index of that match (since querystrings and headers can be arrays of values).
+
+```
+{
+    "url_rewrites": [
+        {
+            "path": "/foo/bar/baz",
+            "method": "GET",
+            "match_pattern": "/foo/bar/baz",
+            "rewrite_to": "/foo/bar/baz",
+            "triggers": [
+                {
+                    "on": "any",
+                    "options": {
+                        "query_val_matches": {
+                            "culprit": {
+                                "match_rx": "kronk"
+                            }
+                        }
+                    }
+                    "rewrite_to": "/fooble/barble/bazble?victim=$tyk_context.trigger-0-culprit-0"
+                }
+                {
+                    "on": "any",
+                    "options": {
+                        "query_val_matches": {
+                            "culprit": {
+                                "match_rx": "yzma"
+                            }
+                        }
+                    }
+                    "rewrite_to": "/foozle/barzle/bazzle?victim=$tyk_context.trigger-1-culprit-0"
+                }
+            ]
+        }
+    ]
+}
+```
+
+The Trigger functionality supports:
+
+* Header matches — `header_matches`
+* Query string variable/value matches — `query_val_matches`
+* Path part matches, i.e. components of the path itself - `path_part_matches`
+* Session meta data values — `session_meta_matches`
+* Payload matches — `payload_matches`
+
+All of the triggers above, except `payload_matches`, has the same structure, shown in example above. `payload_matches` require definiting only regexp like this: `"payload_matches": { "match_rx": "regexp" }`.
+
+
+For each trigger, the trigger can either use the on: `any` or on: `all` formatting, for any, if any one of the options in the trigger is true, the rewrite rule is fired. for all, all the options must be satisfied. This is limited to triggers, not groups of triggers, these will be evaluated one by one.
+
+Additionally you also mix multiple matchers in the same trigger. In example below, it checks if http request has `X-Enable-Beta` with value `true`, AND if user key meta info have "beta_enable" field with value `true`. If both matchers say true, it will proxy user to another upstream, like beta environment.
+```
+"triggers": [
+    {
+        "on": "all",
+        "options": {
+            "header_val_matches": {
+                "X-Enable-Beta": {
+                    "match_rx": "true"
+                }
+            },
+            "session_meta_matches": {
+                "beta_enabled": {
+                    "match_rx": "true"
+                }
+            }
+        }
+        "rewrite_to": "https://beta.upstream.com/feture"
+    }
+]
+```
+
+### Using Endpoint designer
+
+You can define advanced url rewrites using user interface as well, by pressing "Create Advanced Trigger" button in "URL Rewriter" plugin, and should see screen like this:
+
+![URL rewrite add trigger][4]
+
+When triggers are added, you can edit or remove them inside "Advanced URL rewrite" section:
+
+![URL rewrite list trigger][5]
+
 
 [1]: /docs/img/dashboard/system-management/rewriteEndpointDesigner.png
 [2]: /docs/img/dashboard/system-management/configureRewrite.png
 [3]: /docs/concepts/context-variables/
+[4]: /docs/img/dashboard/system-management/rewriteEndpointDesigner_add_trigger.png
+[5]: /docs/img/dashboard/system-management/rewriteEndpointDesigner_trigger_list.png
 
 
 
