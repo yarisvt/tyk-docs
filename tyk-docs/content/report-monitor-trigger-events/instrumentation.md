@@ -37,7 +37,7 @@ Dashboard: `counters.<prefix>.SystemAPICall.SystemCallComplete.count` (requests 
 Pump: `counters.<prefix>.record.count` (number of records processed by pump)
 
 
-## NewRelic instrumentation
+## <a name="newrelic"></a>NewRelic instrumentation
 
 Supoprted only by Tyk Gateway, starting from 2.5. Add the following config section to `tyk.conf` to make it work:
 ```
