@@ -12,7 +12,7 @@ weight: 0
 This release touches all our products and brings you numerous features and fixes. Here are the packages and their versions we are releasing today: Tyk Gateway v2.5.0, Tyk Dashboard v1.5.0, Tyk Pump v0.6.0, MDCB v1.5.0, TIB v0.3.
 
 
-# <a name="major-highlights"></a>Major highlights
+# <a name="major-highlights"></a>Major Highlights
 
 ## <a name="dashboard"></a>New Dashboard Look and Feel
 
@@ -23,9 +23,9 @@ Our Dashboard has had a UI overhaul, with the following improvements:
 * Better feedback on errors and updates
 * Various UX improvements
 
-## <a name="sso"></a>SSO and MFA with OpenId Identity Providers
+## <a name="sso"></a>SSO with OpenId Identity Providers
 
-With TIB v0.3 we have made it possible to integrate any OpenID supported Identity provider with Tyk so you can configure Single Sign On (SSO) and Multi Factor Authentication (MFA), if the provider supports those.
+With TIB v0.3 we have made it possible to integrate any OpenID supported Identity provider with Tyk so you can configure Single Sign On (SSO), if the provider supports those.
 
 ## <a name="search"></a>Searching API and Policies List
 

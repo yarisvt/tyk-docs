@@ -50,11 +50,11 @@ https://my-new-target-host.com/my/service?value1=match&value2=me
 
 ## <a name="url-rewrite-with-endpoint-designer"></a>Rewrite a URL with the Endpoint Designer
 
-To rewrite a URL using the Dashboard, you can use the same values are defined in the API Definition options, just set them in the Endpoint Designer instead for your path.
+To rewrite a URL using the Dashboard, you can use the same values are defined in the API Definition options, just set them in the **Endpoint Designer** instead for your path.
 
 ### Step 1: Add an Endpoint for the Path
 
-Browse to the endpoint designer in your API and add an endpoint that matches the path you want to rewrite.
+From the **Endpoint Designer** add an endpoint that matches the path you want to rewrite.
 
 ![Endpoint designer][1]
 
@@ -80,7 +80,7 @@ For more details see [Context Variables][3]
 
 As of v2.3 it is possible to inject meta data from a Tyk Session Object linked to a token into your URL Rewrite commands. In a similar way to the context variables, the values are in a reserved namespace: `$tyk_meta.FIELDNAME`. This can be especially useful if you wish to incorporate custom query string parameters into a URL structure.
 
-## Advanced rewriting
+## <a name="advanced"></a>Advanced Rewriting
 
 There are plenty of cases when path based rewriting is not enough. To cover this, starting from Tyk Gateway 2.5 and Dashboard 1.5, you can define complex conditional rewrites.
 
@@ -162,7 +162,7 @@ Additionally you also mix multiple matchers in the same trigger. In example belo
 
 ### Using the Endpoint Designer
 
-You can define advanced URL rewrites using user interface as well, by using the **Create Advanced Trigger** option from the **URL Rewriter** plugin You will see a screen like this:
+You can define advanced URL rewrites using user interface as well, by using the **Create Advanced Trigger** option from the **URL Rewriter** plugin. You will see a screen like this:
 
 ![URL rewrite add trigger][4]
 
@@ -171,8 +171,8 @@ When triggers are added, you can edit or remove them inside "Advanced URL rewrit
 ![URL rewrite list trigger][5]
 
 
-[1]: /docs/img/dashboard/system-management/rewriteEndpointDesigner.png
-[2]: /docs/img/dashboard/system-management/configureRewrite.png
+[1]: /docs/img/dashboard/system-management/rewrite_endpoint_2.5.png
+[2]: /docs/img/dashboard/system-management/configure_rewrite_2.5.png
 [3]: /docs/concepts/context-variables/
 [4]: /docs/img/dashboard/system-management/rewriteEndpointDesigner_add_trigger.png
 [5]: /docs/img/dashboard/system-management/rewriteEndpointDesigner_trigger_list.png
