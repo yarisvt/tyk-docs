@@ -116,6 +116,28 @@ weight: 1
     }
 ```
 
+### Search APIs by name
+
+| **Property** | **Description** |
+| ------------ | --------------- |
+| Resource URL | `/api/apis/search`    |
+| Method       | GET             |
+| Type         | None            |
+| Body         | None            |
+| Param        | None            |
+
+#### Sample Request
+
+```{.copyWrapper}
+    GET /api/apis?q=Some+Name HTTP/1.1
+    Host: localhost:3000
+    authorization: 7a7b140f-2480-4d5a-4e78-24049e3ba7f8
+```
+
+#### Sample Response
+
+Similar to API list response
+
 ### Retrieve a single API by ID
 
 | **Property** | **Description**  |

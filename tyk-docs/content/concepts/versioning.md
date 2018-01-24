@@ -200,6 +200,10 @@ Finally, ensure that the API is actually set to allow versioning, this is done b
 *   Version ignored / white-listing / black listing is applied to all keys
 *   Version access control is only applied to keys which have access-control parameters applied to them. If a key has no access_rights data in the session key, then the request will be allowed through to the underlying API.
 
+#### Step 4
+
+By default, Tyk require version information in a header key, a query parameter or the first part of a URL. Optionally, you can set default API version using `version_data.default_version`, which will be used, if version info not specified in request.
+
 
 ### Targeting a Different API Host Per API Version with Tyk
 

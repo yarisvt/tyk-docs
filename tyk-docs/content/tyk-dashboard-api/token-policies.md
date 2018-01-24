@@ -75,6 +75,28 @@ weight: 4
 
 Notice that `apiid` field, it is different than rest of policy definitions! (See [GitHub issue 192][1])
 
+### Search list of policies
+
+| **Property** | **Description**         |
+| ------------ | ----------------------- |
+| Resource URL | `/api/portal/policies/search` |
+| Method       | GET                     |
+| Type         | None                    |
+| Body         | None                    |
+| Param        | None                    |
+
+#### Sample Request
+
+```{.copyWrapper}
+    GET /api/portal/policies/search?q=Policy+name HTTP/1.1
+    Host: localhost:3000
+    authorization: 7a7b140f-2480-4d5a-4e78-24049e3ba7f8
+```
+
+#### Sample Response
+
+Similar to Policies list endpoint
+
 ### Retrieve a single policy by ID
 
 | **Property** | **Description**             |

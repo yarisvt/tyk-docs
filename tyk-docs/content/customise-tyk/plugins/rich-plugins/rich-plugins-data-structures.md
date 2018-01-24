@@ -26,28 +26,30 @@ The `Coprocess.MiniRequestObject` is the main request data structure used by ric
 
 ```{.copyWrapper}
 message MiniRequestObject {
+   map<string, string> headers = 1;
 
-                           map<string, string> headers = 1;
+   map<string, string> set_headers = 2;
 
-                           map<string, string> set_headers = 2;
+   repeated string delete_headers = 3;
 
-                           repeated string delete_headers = 3;
+   string body = 4;
 
-                           string body = 4;
+   string url = 5;
 
-                           string url = 5;
+   map<string, string> params = 6;
 
-                           map<string, string> params = 6;
+   map<string, string> add_params = 7;
 
-                           map<string, string> add_params = 7;
+   map<string, string> extended_params = 8;
 
-                           map<string, string> extended_params = 8;
+   repeated string delete_params = 9;
 
-                           repeated string delete_params = 9;
+   ReturnOverrides return_overrides = 10;
 
-                           ReturnOverrides return_overrides = 10;
+   string method = 11;
 
-                          }
+   string request_uri = 12;
+}
 ```
 
 #### Field Descriptions
@@ -79,6 +81,12 @@ This field contains an array of parameter keys to be removed from the request.
 `return_overrides`
 See `ReturnOverrides` for more information.
 
+`method`
+The request method, e.g. GET, POST, etc.
+
+`request_uri`
+Raw unprocessed url which include query string and fragments
+
 ### Object (coprocess_object.proto)
 
 The `Coprocess.Object` data structure data structure wraps a `Coprocess.MiniRequestObject` It contains additional fields that are useful for users that implement their own request dispatchers, like the middleware hook type and name.
@@ -86,21 +94,18 @@ It also includes the session state object (`SessionState`), which holds informat
 
 ```{.copyWrapper}
 message Object {
+ HookType hook_type = 1;
 
+ string hook_name = 2;
 
-               HookType hook_type = 1;
+ MiniRequestObject request = 3;
 
-               string hook_name = 2;
+ SessionState session = 4;
 
-               MiniRequestObject request = 3;
+ map<string, string> metadata = 5;
 
-               SessionState session = 4;
-
-               map<string, string> metadata = 5;
-
-               map<string, string> spec = 6;
-
-              }
+ map<string, string> spec = 6;
+}
 ```
 
 #### Field Descriptions
@@ -121,7 +126,7 @@ Contains the session object, see `SessionState` for more details.
 Contains the metadata. This is a dynamic field.
 
 `spec`
-Contains the API definition, this is dynamic field.
+Contains information about API definition, including `APIID`, `OrgID` and `config_data`
 
 ### ReturnOverrides (coprocess_return_overrides.proto)
 
@@ -130,15 +135,12 @@ A sample usage for `ReturnOverrides` is when a rich plugin needs to return a cus
 
 ```{.copyWrapper}
 message ReturnOverrides {
+ int32 response_code = 1;
 
+ string response_error = 2;
 
-                         int32 response_code = 1;
-
-                         string response_error = 2;
-
-                         map<string, string> headers = 3;
-
-                        }
+ map<string, string> headers = 3;
+}
 ```
 
 #### Field Descriptions
