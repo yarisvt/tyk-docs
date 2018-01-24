@@ -17,6 +17,7 @@ The file will look like the sample below, the various fields are explained in th
 ``` {.copyWrapper}
     {
         "listen_port": 3000,
+        "notifications_listen_port": 5000,
         "tyk_api_config": {
             "Host": "http://localhost",
             "Port": "8080",
@@ -84,6 +85,8 @@ The file will look like the sample below, the various fields are explained in th
 
 
 * `listen_port`: Setting this value will change the port that Tyk Dashboard listens on, by default Tyk will try to listen on port `3000`.
+
+* `notifications_listen_port`: port used for websockets connection for real-time dashboard notifications, defaults to `5000`.
 
 * `tyk_api_config`: This section details a node that Tyk Dashboard can speak to, Tyk Dashboard controls Tyk using the REST API, it only requires visibility to one node, so long as all nodes are using the same API Definitions.
     
@@ -221,9 +224,9 @@ For more information see the [SSL section in the documentation][1]
 
 *   `home_dir`: The path to the home directory of Tyk Dashboard, this must be set in order for Portal templates and other files to be loadable. By default this is `/opt/tyk-dashboard/`.
 
-*   `dashboard_session_lifetime` The timeout setting for a Dashboard session in minutes. Defaults to 60 minutes.
+*   `dashboard_session_lifetime` As of v1.3.6 you can set session timeout for a Dashboard in seconds. Defaults to 1 hour.
 
-> **NOTE:** `dashboard_session_lifetime` is available from v1.3.6 onwards
+*   `portal_session_lifetime`: As of 1.5, you can set portal session life time in seconds.
 
 *   `identity_broker`: Tyk Dashboard 1.0 has some preset Tyk Identity Broker configurations set up, for this integration to work, Tyk Dashboard must be able to see an Identity Broker instance. The settings in this section are to enable this integration.
 
