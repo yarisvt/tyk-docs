@@ -64,6 +64,10 @@ Add the regex capture groups and the new URL to the relevant sections.
 
 ![URL rewrite configuration][2]
 
+#### Create Advanced Trigger
+
+**New Function**
+
 ### Step 3: Save the API
 
 Use the *save* or *create* buttons to save the changes and make the URL rewrite active.
