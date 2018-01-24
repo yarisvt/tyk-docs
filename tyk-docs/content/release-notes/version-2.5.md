@@ -1,0 +1,202 @@
+---
+date: 2017-03-24T09:58:52Z
+title: Tyk Gateway v2.5 and more
+menu:
+  main:
+    parent: "Release Notes"
+weight: 0 
+---
+
+# <a name="new"></a>New in this Release:
+
+This release touches all our products and brings you numerous features and fixes. Here are the packages and their versions we are releasing today: Tyk Gateway v2.5.0, Tyk Dashboard v1.5.0, Tyk Pump v0.6.0, MDCB v1.5.0, TIB v0.3.
+
+
+# <a name="major-highlights"></a>Major highlights
+
+## <a name="dashboard"></a>New Dashboard Look and Feel
+
+Our Dashboard has had a UI overhaul, with the following improvements:
+
+* A more modern, fun look and feel
+* Consistent layouts and action buttons across each section
+* Better feedback on errors and updates
+* Various UX improvements
+
+## <a name="sso"></a>SSO and MFA with OpenId Identity Providers
+
+With TIB v0.3 we have made it possible to integrate any OpenID supported Identity provider with Tyk so you can configure Single Sign On (SSO) and Multi Factor Authentication (MFA), if the provider supports those.
+
+## <a name="search"></a>Searching API and Policies List
+
+This long awaited feature has been added on the Dashboard UI.
+
+## <a name="versioning"></a>Default API Versioning
+
+You can now specify a default API version when using a versioning strategy.
+
+## <a name="pump"></a>Tyk Pump with MDCB
+
+We've added MDCB support in this release of Tyk Pump
+
+# Moar!
+This release is packed with way more more cool stuff. Here are detailed release notes for each product:
+
+## <a name="gateway"></a>Tyk Gateway v2.5.0
+
+### New Relic Instrumentation Support
+
+We have added support for New Relic Instrumentation using:
+
+`"newrelic": {"app_name": "<app-id>", "license_key": "<key>"}`
+
+[Docs](https://tyk.io/docs/report-monitor-trigger-events/instrumentation/)
+
+### Default API Versioning
+
+You can now specify a default API version, and it will be used if a version is not set via headers, or URL parameters. Use the new option:
+
+`spec.version_data.default_version`
+
+[Docs](https://tyk.io/docs/concepts/versioning/)
+
+### Disable URL Encoding
+
+You can disable URL encoding using a new boolean `http_server_options` setting:
+ 
+`skip_target_path_escaping`
+
+[Docs](https://tyk.io/docs/configure/tyk-gateway-configuration-options/)
+
+### Enable Key Logging
+
+By default all key ids in logs are hidden. You can now turn it on if you want to see them for debugging reasons using the `enable_key_logging` option.
+
+[Docs](https://tyk.io/docs/configure/tyk-gateway-configuration-options/)
+
+
+### Specify TLS Cipher Suites
+
+We have added support for specifying allowed  SSL ciphers using the following option:
+
+`http_server_options - ssl_ciphers`
+
+[Docs](https://tyk.io/docs/security/tls-and-ssl/)
+
+## <a name="plugins"></a>Plugins Updates
+
+* Coprocess plugins now have access to `config_data`
+* The JSVM `spec` object now has access to `APIID` and `OriginID` to reflect similar functionality of Coprocess plugins.
+* Plugins now have access to Host HTTP Header.
+
+[JSVM Docs](https://tyk.io/docs/customise-tyk/plugins/javascript-middleware/middleware-scripting-guide/)
+[Plugin Data Structure Docs](https://tyk.io/docs/customise-tyk/plugins/rich-plugins/rich-plugins-data-structures/)
+
+
+## <a name="dashboard"></a>Tyk Dashboard v1.5.0
+
+### A Fresh Look and Feel
+
+With this release we have refreshed the entire Dashboard UI with a new look-and-feel, bringing with it such improvements as:
+
+* A more modern, fun look and feel
+* Consistent layouts and action buttons across each section
+* Better feedback on errors and updates
+* UX improvements
+
+### Search on API and Policy List Pages
+
+We have added API and Policy search functionality, which should help those with long lists.
+
+[API Docs](https://tyk.io/docs/tyk-dashboard-api/api-definitions/)
+[Policy Docs](https://tyk.io/docs/tyk-dashboard-api/token-policies/)
+
+### A New, Interactive Getting Started Walkthrough
+
+We have swapped out the old Getting started tutorial and added a new interactive one, which should make it easier for new users to get started with the Dashboard UI.
+
+### Advanced URL Rewrites
+
+We have extended the URL Rewrite plugin functionality by enabling users to create more advanced rewrite rules based on Header matches, Query string variable/value matches, Path part matches, (i.e. components of the path itself), Session metadata values, and Payload matches.
+
+[Docs](https://tyk.io/docs/transform-traffic/url-rewriting/)
+
+### Portal Session Lifetime
+
+You can now control the portal session lifetime using the `portal_session_lifetime` config variable.
+
+[Docs](https://tyk.io/docs/configure/tyk-dashboard-configuration-options/)
+
+### Configure Port for WebSockets
+
+We have added `notifications_listen_port` option to configure the port used by WebSockets for real-time notifications.
+
+[Docs](https://tyk.io/docs/configure/tyk-dashboard-configuration-options/)
+
+### Slug
+
+Once set, the API slug will no longer be overridden when the API title is changed.
+
+### Custom Domain
+
+We have fixed the API URL if a custom domain is set.
+
+
+## <a name="pump"></a> Tyk Pump v0.5.0
+
+### Spunk Support
+
+We added support for forwarding analytics data to Splunk. A sample configuration is:
+
+```
+  "pumps": {
+      "splunk": {
+          "name": "splunk",
+          "meta": {
+              "collector_token": "<secret>",
+              "collector_url": "https://<your-id>.cloud.splunk.com:
+                            8088",
+                "ssl_insecure_skip_verify": true
+          }
+      }
+  },
+```
+
+
+## <a name="mdcb"></a> MDCB v1.4.0
+
+We've introduced long awaited support for using Tyk Pump in conjunction with MDCB to use any of services supported by Tyk Pump, like ElasticSearch, Splunk and etc. This works by setting `forward_analytics_to_pump` to true, which disables analytics processing by MDCB itself, and enables the forwarding of all data to Tyk Pump running inside your management environment.
+
+
+## <a name="tib"></a>TIB v0.3
+  
+With this release, you now can use any OpenID Connect compatible provider with TIB. This means that you can use almost any Identity management solution, supporting OpenID, like Okta, Ping or Keycloak.
+ 
+Use `SocialProvider` with the following options:
+
+```
+"UseProviders": [{
+  "Name": "openid-connect",
+  "Key": "CLIENT-KEY",
+  "Secret": "CLIENT-SECRET",
+  "DiscoverURL": "https://<oidc-domain>/.well-known/openidconfiguration"
+}]
+```
+
+## <a name="analytics"></a>Analytics Collection Capping
+
+Detailed analytics collection capping is now enabled by default and configurable via the `collection_cap_enable` and `collection_cap_max_size_bytes` options.
+
+
+
+## <a name="upgrade"></a>Upgrading all new Components
+
+> **NOTE**: This release is fully compatible with the previous version, except that if you want to use new features, like Mutual TLS, you need to upgrade all the related components.
+
+Cloud users will be automatically upgraded to the new release.
+
+Hybrid users should follow the upgrade instructions [here](/docs/get-started/with-tyk-hybrid/tutorials/install-hybrid-gateway/#upgrade-hybrid).
+
+On-Premises users can download the new release packages from their usual repositories.
+
+
