@@ -232,6 +232,10 @@ A list of certificates and domains to match against. Please see the SSL section 
 
 Setting this option to true will allow the use of a double slash in url path, and can be useful if you need to pass raw URLs to your API endpoints. For example: `http://myapi.com/get/http://example.com`.
 
+#### <a name="http_server_options-skip_target_path_escaping"></a> http_server_options.skip_target_path_escaping
+
+Setting this option to true will disable automatic character espaping, allowing to path original url data to the upstream.
+
 #### <a name="http_server_options-flush_interval"></a> http_server_options.flush_interval
 
 Set this to the number of seconds that Tyk should use to flush content from the proxied upstream connection to the open downstream connection. This is usually required for HTTP Streams.
@@ -484,5 +488,10 @@ You can now set a logging level via the `tyk.conf` file. The following levels ca
 If unset or left empty, it will default to `info`.
 
 > **NOTE:** This option is available from v2.4 onwards.
+
+### <a name="enable-key-logging">enable_key_logging
+By default all key ids in logs are hidden. Turn it on if you want to see them for debugging reasons.
+
+> **NOTE:** This option is available from v2.5 onwards.
 
  [1]: /docs/others/Gateway-Environment-Vars.xlsx
