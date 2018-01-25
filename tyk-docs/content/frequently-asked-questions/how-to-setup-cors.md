@@ -6,7 +6,7 @@ Tyk should ignore *OPTIONS* methods as these are pre-flights sent by the browser
 and it's  because you have enabled CORS on the Api Definition and the upstream *also* supports CORS and so both add the header.
 
  ### If your upstream *does not* handle CORS
-You shuold let tyk manage all CORS related headers and responses. In order to do that you should *enable CORS* in Tyk and *NOT ENABLE Options pass through*.
+You should let Tyk manage all CORS related headers and responses. In order to do that you should *enable CORS* in Tyk and **NOT ENABLE **Options pass through.
 
 
 
