@@ -29,15 +29,7 @@ To enable the Tyk Identity Broker to apply LDAP filters to user search see [here
 Our SSO API allows you to implement custom authentication schemes for the Dashboard and Portal. Our Tyk Identity Broker (TIB) internally also uses this API. See [here](https://tyk.io/docs/dashboard-admin-api/sso/) for more details.
 
 
-### <a name="sso-with-social-identity-providers"></a>SSo with Social Identity Providers
-For an overview of using a social Identity Provider, see [here](https://tyk.io/docs/integrate/3rd-party-identity-providers/social-oauth/)
-
-
-### <a name="sso-with-openid-connect"></a> SSO with OpenID Connect (OIDC)
-Tyk supports tokens supplied by any standards OIDC compliant provider. See [here](https://tyk.io/docs/security/your-apis/openid-connect/) for more details.
-
-
-### SSO with OIDC or Social Providers
+### <a name="sso-with-oidc"></a> SSO with Open ID Connect or Social Providers
 SSO is sometimes complicated to understand or set up but once you get it and learn to use our [Tyk-Identity-Broker](https://tyk.io/docs/integrate/3rd-party-identity-providers/#a-name-tib-a-tyk-identity-broker-tib-overview) it becomes easy. 
 In short, all you need is as follow:
 1. Get TIB from here https://github.com/TykTechnologies/tyk-identity-broker
@@ -45,6 +37,13 @@ In short, all you need is as follow:
 3. Get the `client_id` + `secret` that are defined on your IDP
 4. Set the `callback endpoint of TIB` on your IdP account under the `client_id` you used.
 5. More Docs for the flow can be found on our GH TIB repo and on tyk.io/docs
+
+#### <a name="sso-with-social-identity-providers"></a>SSo with Social Identity Providers
+For an overview of using a social Identity Provider, see [here](https://tyk.io/docs/integrate/3rd-party-identity-providers/social-oauth/)
+
+#### <a name="sso-with-openid-connect"></a> SSO with OpenID Connect (OIDC)
+Tyk supports tokens supplied by any standards OIDC compliant provider. See [here](https://tyk.io/docs/security/your-apis/openid-connect/) for more details.
+
 
 
 
