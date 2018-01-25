@@ -7,20 +7,29 @@ menu:
 weight: 0 
 ---
 
-## <a name="intro"></a>Introduction
+## <a name="intro"></a>Introduction to Single Sign On (SSO)
 
-Tyk Supports Single Sign On (SSO) with various methods.
+SSO is sometimes complicated to understand or set up but once you get the point and use Tyk-Identity-Broker it becomes easy. In short, all you need is as follow:
+Get TIB from here https://github.com/TykTechnologies/tyk-identity-broker
+Create a profile for your prefered IDP
+Get the client_id + secret that is defined on your IDP
+Set the callback endpoint of TIB on your IDP side
+Docs for the flow can be found on our GH TIB repo and here ____
+
+
+Tyk Supports SSO with various methods.
 
 *  Login to the Tyk Dashboard via the Tyk Identity Broker (TIB) and LDAP
 *  Via third party Identity Providers (IDPs)
 *  Via the Tyk Dashboard Admin API
 *  Using OpenID Connect OIDC
 
+
 ## <a name="tib_ldap"></a>TIB and LDAP
 
-For more information on the Tyk Identity Broker, see [here](https://tyk.io/docs/integrate/3rd-party-identity-providers/#tib/)
+For more information on the Tyk Identity Broker, see [here](https://tyk.io/docs/integrate/3rd-party-identity-providers/#a-name-tib-a-tyk-identity-broker-tib-overview)
 
-To enable the Tyk Identity Broker to apply LDAP filters to user search see [here](https://tyk.io/docs/integrate/3rd-party-identity-providers/dashboard-login-ldap-tib/).
+To enable the Tyk Identity Broker to apply LDAP filters to user search see [here](https://tyk.io/docs/integrate/3rd-party-identity-providers/openldap/#a-name-ldap-search-filters-a-using-advanced-ldap-search).
 
 ## <a name="idp"></a>Third Party Identity Providers (IDPs)
 
