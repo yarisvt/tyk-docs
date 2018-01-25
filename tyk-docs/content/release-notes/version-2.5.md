@@ -199,13 +199,7 @@ The bug with removal of init system files on upgrade in rpm-based systems is now
 
 ## <a name="upgrade"></a>Upgrading all new Components
 
-> **NOTE**: This release is fully compatible with the previous version, except that if you want to use new features, like Mutual TLS, you need to upgrade all the related components.
-
-Cloud users will be automatically upgraded to the new release.
-
-Hybrid users should follow the upgrade instructions [here](/docs/get-started/with-tyk-hybrid/tutorials/install-hybrid-gateway/#upgrade-hybrid).
-
-On-Premises users can download the new release packages from their usual repositories.
+For details on upgrading all Tyk versions, see [Upgrading Tyk](https://tyk.io/docs/upgrading-tyk/).
 
 ## <a name="new"></a>Don't Have Tyk Yet?
 
