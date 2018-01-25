@@ -187,8 +187,6 @@ Use `SocialProvider` with the following options:
 
 Detailed analytics collection capping is now enabled by default and configurable via the `collection_cap_enable` and `collection_cap_max_size_bytes` options.
 
-
-
 ## <a name="upgrade"></a>Upgrading all new Components
 
 > **NOTE**: This release is fully compatible with the previous version, except that if you want to use new features, like Mutual TLS, you need to upgrade all the related components.
@@ -198,5 +196,14 @@ Cloud users will be automatically upgraded to the new release.
 Hybrid users should follow the upgrade instructions [here](/docs/get-started/with-tyk-hybrid/tutorials/install-hybrid-gateway/#upgrade-hybrid).
 
 On-Premises users can download the new release packages from their usual repositories.
+
+## <a name="new"></a>Don't Have Tyk Yet?
+
+Get started now, for free, or contact us with any questions.
+
+* [Get Started](https://tyk.io/pricing/compare-api-management-platforms/#get-started)
+* [Contact Us](https://tyk.io/about/contact/)
+
+
 
 

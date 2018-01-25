@@ -73,4 +73,9 @@ sudo yum update
 > **Note**: In Tyk Gateway before 2.5 and Tyk Dashboard before 1.5 there's a known Red Hat bug with init scripts being removed on package upgrade. In order to work around it, it's required to force reinstall the packages, e.g.:
 `sudo yum reinstall tyk-gateway tyk-dashboard`
 
+## <a name="new"></a>Don't Have Tyk Yet?
 
+Get started now, for free, or contact us with any questions.
+
+* [Get Started](https://tyk.io/pricing/compare-api-management-platforms/#get-started)
+* [Contact Us](https://tyk.io/about/contact/)
