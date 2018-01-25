@@ -15,7 +15,7 @@ To rewrite a URL with Tyk, you must specify the components of the URL to capture
 
 Unlike other web servers, Tyk uses a wide match to capture the URL and then a fixed regex to handle the restructuring. So as with other middleware components you must set a path to match on.
 
-Starting from Tyk Gateway 2.5 and Tyk Dashboard 1.5, rewriting functionality significatnly extended, allowing you to add conditional rewriting logic, based on multiple rules, checking url, body, headers or session meta data. See the  [Advanced Rewrites](#advanced) section for more details.
+Starting from Tyk Gateway 2.5 and Tyk Dashboard 1.5, our rewriting functionality has been significantly extended, allowing you to add conditional rewriting logic, based on multiple rules, checking URL, body, headers or session meta data. See the [Advanced Rewrites](#advanced) section for more details.
 
 ## <a name="url-rewrite-with-api"></a> Rewrite a URL with the API Definition
 
@@ -84,11 +84,11 @@ As of v2.3 it is possible to inject meta data from a Tyk Session Object linked t
 
 There are plenty of cases when path based rewriting is not enough. To cover this, starting from Tyk Gateway 2.5 and Dashboard 1.5, you can define complex conditional rewrites.
 
-To make it work you should set the "triggers" field, defining rules. If there is no trigger match, the rewrite will fallback to the parent rewrite_to, but if either of the other two are triggered, the rewrite target is changed.
+To make it work you should set the **triggers** field, defining rules. If there is no trigger match, the rewrite will fallback to the parent `rewrite_to`, but if either of the other two are triggered, the rewrite target is changed.
 
-Additionally, each trigger also sets a context variable for each match it finds, these context vars can then be used in the rewrites. Trigger contexts take the format: `$tyk_context.trigger-{n}-{name}-{i}` where n is the trigger index in the array, `name` is the regexp matcher name and `i` is the index of that match (since querystrings and headers can be arrays of values).
+Additionally, each trigger also sets a context variable for each match it finds. These context vars can then be used in the rewrites. Trigger contexts take the format: `$tyk_context.trigger-{n}-{name}-{i}` where `n` is the trigger index in the array, `name` is the regexp matcher name and `i` is the index of that match (since querystrings and headers can be arrays of values).
 
-```
+```{.copyWrapper}
 {
     "url_rewrites": [
         {
@@ -133,13 +133,13 @@ The Trigger functionality supports:
 * Session meta data values — `session_meta_matches`
 * Payload matches — `payload_matches`
 
-All of the triggers above, except `payload_matches`, have the same structure, shown in the example above. `payload_matches` require defining only regexp like this: `"payload_matches": { "match_rx": "regexp" }`.
+All of the triggers above, except `payload_matches`, have the same structure, shown in the example above. `payload_matches` requires defining only with regexp like this: `"payload_matches": { "match_rx": "regexp" }`.
 
 
-For each trigger, the trigger can either use the on: `any` or on: `all` formatting, for any, if any one of the options in the trigger is true, the rewrite rule is fired. for all, all the options must be satisfied. This is limited to triggers, not groups of triggers, these will be evaluated one by one.
+For each trigger, the trigger can either use the on: `any` or on: `all` formatting. For `any`, if any one of the options in the trigger is true, the rewrite rule is fired. for `all`, all the options must be satisfied. This is limited to triggers, not groups of triggers. These will be evaluated one by one.
 
-Additionally you also mix multiple matchers in the same trigger. In example below, it checks if http request has `X-Enable-Beta` with value `true`, AND if user key meta info have "beta_enable" field with value `true`. If both matchers say true, it will proxy user to another upstream, like beta environment.
-```
+Additionally you also mix multiple matches in the same trigger. In the example below, it checks if the HTTP request has `X-Enable-Beta` with value `true`, **AND** if user key meta info has `beta_enabled` field set to `true`. If both matches are `true`, it will proxy the user to another upstream, like beta environment.
+```{.copyWrapper}
 "triggers": [
     {
         "on": "all",
@@ -162,11 +162,11 @@ Additionally you also mix multiple matchers in the same trigger. In example belo
 
 ### Using the Endpoint Designer
 
-You can define advanced URL rewrites using user interface as well, by using the **Create Advanced Trigger** option from the **URL Rewriter** plugin. You will see a screen like this:
+You can define advanced URL rewrites using the Tyk Dashboard as well, by using the **Create Advanced Trigger** option from the **URL Rewriter** plugin. You will see a screen like this:
 
 ![URL rewrite add trigger][4]
 
-When triggers are added, you can edit or remove them inside "Advanced URL rewrite" section:
+When triggers are added, you can edit or remove them inside the **Advanced URL rewrite** section:
 
 ![URL rewrite list trigger][5]
 
