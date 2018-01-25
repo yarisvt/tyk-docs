@@ -168,7 +168,7 @@ Detailed analytics collection capping is now enabled by default and configurable
 
 
 
-## <a name="mdcb"></a> MDCB v1.4.0
+## <a name="mdcb"></a> MDCB v1.5.0
 
 We've introduced long awaited support for using Tyk Pump in conjunction with MDCB to use any of services supported by Tyk Pump, like ElasticSearch, Splunk and etc. This works by setting `forward_analytics_to_pump` to true, which disables analytics processing by MDCB itself, and enables the forwarding of all data to Tyk Pump running inside your management environment.
 
