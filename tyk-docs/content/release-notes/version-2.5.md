@@ -162,6 +162,11 @@ We added support for forwarding analytics data to Splunk. A sample configuration
   },
 ```
 
+### <a name="analytics"></a>Analytics Collection Capping
+
+Detailed analytics collection capping is now enabled by default and configurable via the `collection_cap_enable` and `collection_cap_max_size_bytes` options.
+
+
 
 ## <a name="mdcb"></a> MDCB v1.4.0
 
@@ -183,9 +188,14 @@ Use `SocialProvider` with the following options:
 }]
 ```
 
-## <a name="analytics"></a>Analytics Collection Capping
+## Packaging changes across all products
 
-Detailed analytics collection capping is now enabled by default and configurable via the `collection_cap_enable` and `collection_cap_max_size_bytes` options.
+New deb and rpm packages add the "tyk" user and group so that package files and directories would be owned by it and the process run with its effective uid and gid. In addition to this gateway PID now has to reside in its own sub-rundir due to this change, so that's created (and additionally managed by systemd where it's available), default pidfile location changed appropriately so that upgrade wouldn't require any config changes by the users. The gateway config file is now only readable and writable by the "tyk" user and group.
+
+The "default" init system files are not removed on upgrade/remove anymore so that it's now a way for users to run the respective process with custom environment variables.
+
+The bug with removal of init system files on upgrade in rpm-based systems is now fixed.
+
 
 ## <a name="upgrade"></a>Upgrading all new Components
 
