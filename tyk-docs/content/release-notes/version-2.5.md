@@ -144,7 +144,7 @@ We have fixed the API URL if a custom domain is set.
 
 ## <a name="pump"></a> Tyk Pump v0.5.0
 
-### Spunk Support
+### Splunk Support
 
 We added support for forwarding analytics data to Splunk. A sample configuration is:
 
