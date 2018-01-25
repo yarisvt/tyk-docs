@@ -190,7 +190,7 @@ Use `SocialProvider` with the following options:
 
 ## Packaging changes across all products
 
-New deb and rpm packages add the "tyk" user and group so that package files and directories would be owned by it and the process run with its effective uid and gid. In addition to this gateway PID now has to reside in its own sub-rundir due to this change, so that's created (and additionally managed by systemd where it's available), default pidfile location changed appropriately so that upgrade wouldn't require any config changes by the users. The gateway config file is now only readable and writable by the "tyk" user and group.
+New deb and rpm packages add the "tyk" user and group so that package files and directories would be owned by it and the process run with its effective uid and gid. In addition to this gateway PID now has to reside in its own sub-rundir due to this change, so that's created (and additionally managed by systemd where it's available), default pidfile location changed appropriately so that upgrade wouldn't require any config changes by the users. The gateway config file is now only readable and writable by the "tyk" user and group. This change is applied across all our products except Gateway: its changes scheduled to 2.6. 
 
 The "default" init system files are not removed on upgrade/remove anymore so that it's now a way for users to run the respective process with custom environment variables.
 
