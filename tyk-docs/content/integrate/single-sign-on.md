@@ -10,10 +10,10 @@ weight: 0
 ## <a name="intro"></a>Introduction to Single Sign On (SSO)
 
 ### SSO Overview - Use case
-SSO gives users the ability to log in to multiple applications without the need to enter their password more than once. 
-OIDC enables application to authenticate users of an organisation without the need to manage the users, their identification process and without exposing their passwords. Their lists of users and passwords are kept safe in one single place, the IdP the organisation has chosen to use and the Authorisation server identify the users for a pre-registered and approved application (`client` in OAuth and OIDC terminology. 
+- SSO gives users the ability to log in to multiple applications without the need to enter their password more than once. 
+- OIDC enables application to authenticate users of an organisation without the need to manage the users, their identification process and without exposing their passwords. Their lists of users and passwords are kept safe in one single place, the IdP the organisation has chosen to use and the Authorisation server identify the users for a pre-registered and approved application (`client` in OAuth and OIDC terminology).
 
-Using our Tyk-Identity-Broker Tyk supports SSO to the *Dasgboard* and *Developer Portal* with various methods:
+Using our Tyk-Identity-Broker (TIB), you can do both - SSO to the *Dasgboard* and *Developer Portal* and use your existing users directory:
 1.  Login with LDAP authentication
 2.  Login with 3rd party social providers
 3.  Login with any IdP that supports ODIC
