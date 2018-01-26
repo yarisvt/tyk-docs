@@ -2,7 +2,7 @@
 
 This is an end to end worked example of how you can use Okta and our Tyk Identity Broker (TIB) to log in to your Dashboard.
 
-### Okta's side:
+## Okta's side:
 1. Create developer account on Okta 
    You'll get a domain such as `https://dev-XXXXX.oktapreview.com/app/UserHome`.
 2. Login and create Application 
@@ -12,7 +12,7 @@ Note: These instruction are for the new Okta's `Developer Console`, for the `Cla
 `{PROFILE-NAME-IN-TIB}` - Can be any string you choose, as long as you use the same one for the profile in TIB.
 4. Under `Assignments` tab, make sure group assignments is set to *everyone* (for now, you will change this later!).
 
-### TIB's Side:
+## TIB's Side:
 5. Set the profile in `profile.json` as follows:
    - Copy from your Okta client the `cliend ID`     to `ProviderConfig.UseProviders[].key`
    - Copy from your Okta client the `Client secret` to `ProviderConfig.UseProviders[].secret`
@@ -49,12 +49,12 @@ Note: These instruction are for the new Okta's `Developer Console`, for the `Cla
     - If it's working you'll be redirected to Okta's web page and will be asked to enter your Okta's user and password.
     - If you were successfully authenticated by Okta then you'll be redirected to the dashboard and login into it without going through the login page. Job's done!
 8. If you need to update your profile then you can use TIB's REST API as follows:
-   - 'curl http://{TIB-DOMAIN}:{TIB-PORT}/api/profiles/{PROFILE-NAME-IN-TIB} -H "Authorization: {MY-SECRET}" -H "Content-type: application/json" -X PUT --data "@./my-new-dashboard-profile.json" | prettyjson'
-	- POST and DELETE calls apply as normal
+   - `curl http://{TIB-DOMAIN}:{TIB-PORT}/api/profiles/{PROFILE-NAME-IN-TIB} -H "Authorization: {MY-SECRET}" -H "Content-type: application/json" -X PUT --data "@./my-new-dashboard-profile.json" | prettyjson`
+   - POST and DELETE calls apply as normal
    - You can post a few profiles to TIB. 
    - The full docs for [TIB REST APIs](https://tyk.io/docs/integrate/3rd-party-identity-providers/tib-rest-api/)
     
- ### Behind the scenes:
+ ## The magic - The flow behind the scenes:
  1. The initial call to the endpoint on TIB was redirected to Okta and 
  2. Okta identified the user
  3. Okta redirected the call back to TIB endpoint (according to the callback you set up on the client earlier in step 3) and from TIB
@@ -62,6 +62,7 @@ Note: These instruction are for the new Okta's `Developer Console`, for the `Cla
  5. TIB redirected the call to the dashboard to a special endpoint `/tap` ( it was defined on the profile under `ReturnURL`) with the nonce that was created.
  6. The Dashboard on the `/tap` endpoint finds the session that is attached to the `nonce`, login the user and redirect to the dashboard first page
 
+##
 ## Once it's working you can also add two more enhancements: 
 1. *SSO login into the dashboard via a login page:*
    You will need to
