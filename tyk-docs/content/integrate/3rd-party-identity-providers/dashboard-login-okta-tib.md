@@ -12,7 +12,7 @@ Note: These instruction are for the new Okta's `Developer Console`, for the `Cla
 `{PROFILE-NAME-IN-TIB}` - Can be any string you choose, as long as you use the same one for the profile in TIB.
 4. Under `Assignments` tab, make sure group assignments is set to *everyone* (for now, you will change this later!).
 
-### TIB Side:
+### TIB's Side:
 5. Set the profile in `profile.json` as follows:
    - Copy from your Okta client the `cliend ID`     to `ProviderConfig.UseProviders[].key`
    - Copy from your Okta client the `Client secret` to `ProviderConfig.UseProviders[].secret`
