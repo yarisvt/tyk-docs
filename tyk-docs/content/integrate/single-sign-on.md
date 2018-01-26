@@ -40,7 +40,7 @@ In short, all you need is as follow:
 5. More Docs for the flow can be found on our GH TIB repo and on tyk.io/docs
 
 #### <a name="sso-with-social-identity-providers"></a>SSo with Social Identity Providers
-For an overview of using a social Identity Provider, see [here](https://tyk.io/docs/integrate/3rd-party-identity-providers/social-oauth/)
+For an overview of using a [social Identity Provider](https://tyk.io/docs/integrate/3rd-party-identity-providers/social-oauth/)
 
 
 #### <a name="sso-with-openid-connect"></a> SSO with OpenID Connect (OIDC)
