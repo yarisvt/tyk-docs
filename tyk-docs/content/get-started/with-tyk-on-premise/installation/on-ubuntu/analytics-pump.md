@@ -11,7 +11,7 @@ weight: 2
 
 ### What is Tyk Pump?
 
-Tyk Pump is responsible for moving analytics between the your API Gateway and the Dashboard database, it can also send data to other sinks such as ElasticSearch, StatsD and InfluxDB.
+Tyk Pump is responsible for moving analytics between the API Gateway and the Dashboard database, it can also send data to other sinks such as ElasticSearch, StatsD and InfluxDB.
 
 Tyk has it's own APT repositories hosted by the kind folks at [packagecloud.io][1], which makes it easy, safe and secure to install a trusted distribution of the Tyk Pump application.
 
