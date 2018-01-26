@@ -48,6 +48,11 @@ Note: These instruction are for the new Okta's `Developer Console`, for the `Cla
    From the broswer call `http://localhost:3010/auth/{PROFILE-NAME-IN-TIB}/openid-connect`
     - If it's working you'll be redirected to Okta's web page and will be asked to enter your Okta's user and password.
     - If you were successfully authenticated by Okta then you'll be redirected to the dashboard and login into it without going through the login page. Job's done!
+8. If you need to update your profile then you can use TIB's REST API as follows:
+   - 'curl http://{TIB-DOMAIN}:{TIB-PORT}/api/profiles/{PROFILE-NAME-IN-TIB} -H "Authorization: {MY-SECRET}" -H "Content-type: application/json" -X PUT --data "@./my-new-dashboard-profile.json" | prettyjson'
+	- POST and DELETE calls apply as normal
+   - You can post a few profiles to TIB. 
+   - The full docs for [TIB REST APIs](https://tyk.io/docs/integrate/3rd-party-identity-providers/tib-rest-api/)
     
  ### Behind the scenes:
  1. The initial call to the endpoint on TIB was redirected to Okta and 
