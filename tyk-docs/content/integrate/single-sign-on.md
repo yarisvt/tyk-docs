@@ -42,9 +42,9 @@ In short, all you need is as follow:
 #### <a name="sso-with-social-identity-providers"></a>SSo with Social Identity Providers
 For an overview of using a social Identity Provider, see [here](https://tyk.io/docs/integrate/3rd-party-identity-providers/social-oauth/)
 
+
 #### <a name="sso-with-openid-connect"></a> SSO with OpenID Connect (OIDC)
-##### Okta
-Instruction on setting [SSO with Okta](https://github.com/TykTechnologies/tyk-docs/blob/sso-update-tidyup/tyk-docs/content/integrate/3rd-party-identity-providers/dashboard-login-okta-tib.md)
+- Instruction on setting [SSO with Okta](https://github.com/TykTechnologies/tyk-docs/blob/sso-update-tidyup/tyk-docs/content/integrate/3rd-party-identity-providers/dashboard-login-okta-tib.md)
 
 
 
