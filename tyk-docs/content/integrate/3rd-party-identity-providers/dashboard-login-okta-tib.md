@@ -1,6 +1,6 @@
 # Login to your Dashboard using LDAP via Okta
 
-## An end-to-end working example of login to the *Dashboard* using Okta as IdP.
+This is an end to end worked example of how you can use Okta and our Tyk Identity Broker (TIB) to log in to your Dashboard.
 
 ### Okta's side:
 1. Create developer account on Okta 
