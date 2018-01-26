@@ -7,9 +7,21 @@ menu:
 weight: 5 
 ---
 
+### Check the Health of the Gateway
+
+To check your Gateway is set up properly and can proxy calls use the following call:
+
+`GET /hello HTTP/1.1`
+
+This will return the following:
+
+```
+HTTP/1.1 200 OK
+
+Hello Tiki
+```
+
 ### Check the Health of a Tyk Node and Upstream API
-
-
 
 > **Note**: As of v2.4, the health-check API has been deprecated. We no longer recommend its use.
 
@@ -26,7 +38,7 @@ Tyk retains health data in Redis which reflects the current state of the API, in
 | Resource URL | `/tyk/health`       |
 | Method       | GET                 |
 | Type         | None                |
-| Body         | none                |
+| Body         | None                |
 | Param        | `api_id` (required) |
 
 #### Sample request
