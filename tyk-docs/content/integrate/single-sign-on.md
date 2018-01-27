@@ -53,9 +53,9 @@ For an overview of using a [social Identity Provider](https://tyk.io/docs/integr
 Our SSO REST API allows you to implement custom authentication schemes for the Dashboard and Portal. Our Tyk Identity Broker (TIB) internally also uses this API. See [here](https://tyk.io/docs/dashboard-admin-api/sso/) for more details.
 
 ## <a name="sso-with-ldap"></a>SSO with LDAP integration
-Instruction on setting [SSO with LDAP](https://tyk.io/docs/integrate/3rd-party-identity-providers/dashboard-login-ldap-tib.md)
+Detailed instruction on setting [SSO with LDAP](https://tyk.io/docs/integrate/3rd-party-identity-providers/dashboard-login-ldap-tib.md).
 
-Read here to apply [LDAP filters](https://tyk.io/docs/integrate/3rd-party-identity-providers/openldap/#a-name-ldap-search-filters-a-using-advanced-ldap-search).
+Read here if you need to apply [filters](https://tyk.io/docs/integrate/3rd-party-identity-providers/openldap/#a-name-ldap-search-filters-a-using-advanced-ldap-search) to your LDAP authentication.
 
 
 
