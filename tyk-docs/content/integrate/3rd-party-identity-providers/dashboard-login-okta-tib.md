@@ -1,6 +1,9 @@
 # Login to your Dashboard using LDAP via Okta
 
 This is an end to end worked example of how you can use Okta and our Tyk Identity Broker (TIB) to log in to your Dashboard.
+This guide assumes you already have authorised access to Tyk's Dashboard. If you don't check this doc to [get the authorisation key](https://tyk.io/docs/security/dashboard/create-users/#a-name-with-api-a-create-a-dashboard-user-with-the-api).
+It also assumes that you will be running Tyk's Identity broker and will be able to edit its configuration file.
+
 
 ## Okta's side:
 1. Create developer account on Okta 
