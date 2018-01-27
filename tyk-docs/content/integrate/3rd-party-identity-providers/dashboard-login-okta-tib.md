@@ -14,6 +14,7 @@ Note: These instruction are for the new Okta's `Developer Console`, for the `Cla
 3. Under `General` (still in Okta), click `Edit` and update `Login redirect URIs` field with the callback endpoint on TIB `http://localhost:3010/auth/{PROFILE-NAME-IN-TIB}/openid-connect/callback`.
 `{PROFILE-NAME-IN-TIB}` - Can be any string you choose, as long as you use the same one for the profile in TIB.
 4. Under `Assignments` tab, make sure group assignments is set to *everyone* (for now, you will change this later!).
+![image](https://okta-create-app.png)
 
 ## TIB's Side:
 5. Set the profile in `profile.json` as follows:
@@ -75,8 +76,14 @@ Note: These instruction are for the new Okta's `Developer Console`, for the `Cla
 2. *Supporting MFA:*
    MFA works out-of-the-box in Tyk since luckinly Okta supports it. you would need to add it to the configuration of the account holder. Under `Security --> Multifactor --> Factor types` you can choose the types you want. For instance I chose Google Authenticator.
    1. While trying to login to the dashboard, Okta enforced the MFA and asked me to get the Google Authenticator:
-   ![image](https://user-images.githubusercontent.com/3155222/35405172-3e7f7bc4-01fd-11e8-9de5-6ad141d42f32.png)
+   ![image](okta-mfa-setup-1.png)
    2. I had to download the Google Authenticatior and identify with the generated code
-   ![image](https://2.png)
+   ![image](https://okta-mfa-download-google-authenticator-2.png)
    3. I successfully authenticated with Google Authenticatior 
-   ![image](https://3.png)
+   ![image](https://okta-mfa-google-auth-approved-3.png)
+   
+## Errors
+If you get `400 Bad Request` it means the profile name in the login endpoint is not identical to the profile name in the callback that you set up on Okta's app:
+On Okta's app - `Login redirect URIs:` http://localhost:3010/auth/**{PROFILE-NAME-IN-TIB}**/openid-connect/callback
+The eanpoint to login - http://localhost:3010/auth/**{PROFILE-NAME-IN-TIB}**/openid-connect
+![image](okta-bad-request-wrong-callback.png)
