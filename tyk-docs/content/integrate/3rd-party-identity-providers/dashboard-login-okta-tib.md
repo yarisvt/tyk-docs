@@ -15,25 +15,28 @@ This guide assumes you already have authorised access to Tyk's Dashboard. If you
 It also assumes that you will be running Tyk's Identity broker and will be able to edit its configuration file.
 
 
-## Okta's side
+## <a name="okta"></a> Okta's side
 1. Create developer account on Okta 
    You'll get a domain such as `https://dev-XXXXX.oktapreview.com/app/UserHome`.
 2. Login and create Application 
-   Under `Aplication`, click `Add Application`, Choose `Web`, Change the name of the app, Tick `Authorization Code`and Click `Done` .
-Note: These instruction are for the new Okta's `Developer Console`, for the `Classic UI` instructions are slightly different.
-3. Under `General` (still in Okta), click `Edit` and update `Login redirect URIs` field with the callback endpoint on TIB `http://localhost:3010/auth/{PROFILE-NAME-IN-TIB}/openid-connect/callback`.
+   Under **Application**, click **Add Application**, Choose **Web**, Change the name of the app, select **Authorization Code** and Click **Done**.
+
+>  Note: These instruction are for the new Okta's `Developer Console`, for the `Classic UI` instructions are slightly different.
+
+3. Under **General** (still in Okta), click **Edit** and update the **Login redirect URIs** field with the callback endpoint on TIB `http://localhost:3010/auth/{PROFILE-NAME-IN-TIB}/openid-connect/callback`.
 `{PROFILE-NAME-IN-TIB}` - Can be any string you choose, as long as you use the same one for the profile in TIB.
-4. Under `Assignments` tab, make sure group assignments is set to *everyone* (for now, you will change this later!).
+4. Under the **Assignments** tab, make sure group assignments is set to **everyone** (for now, you will change this later!).
 ![Okta-create-app][1]
 
-## TIB's Side
+## <a name="tib"></a> TIB's Side
 5. Set the profile in `profile.json` as follows:
    - Copy from your Okta client the `cliend ID`     to `ProviderConfig.UseProviders[].key`
    - Copy from your Okta client the `Client secret` to `ProviderConfig.UseProviders[].secret`
    - Add Okta's discovery url `"https://dev-XXXXX.oktapreview.com/oauth2/default/.well-known/openid-configuration"` to  `ProviderConfig.UseProviders[].DiscoverURL` 
   
    Example of a profiles.json:
-   ```{
+```{.json}
+   {
     "ActionType": "GenerateOrLoginUserProfile",
     "ID": "{PROFILE-NAME-IN-TIB}",
     "OrgID": "5a54a74550200d0001975584",
@@ -55,7 +58,8 @@ Note: These instruction are for the new Okta's `Developer Console`, for the `Cla
     "ProviderName": "SocialProvider",
     "ReturnURL": "http://{DASHBOARD-DOMAIN}:{DASHBOARD-PORT}/tap",
     "Type": "redirect"
-    ```  
+```
+
 6. Start TIB by running the binary (`profiles.json` is in the same CWD)
    Follow this [link](https://tyk.io/docs/integrate/3rd-party-identity-providers/#tib) for detailed instruction to install TIB 
 7. Test that it works: 
@@ -68,7 +72,8 @@ Note: These instruction are for the new Okta's `Developer Console`, for the `Cla
    - You can post a few profiles to TIB. 
    - The full docs for [TIB REST APIs](https://tyk.io/docs/integrate/3rd-party-identity-providers/tib-rest-api/)
     
- ## The magic - The flow behind the scenes:
+## <a name="flow"></a> The magic - The flow behind the scenes:
+
  1. The initial call to the endpoint on TIB was redirected to Okta and 
  2. Okta identified the user
  3. Okta redirected the call back to TIB endpoint (according to the callback you set up on the client earlier in step 3) and from TIB
@@ -76,11 +81,10 @@ Note: These instruction are for the new Okta's `Developer Console`, for the `Cla
  5. TIB redirected the call to the dashboard to a special endpoint `/tap` ( it was defined on the profile under `ReturnURL`) with the nonce that was created.
  6. The Dashboard on the `/tap` endpoint finds the session that is attached to the `nonce`, login the user and redirect to the dashboard first page
 
-##
-## Once it's working you can also add two more enhancements: 
+## <a name="enhancements"></a>Once it's working you can also add two more enhancements: 
 1. *SSO login into the dashboard via a login page:*
    You will need to
-    	- set up webserver with a login page and a form for `user` and `password` 
+    	- set up a webserver with a login page and a form for **user** and **password** 
     	- Update `tyk_analytics.conf` to redirect logins to that url 
     Explicit details can be in [steps 6-7](https://tyk.io/docs/integrate/3rd-party-identity-providers/dashboard-login-ldap-tib/#6-create-a-login-page)
 2. *Supporting MFA:*
@@ -92,8 +96,8 @@ Note: These instruction are for the new Okta's `Developer Console`, for the `Cla
    3. I successfully authenticated with Google Authenticatior 
    ![okta-mfa-google-auth-approved-3][4]
    
-## Errors
-If you get `400 Bad Request` it means the profile name in the login endpoint is not identical to the profile name in the callback that you set up on Okta's app:
+## <a name="errors"></a> Errors
+If you get a `400 Bad Request` it means the profile name in the login endpoint is not identical to the profile name in the callback that you set up on Okta's app:
 On Okta's app - `Login redirect URIs:` http://localhost:3010/auth/**{PROFILE-NAME-IN-TIB}**/openid-connect/callback
 The eanpoint to login - http://localhost:3010/auth/**{PROFILE-NAME-IN-TIB}**/openid-connect
 ![okta-bad-request-wrong-callback][5]
