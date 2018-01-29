@@ -1,3 +1,13 @@
+---
+date: 2018-01-24T17:02:11Z
+title: Login to your Dashboard using Okta via TIB
+menu:
+  main:
+    parent: "3rd Party Identity Providers"
+weight: 0 
+---
+
+
 # Login to your Dashboard using LDAP via Okta
 
 This is an end to end worked example of how you can use Okta and our Tyk Identity Broker (TIB) to log in to your Dashboard.
