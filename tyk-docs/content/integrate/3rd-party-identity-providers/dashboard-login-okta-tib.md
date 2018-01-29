@@ -14,7 +14,7 @@ Note: These instruction are for the new Okta's `Developer Console`, for the `Cla
 3. Under `General` (still in Okta), click `Edit` and update `Login redirect URIs` field with the callback endpoint on TIB `http://localhost:3010/auth/{PROFILE-NAME-IN-TIB}/openid-connect/callback`.
 `{PROFILE-NAME-IN-TIB}` - Can be any string you choose, as long as you use the same one for the profile in TIB.
 4. Under `Assignments` tab, make sure group assignments is set to *everyone* (for now, you will change this later!).
-![image](https://okta-create-app.png)
+![Okta-create-app][1]
 
 ## TIB's Side:
 5. Set the profile in `profile.json` as follows:
@@ -87,3 +87,5 @@ If you get `400 Bad Request` it means the profile name in the login endpoint is 
 On Okta's app - `Login redirect URIs:` http://localhost:3010/auth/**{PROFILE-NAME-IN-TIB}**/openid-connect/callback
 The eanpoint to login - http://localhost:3010/auth/**{PROFILE-NAME-IN-TIB}**/openid-connect
 ![image](okta-bad-request-wrong-callback.png)
+
+[1]: /docs/static/img/okta-sso/Okta-create-app.png   
