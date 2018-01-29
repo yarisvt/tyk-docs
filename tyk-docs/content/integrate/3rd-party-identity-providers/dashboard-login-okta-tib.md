@@ -102,4 +102,4 @@ The eanpoint to login - http://localhost:3010/auth/**{PROFILE-NAME-IN-TIB}**/ope
 [2]: /docs/img/okta-sso/okta-mfa-setup-1.png   
 [3]: /docs/img/okta-sso/okta-mfa-download-google-authenticator-2.png   
 [4]: /docs/img/okta-sso/okta-mfa-google-auth-approved-3.png
-[5]: /docs/img/okta-sso/okta-bad-request-wrong-callback
+[5]: /docs/img/okta-sso/okta-bad-request-wrong-callback.png
