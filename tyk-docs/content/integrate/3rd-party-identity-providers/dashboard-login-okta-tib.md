@@ -76,16 +76,20 @@ Note: These instruction are for the new Okta's `Developer Console`, for the `Cla
 2. *Supporting MFA:*
    MFA works out-of-the-box in Tyk since luckinly Okta supports it. you would need to add it to the configuration of the account holder. Under `Security --> Multifactor --> Factor types` you can choose the types you want. For instance I chose Google Authenticator.
    1. While trying to login to the dashboard, Okta enforced the MFA and asked me to get the Google Authenticator:
-   ![image](okta-mfa-setup-1.png)
+   ![Okta-create-app][2]
    2. I had to download the Google Authenticatior and identify with the generated code
-   ![image](https://okta-mfa-download-google-authenticator-2.png)
+   ![okta-mfa-download-google-authenticator-2][3]
    3. I successfully authenticated with Google Authenticatior 
-   ![image](https://okta-mfa-google-auth-approved-3.png)
+   ![okta-mfa-google-auth-approved-3][4]
    
 ## Errors
 If you get `400 Bad Request` it means the profile name in the login endpoint is not identical to the profile name in the callback that you set up on Okta's app:
 On Okta's app - `Login redirect URIs:` http://localhost:3010/auth/**{PROFILE-NAME-IN-TIB}**/openid-connect/callback
 The eanpoint to login - http://localhost:3010/auth/**{PROFILE-NAME-IN-TIB}**/openid-connect
-![image](okta-bad-request-wrong-callback.png)
+![okta-bad-request-wrong-callback](okta-bad-request-wrong-callback.png)
 
-[1]: /docs/static/img/okta-sso/Okta-create-app.png   
+[1]: /docs/img/okta-sso/Okta-create-app.png
+[2]: /docs/img/okta-sso/okta-mfa-setup-1.png   
+[3]: /docs/img/okta-sso/okta-mfa-download-google-authenticator-2.png   
+[4]: /docs/img/okta-sso/okta-mfa-google-auth-approved-3.png
+[5]: /docs/img/okta-sso/okta-bad-request-wrong-callback
