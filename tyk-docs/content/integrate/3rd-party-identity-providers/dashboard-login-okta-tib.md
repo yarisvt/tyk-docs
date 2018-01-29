@@ -15,7 +15,7 @@ This guide assumes you already have authorised access to Tyk's Dashboard. If you
 It also assumes that you will be running Tyk's Identity broker and will be able to edit its configuration file.
 
 
-## Okta's side:
+## Okta's side
 1. Create developer account on Okta 
    You'll get a domain such as `https://dev-XXXXX.oktapreview.com/app/UserHome`.
 2. Login and create Application 
@@ -26,7 +26,7 @@ Note: These instruction are for the new Okta's `Developer Console`, for the `Cla
 4. Under `Assignments` tab, make sure group assignments is set to *everyone* (for now, you will change this later!).
 ![Okta-create-app][1]
 
-## TIB's Side:
+## TIB's Side
 5. Set the profile in `profile.json` as follows:
    - Copy from your Okta client the `cliend ID`     to `ProviderConfig.UseProviders[].key`
    - Copy from your Okta client the `Client secret` to `ProviderConfig.UseProviders[].secret`
