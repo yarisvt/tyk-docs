@@ -18,6 +18,7 @@ OIDC enables application to verify identity of users from an organisation withou
 SSO is sometimes complicated to understand or set up but once you get the basics and learn to set up our [TIB - Tyk-Identity-Broker](https://tyk.io/docs/integrate/3rd-party-identity-providers/#a-name-tib-a-tyk-identity-broker-tib-overview) it becomes an easy task. 
 
 Using our Tyk-Identity-Broker (TIB), you can do both - use your existing users directory to login to the **Dashboard** or **Developer Portal** and have it SSO. TIB, among other options, supports 3 methods for login to Tyk's UI:
+
 1. Login with 3rd party social providers
 2. Login with any IdP that supports ODIC
 3. Login with LDAP (not using OIDC)
@@ -44,7 +45,7 @@ For an overview of using a [social Identity Provider](https://tyk.io/docs/integr
 - Instructions on setting SSO with Google+   - will be added soon
 
 ### <a name="sso-with-openid-connect"></a> SSO with OpenID Connect (OIDC)
-- Instruction on setting [SSO with Okta](https://github.com/TykTechnologies/tyk-docs/blob/sso-update-tidyup/tyk-docs/content/integrate/3rd-party-identity-providers/dashboard-login-okta-tib.md)
+- Instruction on setting [SSO with Okta](https://tyk.io/docs/integrate/3rd-party-identity-providers/dashboard-login-okta-tib/)
 - Instructions on setting SSO with PingID   - will be added soon
 - Instructions on setting SSO with Auth0    - will be added soon
 - Instructions on setting SSO with keycloak - will be added soon

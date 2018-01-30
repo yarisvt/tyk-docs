@@ -91,15 +91,15 @@ It also assumes that you will be running Tyk's Identity broker and will be able 
    MFA works out-of-the-box in Tyk since luckinly Okta supports it. you would need to add it to the configuration of the account holder. Under `Security --> Multifactor --> Factor types` you can choose the types you want. For instance I chose Google Authenticator.
    1. While trying to login to the dashboard, Okta enforced the MFA and asked me to get the Google Authenticator:
    ![okta-mfa-setup-1][2]
-   2. I had to download the Google Authenticatior and identify with the generated code
+   2. I had to download the Google Authenticator and identify with the generated code
    ![okta-mfa-download-google-authenticator-2][3]
-   3. I successfully authenticated with Google Authenticatior 
+   3. I successfully authenticated with Google Authenticator 
    ![okta-mfa-google-auth-approved-3][4]
    
 ## <a name="errors"></a> Errors
 If you get a `400 Bad Request` it means the profile name in the login endpoint is not identical to the profile name in the callback that you set up on Okta's app:
 On Okta's app - `Login redirect URIs:` http://localhost:3010/auth/**{PROFILE-NAME-IN-TIB}**/openid-connect/callback
-The eanpoint to login - http://localhost:3010/auth/**{PROFILE-NAME-IN-TIB}**/openid-connect
+The endpoint to login - http://localhost:3010/auth/**{PROFILE-NAME-IN-TIB}**/openid-connect
 ![okta-bad-request-wrong-callback][5]
 
 [1]: /docs/img/okta-sso/Okta-create-app.png
