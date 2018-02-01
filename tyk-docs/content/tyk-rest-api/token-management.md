@@ -57,8 +57,8 @@ Adding the `suppress_reset` parameter and setting it to `1`, will cause Tyk to *
         },
         "org_id": "53ac07777cbb8c2d53000002",
         "meta_data": {},
-        "oauth_client_id": ""
-        "oauth_keys"
+        "oauth_client_id": "",
+        "oauth_keys": {},
         "basic_auth_data": {
             "password": "",
             "hash_type": ""
@@ -130,8 +130,8 @@ Adding the `suppress_reset` parameter and setting it to `1`, will cause Tyk to *
         },
         "org_id": "53ac07777cbb8c2d53000002",
         "meta_data": {},
-        "oauth_client_id": ""
-        "oauth_keys"
+        "oauth_client_id": "",
+        "oauth_keys": {},
         "basic_auth_data": {
             "password": "",
             "hash_type": ""
