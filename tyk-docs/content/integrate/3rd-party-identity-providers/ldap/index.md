@@ -4,12 +4,13 @@ title: LDAP
 menu:
   main:
     parent: "3rd Party Identity Providers"
-weight: 0 
+weight: 0
+url: "/integrate/3rd-party-identity-providers/ldap"
 ---
 
 ## Integration Tutorials: LDAP
 
-The LDAP Identity Provider gives you functionality to bind a user to an LDAP server based on a username and password configuration. The LDAP provider currently does not extract user data from the server to populate a user object, but will provide enough defaults to work with all handlers. 
+The LDAP Identity Provider gives you functionality to bind a user to an LDAP server based on a username and password configuration. The LDAP provider currently does not extract user data from the server to populate a user object, but will provide enough defaults to work with all handlers.
 
 ## <a name="log-into-the-dashboard-using-ldap"></a> Log into the Dashboard using LDAP
 
@@ -119,7 +120,7 @@ LDAP requires little configuration, we can use the same provider config that we 
 Once again, a simple `POST` request is all that is needed to validate a user via an LDAP provider.
 
 ## <a name="ldap-search-filters"></a>Using advanced LDAP search
-In some cases validation of a user CN is not enough, and it requires verifying if a user match some specific rules, like internal team ID. In this case TIB provides support for doing additional LDAP search check, and if result of this search returns only 1 record, it will pass the user. 
+In some cases validation of a user CN is not enough, and it requires verifying if a user match some specific rules, like internal team ID. In this case TIB provides support for doing additional LDAP search check, and if result of this search returns only 1 record, it will pass the user.
 
 To make it work you need to specify 3 additional attributes in profile configuration file:
 
@@ -164,4 +165,3 @@ Example profile using LDAP search filters:
 	"Type": "passthrough"
 }
 ```
-

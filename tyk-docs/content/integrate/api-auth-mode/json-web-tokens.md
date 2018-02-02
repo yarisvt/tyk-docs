@@ -1,10 +1,10 @@
 ---
 date: 2017-03-24T16:40:31Z
-title: Integrate with JSON Web Tokens
+title: Integrate with JWT
 menu:
   main:
-    parent: "Integration Options"
-weight: 0 
+    parent: "API Authentication Mode"
+weight: 0
 ---
 
 ## <a name="using-jwts-with-a-3rd-party"></a> Using JWTs with a 3rd Party
@@ -23,4 +23,3 @@ The following guide explains how the JWT process in Tyk works, and how to set up
 Please see [this section][1].
 
 [1]: /docs/security/your-apis/json-web-tokens/
-
