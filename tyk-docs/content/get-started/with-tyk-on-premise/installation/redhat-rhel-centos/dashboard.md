@@ -197,7 +197,7 @@ If all is going well, you will be taken to a log in screen - we'll get to that s
 
 ### Step 3: Restart the dashboard
 
-Because we've just entered a license via the UI, we need to make sure that these changes get picked up, so to make sure things run smoothly, we restart the dashboard process (you only need to do this once) and then start the gateway:
+Because we've just entered a license via the UI, we need to make sure that these changes get picked up, so to make sure things run smoothly, we restart the dashboard process (you only need to do this once):
 ```{.copyWrapper}
 sudo service tyk-dashboard restart 
 ```
