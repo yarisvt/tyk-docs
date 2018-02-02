@@ -1,10 +1,10 @@
 ---
 date: 2017-03-24T17:02:11Z
-title: Login to your Dashboard using LDAP via TIB
+title: Login into the Dashboard using LDAP - Guide
 menu:
   main:
-    parent: "3rd Party Identity Providers"
-weight: 0 
+    parent: "Single Sign On"
+weight: 0
 ---
 
 This is an end to end worked example of how you can use LDAP and our Tyk Identity Broker (TIB) to log in to your Dashboard.
@@ -64,9 +64,9 @@ cd /opt/tib-0.2.1
 
 ### 3. Conifgure TIB
 
-There are two configuration files for TIB: 
+There are two configuration files for TIB:
 
-1. `tib.conf` for the main application configuration settings 
+1. `tib.conf` for the main application configuration settings
 2. `profiles.json` to configure the profiles which TIB will attempt to authenticate against
 
 Out of the box you don't need to change much, but there are several attributes you should check to make sure they are correct for your environment:

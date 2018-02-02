@@ -1,10 +1,10 @@
 ---
 date: 2017-03-24T16:52:36Z
-title: Integrate with OpenID Connect
+title: Integrate with OIDC
 menu:
   main:
-    parent: "Integration Options"
-weight: 0 
+    parent: "API Authentication Mode"
+weight: 0
 ---
 
 Tyk comes with support for OpenID Connect Identity Tokens provided by any standards compliant OIDC provider.
@@ -61,8 +61,8 @@ To set up an API Definition to use OIDC, add the following block to the definiti
 *   `use_openid`: Set to true to enable the OpenID Connect check.
 *   `openid_options.providers`: A list of authorised providers and their client IDs/Matched Policies.
 *   `openid_options.providers.client_ids`: The list of client IDs and policy IDs to apply to users thereof. **Note:** Client IDs are Base64 encoded, so the map is `base64(clientid):policy_id` .When a valid user appears from a matching IDP/Client ID, the policy listed in this entry will be applied to their token across OIDC ID Tokens.
-*   `openid_options.segregate_by_client`: Enable this to have the policy applied to the combination of the User ID AND the Client ID. For example: 
-    *   **If disabled**: When Alice uses the mobile app to log into the API, Tyk applies the same rate limit and access rules as if she had logged in via the web app or the desktop client. 
+*   `openid_options.segregate_by_client`: Enable this to have the policy applied to the combination of the User ID AND the Client ID. For example:
+    *   **If disabled**: When Alice uses the mobile app to log into the API, Tyk applies the same rate limit and access rules as if she had logged in via the web app or the desktop client.
     *   **If enabled**: When Alice uses the mobile app to log into the API, Tyk applies different rate limit and access rules than if she had logged in via the web app or the desktop client. In fact, each client and user combination will have its **own** internal representation.
 
 
@@ -132,7 +132,7 @@ Save the API.
 ```{.copyWrapper}
 curl -X GET \
   https://yourthang.cloud.tyk.io/openid-1/get \
-  -H 'authorization: Bearer your token' 
+  -H 'authorization: Bearer your token'
 That's it, it should just work - I just did this, and it works fine.
 ```
 
