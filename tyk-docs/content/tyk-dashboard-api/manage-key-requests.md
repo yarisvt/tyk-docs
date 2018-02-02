@@ -41,7 +41,7 @@ weight: 8
                 },
                 "for_api": "",
                 "org_id": "53ac07777cbb8c2d53000002",
-                "version: "v2",
+                "version": "v2",
                 "for_plan": "554c789030c55e4ca0101002"
             },
             {
@@ -55,7 +55,7 @@ weight: 8
                 },
                 "for_api": "b605a6f03cc14f8b74665452c263bf19",
                 "org_id": "53ac07777cbb8c2d53000002",
-                "version: ""
+                "version": ""
             },
             ...],
         "Pages": 2
@@ -90,8 +90,8 @@ weight: 8
         "by_user": "554c733a30c55e4b16000002",
         "fields": {},
         "approved": true,
-        "date_created": "2015-05-08T04:49:20.992-04:00"
-        "version: "v2",
+        "date_created": "2015-05-08T04:49:20.992-04:00",
+        "version": "v2",
         "for_plan": "554c789030c55e4ca0101002"
     }
 ```
@@ -152,8 +152,8 @@ By default, all key requests created for new catalogue entries will be version 2
             "custom1": "sdf",
             "custom2": "sdf"
         },
-        "for_plan": "554c789030c55e4ca0101002"
-        "version: "v2"
+        "for_plan": "554c789030c55e4ca0101002",
+        "version": "v2"
     }
 ```
 

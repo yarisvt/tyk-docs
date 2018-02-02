@@ -37,7 +37,7 @@ weight: 4
               "allowed_urls": [
                 {
                   "methods": [
-                    "GET",
+                    "GET"
                   ],
                   "url": "/some_resources"
                 },
@@ -46,7 +46,7 @@ weight: 4
                     "POST"
                   ],
                   "url": "/some_resource/(.*)"
-                },
+                }
               ],
               "apiid": "35447b1269df4e846894b7e87312f6d7",
               "apiname": "My API",
@@ -241,7 +241,7 @@ Creating policy definitions is slightly different to the core API, API definitio
       "access_rights": {
         "35447b1469df4e846894b1e87372f6d7": {
           "api_id": "35447b1469df4e846894b1e87372f6d7",
-          "api_name": "My API",,
+          "api_name": "My API",
           "versions": ["Default"],
           "allowed_urls": []
         }
