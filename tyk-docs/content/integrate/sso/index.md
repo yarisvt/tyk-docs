@@ -48,7 +48,7 @@ For an overview of using a [social Identity Provider](https://tyk.io/docs/integr
 - Instructions on setting SSO with Google+   - will be added soon
 
 ### <a name="sso-with-openid-connect"></a> SSO with OpenID Connect (OIDC)
-- Instruction on setting [SSO with Okta](https://tyk.io/docs/integrate/3rd-party-identity-providers/dashboard-login-okta-tib.md)
+- Instruction on setting [SSO with Okta](https://tyk.io/docs/integrate/sso/dashboard-login-okta-tib/)
 - Instructions on setting SSO with PingID   - will be added soon
 - Instructions on setting SSO with Auth0    - will be added soon
 - Instructions on setting SSO with keycloak - will be added soon
@@ -57,6 +57,6 @@ For an overview of using a [social Identity Provider](https://tyk.io/docs/integr
 Our SSO REST API allows you to implement custom authentication schemes for the Dashboard and Portal. Our Tyk Identity Broker (TIB) internally also uses this API. See [here](https://tyk.io/docs/dashboard-admin-api/sso/) for more details.
 
 ## <a name="sso-with-ldap"></a>SSO with LDAP integration
-Detailed instruction on setting [SSO with LDAP](https://tyk.io/docs/integrate/3rd-party-identity-providers/dashboard-login-ldap-tib.md).
+Detailed instruction on setting [SSO with LDAP](https://tyk.io/docs/integrate/sso/dashboard-login-ldap-tib/).
 
 Read here if you need to apply [filters](https://tyk.io/docs/integrate/3rd-party-identity-providers/openldap/#a-name-ldap-search-filters-a-using-advanced-ldap-search) to your LDAP authentication.
