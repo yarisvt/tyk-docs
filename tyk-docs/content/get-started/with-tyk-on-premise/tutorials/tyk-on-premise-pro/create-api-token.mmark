@@ -7,6 +7,7 @@ menu:
     identifier: pro-edition-create-api-token
 weight: 2
 ---
+<span data-filetype="mmark"></span>
 
 {{./static/include/create-api-key-include.md}}
 

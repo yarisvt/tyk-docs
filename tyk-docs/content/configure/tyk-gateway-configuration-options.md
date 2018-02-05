@@ -93,7 +93,7 @@ The Redis host, by default this is set to `localhost`, but for production this s
 
 #### <a name="storage-port"></a> storage.port
 
-The Redis isntance port.
+The Redis instance port.
 
 #### <a name="storage-password"></a> storage.password
 
@@ -234,7 +234,7 @@ Setting this option to true will allow the use of a double slash in url path, an
 
 #### <a name="http_server_options-skip_target_path_escaping"></a> http_server_options.skip_target_path_escaping
 
-Setting this option to true will disable automatic character espaping, allowing to path original url data to the upstream.
+Setting this option to true will disable automatic character escaping, allowing to path original url data to the upstream.
 
 #### <a name="http_server_options-flush_interval"></a> http_server_options.flush_interval
 
