@@ -15,7 +15,7 @@ This guide assumes the following:
 - You are able to edit TIB's configuration file.
 
 
-## Okta's side
+## <a name="okta"></a>Okta's side
 1. Create developer account on Okta.
    You'll get a domain such as `{.copyWrapper} https://dev-XXXXX.oktapreview.com/app/UserHome`
 2. Login and create Web Application as follows:
@@ -36,15 +36,15 @@ This guide assumes the following:
    Under `Assignments` tab, make sure group assignments is set to *everyone* (for now, you will change this later!).
 
 5. This is how it should look like after step #4
-   ![okta-create-app][1]
-## TIB's Side
+![okta-create-app][1]
+## <a name="tib"></a>TIB's Side
 6. Set the profile in `profile.json` as follows:
    - Copy from your Okta client the `cliend ID`     to `ProviderConfig.UseProviders[].key`
    - Copy from your Okta client the `Client secret` to `ProviderConfig.UseProviders[].secret`
    - Add Okta's discovery url `"https://dev-XXXXX.oktapreview.com/oauth2/default/.well-known/openid-configuration"` to `ProviderConfig.UseProviders[].DiscoverURL`
 
    Example of a profiles.json:
-   ```{.copyWrapper}
+```{.copyWrapper}
    {
       "ActionType": "GenerateOrLoginUserProfile",
       "ID": "{PROFILE-NAME-IN-TIB}",
@@ -68,7 +68,8 @@ This guide assumes the following:
       "ReturnURL": "http://{DASHBOARD-DOMAIN}:{DASHBOARD-PORT}/tap",
       "Type": "redirect"
   }
-  ```
+```
+
 7. Start TIB by running the binary (`profiles.json` is in the same CWD)
    Follow this [link](https://tyk.io/docs/integrate/3rd-party-identity-providers/#tib) for detailed instruction to install TIB
 8. Test that it works:
@@ -76,12 +77,13 @@ This guide assumes the following:
     - If it's working you'll be redirected to Okta's web page and will be asked to enter your Okta's user and password.
     - If you were successfully authenticated by Okta then you'll be redirected to the dashboard and login into it without going through the login page. Job's done!
 9. If you need to update your profile then you can use TIB's REST API as follows:
-   - ``` curl http://{TIB-DOMAIN}:{TIB-PORT}/api/profiles/{PROFILE-NAME-IN-TIB} -H "Authorization: {MY-SECRET}" -H "Content-type: application/json" -X PUT --data "@./my-new-dashboard-profile.json" | prettyjson```
+``` curl http://{TIB-DOMAIN}:{TIB-PORT}/api/profiles/{PROFILE-NAME-IN-TIB} -H "Authorization: {MY-SECRET}" -H "Content-type: application/json" -X PUT --data "@./my-new-dashboard-profile.json" | prettyjson
+```
    - POST and DELETE calls apply as normal
    - You can post a few profiles to TIB.
    - The full docs for [TIB REST APIs](https://tyk.io/docs/integrate/3rd-party-identity-providers/tib-rest-api/)
 
-## The magic - The flow behind the scenes:
+## <a name="flow"></a>The magic - The flow behind the scenes:
  1. The initial call to the endpoint on TIB was redirected to Okta and
  2. Okta identified the user
  3. Okta redirected the call back to TIB endpoint (according to the callback you set up on the client earlier in step 3) and from TIB
@@ -90,15 +92,16 @@ This guide assumes the following:
  6. The Dashboard on the `/tap` endpoint finds the session that is attached to the `nonce`, login the user and redirect to the dashboard first page
 
 
-## Once it's working you can also add two more enhancements
+## <a name="enhace"></a>Once it's working you can also add two more enhancements
 
 ### SSO login into the dashboard via a login page
-   You will need to
+
+You will need to
 	- set up webserver with a login page and a form for `user` and `password`
 	- Update `tyk_analytics.conf` to redirect logins to that url
     Explicit details can be in [steps 6-7](https://tyk.io/docs/integrate/3rd-party-identity-providers/dashboard-login-ldap-tib/#6-create-a-login-page)
 
-### <a name="mfa-support"></a> MFA Support
+## <a name="mfa-support"></a> Multi Factor Authentication (MFA) Support
    MFA works out-of-the-box in Tyk since luckinly Okta supports it. you would need to add it to the configuration of the account holder. Under `Security --> Multifactor --> Factor types` you can choose the types you want. For instance I chose Google Authenticator.
 
    1. While trying to login to the dashboard, Okta enforced the MFA and asked me to get the Google Authenticator:
@@ -117,7 +120,7 @@ If you get `400 Bad Request` it means the profile name in the login endpoint is 
 
 ![okta-bad-request-wrong-callback][5]
 
-[1]: /docs/img/okta-sso/okta-create-app.png
+[1]: /docs/img/okta-sso/Okta-create-app.png
 [2]: /docs/img/okta-sso/okta-mfa-setup-1.png
 [3]: /docs/img/okta-sso/okta-mfa-download-google-authenticator-2.png
 [4]: /docs/img/okta-sso/okta-mfa-google-auth-approved-3.png
