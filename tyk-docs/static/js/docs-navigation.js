@@ -44,13 +44,14 @@ var doNav = function() {
 
 	$('.suggest-edit').on('click', function (e){
 		e.preventDefault();
+		let extension = $('[data-filetype]').data('filetype') || 'md';
 		
-	    if ( $('.active').hasClass('st-open')){
+    if ( $('.active').hasClass('st-open')){
 			window.open("https://github.com/TykTechnologies/tyk-docs/tree/master/tyk-docs/content" + githubIndexLink + 'index.md', "_blank");
 		} else if ( $('.active').hasClass('st-file') && $('.active').closest('.st-open').length === 0) {
 			window.open("https://github.com/TykTechnologies/tyk-docs/tree/master/tyk-docs/content" + githubIndexLink + 'index.md', "_blank");
 		} else if ( $('.active').hasClass('st-file') ) {
-			window.open("https://github.com/TykTechnologies/tyk-docs/tree/master/tyk-docs/content" + githubCustomLink + ".md", "_blank");
+			window.open("https://github.com/TykTechnologies/tyk-docs/tree/master/tyk-docs/content" + githubCustomLink + "." + extension, "_blank");
 		}
 	});
 
