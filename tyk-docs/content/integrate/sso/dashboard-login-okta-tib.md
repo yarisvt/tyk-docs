@@ -8,7 +8,7 @@ weight: 0
 ---
 
 
-This is an end-to-end worked example of how you can use Okta and our Tyk Identity Broker (TIB) to log in to your Dashboard.
+This is an end-to-end worked example of how you can use [Okta](https://www.okta.com/) and our Tyk Identity Broker (TIB) to log in to your Dashboard.
 This guide assumes the following:
 - You already have authorised access to Tyk's Dashboard. If you don't, [get the authorisation key with this doc](https://tyk.io/docs/security/dashboard/create-users/#a-name-with-api-a-create-a-dashboard-user-with-the-api).
 - For simplicity, you are running TIB locally on port 3010
@@ -16,7 +16,7 @@ This guide assumes the following:
 
 
 ## <a name="okta"></a>Okta's side
-1. Create developer account on Okta.
+1. Create developer account on the [Okta Developer site](https://developer.okta.com/).
    You'll get a domain such as `{.copyWrapper} https://dev-XXXXX.oktapreview.com/app/UserHome`
 2. Login and create Web Application as follows:
    - Under `Application`, click `Add Application`
