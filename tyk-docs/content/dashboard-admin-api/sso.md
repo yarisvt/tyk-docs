@@ -12,7 +12,9 @@ Our Tyk Identity Broker (TIB) internally also uses this API.
 
 ### Generate authentication token
 
-The Dashboard exposes the `/admin/sso` Admin API which allows you to generate a temporary authentication token, valid for 60 seconds. You should provide JSON payload with the scope `ForSection`, with possible values of `"dashboard"` or `"portal"`. In addition you should provide an organisation id via the "`OrgID"` attribute.
+The Dashboard exposes the `/admin/sso` Admin API which allows you to generate a temporary authentication token, valid for 60 seconds. You should provide JSON payload with the following data:
+`ForSection` - scope with possible values of `"dashboard"` or `"portal"`. 
+`OrgID`      - with your organisation id.
 
 
 | **Property** | **Description**              |
