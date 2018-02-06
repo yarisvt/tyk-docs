@@ -7,7 +7,7 @@ menu:
 weight: 0 
 ---
 
-## Integration Tutorials: Custom
+## <a name="integration"></a>Integration Tutorials: Custom
 
 The proxy identity provider is a generic solution to more legacy problems, as well as a way to handle flows such as basic auth access with third party providers or OAuth password grants where the request can just be passed through to the providing endpoint to return a direct response.
 
@@ -25,7 +25,7 @@ These can be used in conjunction as gates, e.g. a response must be `200 OK` and 
 
 The Proxy provider can do some clever things, such as extract JSON data from the response and decode it, as well as pull username data from the Basic Auth header (for example, if your identity provider supports dynamic basic auth).
 
-## <a name="log-into-the-dashboard-with-the-proxy-provider"></a>Log into the Dashboard with the Proxy Provider
+## <a name="login"></a>Log into the Dashboard with the Proxy Provider
 
 The configuration below will proxy a request to `http://{TARGET-HOSTNAME}:{PORT}/` and evaluate the response status code, if the status code returned is `200` then TIB will assume the response is JSON (`"ResponseIsJson": true`) to extract an access token (e.g. if this is an OAuth pass-through request) and try and find an identity to bind the Dashboard user to in the `user_name` JSON field of the response object (`"UsernameField": "user_name"`):
 
