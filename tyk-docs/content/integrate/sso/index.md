@@ -9,7 +9,7 @@ url: "/integrate/sso"
 ---
 
 
-## Introduction to Single Sign On (SSO)
+## <a name="intro"></a>Introduction to Single Sign On (SSO)
 
 ### SSO - The generic use case
 SSO gives users the ability to log in to multiple applications without the need to enter their password more than once.
@@ -30,7 +30,7 @@ TIB is an open-source project which can be used to integrate Tyk authentication 
 Please refer to this [TIB detailed overview](https://tyk.io/docs/integrate/3rd-party-identity-providers/#a-name-tib-a-tyk-identity-broker-tib-overview) for further explanations about TIB and top level flow.
 
 
-#### <a name="sso-with-oidc"></a> SSO with Open ID Connect or Social Providers
+#### <a name="oidc"></a> SSO with Open ID Connect or Social Providers
 SSO is sometimes complicated to understand or set up but once you get it and learn to use our Tyk-Identity-Broker it becomes an easy task.
 
 In short, all you need is as follow:
@@ -43,20 +43,20 @@ In short, all you need is as follow:
 5. More Docs for the flow can be found on our [GH TIB repo README](https://github.com/TykTechnologies/tyk-identity-broker) and  [Tyk's integration docs](https://tyk.io/docs/integrate/3rd-party-identity-providers)
 
 
-### <a name="sso-with-social-identity-providers"></a>SSo with Social Identity Providers
+### <a name="identity-providers"></a>SSO with Social Identity Providers
 For an overview of using a [social Identity Provider](https://tyk.io/docs/integrate/3rd-party-identity-providers/social-oauth/)
 - Instructions on setting SSO with Google+   - will be added soon
 
-### <a name="sso-with-openid-connect"></a> SSO with OpenID Connect (OIDC)
+### <a name="openid-connect"></a> SSO with OpenID Connect (OIDC)
 - Instruction on setting [SSO with Okta](https://tyk.io/docs/integrate/sso/dashboard-login-okta-tib/)
 - Instructions on setting SSO with PingID   - will be added soon
 - Instructions on setting SSO with Auth0    - will be added soon
 - Instructions on setting SSO with keycloak - will be added soon
 
-## <a name="tyk-dashboard-admin-rest-api-for-sso"></a> Tyk's Dashboard Admin REST API for SSO
+## <a name="tyk-dashboard"></a> Tyk's Dashboard Admin REST API for SSO
 Our SSO REST API allows you to implement custom authentication schemes for the Dashboard and Portal. Our Tyk Identity Broker (TIB) internally also uses this API. See [here](https://tyk.io/docs/dashboard-admin-api/sso/) for more details.
 
-## <a name="sso-with-ldap"></a>SSO with LDAP integration
+## <a name="ldap"></a>SSO with LDAP integration
 Detailed instruction on setting [SSO with LDAP](https://tyk.io/docs/integrate/sso/dashboard-login-ldap-tib/).
 
 Read here if you need to apply [filters](https://tyk.io/docs/integrate/3rd-party-identity-providers/openldap/#a-name-ldap-search-filters-a-using-advanced-ldap-search) to your LDAP authentication.
