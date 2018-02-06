@@ -12,9 +12,11 @@ Our Tyk Identity Broker (TIB) internally also uses this API.
 
 ### Generate authentication token
 
-The Dashboard exposes the `/admin/sso` Admin API which allows you to generate a temporary authentication token, valid for 60 seconds. You should provide JSON payload with the following data:
-`ForSection` - scope with possible values of `"dashboard"` or `"portal"`. 
-`OrgID`      - with your organisation id.
+The Dashboard exposes the `/admin/sso` Admin API which allows you to generate a temporary authentication token, valid for 60 seconds. 
+
+You should provide JSON payload with the following data:
+- `ForSection` - scope with possible values of `"dashboard"` or `"portal"`. 
+- `OrgID`      - with your organisation id.
 
 
 | **Property** | **Description**              |
@@ -44,7 +46,10 @@ admin-auth: 12345
 ### Using the Token
 
 Once you have issued a token you can login to the dashboard using the `/tap` url, or to the portal using the `<portal-url>/sso` URL, and provide an authentication token via the `nonce` query param.
-If `nonce` is valid, Tyk will create a temporary user and log them in. If used for `dashboard`, you can use the `sso_permission_defaults` configuration option in the Dashboard config file to specify SSO user permissions in the following format:
+If `nonce` is valid, Tyk will create a temporary user and log them in. 
+
+#### Set up default permissions for the dashboard
+If you use the token with `dashboard` scope, and would like to avoid login in as admin user (which is the default permissions), you can add the `sso_permission_defaults` configuration option to the Dashboard config file (tyk_analytics.conf) to specify SSO user permissions in the following format:
 
 ```
 "sso_permission_defaults": {
@@ -60,7 +65,7 @@ If `nonce` is valid, Tyk will create a temporary user and log them in. If used f
 }
 ```
 
-#### Sample Request
+#### Sample Login Request
 
 ```{.copyWrapper}
 GET /tap?nonce=YTNiOGUzZjctYWZkYi00OTNhLTYwODItZTAzMDI3MjM0OTEw HTTP/1.1
