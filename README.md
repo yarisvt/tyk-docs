@@ -20,7 +20,7 @@ This pipeline uses [hugo](http://gohugo.io/).
 
 **To use:**
 
-1. Install Hugo - v0.27.1 or later
+1. Install Hugo - v0.31 or above
 2. Clone this repository 
 3. Run `hugo server --theme=tykio --buildDrafts`
 4. Go to  http://localhost:1313/docs to visit the landing page.
