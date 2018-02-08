@@ -4,6 +4,7 @@ Title: Pro Edition
 menu:
   main:
     parent: /with-tyk-on-premise
+    identifier: /tyk-on-premise-pro
 weight: 0
 url: "/get-started/with-tyk-on-premise/tutorials/tyk-on-premise-pro"
 ---
