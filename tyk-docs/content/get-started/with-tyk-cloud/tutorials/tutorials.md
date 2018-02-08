@@ -4,7 +4,6 @@ title: Tutorials
 menu:
   main:
     parent: "With Tyk Cloud"
-    identifier: /with-tyk-cloud
 weight: 5
 url: "/get-started/with-tyk-cloud/tutorials"
 ---
