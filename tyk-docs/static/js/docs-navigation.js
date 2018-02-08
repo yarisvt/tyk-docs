@@ -1,8 +1,9 @@
 var doNav = function() {
 	var currentPage = location.pathname,
 		currentPageGH = currentPage.replace(/\/$/, ""),
-		githubIndexLink = currentPage.replace(/\/docs/, "/"),
-		githubCustomLink = currentPageGH.replace(/\/docs/, "/"),
+		githubIndexLink = currentPage.replace(/\/docs/, ""),
+		githubCustomLink = currentPageGH.replace(/\/docs/, ""),
+		docName = /[^/]*$/.exec(githubCustomLink)[0],
 		prevPage, nextPage, currentPageIndex,
 		troubleshootingURL = /\/docs\/troubleshooting\//;
 		faqURL = /\/docs\/frequently-asked-questions\//;
@@ -47,9 +48,13 @@ var doNav = function() {
 		let extension = $('[data-filetype]').data('filetype') || 'md';
 		
     if ( $('.active').hasClass('st-open')){
-			window.open("https://github.com/TykTechnologies/tyk-docs/tree/master/tyk-docs/content" + githubIndexLink + 'index.md', "_blank");
+			window.open("https://github.com/TykTechnologies/tyk-docs/tree/master/tyk-docs/content/" + githubCustomLink + '/' + docName + '.md', "_blank");
 		} else if ( $('.active').hasClass('st-file') && $('.active').closest('.st-open').length === 0) {
-			window.open("https://github.com/TykTechnologies/tyk-docs/tree/master/tyk-docs/content" + githubIndexLink + 'index.md', "_blank");
+			if(currentPageGH == '/docs'){
+				window.open("https://github.com/TykTechnologies/tyk-docs/tree/master/tyk-docs/content/documentation.md", "_blank");
+			} else {
+				window.open("https://github.com/TykTechnologies/tyk-docs/tree/master/tyk-docs/content" + githubIndexLink + githubCustomLink + '.md', "_blank");
+			}
 		} else if ( $('.active').hasClass('st-file') ) {
 			window.open("https://github.com/TykTechnologies/tyk-docs/tree/master/tyk-docs/content" + githubCustomLink + "." + extension, "_blank");
 		}
