@@ -2,7 +2,7 @@
 
 Contains the Tyk Documentation source.
 
-## How to contribute
+## How to Contribute
 
 We recommend contributing in the following way:
 
@@ -14,27 +14,29 @@ We recommend contributing in the following way:
 
 The following guide briefly explains how to work with Hugo, you would then need push to your forked repository and then create a Pull Request to Tyk's `master` branch.
 
-## How to use
+## How to Use
 
-This pipeline uses [hugo](http://gohugo.io/).
+Our Documentation is constructed using [Hugo](http://gohugo.io/).
 
-**To use:**
+### To Install Hugo 
 
-1. Install Hugo - v0.31 or above
+1. [Install Hugo](http://gohugo.io/getting-started/installing/) - v0.31 or above
 2. Clone this repository 
-3. Run `hugo server --theme=tykio --buildDrafts`
-4. Go to  http://localhost:1313/docs to visit the landing page.
+3. Run `hugo server --theme=tykio --buildDrafts` from the `tyk-docs/tyk-docs` directory
+4. Go to  http://localhost:1313/docs to view the docs locally.
 
 
-## Adding and editing content
+## Adding and Editing Content
 
-In the directory `tyk-docs/content` there is the content of the documentation.
+The docs content lives in `tyk-docs/content`.
 
-To create a new page, you need to run:
+### Add a new Section
 
-`hugo new your-full-path/index.md`
+1. Add a new folder in within the `tyk-docs/tyk-docs/content/` Directory. For example `new-section`
+2. Within your new folder create a markdown file with the same name as the folder (including any hyphens). So for the above folder, create `new-section.md`. This file will be converted to the equivalent of an `index.html` file.
+3. You can then create other markdown files, that you can name as you want.
 
-we use `index.md` as if it were an `index.html` file.
+### Front Matter
 
 In each file there is a "front matter": in hugo-speak:
 
@@ -49,7 +51,7 @@ weight: 5
 ---
 ```
 
-You can create a dynamic, nested navigation heirarchy simply by changing the `parent` field to the name of the parent page (note,  these names *must be unique*)
+You can create a dynamic, nested navigation heirarchy simply by changing the `parent` field to the name of the parent page. Note, **these names must be unique**)
 
 To create a new top-level page, the front matter just looks like this:
 
@@ -67,12 +69,12 @@ Notice that we just define the `menu` field as a simple string.
 
 ## Content
 
-The content itself is just markdown that follows the front matter block. When you add and edit new content, hugo should auto-reload and you should be able to see the changes live in your browser (if not, refresh). Sometimes hugo gets confused and you need to re-run it.
+The content itself is just markdown that follows the front matter block. When you add and edit new content, Hugo should auto-reload and you should be able to see the changes live in your browser (if not, refresh). Sometimes hugo gets confused and you need to re-run it.
 
 ## License
 
 Tyk is released under the MPL v2.0 please see the [license file](LICENSE.md) for a full version of the license.
 
-## The pipeline
+## The Pipeline
 
 If you push to this repository, Buddy Works will compile and push the static site to our dev server (details in slack).
