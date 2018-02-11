@@ -44,7 +44,7 @@ This guide assumes the following:
    - Add Okta's discovery url `"https://dev-XXXXX.oktapreview.com/oauth2/default/.well-known/openid-configuration"` to `ProviderConfig.UseProviders[].DiscoverURL`
 
    Example of a profiles.json:
-```{.copyWrapper}
+   ```{.json}
    {
       "ActionType": "GenerateOrLoginUserProfile",
       "ID": "{PROFILE-NAME-IN-TIB}",
@@ -92,16 +92,17 @@ This guide assumes the following:
  6. The Dashboard on the `/tap` endpoint finds the session that is attached to the `nonce`, login the user and redirect to the dashboard first page
 
 
-## <a name="enhace"></a>Once it's working you can also add two more enhancements
+##  <a name="enhancements"></a>Enhancements
 
-### SSO login into the dashboard via a login page
+Once it's working you can also add two more enhancements - SSO and MFA
 
-You will need to
+### <a name="sso"></a>SSO login into the dashboard via a login page
+   You will need to
 	- set up webserver with a login page and a form for `user` and `password`
 	- Update `tyk_analytics.conf` to redirect logins to that url
     Explicit details can be in [steps 6-7](https://tyk.io/docs/integrate/3rd-party-identity-providers/dashboard-login-ldap-tib/#6-create-a-login-page)
 
-## <a name="mfa-support"></a> Multi Factor Authentication (MFA) Support
+### <a name="mfa-support"></a> Multi-Factor-Authentication (MFA) Support
    MFA works out-of-the-box in Tyk since luckinly Okta supports it. you would need to add it to the configuration of the account holder. Under `Security --> Multifactor --> Factor types` you can choose the types you want. For instance I chose Google Authenticator.
 
    1. While trying to login to the dashboard, Okta enforced the MFA and asked me to get the Google Authenticator:
