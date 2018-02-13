@@ -80,11 +80,12 @@ sudo yum install -y mongodb-org tyk-dashboard
 
 *(you may be asked to accept the GPG key for our repos and when the package installs, hit yes to continue)*
 
-### Step 5: Start MongoDB
+### Step 5: Start MongoDB and Redis
 
-In many cases MongoDB not be running, so let's start that:
+In many cases MongoDB or Redis might not be running, so let's start that:
 ```{.copyWrapper}
 sudo service mongod start
+sudo service redis start
 ```
 
 ### Step 6: Configure Tyk Dashboard

@@ -68,7 +68,7 @@ When the Tyk Dashboard has finished installing, it will have installed some `ini
 
 ### Pre-requisites
 
-You need to ensure the MongoDB service is running before proceeding.
+You need to ensure the MongoDB and Redis services are running before proceeding.
 
 We can set the dashboard up with a helper setup command script. This will get the dashboard set up for the local instance:
 ```{.copyWrapper}
