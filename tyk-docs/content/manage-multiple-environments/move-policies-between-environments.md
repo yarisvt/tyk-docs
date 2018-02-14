@@ -26,7 +26,7 @@ First you must set up your new environment to respect explicit policy IDs. To do
 
 The original file will look something like this, notice the two ID fields:
 
-```{.copyWrapper}
+```{.json}
     {
         "_id": "5777ecdb0a91ff0001000003",
         "access_rights": {
@@ -64,7 +64,7 @@ The original file will look something like this, notice the two ID fields:
 
 Remove the `_id` field and put the value of the `_id` field into the `id` field, so `policy.json` should look like this:
 
-```{.copyWrapper}
+```{.json}
     {
         "access_rights": {
             "xxxxx": {
