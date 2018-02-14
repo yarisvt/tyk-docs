@@ -60,24 +60,24 @@ example request: `curl "https://company.cloud.tyk.io/my-api/v1/my-path"`
 
 * `version_data.versions`: This is a keyed JSON object, in the form of:
 
-```{.copyWrapper}
-    {
-        "version-1": {
-            "name": "version-1",
-            "expires": "",
-            "paths": {
-                "ignored": [],
-                "white_list": [],
-                "black_list": []
-            },
-            "use_extended_paths": true,
-            "extended_paths": {
-                "ignored": [],
-                "white_list": [],
-                "black_list": []
-            }
+```{.json}
+{
+    "version-1": {
+        "name": "version-1",
+        "expires": "",
+        "paths": {
+            "ignored": [],
+            "white_list": [],
+            "black_list": []
+        },
+        "use_extended_paths": true,
+        "extended_paths": {
+            "ignored": [],
+            "white_list": [],
+            "black_list": []
         }
     }
+}
 ```
     
 Each version of your API should be defined here with a unique name. This name is what will be matched by `definition.key`. Once Tyk has identified the API to load, and has allowed the access key through, it will check the access token's session data for access permissions. If it finds none, it will let the token through. However, if there are permissions and versions defined, it will be strict in **only** allowing access to that version. For more information about handling access control, see the [Security - Your APIs](https://tyk.io/docs/security/your-apis/) section.
@@ -89,7 +89,7 @@ Each version of your API should be defined here with a unique name. This name is
 * `version_data.{version-name}.ignored` (deprecated): This string array can define any paths (endpoints) in your API that should be ignored by Tyk, for example login, signup or any non-authenticated actions users can take. Specify these URL's here in the form of
 
 ```
-    [ "/user/login", "/user/signup" ]
+[ "/user/login", "/user/signup" ]
 ```
 
 Similar to other routers, matching is done on a first-come-first-served basis, ensuring that specific paths are higher up the list than generic ones.
@@ -109,20 +109,20 @@ Extended paths allow you to control which upstream paths are to be handled in a 
     
 Each entry in the ignored, blacklist and whitelist have the same specification. The path specification has the following format:
 
-```{.copyWrapper}
-    {
-        "path": "{managed-path}",
-        "method_actions": {
-            "METHOD": {
-                "action": "{action-code}",
-                "code": {response-code},
-                "data": "{body}",
-                "headers": {
-                    "{key}": "{value}"
-                }
+```{.json}
+{
+    "path": "{managed-path}",
+    "method_actions": {
+        "METHOD": {
+            "action": "{action-code}",
+            "code": {response-code},
+            "data": "{body}",
+            "headers": {
+                "{key}": "{value}"
             }
         }
     }
+}
 ```
     
 You can set up the path to handle, and the action type. By default this should be set to `no_action` which means that Tyk will treat the path and method as-is without interference (i.e. if `no_action` is set, then `code`, `data`, `headers` and `body` are *not* used).
@@ -133,34 +133,34 @@ If you set `action` to `reply` Tyk will override the path and reply with setting
 
 * `global_headers`: Set global headers to inject using a `key:value` map:
 
-```{.copyWrapper}
-    "version_data": {
-        "versions": {
-            "Default": {
-                ...
-                "global_headers": {
-                    "x-header-name": "x-header-value"
-                }
-                ...
+```{.json}
+"version_data": {
+    "versions": {
+        "Default": {
+            ...
+            "global_headers": {
+                "x-header-name": "x-header-value"
             }
+            ...
         }
-    },
+    }
+},
 ```
 
 * `global_headers_remove`: Remove headers from all requests:
 
-```{.copyWrapper}
-    "version_data": {
-        "versions": {
-            "Default": {
-                ...
-                "global_headers_remove": [
-                    "auth_id"
-                ]
-                ...
-            }
+```{.json}
+"version_data": {
+    "versions": {
+        "Default": {
+            ...
+            "global_headers_remove": [
+                "auth_id"
+            ]
+             ...
         }
-    },
+    }
+},
 ```
 
 * `global_size_limit`: Set a global request size limit in bytes.
@@ -169,34 +169,34 @@ If you set `action` to `reply` Tyk will override the path and reply with setting
 
 An example entry:
 
-```{.copyWrapper}
-    ...
-    "ignored": [
-        {
-            "path": "/v1/ignored/literal",
-            "method_actions": {
-                "GET": {
-                    "action": "no_action",
-                    "code": 200,
-                    "data": "",
-                    "headers": {}
-                }
+```{.json}
+...
+"ignored": [
+    {
+        "path": "/v1/ignored/literal",
+        "method_actions": {
+            "GET": {
+                "action": "no_action",
+                "code": 200,
+                "data": "",
+                "headers": {}
             }
-        },
-        {
-            "path": "/v1/ignored/with_id/{id}",
-            "method_actions": {
-                "GET": {
-                    "action": "reply",
-                    "code": 200,
-                    "data": "Hello World",
-                    "headers": {
-                        "x-tyk-override": "tyk-override",
-                    }
+        }
+    },
+    {
+        "path": "/v1/ignored/with_id/{id}",
+        "method_actions": {
+            "GET": {
+                "action": "reply",
+                "code": 200,
+                "data": "Hello World",
+                "headers": {
+                    "x-tyk-override": "tyk-override",
                 }
             }
         }
-    ],
+    }
+],
     ...
 ```
 
@@ -204,34 +204,34 @@ An example entry:
 
 An example entry:
 
-```{.copyWrapper}
-    ...
-    "black_list": [
-        {
-            "path": "v1/disallowed/blacklist/literal",
-            "method_actions": {
-                "GET": {
-                    "action": "no_action",
-                    "code": 200,
-                    "data": "",
-                    "headers": {}
-                }
+```{.json}
+...
+"black_list": [
+    {
+        "path": "v1/disallowed/blacklist/literal",
+        "method_actions": {
+            "GET": {
+                "action": "no_action",
+                "code": 200,
+                "data": "",
+                "headers": {}
             }
-        },
-        {
-            "path": "v1/disallowed/blacklist/{id}",
-            "method_actions": {
-                "GET": {
-                    "action": "reply",
-                    "code": 200,
-                    "data": "Not allowed buddy",
-                    "headers": {
-                        "x-tyk-override-test": "tyk-override"
-                    }
+        }
+    },
+    {
+        "path": "v1/disallowed/blacklist/{id}",
+        "method_actions": {
+            "GET": {
+                "action": "reply",
+                "code": 200,
+                "data": "Not allowed buddy",
+                "headers": {
+                    "x-tyk-override-test": "tyk-override"
                 }
             }
         }
-    ], 
+    }
+], 
     ...
 ```
 
@@ -240,57 +240,57 @@ An example entry:
 
 An example entry:
 
-```{.copyWrapper}
-    ...
-    "white_list": [
-        {
-            "path": "v1/allowed/whitelist/literal",
-            "method_actions": {
-                "GET": {
-                    "action": "no_action",
-                    "code": 200,
-                    "data": "",
-                    "headers": {}
-                }
+```{.json}
+...
+"white_list": [
+    {
+        "path": "v1/allowed/whitelist/literal",
+        "method_actions": {
+            "GET": {
+                "action": "no_action",
+                "code": 200,
+                "data": "",
+                "headers": {}
             }
-        },
-        {
-            "path": "v1/allowed/whitelist/reply/{id}",
-            "method_actions": {
-                "GET": {
-                    "action": "reply",
-                    "code": 200,
-                    "data": "flump",
-                    "headers": {
-                        "x-tyk-override-test": "tyk-override"
-                    }
-                }
-            }
-        },
-        {
-            "path": "v1/allowed/whitelist/{id}",
-            "method_actions": {
-                "GET": {
-                    "action": "no_action",
-                    "code": 200,
-                    "data": "",
-                    "headers": {}
-                }
-            }
-        },
-        {
-            "path": "/tyk/rate-limits/",
-            "method_actions": {
-                "GET": {
-                    "action": "no_action",
-                    "code": 200,
-                    "data": "",
-                    "headers": {}
+        }
+    },
+    {
+        "path": "v1/allowed/whitelist/reply/{id}",
+        "method_actions": {
+            "GET": {
+                "action": "reply",
+                "code": 200,
+                "data": "flump",
+                "headers": {
+                    "x-tyk-override-test": "tyk-override"
                 }
             }
         }
-    ], 
-    ...
+    },
+    {
+        "path": "v1/allowed/whitelist/{id}",
+        "method_actions": {
+            "GET": {
+                "action": "no_action",
+                "code": 200,
+                "data": "",
+                "headers": {}
+            }
+        }
+    },
+    {
+        "path": "/tyk/rate-limits/",
+        "method_actions": {
+            "GET": {
+                "action": "no_action",
+                "code": 200,
+                "data": "",
+                "headers": {}
+            }
+        }
+    }
+], 
+...
 ```
     
 You'll notice we've included the end user rate-limit check URL as a white listed path. If you don't do this, Tyk will block access to this URL.
@@ -299,31 +299,31 @@ You'll notice we've included the end user rate-limit check URL as a white listed
     
 A sample entry would be:
 
-```{.copyWrapper}
-    ...
-    "cache": [
-        "widgets/{widgetID}",
-        "widgets",
-        "foobars/{foobarID}",
-        "foobars"
-    ], ...
+```{.json}
+...
+"cache": [
+    "widgets/{widgetID}",
+    "widgets",
+    "foobars/{foobarID}",
+    "foobars"
+], ...
 ```
 
 * `version_data.{version-name}.extended_paths.transform` and `version_data.{version-name}.extended_paths.transform_response`: This section determines which paths are to have a template applied to them in order to transform the body data in the request or response to another structure. Currently on JSON body data is supported as an input. However, the template can output to any format, as it uses Golang templates so structure of outbound data is highly configurable.
 
-```{.copyWrapper}
-    ...
-    "transform": [
-        {
-            "path": "widget/{id}",
-            "method": "POST"
-            "template_data": {
-                "template_mode": "file",
-                "template_source": "./templates/transform_test.tmpl"
-            }
+```{.json}
+...
+"transform": [
+    {
+        "path": "widget/{id}",
+        "method": "POST"
+        "template_data": {
+            "template_mode": "file",
+            "template_source": "./templates/transform_test.tmpl"
         }
-    ], 
-    ...
+    }
+], 
+...
 ```
     
 All the settings that apply to request transforms also apply to response transforms.
@@ -341,15 +341,15 @@ All the settings that apply to request transforms also apply to response transfo
 
 Entries look like this:
 
-```{.copyWrapper}
-    "transform_headers": [
-        {
-            "delete_headers": ["Content-Type", "authorization"],
-            "add_headers": {"x-tyk-test-inject": "new-value"},
-            "path": "widgets/{id}",
-            "method": "GET"
-        }
-    ]
+```{.json}
+"transform_headers": [
+    {
+        "delete_headers": ["Content-Type", "authorization"],
+        "add_headers": {"x-tyk-test-inject": "new-value"},
+        "path": "widgets/{id}",
+        "method": "GET"
+    }
+]
 ```
         
 
@@ -363,19 +363,19 @@ Entries look like this:
 
 * `version_data.{version-name}.extended_paths.hard_timeouts`: This section enables you to set hard timeouts on a path-by-path basis. For example, if you have a long-running microservice, but do not want to hold up a dependent client should a query take too long, you can enforce a timeout for that path so the requesting client is not held up forever.
 
-```{.copyWrapper}
+```{.json}
+...
+extended_paths: {
     ...
-    extended_paths: {
-        ...
-        hard_timeouts: [
-            {
-                path: "delay/5",
-                method: "GET",
-                timeout: 3
-            }
-        ]
-    }
-    ...
+    hard_timeouts: [
+        {
+            path: "delay/5",
+            method: "GET",
+            timeout: 3
+        }
+    ]
+}
+...
 ```
     
 The `path` and `method` properties are the same as all the other extended path middleware settings.
@@ -388,16 +388,16 @@ The circuit breaker will also emit an event which you can hook into to perform s
 
 The `path` and `method` properties are the same as all other `extended_path` middleware actions
 
-```{.copyWrapper}
-    "circuit_breakers": [
-        {
-            "path": "get",
-            "method": "GET",
-            "threshold_percent": 0.5,
-            "samples": 5,
-            "return_to_service_after": 60
-        }
-    ]
+```{.json}
+"circuit_breakers": [
+    {
+        "path": "get",
+        "method": "GET",
+        "threshold_percent": 0.5,
+        "samples": 5,
+        "return_to_service_after": 60
+    }
+]
 ```
         
 
@@ -415,15 +415,15 @@ However, it is important to remember that wildcards like this `{id}` actually ge
     
 The transform is handled by the other two options, which can use any valid regex to group parameters:
 
-```{.copyWrapper}
-    "url_rewrites": [
-        {
-            "path": "virtual/{wildcard1}/{wildcard2}",
-            "method": "GET",
-            "match_pattern": "virtual/(.*)/(d+)",
-            "rewrite_to": "new-path/id/$2/something/$1"
-        }
-    ]
+```{.json}
+"url_rewrites": [
+    {
+        "path": "virtual/{wildcard1}/{wildcard2}",
+        "method": "GET",
+        "match_pattern": "virtual/(.*)/(d+)",
+        "rewrite_to": "new-path/id/$2/something/$1"
+    }
+]
 ```
 
 * `version_data.{version-name}.extended_paths.url_rewrites.match_pattern`: This is the match pattern to use to extract parameters from the URL.

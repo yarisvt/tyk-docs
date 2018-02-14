@@ -21,19 +21,19 @@ To reload a whole group of Tyk nodes (without using the Dashboard or host manage
 #### Sample request
 
 ```{.copyWrapper}
-    GET /tyk/reload/group HTTP/1.1
-    Host: localhost:8080
-    X-Tyk-Authorization: 352d20ee67be67f6340b4c0605b044b7
-    Cache-Control: no-cache
+GET /tyk/reload/group HTTP/1.1
+Host: localhost:8080
+X-Tyk-Authorization: 352d20ee67be67f6340b4c0605b044b7
+Cache-Control: no-cache
 ```
 
 #### Sample Response
 
 ```
-    {
-        "status": "ok",
-        "error": ""
-    }
+{
+    "status": "ok",
+    "error": ""
+}
 ```
 
 ### Hot-reload a single node
@@ -50,17 +50,17 @@ Tyk is capable of reloading configurations without having to stop serving reques
 #### Sample request
 
 ```{.copyWrapper}
-    GET /tyk/reload/ HTTP/1.1
-    Host: localhost:8080
-    X-Tyk-Authorization: 352d20ee67be67f6340b4c0605b044b7
-    Cache-Control: no-cache
+GET /tyk/reload/ HTTP/1.1
+Host: localhost:8080
+X-Tyk-Authorization: 352d20ee67be67f6340b4c0605b044b7
+Cache-Control: no-cache
 ```
 
 #### Sample Response
 
 ```
-    {
-        "status": "ok",
-        "error": ""
-    }
+{
+    "status": "ok",
+    "error": ""
+}
 ```

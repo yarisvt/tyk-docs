@@ -11,7 +11,7 @@ Tyk stores API configurations as JSON objects called API Definitions. If you are
 
 An API Definition has many switches that change the way an incoming request is handled. It is possible to set too many options in a definition which can lead to unexpected behaviour. Below is a sample API Definition.
 
-```{.copyWrapper}
+```{.json}
 {
     "id": "5a4f1c029764510001dbc3f1",
     "name": "Sales Demo API",
