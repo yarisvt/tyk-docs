@@ -20,41 +20,41 @@ weight: 5
 #### Sample Request
 
 ```{.copyWrapper}
-    GET /api/users HTTP/1.1
-    Host: localhost:3000
-    authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
+GET /api/users HTTP/1.1
+Host: localhost:3000
+authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 ```
 
 #### Sample Response
 
 ```
-    {
-        "users": [
-            {
-                "api_model": {},
-                "first_name": "John",
-                "last_name": "Smith",
-                "email_address": "john@jive.ly",
-                "password": "$2a$10$mRVfrAf72N66anVNhA1KVuYaOwOrXhFzxyg6bwgZemUeVo2MNOpIa",
-                "org_id": "54b53d3aeba6db5c35000002",
-                "active": true,
-                "id": "54b53d4bf25b920f09361526",
-                "access_key": "0cf5e6c37add465a406f19807c081765"
-            },
-            {
-                "api_model": {},
-                "first_name": "Test",
-                "last_name": "User",
-                "email_address": "banana@test.com",
-                "password": "",
-                "org_id": "54b53d3aeba6db5c35000002",
-                "active": true,
-                "id": "54bd0ad9ff4329b88985aafb",
-                "access_key": "f81ee6f0c8f2467d539c132c8a422346"
-            }
-        ],
-        "pages": 0
-    }
+{
+    "users": [
+        {
+            "api_model": {},
+            "first_name": "John",
+            "last_name": "Smith",
+            "email_address": "john@jive.ly",
+            "password": "$2a$10$mRVfrAf72N66anVNhA1KVuYaOwOrXhFzxyg6bwgZemUeVo2MNOpIa",
+            "org_id": "54b53d3aeba6db5c35000002",
+            "active": true,
+            "id": "54b53d4bf25b920f09361526",
+            "access_key": "0cf5e6c37add465a406f19807c081765"
+        },
+        {
+            "api_model": {},
+            "first_name": "Test",
+            "last_name": "User",
+            "email_address": "banana@test.com",
+            "password": "",
+            "org_id": "54b53d3aeba6db5c35000002",
+            "active": true,
+            "id": "54bd0ad9ff4329b88985aafb",
+            "access_key": "f81ee6f0c8f2467d539c132c8a422346"
+        }
+    ],
+    "pages": 0
+}
 ```
 
 ### Get User
@@ -70,25 +70,25 @@ weight: 5
 #### Sample Request
 
 ```{.copyWrapper}
-    GET /api/users/54bd0ad9ff4329b88985aafb HTTP/1.1
-    Host: localhost:3000
-    authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
+GET /api/users/54bd0ad9ff4329b88985aafb HTTP/1.1
+Host: localhost:3000
+authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 ```
 
 #### Sample Response
 
 ```
-    {
-        "api_model": {},
-        "first_name": "Test",
-        "last_name": "User",
-        "email_address": "banana@test.com",
-        "password": "",
-        "org_id": "54b53d3aeba6db5c35000002",
-        "active": true,
-        "id": "54bd0ad9ff4329b88985aafb",
-        "access_key": "f81ee6f0c8f2467d539c132c8a422346"
-    }
+{
+    "api_model": {},
+    "first_name": "Test",
+    "last_name": "User",
+    "email_address": "banana@test.com",
+    "password": "",
+    "org_id": "54b53d3aeba6db5c35000002",
+    "active": true,
+    "id": "54bd0ad9ff4329b88985aafb",
+    "access_key": "f81ee6f0c8f2467d539c132c8a422346"
+}
 ```
 
 ### Add User
@@ -108,27 +108,27 @@ If you do set a password, you need to keep a record of it, to enable the passwor
 #### Sample Request
 
 ```{.copyWrapper}
-    POST /api/users HTTP/1.1
-    Host: localhost:3000
-    authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
-    
-    {
-        "first_name": "Jason",
-        "last_name": "Jasonson",
-        "email_address": "jason@jasonsonson.com",
-        "active": true,
-        "password": "thisisatest"
-    }
+POST /api/users HTTP/1.1
+Host: localhost:3000
+authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
+
+{
+    "first_name": "Jason",
+    "last_name": "Jasonson",
+    "email_address": "jason@jasonsonson.com",
+    "active": true,
+    "password": "thisisatest"
+}
 ```
 
 #### Sample Response
 
 ```
-    {
-        "Status": "OK",
-        "Message": "User created",
-        "Meta": ""
-    }
+{
+    "Status": "OK",
+    "Message": "User created",
+    "Meta": ""
+}
 ```
 
 ### Set User Password
@@ -146,24 +146,24 @@ If a user is created with a blank password, you will need to add a password in a
 #### Sample Request
 
 ```{.copyWrapper}
-    POST /api/users/54c25e845d932847067402e2/actions/reset HTTP/1.1
-    Host: localhost:3000
-    authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
+POST /api/users/54c25e845d932847067402e2/actions/reset HTTP/1.1
+Host: localhost:3000
+authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
-    {
-      "current_password": "12345",
-      "new_password":"test123456"
-    }
+{
+  "current_password": "12345",
+  "new_password":"test123456"
+}
 ```
 
 #### Sample Response
 
 ```
-    {
-        "Status": "OK",
-        "Message": "User password updated",
-        "Meta": ""
-    }
+{
+    "Status": "OK",
+    "Message": "User password updated",
+    "Meta": ""
+}
 ```
 
 ### Allow Reset Password
@@ -178,17 +178,17 @@ If a user is created with a blank password, you will need to add a password in a
 
 #### Sample Request
 ```{.copyWrapper}
-    PUT -H "admin-auth: <your secret>" http://<dashboard>/admin/users/{user-id}/actions/allow_reset_passwords
+PUT -H "admin-auth: <your secret>" http://<dashboard>/admin/users/{user-id}/actions/allow_reset_passwords
 ```
 
 #### Sample Response
 ```
-    {
-      "Status": "OK",
-      "Message": "User updated",
-      "Meta": 
-        { …user object payload …}
-    }
+{
+  "Status": "OK",
+  "Message": "User updated",
+  "Meta": 
+    { …user object payload …}
+}
 ```
 
 ### Disallow Reset Password
@@ -203,18 +203,18 @@ If a user is created with a blank password, you will need to add a password in a
 
 #### Sample Request
 ```{.copyWrapper}
-    PUT -H "admin-auth: <your secret>" http://<dashboard>/admin/users/{user-id}/actions/disallow_reset_passwords
+PUT -H "admin-auth: <your secret>" http://<dashboard>/admin/users/{user-id}/actions/disallow_reset_passwords
 ```
 
 #### Sample Response
 
 ```
-    {
-      "Status": "OK",
-      "Message": "User updated",
-      "Meta": 
-        { …user object payload …}
-    }
+{
+  "Status": "OK",
+  "Message": "User updated",
+  "Meta": 
+    { …user object payload …}
+}
 ```
 
 ### Update User
@@ -230,26 +230,26 @@ If a user is created with a blank password, you will need to add a password in a
 #### Sample Request
 
 ```{.copyWrapper}
-    PUT /api/users/54c25e845d932847067402e2 HTTP/1.1
-    Host: localhost:3000
-    authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
-    
-    {
-        "first_name": "Jason",
-        "last_name": "File",
-        "email_address": "jason.file@jasonsonson.com",
-        "active": true
-    }
+PUT /api/users/54c25e845d932847067402e2 HTTP/1.1
+Host: localhost:3000
+authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
+
+{
+    "first_name": "Jason",
+    "last_name": "File",
+    "email_address": "jason.file@jasonsonson.com",
+    "active": true
+}
 ```
 
 #### Sample Response
 
 ```
-    {
-      "Status": "OK",
-      "Message": "User updated",
-      "Meta": null
-    }
+{
+  "Status": "OK",
+  "Message": "User updated",
+  "Meta": null
+}
 ```
 
 ### Delete User
@@ -265,17 +265,17 @@ If a user is created with a blank password, you will need to add a password in a
 #### Sample Request
 
 ```{.copyWrapper}
-    DELETE /api/users/54c25e845d932847067402e2 HTTP/1.1
-    Host: localhost:3000
-    authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
+DELETE /api/users/54c25e845d932847067402e2 HTTP/1.1
+Host: localhost:3000
+authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 ```
 
 #### Sample Response
 
 ```
-    {
-        "Status": "OK",
-        "Message": "User deleted",
-        "Meta": ""
-    }
+{
+    "Status": "OK",
+    "Message": "User deleted",
+    "Meta": ""
+}
 ```

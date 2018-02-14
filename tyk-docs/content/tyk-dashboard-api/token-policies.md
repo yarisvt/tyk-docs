@@ -20,104 +20,16 @@ weight: 4
 #### Sample Request
 
 ```{.copyWrapper}
-    GET /api/portal/policies/ HTTP/1.1
-    Host: localhost:3000
-    authorization: 7a7b140f-2480-4d5a-4e78-24049e3ba7f8
+GET /api/portal/policies/ HTTP/1.1
+Host: localhost:3000
+authorization: 7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 ```
 
 #### Sample Response
 
 ```
-    {
-      "Data": [
-        {
-          "_id": "56b9fed54e86e40001000002",
-          "access_rights": {
-            "35447b1469df4e846894b1e87372f6d7": {
-              "allowed_urls": [
-                {
-                  "methods": [
-                    "GET"
-                  ],
-                  "url": "/some_resources"
-                },
-                {
-                  "methods": [
-                    "POST"
-                  ],
-                  "url": "/some_resource/(.*)"
-                }
-              ],
-              "apiid": "35447b1269df4e846894b7e87312f6d7",
-              "apiname": "My API",
-              "versions": [
-                "Default"
-              ]
-            }
-          },
-          "active": true,
-          "date_created": "0001-01-01T00:00:00Z",
-          "hmac_enabled": false,
-          "is_inactive": false,
-          "key_expires_in": 0,
-          "name": "My Policy",
-          "org_id": "5629ca78eebd180001000001",
-          "per": 1,
-          "quota_max": -1,
-          "quota_renewal_rate": 60,
-          "rate": 1000,
-          "tags": []
-        }
-      ],
-      "Pages": 0
-    }
-```
-
-Notice that `apiid` field, it is different than rest of policy definitions! (See [GitHub issue 192][1])
-
-### Search list of policies
-
-| **Property** | **Description**         |
-| ------------ | ----------------------- |
-| Resource URL | `/api/portal/policies/search` |
-| Method       | GET                     |
-| Type         | None                    |
-| Body         | None                    |
-| Param        | None                    |
-
-#### Sample Request
-
-```{.copyWrapper}
-    GET /api/portal/policies/search?q=Policy+name HTTP/1.1
-    Host: localhost:3000
-    authorization: 7a7b140f-2480-4d5a-4e78-24049e3ba7f8
-```
-
-#### Sample Response
-
-Similar to Policies list endpoint
-
-### Retrieve a single policy by ID
-
-| **Property** | **Description**             |
-| ------------ | --------------------------- |
-| Resource URL | `/api/portal/policies/{id}` |
-| Method       | GET                         |
-| Type         | None                        |
-| Body         | None                        |
-| Param        | None                        |
-
-#### Sample request
-
-```{.copyWrapper}
-    GET /api/portal/policies/56b9fed54e86e40001000002 HTTP/1.1
-    Host: localhost
-    authorization: 7a7b140f-2480-4d5a-4e78-24049e3ba7f8
-```
-
-#### Sample Response
-
-```
+{
+  "Data": [
     {
       "_id": "56b9fed54e86e40001000002",
       "access_rights": {
@@ -125,7 +37,7 @@ Similar to Policies list endpoint
           "allowed_urls": [
             {
               "methods": [
-                "GET",
+                "GET"
               ],
               "url": "/some_resources"
             },
@@ -134,9 +46,9 @@ Similar to Policies list endpoint
                 "POST"
               ],
               "url": "/some_resource/(.*)"
-            },
+            }
           ],
-          "api_id": "35447b1269df4e846894b7e87312f6d7",
+          "apiid": "35447b1269df4e846894b7e87312f6d7",
           "apiname": "My API",
           "versions": [
             "Default"
@@ -156,6 +68,94 @@ Similar to Policies list endpoint
       "rate": 1000,
       "tags": []
     }
+  ],
+  "Pages": 0
+}
+```
+
+Notice that `apiid` field, it is different than rest of policy definitions! (See [GitHub issue 192][1])
+
+### Search list of policies
+
+| **Property** | **Description**         |
+| ------------ | ----------------------- |
+| Resource URL | `/api/portal/policies/search` |
+| Method       | GET                     |
+| Type         | None                    |
+| Body         | None                    |
+| Param        | None                    |
+
+#### Sample Request
+
+```{.copyWrapper}
+GET /api/portal/policies/search?q=Policy+name HTTP/1.1
+Host: localhost:3000
+authorization: 7a7b140f-2480-4d5a-4e78-24049e3ba7f8
+```
+
+#### Sample Response
+
+Similar to Policies list endpoint
+
+### Retrieve a single policy by ID
+
+| **Property** | **Description**             |
+| ------------ | --------------------------- |
+| Resource URL | `/api/portal/policies/{id}` |
+| Method       | GET                         |
+| Type         | None                        |
+| Body         | None                        |
+| Param        | None                        |
+
+#### Sample request
+
+```{.copyWrapper}
+GET /api/portal/policies/56b9fed54e86e40001000002 HTTP/1.1
+Host: localhost
+authorization: 7a7b140f-2480-4d5a-4e78-24049e3ba7f8
+```
+
+#### Sample Response
+
+```
+{
+  "_id": "56b9fed54e86e40001000002",
+  "access_rights": {
+    "35447b1469df4e846894b1e87372f6d7": {
+      "allowed_urls": [
+        {
+          "methods": [
+            "GET",
+          ],
+          "url": "/some_resources"
+        },
+        {
+          "methods": [
+            "POST"
+          ],
+          "url": "/some_resource/(.*)"
+        },
+      ],
+      "api_id": "35447b1269df4e846894b7e87312f6d7",
+      "apiname": "My API",
+      "versions": [
+        "Default"
+      ]
+    }
+  },
+  "active": true,
+  "date_created": "0001-01-01T00:00:00Z",
+  "hmac_enabled": false,
+  "is_inactive": false,
+  "key_expires_in": 0,
+  "name": "My Policy",
+  "org_id": "5629ca78eebd180001000001",
+  "per": 1,
+  "quota_max": -1,
+  "quota_renewal_rate": 60,
+  "rate": 1000,
+  "tags": []
+}
 ```
 
 ### Create Policy Definition
@@ -173,41 +173,41 @@ Creating policy definitions is slightly different to the core API, API definitio
 #### Sample Request
 
 ```{.copyWrapper}
-    POST /api/portal/policies/ HTTP/1.1
-    Host: localhost:3000
-    Connection: keep-alive
-    Content-Type: application/json
-    Content-Length: <body length>
-    authorization: 7a7b140f-2480-4d5a-4e78-24049e3ba7f8
-    
-    {
-        "last_updated": "0001-01-01T00:00:00Z",
-        "rate": 1000,
-        "per": 60,
-        "quota_max": -1,
-        "quota_renews": 1481546970,
-        "quota_remaining": 0,
-        "quota_renewal_rate": 60,
-        "access_rights": {
-            "35447b1469df4e846894b1e87372f6d7": {
-                "api_id": "35447b1469df4e846894b1e87372f6d7",
-                "api_name": "My API",
-                "versions": ["Default"]
-            }
-        },
-        "name": "My Policy",
-        "active": true
-    }    
+POST /api/portal/policies/ HTTP/1.1
+Host: localhost:3000
+Connection: keep-alive
+Content-Type: application/json
+Content-Length: <body length>
+authorization: 7a7b140f-2480-4d5a-4e78-24049e3ba7f8
+
+{
+    "last_updated": "0001-01-01T00:00:00Z",
+    "rate": 1000,
+    "per": 60,
+    "quota_max": -1,
+    "quota_renews": 1481546970,
+    "quota_remaining": 0,
+    "quota_renewal_rate": 60,
+    "access_rights": {
+        "35447b1469df4e846894b1e87372f6d7": {
+            "api_id": "35447b1469df4e846894b1e87372f6d7",
+            "api_name": "My API",
+            "versions": ["Default"]
+        }
+    },
+    "name": "My Policy",
+    "active": true
+}    
 ```
 
 #### Sample Response
 
 ```
-    {
-        "Status": "OK",
-        "Message": "56b9fed54e86e40001000002",
-        "Meta": "null"
-    }
+{
+    "Status": "OK",
+    "Message": "56b9fed54e86e40001000002",
+    "Meta": "null"
+}
 ```
 
 ### Update Policy Definition
@@ -223,53 +223,53 @@ Creating policy definitions is slightly different to the core API, API definitio
 #### Sample Request
 
 ```{.copyWrapper}
-    PUT /api/portal/policies/56b9fed54e86e40001000002 HTTP/1.1
-    Host: localhost:3000
-    Connection: keep-alive
-    Content-Type: application/json
-    Content-Length: <body length>
-    authorization: 7a7b140f-2480-4d5a-4e78-24049e3ba7f8
-    
-    {
-      "_id": "56b9fed54e86e40001000002",
-      "id": "",
-      "org_id": "589b4be9dbd34702ee2ed8c5",
-      "rate": 1000,
-      "per": 60,
-      "quota_max": -1,
-      "quota_renewal_rate": 60,
-      "access_rights": {
-        "35447b1469df4e846894b1e87372f6d7": {
-          "api_id": "35447b1469df4e846894b1e87372f6d7",
-          "api_name": "My API",
-          "versions": ["Default"],
-          "allowed_urls": []
-        }
-      },
-      "hmac_enabled": false,
-      "active": true,
-      "name": "My Updated Policy",
-      "is_inactive": false,
-      "date_created": "0001-01-01T00:00:00Z",
-      "tags": [],
-      "key_expires_in": 0,
-      "partitions": {
-        "quota": false,
-        "rate_limit": false,
-        "acl": false
-      },
-      "last_updated": "0001-01-01T00:00:00Z"
+PUT /api/portal/policies/56b9fed54e86e40001000002 HTTP/1.1
+Host: localhost:3000
+Connection: keep-alive
+Content-Type: application/json
+Content-Length: <body length>
+authorization: 7a7b140f-2480-4d5a-4e78-24049e3ba7f8
+
+{
+  "_id": "56b9fed54e86e40001000002",
+  "id": "",
+  "org_id": "589b4be9dbd34702ee2ed8c5",
+  "rate": 1000,
+  "per": 60,
+  "quota_max": -1,
+  "quota_renewal_rate": 60,
+  "access_rights": {
+    "35447b1469df4e846894b1e87372f6d7": {
+      "api_id": "35447b1469df4e846894b1e87372f6d7",
+      "api_name": "My API",
+      "versions": ["Default"],
+      "allowed_urls": []
     }
+  },
+  "hmac_enabled": false,
+  "active": true,
+  "name": "My Updated Policy",
+  "is_inactive": false,
+  "date_created": "0001-01-01T00:00:00Z",
+  "tags": [],
+  "key_expires_in": 0,
+  "partitions": {
+    "quota": false,
+    "rate_limit": false,
+    "acl": false
+  },
+  "last_updated": "0001-01-01T00:00:00Z"
+}
 ```
 
 #### Sample Response
 
 ```
-    {
-        "Status": "OK",
-        "Message": "Data updated",
-        "Meta": ""
-    }
+{
+    "Status": "OK",
+    "Message": "Data updated",
+    "Meta": ""
+}
 ```
 
 ### Delete Policy Definition
@@ -285,19 +285,19 @@ Creating policy definitions is slightly different to the core API, API definitio
 #### Sample Request
 
 ```{.copyWrapper}
-    DELETE /api/portal/policies/56b9fed54e86e40001000002 HTTP/1.1
-    Host: localhost:3000
-    authorization: 7a7b140f-2480-4d5a-4e78-24049e3ba7f8
+DELETE /api/portal/policies/56b9fed54e86e40001000002 HTTP/1.1
+Host: localhost:3000
+authorization: 7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 ```
 
 #### Sample Response
 
 ```
-    {
-      "Status": "OK",
-      "Message": "Data deleted",
-      "Meta": null
-    }
+{
+  "Status": "OK",
+  "Message": "Data deleted",
+  "Meta": null
+}
 ```
 
  [1]: https://github.com/TykTechnologies/tyk/issues/192
