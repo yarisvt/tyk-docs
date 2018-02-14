@@ -39,29 +39,29 @@ This reset quota mechanism is in place to allow a manual initialisation of the r
 #### Sample request
 
 ```{.copyWrapper}
-    POST /tyk/orgs/keys/ HTTP/1.1
-    Host: localhost:8080
-    x-tyk-authorization: 352d20ee67be67f6340b4c0605b044bc4
-    Cache-Control: no-cache
-    
-    {
-        "quota_max": 60,
-        "quota_renews": 1406121006,
-        "quota_remaining": 0,
-        "quota_renewal_rate": 60,
-        "org_id": "53ac07777cbb8c2d53000002"
-    }
+POST /tyk/orgs/keys/ HTTP/1.1
+Host: localhost:8080
+x-tyk-authorization: 352d20ee67be67f6340b4c0605b044bc4
+Cache-Control: no-cache
+
+{
+    "quota_max": 60,
+    "quota_renews": 1406121006,
+    "quota_remaining": 0,
+    "quota_renewal_rate": 60,
+    "org_id": "53ac07777cbb8c2d53000002"
+}
 ```
 
 #### Sample response
 
 ```
-    {
-        "key": "53ac07777cbb8c2d53000002",
-        "status": "ok",
-        "action": "create",
-        "is_inactive": false
-    }
+{
+    "key": "53ac07777cbb8c2d53000002",
+    "status": "ok",
+    "action": "create",
+    "is_inactive": false
+}
 ```
 
 ### Add/update organisation keys
@@ -84,28 +84,28 @@ This reset quota mechanism is in place to allow a manual initialisation of the r
 #### Sample request
 
 ```{.copyWrapper}
-    PUT /tyk/org/keys/53ac07777cbb8c2d53000002 HTTP/1.1
-    Host: localhost:8080
-    x-tyk-authorization: 352d20ee67be67f6340b4c0605b044bc4
-    Cache-Control: no-cache
-    
-    {
-        "quota_max": 60,
-        "quota_renews": 1406121006,
-        "quota_remaining": 0,
-        "quota_renewal_rate": 60,
-        "org_id": "53ac07777cbb8c2d53000002"
-    }
+PUT /tyk/org/keys/53ac07777cbb8c2d53000002 HTTP/1.1
+Host: localhost:8080
+x-tyk-authorization: 352d20ee67be67f6340b4c0605b044bc4
+Cache-Control: no-cache
+
+{
+    "quota_max": 60,
+    "quota_renews": 1406121006,
+    "quota_remaining": 0,
+    "quota_renewal_rate": 60,
+    "org_id": "53ac07777cbb8c2d53000002"
+}
 ```
 
 #### Sample response
 
 ```
-    {
-        "key": "53ac07777cbb8c2d53000002",
-        "status": "ok",
-        "action": "modified"
-    }
+{
+    "key": "53ac07777cbb8c2d53000002",
+    "status": "ok",
+    "action": "modified"
+}
 ```
 
 ### Delete organisation key
@@ -121,20 +121,20 @@ This reset quota mechanism is in place to allow a manual initialisation of the r
 #### Sample request
 
 ```{.copyWrapper}
-    DELETE /tyk/org/keys/53ac07777cbb8c2d53000002 HTTP/1.1
-    Host: localhost:8080
-    x-tyk-authorization: 352d20ee67be67f6340b4c0605b044bc4
-    Cache-Control: no-cache
+DELETE /tyk/org/keys/53ac07777cbb8c2d53000002 HTTP/1.1
+Host: localhost:8080
+x-tyk-authorization: 352d20ee67be67f6340b4c0605b044bc4
+Cache-Control: no-cache
 ```
 
 #### Sample response
 
 ```
-    {
-        "key": "53ac07777cbb8c2d53000002",
-        "status": "ok",
-        "action": "deleted"
-    }
+{
+    "key": "53ac07777cbb8c2d53000002",
+    "status": "ok",
+    "action": "deleted"
+}
 ```
 
 ### List Organisation Keys
@@ -152,21 +152,21 @@ You can retrieve all the keys in your Tyk instance.
 #### Sample request
 
 ```{.copyWrapper}
-    GET /tyk/org/keys/ HTTP/1.1
-    Host: localhost:8080
-    x-tyk-authorization: 352d20ee67be67f6340b4c0605b044bc4
-    Cache-Control: no-cache
+GET /tyk/org/keys/ HTTP/1.1
+Host: localhost:8080
+x-tyk-authorization: 352d20ee67be67f6340b4c0605b044bc4
+Cache-Control: no-cache
 ```
 
 #### Sample response
 
 ```
-    {
-        "keys": [
-            "53ac07777cbb8c2d53000002c29ebe0faf6540e0673d6af76b270088",
-            "53ac07777cbb8c2d530000027776e9f910e94cd9552c22c908d2d081",
-            "53ac07777cbb8c2d53000002d698728ce964432d7167596bc005c5fc",
-            "53ac07777cbb8c2d530000028210d848c5854cb35917b2f013529d95"
-        ]
-    }
+{
+    "keys": [
+        "53ac07777cbb8c2d53000002c29ebe0faf6540e0673d6af76b270088",
+        "53ac07777cbb8c2d530000027776e9f910e94cd9552c22c908d2d081",
+        "53ac07777cbb8c2d53000002d698728ce964432d7167596bc005c5fc",
+        "53ac07777cbb8c2d530000028210d848c5854cb35917b2f013529d95"
+    ]
+}
 ```

@@ -2,20 +2,20 @@
 
 It is possible to enable CORS for certain APIs so users can make browser-based requests. The `CORS` section is added to an API definition as follows:
 
-```{.copyWrapper}
-    "CORS": {
-        "enable": true,
-        "allowed_origins": [
-            "http://foo.com"
-        ],
-        "allowed_methods": [],
-        "allowed_headers": [],
-        "exposed_headers": [],
-        "allow_credentials": false,
-        "max_age": 24,
-        "options_passthrough": false,
-        "debug": false
-    },
+```{.json}
+"CORS": {
+    "enable": true,
+    "allowed_origins": [
+        "http://foo.com"
+    ],
+    "allowed_methods": [],
+    "allowed_headers": [],
+    "exposed_headers": [],
+    "allow_credentials": false,
+    "max_age": 24,
+    "options_passthrough": false,
+    "debug": false
+},
 ```
     
 The CORS middleware has the following options:

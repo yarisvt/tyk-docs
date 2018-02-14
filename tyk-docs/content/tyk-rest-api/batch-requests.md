@@ -19,31 +19,31 @@ Tyk reconstructs the API request based on the data in the batch request. This is
 Batch requests are created by POSTing to the `/{api-id}/tyk/batch` endpoint. These requests **do not require a valid key**, but their request list does. Here is a sample request body:
 
 ```{json}
-    {
-        "requests": [
-            {
-                "method": "GET",
-                "headers": {
-                    "x-tyk-test": "1",
-                    "x-tyk-version": "1.2",
-                    "authorization": "1dbc83b9c431649d7698faa9797e2900f"
-                },
-                "body": "",
-                "relative_url": "get"
+{
+    "requests": [
+        {
+            "method": "GET",
+            "headers": {
+                "x-tyk-test": "1",
+                "x-tyk-version": "1.2",
+                "authorization": "1dbc83b9c431649d7698faa9797e2900f"
             },
-            {
-                "method": "GET",
-                "headers": {
-                    "x-tyk-test": "2",
-                    "x-tyk-version": "1.2",
-                    "authorization": "1dbc83b9c431649d7698faa9797e2900f"
-                },
-                "body": "",
-                "relative_url": "get"
-            }
-        ],
-        "suppress_parallel_execution": false
-    }
+            "body": "",
+            "relative_url": "get"
+        },
+        {
+            "method": "GET",
+            "headers": {
+                "x-tyk-test": "2",
+                "x-tyk-version": "1.2",
+                "authorization": "1dbc83b9c431649d7698faa9797e2900f"
+            },
+            "body": "",
+            "relative_url": "get"
+        }
+    ],
+    "suppress_parallel_execution": false
+}
 ```
 
 The response will will be a structured reply that encapsulates the responses for each of the outbound requests. If `suppress_parallel_execution` is set to `true`, requests will be made synchronously. If set to `false` then they will run in parallel and the response order is not guaranteed.
@@ -51,98 +51,98 @@ The response will will be a structured reply that encapsulates the responses for
 A response to the above when pointing at [httpbin](https://httpbin.org/) would look like:
 
 ```
-    [
-        {
-            "relative_url": "get",
-            "code": 200,
-            "headers": {
-                "Access-Control-Allow-Credentials": [
-                    "true"
-                ],
-                "Access-Control-Allow-Origin": [
-                    "*"
-                ],
-                "Content-Length": [
-                    "497"
-                ],
-                "Content-Type": [
-                    "application/json"
-                ],
-                "Date": [
-                    "Wed, 12 Nov 2014 15:32:43 GMT"
-                ],
-                "Server": [
-                    "gunicorn/18.0"
-                ],
-                "Via": [
-                    "1.1 vegur"
-                ]
-            },
-            "body": "{
-      "args": {}, 
-      "headers": {
-        "Accept-Encoding": "gzip", 
-        "Authorization": "1dbc83b9c431649d7698faa9797e2900f", 
-        "Connect-Time": "2", 
-        "Connection": "close", 
-        "Host": "httpbin.org", 
-        "Total-Route-Time": "0", 
-        "User-Agent": "Go 1.1 package http", 
-        "Via": "1.1 vegur", 
-        "X-Request-Id": "6a22499a-2776-4aa1-80c0-686581a8be4d", 
-        "X-Tyk-Test": "2", 
-        "X-Tyk-Version": "1.2"
-      }, 
-      "origin": "127.0.0.1, 62.232.114.250", 
-      "url": "http://httpbin.org/get"
-    }"
+[
+    {
+        "relative_url": "get",
+        "code": 200,
+        "headers": {
+            "Access-Control-Allow-Credentials": [
+                "true"
+            ],
+            "Access-Control-Allow-Origin": [
+                "*"
+            ],
+            "Content-Length": [
+                "497"
+            ],
+            "Content-Type": [
+                "application/json"
+            ],
+            "Date": [
+                "Wed, 12 Nov 2014 15:32:43 GMT"
+            ],
+            "Server": [
+                "gunicorn/18.0"
+            ],
+            "Via": [
+                "1.1 vegur"
+            ]
         },
-        {
-            "relative_url": "get",
-            "code": 200,
-            "headers": {
-                "Access-Control-Allow-Credentials": [
-                    "true"
-                ],
-                "Access-Control-Allow-Origin": [
-                    "*"
-                ],
-                "Content-Length": [
-                    "497"
-                ],
-                "Content-Type": [
-                    "application/json"
-                ],
-                "Date": [
-                    "Wed, 12 Nov 2014 15:32:43 GMT"
-                ],
-                "Server": [
-                    "gunicorn/18.0"
-                ],
-                "Via": [
-                    "1.1 vegur"
-                ]
-            },
-            "body": "{
-      "args": {}, 
-      "headers": {
-        "Accept-Encoding": "gzip", 
-        "Authorization": "1dbc83b9c431649d7698faa9797e2900f", 
-        "Connect-Time": "7", 
-        "Connection": "close", 
-        "Host": "httpbin.org", 
-        "Total-Route-Time": "0", 
-        "User-Agent": "Go 1.1 package http", 
-        "Via": "1.1 vegur", 
-        "X-Request-Id": "1ab61f50-51ff-4828-a7e2-17240385a6d2", 
-        "X-Tyk-Test": "1", 
-        "X-Tyk-Version": "1.2"
-      }, 
-      "origin": "127.0.0.1, 62.232.114.250", 
-      "url": "http://httpbin.org/get"
-    }"
-        }
-    ]
+        "body": "{
+  "args": {}, 
+  "headers": {
+    "Accept-Encoding": "gzip", 
+    "Authorization": "1dbc83b9c431649d7698faa9797e2900f", 
+    "Connect-Time": "2", 
+    "Connection": "close", 
+    "Host": "httpbin.org", 
+    "Total-Route-Time": "0", 
+    "User-Agent": "Go 1.1 package http", 
+    "Via": "1.1 vegur", 
+    "X-Request-Id": "6a22499a-2776-4aa1-80c0-686581a8be4d", 
+    "X-Tyk-Test": "2", 
+    "X-Tyk-Version": "1.2"
+  }, 
+  "origin": "127.0.0.1, 62.232.114.250", 
+  "url": "http://httpbin.org/get"
+}"
+    },
+    {
+        "relative_url": "get",
+        "code": 200,
+        "headers": {
+            "Access-Control-Allow-Credentials": [
+                "true"
+            ],
+            "Access-Control-Allow-Origin": [
+                "*"
+            ],
+            "Content-Length": [
+                "497"
+            ],
+            "Content-Type": [
+                "application/json"
+            ],
+            "Date": [
+                "Wed, 12 Nov 2014 15:32:43 GMT"
+            ],
+            "Server": [
+                "gunicorn/18.0"
+            ],
+            "Via": [
+                "1.1 vegur"
+            ]
+        },
+        "body": "{
+  "args": {}, 
+  "headers": {
+    "Accept-Encoding": "gzip", 
+    "Authorization": "1dbc83b9c431649d7698faa9797e2900f", 
+    "Connect-Time": "7", 
+    "Connection": "close", 
+    "Host": "httpbin.org", 
+    "Total-Route-Time": "0", 
+    "User-Agent": "Go 1.1 package http", 
+    "Via": "1.1 vegur", 
+    "X-Request-Id": "1ab61f50-51ff-4828-a7e2-17240385a6d2", 
+    "X-Tyk-Test": "1", 
+    "X-Tyk-Version": "1.2"
+  }, 
+  "origin": "127.0.0.1, 62.232.114.250", 
+  "url": "http://httpbin.org/get"
+}"
+    }
+]
 ```
 
 With the body for each request string encoded in the `body` field.
@@ -168,19 +168,19 @@ This behaviour can be bypassed on a case-by-case basis by using the `suppress_re
 * `response_processors`: Response processors need to be specifically defined so they are loaded on API creation, otherwise the middleware will not fire. In order to have the two main response middleware components fire, the following configuration object should be supplied:
 
 ```{json}
-    "response_processors": [
-        {
-            "name": "header_injector",
-            "options": {
-                "add_headers": {"name": "value"},
-                "remove_headers": ["name"]
-            }
-        },
-        {
-          "name": "response_body_transform",
-          "options": {}
+"response_processors": [
+    {
+        "name": "header_injector",
+        "options": {
+            "add_headers": {"name": "value"},
+            "remove_headers": ["name"]
         }
-    ]
+    },
+    {
+      "name": "response_body_transform",
+      "options": {}
+    }
+]
 ```
     
 The options for the `header_injector` are global, and will apply to all outbound requests.

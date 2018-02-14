@@ -44,20 +44,20 @@ Tyk retains health data in Redis which reflects the current state of the API, in
 #### Sample request
 
 ```{.copyWrapper}
-    GET /tyk/health/?api_id=768575647356 HTTP/1.1
-    Host: localhost:8080
-    X-Tyk-Authorization: 352d20ee67be67f6340b4c0605b044b7
-    Cache-Control: no-cache
+GET /tyk/health/?api_id=768575647356 HTTP/1.1
+Host: localhost:8080
+X-Tyk-Authorization: 352d20ee67be67f6340b4c0605b044b7
+Cache-Control: no-cache
 ```
 
 #### Sample Response
 
 ```
-    {
-        "throttle_requests_per_second": 0,
-        "quota_violations_per_second": 0,
-        "key_failures_per_second": 0,
-        "average_upstream_latency": 0,
-        "average_requests_per_second": 0
-    }
+{
+    "throttle_requests_per_second": 0,
+    "quota_violations_per_second": 0,
+    "key_failures_per_second": 0,
+    "average_upstream_latency": 0,
+    "average_requests_per_second": 0
+}
 ```

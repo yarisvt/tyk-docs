@@ -44,15 +44,15 @@ This behaviour can be circumvented so that the `listen_path` is stripped from th
 * `proxy.service_discovery.data_path`: The namespace of the data path. For example, if your service responds with:
 
 ```
-    {
-        "action": "get",
-        "node": {
-            "key": "/services/single",
-            "value": "http://httpbin.org:6000",
-            "modifiedIndex": 6,
-            "createdIndex": 6
-        }
+{
+    "action": "get",
+    "node": {
+        "key": "/services/single",
+        "value": "http://httpbin.org:6000",
+        "modifiedIndex": 6,
+        "createdIndex": 6
     }
+}
 ```
 
 Then your name space would be `node.value`.
@@ -60,15 +60,15 @@ Then your name space would be `node.value`.
 * `proxy.service_discovery.use_nested_query`: Sometimes the data you are retrieving is nested in another JSON object. For example, this is how Etcd responds with a JSON object as a value key:
 
 ```
-    {
-        "action": "get",
-        "node": {
-            "key": "/services/single",
-            "value": "{"hostname": "http://httpbin.org", "port": "80"}",
-            "modifiedIndex": 6,
-            "createdIndex": 6
-        }
+{
+    "action": "get",
+    "node": {
+        "key": "/services/single",
+        "value": "{"hostname": "http://httpbin.org", "port": "80"}",
+        "modifiedIndex": 6,
+        "createdIndex": 6
     }
+}
 ```
 
 

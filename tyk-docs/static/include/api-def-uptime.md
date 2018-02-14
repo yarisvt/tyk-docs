@@ -3,23 +3,23 @@
 
 * `uptime_tests.check_list` A list of tests to run, takes the form:
 
-```{.copyWrapper}
-    uptime_tests: {
-        check_list: [
-            {
-                "url": "http://google.com/"
+```{.json}
+uptime_tests: {
+    check_list: [
+        {
+            "url": "http://google.com/"
+        },
+        {
+            "url": "http://posttestserver.com/post.php?dir=uptime-checker",
+            "method": "POST",
+            "headers": {
+                "this": "that",
+                "more": "beans"
             },
-            {
-                "url": "http://posttestserver.com/post.php?dir=uptime-checker",
-                "method": "POST",
-                "headers": {
-                    "this": "that",
-                    "more": "beans"
-                },
-                "body": "VEhJUyBJUyBBIEJPRFkgT0JKRUNUIFRFWFQNCg0KTW9yZSBzdHVmZiBoZXJl"
-            }
-        ]
-    },
+            "body": "VEhJUyBJUyBBIEJPRFkgT0JKRUNUIFRFWFQNCg0KTW9yZSBzdHVmZiBoZXJl"
+        }
+    ]
+},
 ```
         
     

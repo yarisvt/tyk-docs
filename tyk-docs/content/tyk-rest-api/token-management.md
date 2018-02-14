@@ -32,64 +32,64 @@ Adding the `suppress_reset` parameter and setting it to `1`, will cause Tyk to *
 #### Sample Request
 
 ```{.copyWrapper}
-    POST /tyk/keys/create HTTP/1.1
-    Host: localhost:8080
-    x-tyk-authorization: 352d20ee67be67f6340b4c0605b044bc4
-    Cache-Control: no-cache
-    
-    {
-        "allowance": 1000,
-        "rate": 1000,
-        "per": 60,
-        "expires": -1,
-        "quota_max": -1,
-        "quota_renews": 1406121006,
-        "quota_remaining": 0,
-        "quota_renewal_rate": 60,
-        "access_rights": {
-            "234a71b4c2274e5a57610fe48cdedf40": {
-                "api_name": "Versioned API",
-                "api_id": "234a71b4c2274e5a57610fe48cdedf40",
-                "versions": [
-                    "v1"
-                ]
-            }
-        },
-        "org_id": "53ac07777cbb8c2d53000002",
-        "meta_data": {},
-        "oauth_client_id": "",
-        "oauth_keys": {},
-        "basic_auth_data": {
-            "password": "",
-            "hash_type": ""
-        },
-        "jwt_data": {
-            "secret": ""
-        },
-        "hmac_enabled": false,
-        "hmac_string": "",
-        "is_inactive": false,
-        "apply_policy_id": "",
-        "apply_policies": [
-            "59672779fa4387000129507d",
-            "53222349fa4387004324324e",
-            "543534s9fa4387004324324d"
-            ],
-        "monitor": {
-            "trigger_limits": []
-        },
-        "tags": []
-    }
+POST /tyk/keys/create HTTP/1.1
+Host: localhost:8080
+x-tyk-authorization: 352d20ee67be67f6340b4c0605b044bc4
+Cache-Control: no-cache
+
+{
+    "allowance": 1000,
+    "rate": 1000,
+    "per": 60,
+    "expires": -1,
+    "quota_max": -1,
+    "quota_renews": 1406121006,
+    "quota_remaining": 0,
+    "quota_renewal_rate": 60,
+    "access_rights": {
+        "234a71b4c2274e5a57610fe48cdedf40": {
+            "api_name": "Versioned API",
+            "api_id": "234a71b4c2274e5a57610fe48cdedf40",
+            "versions": [
+                "v1"
+            ]
+        }
+    },
+    "org_id": "53ac07777cbb8c2d53000002",
+    "meta_data": {},
+    "oauth_client_id": "",
+    "oauth_keys": {},
+    "basic_auth_data": {
+        "password": "",
+        "hash_type": ""
+    },
+    "jwt_data": {
+        "secret": ""
+    },
+    "hmac_enabled": false,
+    "hmac_string": "",
+    "is_inactive": false,
+    "apply_policy_id": "",
+    "apply_policies": [
+        "59672779fa4387000129507d",
+        "53222349fa4387004324324e",
+        "543534s9fa4387004324324d"
+        ],
+    "monitor": {
+        "trigger_limits": []
+    },
+    "tags": []
+}
 ```
 
 #### Sample response
 
 ```
-    {
-        "key": "53ac07777cbb8c2d53000002140b44ebc86f4e99644412a8ea8a344d",
-        "status": "ok",
-        "action": "create"
-    }
+{
+    "key": "53ac07777cbb8c2d53000002140b44ebc86f4e99644412a8ea8a344d",
+    "status": "ok",
+    "action": "create"
+}
 ```
 
 ### Add/Update Keys
@@ -110,59 +110,59 @@ Adding the `suppress_reset` parameter and setting it to `1`, will cause Tyk to *
 #### Sample Request
 
 ```{.copyWrapper}
-    {
-        "allowance": 1000,
-        "rate": 1000,
-        "per": 60,
-        "expires": -1,
-        "quota_max": -1,
-        "quota_renews": 1406121006,
-        "quota_remaining": 0,
-        "quota_renewal_rate": 60,
-        "access_rights": {
-            "234a71b4c2274e5a57610fe48cdedf40": {
-                "api_name": "Versioned API",
-                "api_id": "234a71b4c2274e5a57610fe48cdedf40",
-                "versions": [
-                    "v1"
-                ]
-            }
-        },
-        "org_id": "53ac07777cbb8c2d53000002",
-        "meta_data": {},
-        "oauth_client_id": "",
-        "oauth_keys": {},
-        "basic_auth_data": {
-            "password": "",
-            "hash_type": ""
-        },
-        "jwt_data": {
-            "secret": ""
-        },
-        "hmac_enabled": false,
-        "hmac_string": "",
-        "is_inactive": false,
-        "apply_policy_id": "",
-        "apply_policies": [
-            "59672779fa4387000129507d",
-            "53222349fa4387004324324e",
-            "543534s9fa4387004324324d"
-            ],
-        "monitor": {
-            "trigger_limits": []
-        },
-        "tags": []
-    }
+{
+    "allowance": 1000,
+    "rate": 1000,
+    "per": 60,
+    "expires": -1,
+    "quota_max": -1,
+    "quota_renews": 1406121006,
+    "quota_remaining": 0,
+    "quota_renewal_rate": 60,
+    "access_rights": {
+        "234a71b4c2274e5a57610fe48cdedf40": {
+            "api_name": "Versioned API",
+            "api_id": "234a71b4c2274e5a57610fe48cdedf40",
+            "versions": [
+                "v1"
+            ]
+        }
+    },
+    "org_id": "53ac07777cbb8c2d53000002",
+    "meta_data": {},
+    "oauth_client_id": "",
+    "oauth_keys": {},
+    "basic_auth_data": {
+        "password": "",
+        "hash_type": ""
+    },
+    "jwt_data": {
+        "secret": ""
+    },
+    "hmac_enabled": false,
+    "hmac_string": "",
+    "is_inactive": false,
+    "apply_policy_id": "",
+    "apply_policies": [
+        "59672779fa4387000129507d",
+        "53222349fa4387004324324e",
+        "543534s9fa4387004324324d"
+        ],
+    "monitor": {
+        "trigger_limits": []
+    },
+    "tags": []
+}
 ```
 
 #### Sample response
 
 ```
-    {
-        "key": "sample-key-b3da0730-1d5a-11e4-8c21-0800200c9a66",
-        "status": "ok",
-        "action": "modified"
-    }
+{
+    "key": "sample-key-b3da0730-1d5a-11e4-8c21-0800200c9a66",
+    "status": "ok",
+    "action": "modified"
+}
 ```
 
 #### Example: Importing Existing Keys into Tyk
@@ -174,57 +174,57 @@ This example uses standard `authorization` header authentication, and assumes th
 To import a key called `abc`, save the JSON contents as `token.json` (see example below), then run the following Curl command:
 
 ```
-    curl http://127.0.0.1:8080/tyk/keys/abc -H 'x-tyk-authorization: 352d20ee67be67f6340b4c0605b044b7' -H 'Content-Type: application/json'  -d @token.json
+curl http://127.0.0.1:8080/tyk/keys/abc -H 'x-tyk-authorization: 352d20ee67be67f6340b4c0605b044b7' -H 'Content-Type: application/json'  -d @token.json
 ```
 
 The following request will fail as the key doesn't exist:
 
 ```
-    curl http://127.0.0.1:8080/quickstart/headers -H 'Authorization: invalid123'
+curl http://127.0.0.1:8080/quickstart/headers -H 'Authorization: invalid123'
 ```
 
 But this request will now work, using the imported key:
 
 ```
-    curl http://127.0.0.1:8080/quickstart/headers -H 'Authorization: abc'
+curl http://127.0.0.1:8080/quickstart/headers -H 'Authorization: abc'
 ```
 
 #### Example token.json file
 
-```{.copyWrapper}
-    {
-      "allowance": 1000,
-      "rate": 1000,
-      "per": 60,
-      "expires": -1,
-      "quota_max": -1,
-      "quota_renews": 1406121006,
-      "quota_remaining": 0,
-      "quota_renewal_rate": 60,
-      "access_rights": {
-        "3": {
-          "api_name": "Tyk Test API",
-          "api_id": "3"
-        }
-      },
-      "org_id": "53ac07777cbb8c2d53000002",
-      "basic_auth_data": {
-        "password": "",
-        "hash_type": ""
-      },
-      "hmac_enabled": false,
-      "hmac_string": "",
-      "is_inactive": false,
-      "apply_policy_id": "",
-      "apply_policies": [
-            "59672779fa4387000129507d",
-            "53222349fa4387004324324e",
-            "543534s9fa4387004324324d"
-            ],
-      "monitor": {
-        "trigger_limits": []
-      }
+```{.json}
+{
+  "allowance": 1000,
+  "rate": 1000,
+  "per": 60,
+  "expires": -1,
+  "quota_max": -1,
+  "quota_renews": 1406121006,
+  "quota_remaining": 0,
+  "quota_renewal_rate": 60,
+  "access_rights": {
+    "3": {
+      "api_name": "Tyk Test API",
+      "api_id": "3"
     }
+  },
+  "org_id": "53ac07777cbb8c2d53000002",
+  "basic_auth_data": {
+    "password": "",
+    "hash_type": ""
+  },
+  "hmac_enabled": false,
+  "hmac_string": "",
+  "is_inactive": false,
+  "apply_policy_id": "",
+  "apply_policies": [
+        "59672779fa4387000129507d",
+        "53222349fa4387004324324e",
+        "543534s9fa4387004324324d"
+        ],
+  "monitor": {
+    "trigger_limits": []
+  }
+}
 ```
 
 ### Delete Key
@@ -242,20 +242,20 @@ Deleting a key will remove it permanently from the system, however analytics rel
 #### Sample Request
 
 ```{.copyWrapper}
-    DELETE /tyk/keys/sample-key-b3da0730-1d5a-11e4-8c21-0800200c9a66?api_id=90d2416f4710453663bcc376265f886e HTTP/1.1
-    Host: localhost:8080
-    x-tyk-authorization: 352d20ee67be67f6340b4c0605b044bc4
-    Cache-Control: no-cache
+DELETE /tyk/keys/sample-key-b3da0730-1d5a-11e4-8c21-0800200c9a66?api_id=90d2416f4710453663bcc376265f886e HTTP/1.1
+Host: localhost:8080
+x-tyk-authorization: 352d20ee67be67f6340b4c0605b044bc4
+Cache-Control: no-cache
 ```
 
 #### Sample response
 
 ```
-    {
-        "key": "sample-key-b3da0730-1d5a-11e4-8c21-0800200c9a66",
-        "status": "ok",
-        "action": "deleted"
-    }
+{
+    "key": "sample-key-b3da0730-1d5a-11e4-8c21-0800200c9a66",
+    "status": "ok",
+    "action": "deleted"
+}
 ```
 
 ### List Keys
@@ -273,21 +273,21 @@ You can retrieve all the keys in your Tyk instance.
 #### Sample Request
 
 ```{.copyWrapper}
-    GET /tyk/keys/?api_id=90d2416f4710453663bcc376265f886e HTTP/1.1
-    Host: localhost:8080
-    x-tyk-authorization: 352d20ee67be67f6340b4c0605b044bc4
-    Cache-Control: no-cache
+GET /tyk/keys/?api_id=90d2416f4710453663bcc376265f886e HTTP/1.1
+Host: localhost:8080
+x-tyk-authorization: 352d20ee67be67f6340b4c0605b044bc4
+Cache-Control: no-cache
 ```
 
 #### Sample Response
 
 ```
-    {
-        "keys": [
-            "53ac07777cbb8c2d53000002c29ebe0faf6540e0673d6af76b270088",
-            "53ac07777cbb8c2d530000027776e9f910e94cd9552c22c908d2d081",
-            "53ac07777cbb8c2d53000002d698728ce964432d7167596bc005c5fc",
-            "53ac07777cbb8c2d530000028210d848c5854cb35917b2f013529d95"
-        ]
-    }
+{
+    "keys": [
+        "53ac07777cbb8c2d53000002c29ebe0faf6540e0673d6af76b270088",
+        "53ac07777cbb8c2d530000027776e9f910e94cd9552c22c908d2d081",
+        "53ac07777cbb8c2d53000002d698728ce964432d7167596bc005c5fc",
+        "53ac07777cbb8c2d530000028210d848c5854cb35917b2f013529d95"
+    ]
+}
 ```

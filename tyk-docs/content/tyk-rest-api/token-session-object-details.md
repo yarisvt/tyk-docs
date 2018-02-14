@@ -12,52 +12,52 @@ All tokens that are used to access services via Tyk correspond to a session obje
 A session object takes the following form:
 
 ```{.copyWrapper}
-    {
-        "last_check": 0,
-        "allowance": 1000,
-        "rate": 1000,
-        "per": 1,
-        "expires": 1458669677,
-        "quota_max": 1000,
-        "quota_renews": 1458667309,
-        "quota_remaining": 1000,
-        "quota_renewal_rate": 3600,
-        "access_rights": {
-            "e1d21f942ec746ed416ab97fe1bf07e8": {
-                "api_name": "Closed",
-                "api_id": "e1d21f942ec746ed416ab97fe1bf07e8",
-                "versions": ["Default"],
-                "allowed_urls": null
-            }
-        },
-        "org_id": "53ac07777cbb8c2d53000002",
-        "oauth_client_id": "",
-        "basic_auth_data": {
-            "password": "",
-            "hash_type": ""
-        },
-        "jwt_data": {
-            "secret": ""
-        },
-        "hmac_enabled": false,
-        "hmac_string": "",
-        "is_inactive": false,
-        "apply_policy_id": "",
-        "apply_policies": [
-            "59672779fa4387000129507d",
-            "53222349fa4387004324324e",
-            "543534s9fa4387004324324d"
-            ],
-        "data_expires": 0,
-        "monitor": {
-            "trigger_limits": null
-        },
-        "meta_data": {
-            "test": "test-data"
-        },
-        "tags": ["tag1", "tag2"],
-        "alias": "john@smith.com" 
-    }
+{
+    "last_check": 0,
+    "allowance": 1000,
+    "rate": 1000,
+    "per": 1,
+    "expires": 1458669677,
+    "quota_max": 1000,
+    "quota_renews": 1458667309,
+    "quota_remaining": 1000,
+    "quota_renewal_rate": 3600,
+    "access_rights": {
+        "e1d21f942ec746ed416ab97fe1bf07e8": {
+            "api_name": "Closed",
+            "api_id": "e1d21f942ec746ed416ab97fe1bf07e8",
+            "versions": ["Default"],
+            "allowed_urls": null
+        }
+    },
+    "org_id": "53ac07777cbb8c2d53000002",
+    "oauth_client_id": "",
+    "basic_auth_data": {
+        "password": "",
+        "hash_type": ""
+    },
+    "jwt_data": {
+        "secret": ""
+    },
+    "hmac_enabled": false,
+    "hmac_string": "",
+    "is_inactive": false,
+    "apply_policy_id": "",
+    "apply_policies": [
+        "59672779fa4387000129507d",
+        "53222349fa4387004324324e",
+        "543534s9fa4387004324324d"
+        ],
+    "data_expires": 0,
+    "monitor": {
+        "trigger_limits": null
+    },
+    "meta_data": {
+        "test": "test-data"
+    },
+    "tags": ["tag1", "tag2"],
+    "alias": "john@smith.com" 
+}
 ```
 
 * `last_check` (**deprecated**): No longer used, but this value is related to rate limiting.
