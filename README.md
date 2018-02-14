@@ -34,11 +34,13 @@ The docs content lives in `tyk-docs/content`.
 
 1. Add a new folder in within the `tyk-docs/tyk-docs/content/` Directory. For example `new-section`
 2. Within your new folder create a markdown file with the same name as the folder (including any hyphens). So for the above folder, create `new-section.md`. This file will be converted to the equivalent of an `index.html` file.
-3. You can then create other markdown files, that you can name as you want.
+3. You can then create other markdown files within that directory, that you can name as you want.
+
+![example][1]
 
 ### Front Matter
 
-In each file there is a "front matter": in hugo-speak:
+For each new file, you need to add YAML formated [Front Matter](http://gohugo.io/content-management/front-matter/):
 
 ```
 ---
@@ -51,9 +53,9 @@ weight: 5
 ---
 ```
 
-You can create a dynamic, nested navigation heirarchy simply by changing the `parent` field to the name of the parent page. Note, **these names must be unique**)
+You can create a dynamic, nested navigation hierarchy simply by changing the `parent` field to the name of the parent page. Note, **these names must be unique**.
 
-To create a new top-level page, the front matter just looks like this:
+For a new top-level page (like `new-section.md` in the example above), the front matter looks like this:
 
 ```
 --- 
@@ -69,7 +71,7 @@ Notice that we just define the `menu` field as a simple string.
 
 ## Content
 
-The content itself is just markdown that follows the front matter block. When you add and edit new content, Hugo should auto-reload and you should be able to see the changes live in your browser (if not, refresh). Sometimes hugo gets confused and you need to re-run it.
+The content itself is just markdown that follows the front matter block. When you add and edit new content, Hugo should auto-reload and you should be able to see the changes live in your browser (if not, refresh). Sometimes Hugo gets confused and you may need to re-run it.
 
 ## License
 
@@ -78,3 +80,5 @@ Tyk is released under the MPL v2.0 please see the [license file](LICENSE.md) for
 ## The Pipeline
 
 If you push to this repository, Buddy Works will compile and push the static site to our dev server (details in slack).
+
+[1]: /docs/img/readme-example.png
