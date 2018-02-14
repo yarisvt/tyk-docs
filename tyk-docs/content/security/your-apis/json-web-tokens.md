@@ -33,7 +33,7 @@ Currently HMAC Signing and RSA Public/Private key signing is supported. To enabl
     "jwt_signing_method": "rsa"
 ```
 
-This setup will use the `sub` claim as the base for this tokens identity, and this will form the basis of the token Tyk will use internally to enforce rate limits and quotas, the `policy ID` (e.g `72ab02b3be743101c6132342`) is the policy to apply to this token, the policy will be applied the first time the token is seen and then modified if the policy changes in the claim. This means you can control rate limits very easily using claims.
+This setup will use the `sub` claim as the base for this tokens identity, and this will form the basis of the token Tyk will use internally to enforce rate limits and quotas, the `policy-id` (e.g `72ab02b3be743101c6132342`) is the policy to apply to this token, the policy will be applied the first time the token is seen and then modified if the policy changes in the claim. This means you can control rate limits very easily using claims.
 
 ### Setting up JWT Support in the Dashboard
 
