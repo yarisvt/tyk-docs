@@ -36,7 +36,7 @@ The docs content lives in `tyk-docs/content`.
 2. Within your new folder create a markdown file with the same name as the folder (including any hyphens). So for the above folder, create `new-section.md`. This file will be converted to the equivalent of an `index.html` file.
 3. You can then create other markdown files within that directory, that you can name as you want.
 
-![example][1]
+![readme-example](https://user-images.githubusercontent.com/1983518/36219727-457c16f4-11b0-11e8-9839-946ef00c4655.png)
 
 ### Front Matter
 
@@ -80,5 +80,3 @@ Tyk is released under the MPL v2.0 please see the [license file](LICENSE.md) for
 ## The Pipeline
 
 If you push to this repository, Buddy Works will compile and push the static site to our dev server (details in slack).
-
-[1]: /docs/img/readme-example.png
