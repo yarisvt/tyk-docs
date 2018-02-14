@@ -1,6 +1,6 @@
 # Tyk Documentation
 
-Contains the Tyk Documentation source.
+Contains the [Tyk Documentation](https://tyk.io/docs/) source.
 
 ## How to Contribute
 
