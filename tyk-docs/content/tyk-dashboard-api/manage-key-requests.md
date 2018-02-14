@@ -20,46 +20,46 @@ weight: 8
 ### Sample Request
 
 ```{.copyWrapper}
-    GET /api/portal/requests?p=0 HTTP/1.1
-    Host: localhost
-    authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
+GET /api/portal/requests?p=0 HTTP/1.1
+Host: localhost
+authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 ```
 
 #### Sample Response
 
 ```
-    {
-        "Data": [
-            {
-                "_id": "554c789030c55e4ca0000002",
-                "approved": true,
-                "by_user": "554c733a30c55e4b16000002",
-                "date_created": "2015-05-08T04:49:20.992-04:00",
-                "fields": {
-                    "custom1": "sdf",
-                    "custom2": "sdf"
-                },
-                "for_api": "",
-                "org_id": "53ac07777cbb8c2d53000002",
-                "version": "v2",
-                "for_plan": "554c789030c55e4ca0101002"
+{
+    "Data": [
+        {
+            "_id": "554c789030c55e4ca0000002",
+            "approved": true,
+            "by_user": "554c733a30c55e4b16000002",
+            "date_created": "2015-05-08T04:49:20.992-04:00",
+            "fields": {
+                "custom1": "sdf",
+                "custom2": "sdf"
             },
-            {
-                "_id": "5527e9ef30c55e7a2c000005",
-                "approved": true,
-                "by_user": "5527e9e430c55e7a2c000004",
-                "date_created": "2015-04-10T11:19:11.77-04:00",
-                "fields": {
-                    "custom1": "sdf",
-                    "custom2": "sdf"
-                },
-                "for_api": "b605a6f03cc14f8b74665452c263bf19",
-                "org_id": "53ac07777cbb8c2d53000002",
-                "version": ""
+            "for_api": "",
+            "org_id": "53ac07777cbb8c2d53000002",
+            "version": "v2",
+            "for_plan": "554c789030c55e4ca0101002"
+        },
+        {
+            "_id": "5527e9ef30c55e7a2c000005",
+            "approved": true,
+            "by_user": "5527e9e430c55e7a2c000004",
+            "date_created": "2015-04-10T11:19:11.77-04:00",
+            "fields": {
+                "custom1": "sdf",
+                "custom2": "sdf"
             },
-            ...],
-        "Pages": 2
-    }
+            "for_api": "b605a6f03cc14f8b74665452c263bf19",
+            "org_id": "53ac07777cbb8c2d53000002",
+            "version": ""
+        },
+        ...],
+    "Pages": 2
+}
 ```
 
 ### Get a specific key request
@@ -75,25 +75,25 @@ weight: 8
 #### Sample Request
 
 ```{.copyWrapper}
-    GET /api/portal/requests/554c789030c55e4ca0000002 HTTP/1.1
-    Host: localhost
-    authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
+GET /api/portal/requests/554c789030c55e4ca0000002 HTTP/1.1
+Host: localhost
+authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 ```
 
 #### Sample Response
 
 ```
-    {
-        "id": "554c789030c55e4ca0000002",
-        "org_id": "53ac07777cbb8c2d53000002",
-        "for_api": "",
-        "by_user": "554c733a30c55e4b16000002",
-        "fields": {},
-        "approved": true,
-        "date_created": "2015-05-08T04:49:20.992-04:00",
-        "version": "v2",
-        "for_plan": "554c789030c55e4ca0101002"
-    }
+{
+    "id": "554c789030c55e4ca0000002",
+    "org_id": "53ac07777cbb8c2d53000002",
+    "for_api": "",
+    "by_user": "554c733a30c55e4b16000002",
+    "fields": {},
+    "approved": true,
+    "date_created": "2015-05-08T04:49:20.992-04:00",
+    "version": "v2",
+    "for_plan": "554c789030c55e4ca0101002"
+}
 ```
 
 ### Approve a key request
@@ -109,17 +109,17 @@ weight: 8
 #### Sample Request
 
 ```{.copyWrapper}
-    PUT /api/portal/requests/approve/554c789030c55e4ca0000002 HTTP/1.1
-    Host: localhost
-    authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
+PUT /api/portal/requests/approve/554c789030c55e4ca0000002 HTTP/1.1
+Host: localhost
+authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 ```
 
 #### Sample Response:
 
 ```
-    {
-        "RawKey":"53ac07777cbb8c2d5300000215811f02c21540dd5257eb68d3d73f35"
-    }
+{
+    "RawKey":"53ac07777cbb8c2d5300000215811f02c21540dd5257eb68d3d73f35"
+}
 ```
 
 ### Create a key request
@@ -141,30 +141,30 @@ By default, all key requests created for new catalogue entries will be version 2
 #### Sample Request
 
 ```{.copyWrapper}
-    POST /api/portal/requests HTTP/1.1
-    Host: localhost
-    authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
-    
-    {
-        "by_user": "554c733a30c55e4b16000002",
-        "date_created": "2015-05-08T04:49:20.992-04:00",
-        "fields": {
-            "custom1": "sdf",
-            "custom2": "sdf"
-        },
-        "for_plan": "554c789030c55e4ca0101002",
-        "version": "v2"
-    }
+POST /api/portal/requests HTTP/1.1
+Host: localhost
+authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
+
+{
+    "by_user": "554c733a30c55e4b16000002",
+    "date_created": "2015-05-08T04:49:20.992-04:00",
+    "fields": {
+        "custom1": "sdf",
+        "custom2": "sdf"
+    },
+    "for_plan": "554c789030c55e4ca0101002",
+    "version": "v2"
+}
 ```
 
 #### Sample Response
 
 ```
-    {
-        "Status":"OK",
-        "Message":"554c789030c55e4ca0000002",
-        "Meta":""
-    }
+{
+    "Status":"OK",
+    "Message":"554c789030c55e4ca0000002",
+    "Meta":""
+}
 ```
 
 ### Delete a specific key request
@@ -180,18 +180,18 @@ By default, all key requests created for new catalogue entries will be version 2
 #### Sample Request
 
 ```{.copyWrapper}
-    DELETE /api/portal/requests/554c789030c55e4ca0000002 HTTP/1.1
-    Host: localhost
-    authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
+DELETE /api/portal/requests/554c789030c55e4ca0000002 HTTP/1.1
+Host: localhost
+authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 ```
 
 #### Sample Response
 
 ```
-    {
-        "Status":"OK",
-        "Message":"Data deleted",
-        "Meta":""
-    }
+{
+    "Status":"OK",
+    "Message":"Data deleted",
+    "Meta":""
+}
 ```
 

@@ -22,14 +22,14 @@ Since the Dashboard can have multiple URLs associated with it. It is possible to
 #### Sample Request
 
 ```{.copyWrapper}
-    GET /admin/system/reload HTTP/1.1
-    Host: localhost:3000
-    admin-auth:12345
+GET /admin/system/reload HTTP/1.1
+Host: localhost:3000
+admin-auth:12345
 ```
 
 #### Sample Response
 ```
-    {
-        "status": "ok"
-    }
+{
+    "status": "ok"
+}
 ```

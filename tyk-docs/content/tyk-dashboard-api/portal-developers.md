@@ -20,9 +20,9 @@ weight: 7
 #### Sample Request
 
 ```{.copyWrapper}
-    GET /api/portal/developers HTTP/1.1
-    Host: localhost
-    authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
+GET /api/portal/developers HTTP/1.1
+Host: localhost
+authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 ```
 
 #### Sample Response

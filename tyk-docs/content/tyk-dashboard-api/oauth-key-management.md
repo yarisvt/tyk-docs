@@ -23,20 +23,20 @@ Any OAuth keys must be generated under an API in the Dashboard. Any POST request
 #### Sample Request
 
 ```{.copyWrapper}
-    curl -vX POST -H "Authorization: {{API Access Credentials}}" \
-      -H "Content-Type: application/json" \
-      -d '{"redirect_uri": "", "policy_id": "{{policy_id}}"}' http://{{dasboard-hostname}}/api/apis/oauth/{{api-id}}
+  curl -vX POST -H "Authorization: {{API Access Credentials}}" \
+    -H "Content-Type: application/json" \
+    -d '{"redirect_uri": "", "policy_id": "{{policy_id}}"}' http://{{dasboard-hostname}}/api/apis/oauth/{{api-id}}
 ```
 
 #### Sample Response
 
 ```
-    {
-      "client_id": "72083e90e9b044c57e2667d49effff78",
-      "secret": "YWUxZTM2ODItOTJjYS00MmIyLTQxZGEtZTE0M2MzNmYwMDI2",
-      "redirect_uri": "",
-      "policy_id": "57f7b07647e0800001aa2320"
-    }
+{
+  "client_id": "72083e90e9b044c57e2667d49effff78",
+  "secret": "YWUxZTM2ODItOTJjYS00MmIyLTQxZGEtZTE0M2MzNmYwMDI2",
+  "redirect_uri": "",
+  "policy_id": "57f7b07647e0800001aa2320"
+}
 ```
 
 ### List OAuth Clients
@@ -52,31 +52,31 @@ Any OAuth keys must be generated under an API in the Dashboard. Any POST request
 #### Sample Request
 
 ```{.copyWrapper}
-    curl -vX GET -H "Authorization: {{API Access Credentials}}" \
-      -H "Content-Type: application/json" \
-      http://{{dashboard-hostname}}/api/apis/oauth/{{api-id}}
+curl -vX GET -H "Authorization: {{API Access Credentials}}" \
+  -H "Content-Type: application/json" \
+  http://{{dashboard-hostname}}/api/apis/oauth/{{api-id}}
 ```
 
 #### Sample Response
 
 ```
+{
+  "apps": [
     {
-      "apps": [
-        {
-         "client_id": "7dce7fc297424fd65596b51c214666a4",
-         "secret":"Yzg0ZDRjZTctMzUxNy00YmQ5LTRkM2UtMDdmODQ3MTNjNWM5",
-         "redirect_uri": "/cats",
-         "policy_id": "57f7b07647e0800001aa2320"
-       },
-       {
-         "client_id": "72083e90e9b044c57e2667d49effff78",
-         "secret": "YWUxZTM2ODItOTJjYS00MmIyLTQxZGEtZTE0M2MzNmYwMDI2",
-         "redirect_uri": "",
-         "policy_id": "57f7b07647e0800001aa2320"
-        }
-      ],
-      "pages":0
+     "client_id": "7dce7fc297424fd65596b51c214666a4",
+     "secret":"Yzg0ZDRjZTctMzUxNy00YmQ5LTRkM2UtMDdmODQ3MTNjNWM5",
+     "redirect_uri": "/cats",
+     "policy_id": "57f7b07647e0800001aa2320"
+   },
+   {
+     "client_id": "72083e90e9b044c57e2667d49effff78",
+     "secret": "YWUxZTM2ODItOTJjYS00MmIyLTQxZGEtZTE0M2MzNmYwMDI2",
+     "redirect_uri": "",
+     "policy_id": "57f7b07647e0800001aa2320"
     }
+  ],
+  "pages":0
+}
 ```
 
 ### Get an OAuth Client
@@ -92,20 +92,20 @@ Any OAuth keys must be generated under an API in the Dashboard. Any POST request
 #### Sample Request
 
 ```{.copyWrapper}
-    curl -vX GET -H "Authorization: {{API Access Credentials}}" \
-      -H "Content-Type: application/json" \
-      http://localhost:3000/api/apis/oauth/{{api-id}}/{{client_id}}
+curl -vX GET -H "Authorization: {{API Access Credentials}}" \
+  -H "Content-Type: application/json" \
+  http://localhost:3000/api/apis/oauth/{{api-id}}/{{client_id}}
 ```
 
 #### Sample Response
 
 ```
-    {
-      "client_id": "7dce7fc297424fd65596b51c214666a4",
-      "secret": "Yzg0ZDRjZTctMzUxNy00YmQ5LTRkM2UtMDdmODQ3MTNjNWM5",
-      "redirect_uri": "/cats",
-      "policy_id": "57f7b07647e0800001aa2320"
-    }
+{
+  "client_id": "7dce7fc297424fd65596b51c214666a4",
+  "secret": "Yzg0ZDRjZTctMzUxNy00YmQ5LTRkM2UtMDdmODQ3MTNjNWM5",
+  "redirect_uri": "/cats",
+  "policy_id": "57f7b07647e0800001aa2320"
+}
 ```
 
 ### Delete OAuth Client
@@ -123,19 +123,19 @@ You can delete an OAuth client using a simple DELETE method. Please note that to
 #### Sample Request
 
 ```{.copyWrapper}
-    curl -vX DELETE -H "Authorization: {{API Access Credentials}}" \
-      -H "Content-Type: application/json" \
-      http://{{dashboard-hostname}}/api/apis/oauth/{{api-id}}/{{client_id}}
+curl -vX DELETE -H "Authorization: {{API Access Credentials}}" \
+  -H "Content-Type: application/json" \
+  http://{{dashboard-hostname}}/api/apis/oauth/{{api-id}}/{{client_id}}
 ```
 
 #### Sample Response
 
 ```
-    {
-      "Status": "OK",
-      "Message": "OAuth Client deleted successfully",
-      "Meta":null
-    }
+{
+  "Status": "OK",
+  "Message": "OAuth Client deleted successfully",
+  "Meta":null
+}
 ```
 
 ### OAuth Authorization Token
@@ -159,17 +159,17 @@ Note that in the following example, the `policy_id` isn't included in the reques
 #### Sample Request
 
 ```{.copyWrapper}
-    curl -vX POST -H "Authorization: {{API Access Credentials}}" \
-      -H "Content-Type: application/x-www-form-urlencoded" \
-      -d 'response_type=code&client_id={{client_id}}&redirect_uri=http%3A%2F%2Foauth.com%2Fredirect&key_rules=%7B+++++%22allowance%22%3A+999%2C+++++%22rate%22%3A+1000%2C+++++%22per%22%3A+60%2C+++++%22expires%22%3A+0%2C+++++%22quota_max%22%3A+-1%2C+++++%22quota_renews%22%3A+1406121006%2C+++++%22quota_remaining%22%3A+0%2C+++++%22quota_renewal_rate%22%3A+60%2C+++++%22access_rights%22%3A+%7B+++++++++%22528a67c1ac9940964f9a41ae79235fcc%22%3A+%7B+++++++++++++%22api_name%22%3A+%22{{api_name}}%22%2C+++++++++++++%22api_id%22%3A+%{{api_id}}%22%2C+++++++++++++%22versions%22%3A+%5B+++++++++++++++++%22Default%22+++++++++++++%5D+++++++++%7D+++++%7D%2C+++++%22org_id%22%3A+%22{{org_id}}%22+%7D' 
-    http://{{dashboard-hostname}}/api/apis/oauth/{{api_id}}/authorize-client
+curl -vX POST -H "Authorization: {{API Access Credentials}}" \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -d 'response_type=code&client_id={{client_id}}&redirect_uri=http%3A%2F%2Foauth.com%2Fredirect&key_rules=%7B+++++%22allowance%22%3A+999%2C+++++%22rate%22%3A+1000%2C+++++%22per%22%3A+60%2C+++++%22expires%22%3A+0%2C+++++%22quota_max%22%3A+-1%2C+++++%22quota_renews%22%3A+1406121006%2C+++++%22quota_remaining%22%3A+0%2C+++++%22quota_renewal_rate%22%3A+60%2C+++++%22access_rights%22%3A+%7B+++++++++%22528a67c1ac9940964f9a41ae79235fcc%22%3A+%7B+++++++++++++%22api_name%22%3A+%22{{api_name}}%22%2C+++++++++++++%22api_id%22%3A+%{{api_id}}%22%2C+++++++++++++%22versions%22%3A+%5B+++++++++++++++++%22Default%22+++++++++++++%5D+++++++++%7D+++++%7D%2C+++++%22org_id%22%3A+%22{{org_id}}%22+%7D' 
+http://{{dashboard-hostname}}/api/apis/oauth/{{api_id}}/authorize-client
 ```
 
 #### Sample Response
 
 ```
-    {
-      "code": "MWY0ZDRkMzktOTYwNi00NDRiLTk2YmQtOWQxOGQ3Mjc5Yzdk",
-      "redirect_to": "http://localhost:3000/oauth-redirect/?code=MWY0ZDRkMzktOTYwNi00NDRiLTk2YmQtOWQxOGQ3Mjc5Yzdk"
-    }
+{
+  "code": "MWY0ZDRkMzktOTYwNi00NDRiLTk2YmQtOWQxOGQ3Mjc5Yzdk",
+  "redirect_to": "http://localhost:3000/oauth-redirect/?code=MWY0ZDRkMzktOTYwNi00NDRiLTk2YmQtOWQxOGQ3Mjc5Yzdk"
+}
 ```
