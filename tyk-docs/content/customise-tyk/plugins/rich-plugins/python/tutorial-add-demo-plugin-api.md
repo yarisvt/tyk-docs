@@ -11,41 +11,41 @@ weight: 3
 
 To add a Python plugin to your API, you must specify the bundle name using the `custom_middleware_bundle` field:
 
-```{.copyWrapper}
-    {
-        "name": "Tyk Test API",
-        "api_id": "1",
-        "org_id": "default",
-        "definition": {
-            "location": "header",
-            "key": "version"
-        },
-        "auth": {
-            "auth_header_name": "authorization"
-        },
-        "use_keyless": true,
-        "version_data": {
-            "not_versioned": true,
-            "versions": {
-                "Default": {
-                    "name": "Default",
-                    "expires": "3000-01-02 15:04",
-                    "use_extended_paths": true,
-                    "extended_paths": {
-                        "ignored": [],
-                        "white_list": [],
-                        "black_list": []
-                    }
+```{.json}
+{
+    "name": "Tyk Test API",
+    "api_id": "1",
+    "org_id": "default",
+    "definition": {
+        "location": "header",
+        "key": "version"
+    },
+    "auth": {
+        "auth_header_name": "authorization"
+    },
+    "use_keyless": true,
+    "version_data": {
+        "not_versioned": true,
+        "versions": {
+            "Default": {
+                "name": "Default",
+                "expires": "3000-01-02 15:04",
+                "use_extended_paths": true,
+                "extended_paths": {
+                    "ignored": [],
+                    "white_list": [],
+                    "black_list": []
                 }
             }
-        },
-        "proxy": {
-            "listen_path": "/quickstart/",
-            "target_url": "http://httpbin.org",
-            "strip_listen_path": true
-        },
-        "custom_middleware_bundle": "test-bundle",
-    }
+        }
+    },
+    "proxy": {
+        "listen_path": "/quickstart/",
+        "target_url": "http://httpbin.org",
+        "strip_listen_path": true
+    },
+    "custom_middleware_bundle": "test-bundle",
+}
 ```
 
 ## <a name="global-settings"></a>Global settings
@@ -53,12 +53,12 @@ To add a Python plugin to your API, you must specify the bundle name using the `
 To enable Python plugins you need to add the following block to `tyk.conf`:
 
 ```{.copyWrapper}
-    "coprocess_options": {
-      "enable_coprocess": true,
-    },
-    "enable_bundle_downloader": true,
-    "bundle_base_url": "http://dummy-bundle-server.com/bundles/",
-    "public_key_path": "/path/to/my/pubkey",
+"coprocess_options": {
+  "enable_coprocess": true,
+},
+"enable_bundle_downloader": true,
+"bundle_base_url": "http://dummy-bundle-server.com/bundles/",
+"public_key_path": "/path/to/my/pubkey",
 ```
 
 `enable_coprocess`: enables the rich plugins feature.
@@ -76,17 +76,17 @@ To use Tyk with Python support you will need to use an alternative binary, it is
 Firstly stop the standard Tyk version:
 
 ```{.copyWrapper}
-    service tyk-gateway stop
+service tyk-gateway stop
 ```
 
 and then start the Python build:
 
 ```{.copyWrapper}
-    service tyk-gateway-python start
+service tyk-gateway-python start
 ```
 
 To restart Tyk use:
 
 ```{.copyWrapper}
-    service tyk-gateway-python restart
+service tyk-gateway-python restart
 ```

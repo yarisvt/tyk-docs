@@ -264,7 +264,7 @@ The gRPC server will listen on port 5555 (as defined in `Program.cs`). In the ne
 
 We need to create a manifest file within the `tyk-plugin` directory. This file contains information about our plugin and how we expect it to interact with the API that will load it. This file should be named `manifest.json` and needs to contain the following:
 
-```{json}
+```{.json}
 {
     "custom_middleware": {
         "driver": "grpc",

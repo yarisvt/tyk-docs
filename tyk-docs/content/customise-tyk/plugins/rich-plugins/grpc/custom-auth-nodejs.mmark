@@ -73,7 +73,7 @@ Now we're ready to implement our gRPC server, create a file called `main.js` in 
 
 Add the following code to `main.js`.
 
-```{javascript}
+```{.javascript}
 const grpc = require('grpc'),
     resolve = require('path').resolve
 
@@ -165,7 +165,7 @@ The gRPC server will listen on port `5555` (see the `listenAddr` constant). In t
 
 We need to create a manifest file within the `tyk-plugin` directory. This file contains information about our plugin and how we expect it to interact with the API that will load it. This file should be named `manifest.json` and needs to contain the following:
 
-```{json}
+```{.json}
 {
     "custom_middleware": {
         "driver": "grpc",

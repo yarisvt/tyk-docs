@@ -7,36 +7,37 @@ menu:
 weight: 0 
 ---
 
-In order to activate middleware in a CE configuration or when using a file-based setup, the middleware needs to be registered as part of your API Definition, registration of middleware components is relatively simple, *it is important that your object names are unique*.
+In order to activate middleware in a Tyk Community Edition edition or when using a file-based setup, the middleware needs to be registered as part of your API Definition. Registration of middleware components is relatively simple.
+> **Note**: it is important that your object names are unique.
 
 Adding the middleware plugin is as simple as adding it to your definition file in the middleware sections:
 
 ```{.copyWrapper}
-    // sample_api.conf
-    
-    ...
-    "event_handlers": {},
-    "custom_middleware": {
-        "pre": [
-            {
-                "name": "sampleMiddleware",
-                "path": "middleware/sample.js",
-                "require_session": false
-            }
-        ],
-        "post": [
-            {
-                "name": "sampleMiddleware",
-                "path": "middleware/sample.js",
-                "require_session": false
-            }
-        ]
-    },
-    "enable_batch_request_support": false,
-    ...
+// sample_api.conf
+
+...
+"event_handlers": {},
+"custom_middleware": {
+    "pre": [
+        {
+            "name": "sampleMiddleware",
+            "path": "middleware/sample.js",
+            "require_session": false
+        }
+    ],
+    "post": [
+        {
+            "name": "sampleMiddleware",
+            "path": "middleware/sample.js",
+            "require_session": false
+        }
+    ]
+},
+"enable_batch_request_support": false,
+...
 ```
 
-As you can see, the parameters are all dynamic, so you will need to ensure that the path to your middleware is correct, the configuration sections here are as follows:
+As you can see, the parameters are all dynamic, so you will need to ensure that the path to your middleware is correct. The configuration sections are as follows:
 
 *   `pre`: Defines a list of custom middleware objects to run *in order* from top to bottom. That will be executed *before* any authentication information is extracted from the header or parameter list of the request. Use middleware in this section to pre-process a request before feeding it through the Tyk middleware.
 
@@ -44,7 +45,7 @@ As you can see, the parameters are all dynamic, so you will need to ensure that 
     
     `var sampleMiddleware = new TykJS.TykMiddleware.NewMiddleware({});`
 
-*   `pre[].path`: The path to the middleware component, this will be loaded into the JSVM when the API is initialised. This means that if you reload an API configuration, the middleware will also be re-loaded. Meaning you can hot-swap middleware on reload with no service interruption.
+*   `pre[].path`: The path to the middleware component, this will be loaded into the JSVM when the API is initialised. This means that if you reload an API configuration, the middleware will also be re-loaded. You can hot-swap middleware on reload with no service interruption.
 
 *   `pre[].require_session`: Irrelevant for pre-processor middleware, since no auth data has been extracted by the authentication middleware, it cannot be made available to the middleware.
 
@@ -54,6 +55,6 @@ As you can see, the parameters are all dynamic, so you will need to ensure that 
     
     `var sampleMiddleware = new TykJS.TykMiddleware.NewMiddleware({});`
 
-*   `post[].path`: The path to the middleware component, this will be loaded into the JSVM when the API is initialised. This means that if you reload an API configuration, the middleware will also be re-loaded. Meaning you can hot-swap middleware on reload with no service interruption.
+*   `post[].path`: The path to the middleware component, this will be loaded into the JSVM when the API is initialised. This means that if you reload an API configuration, the middleware will also be re-loaded. You can hot-swap middleware on reload with no service interruption.
 
 *   `post[].require_session`: Defaults to `false`, if you require access to the session object, it will be supplied as a `session` variable to your middleware processor function.

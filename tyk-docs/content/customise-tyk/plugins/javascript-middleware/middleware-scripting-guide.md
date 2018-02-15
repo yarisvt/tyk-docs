@@ -34,20 +34,20 @@ Creating a middleware object is done my calling the `TykJS.TykMiddleware.NewMidd
 Here is an example implementation:
 
 ```{.copyWrapper}
-    /* --- sample.js --- */
-    
-    // Create your middleware object
-    var sampleMiddleware = new TykJS.TykMiddleware.NewMiddleware({});
-    
-    // Initialise it with your functionality by passing a closure that accepts two objects
-    // into the NewProcessRequest() function:
-    sampleMiddleware.NewProcessRequest(function(request, session, spec) {
-    
-        console.log("This middleware does nothing, but will print this to your terminal.")
-    
-        // You MUST return both the request and session metadata    
-        return sampleMiddleware.ReturnData(request, session.meta_data);
-    });    
+/* --- sample.js --- */
+
+// Create your middleware object
+var sampleMiddleware = new TykJS.TykMiddleware.NewMiddleware({});
+
+// Initialise it with your functionality by passing a closure that accepts two objects
+// into the NewProcessRequest() function:
+sampleMiddleware.NewProcessRequest(function(request, session, spec) {
+
+    console.log("This middleware does nothing, but will print this to your terminal.")
+
+    // You MUST return both the request and session metadata    
+    return sampleMiddleware.ReturnData(request, session.meta_data);
+});    
 ```
 
 #### Middleware component variables
@@ -57,7 +57,7 @@ As well as the API functions that all JSVM components share, the middleware comp
 In the example above, we can see that we return 2 of these variables (`request` and `session` meta data) - this is a requirement, and omitting it can cause the middleware to fail, this line should be called at the end of each process:
 
 ```
-    return sampleMiddleware.ReturnData(request, session.meta_data);
+return sampleMiddleware.ReturnData(request, session.meta_data);
 ```
 
 This allows the middleware machinery to perform the necessary writes and changes to the two main context objects.
@@ -67,19 +67,19 @@ This allows the middleware machinery to perform the necessary writes and changes
 The `request` object provides a set of arrays that can be manipulated, that when changed, will affect the request as it passes through the middleware pipeline, the `request` object looks like this:
 
 ```{.copyWrapper}
-    {
-        Headers       map[string][]string
-        SetHeaders    map[string]string
-        DeleteHeaders []string
-        Body          string
-        URL           string
-        AddParams     map[string]string
-        DeleteParams  []string
-        ReturnOverrides {
-            ResponseCode: int
-            ResponseError: string
-        }
+{
+    Headers       map[string][]string
+    SetHeaders    map[string]string
+    DeleteHeaders []string
+    Body          string
+    URL           string
+    AddParams     map[string]string
+    DeleteParams  []string
+    ReturnOverrides {
+        ResponseCode: int
+        ResponseError: string
     }
+}
 ```
 
 *   `Headers`: This is an object of string arrays, and represents the current state of the request header. This object cannot be modified directly, but can be used to read header data.
@@ -102,29 +102,29 @@ In order for middleware to be able to transfer data between each other, the sess
 The session object has the same representation as the one used by the API:
 
 ```{.copyWrapper}
-    {
-        "allowance": 999,
-        "rate": 1000,
-        "per": 60,
-        "expires": 0,
-        "quota_max": -1,
-        "quota_renews": 1406121006,
-        "quota_remaining": 0,
-        "quota_renewal_rate": 60,
-        "access_rights": {
-            "234a71b4c2274e5a57610fe48cdedf40": {
-                "api_name": "Versioned API",
-                "api_id": "234a71b4c2274e5a57610fe48cdedf40",
-                "versions": [
-                    "v1"
-                ]
-            }
-        },
-        "org_id": "53ac07777cbb8c2d53000002",
-        "meta_data": {
-            "your-key": "your-value"
+{
+    "allowance": 999,
+    "rate": 1000,
+    "per": 60,
+    "expires": 0,
+    "quota_max": -1,
+    "quota_renews": 1406121006,
+    "quota_remaining": 0,
+    "quota_renewal_rate": 60,
+    "access_rights": {
+        "234a71b4c2274e5a57610fe48cdedf40": {
+            "api_name": "Versioned API",
+            "api_id": "234a71b4c2274e5a57610fe48cdedf40",
+            "versions": [
+                "v1"
+            ]
         }
+    },
+    "org_id": "53ac07777cbb8c2d53000002",
+    "meta_data": {
+        "your-key": "your-value"
     }
+}
 ```
 
 There are other ways of accessing and editing a session object by using the Tyk JSVM API functions.
@@ -138,9 +138,9 @@ You can use the `config_data` special field in your API definition to pass custo
 Add the following to the root of your API definition:
 
 ```{.copyWrapper}
-    "config_data": {
-        "foo": "bar"
-    },
+"config_data": {
+    "foo": "bar"
+},
 ```
 
 #### Sample use of `config_data`

@@ -14,34 +14,34 @@ A gRPC plugin uses the standard bundling mechanism that you use for the rest of 
 This is what a manifest could look like:
 
 ```{.copyWrapper}
-    {
-      "file_list": [
-      ],
-      "custom_middleware": {
-        "pre": [
-          {
-            "name": "MyPreMiddleware",
-          }
-        ],
-        "post": [
-          {
-            "name": "MyPostMiddleware",
-          }
-        ],
-        "auth_check": {
-          "name": "MyAuthCheck"
-        },
-        "driver": "grpc"
-      },
-      "checksum": "",
-      "signature": ""
-    }
+{
+  "file_list": [
+  ],
+  "custom_middleware": {
+    "pre": [
+      {
+        "name": "MyPreMiddleware",
+      }
+    ],
+    "post": [
+      {
+        "name": "MyPostMiddleware",
+      }
+    ],
+    "auth_check": {
+      "name": "MyAuthCheck"
+    },
+    "driver": "grpc"
+  },
+  "checksum": "",
+  "signature": ""
+}
 ```
 
 After saving this file as `manifest.json`, build it using [tyk-cli][1]:
 
 ```{.copyWrapper}
-  tyk-cli bundle build -output mybundle.zip -key mykey.pem
+tyk-cli bundle build -output mybundle.zip -key mykey.pem
 ```
 
 ## <a name="server"></a> The gRPC server

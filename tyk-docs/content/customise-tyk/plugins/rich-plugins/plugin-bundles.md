@@ -17,28 +17,28 @@ A plugin bundle must include a manifest file (called `manifest.json`). The manif
 
 A sample manifest file looks like this:
 
-```{.copyWrapper}
-    {
-      "file_list": [
-        "middleware.py",
-        "mylib.py"
-      ],
-      "custom_middleware": {
-        "pre": [
-          {
-            "name": "PreMiddleware"
-          }
-        ],
-        "post": [
-          {
-            "name": "PostMiddleware"
-          }
-        ],
-        "driver": "python"
-      },
-      "checksum": "",
-      "signature": ""
-    }
+```{.json}
+{
+  "file_list": [
+    "middleware.py",
+    "mylib.py"
+  ],
+  "custom_middleware": {
+    "pre": [
+      {
+        "name": "PreMiddleware"
+      }
+    ],
+    "post": [
+      {
+        "name": "PostMiddleware"
+      }
+    ],
+    "driver": "python"
+  },
+  "checksum": "",
+  "signature": ""
+}
 ```
 
 You may leave the `checksum` and `signature` fields empty, the bundler tool will fill these during the build process.
@@ -58,7 +58,7 @@ The bundler tool enables you to sign a bundle using a private key. Tyk configura
 After installing any of the Tyk Gateway packages, the program will be located in the following path:
 
 ```
-  /opt/tyk-gateway/utils/tyk-cli
+/opt/tyk-gateway/utils/tyk-cli
 ```
 
 You may use the full path to call this program, feel free to create a symbolic link or attach its directory to your `PATH`.
@@ -72,7 +72,7 @@ You may use the full path to call this program, feel free to create a symbolic l
 This step will assume that you're located in your plugin directory and a valid manifest file is present. The bundle tool provides a `build` command, the most basic usage/syntax looks like this:
 
 ```{.copyWrapper}
-  $ tyk-cli bundle build
+$ tyk-cli bundle build
 ```
 
 The resulting file will contain all your specified files and a modified `manifest.json` with the right checksum and signature (if required), in ZIP format.
@@ -92,9 +92,9 @@ The following options are supported:
 To load a bundle plugin the following parameters must be specified in your `tyk.conf`:
 
 ```{.copyWrapper}
-    "enable_bundle_downloader": true,
-    "bundle_base_url": "http://my-bundle-server.com/bundles/",
-    "public_key_path": "/path/to/my/pubkey",
+"enable_bundle_downloader": true,
+"bundle_base_url": "http://my-bundle-server.com/bundles/",
+"public_key_path": "/path/to/my/pubkey",
 ```
 
 *   `enable_bundle_downloader`: Enables the bundle downloader.
@@ -106,46 +106,46 @@ To load a bundle plugin the following parameters must be specified in your `tyk.
 To use a bundle plugin on one of your specified APIs, you must add the following parameter to its configuration block:
 
 ```{.copyWrapper}
-  "custom_middleware_bundle": "bundle-latest.zip"
+"custom_middleware_bundle": "bundle-latest.zip"
 ```
 
-A complete API configuration would look like:
+A complete API Definition would look like:
 
-```{.copyWrapper}
-    {
-        "name": "Tyk Test API",
-        "api_id": "1",
-        "org_id": "default",
-        "definition": {
-            "location": "header",
-            "key": "version"
-        },
-        "auth": {
-            "auth_header_name": "authorization"
-        },
-        "use_keyless": true,
-        "version_data": {
-            "not_versioned": true,
-            "versions": {
-                "Default": {
-                    "name": "Default",
-                    "expires": "3000-01-02 15:04",
-                    "use_extended_paths": true,
-                    "extended_paths": {
-                        "ignored": [],
-                        "white_list": [],
-                        "black_list": []
-                    }
+```{.json}
+{
+    "name": "Tyk Test API",
+    "api_id": "1",
+    "org_id": "default",
+    "definition": {
+        "location": "header",
+        "key": "version"
+    },
+    "auth": {
+        "auth_header_name": "authorization"
+    },
+    "use_keyless": true,
+    "version_data": {
+        "not_versioned": true,
+        "versions": {
+            "Default": {
+                "name": "Default",
+                "expires": "3000-01-02 15:04",
+                "use_extended_paths": true,
+                "extended_paths": {
+                    "ignored": [],
+                    "white_list": [],
+                    "black_list": []
                 }
             }
-        },
-        "proxy": {
-            "listen_path": "/quickstart/",
-            "target_url": "http://httpbin.org",
-            "strip_listen_path": true
-        },
-        "custom_middleware_bundle": "bundle-latest.zip",
-    }
+        }
+    },
+    "proxy": {
+        "listen_path": "/quickstart/",
+        "target_url": "http://httpbin.org",
+        "strip_listen_path": true
+    },
+    "custom_middleware_bundle": "bundle-latest.zip",
+}
 ```
 
 Tyk will fetch `http://my-bundle-server.com/bundles/bundle-latest.zip` on start. A plugin bundle will be cached after its initial download, if a Tyk reload event occurs, the same contents will be used. If you want to replace it, you must update your API configuration to use a different name and then trigger a reload.
