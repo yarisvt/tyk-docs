@@ -49,7 +49,7 @@ Once you have issued a token you can login to the dashboard using the `/tap` url
 If `nonce` is valid, Tyk will create a temporary user and log them in. 
 
 #### Set up default permissions for the dashboard
-If you use the token with `dashboard` scope, and would like to avoid login in as admin user (which is the default permissions), you can add the `sso_permission_defaults` configuration option to the Dashboard config file (tyk_analytics.conf) to specify SSO user permissions in the following format:
+If you use the token with `dashboard` scope, and would like to avoid login in as admin user (which is the default permissions), you can add the `sso_permission_defaults` configuration option to the Dashboard config file (`tyk_analytics.conf`) to specify SSO user permissions in the following format:
 
 ```
 "sso_permission_defaults": {
