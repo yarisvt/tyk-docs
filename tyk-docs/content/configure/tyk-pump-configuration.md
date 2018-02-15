@@ -44,9 +44,9 @@ Create a `pump.conf` file:
 	  "mongo-pump-aggregate": {
     		"name": "mongo-pump-aggregate",
     		"meta": {
-     			 "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/{db_name}"
-    		},
-    		"use_mixed_collection": true
+     			 "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/{db_name}",
+			 "use_mixed_collection": true
+    		}
     	  },
 	  "csv": {
 		  "name": "csv",
