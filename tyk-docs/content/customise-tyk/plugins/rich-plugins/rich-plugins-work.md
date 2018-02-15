@@ -9,27 +9,27 @@ weight: 2
 
 ### ID extractor & auth cache
 
-The ID extractor is a very useful mechanism that will let you cache your authentication IDs and prevent certain requests from hitting your CP backend. It takes a set of rules from your API configuration (the rules are set per API).
+The ID extractor is a very useful mechanism that will let you cache your authentication IDs and prevent certain requests from hitting your CP backend. It takes a set of rules from your API Definition (the rules are set per API).
 
 A sample usage will look like this:
 
-```{.copyWrapper}
-    "custom_middleware": {
-      "pre": [
-        {
-          "name": "MyPreMiddleware",
-          "require_session": false
-        }
-      ],
-      "id_extractor": {
-        "extract_from": "header",
-        "extract_with": "value",
-        "extractor_config": {
-          "header_name": "Authorization"
-        }
-      },
-      "driver": "grpc"
-    },
+```{.json}
+"custom_middleware": {
+  "pre": [
+    {
+      "name": "MyPreMiddleware",
+      "require_session": false
+    }
+  ],
+  "id_extractor": {
+    "extract_from": "header",
+    "extract_with": "value",
+    "extractor_config": {
+      "header_name": "Authorization"
+    }
+  },
+  "driver": "grpc"
+},
 ```
 
 Tyk provides a set of ID extractors that aim to cover the most common use cases, a very simple one is the **value extractor**.
@@ -43,10 +43,10 @@ The main interoperability task is achieved by using [cgo][2] as a bridge between
 Your C bridge function must accept and return a `CoProcessMessage` data structure like the one described in [`api.h`][3], where `p_data` is a pointer to the serialized data and `length` indicates the length of it.
 
 ```{.copyWrapper}
-    struct CoProcessMessage {
-      void* p_data;
-      int length;
-    };
+struct CoProcessMessage {
+  void* p_data;
+  int length;
+};
 ```
 
 The unpacked data will hold the actual `CoProcessObject` data structure, where `HookType` represents the hook type (see below), `Request` represents the HTTP request and `Session` is the Tyk session data.
@@ -54,13 +54,13 @@ The unpacked data will hold the actual `CoProcessObject` data structure, where `
 The `Spec` field holds the API specification data, like organization ID, API ID, etc.
 
 ```{.copyWrapper}
-    type CoProcessObject struct {
-        HookType string
-        Request  CoProcessMiniRequestObject
-        Session  SessionState
-        Metadata map[string]string
-        Spec     map[string]string
-    }
+type CoProcessObject struct {
+    HookType string
+    Request  CoProcessMiniRequestObject
+    Session  SessionState
+    Metadata map[string]string
+    Spec     map[string]string
+}
 ```
 
 ### Coprocess Dispatcher
@@ -87,71 +87,71 @@ This component is in charge of dispatching your HTTP requests to the custom midd
 [`coprocess_api.go`][4] provides a bridge between the gateway API and C, any function that needs to be exported should have the `export` keyword:
 
 ```{.copyWrapper}
-    //export TykTriggerEvent
-    func TykTriggerEvent( CEventName *C.char, CPayload *C.char ) {
-      eventName := C.GoString(CEventName)
-      payload := C.GoString(CPayload)
-    
-      FireSystemEvent(tykcommon.TykEvent(eventName), EventMetaDefault{
-        Message: payload,
-      })
-    }
+//export TykTriggerEvent
+func TykTriggerEvent( CEventName *C.char, CPayload *C.char ) {
+  eventName := C.GoString(CEventName)
+  payload := C.GoString(CPayload)
+
+  FireSystemEvent(tykcommon.TykEvent(eventName), EventMetaDefault{
+    Message: payload,
+  })
+}
 ```
 
 You should also expect a header file declaration of this function in [`api.h`][3], like this:
 
 ```{.copyWrapper}
-    #ifndef TYK_COPROCESS_API
-    #define TYK_COPROCESS_API
-    extern void TykTriggerEvent(char* event_name, char* payload);
-    #endif
+#ifndef TYK_COPROCESS_API
+#define TYK_COPROCESS_API
+extern void TykTriggerEvent(char* event_name, char* payload);
+#endif
 ```
 
 The language binding will include this header file (or declare the function inline) and perform the necessary steps to call it with the appropriate arguments (like an FFI mechanism could do). As a reference, this is how this could be achieved if you're building a [Cython][5] module:
 
 ```{.copyWrapper}
-    cdef extern:
-      void TykTriggerEvent(char* event_name, char* payload);
-    
-    def call():
-      event_name = 'my event'.encode('utf-8')
-      payload = 'my payload'.encode('utf-8')
-      TykTriggerEvent( event_name, payload )
+cdef extern:
+  void TykTriggerEvent(char* event_name, char* payload);
+
+def call():
+  event_name = 'my event'.encode('utf-8')
+  payload = 'my payload'.encode('utf-8')
+  TykTriggerEvent( event_name, payload )
 ```
 
 ### Basic usage
 
-The intended way of using a Coprocess middleware is to specify it as part of an API definition:
+The intended way of using a Coprocess middleware is to specify it as part of an API Definition:
 
-```{.copyWrapper}
-    "custom_middleware": {
-      "pre": [
-          {
-              "name": "MyPreMiddleware",
-              "require_session": false
-          },
-          {
-              "name": "AnotherPreMiddleware",
-              "require_session": false
-          }
-      ],
-      "post": [
-        {
-          "name": "MyPostMiddleware",
+```{.json}
+"custom_middleware": {
+  "pre": [
+      {
+          "name": "MyPreMiddleware",
           "require_session": false
-        }
-      ],
-      "post_key_auth": [
-        {
-          "name": "MyPostKeyAuthMiddleware",
-          "require_session": true
-        }
-      ],
-      "auth_check": {
-        "name": "MyAuthCheck"
       },
-      "driver": "python"
+      {
+          "name": "AnotherPreMiddleware",
+          "require_session": false
+      }
+  ],
+  "post": [
+    {
+      "name": "MyPostMiddleware",
+      "require_session": false
     }
+  ],
+  "post_key_auth": [
+    {
+      "name": "MyPostKeyAuthMiddleware",
+      "require_session": true
+    }
+  ],
+  "auth_check": {
+    "name": "MyAuthCheck"
+  },
+  "driver": "python"
+}
 ```
 
 > **Note**: All hook types support chaining except the custom auth check (`auth_check`).

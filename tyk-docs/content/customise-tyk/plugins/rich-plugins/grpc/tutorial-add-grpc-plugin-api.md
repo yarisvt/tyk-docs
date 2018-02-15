@@ -11,41 +11,41 @@ weight: 0
 
 To add a gRPC plugin to your API, you must specify the bundle name using the `custom_middleware_bundle` field:
 
-```{.copyWrapper}
-    {
-        "name": "Tyk Test API",
-        "api_id": "1",
-        "org_id": "default",
-        "definition": {
-            "location": "header",
-            "key": "version"
-        },
-        "auth": {
-            "auth_header_name": "authorization"
-        },
-        "use_keyless": true,
-        "version_data": {
-            "not_versioned": true,
-            "versions": {
-                "Default": {
-                    "name": "Default",
-                    "expires": "3000-01-02 15:04",
-                    "use_extended_paths": true,
-                    "extended_paths": {
-                        "ignored": [],
-                        "white_list": [],
-                        "black_list": []
-                    }
+```{.json}
+{
+    "name": "Tyk Test API",
+    "api_id": "1",
+    "org_id": "default",
+    "definition": {
+        "location": "header",
+        "key": "version"
+    },
+    "auth": {
+        "auth_header_name": "authorization"
+    },
+    "use_keyless": true,
+    "version_data": {
+        "not_versioned": true,
+        "versions": {
+            "Default": {
+                "name": "Default",
+                "expires": "3000-01-02 15:04",
+                "use_extended_paths": true,
+                "extended_paths": {
+                    "ignored": [],
+                    "white_list": [],
+                    "black_list": []
                 }
             }
-        },
-        "proxy": {
-            "listen_path": "/quickstart/",
-            "target_url": "http://httpbin.org",
-            "strip_listen_path": true
-        },
-        "custom_middleware_bundle": "test-bundle"
-    }
+        }
+    },
+    "proxy": {
+        "listen_path": "/quickstart/",
+        "target_url": "http://httpbin.org",
+        "strip_listen_path": true
+    },
+    "custom_middleware_bundle": "test-bundle"
+}
 ```
 
 ## <a name="global-settings"></a>Global settings
@@ -53,13 +53,13 @@ To add a gRPC plugin to your API, you must specify the bundle name using the `cu
 To enable gRPC plugins you need to add the following block to `tyk.conf`:
 
 ```{.copyWrapper}
-    "coprocess_options": {
-      "enable_coprocess": true,
-      "coprocess_grpc_server": "tcp://127.0.0.1:5555"
-    },
-    "enable_bundle_downloader": true,
-    "bundle_base_url": "http://my-bundle-server.com/bundles/",
-    "public_key_path": "/path/to/my/pubkey",
+"coprocess_options": {
+  "enable_coprocess": true,
+  "coprocess_grpc_server": "tcp://127.0.0.1:5555"
+},
+"enable_bundle_downloader": true,
+"bundle_base_url": "http://my-bundle-server.com/bundles/",
+"public_key_path": "/path/to/my/pubkey",
 ```
 
 `enable_coprocess` enables the rich plugins feature.

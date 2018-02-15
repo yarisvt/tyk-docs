@@ -33,7 +33,7 @@ cd ~/my-tyk-plugin
 Next we need to create a manifest file. This file contains information about our plugin file structure and how we expect it to interact with the API that will load it.
 This file should be named "manifest.json" and needs to have the following contents:
 
-```{.copyWrapper}
+```{.json}
 {
     "file_list": [
         "middleware.py"

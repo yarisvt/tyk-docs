@@ -27,26 +27,27 @@ Install the build tools: `apt-get install -y build-essential`
 Fetch & install the latest Protocol Buffer library:
 
 ```
-  cd /usr/src
-  wget https://github.com/google/protobuf/releases/download/v3.1.0/protobuf-python-3.1.0.tar.gz
-  tar -xvzf protobuf-python-3.1.0.tar.gz
-  cd protobuf-3.1.0/
-  ./configure -prefix=/usr
-  make && make install
+cd /usr/src
+wget https://github.com/google/protobuf/releases/download/v3.1.0/protobuf-python-3.1.0.tar.gz
+tar -xvzf protobuf-python-3.1.0.tar.gz
+cd protobuf-3.1.0/
+./configure -prefix=/usr
+make && make install
 ```
 
 Install the Python build tools: 
 
 ```{.copyWrapper}
-  apt-get install -y python3-setuptools python3-dev
-``` 
+apt-get install -y python3-setuptools python3-dev
+```
+ 
 
 Build & install the Python module: 
 
 ```{.copyWrapper}
-  cd /usr/src
-  cd protobuf-3.1.0/python
-  python3 setup.py build --cpp_implementation && python3 setup.py install --cpp_implementation
+cd /usr/src
+cd protobuf-3.1.0/python
+python3 setup.py build --cpp_implementation && python3 setup.py install --cpp_implementation
 ```
 
 ### How to write Python Plugins?
