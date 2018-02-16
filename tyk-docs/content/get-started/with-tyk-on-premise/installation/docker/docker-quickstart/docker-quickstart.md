@@ -10,7 +10,9 @@ url: "/get-started/with-tyk-on-premise/installation/docker/docker-demo"
 
 ## Get Started with Docker & Tyk API Gateway
 
-> **Warning!** Our Docker Demo setup involves some workarounds, and should be installed for demonstration purposes only, and not used on a production machine.
+> **Warning!** This demo is **NOT** designed for production use or performance testing. Tyk API Gateway is a full, On-Premise solution, which includes our  Gateway, Dashboard and analytics processing pipeline.
+This demo will run Tyk On-Premises on your machine, which contains 5 containers: Tyk Gateway, Tyk Dashboard, Tyk Pump, Redis and Mongodb.
+This demo is great for proof of concept and demo purposes, but if you want to test performance, you need to move each component to a separate machine.
 
 Getting started with Tyk and Docker is very quick. We have set up a Docker Compose configuration that will get you up and running with a few commands. 
 This tutorial and scripts assume you have already installed the following: 
