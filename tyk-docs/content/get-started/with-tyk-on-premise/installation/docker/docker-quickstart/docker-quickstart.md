@@ -1,11 +1,8 @@
 ---
 date: 2017-03-22T16:54:02Z
 title: Docker Demo
-menu:
-  main:
-    parent: "With Docker"
-weight: 0
-url: "/get-started/with-tyk-on-premise/installation/docker/docker-demo"
+notoc: true
+
 ---
 
 ## Get Started with Docker & Tyk API Gateway
