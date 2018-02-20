@@ -7,32 +7,11 @@ menu:
 weight: 2
 ---
 
-### ID extractor & auth cache
+### ID Extractor & Auth Plugins
 
-The ID extractor is a very useful mechanism that will let you cache your authentication IDs and prevent certain requests from hitting your CP backend. It takes a set of rules from your API Definition (the rules are set per API).
+The ID Extractor is a caching mechanism that's used in combination with Tyk Plugins. It can be used specifically with plugins that implement custom authentication mechanisms. The ID Extractor works for all rich plugins: gRPC-based plugins, Python and Lua.
 
-A sample usage will look like this:
-
-```{.json}
-"custom_middleware": {
-  "pre": [
-    {
-      "name": "MyPreMiddleware",
-      "require_session": false
-    }
-  ],
-  "id_extractor": {
-    "extract_from": "header",
-    "extract_with": "value",
-    "extractor_config": {
-      "header_name": "Authorization"
-    }
-  },
-  "driver": "grpc"
-},
-```
-
-Tyk provides a set of ID extractors that aim to cover the most common use cases, a very simple one is the **value extractor**.
+See [ID Extractor](https://tyk.io/docs/customise-tyk/plugins/rich-plugins/id-extractor/) for more details.
 
 ### Interoperability
 
