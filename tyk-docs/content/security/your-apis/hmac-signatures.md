@@ -14,13 +14,13 @@ Tyk currently implements the latest draft of the [HMAC Request Signing standard]
 An HMAC signature is essentially some additional data sent along with a request to identify the end-user using a hashed value, in our case we encode the 'date' header of a request, the algorithm would look like:
 
 ```
-    base64Encode(SHA1("date:Mon, 02 Jan 2006 15:04:05 MST", secret_key))
+    Base64Encode(HMAC-SHA1("date: Mon, 02 Jan 2006 15:04:05 MST", secret_key))
 ```
 
 The full request header for an HMAC request uses the standard `Authorization` header, and uses set, stripped comma-delimited fields to identify the user, from the draft proposal:
 
 ```
-    Authorization: Signature keyId="hmac-key-1",algorithm="hmac-sha1",signature="Base64(HMAC-SHA1(signing string))"
+    Authorization: Signature keyId="hmac-key-1",algorithm="hmac-sha1",signature="Base64Encode(HMAC-SHA1(signing string))"
 ```
 
 Tyk **only** supports `SHA-1` encoded HMAC strings, in fact, when Tyk decodes the Authorization header, it disregards the algorithm field completely and assumes SHA-1 is being implemented. This may be changed over time.
