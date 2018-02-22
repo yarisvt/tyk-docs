@@ -7,7 +7,7 @@ menu:
 weight: 2 
 ---
 
-## Partitioned Policies
+## <a name="partion"></a>Partitioned Policies
 
 In some cases, the all-or-nothing approach of policies, where all components of access control, quota and rate limit are set together isn't ideal, and instead you may wish to have only one or two segments of a token managed at a policy level. A good example is a scenario where you are providing access keys across a sliding scale of quota's that vary from user to user, here having many policies is inefficient, you might as well set those values on the token level. However you do not want to manage access control lists on a per-key level.
 
@@ -37,7 +37,7 @@ Set up a policy to be partitioned by adding a new field to your policy object:
 
 Partitions can be applied together, if you select all of them then essentially the whole policy will be enforced.
 
-## Multiple Policies
+## <a name="multiple"></a>Multiple Policies
 
 In Gateway v2.4 and Dashboard v1.4 We have extended support for partitioned policies, and you can now mix them up when creating a key. Each policy should have own partition, and will not intersect, to avoid conflicts while merging their rules. 
  

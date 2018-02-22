@@ -37,6 +37,7 @@ Let's start with certificate definition. Here is what [Wikipedia](https://en.wik
 When it comes to authorisation, it is enough for the server that has public client certificate in its trusted certificate storage, to trust it. However, if you need send a request to the server protected by mutual TLS, or need to configure the TLS server itself, you also need to have a private key, used while certificate generation, to sign the request.
 
 Using Tyk, you have two main certificate use cases:
+
 1. Certificates without public keys used for authorization and authentication
 2. Certificates with private keys used for upstream access, and server certificates (in other words when we need to sign and encrypt request or 
 response).
