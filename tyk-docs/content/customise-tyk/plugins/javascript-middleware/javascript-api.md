@@ -4,7 +4,7 @@ title: Javascript API
 menu:
   main:
     parent: "Javascript Middleware"
-weight: 0 
+weight: 1 
 ---
 
 ## Overview
