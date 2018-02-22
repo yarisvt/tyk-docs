@@ -15,13 +15,13 @@ The URL structure looks like this:
 
 ```{.copyWrapper}
 middleware
-    ? {API Id}
-        ? pre
-        ?   ? {middlewareObject1Name}.js
-        ?   ? {middlewareObject2Name}.js
-        ? post
-            ? {middlewareObject1Name}_with_session.js
-            ? {middlewareObject2Name}.js
+    / {API Id}
+        / pre
+        / {middlewareObject1Name}.js
+        /  {middlewareObject2Name}.js
+        / post
+            / {middlewareObject1Name}_with_session.js
+            / {middlewareObject2Name}.js
 ```
 
 Tyk will check for a folder that matches the `{API Id}` being loaded, and then load the `pre` and `post` middleware from the respective folders.
