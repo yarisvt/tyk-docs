@@ -4,7 +4,7 @@ title: Middleware Scripting Guide
 menu:
   main:
     parent: "Javascript Middleware"
-weight: 0 
+weight: 3 
 ---
 
 ## Middleware Scripting

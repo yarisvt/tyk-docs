@@ -4,7 +4,7 @@ title: Install Middleware
 menu:
   main:
     parent: "Javascript Middleware"
-weight: 0
+weight: 4
 url: "/customise-tyk/plugins/javascript-middleware/install-middleware"
 ---
 

@@ -4,7 +4,7 @@ title: Javascript Middleware
 menu:
   main:
     parent: "Plugins"
-weight: 3
+weight: 2
 url: "/customise-tyk/plugins/javascript-middleware"
 ---
 
