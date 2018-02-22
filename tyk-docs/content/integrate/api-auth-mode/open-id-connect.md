@@ -7,7 +7,7 @@ menu:
 weight: 0
 ---
 
-Tyk comes with support for OpenID Connect Identity Tokens provided by any standards compliant OIDC provider.
+Tyk comes with support for OpenID Connect (OIDC) Identity Tokens provided by any standards compliant OIDC provider.
 
 ### The OIDC Flow:
 
