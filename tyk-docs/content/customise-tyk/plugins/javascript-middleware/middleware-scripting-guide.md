@@ -29,12 +29,14 @@ You can do this by setting `enable_jsvm` to `true` in your `tyk.conf` file.
 
 Tyk injects a `TykJS` namespace into the JSVM, this namespace can be used to initialise a new middleware component. Each middleware component should be in its own `*.js` file.
 
+> **Note**: The middleware variable name should match the name of the file it's in.
+
 Creating a middleware object is done my calling the `TykJS.TykMiddleware.NewMiddleware({})` constructor with an empty object and then initialising it with your function using the `NewProcessRequest()` closure syntax.
 
 Here is an example implementation:
 
 ```{.copyWrapper}
-/* --- sample.js --- */
+/* --- sampleMiddleware.js --- */
 
 // Create your middleware object
 var sampleMiddleware = new TykJS.TykMiddleware.NewMiddleware({});
