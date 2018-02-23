@@ -71,7 +71,7 @@ Settings must be the same as for the original `tyk.conf` for Redis and for Mongo
 
 ### Environment variables
 
-Environment variables can be used to override settings defined in the configuration file. The [Tyk Pump environment variable mappings][1] spreadsheet shows how the JSON member keys map to the environment variables. Where an environment variable is specified, its value will take precendence over the value in the configuration file.
+Environment variables can be used to override settings defined in the configuration file. The [Tyk Pump environment variable mappings][1] spreadsheet shows how the JSON member keys map to the environment variables. Where an environment variable is specified, its value will take precedence over the value in the configuration file.
 
 ## <a name="elasticsearch"></a> ElasticSearch
 
@@ -93,7 +93,7 @@ The Elasticsearch pump configuration looks like this:
 *   `index_name`: The name of the index that all the analytics data will be placed in. Defaults to `tyk_analytics`.
 *   `elasticsearch_url`: If sniffing is disabled, the URL that all data will be sent to. Defaults to `http://localhost:9200`. Note if you are using `https`, you need to change the protocol of `elasticsearch_url` to `https`.
 *   `enable_sniffing`: If sniffing is enabled, the `elasticsearch_url` will be used to make a request to get a list of all the nodes in the cluster, the returned addresses will then be used. Defaults to `false`.
-*   `document_type`: The type of the document that is created in Elasticsearch. Defaults to `tyk_analytics`.
+*   `document_type`: The type of the document that is created in ElasticSearch. Defaults to `tyk_analytics`.
 
 ## <a name="influxdb"></a> InfluxDB
 
