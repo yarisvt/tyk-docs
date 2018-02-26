@@ -3,7 +3,7 @@
 
 We have a video walkthrough for creating an API
 
-<iframe width="870" height="480" src="https://www.youtube.com/embed/nO0lLWxvpH4" frameborder="0" gesture="media" allowfullscreen></iframe>
+<iframe width="870" height="480" src="https://www.youtube.com/embed/gGM69M9_m1w" frameborder="0" gesture="media" allowfullscreen></iframe>
 
 We will use the Tyk Dashboard to create a very simple API that has no special elements set up.
 

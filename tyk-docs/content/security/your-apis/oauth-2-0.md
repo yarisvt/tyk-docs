@@ -21,6 +21,8 @@ Set up your API to use [standard tokens][1] and set the Authorisation header to 
 
 Tyk can act as a full blown OAuth 2.0 provider for Authorisation an access tokens, and all your application would need to integrate with is Tyk's API and notification endpoints.
 
+<iframe width="870" height="480" src="https://www.youtube.com/embed/C4CUDTIHynk" frameborder="0" gesture="media" allowfullscreen></iframe>
+
 Tyk supports the following grants:
 
 *   Authorization Code
