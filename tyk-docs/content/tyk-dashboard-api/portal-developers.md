@@ -173,13 +173,13 @@ Authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 ### Delete a developer
 
-| **Property** | **Description**          |
-| ------------ | ------------------------ |
-| Resource URL | `/api/portal/developers` |
-| Method       | DELETE                   |
-| Type         | None                     |
-| Body         | None                     |
-| Param        | None                     |
+| **Property** | **Description**               |
+| ------------ | ----------------------------- |
+| Resource URL | `/api/portal/developers/{id}` |
+| Method       | DELETE                        |
+| Type         | None                          |
+| Body         | None                          |
+| Param        | None                          |
 
 #### Sample Request
 
