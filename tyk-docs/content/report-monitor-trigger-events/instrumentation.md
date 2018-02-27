@@ -39,7 +39,7 @@ Pump: `counters.<prefix>.record.count` (number of records processed by pump)
 
 ## <a name="newrelic"></a>NewRelic instrumentation
 
-Supoprted only by Tyk Gateway, starting from 2.5. Add the following config section to `tyk.conf` to make it work:
+Supported only by Tyk Gateway, starting from 2.5. Add the following config section to `tyk.conf` to make it work:
 ```
 "newrelic": {
     "app_name": "<app-name>",
