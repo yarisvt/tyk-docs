@@ -145,4 +145,5 @@ $(document).ready(function(e){
 
 	$('[class^="language"]').copyToClipboard();
 
+$('h3, h4, h5').each(function() { $(this).prepend('<a href=#' + $(this).context.id + '><img  src="/docs/img/link.svg" /> </a>') })
 });
