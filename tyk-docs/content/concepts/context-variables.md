@@ -38,6 +38,8 @@ As headers are already exposed to context data, you can also access any header f
     $tyk_context.headers_HEADERNAME
 ```
 
+> **NOTE**: Due to how GoLang handles header parsing, incoming headers are converted to Capital Case. For example, if you want the value stored in `test-header`, you access it from `$tyk_context.headers_Test_Header`.
+
 Or (for body transforms):
 
 ```{.copyWrapper}
