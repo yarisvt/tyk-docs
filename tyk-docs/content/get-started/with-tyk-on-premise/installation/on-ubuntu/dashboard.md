@@ -127,7 +127,7 @@ The best way to add this data is with the Admin API, to make it really easy we'v
 
 **To bootstrap your instance**:
 ```{.copyWrapper}
-    sudo /opt/tyk-dashboard/install/bootstrap.sh XXX.XXX.XXX.XXX
+    sudo /opt/tyk-dashboard/install/bootstrap.sh [DASHBOARD_HOSTNAME]
 ```
 
 This command tells the bootstrap script to use the localhost as the base for the API calls, you can run the bootstrap remotely and change the first command line parameter to the DNS hostname of your instance.
