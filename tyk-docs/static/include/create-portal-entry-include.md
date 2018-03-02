@@ -2,6 +2,8 @@
 
 You can use the dashboard to create a portal that allows developers to access the APIs you create.
 
+<iframe width="870" height="480" src="https://www.youtube.com/embed/FkgwREyztWU" frameborder="0" gesture="media" allowfullscreen></iframe>
+
 ### Prerequisites for a portal catalogue entry:
 
 *   An API configured and live on your gateway
