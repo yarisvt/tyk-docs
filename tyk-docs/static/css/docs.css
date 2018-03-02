@@ -25,9 +25,11 @@ height:90px;
 margin:-90px 0 0;
 }
 
+/* Link icon */
+
 #main-content h3 > a > img,
 #main-content h4 > a > img,
-#main-content h5 > a > img {border:none !important; height: 22px; display: inline-block; margin-left: 5px; padding-top: 6px; }
+#main-content h5 > a > img {vertical-align: middle; border:none !important; height: 17px; display: inline-block; margin-left: 5px; }
 
 /* Footer */
 .footer-logos {position: absolute; left: 0; right: 0; margin: auto; bottom: 60px; margin: auto; text-align: center;}
