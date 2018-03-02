@@ -145,5 +145,9 @@ $(document).ready(function(e){
 
 	$('[class^="language"]').copyToClipboard();
 
-$('h3, h4, h5').each(function() { $(this).prepend('<a href=#' + $(this).context.id + '><img  src="/docs/img/link.svg" /> </a>') })
+	$('h3, h4, h5').hover(function () {
+		$(this).append('<a href=#' + $(this).context.id + '><img src="/docs/img/link.svg" />  </a>'); },
+		function(){
+			$(this).find($('a[href="#' + $(this).context.id +'"]')).remove();
+		});
 });
