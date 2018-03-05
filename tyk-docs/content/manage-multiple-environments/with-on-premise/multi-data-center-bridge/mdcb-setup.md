@@ -178,8 +178,8 @@ Lastly, we add the sections that enforce the RPC Slave mechanism:
         "enable_rpc_cache": true,
         "bind_to_slugs": true,
         "group_id": "ny",
-        "use_ssl" : true,
-        "ssl_insecure_skip_verify", true
+        "use_ssl": false,
+        "ssl_insecure_skip_verify": true
     },
     
     "auth_override": {
