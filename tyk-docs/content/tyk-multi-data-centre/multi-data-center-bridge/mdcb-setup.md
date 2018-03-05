@@ -4,7 +4,7 @@ title: MDCB Setup
 menu: 
   main:
     parent: "Multi Data Centre Bridge"
-weight: 5
+weight: 1
 ---
 
 ## <a name="setup"></a>Setting up Tyk MDCB
