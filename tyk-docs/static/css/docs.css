@@ -40,6 +40,7 @@ margin:-90px 0 0;
 .footer-social {margin: auto; text-align: center; clear: both; display: inline-block;}
 .footer-social a {width: 35px; height: 44px; line-height: 44px; font-size: 28px; color: #505071; text-align: center; display: inline-block;}
 .footer-social a:hover {color: #FFF;}
+.footer h3 > a > img {display: none;}
 
 /* Hero image */
 .hero-sidebyside img{ margin-right: 20px; width: 45px; margin-top: 10px;}
