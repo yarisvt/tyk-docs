@@ -10,6 +10,8 @@ weight: 2
 
 ## <a name="requirements"></a>Requirements
 
+> **Warning**: Our Tyk Hybrid Gateway Docker container includes Redis Server. This only works in a single node, Proof of Concept type installation. For two or more nodes, you need to install and configure Redis separately using our Environment Variables. See the official [Redis Docker Repository](https://hub.docker.com/_/redis/) to install Redis. See the [Heroku installation page](https://tyk.io/docs/get-started/with-tyk-hybrid/tutorials/installation-on-heroku/) for setting up the appropriate Environment Variables.
+
 To install the Tyk Hybrid Gateway, you need:
 
 1.  A Docker-enabled host
