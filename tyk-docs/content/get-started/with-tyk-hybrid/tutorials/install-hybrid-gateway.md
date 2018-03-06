@@ -10,6 +10,8 @@ weight: 2
 
 ## <a name="requirements"></a>Requirements
 
+> **Warning**: Our Tyk Hybrid Gateway Docker container includes Redis Server. This only works in a single node, Proof of Concept type installation. For two or more nodes, you need to have a separate Redis, shared across all hybrid instances, and set it using `start.sh` script arguments: `./start.sh PORT SECRET ORGID APIKEY (REDIS HOST) (REDIS PORT) (REDIS PW)`. See the official [Redis Docker Repository](https://hub.docker.com/_/redis/) to install Redis.
+
 To install the Tyk Hybrid Gateway, you need:
 
 1.  A Docker-enabled host
