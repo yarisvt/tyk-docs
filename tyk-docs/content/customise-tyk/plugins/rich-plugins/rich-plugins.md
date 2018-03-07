@@ -20,7 +20,7 @@ The dynamically built Tyk binaries can expose and call Foreign Function Interfac
 
 The plugins are able to directly call some Tyk API functions from within their guest language. They can also be configured so that they hook into various points along the standard middleware chain.
 
-> **NOTE**: Plugin functions are available globally in the same namespace. So, if you include two or more Rich plugins that call the same function, the last declared plugin implementation of the function will be returned.
+> **NOTE**: When using Python plugins, the middleware function names are set globally. So, if you include two or more plugins plugins that implement the same function, the last declared plugin implementation of the function will be returned. We plan to add namespaces in the future.
 
  [1]: /docs/customise-tyk/plugins/rich-plugins/python/
  [2]: /docs/customise-tyk/plugins/rich-plugins/luajit/
