@@ -2,6 +2,13 @@
 title: Deploy Tyk to Heroku Walkthrough
 notoc: true
 ---
+
+## <a name="sign-up"></a>Signing up for the Heroku Beta
+
+Deploying to Heroku is currently in Beta, and only available with our Hybrid product. To be able to deploy to Heroku an account manager will need to enable this on your account, and then your will be able to follow the guide below.
+
+To request an invite, [click here](https://tyktech.typeform.com/to/nDNtLx) to receive the one-click Heroku deployment to get started.
+
 ## <a name="deploy"></a>Deploy Tyk to Heroku
 
 1. After signing up to Tyk, click the "Reclaim the Invite" button.
