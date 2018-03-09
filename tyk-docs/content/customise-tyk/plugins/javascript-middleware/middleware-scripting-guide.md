@@ -17,7 +17,13 @@ The difference between the middleware types are:
 
 2.  **Post**: These middleware components have access to the session object (the user quota, allowances and auth data), but have the option to disable it, as deserialising it into the JSVM is computationally expensive and can add latency.
 
-It is important to note that a new JSVM instance is created for *each* API that is managed, this means that inter-API communication is not possible via shared methods (they have different bounds), however it *is* possible using the session object if a key is shared across APIs.
+> **NOTE**: A new JSVM instance is created for *each* API that is managed, this means that inter-API communication is not possible via shared methods (they have different bounds), however it *is* possible using the session object if a key is shared across APIs.
+
+### Declared Plugin Functions
+
+Plugin functions are available globally in the same namespace. So, if you include two or more JSVM plugins that call the same function, the last declared plugin implementation of the function will be returned.
+
+
 
 ### Enable the JSVM
 
