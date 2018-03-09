@@ -46,14 +46,14 @@ With an MDCB setup you get the ability to do both - segment out teams with their
 
 ### How MDCB Works
 
-See [here](https://tyk.io/docs/manage-multiple-environments/with-on-premise/multi-data-center-bridge/#how-tyk-mdcb-works) for an overview of MDCB
+See [here](https://tyk.io/docs/tyk-multi-data-centre/multi-data-center-bridge/multi-data-centre-bridge/#how-tyk-mdcb-works) for an overview of MDCB
 
 ### MDCB Architecture
-See [here](https://tyk.io/docs/manage-multiple-environments/with-on-premise/multi-data-center-bridge/#logical-architecture) for a diagram of the MDCB Architecture and how the Master and Local Data Centres work together.
+See [here](https://tyk.io/docs/tyk-multi-data-centre/multi-data-center-bridge/multi-data-centre-bridge/#logical-architecture) for a diagram of the MDCB Architecture and how the Master and Local Data Centres work together.
 
 ### How to Setup MDCB
 
-See [here](https://tyk.io/docs/manage-multiple-environments/with-on-premise/multi-data-center-bridge/mdcb-setup/) for details of how to configure MDCB with the `tyk_sink.conf` file.
+See [here](https://tyk.io/docs/tyk-multi-data-centre/multi-data-center-bridge/mdcb-setup/) for details of how to configure MDCB with the `tyk_sink.conf` file.
 
 
 
