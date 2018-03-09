@@ -3,9 +3,8 @@ date: 2017-03-24T12:01:05Z
 title: Multi Data Centre Bridge
 menu: 
   main:
-    parent: "With On-Premises"
-weight: 5
-url: "/manage-multiple-environments/with-on-premise/multi-data-center-bridge"
+    parent: "Tyk Multi Data Centre"
+weight: 0
 ---
 
 ## <a name="introduction"></a>Introduction

@@ -117,7 +117,7 @@ configurations to your `uptime_pump_config` and / or `mongo.meta` objects in `pu
 
 ```
 "collection_cap_max_size_bytes": 1048577,
-"collection_cap_enable": false
+"collection_cap_enable": true
 ```
 
 `collection_cap_max_size_bytes` sets the maximum size of the capped collection.

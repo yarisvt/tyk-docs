@@ -4,10 +4,10 @@ title: MDCB Setup
 menu: 
   main:
     parent: "Multi Data Centre Bridge"
-weight: 5
+weight: 1
 ---
 
-## <a name="setup"></a>Setting up Tyk MDCB
+## <a name="setup"></a>Setting up Tyk Multi Data Centre Bridge (MDCB)
 
 Tyk MDCB is mainly configured using a single conf file - `tyk_sink.conf`, it only needs to be able to access your Redis and MongoDB databases.
 
@@ -16,30 +16,43 @@ Tyk MDCB has a separate license, which you can request from your account represe
 ### The Tyk Sink configuration file:
 
 ```{.copyWrapper}
-    {
-        "storage": {
-            "type": "redis",
-            "host": "localhost",
-            "port": 6379
-        },
-        "hash_keys": true,
-        "analytics": {
-            "mongo_url": "mongodb://localhost/tyk_analytics"
-        },
-        "license": "",
+{
+    "listen_port": 9090,
+    "healthcheck_port": 8181,
         "server_options": {
             "use_ssl": false,
-            "certificate": { "cert_file": <path>, "key_file": <path> },
+            "certificate": { "cert_file": "<path>", "key_file": "<path>" },
             "min_version": 771
-        }
-    }
+        },
+    "storage": {
+        "type": "redis",
+        "host": "localhost",
+        "port": 6379,
+        "enabled_cluster": false
+    },
+        "security": {
+            "private_certificate_encoding_secret": "<gateway-secret>"
+        },
+    "hash_keys": true,
+    "forward_analytics_to_pump": false,
+    "aggregates_ignore_tags": [],
+    "analytics": {
+        "mongo_url": "mongodb://localhost/tyk_analytics"
+    },
+    "license": ""
+}
 ```
 
-*   `storage`: This section describes your centralised Redis DB, this will act as your master key store for all of your clusters.
-*   `hash_keys`: Set to `true` if you are using a hashed configuration install of Tyk, otherwise set to `false`.
+
+*   `listen_port`: The port MDCB connections are made through
+*   `healthcheck_port`: This port lets MDCB allow standard healthchecks.
+*   `server_options`: If `use_ssl` is set to `true`, you need to enter the `cert_file` and `key_file` path names for `certificate`. The `min_version` setting should be the minimum TLS protocol version required from the client.
+*   `storage`: This section describes your centralised Redis DB. This will act as your master key store for all of your clusters.
+*   `security`: `private_certificate_encoding_secret` allows MDCB to use Mutual TLS. This requires that `use_ssl` is set to `true`. See [Mutual TLS](https://tyk.io/docs/security/tls-and-ssl/mutual-tls/#mdcb) for more details.
+*   `hash_keys`: Set to `true` if you are using a hashed configuration installation of Tyk, otherwise set to `false`.
 *   `analytics`: This section must point to your MongoDB replica set and must be a valid MongoDB replica set URL.
 *   `license`: Enter your license in this section so MDCB can start.
-*   `server_options`: If `use_ssl` is set to `true`, you need to enter the `cert_file` and `key_file` path names for `certificate`, `min_version` should be the minimum TLS protocol version required from the client.
+
 
 #### Values for TLS Versions
 
