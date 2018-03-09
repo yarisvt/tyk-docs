@@ -122,7 +122,7 @@ Setting `enforce_org_data_detail_logging` in the `tyk.conf` will enforce it (quo
 
 #### <a name="enable_analytics-enable_geo_ip"></a> enable_analytics.enable_geo_ip
 
-As of Tyk API Gateway 2.0, Tyk can store GeoIP information based on MaxMind DB’s, to enable GeoIP tracking on inbound request analytics, set this value to `true` and assign a DB using the `geo_ip_db_path` setting.
+As of Tyk API Gateway 2.0, Tyk can store GeoIP information based on MaxMind DB's, to enable GeoIP tracking on inbound request analytics, set this value to `true` and assign a DB using the `geo_ip_db_path` setting.
 
 #### <a name="enable_analytics-enable_geo_ip_db_path"></a> enable_analytics.enable_geo_ip_db_path
 
@@ -160,6 +160,12 @@ Set this to `true` to have Tyk automatically match for numeric ID's, it will mat
 #### <a name="analytics_config-normalise_urls-custom_patterns"></a> analytics_config.normalise_urls.custom_patterns
 
 This is a list of custom patterns you can add, these must be valid regex strings, Tyk will replace these values with a `{var}` placeholder.
+
+#### <a name="analytics_config.storage_expiration_time"></a>analytics_config.storage_expiration_time
+
+You can set a time (in seconds) to configure how long analytics are kept if they are not processed. The default is 60 seconds. This is used to prevent the potential infinite growth of Redis analytics storage.
+
+> **NOTE:** This option is available from v2.5.2 onwards.
 
 ### <a name="policies"></a> policies
 
@@ -489,9 +495,15 @@ If unset or left empty, it will default to `info`.
 
 > **NOTE:** This option is available from v2.4 onwards.
 
-### <a name="enable-key-logging">enable_key_logging
+### <a name="enable-key-logging"></a>enable_key_logging
 By default all key ids in logs are hidden. Turn it on if you want to see them for debugging reasons.
 
 > **NOTE:** This option is available from v2.5 onwards.
+
+### <a name="max_conn_time"></a>max_conn_time
+
+This setting forces a DNS cache flush (in seconds). The default setting is `0`.
+
+> **NOTE:** This option is available from v2.5.2 onwards.
 
  [1]: /docs/others/Gateway-Environment-Vars.xlsx
