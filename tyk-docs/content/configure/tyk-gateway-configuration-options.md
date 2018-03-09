@@ -502,7 +502,7 @@ By default all key ids in logs are hidden. Turn it on if you want to see them fo
 
 ### <a name="max_conn_time"></a>max_conn_time
 
-This setting forces a DNS cache flush.
+This setting forces a DNS cache flush (in seconds). The default setting is `0`.
 
 > **NOTE:** This option is available from v2.5.2 onwards.
 
