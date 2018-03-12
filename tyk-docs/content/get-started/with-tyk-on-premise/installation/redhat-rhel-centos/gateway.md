@@ -1,9 +1,9 @@
 ---
 date: 2017-03-22T16:24:18Z
-Title: Gateway on Redhat (RHEL) / CentOS
+Title: Gateway on Red Hat (RHEL) / CentOS
 menu:
   main:
-    parent: "On Redhat (RHEL) / CentOS"
+    parent: "On Red Hat (RHEL) / CentOS"
 weight: 3 
 ---
 
