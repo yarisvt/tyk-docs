@@ -13,7 +13,7 @@ url: "/get-started/with-tyk-on-premise/installation"
 Tyk can be installed on almost any Linux environment, we've also created Docker containers that can be deployed and configured easily. Supported by the Tyk team, you can get Tyk for:
 
 * [Ubuntu][1] (x86, ARM and AMD64)
-* [Redhat][2] / CentOS (x86, ARM and AMD64)
+* [Red Hat][2] / CentOS (x86, ARM and AMD64)
 * [Tarballs][3] for any other Linux variant (x86, ARM and AMD64)
 
 We distribute Tyk via Packagecloud.io APT and Yum repositories, as well as via our [Github repository for the Tarballs][3]. We also provide nightly builds which are available for all major Tyk Components.

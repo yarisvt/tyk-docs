@@ -29,12 +29,13 @@ This configuration should also work (with some tweaks) for CentOS.
 sudo yum install python34
 ```
 
-### Step 1: Set up yum repositories
+### Step 1: Set up YUM repositories
 
 First, we need to install some software that allows us to use signed packages:
 ```{.copyWrapper}
 sudo yum install pygpgme yum-utils wget
-``` 
+```
+
 
 Next, we need to set up the various repository configurations for Tyk Dashboard and MongoDB:
 
@@ -71,7 +72,7 @@ Finally we'll need to update our local cache, so run:
 sudo yum -q makecache -y --disablerepo='*' --enablerepo='tyk_tyk-dashboard'
 ```
 
-### Step 4: Install packages
+### Step 4: Install Packages
 
 We're ready to go, you can now install the relevant packages using yum:
 ```{.copyWrapper}
@@ -90,7 +91,7 @@ sudo service redis start
 
 ### Step 6: Configure Tyk Dashboard
 
-We can set the Dashboard up with a similar setup command, the below will get the Dashboard set up for the local instance:
+We can set the Dashboard up with a similar setup command, the script below will get the Dashboard set up for the local instance:
 ```{.copyWrapper}
 sudo /opt/tyk-dashboard/install/setup.sh --listenport=3000 --redishost=localhost --redisport=6379 --mongo=mongodb://127.0.0.1/tyk_analytics --tyk_api_hostname=$HOSTNAME --tyk_node_hostname=http://localhost --tyk_node_port=8080 --portal_root=/portal --domain="XXX.XXX.XXX.XXX"
 ```
@@ -112,7 +113,8 @@ What we have done here is:
 ### Step 7: Start Tyk Dashboard
 ```{.copyWrapper}
 sudo service tyk-dashboard start
-``` 
+```
+
 
 Notice how we haven't actually started the gateway yet, because this is a Dashboard install, we need to enter a license first.
 
@@ -150,78 +152,12 @@ The best way to add this data is with the Admin API, to make it really easy we'v
 
 ```{.copyWrapper}
 sudo /opt/tyk-dashboard/install/bootstrap.sh XXX.XXX.XXX.XXX
-``` 
-
-This command tells the bootstrap script to use the localhost as the base for the API calls, you can run the bootstrap remotely and change the first command line parameter to the DNS hostname of your instance.
-
-You will now be able to log into and test your Tyk instance with the values given to you by the bootstrap script.
-
-## <a name="configure"></a> Configure Tyk Dashboard
-
-We can set the Dashboard up with a helper setup command script, the below will get the Dashboard set up for the local instance:
-```{.copyWrapper}
-sudo /opt/tyk-dashboard/install/setup.sh --listenport=3000 --redishost=localhost --redisport=6379 --mongo=mongodb://127.0.0.1/tyk_analytics --tyk_api_hostname=$HOSTNAME --tyk_node_hostname=http://localhost --tyk_node_port=8080 --portal_root=/portal --domain="XXX.XXX.XXX.XXX"
-```
-
-> **Note**: Make sure to use the actual DNS hostname or the public IP of your instance as the last parameter.
-
-What we have done here is:
-
-*   `--listenport=3000`: Told Tyk Dashboard (and Portal) to listen on port 3000.
-*   `--redishost=localhost`: The Tyk Dashboard should use the local Redis instance.
-*   `--redisport=6379`: The Tyk Dashboard should use the default port.
-*   `--domain="XXX.XXX.XXX.XXX"`: Bind the Dashboard to the IP or DNS hostname of this instance (required).
-*   `--mongo=mongodb://127.0.0.1/tyk_analytics`: Use the local MongoDB (should always be the same as the gateway).
-*   `--tyk_api_hostname=$HOSTNAME`: The Tyk Dashboard has no idea what hostname has been given to Tyk, so we need to tell it, in this instance we are just using the local HOSTNAME env variable, but you could set this to the public-hostname/IP of the instance.
-*   `--tyk_node_hostname=http://localhost`: The Tyk Dashboard needs to see a Tyk node in order to create new tokens, so we need to tell it where we can find one, in this case, use the one installed locally.
-*   `--tyk_node_port=8080`: Tell the Dashboard that the Tyk node it should communicate with is on port 8080.
-*   `--portal_root=/portal`: We want the portal to be shown on `/portal` of whichever domain we set for the portal.
-
-### Step 1: Start Tyk Dashboard
-```{.copyWrapper}
-sudo service tyk-dashboard start
-```
-
-Notice how we haven't actually started the gateway yet, because this is a Pro install, we need to enter a license first.
-
-### Step 2: Enter your dashboard license
-
-Go to `http://your-host-name:3000/`.
-
-You will see a screen asking for a license, enter it in the section marked "**Already have a license?**" and click `Use this license`.
-
-That's it, your Dashboard is now ready to be bootstrapped.
-
-> **Note:** You can bypass this step by adding your license manually to the `/var/opt/tyk-dashboard/tyk_analytics.conf` file directly in the field marked `license`.
-
-If all is going well, you will be taken to a log in screen - we'll get to that soon.
-
-### Step 3: Restart the dashboard
-
-Because we've just entered a license via the UI, we need to make sure that these changes get picked up, so to make sure things run smoothly, we restart the dashboard process (you only need to do this once):
-```{.copyWrapper}
-sudo service tyk-dashboard restart 
-```
-
-### Step 4: Bootstrap the Dashboard with an initial User and Organisation
-
-When the Tyk Dashboard is created for the first time, it has no initial user base or organisation to add data to, so we need to add this.
-
-The best way to add this data is with the Admin API, to make it really easy we've supplied a bootstrap script that will set you up. If you want to customise it, take a look at the file in `/opt/tyk-dashboard/install/bootstrap.sh`.
-
-**Pre-requisites for this command**:
-
-*   This command assumes you are running on a Linux shell such as Bash
-*   This command assumes you have Python 2.7 or 3.4 installed
-
-**To bootstrap your instance**:
-```{.copyWrapper}
-sudo /opt/tyk-dashboard/install/bootstrap.sh XXX.XXX.XXX.XXX
 ```
 
 This command tells the bootstrap script to use the localhost as the base for the API calls, you can run the bootstrap remotely and change the first command line parameter to the DNS hostname of your instance.
 
 You will now be able to log into and test your Tyk instance with the values given to you by the bootstrap script.
+
 
  [1]: https://packagecloud.io
  [2]: http://aws.amazon.com
