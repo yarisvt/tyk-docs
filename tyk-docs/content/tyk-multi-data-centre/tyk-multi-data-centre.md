@@ -3,7 +3,7 @@ date: 2017-03-24T16:39:31Z
 title: Tyk Multi Data Centre
 weight: 95
 menu: "main"
-
+url: "/tyk-multi-data-centre"
 ---
 
 ## <a name="introduction"></a>Introduction
@@ -46,15 +46,17 @@ With an MDCB setup you get the ability to do both - segment out teams with their
 
 ### How MDCB Works
 
-See [here](https://tyk.io/docs/tyk-multi-data-centre/multi-data-center-bridge/multi-data-centre-bridge/#how-tyk-mdcb-works) for an overview of MDCB
+See [here][1] for an overview of MDCB
 
 ### MDCB Architecture
-See [here](https://tyk.io/docs/tyk-multi-data-centre/multi-data-center-bridge/multi-data-centre-bridge/#logical-architecture) for a diagram of the MDCB Architecture and how the Master and Local Data Centres work together.
+See [here][2] for a diagram of the MDCB Architecture and how the Master and Local Data Centres work together.
 
 ### How to Setup MDCB
 
-See [here](https://tyk.io/docs/tyk-multi-data-centre/multi-data-center-bridge/mdcb-setup/) for details of how to configure MDCB with the `tyk_sink.conf` file.
+See [here][3] for details of how to configure MDCB with the `tyk_sink.conf` file.
 
-
+[1]: /docs/tyk-multi-data-centre/multi-data-centre-bridge/#how-tyk-mdcb-works
+[2]: /docs/tyk-multi-data-centre/multi-data-centre-bridge/#logical-architecture
+[3]: /docs/tyk-multi-data-centre/multi-data-center-bridge/mdcb-setup/
 
 

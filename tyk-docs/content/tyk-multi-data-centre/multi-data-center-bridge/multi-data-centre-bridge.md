@@ -5,6 +5,7 @@ menu:
   main:
     parent: "Tyk Multi Data Centre"
 weight: 0
+url: "/tyk-multi-data-centre/multi-data-centre-bridge"
 ---
 
 ## <a name="introduction"></a>Introduction
