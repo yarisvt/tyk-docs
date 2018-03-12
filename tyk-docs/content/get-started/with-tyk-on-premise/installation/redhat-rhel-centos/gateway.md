@@ -7,9 +7,9 @@ menu:
 weight: 3 
 ---
 
-## <a name="install-tyk-redhat-gateway"></a>Install Tyk API Gateway on Redhat
+## <a name="install-tyk-redhat-gateway"></a>Install Tyk API Gateway on Red Hat
 
-Tyk has it's own signed RPMs in a yum repository hosted by the kind folks at [packagecloud.io][1], which makes it easy, safe and secure to install a trusted distribution of the Tyk Gateway stack.
+Tyk has it's own signed RPMs in a YUM repository hosted by the kind folks at [packagecloud.io][1], which makes it easy, safe and secure to install a trusted distribution of the Tyk Gateway stack.
 
 This tutorial will run on an [Amazon AWS][2] *Red Hat Enterprise Linux 7.1* instance. We will install Tyk Gateway with all dependencies stored locally.
 
@@ -21,7 +21,7 @@ This configuration should also work (with some tweaks) for CentOS.
 
 *   Ensure port `8080` is open: this is used in this guide for Gateway traffic (API traffic to be proxied)
 
-### Step 1: Set up yum repositories
+### Step 1: Set up YUM Repositories
 
 First, we need to install some software that allows us to use signed packages:
 ```{.copyWrapper}
@@ -30,7 +30,7 @@ sudo yum install pygpgme yum-utils wget
 
 Next, we need to set up the various repository configurations for Tyk and MongoDB:
 
-### Step 2: Create Tyk Gateway repository configuration
+### Step 2: Create Tyk Gateway Repository Configuration
 
 Create a file named `/etc/yum.repos.d/tyk_tyk-gateway.repo` that contains the repository configuration below https://packagecloud.io/tyk/tyk-gateway/install#manual-rpm:
 ```{.copyWrapper}
@@ -60,7 +60,7 @@ Finally we'll need to update our local cache, so run:
 sudo yum -q makecache -y --disablerepo='*' --enablerepo='tyk_tyk-gateway' --enablerepo=epel
 ```
 
-### Step 4: Install packages
+### Step 4: Install Packages
 
 We're ready to go, you can now install the relevant packages using yum:
 ```{.copyWrapper}
