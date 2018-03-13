@@ -1,6 +1,6 @@
 ---
 date: 2017-03-22T16:19:08Z
-Title: On Redhat (RHEL) / CentOS
+Title: On Red Hat (RHEL) / CentOS
 menu:
   main:
     parent: "Installation"

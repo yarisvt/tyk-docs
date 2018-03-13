@@ -1,16 +1,16 @@
 ---
 date: 2017-03-22T16:32:53Z
-Title: Dashboard on Redhat (RHEL) / CentOS
+Title: Dashboard on Red Hat (RHEL) / CentOS
 menu:
   main:
-    parent: "On Redhat (RHEL) / CentOS"
+    parent: "On Red Hat (RHEL) / CentOS"
 weight: 1 
 ---
 
 
-## <a name="install-dashboard"></a>Install Tyk Dashboard: RedHat
+## <a name="install-dashboard"></a>Install Tyk Dashboard: Red Hat
 
-Tyk has its own signed RPMs in a yum repository hosted by the kind folks at [packagecloud.io][1], which makes it easy, safe and secure to install a trusted distribution of the Tyk Gateway stack.
+Tyk has its own signed RPMs in a YUM repository hosted by the kind folks at [packagecloud.io][1], which makes it easy, safe and secure to install a trusted distribution of the Tyk Gateway stack.
 
 This tutorial will run on an [Amazon AWS][2] *Red Hat Enterprise Linux 7.1* instance. We will install Tyk Dashboard with all dependencies stored locally.
 

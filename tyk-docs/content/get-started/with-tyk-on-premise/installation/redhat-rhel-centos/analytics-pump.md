@@ -1,15 +1,15 @@
 ---
 date: 2017-03-22T16:39:29Z
-Title: Tyk Pump on Redhat (RHEL) / CentOS
+Title: Tyk Pump on Red Hat (RHEL) / CentOS
 menu:
   main:
-    parent: "On Redhat (RHEL) / CentOS"
+    parent: "On Red Hat (RHEL) / CentOS"
 weight: 2 
 ---
 
-## <a name="install-tyk-redhat"></a>Install Tyk Pump on Redhat (RHEL) / CentOS
+## <a name="install-tyk-redhat"></a>Install Tyk Pump on Red Hat (RHEL) / CentOS
 
-Tyk has it's own signed RPMs in a yum repository hosted by the kind folks at [packagecloud.io][1], which makes it easy, safe and secure to install a trusted distribution of the Tyk Gateway stack.
+Tyk has it's own signed RPMs in a YUM repository hosted by the kind folks at [packagecloud.io][1], which makes it easy, safe and secure to install a trusted distribution of the Tyk Gateway stack.
 
 This tutorial will run on an [Amazon AWS][2] *Red Hat Enterprise Linux 7.1* instance. We will install Tyk Pump with all dependencies stored locally.
 
@@ -21,7 +21,7 @@ This configuration should also work (with some tweaks) for CentOS.
 
 *   We are assuming that both Redis and MongoDB are installed (these are installed as part of the Tyk Gateway and Dashboard installation guides)
 
-### Step 1: Set up yum repositories
+### Step 1: Set up YUM Repositories
 
 First, we need to install some software that allows us to use signed packages:
 ```{.copyWrapper}
@@ -52,7 +52,7 @@ Finally we'll need to update our local cache, so run:
 sudo yum -q makecache -y --disablerepo='*' --enablerepo='tyk_tyk-pump'
 ```
 
-### Step 2: Install packages
+### Step 2: Install Packages
 
 We're ready to go, you can now install the relevant packages using yum:
 ```{.copyWrapper}
