@@ -18,7 +18,7 @@ We're installing on a `t2.micro` because this is a tutorial, you'll need more RA
 
 This configuration should also work (with some tweaks) for CentOS.
 
-**Pre-requisites**:
+### Prerequisites
 
 *   Ensure port `3000` is open: This is used by the Dashboard to provide the GUI and the Developer Portal
 *   EPEL (Extra Packages for Enterprise Linux) is a free, community based repository project from Fedora which provides high quality add-on software packages for Linux distribution including RHEL, CentOS, and Scientific Linux. EPEL isn't a part of RHEL/CentOS but it is designed for major Linux distributions. In our case we need it for Redis DB. Install EPEL using the instructions [here][3].
@@ -29,7 +29,7 @@ This configuration should also work (with some tweaks) for CentOS.
 sudo yum install python34
 ```
 
-### Step 1: Set up YUM repositories
+### Step 1: Set up YUM Repositories
 
 First, we need to install some software that allows us to use signed packages:
 ```{.copyWrapper}
@@ -143,7 +143,7 @@ When the Tyk Dashboard is created for the first time, it has no initial user bas
 
 The best way to add this data is with the Admin API, to make it really easy we've supplied a bootstrap script that will set you up. If you want to customise it, take a look at the file in `/opt/tyk-dashboard/install/bootstrap.sh`.
 
-**Pre-requisites for this command**
+**Prerequisites for this command**
 
 *   This command assumes you are running on a Linux shell such as Bash
 *   This command assumes you have Python 2.7 or 3.4 installed

@@ -15,13 +15,13 @@ This tutorial will run on an Amazon AWS *Ubuntu Server 14.04 LTS* instance. We w
 
 We're installing on a `t2.micro` because this is a tutorial, you'll need more RAM and more cores for better performance.
 
-**Pre-requisites**:
+### Prerequisites
 
 *   Ensure port `8080` is available. This is used in this guide for Gateway traffic (API traffic to be proxied).
 *   You have MongoDB and Redis installed.
 *   You have installed firstly the Tyk Dashboard, then the Tyk Pump.
 
-### Step 1: Set up our APT repositories
+### Step 1: Set up our APT Repositories
 
 First, add our GPG key which signs our binaries:
 ```{.copyWrapper}

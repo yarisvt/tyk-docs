@@ -17,7 +17,7 @@ We're installing on a `t2.micro` because this is a tutorial, you'll need more RA
 
 This configuration should also work (with some tweaks) for CentOS.
 
-**Pre-requisites**:
+### Prerequisites
 
 *   We are assuming that both Redis and MongoDB are installed (these are installed as part of the Tyk Gateway and Dashboard installation guides)
 
