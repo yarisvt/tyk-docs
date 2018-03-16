@@ -33,7 +33,7 @@ When an OIDC token is processed, Tyk generates an internal representation of the
 
 It is useful for the downstream service to be able to query this data somehow in order to manage access (e.g. to invalidate the token at some point). To make this possible, Tyk adds the internal Token ID to the meta-data of the session object.
 
-It is possible to inject this as a header into the request moving upstream to the underlying service using header injection and invoking the reserved metadata field: `$tyk_meta.TykJWTSessionID`.
+It is possible to inject this as a header into the request moving upstream to the underlying service using header injection and invoking the reserved metadata field: `$tyk_meta.TykJWTSessionID`. Additionally you can access `Client ID` using `$tyk_meta.ClientID`.
 
 It is also possible to access the JWT claims, using `$tyk_context.jwt_claims_CLAIMNAME` by injecting as a context variable in a request header. See [Request Headers][2] for more details.
 
