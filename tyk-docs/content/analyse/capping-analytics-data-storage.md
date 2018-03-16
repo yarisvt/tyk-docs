@@ -7,11 +7,13 @@ menu:
 weight: 9 
 ---
 
-If you wish to reduce or manage the amount of data in your MongoDB, you can also add an expire index to the collection and have Tyk enforce organisation quotas.
+## <a name="time-based-cap"></a>Time Based Cap
+
+If you wish to reduce or manage the amount of data in your MongoDB, you can  add an expire index to the collection and have Tyk enforce organisation quotas.
 
 To add an expiry index to your analytics log data simply follow these three steps.
 
-### Step 1: Add the index to MongoDB
+### Step 1: Add the Index to MongoDB
 
 Run this command in your preferred MongoDB tool:
 
@@ -19,7 +21,7 @@ Run this command in your preferred MongoDB tool:
     db.tyk_analytics.createIndex( { "expireAt": 1 }, { expireAfterSeconds: 0 } )
 ```
 
-### Step 2. Create an organisation quota
+### Step 2. Create an Organisation Quota
 
 ```{.copyWrapper}
     curl --header "x-tyk-authorization: {tyk-gateway-secret}" --header "content-type: application/json" --data @expiry.txt http://{tyk-gateway-ip}:{port}/tyk/org/keys/{org-id}
@@ -44,11 +46,33 @@ Run this command in your preferred MongoDB tool:
 
 Set the data expires to a time in seconds for it to expire. Tyk will calculate the expiry date for you.
 
-### Step 3: Make sure the setting is enabled in `tyk.conf`
+### Step 3: Make Sure the Setting is Enabled in `tyk.conf`
 
 ```{.copyWrapper}
     "enforce_org_data_age": true, 
     "enforce_org_quota": false
 ```
 
-> **Note**: This will only work for v2.2.0.23, if you are running an earlier patch, you will need to `enforce_org_quota` set to `true`.
+> **Note**: This will only work for v2.2.0.23 or above, if you are running an earlier patch, you will need to `enforce_org_quota` set to `true`.
+
+## <a name="size-based-cap"></a> Size Based Cap
+
+### Add the Size Cap
+
+>  **Note**: The size value should be in bytes, and we recommend using a value just under the amount of RAM on your machine.
+
+Run this command in your MongoDB shell:
+
+```{.copyWrapper}
+    use tyk_analytics
+    db.runCommand({"convertToCapped": "tyk_analytics", size: 100000});
+```
+
+### Adding the Size Cap if using a mongo_selective Pump
+
+The `mongo_selective` pump stores data on a per organisation basis. You will have to run the following command in your MongoDB shell for an individual organisation as follows.
+
+
+```{.copyWrapper}
+    db.runCommand({"convertToCapped": "z_tyk_analyticz_<org-id>", size: 100000});
+```
