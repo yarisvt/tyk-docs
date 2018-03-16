@@ -21,7 +21,7 @@ This tutorial will run on an [Amazon AWS][2] *Ubuntu Server 14.04 LTS* instance.
 
 We're installing on a `t2.micro` because this is a tutorial, you'll need more RAM and more cores for better performance.
 
-###Prerequisites
+### Prerequisites
 
 *   You have installed MongoDB and Redis.
 *   You have installed the Tyk Dashboard.
