@@ -15,12 +15,12 @@ This tutorial will run on an Amazon AWS *Ubuntu Server 14.04 LTS* instance. We w
 
 We're installing on a `t2.micro` because this is a tutorial, you'll need more RAM and more cores for better performance.
 
-**Pre-requisites**:
+### Prerequisites
 
 *   Have MongoDb and Redis installed - see [here][2] for details.
 *   Ensure port `3000` is available. This is used by the Dashboard to provide the GUI and the Developer Portal. 
 
-### Step 1: Set up our APT repositories
+### Step 1: Set up our APT Repositories
 
 First, add our GPG key which signs our binaries:
 ```{.copyWrapper}
@@ -66,7 +66,7 @@ When the Tyk Dashboard has finished installing, it will have installed some `ini
 
 ## <a name="configure-tyk-dashboard"></a> Configure Tyk Dashboard
 
-### Pre-requisites
+### Prerequisites
 
 You need to ensure the MongoDB and Redis services are running before proceeding.
 
@@ -95,7 +95,7 @@ What we have done here is:
 ```
 
 
-### Step 2: Enter your dashboard license
+### Step 2: Enter your Dashboard License
 
 Go to `http://your-host-name:3000/`.
 
@@ -120,7 +120,7 @@ When the Tyk Dashboard is created for the first time, it has no initial user bas
 
 The best way to add this data is with the Admin API, to make it really easy we've supplied a bootstrap script that will set you up. If you want to customise it, take a look at the file in `/opt/tyk-dashboard/install/bootstrap.sh`.
 
-**Pre-requisites for this command**:
+**Prerequisites for this command**:
 
 *   This command assumes you are running on a Linux shell such as Bash
 *   This command assumes you have Python 2.7 or 3.4 installed

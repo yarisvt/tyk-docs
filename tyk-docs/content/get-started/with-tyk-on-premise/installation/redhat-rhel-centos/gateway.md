@@ -17,7 +17,7 @@ We're installing on a `t2.micro` because this is a tutorial, you'll need more RA
 
 This configuration should also work (with some tweaks) for CentOS.
 
-**Pre-requisites**:
+### Prerequisites
 
 *   Ensure port `8080` is open: this is used in this guide for Gateway traffic (API traffic to be proxied)
 
