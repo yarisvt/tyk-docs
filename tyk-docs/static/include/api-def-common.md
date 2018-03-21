@@ -14,8 +14,9 @@
 
 *   `session_lifetime`: The session lifetime will override the expiry date if it has been set on a key (in seconds). for example, if a key has been created that never expires, then it will remain in the session cache forever unless manually deleted. If a re-auth needs to be forced or a default expiry needs to be applied to all keys, then use this feature to set the session expiry for an entire API.
 
-* `domain`: The domain to bind this API to. Domains can have multiple listen paths, so multiple APIs can be spanned across a domain using different `listen_paths`, must be a valid domain name, without the protocol section (e.g. http or https). This field can support multiple domains though regular expressions (regexps). The regexp format should be defined without capturing groups - `(pattern)`, but non-capturing groups are allowed `(?:pattern)`. As an Example: 
-`(?:my.domain.com|(?:api|test-api|gateway).my.otherdomain.com)`
+* `domain`: The domain to bind this API to. Domains can have multiple listen paths, so multiple APIs can be spanned across a domain using different `listen_paths`, must be a valid domain name, without the protocol section (e.g. http or https). This field can support multiple domains though regular expressions (regexps). The regexp format should be defined without capturing groups - `(pattern)`, but non-capturing groups are allowed `(?:pattern)`. As an Example:
+  
+    `(?:my.domain.com|(?:api|test-api|gateway).my.otherdomain.com)`
 
 * `do_not_track`: Set this value to true to have traffic for this API completely ignored.
 
