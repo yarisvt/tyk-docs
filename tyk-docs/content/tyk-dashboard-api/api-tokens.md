@@ -1,6 +1,6 @@
 ---
 date: 2017-03-27T12:15:19+01:00
-title: API Tokens
+title: API Key Management
 menu:
   main:
     parent: "Tyk Dashboard API"
@@ -48,7 +48,7 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 | **Property** | **Description**                     |
 | ------------ | ----------------------------------- |
-| Resource URL | `/api/apis/{api-id}}/keys/{key-id}` |
+| Resource URL | `/api/apis/{api-id}/keys/{key-id}` |
 | Method       | GET                                 |
 | Type         | None                                |
 | Body         | None                                |
@@ -177,7 +177,7 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 | **Property** | **Description**                      |
 | ------------ | ------------------------------------ |
-| Resource URL | `/api/apis/{{apiId}}/keys/{{keyId}}` |
+| Resource URL | `/api/apis/{apiId}/keys/{keyId}` |
 | Method       | PUT                                  |
 | Type         | None                                 |
 | Body         | Session Object                       |
