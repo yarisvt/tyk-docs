@@ -24,6 +24,8 @@ By default there is no Portal configured, you need to configure from the Portal 
 
 That's it, now you need to create the home page.
 
+> **NOTE - On-Premises Only**: If you try to access your portal before creating your **home page**, you will receive a 404 error.
+
 ### Step 3: Create the home page
 
 ![Create Page One][1]
