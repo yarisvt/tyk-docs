@@ -76,7 +76,7 @@ sudo yum -q makecache -y --disablerepo='*' --enablerepo='tyk_tyk-dashboard'
 
 We're ready to go, you can now install the relevant packages using yum:
 ```{.copyWrapper}
-sudo yum install -y mongodb-org tyk-dashboard
+sudo yum install -y mongodb-org tyk-dashboard redis
 ```
 
 *(you may be asked to accept the GPG key for our repos and when the package installs, hit yes to continue)*
