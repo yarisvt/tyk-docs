@@ -147,6 +147,7 @@ The best way to add this data is with the Admin API, to make it really easy we'v
 
 *   This command assumes you are running on a Linux shell such as Bash
 *   This command assumes you have Python 2.7 or 3.4 installed
+*   You have Redis and MongoDB running
 
 **To bootstrap your instance**:
 
