@@ -135,6 +135,15 @@ These endpoints allow to get list of all not expired tokens issued for provided 
 - `GET /apis/oauth/{oauthClientId}/tokens` when API ID is unknown or OAuth-client provides access to several APIs
 
 
+### Developers can get more than one key per subscription
+
+Dashboard [Manage Key Requests](https://tyk.io/docs/tyk-dashboard-api/manage-key-requests/) API now allows to submit 
+more than on key request for developer per subscription.
+
+Also, [Portal Developers](https://tyk.io/docs/tyk-dashboard-api/portal-developers/) endpoints have one small changes in 
+reply format - items of developer `"subscriptions"` field are now comma-separated list of keys (for developers who 
+requested and got approved several keys per subscription). 
+
 ## <a name="upgrade"></a>Upgrading all new Components
 
 For details on upgrading all Tyk versions, see [Upgrading Tyk](https://tyk.io/docs/upgrading-tyk/).
