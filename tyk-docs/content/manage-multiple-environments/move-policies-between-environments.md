@@ -1,6 +1,6 @@
 ---
 date: 2017-03-24T12:27:47Z
-title: Move policies between environments
+title: Move Policies Between Environments
 menu:
   main:
     parent: "Manage Multiple Environments"
