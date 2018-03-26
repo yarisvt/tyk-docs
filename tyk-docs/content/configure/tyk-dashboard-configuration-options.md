@@ -76,7 +76,8 @@ The file will look like the sample below, the various fields are explained in th
             "login_failure_username_limit": 3,
             "login_failure_ip_limit": 10,
             "login_failure_expiration": 900,
-            "audit_log_path" : "/tmp/audit.log"
+            "audit_log_path": "/tmp/audit.log",
+            "allow_admin_reset_password": false
         },
         "dashboard_session_lifetime": 60
 
@@ -221,6 +222,10 @@ For more information see the [SSL section in the documentation][1]
 *   `security.login_failure_expiration`: Controls how long before the failure limits are reset in seconds. The default is 900 seconds.
 
 *   `security.audit_log_path`: This sets the path to your audit log. It will log all user actions and response statuses to it. Security information such as passwords are not logged.
+
+*   `allow_admin_reset_password`: This allows an admin user to reset the password of other users. The default is false.
+
+> **NOTE:** `allow_admin_reset_password` is available from v1.3.7 onwards
 
 *   `home_dir`: The path to the home directory of Tyk Dashboard, this must be set in order for Portal templates and other files to be loadable. By default this is `/opt/tyk-dashboard/`.
 
