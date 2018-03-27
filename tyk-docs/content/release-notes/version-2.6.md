@@ -10,32 +10,33 @@ weight: 0
 
 ## <a name="gateway"></a>Tyk Gateway v2.6.0
 
-### Organization-level Rate Limiting
+### Organisation Level Rate Limiting
 
 Endpoints [Create organisation keys](https://tyk.io/docs/tyk-rest-api/organisation-quotas/#create-organisation-keys) and 
 [Add/update organisation keys](https://tyk.io/docs/tyk-rest-api/organisation-quotas/#add-update-organisation-keys) now 
-allow to set rate limit on organizations level. You will need to provide these fields in payload:
+allow you to set rate limits at an organisation level. You will need to add the following fields in your create key request:
 
-- `"allowance"` and `"rate"` which needs to be set to the same value, this should be number of requests to be allowed 
-in a time period
-- `"per"` is the time period
+* `"allowance"`
+* `"rate"`
 
-So, if you want to restrict organization rate limit to 100 requests per second you will need to provide in payload:
+These are the number of allowed requests for the specified `per` value, and need to be set to the same value.
+
+* `"per"` is the time period, in seconds.
+
+So, if you want to restrict an organisation rate limit to 100 requests per second you will need to add to your request:
 ```
     "allowance": 100,
     "rate": 100,
     "per": 5
 ```
 
-NOTE: if you don't want to have organization-level rate limiting set `"rate"` or `"per"` to zero value
-or just don't provide them in payload.
+> **NOTE:** if you don't want to have organisation level rate limiting, set `"rate"` or `"per"` to zero, or don't add them to your request.
 
 ### New endpoint to get list of tokens generated for provided OAuth-client
 
 `GET /oauth/clients/{apiID}/{oauthClientId}/tokens`
 
-This endpoint allow to get list of all not expired tokens issued for provided API ID and OAuth-client ID with
-reply format:
+This endpoint allows you to retrieve a list of all current tokens and their expiry date issued for a provided API ID and OAuth-client ID in the following format:
 ```
 [
     {
@@ -57,7 +58,7 @@ reply format:
 ]
 ```
 
-NOTE: list of tokens in this endpoint reply will be changing over time as tokens expire.
+> **NOTE:** The list of tokens returned will change over time as tokens expire.
 
 
 ## <a name="dashboard"></a>Tyk Dashboard v1.6.0
@@ -66,9 +67,9 @@ NOTE: list of tokens in this endpoint reply will be changing over time as tokens
 
 Developers can request access to an API protected with OAuth and get OAuth client credentials.
 
-The endpoint `POST /api/portal/requests` now has optional field `"oauth_info"` which identifies the OAuth key request.
+The endpoint `POST /api/portal/requests` now has an optional `"oauth_info"` field which identifies the OAuth key request.
 
-Example of OAuth key request payload:  
+Example of the OAuth key request:  
 ```
 {
   "by_user": "5a3b2e7798b28f03a4b7b3f0",
@@ -86,12 +87,12 @@ Where:
 - `"by_user"` - contains ID of portal developer who is requesting OAuth access
 - `"for_plan"` - subscription ID
 - `"version"` is expected to have values `"v2"`
-- `"oauth_info"` - simple structure witch contains a field with comma-separated list of redirect URI for OAuth flow
+- `"oauth_info"` - simple structure which contains a field with comma-separated list of redirect URI for OAuth flow
 
 This new field `"oauth_info"` will be present in replies for endpoints `GET /api/portal/requests/{id}` and `GET /api/portal/requests`
 
-When this kind of OAuth key request gets approved with using endpoint `PUT /api/portal/requests/approve/{id}` 
-a new OAuth-client is generated for a developer specified in field `"by_user"` earlier.
+When this kind of OAuth key request gets approved when using endpoint `PUT /api/portal/requests/approve/{id}` 
+a new OAuth-client is generated for a developer specified in the specified `"by_user"` field.
 
 Example of OAuth key request approval reply:
 ```
@@ -109,12 +110,12 @@ Where:
 - `"policy_id"` - subscription this OAuth-client provides access to
 - `"redirect_uri"` - with comma-separated list of redirect URI for OAuth flow
 
-Also, if you set email notifications in portal setting - email with OAuth-client credentials will be sent to developer 
+Also, if you set email notifications in your portal, an email with the  OAuth-client credentials will be sent to the developer 
 who made that OAuth key request.
 
-There is also one more change in reply of endpoint `GET /api/portal/developers` - developer object will have new field
-`"oauth_clients"` which will contain mapping of subscription IDs to list of OAuth clients that developer requested and
-got approved, i.e.:
+There is also a change in the reply from endpoint `GET /api/portal/developers` - developer object will have new field
+`"oauth_clients"` which will contain a mapping of subscription IDs to the list of OAuth clients that the developer requested and
+was approved, i.e.:
 ```
 "oauth_clients": {
                 "5a52dfce1c3b4802c10053c8": [
@@ -129,19 +130,19 @@ got approved, i.e.:
 
 ### New endpoints to get tokens per OAuth-client
 
-These endpoints allow to get list of all not expired tokens issued for provided OAuth client ID:
+These endpoints allow you to get a list of all current tokens issued for provided OAuth client ID:
 
 - `GET /apis/oauth/{apiId}/{oauthClientId}/tokens`
-- `GET /apis/oauth/{oauthClientId}/tokens` when API ID is unknown or OAuth-client provides access to several APIs
+- `GET /apis/oauth/{oauthClientId}/tokens` when the API ID is unknown or OAuth-client provides access to several APIs
 
 
 ### Developers can get more than one key per subscription
 
-Dashboard [Manage Key Requests](https://tyk.io/docs/tyk-dashboard-api/manage-key-requests/) API now allows to submit 
-more than on key request for developer per subscription.
+Dashboard [Manage Key Requests](https://tyk.io/docs/tyk-dashboard-api/manage-key-requests/) API now allows you to submit 
+more than one key request for developer per subscription.
 
 Also, [Portal Developers](https://tyk.io/docs/tyk-dashboard-api/portal-developers/) endpoints have one small changes in 
-reply format - items of developer `"subscriptions"` field are now comma-separated list of keys (for developers who 
+reply format. The list of the developer `"subscriptions"` field are now a comma-separated list of keys (for developers who 
 requested and got approved several keys per subscription). 
 
 ## <a name="upgrade"></a>Upgrading all new Components
