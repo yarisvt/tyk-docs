@@ -33,7 +33,7 @@ This guide assumes the "1-Click" install was selected on the Marketplace and an 
 1. Connect to the instance using SSH (make sure to use the key specified during the provisioning), e.g. `ssh -i your_key.pem ec2-user@instance.address`
 2. Once inside the instance execute `sudo /opt/tyk-gateway/setup_hybrid.sh -o your-organisation-id -k your-api-key` (more options described below)
 3. If everything went well, Tyk Hybrid Gateway will be running on port 8080, with a Redis storage server running on the same instance
-4. Make sure your EC2 security groups attached to the instance allow inbound traffic on port 8080 and outbound at least on 9091
+4. Make sure your EC2 security groups attached to the instance allow inbound traffic on port 8080
 
 That's it, a fully ready to use Tyk Gateway connected to a Hybrid account is set up and should be available for use through the instance's address.
 
@@ -67,7 +67,7 @@ Here's a very simple "user data" snippet that configures a Tyk Hybrid Gateway pr
 ```{.copyWrapper}
 #cloud-config
 runcmd:
-  - [ /opt/tyk-gateway/setup_hybrid.sh, -o, "orgidhere", -k, "apikeyhere"]
+  - [ /opt/tyk-gateway/setup_hybrid.sh, -o, "orgidhere", -k, "apikeyhere", -s, "gwapisecrethere"]
 ```
 
 Or alternatively, a more verbose sample that does the same without using the script in case a more granular configuration is required:
@@ -98,7 +98,7 @@ runcmd:
 
 The Tyk Hybrid Gateway AMI is based on the latest (at the moment of creation) Amazon Linux AMI (**not** Amazon Linux 2), which itself is based on CentOS 6. Please refer to [Amazon Linux documentation](5) for details as well as [our notes on init systems](6) used in Linux distributions for details on how to manage the process and extract service logs.
 
-Attributes for [ENA/SR-IOV](7) are set on this AMI and since Amazon Linux comes pre-packaged with related drivers it's eligible for use with EC2 instance types supporting these types of networking.
+Attributes for [ENA/SR-IOV](7) are set on this AMI and since Amazon Linux comes pre-packaged with related drivers it's eligible for use with EC2 instance types supporting these types of networking (such as "c5" class).
 
  [1]: /docs/get-started/with-tyk-hybrid/create-an-account/
  [2]: /docs/img/dashboard/system-management/org_id.png
