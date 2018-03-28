@@ -32,6 +32,16 @@ So, if you want to restrict an organisation rate limit to 100 requests per secon
 
 > **NOTE:** if you don't want to have organisation level rate limiting, set `"rate"` or `"per"` to zero, or don't add them to your request.
 
+### Keys hashes
+
+Now it is possible to do more operations with key by hash (when we have setting `"hash_keys": true` in tyk.conf):
+
+- endpoints `POST /keys/create`, `POST /keys` and `POST /keys/{keyName}` also return field `"key_hash"` for future use
+- endpoint `GET /keys` get all (or per API) key hashes, you can disable this endpoint with using new tyk.conf setting `enable_hashed_keys_listing` (false by default)
+- endpoint `GET /keys/{keyName}` was modified to be able to get key by hash. You just need provide key hash as a `keyName` 
+and call it with new optional query parameter `hashed=true`, so new format is `GET /keys/{keyName}?hashed=true"`
+- also, we already have the same optional parameter for endpoint `DELETE /keys/{keyName}?hashed=true`
+
 ### New endpoint to get list of tokens generated for provided OAuth-client
 
 `GET /oauth/clients/{apiID}/{oauthClientId}/tokens`
