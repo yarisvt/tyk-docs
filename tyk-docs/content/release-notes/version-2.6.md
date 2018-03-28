@@ -14,7 +14,7 @@ weight: 0
 
 Endpoints [Create organisation keys](https://tyk.io/docs/tyk-rest-api/organisation-quotas/#create-organisation-keys) and 
 [Add/update organisation keys](https://tyk.io/docs/tyk-rest-api/organisation-quotas/#add-update-organisation-keys) now 
-allow you to set rate limits at an organisation level. You will need to add the following fields in your create key request:
+allow you to set rate limits at an organisation level. You will need to add the following fields in your create/add/update key request:
 
 * `"allowance"`
 * `"rate"`
@@ -23,7 +23,7 @@ These are the number of allowed requests for the specified `per` value, and need
 
 * `"per"` is the time period, in seconds.
 
-So, if you want to restrict an organisation rate limit to 100 requests per second you will need to add to your request:
+So, if you want to restrict an organisation rate limit to 100 requests per second you will need to add the following to your request:
 ```
     "allowance": 100,
     "rate": 100,
