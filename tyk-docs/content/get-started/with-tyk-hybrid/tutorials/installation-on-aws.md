@@ -1,7 +1,7 @@
 ---
 title: "Installation on AWS"
 date: 2018-02-14T17:12:12+02:00
-draft: true
+notoc: true
 menu:
   main:
     parent: "With Tyk Hybrid"
