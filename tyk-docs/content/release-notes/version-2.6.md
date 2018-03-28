@@ -34,7 +34,7 @@ So, if you want to restrict an organisation rate limit to 100 requests per secon
 
 ### Keys hashes
 
-Now it is possible to do more operations with key by hash (when we have setting `"hash_keys": true` in tyk.conf):
+Now it is possible to do more operations with key by hash (when we have setting `"hash_keys": true` in `tyk.conf`):
 
 - endpoints `POST /keys/create`, `POST /keys` and `POST /keys/{keyName}` also return field `"key_hash"` for future use
 - endpoint `GET /keys` get all (or per API) key hashes, you can disable this endpoint with using new tyk.conf setting `enable_hashed_keys_listing` (false by default)
@@ -72,6 +72,14 @@ This endpoint allows you to retrieve a list of all current tokens and their expi
 
 
 ## <a name="dashboard"></a>Tyk Dashboard v1.6.0
+
+### Keys hashes
+
+Dashboard API now supports more operations with key by hash (when we have setting `"hash_keys": true` in `tyk_analytics.conf`):
+
+- endpoint `POST /keys/` also returns new field "key_hash" per each key in the list
+- endpoint `GET /apis/{apiId}/keys/{keyId}` supports query string parameter `hashed=true` to get key info via hash
+- endpoint `GET /apis/{apiId}/keys` returns keys hashes
 
 ### Key requests management API now supports OAuth
 
