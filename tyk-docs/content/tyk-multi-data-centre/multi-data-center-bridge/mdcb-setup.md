@@ -166,7 +166,7 @@ Next, we need to set the group that the node will belong to using API sharding, 
     }
 ```
 
-Next, we need to ensure that the policy loader and analytics purger use the RPC driver:
+Next, we need to ensure that the policy loader and analytics pump use the RPC driver:
 
 ```{.copyWrapper}
     "policies": {

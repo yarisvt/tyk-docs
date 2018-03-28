@@ -26,7 +26,7 @@ The way the Tyk Docker images are set up is:
 
 *   Tyk Gateway container: This is a stand-alone container for the Tyk Gateway that manages your traffic
 *   Tyk Dashboard container: This is your Dashboard and your Portal
-*   Tyk Pump container: This is the data and analytics purger that moves analytics from Tyk to the Dashboard
+*   Tyk Pump container: This is the data and analytics pump that moves analytics from Tyk to the Dashboard
 
 Domain handling is built into the main stack and no additional components are required to route to your portal except setting the domain name when you initialise your organisation.
 

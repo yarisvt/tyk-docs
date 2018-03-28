@@ -434,7 +434,7 @@ Set this value to `true` to have the Tyk node enforce Organisation quotas on the
 
 ### <a name="enforce_org_data_age"></a> enforce_org_data_age
 
-Set to `true` to have Tyk enforce data age on analytics data sent to the Mongo DB purger, must be accompanied by an additional parameter to an organisation session object called `data_expires` which is larger than `0`, this will define in seconds when analytics records for the inbound request will expire.
+Set to `true` to have Tyk enforce data age on analytics data sent to the Mongo DB purger. This must be accompanied by an additional parameter to an organisation session object called `data_expires` which is larger than `0`, this will define in seconds when analytics records for the inbound request will expire.
 
 ### <a name="use_sentry"></a> use_sentry
 
