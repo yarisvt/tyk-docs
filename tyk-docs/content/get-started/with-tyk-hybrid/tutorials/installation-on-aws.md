@@ -1,11 +1,6 @@
 ---
 title: "Installation on AWS"
-date: 2018-02-14T17:12:12+02:00
 notoc: true
-menu:
-  main:
-    parent: "With Tyk Hybrid"
-weight: 3
 ---
 
 Tyk Hybrid Gateway can be installed on AWS infrastructure using our AWS Marketplace AMI product. Once subscribed to it and a Tyk Cloud account is created please follow this guide to set up an instance.
