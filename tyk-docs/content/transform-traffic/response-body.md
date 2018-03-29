@@ -7,7 +7,22 @@ menu:
 weight: 4 
 ---
 
-## Response Body Transformation
+### Enable Response Modifying Middleware
+
+In order for responses to be processed by Tyk as they return via the proxy, the response middleware must be loaded for the API definition. Unlike inbound middleware, these processors are loaded only as required and must therefore be registered in advance. To do so is very simple, just add them to your API definition as follows:
+
+```{.copyWrapper}
+"response_processors": [
+    {
+        "name": "response_body_transform",
+        "options": {}
+    }
+] 
+```
+
+For the header injector response middleware, it is possible to set *global* response injection headers. This means that they do not need to be set on a version-level. Any headers set up in the `options` section of the response headers object will be applied to all replies.
+
+### Response Body Transformation
 
 Setting up response transforms in your API definition is very similar to setting up request transforms, we simply use the `transform_response` section of the API Definition instead:
 
@@ -63,20 +78,3 @@ A middleware called `header_transform`, added in v2.1, ensures headers such as `
 In this configuration, you set the `headers` to target and the `target host` to replace the values with. In the above example, the `Link` and `Location` headers will be modified from the server-generated response, with the protocol, domain and port of the value set in `target_host`.
 
 (This is not supported in the Dashboard yet.)
-
-### A Note on Response Modifying Middleware
-
-In order for responses to be processed by Tyk as they return via the proxy, the response middleware must be loaded for the API definition. Unlike inbound middleware, these processors are loaded only as required and must therefore be registered in advance. To do so is very simple, just add them to your API definition as follows:
-
-```{.copyWrapper}
-"response_processors": [
-    {
-        "name": "response_body_transform",
-        "options": {}
-    }
-] 
-```
-
-For the header injector response middleware, it is possible to set *global* response injection headers. This means that they do not need to be set on a version-level. Any headers set up in the `options` section of the response headers object will be applied to all replies.
-
-
