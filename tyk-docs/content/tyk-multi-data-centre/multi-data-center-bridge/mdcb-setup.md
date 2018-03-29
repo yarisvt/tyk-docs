@@ -137,8 +137,9 @@ Now modify this object so that it has MDCB enabled by setting `hybrid_enabled: t
         "developer_count" : 1,
         "event_options" : {
             "key_event" : {
-                "webhook" : "",
-                "email" : "",
+                "redis" : true
+            },
+            "hashed_key_event" : {
                 "redis" : true
             }
         },
