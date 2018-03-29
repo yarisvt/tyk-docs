@@ -61,9 +61,9 @@ We're now ready to install the Tyk Gateway. To install it, run:
 
 What we've done here is instructed apt-get to install the Tyk Gateway without prompting, wait for the downloads to complete.
 
-When Tyk is finished installing, it will have installed some init scripts, but it will not be running yet. The next step will be to setup the Gateway - thankfully this can be done with three very simple commands, however it does depend on whether you are configuring Tyk Gateway for use with the Dashboard or without (Tyk Developer Edition).
+When Tyk is finished installing, it will have installed some init scripts, but it will not be running yet. The next step will be to setup the Gateway - thankfully this can be done with three very simple commands, however it does depend on whether you are configuring Tyk Gateway for use with the Dashboard or without (Community Edition).
 
-## <a name="configure-tyk-developer-edition"></a>Configure Tyk Gateway Developer Edition
+## <a name="configure-tyk-community-edition"></a>Configure Tyk Gateway Community Edition
 
 You can set up the core settings for Tyk Gateway with a single setup script, however for more involved deployments, you will want to provide your own configuration file. To get things started, run:
 ```{.copyWrapper}
