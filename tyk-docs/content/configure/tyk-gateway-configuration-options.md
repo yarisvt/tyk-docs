@@ -110,7 +110,7 @@ Set the number of maximum idle connections in the Redis connection pool, default
 
 Set this to `true` to allow you to use MaxMind GeoIP databases. You also need to set `geo_ip_db_path`.
 
-You can also configure your Tyk Analytics to store your GeoIP information. See [`enable_analytics.enable_geo_ip`](http://localhost:1313/docs/configure/tyk-gateway-configuration-options/#a-name-enable-analytics-enable-geo-ip-a-enable-analytics-enable-geo-ip) for details.
+You can also configure your Tyk Analytics to store your GeoIP information. See [`enable_analytics.enable_geo_ip`](https://tyk.io/docs/configure/tyk-gateway-configuration-options/#a-name-enable-analytics-enable-geo-ip-a-enable-analytics-enable-geo-ip) for details.
 
 #### <a name="geo_ip_db_path"></a> geo_ip_db_path
 
