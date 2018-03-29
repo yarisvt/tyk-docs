@@ -4,7 +4,7 @@ Title: Installation on Heroku
 menu:
   main:
     parent: "With Tyk Hybrid"
-weight: 5
+weight: 4
 ---
 
 > **Note:** This is a Tyk Community Contribution.
