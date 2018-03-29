@@ -26,7 +26,7 @@ Alternatively, you could use segmentation to have separate API definitions for m
 
 You can use sharding to very quickly publish an API from a `development` system to `staging` or `live`, simply by changing the tags that are applied to an API definition.
 
-With Tyk Developer and Tyk Pro editions, these clusters must all share the same Redis DB.
+With Tyk Community and Tyk Pro, these clusters must all share the same Redis DB.
 
 If you are an Enterprise user, then you can go a step further and use the Tyk Multi Data Center Bridge to have full multi-DC, multi-zone cluster segmentation, and manage APIs in different segments across different database back-ends.
 

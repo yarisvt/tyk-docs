@@ -11,4 +11,4 @@ url: "/get-started/with-tyk-on-premise/tutorials"
 
 ## Get Started with Tyk On-Premises: Tutorials
 
-There are multiple tutorials for Tyk On-Premises, both for the Developer and the Pro Edition. To get started, make sure that you have a Linux test environment ready, and then follow the guides to begin your installation.
+There are multiple tutorials for Tyk On-Premises, both for the Community Edition and the Pro Edition. To get started, make sure that you have a test environment ready (Linux), and then follow the guides to begin your installation.
