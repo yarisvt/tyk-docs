@@ -1,10 +1,10 @@
 ---
 date: 2017-03-13T15:08:55Z
-Title: Create an API Key - Developer Edition
+Title: Create an API Key - Community Edition
 menu:
   main:
-    parent: Developer Edition
-    identifier: developer-edition-create-api-token
+    parent: Community Edition
+    identifier: community-edition-create-api-token
 weight: 2
 ---
 

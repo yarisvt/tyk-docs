@@ -69,7 +69,7 @@ To the policy object, when the key is generated, the expiry will be forced.
 
 Tyk Pro (The dashboard) has policies enabled by default.
 
-### Configuring Developer Edition to use a policy list
+### Configuring Community Edition to use a policy list
 
 If your Tyk configuration is standalone and configuration is being managed via the REST API without the support of the dashboard, then you will need to set the `policies section` in your configuration file as follows:
 
