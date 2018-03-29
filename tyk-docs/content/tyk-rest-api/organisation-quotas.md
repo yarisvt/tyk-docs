@@ -11,7 +11,7 @@ weight: 8
 
 It is possible to force API quota limiting across all keys that belong to a specific organisation ID, the rate limiting on an organisation level is useful for creating tiered access levels and trial accounts.
 
-The Organisation rate limiting middleware only works with Quotas and not access throttling. In order to manage this functionality, a simple API has been put in place to manage these sessions.
+The Organisation rate limiting middleware works with both Quotas and Rate limiters. In order to manage this functionality, a simple API has been put in place to manage these sessions.
 
 Although the Organisation session-limiter uses the same session object, all other security keys are optional as they are not used.
 
@@ -49,9 +49,18 @@ Cache-Control: no-cache
     "quota_renews": 1406121006,
     "quota_remaining": 0,
     "quota_renewal_rate": 60,
+    "allowance": 100,
+    "rate": 100,
+    "per": 5,
     "org_id": "53ac07777cbb8c2d53000002"
 }
 ```
+
+Where payload fields:
+
+- `"quota_*"` are specifying attributes for organization-level quota (`"quota_max": -1` will set unlimited quota)
+- `"allowance"`, `"rate"` and `"per"` are specifying attributes for organization level rate limiter (`"rate": 0` or `"per": 0` will set unlimited rate)
+- `"org_id"` - identifies the organization session key object
 
 #### Sample response
 
@@ -94,6 +103,9 @@ Cache-Control: no-cache
     "quota_renews": 1406121006,
     "quota_remaining": 0,
     "quota_renewal_rate": 60,
+    "allowance": 100,
+    "rate": 100,
+    "per": 5,
     "org_id": "53ac07777cbb8c2d53000002"
 }
 ```
