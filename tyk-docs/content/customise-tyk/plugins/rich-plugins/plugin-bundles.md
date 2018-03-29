@@ -43,7 +43,7 @@ A sample manifest file looks like this:
 
 You may leave the `checksum` and `signature` fields empty, the bundler tool will fill these during the build process.
 
-The `custom_middleware` block follows the standard syntax we use for Tyk plugins. In Tyk Community Edition, where file-based API configuration is used by default, a `custom_middleware` block is located/added to the API configuration file.
+The `custom_middleware` block follows the standard syntax we use for Tyk plugins. In the Tyk Developer Edition, where file-based API configuration is used by default, a `custom_middleware` block is located/added to the API configuration file.
 
 ### Bundler tool
 

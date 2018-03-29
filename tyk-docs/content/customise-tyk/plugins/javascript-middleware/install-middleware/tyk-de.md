@@ -1,13 +1,13 @@
 ---
 date: 2017-03-24T15:38:11Z
-title: Install Middleware on Tyk Community Edition
+title: Install Middleware on Tyk Developer Edition
 menu:
   main:
     parent: "Install Middleware"
 weight: 0 
 ---
 
-In order to activate middleware in a Tyk Community Edition edition or when using a file-based setup, the middleware needs to be registered as part of your API Definition. Registration of middleware components is relatively simple.
+In order to activate middleware in a Tyk Developer Edition edition or when using a file-based setup, the middleware needs to be registered as part of your API Definition. Registration of middleware components is relatively simple.
 > **Note**: it is important that your object names are unique.
 
 Adding the middleware plugin is as simple as adding it to your definition file in the middleware sections:

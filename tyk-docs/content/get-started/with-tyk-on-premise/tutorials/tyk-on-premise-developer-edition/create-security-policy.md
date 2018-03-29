@@ -1,10 +1,10 @@
 ---
 date: 2017-03-23T10:39:14Z
-Title: Create a security policy - Community Edition
+Title: Create a security policy - Developer Edition
 menu:
   main:
-    parent: Community Edition
-    identifier: community-edition-create-security-policy
+    parent: Developer Edition
+    identifier: developer-edition-create-security-policy
 weight: 3
 ---
 
@@ -25,7 +25,7 @@ Each of these can also be overridden in isolation using the partitioning options
 
 ## <a name="create-a-file-based-policy"></a>Tutorial: Create a policy with the Gateway API
 
-Adding a policy to a file-based (Community Edition) Tyk Gateway is very easy. Polices are loaded into memory on load and so need to be specified in advanced in a file called `policies.json`. To add a policy, simply create or edit the `/policies/policies.json` file and add the policy object to the object array:
+Adding a policy to a file-based (Developer Edition) Tyk Gateway is very easy. Polices are loaded into memory on load and so need to be specified in advanced in a file called `policies.json`. To add a policy, simply create or edit the `/policies/policies.json` file and add the policy object to the object array:
 
 ```{.copyWrapper}
   {
