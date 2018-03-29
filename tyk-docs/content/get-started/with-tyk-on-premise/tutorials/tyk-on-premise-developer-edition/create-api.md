@@ -1,16 +1,16 @@
 ---
 date: 2017-03-23T10:16:44Z
-Title: Create an API - Community Edition
+Title: Create an API - Developer Edition
 menu:
   main:
-    parent: Community Edition
-    identifier: community-edition-create-api
+    parent: Developer Edition
+    identifier: developer-edition-create-api
 weight: 1
 ---
 
 ## <a name="creation-methods"></a>Creation Methods
 
-With Tyk On-Premises Community Edition, it is possible to create APIs using Tyk’s REST API or to generate a file with the same object and store it in the `/apps` folder of the Tyk Gateway installation folder, this is discussed later.
+With Tyk On-Premises Developer Edition, it is possible to create APIs using Tyk's REST API or to generate a file with the same object and store it in the `/apps` folder of the Tyk Gateway installation folder.
 
 
 ## <a name="with-gateway-rest-api"></a>Tutorial: Create an API with the Gateway REST API

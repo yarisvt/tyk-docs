@@ -69,7 +69,7 @@ The API should be a protected one and have the `enable_coprocess_auth` flag set 
 }
 ```
 
-If you're not using the Community Edition, check the API settings in the dashboard and make sure that "Custom Auth" is selected.
+If you're not using the Developer Edition, check the API settings in the dashboard and make sure that "Custom Auth" is selected.
 
 The second requirement is to append an additional configuration block to your plugin manifest file, using the `id_extractor` key:
 
