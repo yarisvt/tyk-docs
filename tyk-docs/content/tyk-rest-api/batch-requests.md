@@ -16,7 +16,7 @@ Batch requests that come into Tyk are *run through the whole Tyk machinery* and 
 
 Tyk reconstructs the API request based on the data in the batch request. This is to ensure that Tyk is not being used to proxy requests to other hosts outside of the upstream API being accessed.
 
-Batch requests are created by POSTing to the `/{api-id}/tyk/batch` endpoint. These requests **do not require a valid key**, but their request list does. Here is a sample request body:
+Batch requests are created by POSTing to the `/{listen_path}/tyk/batch/` endpoint. These requests **do not require a valid key**, but their request list does. Here is a sample request body:
 
 ```{json}
 {
