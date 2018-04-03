@@ -1,4 +1,4 @@
----
+   ---
 date: 2017-03-27T12:51:44+01:00
 title: Tyk Gateway Configuration Options
 menu:
@@ -104,6 +104,19 @@ If your Redis instance has a password set for access, you can tell Tyk about it 
 
 Set the number of maximum idle connections in the Redis connection pool, defaults to 100, set to higher if expecting more traffic.
 
+### <a name="maxmind"></a>MaxMind Database Settings
+
+#### <a name="enable_geo_ip"></a> enable_geo_ip
+
+Set this to `true` to allow you to use MaxMind GeoIP databases. You also need to set `geo_ip_db_path`.
+
+You can also enable storing GeoIP information in analytics by setting the following Gateway option: [`enable_analytics.enable_geo_ip`](https://tyk.io/docs/configure/tyk-gateway-configuration-options/#a-name-enable-analytics-enable-geo-ip-a-enable-analytics-enable-geo-ip)
+
+#### <a name="geo_ip_db_path"></a> geo_ip_db_path
+
+Set this value to the absolute path of your MaxMind GeoIP Database file, e.g.: `./GeoLite2-City.mmdb`. 
+
+
 ### <a name="enable_analytics"></a> enable_analytics
 
 Tyk is capable of recording every hit to your API into a database with various filtering parameters, set this value to `true` and fill in the sub-section below to enable logging.
@@ -126,7 +139,7 @@ As of Tyk API Gateway 2.0, Tyk can store GeoIP information based on MaxMind DB's
 
 #### <a name="enable_analytics-enable_geo_ip_db_path"></a> enable_analytics.enable_geo_ip_db_path
 
-Set this value to the absolute path the GeoIP Database file, e.g.: `./GeoLite2-City.mmdb`. The analytics GeoIP DB can be replaced on disk, it will cleanly auto-reload every hour.
+Set this value to the absolute path of your MaxMind GeoIP Database file, e.g.: `./GeoLite2-City.mmdb`. The analytics GeoIP DB can be replaced on disk, it will cleanly auto-reload every hour.
 
 #### <a name="enable_analytics-ignored_ips"></a> enable_analytics.ignored_ips
 
