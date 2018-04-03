@@ -138,12 +138,12 @@ These endpoints allow you to get a list of all current tokens issued for provide
 
 ### Developers can get more than one key per subscription
 
-Dashboard [Manage Key Requests](https://tyk.io/docs/tyk-dashboard-api/manage-key-requests/) API now allows you to submit 
-more than one key request for developer per subscription.
+The Tyk Dashboard [Manage Key Requests](https://tyk.io/docs/tyk-dashboard-api/manage-key-requests/) API now allows you to submit 
+more than one key request for a developer per subscription.
 
-Also, [Portal Developers](https://tyk.io/docs/tyk-dashboard-api/portal-developers/) endpoints have one small changes in 
-reply format. The list of the developer `"subscriptions"` field are now a comma-separated list of keys (for developers who 
-requested and got approved several keys per subscription). 
+Also, [Portal Developers](https://tyk.io/docs/tyk-dashboard-api/portal-developers/) endpoints have one small change in the
+response format. The list of the developer `"subscriptions"` field is now a comma-separated list of keys (for developers who 
+requested and got approved for several keys per subscription). 
 
 ## <a name="upgrade"></a>Upgrading all new Components
 
