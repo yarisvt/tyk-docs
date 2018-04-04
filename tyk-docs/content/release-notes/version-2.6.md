@@ -34,12 +34,12 @@ So, if you want to restrict an organisation rate limit to 100 requests per secon
 
 ### Keys hashing improvements
 
-Now it is possible to do more operations with key by hash (when we have setting `"hash_keys": true` in `tyk.conf`):
+Now it is possible to do more operations with key by hash (when we set `"hash_keys":` to `true` in `tyk.conf`):
 
 - endpoints `POST /keys/create`, `POST /keys` and `POST /keys/{keyName}` also return field `"key_hash"` for future use
-- endpoint `GET /keys` get all (or per API) key hashes, you can disable this endpoint with using new tyk.conf setting `enable_hashed_keys_listing` (false by default)
-- endpoint `GET /keys/{keyName}` was modified to be able to get key by hash. You just need provide key hash as a `keyName` 
-and call it with new optional query parameter `hashed=true`, so new format is `GET /keys/{keyName}?hashed=true"`
+- endpoint `GET /keys` get all (or per API) key hashes. You can disable this endpoint by using the new `tyk.conf` setting `enable_hashed_keys_listing` (set to false by default)
+- endpoint `GET /keys/{keyName}` was modified to be able to get a key by hash. You just need provide the key hash as a `keyName` 
+and call it with the new optional query parameter `hashed=true`. So the new format is `GET /keys/{keyName}?hashed=true"`
 - also, we already have the same optional parameter for endpoint `DELETE /keys/{keyName}?hashed=true`
 
 ### JSON schema validation
@@ -48,7 +48,7 @@ You can now use Tyk to verify users’ requests against specified JSON schema an
 
 If it’s not in the right format, then the request will be rejected. And even better, the response will be a meaningful error rather than just a ‘computer says no’.
 
-Schema validation implemented as rest of plugins, and its configuration should be put to `extended_paths` in following format:
+Schema validation is implemented as rest of plugins, and its configuration should be added to `extended_paths` in the following format:
 ```
 "validate_json": [{
   "method": "POST",
@@ -107,13 +107,13 @@ This endpoint allows you to retrieve a list of all current tokens and their expi
 ]
 ```
 
-You can control how long you want to store expired tokens in this list using `oauth_token_expired_retain_period ` which specifies retain period for expired tokens stored in redis. By default expired token not get removed.
+You can control how long you want to store expired tokens in this list using `oauth_token_expired_retain_period ` which specifies the retain period for expired tokens stored in Redis. The value is in seconds, and the default value is `0`. Using the default value means expired tokens are never removed from Redis.
 
-### Creating oAuth clients with access to multiple APIs
+### Creating OAuth clients with access to multiple APIs
 
-When creating a client using `POST /oauth/clients/create`, `api_id` now optional - these changes make endpoint more generic, if we provide API ID it works the same it was before, if we don't provide API ID it uses policy's access rights and enumerates APIs from there setting the same newly created oauth-client. 
+When creating a client using `POST /oauth/clients/create`, `api_id` now optional - these changes make the endpoint more generic. If you provide the `api_id` it works the same as in previous releases. If you don't provide the `api_id` the request uses policy access rights and enumerates APIs from their setting in the newly created OAuth-client. 
 
-At the moment this changes not reflected on Dashboard UI yet, as we going to do major oAuth improvements in 2.7
+At the moment this changes not reflected on Dashboard UI yet, as we going to do major OAuth improvements in 2.7
 
 ### Certificate public key pinning
 

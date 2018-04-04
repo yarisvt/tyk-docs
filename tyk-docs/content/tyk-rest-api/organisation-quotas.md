@@ -36,6 +36,8 @@ By default the quota will reset when the `per` limit is reached and the key refr
 
 This reset quota mechanism is in place to allow a manual initialisation of the rate limiter to prevent this default reload off-cycle.
 
+For **Gateway v2.6.0** onwards, you can now set rate limits at the organisation level by using the following fields - `allowance` and `rate`. These are the number of allowed requests for the specified per value, and need to be set to the same value. If you don't want to have organisation level rate limiting, set "rate" or "per" to zero, or don't add them to your request.
+
 #### Sample request
 
 ```{.copyWrapper}
@@ -56,7 +58,7 @@ Cache-Control: no-cache
 }
 ```
 
-Where payload fields:
+Where the request fields:
 
 - `"quota_*"` are specifying attributes for organization-level quota (`"quota_max": -1` will set unlimited quota)
 - `"allowance"`, `"rate"` and `"per"` are specifying attributes for organization level rate limiter (`"rate": 0` or `"per": 0` will set unlimited rate)
@@ -89,6 +91,8 @@ Adding the `reset_quota` parameter and setting it to `1`, will cause Tyk reset t
 By default the quota will reset when the `per` limit is reached and the key refreshes, this means that should an organisation use the service from day 1 month 1, and then use up their quota by day 20. On day 30, the key expires and the quota is open again, however if the organisation only accesses the API again on day 10, month 2, then the quota will be active from day 10, month 2 and therefore renew on day 10 Month 4, since the rate limiter is initialised when the org is next seen.
 
 This reset quota mechanism is in place to allow a manual initialisation of the rate limiter to prevent this default reload off-cycle.
+
+For **Gateway v2.6.0** onwards, you can now set rate limits at the organisation level by using the following fields - `allowance` and `rate`. These are the number of allowed requests for the specified per value, and need to be set to the same value. If you don't want to have organisation level rate limiting, set "rate" or "per" to zero, or don't add them to your request.
 
 #### Sample request
 
