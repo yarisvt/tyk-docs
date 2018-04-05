@@ -111,19 +111,19 @@ You can control how long you want to store expired tokens in this list using `oa
 
 ### Creating OAuth clients with access to multiple APIs
 
-When creating a client using `POST /oauth/clients/create`, `api_id` now optional - these changes make the endpoint more generic. If you provide the `api_id` it works the same as in previous releases. If you don't provide the `api_id` the request uses policy access rights and enumerates APIs from their setting in the newly created OAuth-client. 
+When creating a client using `POST /oauth/clients/create`, the `api_id` is now optional - these changes make the endpoint more generic. If you provide the `api_id` it works the same as in previous releases. If you don't provide the `api_id` the request uses policy access rights and enumerates APIs from their setting in the newly created OAuth-client. 
 
 At the moment this changes not reflected on Dashboard UI yet, as we going to do major OAuth improvements in 2.7
 
 ### Certificate public key pinning
 
-Certificate pinning is a feature which allows you to whitelist public keys used to generated certificates, so you will be protected in cases when upstream certificate is compromised.
+Certificate pinning is a feature which allows you to whitelist public keys used to generate certificates, so you will be protected in case an upstream certificate is compromised.
 
-Using Tyk you can white-list one or multiple public keys per domain. Wildcard domains also supported.
+Using Tyk you can whitelist one or multiple public keys per domain. Wildcard domains are also supported.
 
-Public keys stored inside Tyk certificate storage, so you can use Certificate API to manage them.
+Public keys are stored inside the Tyk certificate storage, so you can use Certificate API to manage them.
 
-You can define them globally, using Tyk configuration file and `security.pinned_public_keys` option, or via API definition `pinned_public_keys` field, using the following format:
+You can define them globally, from the Tyk Gateway configuration file using the `security.pinned_public_keys` option, or via an API definition `pinned_public_keys` field, using the following format:
 ```
 {
     "example.com": "<key-id>",
@@ -132,7 +132,7 @@ You can define them globally, using Tyk configuration file and `security.pinned_
 }
 ```
 
-As `key-id` you should set ID returned after you uploaded public key using Certificate API. Additionally, you can just set path to public key, located on your server. You can specify multiple public keys by separating their IDs by a comma.
+For `key-id` you should set the ID returned after you upload the public key using the Certificate API. Additionally, you can just set path to public key, located on your server. You can specify multiple public keys by separating their IDs by a comma.
 
 Note that only public keys in PEM format are supported.
 
@@ -143,32 +143,43 @@ by yourself using the following command:
 If you already have a certificate, and just need to get its public key, you can do it using the following command:
 > openssl x509 -pubkey -noout -in cert.pem
 
-PS. Upstream certificates now also have wildcard domain support
+**Note:** Upstream certificates now also have wildcard domain support
 
-## JQ transformations
+### JQ transformations
 
-If you worked with JSON you probably know popular `jq` command line JSON processor, learn more about it here https://stedolan.github.io/jq/
+If you work with JSON you are probably aware of the popular `jq` command line JSON processor. For more details, see here https://stedolan.github.io/jq/
 
-Now you can use the full power of its queries and transformations, to transform requests, responses, headers and even context variables.
+Now you can use the full power of its queries and transformations to transform requests, responses, headers and even context variables.
 
-We added two new plugins `transform_jq_response` - for transorming responses, and `transform_jq` for transforming requests. 
-Both have the same structure, similar to rest of plugins: `{ "path": "<path>", "method": "<method>", "filter": "<content>" }`
+We have added two new plugins: 
 
-### Request transform
-Inside request transform you can use following variables: 
+* `transform_jq` - for request transforms.
+* `transform_jq_response` - for response transforms
+ 
+Both have the same structure, similar to the rest of our plugins: 
+`{ "path": "<path>", "method": "<method>", "filter": "<content>" }`
+
+### Request Transforms
+Inside a request transform you can use following variables: 
 * `.body` - your current request body
-* `._tyk_context` - Tyk context variables, you can use it to access request headers as well.
+* `._tyk_context` - Tyk context variables. You can use it to access request headers as well.
 
-Your JQ request transform should return object with following format: `{ "body": <transformed-body>, "rewrite_headers": <set-or-add-headers>, "tyk_context": <set-or-add-context-vars> }`. `body` is required, while `rewrite_headers` and `tyk_context` are optional.
+Your JQ request transform should return an object in the following format: 
+`{ "body": <transformed-body>, "rewrite_headers": <set-or-add-headers>, "tyk_context": <set-or-add-context-vars> }`. 
+
+`body` is required, while `rewrite_headers` and `tyk_context` are optional.
 
 
-### Response transform 
-Inside response transform you can use following variables: 
+### Response Transforms 
+Inside a response transform you can use following variables: 
 * `.body` - your current response body
-* `._tyk_context` - Tyk context variables, you can use it to access request headers as well.
+* `._tyk_context` - Tyk context variables. You can use it to access request headers as well.
 * `._tyk_response_headers` - Access to response headers
 
-Your JQ response transform should return object with following format: `{ "body": <transformed-body>, "rewrite_headers": <set-or-add-headers>}`. `body` is required, while `rewrite_headers` is optional.
+Your JQ response transform should return an object in the following format: 
+`{ "body": <transformed-body>, "rewrite_headers": <set-or-add-headers>}`. 
+
+`body` is required, while `rewrite_headers` is optional.
 
 ### Example
 ```
@@ -191,46 +202,48 @@ Your JQ response transform should return object with following format: `{ "body"
 
 ### API categories
 
-You can attach multiple categories to an API definition, and then filter by these categories on the API list page.
+You can apply multiple categories to an API definition, and then filter by these categories on the API list page.
 
-They might refer to the API’s general focus: ‘weather’, ‘share prices’; geographic location ‘APAC’, ‘EMEA’; or  technical markers ‘Dev’, ‘Test’. It’s completely up to you.
+They might refer to the APIs general focus: 'weather', 'share prices'; geographic location 'APAC', 'EMEA'; or technical markers 'Dev', 'Test'. It's completely up to you.
 
-From API perspective, categories are stored inside API definition `name` field like this: "Api name #category1 #category2", e.g. categories just appended to the end of the name. 
+From an API perspective, categories are stored inside API definition `name` field like this: "Api name #category1 #category2", e.g. categories just appended to the end of the name. 
 
 Added new API `/api/apis/categories` to return list of all categories and belonging APIs.
 
-### Raw API edit mode
+### Raw API Definition mode
 
-Now you can directly edit API definition JSON object directly from API designer, by simply toggling between the ‘visual’ and the ‘raw’ in top header. 
+Now you can directly edit a raw API definition JSON object directly from the API Designer, by selecting either the **Raw API Definition** or the **API Designer** at the top of the API Designer screen. 
 
-This feature comes especially handy if you need copy paste parts of one API to another, or if you need to access fields not yet exposed to Dashbard UI.
+![Raw or Designer][1]
+
+This feature comes especially handy if you need copy paste parts of one API to another, or if you need to access fields not yet exposed to the Dashboard UI.
 
 ### Certificate public key pinning
 
-You can configure pinning on "Advanced" tab of API designer screen, in a similar maneer how you specify upstream client certificates.
+You can configure certificate pinning on the **Advanced** tab of the API Designer, using a similar method to how you specify upstream client certificates.
 
 ### JSON schema validation
 
-Reflecting Gateway changes, on Dashboard we added new "Validate JSON" plugin, which you can specify per URL, and can set both schema, and custom error code, if needed.
+Reflecting the Tyk Gateway changes, on the Dashboard we have added a new **Validate JSON** plugin, which you can specify per URL, and can set both a schema, and custom error code, if needed.
 
 ### JQ transforms
-Added two new plugins "JQ transform" and "JQ response transform". See Gateway changelog above, on documentation how to use this feature.  
+We have added two new plugins "JQ transform" and "JQ response transform". See [JQ Transforms](/docs/release-notes/version-2.6/#jq-transformations) in the Gateway section above, for more details.  
 
 ### Improved key hashing support
 
-Dashboard API reflect changes in Gateway API, mentioned above, and now supports more operations with key by hash (when we have setting `"hash_keys": true` in `tyk_analytics.conf`):
+The Tyk Dashboard API reflects changes made in the v2.6.0 Gateway API, and now supports more operations with key by hash (when we have set `"hash_keys":` to ` true` in `tyk_analytics.conf`):
 
-- endpoint `POST /keys/` also returns new field "key_hash" per each key in the list
-- endpoint `GET /apis/{apiId}/keys/{keyId}` supports query string parameter `hashed=true` to get key info via hash
+- endpoint `POST /keys/` also returns a new field `key_hash` per each key in the list
+- endpoint `GET /apis/{apiId}/keys/{keyId}` supports query string parameter `hashed=true` to get the key info via hash
 - endpoint `GET /apis/{apiId}/keys` returns keys hashes
-- endpoint `DELETE /apis/{apiId}/keys?hashed=true` can delete key by its hash, but its functionality disabled by default, unless you set `enable_delete_key_by_hash` boolean option inside Dashboard configuration file. 
+- endpoint `DELETE /apis/{apiId}/keys?hashed=true` can delete a key by its hash, but its functionality is disabled by default, unless you set `enable_delete_key_by_hash` boolean option inside the Dashboard configuration file. 
 
 
 ### Key requests management API now supports OAuth
 
-For this latest release we’ve improved our developer portal APIs to fully support OAuth2.0 based workflow. Developers using your API will now be able to register OAuth clients and manage them.
+For this release we've improved our developer portal APIs to fully support an OAuth2.0 based workflow. Developers using your API will now be able to register OAuth clients and manage them.
 
-This change not yet supported by our built-in portal, but if you are using custom developer portals, you can start using this new functionality right away. Full UI support for built-in portal will be shipped with our next 2.7 release.
+This change is not yet supported by our built-in portal, but if you are using custom developer portals, you can start using this new functionality right away. Full UI support for built-in portal will be shipped with our next 2.7 release.
 
 Developers can request access to an API protected with OAuth and get OAuth client credentials.
 
@@ -251,12 +264,12 @@ Example of the OAuth key request:
 
 Where:
 
-- `"by_user"` - contains ID of portal developer who is requesting OAuth access
+- `"by_user"` - contains the ID of portal developer who is requesting OAuth access
 - `"for_plan"` - subscription ID
-- `"version"` is expected to have values `"v2"`
+- `"version"` - is expected to have the value `"v2"`
 - `"oauth_info"` - simple structure which contains a field with comma-separated list of redirect URI for OAuth flow
 
-This new field `"oauth_info"` will be present in replies for endpoints `GET /api/portal/requests/{id}` and `GET /api/portal/requests`
+A new field `"oauth_info"` will be present in replies for endpoints `GET /api/portal/requests/{id}` and `GET /api/portal/requests`
 
 When this kind of OAuth key request gets approved when using endpoint `PUT /api/portal/requests/approve/{id}` 
 a new OAuth-client is generated for a developer specified in the specified `"by_user"` field.
@@ -273,14 +286,14 @@ Example of OAuth key request approval reply:
 
 Where:
 
-- `"client_id"` and `"secret"` are OAuth-client credentials used to request get token (they to be kept in secret)
-- `"policy_id"` - subscription this OAuth-client provides access to
+- `"client_id"` and `"secret"` are OAuth-client credentials used to request the get token (they are to be kept in secret)
+- `"policy_id"` - the subscription this OAuth-client provides access to
 - `"redirect_uri"` - with comma-separated list of redirect URI for OAuth flow
 
 Also, if you set email notifications in your portal, an email with the  OAuth-client credentials will be sent to the developer 
 who made that OAuth key request.
 
-There is also a change in the reply from endpoint `GET /api/portal/developers` - developer object will have new field
+There is also a change in the reply from the `GET /api/portal/developers` endpoint.The developer object will have new field - 
 `"oauth_clients"` which will contain a mapping of subscription IDs to the list of OAuth clients that the developer requested and
 was approved, i.e.:
 ```
@@ -295,7 +308,7 @@ was approved, i.e.:
 },
 ```
 
-### New endpoints to get tokens per OAuth-client
+### New endpoints to get tokens per OAuth client
 
 These endpoints allow you to get a list of all current tokens issued for provided OAuth client ID:
 
@@ -308,20 +321,15 @@ These endpoints allow you to get a list of all current tokens issued for provide
 The Tyk Dashboard [Manage Key Requests](https://tyk.io/docs/tyk-dashboard-api/manage-key-requests/) API now allows you to submit 
 more than one key request for a developer per subscription.
 
-<<<<<<< HEAD
 Also, [Portal Developers](https://tyk.io/docs/tyk-dashboard-api/portal-developers/) endpoints have one small change in the
 response format. The list of the developer `"subscriptions"` field is now a comma-separated list of keys (for developers who 
 requested and got approved for several keys per subscription). 
-=======
-Also, [Portal Developers](https://tyk.io/docs/tyk-dashboard-api/portal-developers/) endpoints have one small changes in 
-reply format. The list of the developer `"subscriptions"` field are now a comma-separated list of keys (for developers who 
-requested and got approved several keys per subscription).
 
-This change right now is API only, and not included into our built-in portal.
+This change is API only for this release, and not included into our built-in portal.
 
 ### SSO API custom email support
 
-Now you can set email address for users logging though Dashboard SSO API, by adding "Email" field to JSON payload which you sent to `/admin/sso` endpoint. For example:
+Now you can set email address for users logging though the Dashboard SSO API, by adding an "Email" field to the JSON payload which you sent to `/admin/sso` endpoint. For example:
 ```
 POST /admin/sso HTTP/1.1
 Host: localhost:3000
@@ -337,30 +345,28 @@ admin-auth: 12345
 ### Set Catalogue settings for each individual API 
 
 Now you can override the global catalogue settings and specify settings per catalogue. 
-Catalogue object now has `config` field, with exactly same structure as Portal Config, except new `override` boolean field. 
+The Catalogue object now has `config` field, with exactly same structure as Portal Config, except new `override` boolean field. 
 If set, Catalogue settings will override global ones. 
 
-At the moment following options can be overriden: `Key request fields`, `Require key approval` and `Redirect on key request` (with `Redirect to` option as well).
+At the moment the following options can be overriden: `Key request fields`, `Require key approval` and `Redirect on key request` (with `Redirect to` option as well).
 
 ## Tyk Identity Broker v0.4.0
 
-With this release TIB join Tyk product line as a first class citizen and now distributed via packages and docker images.
+With this release TIB joins the Tyk product line as a first class citizen and is now distributed via packages and docker images.
 
 ### Support for SSO API email field
-If IDP provides user email, it should be passed to the Dashboard SSO API, and you should see it dashboard ui.
+If IDP provides a user email, it should be passed to the Dashboard SSO API, and you should see it in the Dashboard UI.
 
 ### Improved support for local IDPs
-If you run local IDP, like Ping, with untrusted SSL certificate, you now can turn off SSL verification by setting `SSLInsecureSkipVerify` to `true` in TIB configuration file. 
+If you run a local IDP, like Ping, with an untrusted SSL certificate, you can now turn off SSL verification by setting `SSLInsecureSkipVerify` to `true` in the TIB configuration file. 
 
 ### Added Redis TLS support
 To enable set `BackEnd.UseSSL` and, optionally, `BackEnd.SSLInsecureSkipVerify`.
-
-
 ## Redis TLS support
 
-Many Redis hosting providers now support TLS and we’re pleased to confirm that we do too.
+Many Redis hosting providers now support TLS and we're pleased to confirm that we do too.
 
-Whether it’s the open source API Gateway, or Dashboard, Pump, Sink and Tyk Identity Broker (TIB): you can now make secure connections to Redis from all Tyk products, as long as your provider allows it.
+Whether it's the open source API Gateway, or Dashboard, Pump, Sink and Tyk Identity Broker (TIB): you can now make secure connections to Redis from all Tyk products, as long as your provider allows it.
 >>>>>>> b787c63777f18ae81756750965272bc5ad28ee7a
 
 ## <a name="upgrade"></a>Upgrading all new Components
@@ -374,6 +380,6 @@ Get started now, for free, or contact us with any questions.
 * [Get Started](https://tyk.io/pricing/compare-api-management-platforms/#get-started)
 * [Contact Us](https://tyk.io/about/contact/)
 
-
+[1]: /docs/img/dashboard/system-management/raw_or_designer_mode.png
 
 

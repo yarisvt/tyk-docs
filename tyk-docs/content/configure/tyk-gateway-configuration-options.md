@@ -286,6 +286,24 @@ As of v2.2, Tyk supports transparent websocket connection upgrades, to enable th
 
 This boolean option allows you to skip SSL checking for upstream APIs with self-signed certificates. The default setting is false.
 
+#### <a name="security.pinned_public_keys"></a> security.pinned_public_keys
+
+Use this option to map pinned public keys. You need to use the following format:
+
+```
+{
+    "example.com": "<key-id>",
+    "foo.com": "/path/to/pub.pem",
+    "*.wild.com": "<key-id>,<key-id-2>"
+}
+```
+
+For `key-id` you should set the ID returned after you upload the public key using the Certificate API. Additionally, you can just set path to public key, located on your server. You can specify multiple public keys by separating their IDs by a comma. Upstream certificates now also have wildcard domain support
+
+Note that only public keys in PEM format are supported.
+
+> **NOTE:** This option is available from v2.6.0 onwards.
+
 #### <a name="close_connections"></a> close_connections
 
 Set this value to `true` to force Tyk to get clients to close the connection with the client, otherwise the connections will remain open for as long as your OS keeps TCP connections open, this can cause a file-handler limit to be exceeded.
