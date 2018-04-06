@@ -3,7 +3,7 @@ title: Tyk Gateway v2.6 and more
 menu:
   main:
     parent: "Release Notes"
-weight: 0 
+weight: 1 
 ---
 
 # <a name="new"></a>New in this Release:
@@ -44,11 +44,11 @@ and call it with the new optional query parameter `hashed=true`. So the new form
 
 ### JSON schema validation
 
-You can now use Tyk to verify users’ requests against specified JSON schema and check that the data sent to your API by a consumer is in the right format. This means you can offload data validation from your application onto us.
+You can now use Tyk to verify user requests against a specified JSON schema and check that the data sent to your API by a consumer is in the right format. This means you can offload data validation from your application to us.
 
-If it’s not in the right format, then the request will be rejected. And even better, the response will be a meaningful error rather than just a ‘computer says no’.
+If it's not in the right format, then the request will be rejected. And even better, the response will be a meaningful error rather than just a 'computer says no'.
 
-Schema validation is implemented as rest of plugins, and its configuration should be added to `extended_paths` in the following format:
+Schema validation is implemented as for the rest of our plugins, and its configuration should be added to `extended_paths` in the following format:
 ```
 "validate_json": [{
   "method": "POST",
@@ -58,7 +58,7 @@ Schema validation is implemented as rest of plugins, and its configuration shoul
 }]
 ```
 
-The schema must be a draft v4 JSON Schema spec, see http://json-schema.org/specification-links.html#draft-4 for details. Example schema can look like this:
+The schema must be a draft v4 JSON Schema spec, see http://json-schema.org/specification-links.html#draft-4 for details. An example schema can look like this:
 ```
 {
     "title": "Person",
@@ -227,7 +227,7 @@ You can configure certificate pinning on the **Advanced** tab of the API Designe
 Reflecting the Tyk Gateway changes, on the Dashboard we have added a new **Validate JSON** plugin, which you can specify per URL, and can set both a schema, and custom error code, if needed.
 
 ### JQ transforms
-We have added two new plugins "JQ transform" and "JQ response transform". See [JQ Transforms](/docs/release-notes/version-2.6/#jq-transformations) in the Gateway section above, for more details.  
+We have added two new plugins **JQ transform** and **JQ response transform**. See [JQ Transforms](/docs/release-notes/version-2.6/#jq-transformations) in the Gateway section above, for more details.  
 
 ### Improved key hashing support
 
@@ -327,6 +327,14 @@ requested and got approved for several keys per subscription).
 
 This change is API only for this release, and not included into our built-in portal.
 
+### Developers can request a password reset email
+
+If a developer forgets their password, they can now request a password reset email from the Developer Portal Login screen.
+
+![Request email reset][2]
+
+See [Developer Profiles](/docs/publish/developer-profiles/#reset-developer-password) for more details.
+
 ### SSO API custom email support
 
 Now you can set email address for users logging though the Dashboard SSO API, by adding an "Email" field to the JSON payload which you sent to `/admin/sso` endpoint. For example:
@@ -381,5 +389,6 @@ Get started now, for free, or contact us with any questions.
 * [Contact Us](https://tyk.io/about/contact/)
 
 [1]: /docs/img/dashboard/system-management/raw_or_designer_mode.png
+[2]: /docs/img/dashboard/portal-management/password_request.png
 
 
