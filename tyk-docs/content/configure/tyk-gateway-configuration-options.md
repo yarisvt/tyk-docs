@@ -50,17 +50,6 @@ Set this value to `true` to enable key hashing, this will start hashing all keys
 
 If this is set to `true`, the same value should be enabled in the Dashboard configuration so that the UI can react appropriately.
 
-#### New for Gateway v2.6.0
-
-We have introduced the following new operations when setting `hash_keys` to `true`.enable
-
-
-* endpoints `POST /keys/create`, `POST /keys` and `POST /keys/{keyName}` also return field `"key_hash"` for future use.
-* endpoint `GET /keys` get all (or per API) key hashes. You can disable this endpoint with using new `tyk.conf` setting `enable_hashed_keys_listing` (set to `false` by default).
-* endpoint `GET /keys/{keyName}` was modified to be able to get a key by hash. You need to provide the key hash as a keyName and call it with the new optional query parameter `hashed=true`. So the new format is `GET /keys/{keyName}?hashed=true"`.
-* We already have the same optional parameter for endpoint `DELETE /keys/{keyName}?hashed=true`.
-
-
 ### <a name="enable_hashed_keys_listing"></a>enable_hashed_keys_listing
 
 Set to `false` by default, set this to `true` to enable the retrieval all (or per API) key hash listings.
