@@ -30,7 +30,9 @@ The Tyk Identity Broker (TIB) is configured through two files: The configuration
 	           "Database": 0,
 	           "EnableCluster": false,
 	           "MaxIdle": 1000,
-	           "MaxActive": 2000
+	           "MaxActive": 2000,
+		   "UseSSL": false,
+		   "SSLInsecureSkipVerify": false
 	       }
 	   },
 	   "TykAPISettings": {
@@ -97,6 +99,14 @@ Max active Redis connections.
 ### <a name="backend-enablecluster"></a> BackEnd.EnableCluster
 
 If you are using Redis cluster, enable it here to enable the slots mode.
+
+### <a name="backend-usessl"></a> BackEnd.UseSSL
+
+If you are using a TLS protected Redis enable to connect.
+
+### <a name="backend-sslinsecureskipverify"></a> BackEnd.SSLInsecureSkipVerify
+
+If you are using a TLS protected Redis enable to skip certificate verification when using self-signed certificates.
 
 ### <a name="tykapisettings"></a> TykAPISettings
 
