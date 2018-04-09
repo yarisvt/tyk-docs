@@ -56,7 +56,3 @@ Your JQ response transform should return an object in the following format:
   }]
 }
 ```
-
-
-[1]: /docs/img/dashboard/system-management/validate_json_plugin.png
-[2]: /docs/img/dashboard/system-management/validate_json_options.png

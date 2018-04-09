@@ -222,6 +222,8 @@ This feature comes especially handy if you need copy paste parts of one API to a
 
 You can configure certificate pinning on the **Advanced** tab of the API Designer, using a similar method to how you specify upstream client certificates.
 
+![Certificate Pinning][3]
+
 ### JSON schema validation
 
 Reflecting the Tyk Gateway changes, on the Dashboard we have added a new **Validate JSON** plugin, which you can specify per URL, and can set both a schema, and custom error code, if needed.
@@ -390,5 +392,6 @@ Get started now, for free, or contact us with any questions.
 
 [1]: /docs/img/dashboard/system-management/raw_or_designer_mode.png
 [2]: /docs/img/dashboard/portal-management/password_request.png
+[3]: /docs/img/release-notes/certificate_pinning.png
 
 

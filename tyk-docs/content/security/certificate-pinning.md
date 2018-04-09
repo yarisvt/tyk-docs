@@ -43,4 +43,16 @@ openssl x509 -pubkey -noout -in cert.pem
 
 ## <a name="define-via-dashboard"></a>Define with the Dashboard
 
+You can define certificate public key pinning from the **Advanced** tab of the API Designer.
 
+![Certificate Pinning][1]
+
+1. Click **Attach Certificate**
+![Pinning Options][2]
+2. From the **Add upstream certificates** options add the domain details and then add a new certificate ID or the server path to a certificate, or select from any certificates you have added previously.
+3. Click **Add**
+
+
+
+[1]: /docs/img/dashboard/system-management/cert_key_pinning.png
+[2]: /docs/img/dashboard/system-management/cert_pinning_options.png 
