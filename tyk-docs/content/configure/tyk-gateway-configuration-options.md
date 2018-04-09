@@ -251,6 +251,10 @@ Set to `true` to enable SSL connections.
 
 A list of certificates and domains to match against. Please see the SSL section for more detail for this feature.
 
+#### <a name="http_server_options-ssl_certificates"></a> http_server_options.ssl_certificates
+
+Added in 2.4, as altertnative to `http_server_options.certificates`, which supports our [Certificate API](/docs/security/tls-and-ssl/mutual-tls/#certificates-management) format. It should be a list of certificate IDs returned by Certificate API, or paths to certificate in PEM format (including private key). 
+
 #### <a name="http_server_options-skip_url_cleaning"></a> http_server_options.skip_url_cleaning
 
 Setting this option to true will allow the use of a double slash in url path, and can be useful if you need to pass raw URLs to your API endpoints. For example: `http://myapi.com/get/http://example.com`.
