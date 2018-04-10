@@ -104,9 +104,13 @@ If you are using Redis cluster, enable it here to enable the slots mode.
 
 If you are using a TLS protected Redis enable to connect.
 
+> **NOTE**: This option is available from TIB v0.4.0
+
 ### <a name="backend-sslinsecureskipverify"></a> BackEnd.SSLInsecureSkipVerify
 
 If you are using a TLS protected Redis enable to skip certificate verification when using self-signed certificates.
+
+> **NOTE**: This option is available from TIB v0.4.0
 
 ### <a name="tykapisettings"></a> TykAPISettings
 
