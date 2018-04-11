@@ -8,6 +8,8 @@ weight: 8
 
 ## <a name="introduction"></a>Introduction
 
+> This feature is experimental and can be used only if you compile Tyk yourself own using `jq` tag: `go build --tags 'jq'`
+
 If you work with JSON you are probably aware of the popular `jq` command line JSON processor. For more details, see here https://stedolan.github.io/jq/.
 
 Now you can use the full power of its queries and transformations to transform requests, responses, headers and even context variables.
