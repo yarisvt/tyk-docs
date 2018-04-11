@@ -147,7 +147,7 @@ If you already have a certificate, and just need to get its public key, you can 
 
 ### JQ transformations (experimental support)
 
-> This feature is experimental and can be used only if you compile Tyk by your own using `jq` tag: `go build --tags 'jq'`
+> This feature is experimental and can be used only if you compile Tyk yourself own using `jq` tag: `go build --tags 'jq'`
 
 If you work with JSON you are probably aware of the popular `jq` command line JSON processor. For more details, see here https://stedolan.github.io/jq/
 
