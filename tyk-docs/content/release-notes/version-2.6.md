@@ -361,7 +361,7 @@ At the moment the following options can be overriden: `Key request fields`, `Req
 
 ## <a name="tib"></a>Tyk Identity Broker v0.4.0
 
-With this release TIB joins the Tyk product line as a first class citizen and is now distributed via packages and docker images.
+With this release TIB joins the Tyk product line as a first class citizen and is now distributed via packages and [Docker image](https://hub.docker.com/r/tykio/tyk-identity-broker/).
 
 ### Support for SSO API email field
 If IDP provides a user email, it should be passed to the Dashboard SSO API, and you should see it in the Dashboard UI.
