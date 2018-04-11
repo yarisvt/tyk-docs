@@ -145,7 +145,9 @@ If you already have a certificate, and just need to get its public key, you can 
 
 **Note:** Upstream certificates now also have wildcard domain support
 
-### JQ transformations
+### JQ transformations (experimental support)
+
+> This feature is experimental and can be used only if you compile Tyk by your own using `jq` tag: `go build --tags 'jq'`
 
 If you work with JSON you are probably aware of the popular `jq` command line JSON processor. For more details, see here https://stedolan.github.io/jq/
 
@@ -227,9 +229,6 @@ You can configure certificate pinning on the **Advanced** tab of the API Designe
 ### JSON schema validation
 
 Reflecting the Tyk Gateway changes, on the Dashboard we have added a new **Validate JSON** plugin, which you can specify per URL, and can set both a schema, and custom error code, if needed.
-
-### JQ transforms
-We have added two new plugins **JQ transform** and **JQ response transform**. See [JQ Transforms](/docs/release-notes/version-2.6/#jq-transformations) in the Gateway section above, for more details.  
 
 ### Improved key hashing support
 
@@ -372,12 +371,19 @@ If you run a local IDP, like Ping, with an untrusted SSL certificate, you can no
 
 ### Added Redis TLS support
 To enable set `BackEnd.UseSSL` and, optionally, `BackEnd.SSLInsecureSkipVerify`.
+
+
+## <a name="tib"></a>Tyk Pump v0.5.2
+
+### Redis TLS support
+Added new `redis_use_ssl` and `redis_ssl_insecure_skip_verify` options.
+
+
 ## <a name="redis"></a> Redis TLS support
 
 Many Redis hosting providers now support TLS and we're pleased to confirm that we do too.
 
 Whether it's the open source API Gateway, or Dashboard, Pump, Sink and Tyk Identity Broker (TIB): you can now make secure connections to Redis from all Tyk products, as long as your provider allows it.
->>>>>>> b787c63777f18ae81756750965272bc5ad28ee7a
 
 ## <a name="upgrade"></a>Upgrading all new Components
 
