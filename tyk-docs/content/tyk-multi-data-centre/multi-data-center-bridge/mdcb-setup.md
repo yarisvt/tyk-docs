@@ -29,8 +29,8 @@ Tyk MDCB has a separate license, which you can request from your account represe
         "host": "localhost",
         "port": 6379,
         "enabled_cluster": false,
-                "use_ssl": false,
-                "ssl_insecure_skip_verify": false
+        "use_ssl": false,
+        "ssl_insecure_skip_verify": false
 
     },
         "security": {
