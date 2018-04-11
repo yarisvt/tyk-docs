@@ -360,7 +360,7 @@ If set, Catalogue settings will override global ones.
 
 At the moment the following options can be overriden: `Key request fields`, `Require key approval` and `Redirect on key request` (with `Redirect to` option as well).
 
-## Tyk Identity Broker v0.4.0
+## <a name="tib"></a>Tyk Identity Broker v0.4.0
 
 With this release TIB joins the Tyk product line as a first class citizen and is now distributed via packages and docker images.
 
@@ -372,7 +372,7 @@ If you run a local IDP, like Ping, with an untrusted SSL certificate, you can no
 
 ### Added Redis TLS support
 To enable set `BackEnd.UseSSL` and, optionally, `BackEnd.SSLInsecureSkipVerify`.
-## Redis TLS support
+## <a name="redis"></a> Redis TLS support
 
 Many Redis hosting providers now support TLS and we're pleased to confirm that we do too.
 
