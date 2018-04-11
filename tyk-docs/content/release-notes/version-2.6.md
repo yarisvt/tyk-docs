@@ -372,7 +372,6 @@ If you run a local IDP, like Ping, with an untrusted SSL certificate, you can no
 ### Added Redis TLS support
 To enable set `BackEnd.UseSSL` and, optionally, `BackEnd.SSLInsecureSkipVerify`.
 
-
 ## <a name="tib"></a>Tyk Pump v0.5.2
 
 ### Redis TLS support
@@ -384,6 +383,11 @@ Added new `redis_use_ssl` and `redis_ssl_insecure_skip_verify` options.
 Many Redis hosting providers now support TLS and we're pleased to confirm that we do too.
 
 Whether it's the open source API Gateway, or Dashboard, Pump, Sink and Tyk Identity Broker (TIB): you can now make secure connections to Redis from all Tyk products, as long as your provider allows it.
+
+## <a name="mdcb"></a>MDCB v1.5.3
+
+### Redis TLS support
+Added new `redis_use_ssl` and `redis_ssl_insecure_skip_verify` options.
 
 ## <a name="upgrade"></a>Upgrading all new Components
 
