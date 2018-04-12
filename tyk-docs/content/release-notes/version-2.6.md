@@ -317,17 +317,6 @@ These endpoints allow you to get a list of all current tokens issued for provide
 - `GET /apis/oauth/{oauthClientId}/tokens` when the API ID is unknown or OAuth-client provides access to several APIs
 
 
-### Developers can get more than one key per subscription
-
-The Tyk Dashboard [Manage Key Requests](https://tyk.io/docs/tyk-dashboard-api/manage-key-requests/) API now allows you to submit 
-more than one key request for a developer per subscription.
-
-Also, [Portal Developers](https://tyk.io/docs/tyk-dashboard-api/portal-developers/) endpoints have one small change in the
-response format. The list of the developer `"subscriptions"` field is now a comma-separated list of keys (for developers who 
-requested and got approved for several keys per subscription). 
-
-This change is API only for this release, and not included into our built-in portal.
-
 ### Developers can request a password reset email
 
 If a developer forgets their password, they can now request a password reset email from the Developer Portal Login screen.
@@ -358,6 +347,12 @@ The Catalogue object now has `config` field, with exactly same structure as Port
 If set, Catalogue settings will override global ones. 
 
 At the moment the following options can be overriden: `Key request fields`, `Require key approval` and `Redirect on key request` (with `Redirect to` option as well).
+
+### Blacklist IP Support
+
+We've added blacklisting IP Address functionality to the **Advanced Options** tab in the **Endpoint Designer**.
+
+![Blacklist Support][4]
 
 ## <a name="tib"></a>Tyk Identity Broker v0.4.0
 
@@ -403,5 +398,6 @@ Get started now, for free, or contact us with any questions.
 [1]: /docs/img/dashboard/system-management/raw_or_designer_mode.png
 [2]: /docs/img/dashboard/portal-management/password_request.png
 [3]: /docs/img/release-notes/certificate_pinning.png
+[4]: /docs/img/release-notes/blacklist_option.png
 
 
