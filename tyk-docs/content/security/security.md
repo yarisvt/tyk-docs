@@ -68,7 +68,7 @@ See [Your APIs](/docs/security/your-apis/) for more details.
 
 ### <a name="security-policies"></a>Security Policies
 
-A Tyk security policy incorporates several security options that can be applied to an API key. These include [Partioned Policies](docs/security/security-policies/partitioned-policies/) and securing by [Method and Path](docs/security/security-policies/secure-apis-method-path/).
+A Tyk security policy incorporates several security options that can be applied to an API key. These include [Partioned Policies](/docs/security/security-policies/partitioned-policies/) and securing by [Method and Path](/docs/security/security-policies/secure-apis-method-path/).
 
-See [Security Policies](docs/security/security-policies/) for more details.
+See [Security Policies](/docs/security/security-policies/) for more details.
 
