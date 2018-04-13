@@ -317,9 +317,9 @@ These endpoints allow you to get a list of all current tokens issued for provide
 - `GET /apis/oauth/{oauthClientId}/tokens` when the API ID is unknown or OAuth-client provides access to several APIs
 
 
-### Renamed the request `_id` field to `id` in List Key Requests
+### Renamed the response `_id` field to `id` in List Key Requests
 
-We have renamed the request `_id` field when retrieving a list of key requests to `id`.
+We have renamed the response `_id` field when retrieving a list of key requests to `id`.
 
 See [List Key Requests](https://tyk.io/docs/tyk-dashboard-api/manage-key-requests/#list-key-requests) for more details.
 

@@ -18,10 +18,13 @@ weight: 8
 | Param        | `p={page-num}` (optional, set to `-1` for no paging) |
 | Param        | `approved={true or false}` (optional, returns `false` for Pending Key Requests, or `true` for Approved Key Requests) |
 
+> **NOTE**: The `approved` parameter is new in Dashboard v1.6.0
+
+
 ### Sample Request
 
 ```{.copyWrapper}
-GET /api/portal/requests/?approved=false&p=0 HTTP/1.1
+GET /api/portal/requests?p=0 HTTP/1.1
 Host: localhost
 authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 ```
