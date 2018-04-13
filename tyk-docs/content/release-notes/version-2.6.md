@@ -317,6 +317,13 @@ These endpoints allow you to get a list of all current tokens issued for provide
 - `GET /apis/oauth/{oauthClientId}/tokens` when the API ID is unknown or OAuth-client provides access to several APIs
 
 
+### Renamed the response `_id` field to `id` in List Key Requests
+
+We have renamed the response `_id` field when retrieving a list of key requests to `id`.
+
+See [List Key Requests](https://tyk.io/docs/tyk-dashboard-api/manage-key-requests/#list-key-requests) for more details.
+
+
 ### Developers can request a password reset email
 
 If a developer forgets their password, they can now request a password reset email from the Developer Portal Login screen.
