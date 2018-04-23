@@ -18,7 +18,7 @@ In this case, we can enable this flow with Tyk Gateway by Using TIB.
 
 What the broker will do is essentially the final leg of the authentication process without any new code, simply sending the user via TIB to the provider will suffice for them to be granted an OAuth token once they have authenticated in a standard, expected OAuth pattern.
 
-Assuming we have created an client ID and secret in Google Apps to grant ourselves access to the users data, we need those details, and some additional ones from Tyk itself.
+Assuming we have created a client ID and secret in Google Apps to grant ourselves access to the users data, we need those details, and some additional ones from Tyk itself.
 
 ### To Set up an OAuth client with Google Apps
 
