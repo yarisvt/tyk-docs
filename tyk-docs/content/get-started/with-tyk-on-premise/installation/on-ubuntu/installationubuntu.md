@@ -16,39 +16,70 @@ Installing Tyk on Ubuntu is very straightforward, follow the guides and tutorial
 
 Before installing the Tyk components in the order below, you need to install firstly MongoDb, then Redis.
 
-### Install MongoDb
+### Install MongoDb 3.2
 
 First import the public key as required by Ubuntu APT
 
 ```{.copyWrapper}
-    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
 ```
 
 Then create a MongoDb source list file
 
+Ubuntu 14.04
 ```{.copyWrapper}
-    echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list
+echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
+```
+
+Ubuntu 16.04
+```{.copyWrapper}
+echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
 ```
 
 Reload the package database
 
 ```{.copyWrapper}
-    sudo apt-get update
+sudo apt-get update
 ```
-
 
 Then run the install script.
 
 ```{.copyWrapper}
-    sudo apt-get install -y mongodb-org
+sudo apt-get install -y mongodb-org
+```
+
+Finally, start the mongod service - then ensure all is running.
+
+Ubuntu 14.04
+```
+# sudo service mongod start
+# sudo service mongod status
+mongod start/running, process 1904
+```
+
+Ubuntu 16.04
+```
+# sudo service mongod start
+# sudo service mongod status
+● mongod.service - High-performance, schema-free document-oriented database
+   Loaded: loaded (/lib/systemd/system/mongod.service; disabled; vendor preset: enabled)
+   Active: active (running) since Fri 2018-04-27 17:47:45 UTC; 5s ago
+     Docs: https://docs.mongodb.org/manual
+ Main PID: 1751 (mongod)
+    Tasks: 23
+   Memory: 168.7M
+      CPU: 1.416s
+   CGroup: /system.slice/mongod.service
+           └─1751 /usr/bin/mongod --config /etc/mongod.conf
+
+Apr 27 17:47:45 ubuntu-s-1vcpu-2gb-lon1-01 systemd[1]: Started High-performance, schema-free document-o
 ```
 
 ### Install Redis
 
 ```{.copyWrapper}
-    sudo apt-get install -y redis-server
+sudo apt-get install -y redis-server
 ```
-
 
 We then recommend installing Tyk in the following order:
 
