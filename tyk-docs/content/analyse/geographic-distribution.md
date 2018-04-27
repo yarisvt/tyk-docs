@@ -13,5 +13,9 @@ You can view the overview of what the traffic breakdown looks like per country, 
 
 ![Geographic Distribution][1]
 
+### <a name="maxmind"></a>MaxMind Settings
+
+To use a MaxMind database, see [MaxMind Database Settings](https://tyk.io/docs/configure/tyk-gateway-configuration-options/#a-name-maxmind-a-maxmind-database-settings) in the Tyk Gateway Configuration Options.
+
 [1]: /docs/img/dashboard/usage-data/geographic_dist_2.5.png
 
