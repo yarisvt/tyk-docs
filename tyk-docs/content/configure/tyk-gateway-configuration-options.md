@@ -120,16 +120,15 @@ You can also enable storing GeoIP information in analytics by setting the follow
 
 Set this value to the absolute path of your MaxMind GeoIP Database file, e.g.: `./GeoLite2-City.mmdb`. 
 
+### <a name="analytics_config"></a> analytics_config
 
-### <a name="enable_analytics"></a> enable_analytics
+This section defines options on what analytics data to store.
+
+#### <a name="enable_analytics"></a> enable_analytics
 
 Tyk is capable of recording every hit to your API into a database with various filtering parameters, set this value to `true` and fill in the sub-section below to enable logging.
 
 > **Note**: Tyk will store traffic data to Redis initially (for performance reasons) and then purge the data from Redis into MongoDB/CSV on a regular basis as determined by the `purge_delay` setting in your Tyk Pump configuration.
-
-#### <a name="analytics_config"></a> analytics_config
-
-This section defines options on what analytics data to store.
 
 #### <a name="enable_analytics-enable_detailed_recording"></a> enable_analytics.enable_detailed_recording
 
