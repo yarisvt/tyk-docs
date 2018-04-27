@@ -10,7 +10,7 @@ weight: 3
 
 ## <a name="api-tagging"></a>API Tagging with On-Premises
 
-API Sharding with On-Premises is very flexible, but it behaves a little differently to sharding with Tyk Hybrid. The key difference is that with Tyk Hybrid you can have multiple isolated environments with their own databases all sharing the same configurations and keys by setting the group_id option in the gateway’s slave options, but with Tyk On-Premises the zoning is limited to tags only, and must share a single Redis database.
+API Sharding with On-Premises is very flexible, but it behaves a little differently to sharding with Tyk Hybrid. The key difference is that with Tyk Hybrid you can have multiple isolated environments with their own databases all sharing the same configurations and keys by setting the `group_id` option in the Gateway slave options, but with Tyk On-Premises the zoning is limited to tags only, and must share a single Redis database.
 
 To isolate On-Premises installations across data centers you will need to use our Multi Data Center Bridge component. This system powers the functionality of Tyk Hybrid in our cloud and is available to our Enterprise customers as an add-on.
 
