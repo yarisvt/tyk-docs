@@ -130,21 +130,21 @@ Tyk is capable of recording every hit to your API into a database with various f
 
 This section defines options on what analytics data to store.
 
-#### <a name="enable_analytics-enable_detailed_recording"></a> analytics_config.enable_detailed_recording
+#### <a name="analytics_config-enable_detailed_recording"></a> analytics_config.enable_detailed_recording
 
 Set this value to `true` to have Tyk store the inbound request and outbound response data in HTTP Wire format as part of the Analytics data. Please note, this will greatly increase your analytics DB size and can cause performance degradation on analytics processing by the Dashboard. This setting can be overridden with an organisation flag.
 
 Setting `enforce_org_data_detail_logging` in the `tyk.conf` will enforce it (quotas must also be enforced for this to work), then setting `enable_detail_recording` in the org session object will enable or disable the logging method on a per-organisation basis. This can be useful for debugging live APIs.
 
-#### <a name="enable_analytics-enable_geo_ip"></a> analytics_config.enable_geo_ip
+#### <a name="analytics_config-enable_geo_ip"></a> analytics_config.enable_geo_ip
 
 As of Tyk API Gateway 2.0, Tyk can store GeoIP information based on MaxMind DB's, to enable GeoIP tracking on inbound request analytics, set this value to `true` and assign a DB using the `geo_ip_db_path` setting.
 
-#### <a name="enable_analytics-enable_geo_ip_db_path"></a> analytics_config.enable_geo_ip_db_path
+#### <a name="analytics_config-enable_geo_ip_db_path"></a> analytics_config.enable_geo_ip_db_path
 
 Set this value to the absolute path of your MaxMind GeoIP Database file, e.g.: `./GeoLite2-City.mmdb`. The analytics GeoIP DB can be replaced on disk, it will cleanly auto-reload every hour.
 
-#### <a name="enable_analytics-ignored_ips"></a> analytics_config.ignored_ips
+#### <a name="analytics_config-ignored_ips"></a> analytics_config.ignored_ips
 
 Adding IP addresses to this list will cause Tyk to ignore these IPs in the analytics data, these IP addresses will not produce an analytics log record. This is useful for health checks and other samplers that might skew usage data. The IP addresses must be provided as a JSON array, with the values being single IPs. CIDR values are not supported.This is useful for health checks and other samplers that might skew usage data.
 
