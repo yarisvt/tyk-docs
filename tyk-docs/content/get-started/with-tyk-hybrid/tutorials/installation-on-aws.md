@@ -13,7 +13,7 @@ Tyk Hybrid Gateway can be installed on AWS infrastructure using our AWS Marketpl
 To get started make sure you have:
 
 1. A Tyk Hybrid account. Click [here][1] for details of how to create one or to upgrade from a Cloud account
-2. A subscription to the Tyk Hybrid Gateway AMI from the AWS Marketplace
+2. A subscription to the [Tyk Hybrid Gateway AMI from the AWS Marketplace](https://aws.amazon.com/marketplace/pp/B07BVPCL4R)
 
 ## <a name="quick-setup"></a>Quick setup
 
