@@ -44,11 +44,13 @@ The Gateway can be more finely tuned for this first setup using the following co
 * `-o` or `--orgid`: the organisation ID, taken from the Cloud dashboard
 * `-k` or `--apikey`: the API key, taken from the Cloud dashboard
 * `-p` or `--port`: listen port for the Tyk Gateway process (the same port should be open for the instance ingress)
+* `-c` or `--conf`: replace the default tyk.conf with a custom one from location on local FS specified by this option
 * `--redis-host`: Redis storage hostname, if not specified a local Redis server will be started and used for this instance
 * `--redis-port`: Redis storage server port, defaults to 6379
 * `--redis-user`: Redis storage authentication username, defaults to empty
 * `--redis-pass`: Redis storage authentication password, defaults to empty
 * `--redis-db`: Redis storage database number, defaults to 0
+* `--redis-use-ssl`: if set, the Redis connection will assume it's encrypted (use with Redis providers that support in-transit encryption)
 * `--no-bind-slugs`: if set, the gateway will listen to API IDs as root paths instead of API slugs (default)
 
 This is just a portion of configuration options available for the gateway to facilitate a quick setup. The [rest][4] may be set by either editing/replacing the `/opt/tyk-gateway/tyk.conf` file or adding [environment variables][3] to `/etc/default/tyk-gateway` file.
