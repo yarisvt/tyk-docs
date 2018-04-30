@@ -156,7 +156,7 @@ Use this to match the ID with a regular expression. This requires additional par
 {
   "id_extractor": {
     "extract_from": "header",
-    "extract_with": "value",
+    "extract_with": "regex",
     "extractor_config": {
       "header_name": "Authorization",
       "regex_expression": "[^-]+$",
