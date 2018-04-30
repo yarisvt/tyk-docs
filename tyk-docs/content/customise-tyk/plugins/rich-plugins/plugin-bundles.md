@@ -144,7 +144,7 @@ A complete API Definition would look like:
         "target_url": "http://httpbin.org",
         "strip_listen_path": true
     },
-    "custom_middleware_bundle": "bundle-latest.zip",
+    "custom_middleware_bundle": "bundle-latest.zip"
 }
 ```
 

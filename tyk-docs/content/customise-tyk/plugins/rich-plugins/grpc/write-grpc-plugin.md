@@ -20,12 +20,12 @@ This is what a manifest could look like:
   "custom_middleware": {
     "pre": [
       {
-        "name": "MyPreMiddleware",
+        "name": "MyPreMiddleware"
       }
     ],
     "post": [
       {
-        "name": "MyPostMiddleware",
+        "name": "MyPostMiddleware"
       }
     ],
     "auth_check": {
