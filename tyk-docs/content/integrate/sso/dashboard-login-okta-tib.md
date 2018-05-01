@@ -44,7 +44,7 @@ This guide assumes the following:
    - Add Okta's discovery url `"https://dev-XXXXX.oktapreview.com/oauth2/default/.well-known/openid-configuration"` to `ProviderConfig.UseProviders[].DiscoverURL`
 
    Example of a profiles.json:
-   ```{.json}
+```{.json}
    {
       "ActionType": "GenerateOrLoginUserProfile",
       "ID": "{PROFILE-NAME-IN-TIB}",
@@ -69,6 +69,7 @@ This guide assumes the following:
       "Type": "redirect"
   }
 ```
+
 
 7. Start TIB by running the binary (`profiles.json` is in the same CWD)
    Follow this [link](https://tyk.io/docs/integrate/3rd-party-identity-providers/#tib) for detailed instruction to install TIB
