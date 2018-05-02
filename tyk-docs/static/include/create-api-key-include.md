@@ -38,11 +38,11 @@ To create an API key, we will need the API ID that we wish to grant the key acce
 
 You will also need your own API Key, to get these values:
 
-1.  Select "Users" from the "System Management" section.
-2.  In the users list, click "Edit" for your user.
+1.  Select **Users** from the **System Management** section.
+2.  In the users list, click **Edit** for your user.
 3.  The API key is the **Tyk Dashboard API Access Credentials**, copy this somewhere you can reference it. ![API key location][6]
-4.  Select "APIs" from the "System Management" section.
-5.  The API ID is next to your API name, copy this somewhere for reference too. 
+4.  Select **APIs** from the **System Management** section.
+5.  The **API ID** is next to your API name, copy this somewhere for reference too. 
 
 ![API ID location][7]
 
