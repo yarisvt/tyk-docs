@@ -11,8 +11,9 @@ Depending on the version of Tyk you have installed, upgrading to the latest vers
 Tyk Cloud users are automatically upgraded to the latest version as soon as it's released.
 ## <a name="hybrid"></a>Tyk Hybrid Gateway
 We recommend you upgrade your Tyk Hybrid Gateway in the following way:
-1. Take a backup of your tyk.conf, tyk-analytics.conf and start.sh files. This is important if you have modified your Docker Container in your current version.
-2. Re-run the start.sh script:
+
+ 1. Take a backup of your tyk.conf, tyk-analytics.conf and start.sh files. This is important if you have modified your Docker Container in your current version.
+ 2. Re-run the start.sh script:
 
 ### For Mac OS Users
 From a Terminal:
@@ -29,16 +30,15 @@ chmod +x start.sh
 sudo ./start.sh [PORT] [TYK-SECRET] [RPC-CREDENTIALS] [API CREDENTIALS]
 ```
 
+This command will start the Docker container and be ready to proxy traffic (you will need to check the logs of the container to make sure the login was successful).
+
 #### Parameters:
 *   `PORT`: The port for Tyk to listen on (usually 8080).
 *   `TYK-SECRET`: The secret key to use so you can interact with your Tyk node via the REST API.
-*   `RPC-CREDENTIALS`: Your Organisation ID, this can be found in the Dashboard Users - User section. See Step 1 above.
-*   `API-CREDENTIALS`: Your Tyk Cloud API credentials - these can be found in the Users section of your dashboard.
-The `TYK-SECRET` should be a secret key you define so you can interact with your Tyk node programmatically.
+*   `RPC-CREDENTIALS`: Your **Organisation ID**. This can be found from the System Management > Users section from the Dashboard. Click **Edit** on a User to view the Organisation ID.
+*   `API-CREDENTIALS`: Your **Tyk Dashboard API Access Credentials**. This can be found from the System Management > Users section from the Dashboard. Click **Edit** on a User to view the Tyk Dashboard API Access Credentials. ![API key location][1]
 
-This command will start the Docker container and be ready to proxy traffic (you will need to check the logs of the container to make sure the login was successful).
-
-3. Check everything is working
+#### Check everything is working
 
 To check if the node has connected and logged in, use the following command:
 ```{.copyWrapper}
@@ -79,3 +79,5 @@ Get started now, for free, or contact us with any questions.
 
 * [Get Started](https://tyk.io/pricing/compare-api-management-platforms/#get-started)
 * [Contact Us](https://tyk.io/about/contact/)
+
+[1]: /docs/img/dashboard/system-management/api_access_cred_2.5.png
