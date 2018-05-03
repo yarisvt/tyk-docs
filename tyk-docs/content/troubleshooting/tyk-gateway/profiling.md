@@ -14,6 +14,7 @@ The Tyk Gateway is built using Go, and inherits its powerful profiling tools, sp
 The Tyk Gateway can generate various profiles in the `pprof` supported format, which you can analyse by yourself, using the `go tool pprof` command, or you can send the profiles to our support team for analysis.
 
 There are two way to get profiles:
+
 1. Running the process with `--memprofile` and `--cpuprofile` flags, which will gather information about the running process for the first 30 seconds, and will generate 2 files: `tyk.mprof` (memory profile) and `tyk.prof` (cpu profile).
 2. Running with the `--httpprofile` flag, which will run a special `/debug/pprof/` public web page, containing dynamic information about the running process, and where you can download various profiles:
 
