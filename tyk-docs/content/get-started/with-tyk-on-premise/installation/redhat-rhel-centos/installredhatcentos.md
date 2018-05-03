@@ -18,6 +18,8 @@ The suggested order would be to install Tyk Dashboard, then Tyk Pump and then Ty
 * [Pump][1]
 * [Gateway][3]
 
+> **NOTE**: For a production environment, we recommend that the Gateway, Dashboard and Pump are installed on separate machines.
+
 [1]: /docs/get-started/with-tyk-on-premise/installation/redhat-rhel-centos/analytics-pump
 [2]: /docs/get-started/with-tyk-on-premise/installation/redhat-rhel-centos/dashboard
 [3]: /docs/get-started/with-tyk-on-premise/installation/redhat-rhel-centos/gateway
