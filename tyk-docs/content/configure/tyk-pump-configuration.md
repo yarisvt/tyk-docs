@@ -169,6 +169,30 @@ Moesif is a logging and analytics service for APIs. The Moesif pump will move an
 
 "application_id" - Moesif App Id JWT. Multiple api_id's will go under the same app id.
 
+### Capping analytics data
+
+Tyk Gateways can generate a lot of analytics data. A guideline is that for every 3 million requests that your Gateway processes it will generate roughly 1GB of data.
+
+If you have Tyk Pump set up with the aggregate pump as well as the regular MongoDB pump, then you can make the `tyk_analytics` collection a [capped collection][5]. Capping a collection guarantees that analytics data is rolling within a size limit, acting like a FIFO buffer which means that when it reaches a specific size, instead of continuing to grow, it will replace old records with new ones.
+
+The `tyk_analytics` collection contains granular log data, which is why it can grow rapidly. The aggregate pump will convert this data into a aggregate format and store it in a separate collection. The aggregate collection is used for processing reporting requests as it is much more efficient.
+
+If you've got an existing collection which you want to convert to be capped you can use the `convertToCapped` [MongoDB command](https://docs.mongodb.com/manual/reference/command/convertToCapped/).
+
+If you wish to configure the pump to cap the collections for you upon creating the collection, you may add the following
+configurations to your `uptime_pump_config` and / or `mongo.meta` objects in `pump.conf`.
+
+```
+"collection_cap_max_size_bytes": 1048577,
+"collection_cap_enable": true
+```
+
+`collection_cap_max_size_bytes` sets the maximum size of the capped collection.
+`collection_cap_enable` enables capped collections.
+
+If capped collections are enabled and a max size is not set, a default cap size of `5Gib` is applied. 
+Existing collections will never be modified.
+
 ### Environment variables
 
 Environment variables can be used to override settings defined in the configuration file. The [Tyk Pump environment variables page](/docs/configure/pump-env-variables/) shows how the JSON member keys map to the environment variables. Where an environment variable is specified, its value will take precedence over the value in the configuration file.
