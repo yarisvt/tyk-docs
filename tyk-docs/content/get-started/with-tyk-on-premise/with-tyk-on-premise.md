@@ -20,7 +20,7 @@ The full Tyk On-Premises system consists of:
 *   Tyk Identity Broker (Optional): Handles integrations with third-party IDP's.
 *   Tyk Multi-Data-Center Bridge (Optional, Enterprise-only): Allows for the configuration of a Tyk ecosystem that spans many data centers and clouds.
 
-> **NOTE**: For a production environment, we recommend that the Gateway, Dashboard and Pump are installed on separate machines.
+> **NOTE**: For a production environment, we recommend that the Gateway, Dashboard and Pump are installed on separate machines. For more information on deploying to a production environment, see [here](https://tyk.io/docs/deploy-tyk-premise-production/).
 
 ### Getting Started
 
