@@ -3,9 +3,9 @@ date: 2017-03-27T17:23:27+01:00
 title: Tyk Gateway Profiling
 menu:
   main:
-    parent: "Troubleshooting"
+    parent: "Tyk Gateway"
 weight: 6
-url: "/troubleshooting/tyk-gateway-profiling"
+url: "/troubleshooting/tyk-gateway/profiling"
 ---
 
 In some cases, to identify tricky issues like concurrency or memory related, it may be required to get information about the Gateway process runtime, for example, memory or CPU usage details.
@@ -16,6 +16,7 @@ The Tyk Gateway can generate various profiles in the `pprof` supported format, w
 There are two way to get profiles:
 1. Running the process with `--memprofile` and `--cpuprofile` flags, which will gather information about the running process for the first 30 seconds, and will generate 2 files: `tyk.mprof` (memory profile) and `tyk.prof` (cpu profile).
 2. Running with the `--httpprofile` flag, which will run a special `/debug/pprof/` public web page, containing dynamic information about the running process, and where you can download various profiles:
+
     * goroutine    - stack traces of all current goroutines
     * heap         - a sampling of all heap allocations
     * threadcreate - stack traces that led to the creation of new OS threads
