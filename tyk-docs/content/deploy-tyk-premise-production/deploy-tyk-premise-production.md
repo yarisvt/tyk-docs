@@ -68,11 +68,11 @@ So in our setup, we recommend that Redis and MongoDB live on their own systems, 
 
 The network topology we like to use is:
 
-*   Two Tyk Gateway nodes (load balanced)
+*   Two Tyk Gateway nodes (load balanced, each Gateway installed on separate machines)
 *   A separate MongoDB cluster
 *   A separate Redis server with fail-over or cluster
-*   One Tyk Dashboard node with its own local gateway process
-*   One Tyk Pump node that handles data transitions
+*   One Tyk Dashboard node installed on a separate machine with its own local gateway process
+*   One Tyk Pump node installed on a separate machine that handles data transitions
 
 If you are making use of the Tyk Caching feature, then it is possible to use a secondary Redis server or Redis cluster to store cache data. This can be very useful in high-traffic APIs where latency is at a premium.
 
