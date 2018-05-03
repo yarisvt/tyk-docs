@@ -12,7 +12,7 @@ url: "/get-started/with-tyk-on-premise/installation/on-ubuntu"
 
 Installing Tyk on Ubuntu is very straightforward, follow the guides and tutorials in this section to have Tyk up and running in no time.
 
-> **NOTE**: For a production environment, we recommend that the Gateway, Dashboard and Pump are installed on separate machines. For more information on deploying to a production environment, see [here](https://tyk.io/docs/deploy-tyk-premise-production/).
+> **NOTE**: For a production environment, we recommend that the Gateway, Dashboard and Pump are installed on separate machines. If installing multiple Gateways, you should install each on a separate machine. For more information on deploying to a production environment, see [here](https://tyk.io/docs/deploy-tyk-premise-production/).
 
 ## <a name="prerequisites"></a> Prerequisites
 
