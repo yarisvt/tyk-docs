@@ -102,6 +102,23 @@ If Tyk cannot find a `kid` header, it will try to find an ID in the `sub` field 
 
 The benefit here is that if RSA is used, then all that is stored in a Tyk installation that uses hashed keys is the hashed ID of the end user and their public key, so it is very secure.
 
+### Avoiding clock skew
+
+> **NOTE**: This is available from v2.6.2 onwards
+
+Due to the nature of distrusted systems it is expected that despite best efforts you can end up in a situation with clock skew between the issuing party (An OpenID/OAuth provider) and the validating party (Tyk).  
+This means that in certain circumstances Tyk would reject requests to an API endpoint secured with JWT with the "Token is not valid yet" error . This occurs due to the clock on the Tyk server being behind the clock on the Identity Provider server even with all servers ntp sync'd from the same ntp server.
+
+You can disable the validation check on 3 claims `IssueAt`, `ExpireAt` and `NotBefore` by adding the following boolean fields to your API definition:
+
+```{.copyWrapper}
+    "enable_jwt": true,
+    "jwt_disable_issued_at_validation": true,
+    "jwt_disable_expires_at_validation": true,
+    "jwt_disable_not_before_validation": true
+```
+ 
+
  [1]: http://jwt.io/introduction/
  [2]: /docs/img/diagrams/jwt2.png
  [3]: /docs/img/dashboard/system-management/jwt_auth_2.5.png
