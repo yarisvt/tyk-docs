@@ -17,7 +17,7 @@ This guide assumes the following:
 
 ## <a name="okta"></a>Okta's side
 1. Create developer account on the [Okta Developer site](https://developer.okta.com/).
-   You'll get a domain such as `{.copyWrapper} https://dev-XXXXX.oktapreview.com/app/UserHome`
+   You'll get a domain such as `https://dev-XXXXX.oktapreview.com/app/UserHome`
 2. Login and create Web Application as follows:
    - Under `Application`, click `Add Application`
    - Choose `Web`
@@ -78,11 +78,14 @@ This guide assumes the following:
     - If it's working you'll be redirected to Okta's web page and will be asked to enter your Okta's user and password.
     - If you were successfully authenticated by Okta then you'll be redirected to the dashboard and login into it without going through the login page. Job's done!
 9. If you need to update your profile then you can use TIB's REST API as follows:
-``` curl http://{TIB-DOMAIN}:{TIB-PORT}/api/profiles/{PROFILE-NAME-IN-TIB} -H "Authorization: {MY-SECRET}" -H "Content-type: application/json" -X PUT --data "@./my-new-dashboard-profile.json" | prettyjson
+
+```{.copyWrapper} 
+curl http://{TIB-DOMAIN}:{TIB-PORT}/api/profiles/{PROFILE-NAME-IN-TIB} -H "Authorization: {MY-SECRET}" -H "Content-type: application/json" -X PUT --data "@./my-new-dashboard-profile.json" | prettyjson
 ```
-   - POST and DELETE calls apply as normal
-   - You can post a few profiles to TIB.
-   - The full docs for [TIB REST APIs](https://tyk.io/docs/integrate/3rd-party-identity-providers/tib-rest-api/)
+
+  - POST and DELETE calls apply as normal
+  - You can post a few profiles to TIB.
+  - See the full docs for [TIB REST APIs](https://tyk.io/docs/integrate/3rd-party-identity-providers/tib-rest-api/)
 
 ## <a name="flow"></a>The magic - The flow behind the scenes:
  1. The initial call to the endpoint on TIB was redirected to Okta and
