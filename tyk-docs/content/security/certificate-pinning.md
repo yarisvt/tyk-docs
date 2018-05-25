@@ -31,7 +31,7 @@ For `key-id` you should set the ID returned after you upload the public key usin
 If public keys are not provided by your upstream, you can extract them
 by yourself using the following command:
 ```{.copyWrapper}
-openssl s_client -connect the.host.name:443 | openssl x509 -pubkey -noout
+openssl s_client -connect httpbin.org:443 -servername httpbin.org 2>/dev/null | openssl x509 -pubkey -noout
 ```
 If you already have a certificate, and just need to get its public key, you can do it using the following command:
 ```{.copyWrapper}

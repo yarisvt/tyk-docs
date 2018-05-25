@@ -70,7 +70,7 @@ generating certificate SHA256 fingerprint using following command:
 openssl x509 -noout -fingerprint -sha256 -inform pem -in <cert>.
 ```
 
-You may notice that you can't get the raw certificate back, only its meta information. This is to ensure security. Certificates with private keys have special treatment and are encoded before storing: if a private key is found it gets encrypted with AES256 algorithm 3 using `security.private_certificate_encoding_secret` from the Gateway configuration file and if it is empty, it will fallback to the secret value.
+You may notice that you can't get the raw certificate back, only its meta information. This is to ensure security. Certificates with private keys have special treatment and are encoded before storing: if a private key is found it gets encrypted with AES256 algorithm 3 using `security.private_certificate_encoding_secret` from the Gateway configuration file and if it is empty, it will fallback to the value in the field [secret](https://tyk.io/docs/configure/tyk-gateway-configuration-options/#a-name-secret-a-secret).
 
 ## <a name="authorisation"></a> Authorisation 
 At the TLS level, authorisation means allowing only clients who provide client certificates that are verified and trusted by the server. 
@@ -81,7 +81,8 @@ definition:
 
 From the Tyk Dashboard, to do the same, from the **API Designer Core settings**section you need to select **Mutual TLS** authentication mode from the **Authentication** section, and whitelist the certificates using the built-in widget, as below:
 
-![mutual_tls_auth][1]
+!
+mutual_tls_auth][1]
 
 If all your APIs have a common set of certificates, you can define them on Gateway configuration file via the `security.certificates.apis` key - string array of certificate IDs or paths.
 
