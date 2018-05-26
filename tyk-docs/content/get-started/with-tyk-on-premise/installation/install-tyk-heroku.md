@@ -10,12 +10,12 @@ url: "/get-started/with-tyk-on-premise/installation/on-heroku"
 
 ## <a name="heroku"></a> Install Tyk API Gateway on Heroku
 
-Full Tyk installation can be deployed to Heroku dynos and workers using [Heroku Container Registry & Runtime][1] functionality. This guide will utilise [Tyk Docker images][2] with a small amount of customisation as well as an external MongoDB service.
+A full Tyk installation can be deployed to Heroku dynos and workers using [Heroku Container Registry & Runtime][1] functionality. This guide will utilise [Tyk Docker images][2] with a small amount of customisation as well as an external MongoDB service.
 
 ## <a name="prerequisites"></a> Prerequisites
 
 1. Docker daemon installed and running locally
-2. [Heroku account][3], free plan is sufficient for a basic PoC but not recommended for production usage
+2. [Heroku account][3], the free plan is sufficient for a basic PoC but not recommended for production usage
 3. [Heroku CLI][4] installed
 4. MongoDB service (such as [Atlas][5], [mLab][6], [Compose][7] or your own deployment), this guide is based on MongoDB Atlas but others should work as well
 5. [Tyk License][8] (note that in case of running multiple gateway dynos, license type must match)
@@ -24,14 +24,14 @@ Full Tyk installation can be deployed to Heroku dynos and workers using [Heroku 
 
 ## <a name="creating-apps"></a> Creating Heroku Apps
 
-We will create two Heroku apps, one for the gateway (with [Redis add-on][10] attached to it) and another for the dashboard and pump.
+We will create two Heroku apps, one for the Tyk Gateway (with [Redis add-on][10] attached to it) and another for the Dashboard and Pump.
 
-Given Heroku CLI is installed and Heroku account is available, log into it:
+Given Heroku CLI is installed and your Heroku account is available, log into it:
 ```{.copyWrapper}
 heroku login
 ```
 
-Now create the gateway app and note down its name:
+Now create the Gateway app and note down its name:
 ```{.copyWrapper}
 heroku create
 ```
@@ -53,7 +53,7 @@ Use heroku addons:info redis-infinite-35445 to check creation progress
 Use heroku addons:docs heroku-redis to view documentation
 ```
 
-Once add-on provisioning is done, the info command (replacing the add-on name with your own) would show the following output:
+Once add-on provisioning is done, the info command (replacing the add-on name with your own) will show the following output:
 ```{.copyWrapper}
 heroku addons:info redis-infinite-35445
 ```
@@ -67,7 +67,7 @@ Price:        free
 State:        created
 ```
 
-Time to create the dasboard app and note down its name as well:
+Time to create the Dasboard app and note down its name as well:
 ```{.copyWrapper}
 heroku create
 ```
@@ -76,7 +76,7 @@ Creating app... done, ⬢ evening-beach-40625
 https://evening-beach-40625.herokuapp.com/ | https://git.heroku.com/evening-beach-40625.git
 ```
 
-Since dashboard and pump need access to the same Redis instance as the gateway, we'll need to share the gateway app's add-on with this new app:
+Since the Dashboard and Pump need access to the same Redis instance as the gateway, we'll need to share the Gateway app's add-on with this new app:
 ```{.copyWrapper}
 heroku addons:attach infinite-plains-14949::REDIS -a evening-beach-40625
 ```
@@ -95,7 +95,7 @@ Their outputs should match.
 
 ## <a name="deploy-dashboard"></a> Deploy the Dashboard
 
-It's recommended to start with the dashboard so in your Heroku quickstart clone run:
+It's recommended to start with the Dashboard so in your Heroku quickstart clone run:
 ```{.copyWrapper}
 cd analytics
 ls dashboard
@@ -104,11 +104,11 @@ ls dashboard
 bootstrap.sh  Dockerfile.web  entrypoint.sh  tyk_analytics.conf
 ```
 
-You will find it contains a `Dockerfile.web` for the web dyno, a config file for the dashboard, entrypoint script for the docker container and a bootstrap script for seeding the dashboard instance with sample data. All these files are editable for your purposes but have sane defaults for a PoC.
+You will find it contains a `Dockerfile.web` for the web dyno, a config file for the Dashboard, entrypoint script for the Docker container and a bootstrap script for seeding the dashboard instance with sample data. All these files are editable for your purposes but have sane defaults for a PoC.
 
 > Note that you can use the `FROM` statement in `Dockerfile.web` to use specific dashboard version and upgrade when needed instead of relying on the `latest` tag.
 
-The [dashboard configuration][11] can be changed by either editing the `tyk_analytics.conf` file or injecting them as [environment variables][12] via `heroku config`. In this guide we'll use the latter for simplicity of demonstration but there is merit to both methods.
+The [Dashboard configuration][11] can be changed by either editing the `tyk_analytics.conf` file or injecting them as [environment variables][12] via `heroku config`. In this guide we'll use the latter for simplicity of demonstration but there is merit to both methods.
 
 First let's set the license key:
 ```{.copyWrapper}
@@ -137,7 +137,7 @@ Setting TYK_DB_MONGOUSESSL and restarting ⬢ evening-beach-40625... done, v6
 TYK_DB_MONGOUSESSL: true
 ```
 
-Since Tyk dashboard needs to access gateways sometimes, we'll need to specify the gateway endpoint too, which is the gateway app's URL:
+Since the Tyk Dashboard needs to access gateways sometimes, we'll need to specify the Gateway endpoint too, which is the Gateway app's URL:
 ```{.copyWrapper}
 heroku config:set TYK_DB_TYKAPI_HOST="https://infinite-plains-14949.herokuapp.com" -a evening-beach-40625
 heroku config:set TYK_DB_TYKAPI_PORT="443" -a evening-beach-40625
@@ -149,9 +149,9 @@ Setting TYK_DB_TYKAPI_PORT and restarting ⬢ evening-beach-40625... done, v8
 TYK_DB_TYKAPI_PORT: 443
 ```
 
-This is enough for a basic dashboard setup but we recommend also changing at least node and admin secrets with strong random values, as well as exploring other config options.
+This is enough for a basic Dashboard setup but we recommend also changing at least node and admin secrets with strong random values, as well as exploring other config options.
 
-Since Tyk pump is also a part of this application (as a worker process), we'll need to configure it too.
+Since the Tyk Pump is also a part of this application (as a worker process), we'll need to configure it too.
 
 ```{.copyWrapper}
 ls pump
@@ -160,7 +160,7 @@ ls pump
 Dockerfile.pump  entrypoint.sh  pump.conf
 ```
 
-Same principles apply here as well. Here we'll need to configure MongoDB endpoints for all the pumps (this can also be done in the `pump.conf` file):
+Same principles apply here as well. Here we'll need to configure MongoDB endpoints for all the Pumps (this can also be done in the `pump.conf` file):
 ```{.copyWrapper}
 heroku config:set PMP_MONGO_MONGOURL="mongodb://user:pass@mongoprimary.net:27017,mongosecondary.net:27017,mongotertiary.net:27017" -a evening-beach-40625
 heroku config:set PMP_MONGO_MONGOUSESSL="true"
@@ -240,9 +240,9 @@ eca9efd615d9: Pushed
 latest: digest: sha256:f45acaefa3b47a126dd784a888c89e420814ad3031d3d4d4885e340a59aec31c size: 1573
 ```
 
-This has built docker images for both dashboard and pump, as well as pushed them to Heroku registry and automatically deployed to the application.
+This has built Docker images for both dashboard and pump, as well as pushed them to Heroku registry and automatically deployed to the application.
 
-Provided everything went well (and if not, inspect the application logs), you should be seeing the dashboard login page at your app URL (e.g "https://evening-beach-40625.herokuapp.com/").
+Provided everything went well (and if not, inspect the application logs), you should be seeing the Dashboard login page at your app URL (e.g "https://evening-beach-40625.herokuapp.com/").
 
 However, it doesn't yet have any accounts. It order to populate it please run the `dashboard/bootstrap.sh` script:
 ```{.copyWrapper}
@@ -265,9 +265,9 @@ Pass: test123
 
 It will generate a default organisation with random admin username and a specified password. The bootstrap script can be edited to suit your needs as well as just editing the user info in the dashboard.
 
-If this went well, you should be able to log into your dashboard now.
+If this was successful, you should be able to log into your dashboard now.
 
-The last step in this app is to start the pump worker dyno since by default only the web dyno is enabled:
+The last step in this app is to start the Pump worker dyno since by default only the web dyno is enabled:
 ```{.copyWrapper}
 heroku dyno:scale pump=1 -a evening-beach-40625
 ```
@@ -285,7 +285,7 @@ pump=1:Free web=1:Free
 
 ## <a name="deploy-gateway"></a> Deploy the Gateway
 
-The process is very similar for the Tyk gateway, except it doesn't have a worker process and doesn't need access to MongoDB.
+The process is very similar for the Tyk Gateway, except it doesn't have a worker process and doesn't need access to MongoDB.
 
 ```{.copyWrapper}
 cd ../gateway
@@ -295,9 +295,9 @@ ls
 Dockerfile.web  entrypoint.sh  tyk.conf
 ```
 
-All these files serve the same purpose as with the dasboard and the pump. [Configuration][13] can either be edited in `tyk.conf` or [injected][14] with `heroku config`.
+All these files serve the same purpose as with the Dasboard and the Pump. [Configuration][13] can either be edited in `tyk.conf` or [injected][14] with `heroku config`.
 
-To get things going we'll need to set following options for the dashboard endpoint (substituting the actual endpoint and the app name, now for the gateway app):
+To get things going we'll need to set following options for the Dashboard endpoint (substituting the actual endpoint and the app name, now for the gateway app):
 ```{.copyWrapper}
 heroku config:set TYK_GW_DBAPPCONFOPTIONS_CONNECTIONSTRING="https://evening-beach-40625.herokuapp.com" -a infinite-plains-14949
 heroku config:set TYK_GW_POLICIES_POLICYCONNECTIONSTRING="https://evening-beach-40625.herokuapp.com" -a infinite-plains-14949
@@ -309,7 +309,7 @@ Setting TYK_GW_POLICIES_POLICYCONNECTIONSTRING and restarting ⬢ infinite-plain
 TYK_GW_POLICIES_POLICYCONNECTIONSTRING: https://evening-beach-40625.herokuapp.com
 ```
 
-Since Redis configuration will be automatically discovered (it's already injected by Heroku), we're ready to deploy:
+Since the Redis configuration will be automatically discovered (it's already injected by Heroku), we're ready to deploy:
 ```{.copyWrapper}
 heroku container:push --recursive -a infinite-plains-14949
 ```
@@ -344,15 +344,15 @@ ab2b28b92877: Pushed
 latest: digest: sha256:d67b8f55d729bb56e06fe38e17c2016a36f2edcd4f01760c0e62a13bb3c9ed38 size: 1781
 ```
 
-Inspect logs (`heroku logs -a infinite-plains-14949`) to check that deployment went well, also the node should be registered by the dashboard in "System Management" -> "Nodes and Licenses" section.
+Inspect the logs (`heroku logs -a infinite-plains-14949`) to check that deployment was successful, also the node should be registered by the Dashboard in "System Management" -> "Nodes and Licenses" section.
 
 You're ready to follow the guide on [creating and managing your APIs][15] with this Heroku deployment.
 
-> Note: to use the [geographic log distribution][17] feature in the dashboard please supply the GeoLite2 DB in the `gateway` directory, uncomment the marked line in `Dockerfile.web` and set the `analytics_config.enable_geo_ip` setting (or `TYK_GW_ANALYTICSCONFIG_ENABLEGEOIP` env var) to `true`.
+> Note: to use the [geographic log distribution][17] feature in the Dashboard please supply the GeoLite2 DB in the `gateway` directory, uncomment the marked line in `Dockerfile.web` and set the `analytics_config.enable_geo_ip` setting (or `TYK_GW_ANALYTICSCONFIG_ENABLEGEOIP` env var) to `true`.
 
 ## <a name="gateway-plugins"></a> Gateway Plugins
 
-In order to enable [rich plugins][16] for the gateway, please set the following Heroku config option to either `python` or `lua` depending on the type of plugins used:
+In order to enable [rich plugins][16] for the Gateway, please set the following Heroku config option to either `python` or `lua` depending on the type of plugins used:
 ```{.copyWrapper}
 heroku config:set TYK_PLUGINS="python" -a infinite-plains-14949
 ```
@@ -361,7 +361,7 @@ Setting TYK_PLUGINS and restarting ⬢ infinite-plains-14949... done, v9
 TYK_PLUGINS: python
 ```
 
-After app restarted, the logs should be showing something similar to this:
+After re-starting the Gateway, the logs should be showing something similar to this:
 ```
 2018-05-18T13:13:50.272511+00:00 app[web.1]: Tyk will be using python plugins
 2018-05-18T13:13:50.311510+00:00 app[web.1]: time="May 18 13:13:50" level=info msg="Setting PYTHONPATH to 'coprocess/python:middleware/python:event_handlers:coprocess/python/proto'"
@@ -373,11 +373,11 @@ Set this variable back to an empty value in order to revert back to the default 
 
 ## <a name="gateway-plugins"></a> Upgrading or Customising Tyk
 
-Since this deployment is based on docker images and containers, upgrading or making changes to the deployment is as easy as building a new image and pushing it to the registry.
+Since this deployment is based on Docker images and containers, upgrading or making changes to the deployment is as easy as building a new image and pushing it to the registry.
 
 Specifically, upgrading version of any Tyk components is done by editing the corresponding `Dockerfile` and replacing the base image version tag. E.g. changing `FROM tykio/tyk-gateway:v2.5.4` to `FROM tykio/tyk-gateway:v2.6.1` will pull the Tyk gateway 2.6.1. We highly recommend specifying concrete version tags instead of `latest` for better house keeping.
 
-Once changes have been made just run `heroku container:push --recursive -a app_name` on the corresponding directory as shown previously in this guide. This will do all the building and pushing as well as gracefully deploying on your Heroku app.
+Once these changes have been made just run `heroku container:push --recursive -a app_name` on the corresponding directory as shown previously in this guide. This will do all the building and pushing as well as gracefully deploying on your Heroku app.
 
 Please refer to [Heroku documentation on containers and registry][1] for more information.
 
