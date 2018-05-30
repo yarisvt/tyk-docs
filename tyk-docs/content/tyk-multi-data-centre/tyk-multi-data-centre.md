@@ -52,8 +52,8 @@ When a request comes into a Slave Data Centre, the following set of actions occu
 1.  Request arrives
 2.  Auth header and API identified
 3.  Local cache is checked for token, if it doesn't exist, attempt to copy token from RPC master node (MDCB)
-4.  If token is found in master, copy to slave cache and use
-5.  If it is found in the slave cache, no remote call is made and rate limiting and validation happen on the slave copy
+4.  If token is found in master, copy to local cache and use
+5.  If it is found in the local cache, no remote call is made and rate limiting and validation happen on the slave copy
 
 > **Note:** Cached versions do not get synchronised back to the master data centre, setting a short TTL is important to ensure a regular lifetime
 
@@ -77,9 +77,9 @@ You want to have your Master Data Centre installation based in Chicago, with fur
 
 ### Better Uptime if Master Failover
 
-1. Gateways "stash" an encrypted version of their API and Policy configuration in the slave redis
+1. Gateways "stash" an encrypted version of their API and Policy configuration in the local redis
 2. Gateways that are coming online during a scaling event can detect master MDCB downtime and will use the "last good" configuration found in Redis
-3. Since running gateways have already been caching tokens that are in the active traffic flow from MDCB up until the downtime event, all gateways can service existing traffic, only new tokens will be rejected (and this can be mitigated by injecting those directly into the gateways using the local slaved gateway API)
+3. Since running Gateways have already been caching tokens that are in the active traffic flow from MDCB up until the downtime event, all Gateways can service existing traffic, only new tokens will be rejected (and this can be mitigated by injecting those directly into the gateways using the local slaved gateway API)
 4. Once master is restored, the gateways will all hot-reload to fetch new configurations and resume normal operations
 5. Gateways will only record a buffered window of analytics so as not to overwhelm redis or flood MDCB when it comes back online
 
