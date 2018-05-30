@@ -11,7 +11,7 @@ menu:
 
 You may configure an unlimited number of Slave Data Centres (DC) for ultimate High Availablity (HA). We recommend that you deploy your slave data centres as close to your upstream services as possible in order to reduce latency.
 
-It is a requirement that all your Tyk Gateway nodes in the slave DC share the same Redis DB in order to take advantage of Tyk's DRL and quota features.
+It is a requirement that all your Tyk Gateway nodes in the Slave DC share the same Redis DB in order to take advantage of Tyk's DRL and quota features.
 Your Slave DC can be in the same physical DC as the master DC with just a logical network separation. If you have many Slave DCs, they can be deployed in a private-cloud, public-cloud, or even on bare-metal.
 
 ## <a name="prequisites"></a>Prerequisites
@@ -69,5 +69,5 @@ The most important elements here are:
 |`group_id:`    |This is the "zone" that this instance inhabits, e.g. the DC it lives in. It must be unique to each slave cluster / DC.|
 |`connection_string:`     |The MDCB instance or load balancer.|
 
-Once this is complete, you can restart the Tyk Gateway in the slave DC, and it will connect to the MDCB instance, load its API definitions, and is ready to proxy traffic.
+Once this is complete, you can restart the Tyk Gateway in the Slave DC, and it will connect to the MDCB instance, load its API definitions, and is ready to proxy traffic.
 

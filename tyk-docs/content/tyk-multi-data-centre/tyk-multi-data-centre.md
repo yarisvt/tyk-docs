@@ -43,21 +43,21 @@ The Master Data Centre need to consist of:
 4.  A MongoDB replica set for the dashboard and MDCB
 5.  One or more MDCB instances, load balanced with port 9090 open for TCP connections
 
-### The Local Data Centres
+### The Slave Data Centres
 
-The local data centres are essentially local caches that run all validation and rate limiting operations locally instead of against a remote master that could cause latency.
+The Slave Data Centres are essentially local caches that run all validation and rate limiting operations locally instead of against a remote master that could cause latency.
 
-When a request comes into a local data centre, the following set of actions occur:
+When a request comes into a Slave Data Centre, the following set of actions occur:
 
 1.  Request arrives
 2.  Auth header and API identified
 3.  Local cache is checked for token, if it doesn't exist, attempt to copy token from RPC master node (MDCB)
-4.  If token is found in master, copy to local cache and use
-5.  If it is found in the local cache, no remote call is made and rate limiting and validation happen on the local copy
+4.  If token is found in master, copy to slave cache and use
+5.  If it is found in the slave cache, no remote call is made and rate limiting and validation happen on the slave copy
 
 > **Note:** Cached versions do not get synchronised back to the master data centre, setting a short TTL is important to ensure a regular lifetime
 
-A local data centre consists of the following configuration:
+A Slave Data Centre consists of the following configuration:
 
 1.  A Tyk Gateway instance(s) specially configured as slaves
 2.  A Redis DB
@@ -77,7 +77,7 @@ You want to have your Master Data Centre installation based in Chicago, with fur
 
 ### Better Uptime if Master Failover
 
-1. Gateways "stash" an encrypted version of their API and Policy configuration in the local redis
+1. Gateways "stash" an encrypted version of their API and Policy configuration in the slave redis
 2. Gateways that are coming online during a scaling event can detect master MDCB downtime and will use the "last good" configuration found in Redis
 3. Since running gateways have already been caching tokens that are in the active traffic flow from MDCB up until the downtime event, all gateways can service existing traffic, only new tokens will be rejected (and this can be mitigated by injecting those directly into the gateways using the local slaved gateway API)
 4. Once master is restored, the gateways will all hot-reload to fetch new configurations and resume normal operations
@@ -85,18 +85,15 @@ You want to have your Master Data Centre installation based in Chicago, with fur
 
 ### Latency Reduction
 
-Because the gateways cache keys and all operations locally, all operations can be geographically localised. This means that traffic to and from one location will all have rate limiting and checks applied within the same DC and round trip time is massively reduced.
+Because the Gateways cache keys and all operations locally, all operations can be geographically localised. This means that traffic to and from one location will all have rate limiting and checks applied within the same DC and round trip time is massively reduced.
 Also, the lookup to MDCB is via a resilient compressed RPC channel that is designed to handle ongoing and unreliable connectivity, it is also encrypted, and so safer to use over the open internet or inter-DC links.
 
 ### Organisational Benefits
 
-MDCB-slaved gateways are tied to a single organisation in the dashboard. This means that you can set up different teams as organisations in the dashboard, and each team can run it's own set of gateways that are logically isolated.
-This can be achieved with a dashboard-only setup, but requires gateway sharding (tagging) and behavioural policy on the user's side to ensure that all APIs are tagged correctly, otherwise they do not load.
-With an MDCB setup you get the ability to do both - segment out teams with their own gateway clusters, and also sub-segment those gateways with tagging.
+MDCB-slaved gateways are tied to a single organisation in the Dashboard. This means that you can set up different teams as organisations in the Dashboard, and each team can run it's own set of Gateways that are logically isolated.
+This can be achieved with a Dashboard-only setup, but requires Gateway sharding (tagging) and behavioural policy on the user's side to ensure that all APIs are tagged correctly, otherwise they do not load.
+With an MDCB setup you get the ability to do both - segment out teams with their own Gateway clusters, and also sub-segment those Gateways with tagging.
 
-### How to Setup MDCB
-
-See [here][3] for details of how to configure MDCB.
 
 [1]: /docs/tyk-multi-data-centre/multi-data-centre-bridge/#how-tyk-mdcb-works
 [2]: /docs/tyk-multi-data-centre/multi-data-centre-bridge/#logical-architecture
