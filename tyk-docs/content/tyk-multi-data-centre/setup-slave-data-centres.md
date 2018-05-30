@@ -64,13 +64,10 @@ Lastly, we add the sections that enforce the RPC Slave mechanism:
 
 The most important elements here are:
 
-`group_id:`
-
-This is the "zone" that this instance inhabits, e.g. the DC it lives in. It must be unique to each slave cluster / DC.
-
-`connection_string:`
-
-The MDCB instance or load balancer.
+| Field         | Description    |
+|---------------|----------------|
+|`group_id:`    |This is the "zone" that this instance inhabits, e.g. the DC it lives in. It must be unique to each slave cluster / DC.|
+|`connection_string:`     |The MDCB instance or load balancer.|
 
 Once this is complete, you can restart the Tyk Gateway in the slave DC, and it will connect to the MDCB instance, load its API definitions, and is ready to proxy traffic.
 

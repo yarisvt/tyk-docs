@@ -21,18 +21,20 @@ We will assume that the following components are up and running in your master D
 
 ### Default Ports
 
-* MongoDB - 27017
-* Redis - 6379
-* Tyk Dashboard:
-    * Developer Portal - 3000
-    * Admin Dashboard - 3000
-    * Admin Dashboard API - 3000
-    * Websockets/Notifications - 5000
-* Tyk Gateway:
-    * Management API - 8080
-* MongoDB:
-    * RPC Listen - 9090
-    * Healthcheck - 8181
+| Application             | Port           |
+|-------------------------|----------------|
+|MongoDB                  |      27017     |
+|Redis                    |      6379      |
+|**Tyk Dashboard**        |                |
+|Developer Portal         |      3000      |
+|Admin Dashboard          |      3000      |
+|Admin Dashboard API      |      3000      |
+|Websockets/Notifications |      5000      |
+|**Tyk Gateway**          |                |
+|Management API           |      8080      |
+|**MongoDB**              |                |
+|RPC Listen               |      9090      |
+|Healthcheck              |      8181      |
 
 ## <a name="MDCB Component Installation"></a>MDCB Component Installation
 The MDCB component will only need to be able to connect to Redis and MongoDB directly from within the master DC. It does not require access to the Tyk Gateway(s) or Dashboard application.
@@ -40,11 +42,11 @@ The MDCB component will however by default expose an RPC service on port 9090, w
 You should also have received a command to run containing a token to download the relevant MDCB package from PackageCloud.
 
 ```{.copyWrapper}
-> curl -s https://TOKEN:@packagecloud.io/install/repositories/tyk/tyk-mdcb/script.deb.sh | sudo bash
+curl -s https://TOKEN:@packagecloud.io/install/repositories/tyk/tyk-mdcb/script.deb.sh | sudo bash
 ```
 
 ```{.copyWrapper}
-> curl -s https://TOKEN:@packagecloud.io/install/repositories/tyk/tyk-mdcb/script.rpm.sh | sudo bash
+curl -s https://TOKEN:@packagecloud.io/install/repositories/tyk/tyk-mdcb/script.rpm.sh | sudo bash
 ```
 
 After the relevant script for your distribution has run, the script will let you know it has finished with the following message:
@@ -54,18 +56,18 @@ After the relevant script for your distribution has run, the script will let you
 You will now be able to install MDCB as follows:
 
 ```{.copyWrapper}
-> sudo apt-get install tyk-sink
+sudo apt-get install tyk-sink
 ```
 
 Or
 
 ```{.copyWrapper}
-> sudo yum install tyk-sink
+sudo yum install tyk-sink
 ```
 
 ## <a name="configuration"></a>Configuration
 
-### Configuratiom Example
+### Configuration Example
 Once installed, modify your `/opt/tyk-sink/tyk_sink.conf` file as follows:
 
 ```{.json}
@@ -103,133 +105,36 @@ Once installed, modify your `/opt/tyk-sink/tyk_sink.conf` file as follows:
 
 ### Configuration Reference
 
-`listen_port [int]`
+| Field                        | Field Type     |       Description         |
+|------------------------------|----------------|---------------------------|
+|`listen_port`                 |      int       |The rpc port which slave gateways will connect to. Open this port to accept connections via your firewall.<br>If this value is not set, the MDCB application will apply a default value of 9090.|
+|`healthcheck_port`            |      int       |This port lets MDCB allow standard health checks.<br>If this value is not set, the MDCB component will apply a default value of 8181.|
+|`server_options.use_ssl`      |      bool       |If use_ssl is set to true, you need to enter the cert_file and key_file path names for certificate.|
+|`server_options.min_version`  |      int        |The `min_version` setting should be the minimum TLS protocol version required from the client.<br> For TLS 1.0 use 769<br>For TLS 1.1 use 770<br>For TLS 1.2 use 771|
+|`server_options.certificate.cert_file` |   string  |Filesystem location for pem encoded certificate|
+|`server_options.certificate.key_file` |   string  |Filesystem location for pem encoded private key|
+|`storage` |   object  |This section describes your centralised Redis DB. This will act as your master key store for all of your clusters.|
+|`storage.type` |   string  |Currently, the only storage type supported is Redis.|
+|`storage.host` |   string  |Hostname of your Redis server|
+|`storage.port` |   int  |The port the Redis server is listening on.|
+|`storage.password` |   string  |Optional auth password for Redis db|
+|`storage.database` |   int  |By default, the database is 0. Setting the database is not supported with redis cluster. As such, if you have `storage.redis_cluster:true`, then this value should be omitted or explicitly set to 0.|
+|`storage.optimisation_max_idle` |   int  |MDCB will open a pool of connections to Redis. This setting will configure how many connections are maintained in the pool when idle (no traffic). Set the `max_idle` value to something large, we usually leave it at around 2000 for HA deployments.|
+|`storage.optimisation_max_active` |   int  |In order to not over commit connections to the Redis server, we may limit the total number of active connections to Redis. We recommend for production use to set this to around 4000.|
+|`storage.enable_cluster` |   bool  |If you are using Redis cluster, enable it here to enable the slots mode.|
+|`storage.hosts` |   object  |Add your Redis hosts here as a map of hostname:port. This field is required when storage.enable_cluster is set to true. example:<br>`{`<br>  `"server1": "6379",`<br>  `"server2": "6380",`<br>  `"server3": "6381"`<br>`}` |
+|`storage.redis_use_ssl` |   bool  |If set, MDCB will assume the connection to Redis is encrypted. (use with Redis providers that support in-transit encryption)|
+|`redis_ssl_insecure_skip_verify` |   bool  |Allows usage of self-signed certificates when connecting to an encrypted Redis database.|
+|`security` |   object  ||
+|`security.private_certificate_encoding_secret` |   string  |Allows MDCB to use Mutual TLS. This requires that `server_options.use_ssl` is set to true. See [Mutual TLS](https://tyk.io/docs/security/tls-and-ssl/mutual-tls/#mdcb) for more details.|
+|`hash_keys` |   bool  |Set to true if you are using a hashed configuration installation of Tyk, otherwise set to false.|
+|`session_timeout` |   int  |Number of seconds before the gateways are forced to re-login. Default is 86400 (24 hours).|
+|`forward_analytics_to_pump` |   bool  |Instead of sending analytics directly to MongoDB, MDCB can send analytics to Redis. This will allow [tyk-pump] (https://github.com/TykTechnologies/tyk-pump) to pull analytics from Redis and send to your own data sinks.|
+|`aggregates_ignore_tags` |   String Array  |If custom analytics tags are used. You may disable generating aggregate analytics for these tags. E.g.<br>`[`<br>`"Request-Id",`<br>`"Secret-Key"`<br>`]`|
+|`analytics` |   object  ||
+|`analytics.mongo_url` |   string  |Connection string for MongoDB.|
+|`License` |     |Enter your license in this section so MDCB can start.|
 
-The rpc port which slave gateways will connect to. Open this port to accept connections via your firewall.
-If this value is not set, the MDCB application will apply a default value of 9090.
-
-`healthcheck_port [int]`
-
-This port lets MDCB allow standard health checks.
-If this value is not set, the MDCB component will apply a default value of 8181.
-
-`server_options.use_ssl [bool]`
-
-If use_ssl is set to true, you need to enter the cert_file and key_file path names for certificate.
-
-`server_options.min_version [int]`
-
-The `min_version` setting should be the minimum TLS protocol version required from the client.
-
-| TLS Version   | Value to Use   |
-|---------------|----------------|
-|      1.0      |      769       |
-|      1.1      |      770       |
-|      1.2      |      771       |
-
-`server_options.certificate.cert_file [string]`
-
-Filesystem location for pem encoded certificate
-
-`server_options.certificate.key_file [string]`
-
-Filesystem location for pem encoded private key
-
-`storage [object]`
-
-This section describes your centralised Redis DB. This will act as your master key store for all of your clusters.
-
-`storage.type [string]`
-
-Currently, the only storage type supported is redis.
-
-`storage.host [string]`
-
-Hostname of your redis server
-
-`storage.port [int]`
-
-Port redis server is listening on
-
-`storage.password [string]`
-
-Optional auth password for redis db
-
-`storage.database [int]`
-
-By default, the database is 0. Setting the database is not supported with redis cluster. As such, if you have storage.redis_cluster:true, then this value should be omitted or explicitly set to 0.
-
-`storage.optimisation_max_idle [int]`
-
-MDCB will open a pool of connections to Redis. This setting will configure how many connections are maintained in the pool when idle (no traffic).
-Set the max_idle value to something large, we usually leave it at around 2000 for HA deployments.
-
-`storage.optimisation_max_active [int]`
-
-In-Order to not overcommit connections to the Redis server, we may limit the total number of active connections to Redis. We recommend for production use to set this to around 4000.
-
-`storage.enable_cluster [bool]`
-
-If you are using Redis cluster, enable it here to enable the slots mode.
-
-storage.hosts [object]
-
-Add your Redis hosts here as a map of hostname:port. This field is required when storage.enable_cluster is set to true. example:
-```{.json}
-{
-  "server1": "6379",
-  "server2": "6380",
-  "server3": "6381"
-}
-```
-
-
-`storage.redis_use_ssl [bool]`
-
-If set, MDCB will assume the connection to Redis is encrypted. (use with Redis providers that support in-transit encryption)
-
-`storage.redis_ssl_insecure_skip_verify [bool]`
-
-Allows usage of self-signed certificates when connecting to an encrypted Redis database.
-
-`security [object]`
-
-`security.private_certificate_encoding_secret [string]`
-
-Allows MDCB to use Mutual TLS. This requires that `server_options.use_ssl` is set to true. See [Mutual TLS](https://tyk.io/docs/security/tls-and-ssl/mutual-tls/#mdcb) for more details.
-
-`hash_keys`
-
-Set to true if you are using a hashed configuration installation of Tyk, otherwise set to false.
-
-`session_timeout [int]`
-
-Number of seconds before the gateways are forced to re-login. Default is 86400 (24 hours).
-
-`forward_analytics_to_pump [bool]`
-
-Instead of sending analytics directly to MongoDB, MDCB can send analytics to Redis. This will allow [tyk-pump] (https://github.com/TykTechnologies/tyk-pump) to pull analytics from Redis and send to your own data sinks.
-
-`aggregates_ignore_tags [array of strings]`
-
-If custom analytics tags are used. You may disable generating aggregate analytics for these tags. E.g.
-
-```
-[
-  "Request-Id",
-  "Secret-Key"
-]
-```
-
-`analytics [object]`
-
-`analytics.mongo_url [string]`
-
-Connection string for mongodb.
-
-`license`
-
-Enter your license in this section so MDCB can start.
 
 You should now be able to start the MDCB service, check that it is up and running and ensure that the service starts on system boot:
 
@@ -308,7 +213,7 @@ tyk_analytics.conf file under `admin_secret` or `TYK_DB_ADMINSECRET` environment
 
 `export DASH_URL=<YOUR_DASH_URL>`
 
-The url you use to access the Dashboard (including the port if not using the default port).
+The URL you use to access the Dashboard (including the port if not using the default port).
 
 `export ORG_ID=<YOUR_ORG_ID>`
 
