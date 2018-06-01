@@ -48,7 +48,7 @@ var searchContainerFn = function() {
 	$body.on('click','a[data-scroll]', function(e){
 		e.preventDefault();
 		$('html, body').animate({scrollTop:0}, 'slow');
-	});	
+	});
 
 	// Print Class
 	$body.on('click','a[data-print]', function(e){
@@ -71,22 +71,33 @@ var searchContainerFn = function() {
 
 	// Get current year
 	$('#copyright-year').append('&copy; Tyk Technologies ' + (new Date).getFullYear());
+};
 
-	// Scroll to Top  
-	$(window).scroll(function() {
-	  if ($(this).scrollTop() >= 250) {
-	      $('#return-to-top, .button.grey.medium.bottom').fadeIn(200);
-	  } else {
-	      $('#return-to-top, .button.grey.medium.bottom').fadeOut(200);
-	  }
+// Scroll to Top  
+$(window).scroll(function() {
+  if ($(this).scrollTop() >= 250) {
+      $('#return-to-top, .button.grey.medium.bottom').fadeIn(200);
+  } else {
+      $('#return-to-top, .button.grey.medium.bottom').fadeOut(200);
+  }
+
 	});
 	$('#return-to-top , .button.grey.medium.bottom').click(function() {
 	  $('body,html').animate({
 	      scrollTop : 0
 	  }, 500);
-	});
+});
 
-};
+$(window).scroll(function(){
+  var threshold = 800; // number of pixels before bottom of page that you want to start fading
+  var op = (($(document).height() - $(window).height()) - $(window).scrollTop()) / threshold;
+	if( op <= 0 ){
+		$(".documentation-table-of-contents").hide();
+	} else {
+		$(".documentation-table-of-contents").show();
+	}
+	// $(".documentation-table-of-contents").css("opacity", op ); 
+});
 
 if (!window.debCfn) {
 	var debCfn = debounce(searchContainerFn, 500, false);
