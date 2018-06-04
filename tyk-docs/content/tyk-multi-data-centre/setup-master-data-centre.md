@@ -32,7 +32,7 @@ We will assume that the following components are up and running in your master D
 |Websockets/Notifications |      5000      |
 |**Tyk Gateway**          |                |
 |Management API           |      8080      |
-|**MongoDB**              |                |
+|**MDCB**              |                |
 |RPC Listen               |      9090      |
 |Healthcheck              |      8181      |
 
