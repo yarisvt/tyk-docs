@@ -47,11 +47,11 @@ The configuration data is pretty straight-forward, but it is important that all 
 
 ```{.copyWrapper}
 {
-    "event": "{{.EventType}}",
-    "message": "{{.EventMetaData.Message}}",
-    "path": "{{.EventMetaData.Path}}",
-    "origin": "{{.EventMetaData.Origin}}",
-    "key": "{{.EventMetaData.Key}}"
+    "event": "{{.Type}}",
+    "message": "{{.Meta.Message}}",
+    "path": "{{.Meta.Path}}",
+    "origin": "{{.Meta.Origin}}",
+    "key": "{{.Meta.Key}}"
 }
 ```
 
