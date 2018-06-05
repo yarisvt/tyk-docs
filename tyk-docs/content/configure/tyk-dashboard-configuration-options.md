@@ -268,5 +268,5 @@ Environment variables can be used to override settings defined in the configurat
 
  [1]: /docs/security/tls-and-ssl/
  [2]: /docs/others/Gateway-Environment-Vars.xlsx
- [3]: /docs/configure/tyk-gateway-configuration-options/#node_secret
+ [3]: https://tyk.io/docs/configure/tyk-gateway-configuration-options/#a-name-node-secret-a-node-secret
  [4]: /docs/configure/outbound-email-configuration/

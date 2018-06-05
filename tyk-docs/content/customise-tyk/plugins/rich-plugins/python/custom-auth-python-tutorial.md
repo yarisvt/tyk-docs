@@ -54,16 +54,19 @@ This file should be named "manifest.json" and needs to have the following conten
 
 ### Contents of middleware.py
 
-We import decorators from the Tyk module (this gives us the `Hook` decorator:
-from `tyk.decorators import *`.
+We import decorators from the Tyk module this gives us the `Hook` decorator, and we import [Tyk Python API helpers](https://tyk.io/docs/customise-tyk/plugins/rich-plugins/python/tyk-python-api-methods/)
 
 We implement a middleware function and register it as a hook, the input includes the request object, the session object, the API meta data and its specification:
 
 ```
+from tyk.decorators import *
+from gateway import TykGateway as tyk
+
 @Hook
 def MyAuthMiddleware(request, session, metadata, spec):
     auth_header = request.get_header('Authorization')
     if auth_header == '47a0c79c427728b3df4af62b9228c8ae':
+        tyk.log("I'm logged!", "info")
         session.rate = 1000.0
         session.per = 1.0
         metadata["token"] = "47a0c79c427728b3df4af62b9228c8ae"
