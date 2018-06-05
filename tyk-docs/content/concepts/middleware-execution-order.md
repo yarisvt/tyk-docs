@@ -2,8 +2,8 @@
 title: Middleware Execution Order
 menu:
   main:
-    parent: "Javascript Middleware"
-weight: 3 
+    parent: "Concepts"
+weight: 10 
 ---
 
 To aid the debugging of middleware transformations, below is a diagram that illustrates the flow of a request.
