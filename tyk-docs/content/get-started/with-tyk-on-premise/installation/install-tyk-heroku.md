@@ -354,7 +354,7 @@ You're ready to follow the guide on [creating and managing your APIs][15] with t
 
 ## <a name="private-spaces"></a> Heroku Private Spaces
 
-Most instructions are valid for [Heroku Private Spaces runtime][18], however there are several differences to keep in mind.
+Most instructions are valid for [Heroku Private Spaces runtime][18]. However there are several differences to keep in mind.
 
 Heroku app creation commands must include the private space name in the `--space` flag, e.g.:
 ```{.copyWrapper}
@@ -368,7 +368,7 @@ heroku container:release web -a analytics-app-name
 heroku container:release pump -a analytics-app-name
 ```
 
-Similarly, the gateway:
+Similarly, the Gateway:
 ```{.copyWrapper}
 heroku container:push --recursive -a gateway-app-name
 heroku container:release web -a gateway-app-name
@@ -376,16 +376,16 @@ heroku container:release web -a gateway-app-name
 
 Please allow several minutes for the first deployment to start as additional infrastructure is being created for it. Next deployments are faster.
 
-Private spaces maintain stable set of IPs that can be used for whitelisting (e.g. on an external database service), find them out using the following command:
+Private spaces maintain stable set of IPs that can be used for whitelisting (e.g. on an external database service). Find them using the following command:
 ```{.copyWrapper}
 heroku spaces:info --space test-space-virginia
 ```
 
-Alternatively VPC peering can be used with the private spaces if external service supports it, this way exposure to external network can be avoided. For instance, see [MongoDB Atlas guide][19] for setting this up.
+Alternatively VPC peering can be used with the private spaces if external service supports it. This way exposure to external network can be avoided. For instance, see [MongoDB Atlas guide][19] for setting this up.
 
 The minimal Heroku Redis add-on plan that installs into your private space is currently `private-7`. Please refer to [Heroku's Redis with private spaces guide][20] for more information.
 
-Apps in private spaces don't enable SSL/TLS by default, it needs to be configured in the app settings along with the domain name for it. If it's not enabled, please make sure that configs that refer to corresponding hosts are using HTTP instead of HTTPS and related ports (80 for HTTP).
+Apps in private spaces don't enable SSL/TLS by default. It needs to be configured in the app settings along with the domain name for it. If it's not enabled, please make sure that configs that refer to corresponding hosts are using HTTP instead of HTTPS and related ports (80 for HTTP).
 
 ## <a name="gateway-plugins"></a> Gateway Plugins
 
