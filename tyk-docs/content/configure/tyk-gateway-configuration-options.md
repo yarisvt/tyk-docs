@@ -58,6 +58,10 @@ Set to `false` by default, set this to `true` to enable the retrieval all (or pe
 
 If this value is set to `true`, session objects (key definitions) that do not have explicit access rights set will be allowed by Tyk. This means that keys that are created have access to ALL APIs, which in many cases is unwanted behaviour unless you are sure about what you are doing.
 
+### <a name="min_key_length"></a>min_key_length
+
+This allows you to set a minimum key length for Authorisation key requests. Any request containing less than the minimum length will automatically rejected. The default setting is `3`. 
+
 ### <a name="use_db_app_configs"></a> use_db_app_configs
 
 If you are a Tyk Pro user, this option will enable polling the Dashboard service for API definitions. On startup Tyk will attempt to connect and download any relevant application configurations from from a Dashboard instance. The documents are exactly the same as the JSON configuration on disk with the exception of a BSON ID supplied by the service.
