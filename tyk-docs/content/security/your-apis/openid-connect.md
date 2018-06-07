@@ -13,11 +13,11 @@ Tyk comes with support for OpenID Connect Identity Tokens provided by any standa
 
 1.  A User logs in via a supported OIDC Provider to request access to their resource.
 2.  The User gains access to the Provider and uses their service.
-3.  The Identity Provider generates OAuth token set and OIDC ID Token The ID Token is signed by provider with their public key. This is then returned to the user.
+3.  The Identity Provider generates an OIDC `id_token` which is signed by provider with their public key and returned to the user
 4.  The User's client utilises OIDC ID Token as access token for an API managed by Tyk Gateway.
-5.  The Tyk Gateway checks the IDP is an approved IDP (registered as approved). The Gateway validates the OIDC ID Token signature.
-6.  The Tyk Gateway verifies the client ID as one that is trusted and pre-registered with Tyk Gateway.
-7.  The Gateway Checks the OIDC token signature against Auth0's public key set.
+5.  Tyk Gateway validates the OIDC ID Token signature.
+6.  Tyk Gateway checks the IDP is a recognised IDP (registered as approved).
+7.  Tyk Gateway verifies the client ID as one that is trusted and pre-registered with Tyk Gateway.
 8.  If the client ID is valid, Tyk applies the policy ID matched with this client to the user session.
 9.  Tyk then validates the users session according to the quotas, rate limits and access rules for the matching policy for **either** the bearer of the token across all clients they use from this IDP **or** validates the session on a per client / per identity basis. For example, user Alice will have different Access Rules depending on whether they are using a mobile client or a web client.
 10.  The Tyk Gateway then proxies request to the target.
