@@ -184,14 +184,14 @@ It is also possible to insert key meta data into a body transform, you can do th
 
 ```{.copyWrapper}
 {
-    "value1": "value-1",
-    "value2": "value-2",
-    "transformed_list": [
-        "one",
-        "two",
-        "three"
-    ],
-    "user-id": "{{._tyk_meta.uid}}"
+  "value1": "value-1",
+  "value2": "value-2",
+  "transformed_list": [
+    "one",
+    "two",
+    "three"
+  ],
+  "user-id": "{{._tyk_meta.uid}}"
 }
 ```
 
@@ -225,11 +225,9 @@ Or (for body transforms):
 
 It is possible to work with inbound form data by making use of the Context Variable feature built into Tyk. If context variables are enabled in your API definition, then it is possible to iterate through form or querystring data in your template.
 
-You do this by using the `._tyk_context.` namespace, unlike the context exposed to the URL rewriter and header injector, the body transform can fully iterate through list indices, so for example calling `_tyk_context.request_data.variablename[0]` in a template will expose the first entry in the `request_data.variablename` key/value pairing.
+You do this by using the `._tyk_context.` namespace, unlike the context exposed to the URL rewriter and header injector, the body transform can fully iterate through list indices, so for example calling `{{ index ._tyk_context.request_data.variablename 0 }}` in a template will expose the first entry in the `request_data.variablename` key/value array.
 
 The `request_data` section is populated if the inbound request contained any query data or form data, it will be available in this object as a `key:[]value` map.
 
-
 [1]: /docs/img/dashboard/system-management/body_transforms_2.5.png
 [2]: /docs/img/dashboard/system-management/define_transform_2.5.png
-
