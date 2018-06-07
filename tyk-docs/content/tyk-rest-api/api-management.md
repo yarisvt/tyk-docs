@@ -37,6 +37,7 @@ Finally, any new definitions are not made live and do not get loaded into the mu
 ```{.copyWrapper}
 POST /tyk/apis/ HTTP/1.1
 Host: localhost:8080
+x-tyk-authorization: 352d20ee67be67f6340b4c0605b044b7
 Connection: keep-alive
 Content-Length: 739
 Pragma: no-cache
@@ -220,6 +221,7 @@ Updating will completely replace the file descriptor and will not change an API 
 ```{.copyWrapper}
 PUT /tyk/apis/987654321 HTTP/1.1
 Host: localhost:8080
+x-tyk-authorization: 352d20ee67be67f6340b4c0605b044b7
 Connection: keep-alive
 Content-Length: 739
 Pragma: no-cache
@@ -402,6 +404,7 @@ Deleting an API definition will remove the file from the file store, the API def
 ```{.copyWrapper}
 DELETE /tyk/apis/987654321 HTTP/1.1
 Host: localhost:8080
+x-tyk-authorization: 352d20ee67be67f6340b4c0605b044b7
 Connection: keep-alive
 Content-Length: 739
 Pragma: no-cache
