@@ -19,12 +19,14 @@ Alternatively, you could produce a dynamic response object that transforms or co
 
 > **Note**: The JavaScript engine in which these methods run in is a traditional ECMAScript 5 compatible environment and does not offer the more expressive power of something like Node.js. These methods are meant to provide a functional interpreter before complex interactions with your underlying service that cannot be handled by one of the other middleware components.
 
+As with Javascript Middleware you will need to enable the JSVM. You do this by setting `enable_jsvm` to `true` in your `tyk.conf` file.
+
 #### Virtual Endpoint Functions
 
 To create one of these methods, create a file and place it in a subdirectory of the Tyk configuration environment (ideally under the `middleware` folder in your Tyk installation). Here is a sample method:
 
 ```{.copyWrapper}
-function sampleVirtual (request, session, config) {
+function myVirtualHandler (request, session, config) {
     log("Virtual Test running")
     
     log("Request Body: ")
@@ -53,6 +55,71 @@ function sampleVirtual (request, session, config) {
 log("Virtual Test initialised")
 ```
 
+
+
+
+### Adding Virtual Endpoints to your API Definition
+
+Virtual endpoints follow the same layout and setup as other elements in the `extended_path` section of the API definition:
+
+```{.copyWrapper}
+...
+virtual: [
+    {
+        response_function_name: "batchTest",
+        function_source_type: "file",
+        function_source_uri: "middleware/testVirtual.js",
+        path: "get-batch",
+        method: "GET",
+        use_session: true
+    }
+]
+```
+
+The parameters are as follows:
+
+*   `response_function_name`: This is the function to run when this virtual endpoint is requested. The function name must match exactly (including casing) the function name in your virtual middleware. We need to know this as it will be the entry point into your code, this will be called first. Make sure it is unique, all plugins run in the same VM, so if there are naming collisions you may end up with unpredictable behaviour.
+*   `function_source_type`: This can be `file` or `blob` If set to `file`, then Tyk will pre-load the JS from disk, if set to blob, then Tyk will base64-decode a string from the `function_source_uri` section.
+*   `function_source_uri`: This will be the relative path to the source of the functionality (e.g. `myfile.js`), or a blob of base64-encoded data that represents the same information. Blob mode is mainly used by the dashboard to make code injection easier on multiple node deployments.
+*   `path`: This is the relative URI path to which the virtual middleware will respond. For example, `http://domain/path`.
+*   `method`: This is the HTTP verb (`GET`, `POST` etc.) to which this virtual middleware will respond.
+*   `use_session`: If true then the key session data will be provided to the function as the `session` variable. See the plugins documentation for more detail about this object.
+
+### Passing Custom Attributes to Middleware
+
+You can use the `config_data` special field in your API definition to pass custom attributes to middleware via a virtual endpoint.
+
+#### Adding `config_data` to an API Definition
+
+Add the following to the root of your API definition:
+
+```{.copyWrapper}
+"config_data": {
+  "string": "string",
+  "map": {
+    " key": 3
+  },
+  "num": 4
+}
+```
+
+#### Sample use of `config_data`
+
+```
+function myVirtualHandler (request, session, config) {      
+        var responseObject = {
+                Body: "THIS IS A  VIRTUAL RESPONSE",
+                Headers: {
+                    "foo-header": "bar",
+                    "map-header": JSON.stringify(config.config_data.map),
+                    "string-header": config.config_data.string,
+                    "num-header": JSON.stringify(config.config_data.num)
+        },
+        Code: 200
+    }
+    return TykJsResponse(responseObject, session.meta_data)
+}
+```
 
 ### An Aggregate JS Function
 
@@ -113,60 +180,3 @@ log("Batch Test initialised")
 ```
 
 The above code is pretty self explanatory, so we won't go into great detail - the batch object here is the same object that is fed into our batch request method `TykBatchRequest` that is exposed as part of certain API definitions.
-
-### Adding Virtual Endpoints to your API Definition
-
-Virtual endpoints follow the same layout and setup as other elements in the `extended_path` section of the API definition:
-
-```{.copyWrapper}
-...
-virtual: [
-    {
-        response_function_name: "batchTest",
-        function_source_type: "file",
-        function_source_uri: "middleware/testVirtual.js",
-        path: "get-batch",
-        method: "GET",
-        use_session: true
-    }
-]
-```
-
-The parameters are as follows:
-
-*   `response_function_name`: This is the function to run when this virtual endpoint is requested. The function name must match exactly (including casing) the function name in your virtual middleware. We need to know this as it will be the entry point into your code, this will be called first. Make sure it is unique, all plugins run in the same VM, so if there are naming collisions you may end up with unpredictable behaviour.
-*   `function_source_type`: This can be `file` or `blob` If set to `file`, then Tyk will pre-load the JS from disk, if set to blob, then Tyk will base64-decode a string from the `function_source_uri` section.
-*   `function_source_uri`: This will be the relative path to the source of the functionality (e.g. `myfile.js`), or a blob of base64-encoded data that represents the same information. Blob mode is mainly used by the dashboard to make code injection easier on multiple node deployments.
-*   `path`: This is the relative URI path to which the virtual middleware will respond. For example, `http://domain/path`.
-*   `method`: This is the HTTP verb (`GET`, `POST` etc.) to which this virtual middleware will respond.
-*   `use_session`: If true then the key session data will be provided to the function as the `session` variable. See the plugins documentation for more detail about this object.
-
-### Passing Custom Attributes to Middleware
-
-You can use the `config_data` special field in your API definition to pass custom attributes to middleware via a virtual endpoint.
-
-#### Adding `config_data` to an API Definition
-
-Add the following to the root of your API definition:
-
-```{.copyWrapper}
-"config_data": {
-    "foo": "bar"
-},
-```
-
-#### Sample use of `config_data`
-
-```
-function testVirtData(request, session, config) {
-    var resp = {
-        Body: request.Body + " added body",
-        Headers: {
-            "data-foo": config.config_data.foo
-        },
-        Code: 202
-    }
-    return TykJsResponse(resp, session.meta_data)   
-}
-```
-

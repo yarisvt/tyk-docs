@@ -10,6 +10,12 @@ weight: 0
 In order to activate middleware in a Tyk Community Edition edition or when using a file-based setup, the middleware needs to be registered as part of your API Definition. Registration of middleware components is relatively simple.
 > **Note**: it is important that your object names are unique.
 
+### Enable the JSVM
+
+Before you can use Javascript Middleware you will need to enable the JSVM
+
+You can do this by setting `enable_jsvm` to `true` in your `tyk.conf` file.
+
 Adding the middleware plugin is as simple as adding it to your definition file in the middleware sections:
 
 ```{.copyWrapper}
