@@ -29,8 +29,8 @@ function sampleVirtual (request, session, config) {
     
     log("Request Body: " + request.Body)
     log("Session: " + session)
-    log("Config:" + config)
-    log("param-1:" + request.Params["param1"])
+    log("Config: " + config)
+    log("param-1: " + request.Params["param1"])
     
     var responseObject = {
         Body: "THIS IS A  VIRTUAL RESPONSE",
