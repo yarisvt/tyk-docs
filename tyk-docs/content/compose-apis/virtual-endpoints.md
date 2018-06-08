@@ -27,17 +27,10 @@ To create one of these methods, create a file and place it in a subdirectory of 
 function sampleVirtual (request, session, config) {
     log("Virtual Test running")
     
-    log("Request Body: ")
-    log(request.Body)
-    
-    log("Session: ")
-    log(session)
-    
-    log("Config:")
-    log(config)
-    
-    log("param-1:")
-    log(request.Params["param1"])
+    log("Request Body: " + request.Body)
+    log("Session: " + session)
+    log("Config:" + config)
+    log("param-1:" + request.Params["param1"])
     
     var responseObject = {
         Body: "THIS IS A  VIRTUAL RESPONSE",
