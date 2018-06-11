@@ -29,3 +29,9 @@ Tyk will check for a folder that matches the `API Id` being loaded, and then loa
 > **NOTE**:The filename **must** match the object to be loaded exactly.
 
 If your middleware requires session injection, then append `_with_session` to the filename.
+
+### Enable the JSVM
+
+Before you can use Javascript Middleware you will need to enable the JSVM
+
+You can do this by setting `enable_jsvm` to `true` in your `tyk.conf` file.
