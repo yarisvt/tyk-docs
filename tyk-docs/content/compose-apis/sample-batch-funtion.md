@@ -14,7 +14,7 @@ weight: 3
 The most common use case for this functionality, as we see it, is to provide some form of aggregate data to your users, here's a snippet that will do just that using the new batch processing API:
 
 ```{.copyWrapper}
-function batchTest (request, session, config) {
+function batchTest(request, session, config) {
   // Set up a response object
   var response = {
     Body: ""
@@ -65,6 +65,7 @@ function batchTest (request, session, config) {
     
 }
 log("Batch Test initialised")
+                
 ```
 
 The above code is pretty self explanatory, so we won't go into great detail - the batch object here is the same object that is fed into our batch request method `TykBatchRequest` that is exposed as part of certain API definitions.

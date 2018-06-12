@@ -26,8 +26,8 @@ function myVirtualHandlerGetHeaders (request, session, config) {
  
   log("Request object: " + JSON.stringify(request))   
   log("Request Body: " + JSON.stringify(request.Body))
-  log("Request Headers:"+ JSON.stringify(request.Headers))
-  log("param-1:"+ request.Params["param1"])
+  log("Request Headers:" + JSON.stringify(request.Headers))
+  log("param-1:" + request.Params["param1"])
     
   log("Request header type:" + typeof JSON.stringify(request.Headers))
   log("Request header:" + JSON.stringify(request.Headers.Location))
@@ -45,8 +45,8 @@ function myVirtualHandlerGetHeaders (request, session, config) {
   rawlog("--- before get to upstream ---")
   response = TykMakeHttpRequest(JSON.stringify(newRequest));
   rawlog("--- After get to upstream ---")
-  log('response type: ' + typeof response);
-  log('response: ' + response);
+  log("response type: " + typeof response);
+  log("response: " + response);
   usableResponse = JSON.parse(response);
   var bodyObject = JSON.parse(usableResponse.Body);
     
