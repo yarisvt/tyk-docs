@@ -120,6 +120,11 @@ An API Definition has many switches that change the way an incoming request is h
             "cache_timeout": 0,
             "endpoint_returns_list": false
         }
+        "transport": {
+            "proxy_url": "http(s)://proxy.url:1234",
+            "ssl_min_version": int,
+            "ssl_ciphers": ["string"]
+        }
     },
     "disable_rate_limit": false,
     "disable_quota": false,

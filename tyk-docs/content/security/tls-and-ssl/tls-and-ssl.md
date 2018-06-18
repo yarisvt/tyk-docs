@@ -43,7 +43,7 @@ You need to use the following values for setting the TLS `min_version`:
 
 #### Specify TLS Cipher Suites
 
-You can optionally add the additional `http_server_options` config option `ssl_ciphers` which takes an array of strings as it's value.
+You can optionally add the additional `http_server_options` config option `ssl_ciphers` which takes an array of strings as its value.
 
 Each string must be one of the allowed cipher suites as defined at https://golang.org/pkg/crypto/tls/#pkg-constants
 

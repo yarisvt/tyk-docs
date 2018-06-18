@@ -554,5 +554,25 @@ This setting forces a DNS cache flush (in seconds). The default setting is `0`.
 
 > **NOTE:** This option is available from v2.5.2 onwards.
 
+### <a name="proxy_ssl_min_version">proxy_ssl_min_version
+
+You use this setting to have Tyk only accept connections from TLS V1.0, 1.1 and 1.2 respectively.
+
+You need to use the following values for this setting:
+
+| TLS Version   | Value to Use   |
+|---------------|----------------|
+|      1.0      |      769       |
+|      1.1      |      770       |
+|      1.2      |      771       |
+
+### <a name="proxy_ssl_ciphers"></a>proxy_ssl_ciphers
+
+This allows you to add ssl ciphers which takes an array of strings as its value.
+
+Each string must be one of the allowed cipher suites as defined at https://golang.org/pkg/crypto/tls/#pkg-constants
+
+
+
 
  [1]: /docs/others/Gateway-Environment-Vars.xlsx
