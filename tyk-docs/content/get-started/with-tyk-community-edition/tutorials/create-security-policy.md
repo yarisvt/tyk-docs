@@ -3,9 +3,10 @@ date: 2017-03-23T10:39:14Z
 Title: Create a security policy - Community Edition
 menu:
   main:
-    parent: Community Edition
+    parent: "/with-tyk-community-edition"
     identifier: community-edition-create-security-policy
 weight: 3
+url: "/with-tyk-community-edition/tutorials/create-security-policy"
 ---
 
 ## <a name="what-is-a-security-policy"></a>What is a security policy ?

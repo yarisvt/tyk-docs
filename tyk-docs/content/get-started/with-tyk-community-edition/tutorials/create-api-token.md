@@ -3,8 +3,9 @@ date: 2017-03-13T15:08:55Z
 Title: Create an API Key - Community Edition
 menu:
   main:
-    parent: Community Edition
+    parent: "/with-tyk-community-edition"
     identifier: community-edition-create-api-token
+url: "/with-tyk-community-edition/tutorials/create-api-token"    
 weight: 2
 ---
 

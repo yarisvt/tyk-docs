@@ -3,9 +3,10 @@ date: 2017-03-23T10:16:44Z
 Title: Create an API - Community Edition
 menu:
   main:
-    parent: Community Edition
-    identifier: community-edition-create-api
+    parent: "/with-tyk-community-edition"
+    identifier: /community-edition-create-api
 weight: 1
+url: "/with-tyk-community-edition/tutorials/create-api"
 ---
 
 ## <a name="creation-methods"></a>Creation Methods
