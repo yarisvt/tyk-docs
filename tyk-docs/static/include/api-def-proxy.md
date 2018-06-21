@@ -90,8 +90,13 @@ In the above example, the `port_data_path` would be `port`.
 
 * `proxy.service_discovery.cache_timeout`: Tyk caches target data from a discovery service. In order to make this dynamic you can set a cache value when the data expires and new data is loaded.
 
-* `proxy.transport`: The transport section allows you to specify a custom proxy and set the minimum TLS versions and any SSL ciphers.
 
+
+***Internal proxy setup***
+
+The transport section allows you to specify a custom proxy and set the minimum TLS versions and any SSL ciphers.
+
+This is an example of `proxy.transport` definition followed by explanations for every field.
 ```
 }
   "transport": {
@@ -103,12 +108,11 @@ In the above example, the `port_data_path` would be `port`.
     ]
 }
 ```
-
 * `proxy.transport.proxy_url`: Use this setting to specify your custom proxy and port.
 
 * `proxy.transport.ssl_min_version`: Use this setting to specify your minimum TLS version:
 
-You need to use the following values for this setting:
+&nbsp;&nbsp;You need to use the following values for this setting:
 
 | TLS Version   | Value to Use   |
 |---------------|----------------|
@@ -116,6 +120,4 @@ You need to use the following values for this setting:
 |      1.1      |      770       |
 |      1.2      |      771       |
 
-* `proxy.transport.ssl_ciphers`: You can add `ssl_ciphers` which takes an array of strings as its value.
-
-Each string must be one of the allowed cipher suites as defined at https://golang.org/pkg/crypto/tls/#pkg-constants
+* `proxy.transport.ssl_ciphers`: You can add `ssl_ciphers` which takes an array of strings as its value. Each string must be one of the allowed cipher suites as defined at https://golang.org/pkg/crypto/tls/#pkg-constants
