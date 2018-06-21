@@ -143,7 +143,7 @@ Tyk has an asynchronous rate limiter that can provide a smoother performance cur
 To enable this rate limiter, make sure the settings below are set in your `tyk.conf`:
 
 ```{.copyWrapper}
-    "close_connections": true,
+    "close_connections": false,
     "enforce_org_quotas": false, // only true if multi-tenant
     "enforce_org_data_detail_logging": false,
     "experimental_process_org_off_thread": true,
@@ -154,7 +154,7 @@ To enable this rate limiter, make sure the settings below are set in your `tyk.c
     },
 ```
 
-The above settings will ensure connections are closed (no TCP re-use), removes a transaction from the middleware run that enforces org-level rules, enables the new rate limiter and sets Tyk up to use an in-memory cache for session-state data to save a round-trip to Redis for some other transactions.
+The above settings will ensure connections allow TCP re-use, removes a transaction from the middleware run that enforces org-level rules, enables the new rate limiter and sets Tyk up to use an in-memory cache for session-state data to save a round-trip to Redis for some other transactions.
 
 ### Use the right hardware
 
