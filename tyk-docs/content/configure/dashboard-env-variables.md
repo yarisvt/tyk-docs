@@ -75,3 +75,5 @@ weight: 13
 | private_key_path                        | TYK_DB_PRIVATEKEYPATH                        |
 | node_schema_path                        | TYK_DB_NODESCHEMADIR                         |
 | oauth_redirect_uri_separator            | TYK_DB_OAUTHREDIRECTURISEPARATOR             |
+| storage.optimisations_max_idle            | TYK_DB_STORAGE_MAXIDLE             |
+| storage.optimisations_max_active            | TYK_DB_STORAGE_MAXACTIVE             |
