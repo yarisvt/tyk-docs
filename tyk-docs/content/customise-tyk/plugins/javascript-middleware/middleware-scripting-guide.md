@@ -87,6 +87,10 @@ The `request` object provides a set of arrays that can be manipulated, that when
         ResponseCode: int
         ResponseError: string
     }
+    IgnoreBody    bool
+    Method        string
+    RequestURI    string
+    Scheme        string
 }
 ```
 
@@ -98,6 +102,10 @@ The `request` object provides a set of arrays that can be manipulated, that when
 *   `AddParams`: You can add parameters to your request here, for example internal data headers that are only relevant to your network setup.
 *   `DeleteParams`: These parameters will be removed from the request as they pass through the middleware. `DeleteParams` happens before `AddParams`.
 *   `ReturnOverrides`: Values stored here are used to stop or halt middleware execution and return an error code if the middleware operation has failed.
+*   `IgnoreBody`: If this parameter is set to true, the original request body will be used. If set to false the `Body` field will be used, this is the default behavior.
+*   `Method`: Contains the HTTP method (`GET`, `POST`, etc.).
+*   `RequestURI`: Contains the request URI, including the query string, e.g. `/path?key=value`.
+*   `Scheme`: Contains the URL scheme, e.g. `http`, `https`.
 
 Using the methods outlined above, alongside the API functions that are made available to the VM, allows for a powerful set of tools for shaping and structuring inbound traffic to your API, as well as processing, validating or re-structuring the data as it is inbound.
 
