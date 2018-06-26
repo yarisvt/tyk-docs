@@ -7,6 +7,8 @@ menu:
 weight: 3 
 ---
 
+## <a name="batch_example"></a>Batch using the /tyk/batch endpoint
+
 > **NOTE**: Virtual endpoints are not available in the Tyk Cloud Edition.
 
 ### An Aggregate JS Function
@@ -29,22 +31,22 @@ function batchTest(request, session, config) {
   // Batch request
   var batch = {
     "requests": [
-        {
-          "method": "GET",
-          "headers": {
-            "x-tyk-test": "1",
-            "x-tyk-version": "1.2",
-            "authorization": "1dbc83b9c431649d7698faa9797e2900f"
-          },
-          "body": "",
-          "relative_url": "http://httpbin.org/get"
+      {
+        "method": "GET",
+        "headers": {
+          "x-tyk-test": "1",
+          "x-tyk-version": "1.2",
+          "authorization": "1dbc83b9c431649d7698faa9797e2900f"
         },
-        {
-          "method": "GET",
-          "headers": {},
-          "body": "",
-          "relative_url": "http://httpbin.org/user-agent"
-        }
+        "body": "",
+        "relative_url": "http://httpbin.org/get"
+      },
+      {
+        "method": "GET",
+        "headers": {},
+        "body": "",
+        "relative_url": "http://httpbin.org/user-agent"
+      }
     ],
     "suppress_parallel_execution": false
   }
@@ -68,4 +70,4 @@ log("Batch Test initialised")
                 
 ```
 
-The above code is pretty self explanatory, so we won't go into great detail - the batch object here is the same object that is fed into our batch request method `TykBatchRequest` that is exposed as part of certain API definitions.
+The batch object here is the same object that is fed into our batch request method `TykBatchRequest` that is exposed as part of certain API definitions.

@@ -7,9 +7,7 @@ menu:
 weight: 1 
 ---
 
-> **NOTE**: Virtual endpoints are not available in the Tyk Cloud Edition.
-
-Virtual endpoints are unique to Tyk. With a virtual endpoint, you can plug short JavaScript functions at the end of a Tyk route and have them run when the endpoint is called.
+Virtual endpoints are unique to Tyk. With a virtual endpoint, you can plug short JavaScript functions at the end of a Tyk route and have them run when the endpoint is called. Virtual endpoints are not available in the Tyk Cloud Edition.
 
 > **NOTE**: Virtual endpoints and the JSVM middleware share the same API. See [JavaScript API](/docs/customise-tyk/plugins/javascript-middleware/javascript-api/) for more details. 
 
