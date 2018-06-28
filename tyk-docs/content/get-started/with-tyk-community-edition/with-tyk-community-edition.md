@@ -11,13 +11,8 @@ url: "/get-started/with-tyk-community-edition"
 ## <a name="what-is-tyk-community-edition"></a>What is Tyk Community Edition?
 
 
-Tyk Community Edition is the open-source API Gateway that is developed by our community and supported by our community members and advocates (with some help from the Tyk Technologies team). The Tyk Community Edition is an On-Premises install that consists of:
+Tyk Community Edition is the open-source API Gateway that is developed by our community and supported by our community members and advocates (with some help from the Tyk Technologies team). The Tyk Community Edition is a [Tyk Gateway](https://tyk.io/docs/concepts/tyk-components/gateway/) only edition:
 
-* [The Tyk API Gateway](https://tyk.io/docs/concepts/tyk-components/gateway/): Tyk's API Gateway that manages your APIs.
-* [The Tyk Pump](https://tyk.io/docs/concepts/tyk-components/pump/): Tyk's analytics data sink, used to send analytics data to platforms such as StatsD, ElasticSearch and InfluxDB.
-* [The Tyk Identity Broker](https://tyk.io/docs/concepts/tyk-components/identity-broker/): Tyk's third-party IDP integration service.
-
->Note: The Tyk Dashboard is not available for this edition.
 
 #### Pro Tip: Domains with Tyk Gateway
 
@@ -31,7 +26,6 @@ Tyk Gateway has full domain support built-in, you can:
 ## <a name="prerequisites"></a>Prerequisites
 
 *   Ensure port `8080` is open: this is used in this guide for Gateway traffic (the API traffic to be proxied).
-*   You have MongoDB installed and running.
 *   You have Redis installed and running
 
 ## <a name="install-on-ubuntu"></a>Installing on Ubuntu
@@ -44,61 +38,6 @@ First import the public key as required by Ubuntu APT
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
 ```
 
-Then create a MongoDb source list file
-
-**On Ubuntu Trusty 14.04**
-
-```{.copyWrapper}
-echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
-```
-
-**On Ubuntu Xenial 16.04**
-
-```{.copyWrapper}
-echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
-```
-
-Reload the package database
-
-```{.copyWrapper}
-sudo apt-get update
-```
-
-Then run the install script.
-
-```{.copyWrapper}
-sudo apt-get install -y mongodb-org
-```
-
-Finally, start the MongoDB service - then ensure all is running.
-
-**On Ubuntu Trusty 14.04**
-
-```
-# sudo service mongod start
-# sudo service mongod status
-mongod start/running, process 1904
-```
-
-**On Ubuntu Xenial 16.04**
-
-```
-# sudo service mongod start
-# sudo service mongod status
-● mongod.service - High-performance, schema-free document-oriented database
-   Loaded: loaded (/lib/systemd/system/mongod.service; disabled; vendor preset: enabled)
-   Active: active (running) since Fri 2018-04-27 17:47:45 UTC; 5s ago
-     Docs: https://docs.mongodb.org/manual
- Main PID: 1751 (mongod)
-    Tasks: 23
-   Memory: 168.7M
-      CPU: 1.416s
-   CGroup: /system.slice/mongod.service
-           └─1751 /usr/bin/mongod --config /etc/mongod.conf
-
-Apr 27 17:47:45 ubuntu-s-1vcpu-2gb-lon1-01 systemd[1]: Started High-performance, schema-free document-o
-```
-
 ### Install Redis
 
 ```{.copyWrapper}
@@ -108,21 +47,6 @@ sudo apt-get install -y redis-server
 
 
 ### Run Installation Scripts
-
-#### Install the Tyk Pump First
-
-From [https://packagecloud.io/tyk/tyk-pump](https://packagecloud.io/tyk/tyk-pump) you have the following options:
-
-* Via the correct package for your Ubuntu version. We have packages for the following:
- * Xenial
- * Trusty
- * Precise
-
-* Via Quick Installation Instructions. You can use: 
- * [Manual Instructions](https://packagecloud.io/tyk/tyk-pump/install#manual-deb)
- * [Chef](https://packagecloud.io/tyk/tyk-pump/install#chef)
- * [Puppet](https://packagecloud.io/tyk/tyk-pump/install#puppet)
- * [CI and Build Tools](https://packagecloud.io/tyk/tyk-pump/ci)
 
 #### Install the Gateway
 
@@ -168,7 +92,6 @@ The Tyk Gateway can be started now that it is configured. Use this commannd to s
 
 *   Ensure port `8080` is open: this is used in this guide for Gateway traffic (the API traffic to be proxied).
 *   EPEL (Extra Packages for Enterprise Linux) is a free, community based repository project from Fedora which provides high quality add-on software packages for Linux distribution including RHEL, CentOS, and Scientific Linux. EPEL isn't a part of RHEL/CentOS but it is designed for major Linux distributions. In our case we need it for Redis DB. Install EPEL using the instructions [here](http://fedoraproject.org/wiki/EPEL#How_can_I_use_these_extra_packages.3F).
-*   Install MongoDB
 *   Install Redis using EPEL
 *   Tyk requires Python 3.4. Install via the following command:
 
@@ -176,49 +99,22 @@ The Tyk Gateway can be started now that it is configured. Use this commannd to s
 sudo yum install python34
 ```
 
-### Install MongoDB
+### Install Redis
 
-Create a `/etc/yum.repos.d/mongodb-org-3.0.repo` file so that you can install MongoDB directly, using yum.
 ```{.copyWrapper}
-[mongodb-org-3.0]
-name=MongoDB Repository
-baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.0/x86_64/
-gpgcheck=0
-enabled=1
+sudo yum install -y redis
 ```
 
-Then, to install both MongoDB and Redis.
+*(you may be asked to accept the GPG key for our repos and when the package installs, click yes to continue)*
 
+### Start Redis
+
+In many cases Redis might not be running, so let's start that:
 ```{.copyWrapper}
-sudo yum install -y mongodb-org redis
-```
-
-*(you may be asked to accept the GPG key for our repos and when the package installs, hit yes to continue)*
-
-### Start MongoDB and Redis
-
-In many cases MongoDB or Redis might not be running, so let's start that:
-```{.copyWrapper}
-sudo service mongod start
 sudo service redis start
 ```
 
 ### Run Installation Scripts
-
-#### Install the Tyk Pump First
-
-From [https://packagecloud.io/tyk/tyk-gateway](https://packagecloud.io/tyk/tyk-pump) you have the following options:
-
-* Via the correct package for your RHEL version. We have packages for the following:
- * RHEL 7
- * RHEL 6
- 
-* Via Quick Installation Instructions. You can use:
- * [Manual Instructions](https://packagecloud.io/tyk/tyk-pump/install#manual-rpm)
- * [Chef](https://packagecloud.io/tyk/tyk-pump/install#chef)
- * [Puppet](https://packagecloud.io/tyk/tyk-pump/install#puppet)
- * [CI and Build Tools](https://packagecloud.io/tyk/tyk-pump/ci)
-
 
 #### Install the Gateway
 
