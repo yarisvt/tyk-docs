@@ -30,8 +30,6 @@ Tyk Gateway has full domain support built-in, you can:
 
 ## <a name="install-on-ubuntu"></a>Installing on Ubuntu
 
-### Install MongoDb 3.2
-
 First import the public key as required by Ubuntu APT
 
 ```{.copyWrapper}
