@@ -11,9 +11,6 @@ url: "/get-started/with-tyk-community-edition/tutorials"
 
 The following tutorials will help you perform the following tasks:
 
-* Create an API
-* Create a Key for your API
-* Create a security policy for your API
-
-
-
+* [Create an API](https://tyk.io/docs/with-tyk-community-edition/tutorials/create-api/)
+* [Create a Key for your API](https://tyk.io/docs/with-tyk-community-edition/tutorials/create-api-token/)
+* [Create a security policy for your API](https://tyk.io/docs/with-tyk-community-edition/tutorials/create-security-policy/)

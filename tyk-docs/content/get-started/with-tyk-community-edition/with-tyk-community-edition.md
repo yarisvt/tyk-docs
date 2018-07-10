@@ -10,18 +10,8 @@ url: "/get-started/with-tyk-community-edition"
 
 ## <a name="what-is-tyk-community-edition"></a>What is Tyk Community Edition?
 
-
 Tyk Community Edition is the open-source API Gateway that is developed by our community and supported by our community members and advocates (with some help from the Tyk Technologies team). The Tyk Community Edition is a [Tyk Gateway](https://tyk.io/docs/concepts/tyk-components/gateway/) only edition:
 
-
-#### Pro Tip: Domains with Tyk Gateway
-
-Tyk Gateway has full domain support built-in, you can:
-
-*   Set Tyk to listen only on a specific domain for all API traffic.
-*   Set an API to listen on a specific domain (e.g. api1.com, api2.com).
-*   Split APIs over a domain using a path (e.g. api.com/api1, api.com/api2, moreapis.com/api1, moreapis.com/api2 etc).
-*   If you set a hostname for the Gateway, then all non-domain-bound APIs will be on this hostname + the `listen_path`.
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -65,7 +55,7 @@ From [https://packagecloud.io/tyk/tyk-gateway](https://packagecloud.io/tyk/tyk-g
 
 You can set up the core settings for the Tyk Gateway with a single setup script, however for more involved deployments, you will want to provide your own configuration file. To get things started, run:
 ```{.copyWrapper}
-    sudo /opt/tyk-gateway/install/setup.sh --listenport=8080 --redishost=localhost --redisport=6379 --domain=""
+sudo /opt/tyk-gateway/install/setup.sh --listenport=8080 --redishost=localhost --redisport=6379 --domain=""
 ```
 
 What we've done here is told the setup script that:
@@ -81,7 +71,7 @@ In this example, we don't want Tyk to listen on a single domain. It is recommend
 
 The Tyk Gateway can be started now that it is configured. Use this commannd to start the Tyk Gateway:
 ```{.copyWrapper}
-    sudo service tyk-gateway start
+sudo service tyk-gateway start
 ```
 
 ## <a name="installing-on-redhat-centos"></a>Installing on RedHat (RHEL) / Centos
@@ -132,7 +122,7 @@ From [https://packagecloud.io/tyk/tyk-gateway](https://packagecloud.io/tyk/tyk-g
 
 You can set up the core settings for the Tyk Gateway with a single setup script, however for more involved deployments, you will want to provide your own configuration file. To get things started, run:
 ```{.copyWrapper}
-    ssudo /opt/tyk-gateway/install/setup.sh --listenport=8080 --redishost=localhost --redisport=6379 --domain=""
+sudo /opt/tyk-gateway/install/setup.sh --listenport=8080 --redishost=localhost --redisport=6379 --domain=""
 ```
 
 What we've done here is told the setup script that:
@@ -150,3 +140,12 @@ The Tyk Gateway can be started now that it is configured. Use this command to st
 ```{.copyWrapper}
 sudo service tyk-gateway start
 ```
+
+#### Pro Tip: Domains with Tyk Gateway
+
+Tyk Gateway has full domain support built-in, you can:
+
+*   Set Tyk to listen only on a specific domain for all API traffic.
+*   Set an API to listen on a specific domain (e.g. api1.com, api2.com).
+*   Split APIs over a domain using a path (e.g. api.com/api1, api.com/api2, moreapis.com/api1, moreapis.com/api2 etc).
+*   If you set a hostname for the Gateway, then all non-domain-bound APIs will be on this hostname + the `listen_path`.
