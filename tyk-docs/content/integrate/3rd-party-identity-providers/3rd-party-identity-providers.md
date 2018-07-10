@@ -68,13 +68,12 @@ TIB requires:
 
 Extract the tarball and run the binary:
 
-`tar -xvzf tyk-identity-broker-0.4.0.tar.gz
-cd tyk-identity-broker-0.4.0/
-go build
-cp ./tib_sample.conf ./tib.conf
-vim tib.conf and update hostnames, passwords and certificates
-./tyk-identity-broker-0.4.0
-`
+- `tar -xvzf tyk-identity-broker-0.4.0.tar.gz`
+- `cd tyk-identity-broker-0.4.0/`
+- `go build`
+- `cp ./tib_sample.conf ./tib.conf`
+- `vim tib.conf and update hostnames, passwords and certificates`
+- `./tyk-identity-broker-0.4.0`
 
 ### Usage
 
