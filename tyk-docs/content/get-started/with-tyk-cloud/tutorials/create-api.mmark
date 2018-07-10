@@ -15,9 +15,9 @@ weight: 1
 If the command succeeds, you will see:
 ```
 {
-    "Status": "OK",
-    "Message": "API created",
-    "Meta": "59c8cdfd4913111112b0b5ec"
+  "Status": "OK",
+  "Message": "API created",
+  "Meta": "59c8cdfd4913111112b0b5ec"
 }
 ```
 
@@ -34,7 +34,7 @@ curl -H "Authorization: null" https://your-organization.cloud.tyk.io/test-api/ge
 Output:
 -------
 {
-    "error": "Key not authorised"
+  "error": "Key not authorised"
 }
 ```
 

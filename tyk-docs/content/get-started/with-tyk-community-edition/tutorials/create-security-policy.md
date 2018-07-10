@@ -31,23 +31,23 @@ Adding a policy to a file-based (Community Edition) Tyk Gateway is very easy. Po
 ```{.copyWrapper}
 {
   "POLICYID": {
-      "access_rights": {
-          "{API-ID}": {
-              "allowed_urls": [],
-              "api_id": "{API-ID}",
-              "api_name": "{API-NAME}",
-              "versions": [
-                  "Default"
-              ]
-          }
-      },
-      "active": true,
-      "name": "POLICY NAME",
-      "rate": 100,
-      "per": 1,
-      "quota_max": 10000,
-      "quota_renewal_rate": 3600,
-      "tags": ["Startup Users"]
+    "access_rights": {
+      "{API-ID}": {
+        "allowed_urls": [],
+        "api_id": "{API-ID}",
+        "api_name": "{API-NAME}",
+        "versions": [
+            "Default"
+        ]
+    }
+  },
+  "active": true,
+  "name": "POLICY NAME",
+  "rate": 100,
+  "per": 1,
+  "quota_max": 10000,
+  "quota_renewal_rate": 3600,
+  "tags": ["Startup Users"]
   }
 }
 ```

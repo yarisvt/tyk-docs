@@ -65,24 +65,24 @@ curl -X POST -H "authorization: {API-TOKEN}" \
   -H "Content-Type: application/json" \
   -X POST \
   -d '{
-      "access_rights": {
-        "{API-ID}": {
-          "allowed_urls": [],
-          "api_id": "{API-ID}",
-          "api_name": "{API-NAME}",
-          "versions": [
-            "Default"
-          ]
-        }
-      },
-      "active": true,
-      "name": "POLICY NAME",
-      "rate": 100,
-      "per": 1,
-      "quota_max": 10000,
-      "quota_renewal_rate": 3600,
-      "tags": ["Startup Users"]
-    }' https://admin.cloud.tyk.io/api/portal/policies | python -mjson.tool
+    "access_rights": {
+      "{API-ID}": {
+        "allowed_urls": [],
+        "api_id": "{API-ID}",
+        "api_name": "{API-NAME}",
+        "versions": [
+          "Default"
+        ]
+      }
+    },
+    "active": true,
+    "name": "POLICY NAME",
+    "rate": 100,
+    "per": 1,
+    "quota_max": 10000,
+    "quota_renewal_rate": 3600,
+    "tags": ["Startup Users"]
+  }' https://admin.cloud.tyk.io/api/portal/policies | python -mjson.tool
 ```
 
 You must replace:
@@ -102,9 +102,9 @@ The main elements that are important are:
 When you send this request, you should see the following reply with your Policy ID:
 ```
 {
-    "Message": "577a8589428a6b0001000017",
-    "Meta": null,
-    "Status": "OK"
+  "Message": "577a8589428a6b0001000017",
+  "Meta": null,
+  "Status": "OK"
 }
 ```
 

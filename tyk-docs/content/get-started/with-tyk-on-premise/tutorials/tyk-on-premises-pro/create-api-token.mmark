@@ -14,9 +14,9 @@ weight: 2
 You will see a response with your new key:
 ```
 {
-    "action": "create",
-    "key": "c2cb92a78f944e9a46de793fe28e847e",
-    "status": "ok"
+  "action": "create",
+  "key": "c2cb92a78f944e9a46de793fe28e847e",
+  "status": "ok"
 }
 ```
 

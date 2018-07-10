@@ -62,11 +62,11 @@ curl -X POST -H "authorization: 1238b7e0e2ff4c2957321724409ee2eb" \
     "quota_remaining": -1,
     "quota_renewal_rate": 60,
     "access_rights": {
-        "ad5004d961a147d4649fd3216694ebe2": {
-            "api_id": "ad5004d961a147d4649fd3216694ebe2",
-            "api_name": "test-api",
-            "versions": ["Default"]
-        }
+      "ad5004d961a147d4649fd3216694ebe2": {
+        "api_id": "ad5004d961a147d4649fd3216694ebe2",
+        "api_name": "test-api",
+        "versions": ["Default"]
+      }
     },
     "meta_data": {}
   }' http://admin.cloud.tyk.io/api/keys | python -mjson.tool

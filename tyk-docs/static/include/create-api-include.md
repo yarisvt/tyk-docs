@@ -73,30 +73,30 @@ curl -H "Authorization: 1238b7e0e2ff4c2957321724409ee2eb" \
   -X POST \
   -d '{
     "api_definition": {
-        "name": "Test API",
-        "slug": "test-api",
-        "auth": {
-            "auth_header_name": "Authorization"
-        },
-        "definition": {
-            "location": "header",
-            "key": "x-api-version"
-        },
-        "version_data": {
-            "not_versioned": true,
-            "versions": {
-                "Default": {
-                    "name": "Default",
-                    "use_extended_paths": true
-                }
-            }
-        },
-        "proxy": {
-            "listen_path": "/test-api/",
-            "target_url": "http://httpbin.org/",
-            "strip_listen_path": true
-        },
-        "active": true
+      "name": "Test API",
+      "slug": "test-api",
+      "auth": {
+        "auth_header_name": "Authorization"
+      },
+      "definition": {
+        "location": "header",
+        "key": "x-api-version"
+      },
+      "version_data": {
+        "not_versioned": true,
+        "versions": {
+          "Default": {
+            "name": "Default",
+            "use_extended_paths": true
+          }
+        }
+      },
+      "proxy": {
+        "listen_path": "/test-api/",
+        "target_url": "http://httpbin.org/",
+        "strip_listen_path": true
+      },
+      "active": true
     }
   }' https://admin.cloud.tyk.io/api/apis/ | python -mjson.tool
 ```
@@ -114,9 +114,9 @@ curl -H "Authorization: 1238b7e0e2ff4c2957321724409ee2eb" \
 If the command succeeds, you will see:
 ```
 {
-    "Status": "OK",
-    "Message": "API created",
-    "Meta": "59c8cdfd4913111112b0b5ec"
+  "Status": "OK",
+  "Message": "API created",
+  "Meta": "59c8cdfd4913111112b0b5ec"
 }
 ```
 
@@ -133,7 +133,7 @@ curl -H "Authorization: null" https://your-organization.cloud.tyk.io/test-api/ge
 Output:
 -------
 {
-    "error": "Key not authorised"
+  "error": "Key not authorised"
 }
 ```
 

@@ -33,11 +33,11 @@ curl -X POST -H "x-tyk-authorization: {API-SECRET}" \
     "quota_remaining": -1,
     "quota_renewal_rate": 60,
     "access_rights": {
-        "{API-ID}": {
-            "api_id": "{API-ID}",
-            "api_name": "{API-NAME}",
-            "versions": ["Default"]
-        }
+      "{API-ID}": {
+        "api_id": "{API-ID}",
+        "api_name": "{API-NAME}",
+        "versions": ["Default"]
+      }
     },
     "meta_data": {}
   }' http://localhost:8080/tyk/keys/create | python -mjson.tool
@@ -47,9 +47,9 @@ You will see a response with your new key:
 
 ```
 {
-    "action": "create",
-    "key": "c2cb92a78f944e9a46de793fe28e847e",
-    "status": "ok"
+  "action": "create",
+  "key": "c2cb92a78f944e9a46de793fe28e847e",
+  "status": "ok"
 }
 ```
 
