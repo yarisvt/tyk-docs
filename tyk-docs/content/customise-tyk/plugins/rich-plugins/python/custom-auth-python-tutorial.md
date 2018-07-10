@@ -106,6 +106,7 @@ You will need to modify the Tyk global configuration file (`tyk.conf`) to use Py
 ```{.copyWrapper}
 "coprocess_options": {
     "enable_coprocess": true,
+    "python_path_prefix": "/opt/tyk-gateway"
 },
 "enable_bundle_downloader": true,
 "bundle_base_url": "http://dummy-bundle-server.com/bundles/",
@@ -115,6 +116,7 @@ You will need to modify the Tyk global configuration file (`tyk.conf`) to use Py
 ### Options
 
 * `enable_coprocess`: This enables the plugin
+* `python_path_prefix`: Sets the path to built-in Tyk modules, this will be part of the Python module lookup path. The value used here is the default one for most installations.
 * `enable_bundle_downloader`: This enables the bundle downloader
 * `bundle_base_url`: This is a base URL that will be used to download the bundle. You should replace the `bundle_base_url` with the appropriate URL of the web server that's serving your plugin bundles. For now HTTP and HTTPS are supported but we plan to add more options in the future (like pulling directly from S3 buckets). We use the URL that's exposed by the test HTTP server in the previous step.
 * `public_key_path`: Modify `public_key_path` in case you want to enforce the cryptographic check of the plugin bundle signatures. If the `public_key_path` isn't set, the verification process will be skipped and unsigned plugin bundles will be loaded normally.
