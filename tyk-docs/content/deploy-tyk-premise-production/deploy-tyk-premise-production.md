@@ -91,12 +91,12 @@ Tyk also lets you set a maximum number of open connections, so that you don't ov
 To set your maximums and minimums, edit your `tyk.conf` and `tyk_analytics.conf` files to include:
 
 ```{.copyWrapper}
-    "storage": {
-        ...
-        "optimisation_max_idle": 2000,
-        "optimisation_max_active": 4000,
-        ...
-    },
+"storage": {
+  ...
+  "optimisation_max_idle": 2000,
+  "optimisation_max_active": 4000,
+  ...
+},
 ```
     
 
@@ -142,18 +142,18 @@ The below settings will ensure connections are effictevily re-used, removes a tr
 Most of the changed below should be already in your `tyk.conf` by default:
 
 ```{.copyWrapper}
-    "close_connections": false,
-    "enforce_org_quotas": false,
-    "enforce_org_data_detail_logging": false,
-    "experimental_process_org_off_thread": true,
-    "enable_sentinel_rate_limiter": false,
-    "local_session_cache": {
-        "disable_cached_session_state": false
-    },
-    "max_idle_connections_per_host": 500
+"close_connections": false,
+"enforce_org_quotas": false,
+"enforce_org_data_detail_logging": false,
+"experimental_process_org_off_thread": true,
+"enable_sentinel_rate_limiter": false,
+"local_session_cache": {
+  "disable_cached_session_state": false
+},
+"max_idle_connections_per_host": 500
 ```
 
-In 2.7 we optimized connection pool between Tyk and Upstream, and if previously `max_idle_connections_per_host` option, was capped by 100, in 2.7 you can set it to any value. `max_idle_connections_per_host` by itself controls an amount of keep-alive connections between Tyk and Upstream. If you set this value too low, then Tyk will not re-use connections and will have to open a lot of new connections to your upstream. If you set this value too big, you may encounter issues when slow clients occupy your connection, you may reach OS limits. You can calculate the right value using a straightforward formula: if latency between Tyk and Upstream is around 50ms, then a single connection can handle 1s / 50s = 20 requests. So if you plan to handle 2000 requests per second using Tyk, size of your connection pool should be at least 2000 / 20 = 100. And for example, on low-latency environments (like 5ms), a connection pool of 100 connections will be enough for 20k RPS.
+In 2.7 we optimized connection pool between Tyk and Upstream, and if previously `max_idle_connections_per_host` option, was capped by 100, in 2.7 you can set it to any value. `max_idle_connections_per_host` by itself controls an amount of keep-alive connections between clients and Tyk. If you set this value too low, then Tyk will not re-use connections and will have to open a lot of new connections to your upstream. If you set this value too big, you may encounter issues when slow clients occupy your connection, you may reach OS limits. You can calculate the right value using a straightforward formula: if latency between Tyk and Upstream is around 50ms, then a single connection can handle 1s / 50s = 20 requests. So if you plan to handle 2000 requests per second using Tyk, size of your connection pool should be at least 2000 / 20 = 100. And for example, on low-latency environments (like 5ms), a connection pool of 100 connections will be enough for 20k RPS.
 
 ### Use the right hardware
 
@@ -176,14 +176,14 @@ In the file `/etc/sysctl.conf` add:
 For the file: `/etc/security/limits.conf`, add:
 
 ```{.copyWrapper}
-    *          soft     nproc          80000
-    *          hard     nproc          80000
-    *          soft     nofile         80000
-    *          hard     nofile         80000
-    root       soft     nproc          80000
-    root       hard     nproc          80000
-    root       soft     nofile         80000
-    root       hard     nofile         80000
+*          soft     nproc          80000
+*          hard     nproc          80000
+*          soft     nofile         80000
+*          hard     nofile         80000
+root       soft     nproc          80000
+root       hard     nproc          80000
+root       soft     nofile         80000
+root       hard     nofile         80000
 ```
 
 The above is a catch-all! On some systems and init systems the wildcard limit doesn't always work.
@@ -201,7 +201,7 @@ If you are using Upstart, then you'll need to set the file handle limits in the 
 Use this at your own peril - it's not always recommended and you need to be sure it fits your use case, but you can squeeze a bit more performance out of a Gateway install by running this on the command line:
 
 ```{.copyWrapper}
-    sysctl -w net.ipv4.tcp_tw_recycle=1
+sysctl -w net.ipv4.tcp_tw_recycle=1
 ```
 
 Careful with it though, it could lead to unterminated connections.

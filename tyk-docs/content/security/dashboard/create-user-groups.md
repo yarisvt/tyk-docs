@@ -9,7 +9,7 @@ weight: 5
 
 ## <a name="introduction"></a>Introduction
 
-Instead of setting permissions per user, you can create a group, and assign it to one or more users. This also works for Single Sign On (SSO) as well, you can specify the group ID when setting up SSO. This feature is available to all our Cloud and Hybrid users. For On-Premise installations, this feature is available only for customers with an "Unlimited" license.
+Instead of setting permissions per user, you can create a group, and assign it to one or more users. This also works for Single Sign On (SSO) as well, you can specify the group ID when setting up SSO. This feature is available to all our Cloud and Hybrid users. For On-Premises installations, this feature is available for customers with an "Unlimited" license.
 
 In order to manage user groups, ensure that you have either "admin" or "user groups" permission for your user, which can be enabled by your admin.
 

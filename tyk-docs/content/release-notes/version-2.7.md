@@ -26,7 +26,7 @@ For a keyless API we were able to achieve 3.7K RPS (requests per second) for 2.7
 
 For protected APIs, when Tyk needs to track both rate limits and quotas, 2.7 shows around 3.1K RPS, while 2.6 shows around 1.2K RPS, which is 160% improvement!
 
-In 2.7 we optimised the connection pool between Tyk and upstream, and previously `max_idle_connections_per_host` option was capped to 100. In 2.7 you can set it to any value. `max_idle_connections_per_host` by itself controls an amount of keep-alive connections between Tyk and upstream. If you set this value too low, then Tyk will not re-use connections and will have to open a lot of new connections to your upstream. If you set this value too big, you may encounter issues with slow clients occupying your connection and you may reach OS limits. You can calculate the correct value using a straightforward formula: if latency between Tyk and Upstream is around 50ms, then a single connection can handle 1s / 50s = 20 requests. So if you plan to handle 2000 requests per second using Tyk, the size of your connection pool should be at least 2000 / 20 = 100. For example, on low-latency environments (like 5ms), a connection pool of 100 connections will be enough for 20k RPS.
+In 2.7 we optimised the connection pool between Tyk and upstream, and previously `max_idle_connections_per_host` option was capped to 100. In 2.7 you can set it to any value. `max_idle_connections_per_host` by itself controls an amount of keep-alive connections between clients and Tyk. If you set this value too low, then Tyk will not re-use connections and will have to open a lot of new connections to your upstream. If you set this value too big, you may encounter issues with slow clients occupying your connection and you may reach OS limits. You can calculate the correct value using a straightforward formula: if latency between Tyk and Upstream is around 50ms, then a single connection can handle 1s / 50s = 20 requests. So if you plan to handle 2000 requests per second using Tyk, the size of your connection pool should be at least 2000 / 20 = 100. For example, on low-latency environments (like 5ms), a connection pool of 100 connections will be enough for 20k RPS.
 
 To get the benefit of optimised connection pooling, ensure that `close_connections` is set to `false`, which enables keep-alive between Tyk and Upstream.
 
@@ -55,7 +55,7 @@ Changing hashing algorithm is entirely backward compatible. All your existing ke
 
 Instead of setting permissions per user, you can now [create a user group][5], and assign it to multiple users. It works for Single Sign-On too, just specify group ID during [SSO API][6] flow.
 
-> This feature is available to all our Cloud and Hybrid users. For On-Premise installations, this feature is available only for customers with “Unlimited” license.
+> This feature is available to all our Cloud and Hybrid users. For On-Premises installations, this feature is available for customers with an "Unlimited" license.
 
 To manage user groups, ensure that you have either admin or “user groups” permission for your user, which can be enabled by your admin.
 
@@ -75,11 +75,11 @@ Get started now, for free, or contact us with any questions.
 * [Get Started](https://tyk.io/pricing/compare-api-management-platforms/#get-started)
 * [Contact Us](https://tyk.io/about/contact/)
 
-    [1]: /docs/deploy-tyk-premise-production/
-    [2]: https://locust.io/
-    [3]: https://github.com/myzhan/boomer
-    [4]: https://github.com/TykTechnologies/tyk/pull/1753
-    [5]: /docs/security/dashboard/create-user-groups/
-    [6]: /docs/dashboard-admin-api/sso/
-    [7]: /docs/tyk-dashboard-api/user-groups/
-    [8]: /docs/configure/outbound-email-configuration/
+  [1]: /docs/deploy-tyk-premise-production/
+  [2]: https://locust.io/
+  [3]: https://github.com/myzhan/boomer
+  [4]: https://github.com/TykTechnologies/tyk/pull/1753
+  [5]: /docs/security/dashboard/create-user-groups/
+  [6]: /docs/dashboard-admin-api/sso/
+  [7]: /docs/tyk-dashboard-api/user-groups/
+  [8]: /docs/configure/outbound-email-configuration/
