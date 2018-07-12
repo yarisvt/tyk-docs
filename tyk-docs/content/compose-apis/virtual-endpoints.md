@@ -25,23 +25,23 @@ To create one of these methods, create a file and place it in a subdirectory of 
 
 ```{.copyWrapper}
 function myVirtualHandler (request, session, config) {
-    log("Virtual Test running")
-    
-    log("Request Body: " + request.Body)
-    log("Session: " + session)
-    log("Config: " + config)
-    log("param-1: " + request.Params["param1"])
-    
-    var responseObject = {
-        Body: "THIS IS A  VIRTUAL RESPONSE",
-        Headers: {
-            "test": "virtual",
-            "test-2": "virtual"
-        },
-        Code: 200
-    }
-    
-    return TykJsResponse(responseObject, session.meta_data)   
+  log("Virtual Test running")
+  
+  log("Request Body: " + request.Body)
+  log("Session: " + session)
+  log("Config: " + config)
+  log("param-1: " + request.Params["param1"])
+  
+  var responseObject = {
+    Body: "THIS IS A  VIRTUAL RESPONSE",
+    Headers: {
+      "test": "virtual",
+      "test-2": "virtual"
+    },
+    Code: 200
+  }
+  
+  return TykJsResponse(responseObject, session.meta_data)   
 }
 log("Virtual Test initialised")
 ```
