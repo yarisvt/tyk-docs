@@ -16,12 +16,12 @@ Setting up load balancing is done on a per API basis, and is defined in the API 
 *   `proxy.target_list`: A list of upstream targets (can be one or many hosts):
 
 ```{.copyWrapper}
-	"target_list": [
-	    "http://10.0.0.1",
-	    "http://10.0.0.2",
-	    "http://10.0.0.3",
-	    "http://10.0.0.4"
-	]
+"target_list": [
+  "http://10.0.0.1",
+  "http://10.0.0.2",
+  "http://10.0.0.3",
+  "http://10.0.0.4"
+]
 ```
 
 > **Important**: You must fill in the `target_list` section.
