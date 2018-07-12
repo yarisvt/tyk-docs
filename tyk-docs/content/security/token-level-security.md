@@ -12,28 +12,28 @@ Tyk supports the concept of access control at the token level. Access control is
 Tyk will store each access key as a record in Redis, this key will have certain metadata attached to. The record takes this form:
 
 ```{.copyWrapper}
-    {
-        "allowance": 1000,
-        "rate": 1000,
-        "per": 60,
-        "expires": -1,
-        "quota_max": -1,
-        "quota_renews": 1406121006,
-        "quota_remaining": 0,
-        "quota_renewal_rate": 60,
-        "access_rights": {
-            "APIID1": {
-                "api_name": "HMAC API",
-                "api_id": "APIID1",
-                "versions": [
-                    "Default"
-                ]
-            }
-        },
-        "org_id": "1",
-        "hmac_enabled": false,
-        "hmac_string": ""
+{
+  "allowance": 1000,
+  "rate": 1000,
+  "per": 60,
+  "expires": -1,
+  "quota_max": -1,
+  "quota_renews": 1406121006,
+  "quota_remaining": 0,
+  "quota_renewal_rate": 60,
+  "access_rights": {
+    "APIID1": {
+      "api_name": "HMAC API",
+      "api_id": "APIID1",
+      "versions": [
+        "Default"
+      ]
     }
+  },
+  "org_id": "1",
+  "hmac_enabled": false,
+  "hmac_string": ""
+}
 ```
 
 The key elements that manage access control are the fields:

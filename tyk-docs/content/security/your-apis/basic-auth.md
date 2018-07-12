@@ -18,16 +18,16 @@ However, a serious drawback of Basic Authentication is that credentials are tran
 A basic auth request will have an Authorization header where the value will be of the form:
 
 ```
-	Basic base64Encode(username:password)
+Basic base64Encode(username:password)
 ```
 
 This means a real request would look something like:
 
 ```
-	GET /api/widgets/12345 HTTP/1.1
-	Host: localhost:8080
-	Authorization: Basic am9obkBzbWl0aC5jb206MTIzNDU2Nw==
-	Cache-Control: no-cache
+GET /api/widgets/12345 HTTP/1.1
+Host: localhost:8080
+Authorization: Basic am9obkBzbWl0aC5jb206MTIzNDU2Nw==
+Cache-Control: no-cache
 ```
 
 In the above example the username is `john@smith.com` and the password is `1234567`.
@@ -50,12 +50,12 @@ To enable Basic Auth on your API using the dashboard GUI:
 To enable Basic Auth, the API Definition file needs to be set up to allow basic auth and not a standard access token:
 
 ```{.copyWrapper}
-	{
-	  "name": "Tyk Test API",
-	  ...
-	  "use_basic_auth": true,
-	  ...
-	}
+{
+  "name": "Tyk Test API",
+  ...
+  "use_basic_auth": true,
+  ...
+}
 ```
 
 As you can see in the above example, enabling basic auth is as simple as setting a flag for the feature in your API Definition object. Since BA is a standard, Tyk will always look for the credentials as part of the Authorization header.
@@ -65,14 +65,15 @@ As you can see in the above example, enabling basic auth is as simple as setting
 For a user session object, to enable basic auth, set the relevant fields in the session object:
 
 ```{.copyWrapper}
-  {
-      ...
-      "basic_auth_data": {
-          "password": "mickey-mouse"
-      }
-      ...
+{
+  ...
+  "basic_auth_data": {
+      "password": "mickey-mouse"
   }
-``` 
+  ...
+}
+```
+
 
 Notice the `basic_auth_data` section - this is all that is really required, if an API is basic auth enabled, any keys that are retrieved will check this field for a password and compare it to the password encoded in the request. The password will be encrypted by default using bcrypt to ensure it is secure.
 
@@ -83,32 +84,32 @@ Notice the `basic_auth_data` section - this is all that is really required, if a
 The below command will use the gateway API to generate a new basic auth user in Tyk Gateway:
 
 ```{.copyWrapper}
-    curl -X POST -H "x-tyk-authorization: 352d20fe67be67f6340b4c0605b044c3" \
-     -s \
-     -H "Content-Type: application/json" \
-     -X POST \
-     -d '{
-        "allowance": 1000,
-        "rate": 1000,
-        "per": 1,
-        "expires": -1,
-        "quota_max": -1,
-        "org_id": "53ac07777cbb8c2d53000002",
-        "quota_renews": 1449051461,
-        "quota_remaining": -1,
-        "quota_renewal_rate": 60,
-        "access_rights": {
-            "{API-ID}": {
-                "api_id": "{API-ID}",
-                "api_name": "{API-NAME}",
-                "versions": ["Default"]
-            }
-        },
-        "meta_data": {},
-        "basic_auth_data": {
-            "password": "mickey-mouse"
+curl -X POST -H "x-tyk-authorization: 352d20fe67be67f6340b4c0605b044c3" \
+ -s \
+ -H "Content-Type: application/json" \
+ -X POST \
+ -d '{
+    "allowance": 1000,
+    "rate": 1000,
+    "per": 1,
+    "expires": -1,
+    "quota_max": -1,
+    "org_id": "53ac07777cbb8c2d53000002",
+    "quota_renews": 1449051461,
+    "quota_remaining": -1,
+    "quota_renewal_rate": 60,
+    "access_rights": {
+        "{API-ID}": {
+            "api_id": "{API-ID}",
+            "api_name": "{API-NAME}",
+            "versions": ["Default"]
         }
-     }' http://{your-tyk-gateway-host}:{port}/tyk/keys/testuser | python -mjson.tool
+    },
+    "meta_data": {},
+    "basic_auth_data": {
+        "password": "mickey-mouse"
+    }
+ }' http://{your-tyk-gateway-host}:{port}/tyk/keys/testuser | python -mjson.tool
 ```
 
 ### Create user using Dashboard API
@@ -116,34 +117,34 @@ The below command will use the gateway API to generate a new basic auth user in 
 The following command will create a basic auth user with the dashboard API:
 
 ```{.copyWrapper}
-    curl -X POST -H "Authorization: {YOUR API KEY}"
-     -s
-     -H "Content-Type: application/json"
-     -X POST
-     -d '{
-        "allowance": 1000,
-        "rate": 1000,
-        "per": 1,
-        "expires": -1,
-        "quota_max": -1,
-        "org_id": "53ac07777cbb8c2d53000002",
-        "quota_renews": 1449051461,
-        "quota_remaining": -1,
-        "quota_renewal_rate": 60,
-        "access_rights": {
-            "{API-ID}": {
-                "api_id": "{API-ID}", 
-                "api_name": "{API-NAME}", 
-                "versions": [
-                    "Default"
-                ]
-            }
-        },
-        "meta_data": {},
-        "basic_auth_data": {
-            "password": "mickey-mouse"
-        }
-     }' http://{your-tyk-gateway-host}:{port}/api/apis/keys/basic/mysupertestuser2 | python -mjson.tool
+curl -X POST -H "Authorization: {YOUR API KEY}"
+ -s
+ -H "Content-Type: application/json"
+ -X POST
+ -d '{
+    "allowance": 1000,
+    "rate": 1000,
+    "per": 1,
+    "expires": -1,
+    "quota_max": -1,
+    "org_id": "53ac07777cbb8c2d53000002",
+    "quota_renews": 1449051461,
+    "quota_remaining": -1,
+    "quota_renewal_rate": 60,
+    "access_rights": {
+      "{API-ID}": {
+        "api_id": "{API-ID}", 
+        "api_name": "{API-NAME}", 
+        "versions": [
+            "Default"
+        ]
+      }
+    },
+    "meta_data": {},
+    "basic_auth_data": {
+      "password": "mickey-mouse"
+    }
+ }' http://{your-tyk-gateway-host}:{port}/api/apis/keys/basic/mysupertestuser2 | python -mjson.tool
 ```
 
 > **Note**: The most important thing to ensure with both of these commands is that the ORG ID is set correctly and consistently.

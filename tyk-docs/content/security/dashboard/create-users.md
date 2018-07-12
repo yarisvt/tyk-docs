@@ -60,20 +60,20 @@ You will need the **Tyk Dashboard API Access Credentials**.
 Once you have your dashboard API Credentials, you can create a user very easily using the API, the following cURL command will generate a user:
 
 ```{.copyWrapper}
-    curl -H "Authorization: {YOUR-API-KEY}" \
-     -s \
-     -H "Content-Type: application/json" \
-     -X POST \
-     -d '{
-        "first_name": "Test",
-        "last_name": "User",
-        "email_address": "test@testing.com",
-        "active": true,
-        "user_permissions": {
-            "IsAdmin": "admin"
-        },
-        "password": "thisisatest"
-     }' http://{your-dashboard-host}:{port}/api/users | python -mjson.tool
+curl -H "Authorization: {YOUR-API-KEY}" \
+ -s \
+ -H "Content-Type: application/json" \
+ -X POST \
+ -d '{
+  "first_name": "Test",
+  "last_name": "User",
+  "email_address": "test@testing.com",
+  "active": true,
+  "user_permissions": {
+      "IsAdmin": "admin"
+  },
+  "password": "thisisatest"
+ }' http://{your-dashboard-host}:{port}/api/users | python -mjson.tool
 ```
 
 In this example, we have given the user Admin privileges. To see a detailed breakdown of permission objects, please see below.
@@ -81,11 +81,11 @@ In this example, we have given the user Admin privileges. To see a detailed brea
 You will see the following response if the user has been created:
 
 ```
-    {
-        "Message": "User created",
-        "Meta": null,
-        "Status": "OK"
-    }
+{
+  "Message": "User created",
+  "Meta": null,
+  "Status": "OK"
+}
 ```
 
 The user is now active.
