@@ -35,49 +35,49 @@ admin-auth: 12345
 
 ```
 {
-    "id": "53ac07777cbb8c2d53000002",
-    "owner_name": "Test",
-    "owner_slug": "test",
-    "cname_enabled": true,
-    "cname": "my.domain.com",
-    "apis": [{
-        "api_human_name": "API 2",
-        "api_id": "5fa2db834e07444f760b7ceb314209fb"
-    }, {
-        "api_human_name": "API 1",
-        "api_id": "7a6ddeca9244448a4233866938a0d6e2"
-    }, {
-        "api_human_name": "API 3",
-        "api_id": "109eacaa50b24b64651a1d4dce8ec385"
-    }],
-    "developer_quota": 123,
-    "developer_count": 21,
-    "event_options": {
-        "key_event": {
-            "webhook": "",
-            "email": "",
-            "redis": true
-        },
-        "key_request_event": {
-            "webhook": "",
-            "email": "",
-            "redis": false
-        }
+  "id": "53ac07777cbb8c2d53000002",
+  "owner_name": "Test",
+  "owner_slug": "test",
+  "cname_enabled": true,
+  "cname": "my.domain.com",
+  "apis": [{
+    "api_human_name": "API 2",
+    "api_id": "5fa2db834e07444f760b7ceb314209fb"
+  }, {
+    "api_human_name": "API 1",
+    "api_id": "7a6ddeca9244448a4233866938a0d6e2"
+  }, {
+    "api_human_name": "API 3",
+    "api_id": "109eacaa50b24b64651a1d4dce8ec385"
+  }],
+  "developer_quota": 123,
+  "developer_count": 21,
+  "event_options": {
+    "key_event": {
+      "webhook": "",
+      "email": "",
+      "redis": true
     },
-    "hybrid_enabled": false,
-    "ui": {
-        "languages": {},
-        "hide_help": false,
-        "default_lang": "",
-        "login_page": {},
-        "nav": {},
-        "uptime": {},
-        "portal_section": {},
-        "designer": {},
-        "dont_show_admin_sockets": false,
-        "dont_allow_license_management": false,
-        "dont_allow_license_management_view": false
+    "key_request_event": {
+      "webhook": "",
+      "email": "",
+      "redis": false
     }
+  },
+  "hybrid_enabled": false,
+  "ui": {
+    "languages": {},
+    "hide_help": false,
+    "default_lang": "",
+    "login_page": {},
+    "nav": {},
+    "uptime": {},
+    "portal_section": {},
+    "designer": {},
+    "dont_show_admin_sockets": false,
+    "dont_allow_license_management": false,
+    "dont_allow_license_management_view": false
+  }
 }
 ```
 

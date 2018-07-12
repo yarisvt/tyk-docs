@@ -33,24 +33,24 @@ admin-auth: 12345
 
 ```
 {
-    "id": "54b53d3aeba6db5c35000002",
-    "owner_name": "Jively",
-    "cname": "jive.ly",
-    "cname_enabled": true,
-    "apis": [
-        {
-            "api_human_name": "Nitrous Test",
-            "api_id": "39d2c98be05c424371c600bd8b3e2242"
-        },
-        {
-            "api_human_name": "TEST",
-            "api_id": "f4e4f4d8568a48464b7d4088b16a2b1f"
-        },
-        {
-            "api_human_name": "Test",
-            "api_id": "bc2f8cfb7ab241504d9f3574fe407499"
-        }
-    ]
+  "id": "54b53d3aeba6db5c35000002",
+  "owner_name": "Jively",
+  "cname": "jive.ly",
+  "cname_enabled": true,
+  "apis": [
+    {
+      "api_human_name": "Nitrous Test",
+      "api_id": "39d2c98be05c424371c600bd8b3e2242"
+    },
+    {
+      "api_human_name": "TEST",
+      "api_id": "f4e4f4d8568a48464b7d4088b16a2b1f"
+    },
+    {
+      "api_human_name": "Test",
+      "api_id": "bc2f8cfb7ab241504d9f3574fe407499"
+    }
+  ]
 }
 ```
 
@@ -72,9 +72,9 @@ Host: localhost:3000
 admin-auth: 12345
 
 {
-    "owner_name": "Jively",
-    "cname": "jive.ly",
-    "cname_enabled": true
+  "owner_name": "Jively",
+  "cname": "jive.ly",
+  "cname_enabled": true
 }
 ```
 
@@ -82,9 +82,9 @@ admin-auth: 12345
 
 ```
 {
-    "Status":"OK",
-    "Message":"Org created",
-    "Meta":"54b53d3aeba6db5c35000002"
+  "Status":"OK",
+  "Message":"Org created",
+  "Meta":"54b53d3aeba6db5c35000002"
 }
 ```
 
@@ -106,9 +106,9 @@ Host: localhost:3000
 admin-auth: 12345
 
 {
-    "owner_name": "Jively",
-    "cname": "jive.ly",
-    "cname_enabled": true
+  "owner_name": "Jively",
+  "cname": "jive.ly",
+  "cname_enabled": true
 }
 ```
 
@@ -116,9 +116,9 @@ admin-auth: 12345
 
 ```
 {
-    "Status":"OK",
-    "Message":"Org updated",
-    "Meta":""
+  "Status":"OK",
+  "Message":"Org updated",
+  "Meta":""
 }
 ```
 
@@ -144,8 +144,8 @@ admin-auth: 12345
 
 ```
 {
-    "Status":"OK",
-    "Message":"Org deleted",
-    "Meta":""
+  "Status":"OK",
+  "Message":"Org deleted",
+  "Meta":""
 }
 ```
