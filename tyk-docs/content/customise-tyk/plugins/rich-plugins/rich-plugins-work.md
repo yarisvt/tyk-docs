@@ -34,11 +34,11 @@ The `Spec` field holds the API specification data, like organization ID, API ID,
 
 ```{.copyWrapper}
 type CoProcessObject struct {
-    HookType string
-    Request  CoProcessMiniRequestObject
-    Session  SessionState
-    Metadata map[string]string
-    Spec     map[string]string
+  HookType string
+  Request  CoProcessMiniRequestObject
+  Session  SessionState
+  Metadata map[string]string
+  Spec     map[string]string
 }
 ```
 
@@ -106,14 +106,14 @@ The intended way of using a Coprocess middleware is to specify it as part of an 
 ```{.json}
 "custom_middleware": {
   "pre": [
-      {
-          "name": "MyPreMiddleware",
-          "require_session": false
-      },
-      {
-          "name": "AnotherPreMiddleware",
-          "require_session": false
-      }
+    {
+      "name": "MyPreMiddleware",
+      "require_session": false
+    },
+    {
+      "name": "AnotherPreMiddleware",
+      "require_session": false
+    }
   ],
   "post": [
     {

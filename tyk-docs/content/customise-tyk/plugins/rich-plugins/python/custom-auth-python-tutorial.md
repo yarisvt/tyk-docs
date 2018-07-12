@@ -35,15 +35,15 @@ This file should be named "manifest.json" and needs to have the following conten
 
 ```{.json}
 {
-    "file_list": [
-        "middleware.py"
-    ],
-    "custom_middleware": {
-        "driver": "python",
-        "auth_check": {
-            "name": "MyAuthMiddleware"
-        }
+  "file_list": [
+    "middleware.py"
+  ],
+  "custom_middleware": {
+    "driver": "python",
+    "auth_check": {
+      "name": "MyAuthMiddleware"
     }
+  }
 }
 ```
 
@@ -64,13 +64,13 @@ from gateway import TykGateway as tyk
 
 @Hook
 def MyAuthMiddleware(request, session, metadata, spec):
-    auth_header = request.get_header('Authorization')
-    if auth_header == '47a0c79c427728b3df4af62b9228c8ae':
-        tyk.log("I'm logged!", "info")
-        session.rate = 1000.0
-        session.per = 1.0
-        metadata["token"] = "47a0c79c427728b3df4af62b9228c8ae"
-    return request, session, metadata
+  auth_header = request.get_header('Authorization')
+  if auth_header == '47a0c79c427728b3df4af62b9228c8ae':
+    tyk.log("I'm logged!", "info")
+    session.rate = 1000.0
+    session.per = 1.0
+    metadata["token"] = "47a0c79c427728b3df4af62b9228c8ae"
+  return request, session, metadata
 ```
 
 

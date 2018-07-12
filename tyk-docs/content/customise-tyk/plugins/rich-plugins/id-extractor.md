@@ -52,20 +52,20 @@ The API should be a protected one and have the `enable_coprocess_auth` flag set 
 
 ```{json}
 {
-    "name": "Test API",
-    "api_id": "my-api",
-    "org_id": "my-org",
-    "use_keyless": false,
-    "auth": {
-        "auth_header_name": "Authorization"
-    },
-    "proxy": {
-        "listen_path": "/test-api/",
-        "target_url": "http://httpbin.org/",
-        "strip_listen_path": true
-    },
-    "enable_coprocess_auth": true,
-    "custom_middleware_bundle": "bundle.zip" 
+  "name": "Test API",
+  "api_id": "my-api",
+  "org_id": "my-org",
+  "use_keyless": false,
+  "auth": {
+      "auth_header_name": "Authorization"
+  },
+  "proxy": {
+      "listen_path": "/test-api/",
+      "target_url": "http://httpbin.org/",
+      "strip_listen_path": true
+  },
+  "enable_coprocess_auth": true,
+  "custom_middleware_bundle": "bundle.zip" 
 }
 ```
 
