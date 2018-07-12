@@ -23,10 +23,10 @@ To rewrite a URL with the API Definition, you must add a new object to the `exte
 
 ```{.copyWrapper}
 "url_rewrites": [{
-    "path": "match/me",
-    "method": "GET",
-    "match_pattern": "(w+)/(w+)",
-    "rewrite_to": "my/service?value1=$1&value2=$2"
+  "path": "match/me",
+  "method": "GET",
+  "match_pattern": "(w+)/(w+)",
+  "rewrite_to": "my/service?value1=$1&value2=$2"
 }],
 ```
 
@@ -90,38 +90,38 @@ Additionally, each trigger also sets a context variable for each match it finds.
 
 ```{.copyWrapper}
 {
-    "url_rewrites": [
+  "url_rewrites": [
+    {
+      "path": "/foo/bar/baz",
+      "method": "GET",
+      "match_pattern": "/foo/bar/baz",
+      "rewrite_to": "/foo/bar/baz",
+      "triggers": [
         {
-            "path": "/foo/bar/baz",
-            "method": "GET",
-            "match_pattern": "/foo/bar/baz",
-            "rewrite_to": "/foo/bar/baz",
-            "triggers": [
-                {
-                    "on": "any",
-                    "options": {
-                        "query_val_matches": {
-                            "culprit": {
-                                "match_rx": "kronk"
-                            }
-                        }
-                    }
-                    "rewrite_to": "/fooble/barble/bazble?victim=$tyk_context.trigger-0-culprit-0"
+          "on": "any",
+          "options": {
+            "query_val_matches": {
+                "culprit": {
+                  "match_rx": "kronk"
                 }
-                {
-                    "on": "any",
-                    "options": {
-                        "query_val_matches": {
-                            "culprit": {
-                                "match_rx": "yzma"
-                            }
-                        }
-                    }
-                    "rewrite_to": "/foozle/barzle/bazzle?victim=$tyk_context.trigger-1-culprit-0"
-                }
-            ]
+              }
+            }
+            "rewrite_to": "/fooble/barble/bazble?victim=$tyk_context.trigger-0-culprit-0"
         }
-    ]
+        {
+          "on": "any",
+          "options": {
+            "query_val_matches": {
+              "culprit": {
+                "match_rx": "yzma"
+              }
+            }
+          }
+            "rewrite_to": "/foozle/barzle/bazzle?victim=$tyk_context.trigger-1-culprit-0"
+        }
+      ]
+    }
+  ]
 }
 ```
 
@@ -141,22 +141,22 @@ For each trigger, the trigger can either use the on: `any` or on: `all` formatti
 Additionally you also mix multiple matches in the same trigger. In the example below, it checks if the HTTP request has `X-Enable-Beta` with value `true`, **AND** if user key meta info has `beta_enabled` field set to `true`. If both matches are `true`, it will proxy the user to another upstream, like beta environment.
 ```{.copyWrapper}
 "triggers": [
-    {
-        "on": "all",
-        "options": {
-            "header_val_matches": {
-                "X-Enable-Beta": {
-                    "match_rx": "true"
-                }
-            },
-            "session_meta_matches": {
-                "beta_enabled": {
-                    "match_rx": "true"
-                }
-            }
+  {
+    "on": "all",
+    "options": {
+      "header_val_matches": {
+        "X-Enable-Beta": {
+          "match_rx": "true"
         }
-        "rewrite_to": "https://beta.upstream.com/feture"
+    },
+    "session_meta_matches": {
+      "beta_enabled": {
+        "match_rx": "true"
+      }
     }
+  }
+    "rewrite_to": "https://beta.upstream.com/feture"
+  }
 ]
 ```
 

@@ -20,16 +20,16 @@ The following validators are available:
 Below is an example of `password.json` file, with all options turned on:
 
 ```{.copyWrapper}
-    {
-        "title": "User password schema",
-        "type": "string",
-    
-        "minLength": 6,
-        "multiCase": true,
-        "minNumeric": 2,
-        "minSpecial": 2,
-        "disableSequential": true
-    }
+{
+  "title": "User password schema",
+  "type": "string",
+
+  "minLength": 6,
+  "multiCase": true,
+  "minNumeric": 2,
+  "minSpecial": 2,
+  "disableSequential": true
+}
 ```
 
 This option is only available from Dashboard v1.3.2 and onwards.

@@ -24,11 +24,11 @@ A partitioned policy can enforce any of these elements individually or together 
 Set up a policy to be partitioned by adding a new field to your policy object:
 
 ```{.copyWrapper}
-    "partitions": {
-        "quota": false,
-        "rate_limit": false,
-        "acl": false
-    }
+"partitions": {
+  "quota": false,
+  "rate_limit": false,
+  "acl": false
+}
 ```
 
 *   `quota`: If set to `true`, enforce the quota element of this policy

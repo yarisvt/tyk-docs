@@ -17,20 +17,20 @@ Setting up transforms in your API definition is easy:
 
 ```{.copyWrapper}
 "extended_paths": {
-    "ignored": [],
-    "white_list": [],
-    "black_list": [],
-    "cache": ["get"],
-    "transform": [
-        {
-            "path": "widgets/{id}",
-            "method": "POST",
-            "template_data": {
-                "template_mode": "file",
-                "template_source": "./templates/transform_test.tmpl"
-            }
-        }
-    ]
+  "ignored": [],
+  "white_list": [],
+  "black_list": [],
+  "cache": ["get"],
+  "transform": [
+    {
+      "path": "widgets/{id}",
+      "method": "POST",
+      "template_data": {
+        "template_mode": "file",
+        "template_source": "./templates/transform_test.tmpl"
+      }
+    }
+  ]
 }
 ```
 
@@ -77,15 +77,15 @@ Tyk will unmarshal the data into a data structure, and then make that data avail
 Assume your inbound date structure is as follows:
 
 ```{.copyWrapper}
-    {
-        "value1": "value-1",
-        "value2": "value-2",
-        "value_list": [
-            "one",
-            "two",
-            "three"
-        ]
-    }
+{
+  "value1": "value-1",
+  "value2": "value-2",
+  "value_list": [
+    "one",
+    "two",
+    "three"
+  ]
+}
 ```
 
 ### Template
@@ -94,17 +94,17 @@ You could use a golang template that looks like this to transform it into a diff
 
 ```{.copyWrapper}
 {
-    "value1": "{{.value2}}",
-    "value2": "{{.value1}}",
-    "transformed_list": [
-        {{range $index, $element := .value_list}}
-            {{if $index}}
-            , "{{$element}}"
-            {{else}}
-                    "{{$element}}"
-            {{end}}
+  "value1": "{{.value2}}",
+  "value2": "{{.value1}}",
+  "transformed_list": [
+    {{range $index, $element := .value_list}}
+        {{if $index}}
+        , "{{$element}}"
+        {{else}}
+          "{{$element}}"
         {{end}}
-    ]
+    {{end}}
+  ]
 }
 ```
 
@@ -114,13 +114,13 @@ This example would produce the following output:
 
 ```
 {
-    "value1": "value-2",
-    "value2": "value-1",
-    "transformed_list": [
-        "one",
-        "two",
-        "three"
-    ]
+  "value1": "value-2",
+  "value2": "value-1",
+  "transformed_list": [
+    "one",
+    "two",
+    "three"
+  ]
 }
 ```
 
@@ -146,14 +146,14 @@ For this XML:
 ```{.copyWrapper}
 <?xml version="1.0" encoding="utf-8"?>
 <servers version="1">
-    <server>
-        <serverName>Shanghai_VPN</serverName>
-        <serverIP>127.0.0.1</serverIP>
-    </server>
-    <server>
-        <serverName>Beijing_VPN</serverName>
-        <serverIP>127.0.0.2</serverIP>
-    </server>
+  <server>
+    <serverName>Shanghai_VPN</serverName>
+    <serverIP>127.0.0.1</serverIP>
+  </server>
+  <server>
+    <serverName>Beijing_VPN</serverName>
+    <serverIP>127.0.0.2</serverIP>
+  </server>
 </servers>
 ```
 
@@ -174,8 +174,8 @@ You get this output:
 
 ```
 {
-    "Shanghai_VPN": "127.0.0.1",
-    "Beijing_VPN": "127.0.0.2"
+  "Shanghai_VPN": "127.0.0.1",
+  "Beijing_VPN": "127.0.0.2"
 }
 ```
 ## <a name="meta-data"></a> Meta Data

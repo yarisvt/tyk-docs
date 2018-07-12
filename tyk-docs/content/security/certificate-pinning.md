@@ -18,9 +18,9 @@ Public keys are stored inside the Tyk certificate storage, so you can use Certif
 You can define them globally, from the Tyk Gateway configuration file - `tyk.conf` using the `security.pinned_public_keys` option, or via an API definition `pinned_public_keys` field, using the following format:
 ```
 {
-    "example.com": "<key-id>",
-    "foo.com": "/path/to/pub.pem",
-    "*.wild.com": "<key-id>,<key-id-2>"
+  "example.com": "<key-id>",
+  "foo.com": "/path/to/pub.pem",
+  "*.wild.com": "<key-id>,<key-id-2>"
 }
 ```
 
