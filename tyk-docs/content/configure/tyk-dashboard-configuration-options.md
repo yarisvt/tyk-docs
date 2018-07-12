@@ -15,73 +15,73 @@ The dashboard configuration file can be found in the `tyk-dashboard` folder and 
 The file will look like the sample below, the various fields are explained in the following sections:
 
 ``` {.copyWrapper}
-    {
-        "listen_port": 3000,
-        "notifications_listen_port": 5000,
-        "tyk_api_config": {
-            "Host": "http://localhost",
-            "Port": "8080",
-            "Secret": "352d20ee67be67f6240c4c0605b045b7"
-        },
-        "mongo_url": "mongodb://localhost/tyk_analytics",
-        "mongo_ssl_insecure_skip_verify": true,
-        "mongo_use_ssl": true,
-        "page_size": 10,
-        "shared_node_secret": "abcdefg",
-        "admin_secret": "12345",
-        "redis_port": 6379,
-        "redis_host": "localhost",
-        "redis_password": "",
-        "redis_hosts": {
-            "server1": "6379",
-            "server2": "6380",
-            "server3": "6381"
-        },
-        "enable_cluster": false,
-        "force_api_defaults": false,
-        "notify_on_change": true,
-        "license_key": "..."
-        "hash_keys": true,
-        "email_backend": {
-            "enable_email_notifications": true,
-            "code": "provider-name",
-            "settings": {
-                // Client specific settings go here.
-            },
-            "default_from_email": "you@domain.com",
-            "default_from_name": "The Dude at Domain.com",
-            "dashboard_domain": "{{your-public-dashboard-hostname}}"
-        },
-        "hide_listen_path": false,
-        "use_sentry": false,
-        "sentry_code": "YOUR_SENTRY_URL",
-        "sentry_js_code": "YOUR_SENTRY_URL",
-        "show_org_id": true,
-        "enable_duplicate_slugs": true,
-        "host_config" : {
-            "override_hostname": "",
-            "disable_org_slug_prefix": true,
-            "enable_host_names": false,
-            "hostname": "",
-            "portal_domains": {},
-            "portal_root_path": "/portal",
-            "generate_secure_paths": true,
-            "secure_cookies": false
-        },
-        "http_server_options": {
-            "use_ssl": false,
-            "certificates": []
-        },
-        "security": {
-            "login_failure_username_limit": 3,
-            "login_failure_ip_limit": 10,
-            "login_failure_expiration": 900,
-            "audit_log_path": "/tmp/audit.log",
-            "allow_admin_reset_password": false
-        },
-        "dashboard_session_lifetime": 60
+{
+  "listen_port": 3000,
+  "notifications_listen_port": 5000,
+  "tyk_api_config": {
+    "Host": "http://localhost",
+    "Port": "8080",
+    "Secret": "352d20ee67be67f6240c4c0605b045b7"
+  },
+  "mongo_url": "mongodb://localhost/tyk_analytics",
+  "mongo_ssl_insecure_skip_verify": true,
+  "mongo_use_ssl": true,
+  "page_size": 10,
+  "shared_node_secret": "abcdefg",
+  "admin_secret": "12345",
+  "redis_port": 6379,
+  "redis_host": "localhost",
+  "redis_password": "",
+  "redis_hosts": {
+    "server1": "6379",
+    "server2": "6380",
+    "server3": "6381"
+  },
+  "enable_cluster": false,
+  "force_api_defaults": false,
+  "notify_on_change": true,
+  "license_key": "..."
+  "hash_keys": true,
+  "email_backend": {
+    "enable_email_notifications": true,
+    "code": "provider-name",
+    "settings": {
+        // Client specific settings go here.
+    },
+    "default_from_email": "you@domain.com",
+    "default_from_name": "The Dude at Domain.com",
+    "dashboard_domain": "{{your-public-dashboard-hostname}}"
+  },
+  "hide_listen_path": false,
+  "use_sentry": false,
+  "sentry_code": "YOUR_SENTRY_URL",
+  "sentry_js_code": "YOUR_SENTRY_URL",
+  "show_org_id": true,
+  "enable_duplicate_slugs": true,
+  "host_config" : {
+    "override_hostname": "",
+    "disable_org_slug_prefix": true,
+    "enable_host_names": false,
+    "hostname": "",
+    "portal_domains": {},
+    "portal_root_path": "/portal",
+    "generate_secure_paths": true,
+    "secure_cookies": false
+  },
+  "http_server_options": {
+    "use_ssl": false,
+    "certificates": []
+  },
+  "security": {
+    "login_failure_username_limit": 3,
+    "login_failure_ip_limit": 10,
+    "login_failure_expiration": 900,
+    "audit_log_path": "/tmp/audit.log",
+    "allow_admin_reset_password": false
+  },
+  "dashboard_session_lifetime": 60
 
-    }
+}
 ```
 
 
@@ -174,7 +174,7 @@ Setting this option to `true` will cause the dashboard to not validate against o
 *   `host_config.disable_org_slug_prefix`: Tyk will by default try to manage domain names based on the organisation slug, so domains are like this if using the Host Manager:
 
 ```
-        org-slug.hostname.com/api-slug
+org-slug.hostname.com/api-slug
 ```
     
 However, if you are not using the host manager, then domains are hard-coded per api, or at a gateway level, and the org-slug moniker is not needed to construct demo URLs (e.g. for Swagger docs and the API pages). To stop this guessing behaviour, switch this option to `true` and Tyk Dashboard will stop trying to add an org-slug to the start of URL's.
@@ -202,11 +202,11 @@ For legacy installs or upgrades using the host manager, leave this value as `fal
 *   `http_server_options.certificates`: Add a certificate block for each domain being covered by the application:
 
 ```{.copyWrapper}
-        {
-            "domain_name": "*.banana.com",
-            "cert_file": "new.cert.cert",
-            "key_file": "new.cert.key"
-        }
+{
+  "domain_name": "*.banana.com",
+  "cert_file": "new.cert.cert",
+  "key_file": "new.cert.key"
+}
 ```
     
 For more information see the [SSL section in the documentation][1]

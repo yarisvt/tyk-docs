@@ -12,11 +12,11 @@ Tyk, when first installed, does not insist on signing any cluster messages or mi
 Payload signatures can be enabled in your `tyk.conf` by setting `allow_insecure_configs` to `false` and then setting up a public / private keypair with:
 
 ```{.copyWrapper}
-    # private key
-    openssl genrsa -out privkey.pem 2048
-    
-    # public key
-    openssl rsa -in privkey.pem -pubout -out pubkey.pem
+# private key
+openssl genrsa -out privkey.pem 2048
+
+# public key
+openssl rsa -in privkey.pem -pubout -out pubkey.pem
 ```
 
 Then add the path to the *public key* to your `tyk.conf` under `public_key_path`, this same key is also used for middleware bundle signature validation.

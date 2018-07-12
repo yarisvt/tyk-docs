@@ -14,39 +14,39 @@ The Tyk Identity Broker (TIB) is configured through two files: The configuration
 
 ```{.copyWrapper}
 {
-	   "Secret": "test-secret",
-	   "HttpServerOptions": {
-	       "UseSSL": true,
-	       "CertFile": "./certs/server.pem",
-	       "KeyFile": "./certs/server.key"
-	   },
-	   "BackEnd": {
-	       "Name": "in_memory",
-	       "IdentityBackendSettings": {
-	           "Hosts" : {
-	               "localhost": "6379"
-	           },
-	           "Password": "",
-	           "Database": 0,
-	           "EnableCluster": false,
-	           "MaxIdle": 1000,
-	           "MaxActive": 2000,
-		   "UseSSL": false,
-		   "SSLInsecureSkipVerify": false
-	       }
-	   },
-	   "TykAPISettings": {
-	       "GatewayConfig": {
-	           "Endpoint": "http://{GATEWAY-DOMAIN}",
-	           "Port": "80",
-	           "AdminSecret": "352d20ee67be67f6340b4c0605b044b7"
-	       },
-	       "DashboardConfig": {
-	           "Endpoint": "http://{DASHBOARD-DOMAIN}",
-	           "Port": "3000",
-	           "AdminSecret": "12345"
-	       }
-	   }
+ "Secret": "test-secret",
+ "HttpServerOptions": {
+   "UseSSL": true,
+   "CertFile": "./certs/server.pem",
+   "KeyFile": "./certs/server.key"
+ },
+ "BackEnd": {
+   "Name": "in_memory",
+   "IdentityBackendSettings": {
+     "Hosts" : {
+         "localhost": "6379"
+     },
+     "Password": "",
+     "Database": 0,
+     "EnableCluster": false,
+     "MaxIdle": 1000,
+     "MaxActive": 2000,
+ "UseSSL": false,
+ "SSLInsecureSkipVerify": false
+   }
+ },
+ "TykAPISettings": {
+   "GatewayConfig": {
+     "Endpoint": "http://{GATEWAY-DOMAIN}",
+     "Port": "80",
+     "AdminSecret": "352d20ee67be67f6340b4c0605b044b7"
+   },
+     "DashboardConfig": {
+       "Endpoint": "http://{DASHBOARD-DOMAIN}",
+       "Port": "3000",
+       "AdminSecret": "12345"
+   }
+ }
 }
 ```
 
