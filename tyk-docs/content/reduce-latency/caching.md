@@ -19,13 +19,13 @@ Tyk supports various ways of caching requests. At its simplest level, Tyk can ca
 To enable caching in your API, within your API definition you will need to set the `cache_options` flags in the main body of the definition:
 
 ```{.copyWrapper}
-    cache_options: {
-        cache_timeout: 10,
-        enable_cache: true,
-        cache_all_safe_requests: false,
-        enable_upstream_cache_control: false,
-        cache_response_codes: [200]
-    }
+cache_options: {
+  cache_timeout: 10,
+  enable_cache: true,
+  cache_all_safe_requests: false,
+  enable_upstream_cache_control: false,
+  cache_response_codes: [200]
+}
 ```
 
 > **Note**: If you set `cache_all_safe_requests` to true, then the cache will be global and *all* inbound requests will be evaluated by the caching middleware. This is great for simple APIs, but for most a finer-grained control is required.
@@ -57,18 +57,18 @@ Here you must set:
 To cache only specific endpoints, within the version data under the `extended_paths` section, you will need to define the paths to cache in the `cache` list:
 
 ```
-    extended_paths: {
-        ignored: [],
-        white_list: [],
-        black_list: [],
-        cache: [
-            "widget",
-            "badger",
-            "fish"
-        ],
-        transform: [],
-        transform_headers: []
-    }
+extended_paths: {
+  ignored: [],
+  white_list: [],
+  black_list: [],
+  cache: [
+      "widget",
+      "badger",
+      "fish"
+  ],
+  transform: [],
+  transform_headers: []
+}
 ```
 
 Now Tyk will only cache the `/widget`, `/badger`, and `/fish` endpoints. Tyk will only cache safe requests, so currently `GET` and `HEAD` requests are the only supported HTTP methods. For many this will suffice with regards to caching requests; however in some cases you may wish to have full control over when to cache and be reactive about the time to live of the cached response.
@@ -123,21 +123,21 @@ For high-traffic systems that make heavy use of caching as well as rate limiting
 To enable a separate cache server, update your `tyk.conf` with the following section:
 
 ```{.copyWrapper}
-    "enable_separate_cache_store": false,
-    "cache_storage": {
-        "type": "redis",
-        "host": "",
-        "port": 0,
-        "hosts": {
-            "localhost": "6379"
-        },
-        "username": "",
-        "password": "",
-        "database": 0,
-        "optimisation_max_idle": 3000,
-        "optimisation_max_active": 5000,
-        "enable_cluster": false
-    },
+"enable_separate_cache_store": false,
+"cache_storage": {
+  "type": "redis",
+  "host": "",
+  "port": 0,
+  "hosts": {
+      "localhost": "6379"
+  },
+  "username": "",
+  "password": "",
+  "database": 0,
+  "optimisation_max_idle": 3000,
+  "optimisation_max_active": 5000,
+  "enable_cluster": false
+},
 ```
 
 The configuration is the same (and uses the same underlying driver) as the regular configuration, so Redis Cluster is fully supported.
