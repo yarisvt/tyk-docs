@@ -35,7 +35,7 @@ Components that use context variables:
 As headers are already exposed to context data, you can also access any header from context variables by using:
 
 ```{.copyWrapper}
-    $tyk_context.headers_HEADERNAME
+$tyk_context.headers_HEADERNAME
 ```
 
 > **NOTE**: Due to how GoLang handles header parsing, incoming headers are converted to Capital Case. For example, if you want the value stored in `test-header`, you access it from `$tyk_context.headers_Test_Header`.
@@ -43,7 +43,7 @@ As headers are already exposed to context data, you can also access any header f
 Or (for body transforms):
 
 ```{.copyWrapper}
-    {{._tyk_context.headers_HEADERNAME}}
+{{._tyk_context.headers_HEADERNAME}}
 ```
 
 

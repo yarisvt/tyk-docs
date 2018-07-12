@@ -89,89 +89,89 @@ To activate versioning in an API, create a version entry in the version_data.ver
 
 ```{.copyWrapper}
 {
-    "version-1": {
-        "name": "version-1",
-        "expires": "",            
-        "use_extended_paths": true,
-        "extended_paths": {
-            "ignored": [
-                {
-                    "path": "/v1/ignored/noregex",
-                    "method_actions": {
-                        "GET": {
-                            "action": "no_action",
-                            "code": 200,
-                            "data": "",
-                            "headers": {
-                                "x-tyk-override-test": "tyk-override",
-                                "x-tyk-override-test-2": "tyk-override-2"
-                            }
-                        }
-                    }
-                }
-            ],
-            "white_list": [
-                {
-                    "path": "v1/allowed/whitelist/literal",
-                    "method_actions": {
-                        "GET": {
-                            "action": "no_action",
-                            "code": 200,
-                            "data": "",
-                            "headers": {
-                                "x-tyk-override-test": "tyk-override",
-                                "x-tyk-override-test-2": "tyk-override-2"
-                            }
-                        }
-                    }
-                },
-                {
-                    "path": "v1/allowed/whitelist/reply/{id}",
-                    "method_actions": {
-                        "GET": {
-                            "action": "reply",
-                            "code": 200,
-                            "data": "flump",
-                            "headers": {
-                                "x-tyk-override-test": "tyk-override",
-                                "x-tyk-override-test-2": "tyk-override-2"
-                            }
-                        }
-                    }
-                },
-                {
-                    "path": "v1/allowed/whitelist/{id}",
-                    "method_actions": {
-                        "GET": {
-                            "action": "no_action",
-                            "code": 200,
-                            "data": "",
-                            "headers": {
-                                "x-tyk-override-test": "tyk-override",
-                                "x-tyk-override-test-2": "tyk-override-2"
-                            }
-                        }
-                    }
-                }
-            ],
-            "black_list": [
-                {
-                    "path": "v1/disallowed/blacklist/literal",
-                    "method_actions": {
-                        "GET": {
-                            "action": "no_action",
-                            "code": 200,
-                            "data": "",
-                            "headers": {
-                                "x-tyk-override-test": "tyk-override",
-                                "x-tyk-override-test-2": "tyk-override-2"
-                            }
-                        }
-                    }
-                }
-            ]
+  "version-1": {
+    "name": "version-1",
+    "expires": "",            
+    "use_extended_paths": true,
+    "extended_paths": {
+      "ignored": [
+        {
+          "path": "/v1/ignored/noregex",
+          "method_actions": {
+            "GET": {
+              "action": "no_action",
+              "code": 200,
+              "data": "",
+              "headers": {
+                "x-tyk-override-test": "tyk-override",
+                "x-tyk-override-test-2": "tyk-override-2"
+              }
+            }
+          }
         }
+      ],
+      "white_list": [
+        {
+          "path": "v1/allowed/whitelist/literal",
+          "method_actions": {
+            "GET": {
+              "action": "no_action",
+              "code": 200,
+              "data": "",
+              "headers": {
+                "x-tyk-override-test": "tyk-override",
+                "x-tyk-override-test-2": "tyk-override-2"
+              }
+            }
+          }
+        },
+          {
+            "path": "v1/allowed/whitelist/reply/{id}",
+            "method_actions": {
+              "GET": {
+                "action": "reply",
+                "code": 200,
+                "data": "flump",
+                "headers": {
+                  "x-tyk-override-test": "tyk-override",
+                  "x-tyk-override-test-2": "tyk-override-2"
+                }
+              }
+            }
+          },
+          {
+            "path": "v1/allowed/whitelist/{id}",
+            "method_actions": {
+              "GET": {
+                "action": "no_action",
+                "code": 200,
+                "data": "",
+                "headers": {
+                  "x-tyk-override-test": "tyk-override",
+                  "x-tyk-override-test-2": "tyk-override-2"
+              }
+            }
+          }
+        }
+      ],
+      "black_list": [
+        {
+          "path": "v1/disallowed/blacklist/literal",
+          "method_actions": {
+            "GET": {
+              "action": "no_action",
+              "code": 200,
+              "data": "",
+              "headers": {
+                "x-tyk-override-test": "tyk-override",
+                "x-tyk-override-test-2": "tyk-override-2"
+              }
+            }
+          }
+        }
+      ]
     }
+  }
 }
 ```
 
@@ -181,8 +181,8 @@ Ensure that the definition section of the API Definition file/object is set up t
 
 ```{.copyWrapper}
 "definition": {
-    "location": "header",
-    "key": "x-api-version"
+  "location": "header",
+  "key": "x-api-version"
 }
 ```
 
