@@ -83,38 +83,38 @@ The `tib.conf` for this example is as follows (yours might require different val
 
 ```{.copyWrapper}
 {
-    "Secret": "352d20ee67be67f6340b4c0605b044b7",
-    "HttpServerOptions": {
-        "UseSSL": false,
-        "CertFile": "./certs/server.pem",
-        "KeyFile": "./certs/server.key"
-    },
-    "BackEnd": {
-        "Name": "in_memory",
-        "ProfileBackendSettings": {},
-        "IdentityBackendSettings": {
-            "Hosts" : {
-                "localhost": "6379"
-            },
-            "Password": "",
-            "Database": 0,
-            "EnableCluster": false,
-            "MaxIdle": 1000,
-            "MaxActive": 2000
-        }
-    },
-    "TykAPISettings": {
-        "GatewayConfig": {
-            "Endpoint": "http://localhost",
-            "Port": "8080",
-            "AdminSecret": "352d20ee67be67f6340b4c0605b044b7"
-        },
-        "DashboardConfig": {
-            "Endpoint": "http://localhost",
-            "Port": "3000",
-            "AdminSecret": "12345"
-        }
+  "Secret": "352d20ee67be67f6340b4c0605b044b7",
+  "HttpServerOptions": {
+    "UseSSL": false,
+    "CertFile": "./certs/server.pem",
+    "KeyFile": "./certs/server.key"
+  },
+  "BackEnd": {
+    "Name": "in_memory",
+    "ProfileBackendSettings": {},
+    "IdentityBackendSettings": {
+      "Hosts" : {
+          "localhost": "6379"
+      },
+      "Password": "",
+      "Database": 0,
+      "EnableCluster": false,
+      "MaxIdle": 1000,
+      "MaxActive": 2000
     }
+  },
+  "TykAPISettings": {
+    "GatewayConfig": {
+      "Endpoint": "http://localhost",
+      "Port": "8080",
+      "AdminSecret": "352d20ee67be67f6340b4c0605b044b7"
+    },
+      "DashboardConfig": {
+        "Endpoint": "http://localhost",
+        "Port": "3000",
+        "AdminSecret": "12345"
+      }
+  }
 }
 ```
 
@@ -137,19 +137,19 @@ The `profiles.json` for this example is as follows (again, update values for you
 ```{.copyWrapper}
 [
   {
-      "ActionType": "GenerateOrLoginUserProfile",
-      "ID": "1",
-      "OrgID": "59bfdf5b56c02c065d24638e",
-      "ProviderConfig": {
-          "FailureRedirect": "http://my-tyk-instance.com:3000/?fail=true",
-          "LDAPAttributes": [],
-          "LDAPPort": "389",
-          "LDAPServer": "ldap.forumsys.com",
-          "LDAPUserDN": "cn=*USERNAME*,dc=example,dc=com"
-      },
-      "ProviderName": "ADProvider",
-      "ReturnURL": "http://my-tyk-instance.com:3000/tap",
-      "Type": "passthrough"
+    "ActionType": "GenerateOrLoginUserProfile",
+    "ID": "1",
+    "OrgID": "59bfdf5b56c02c065d24638e",
+    "ProviderConfig": {
+      "FailureRedirect": "http://my-tyk-instance.com:3000/?fail=true",
+      "LDAPAttributes": [],
+      "LDAPPort": "389",
+      "LDAPServer": "ldap.forumsys.com",
+      "LDAPUserDN": "cn=*USERNAME*,dc=example,dc=com"
+    },
+    "ProviderName": "ADProvider",
+    "ReturnURL": "http://my-tyk-instance.com:3000/tap",
+    "Type": "passthrough"
   }
 ]
 ```
@@ -200,14 +200,14 @@ Nginx will now serve pages out of the default web root directory `/usr/share/ngi
 echo \
 "<html> \
     <head> \
-            <title>Tyk Dashboard LDAP login</title> \
-        </head> \
+      <title>Tyk Dashboard LDAP login</title> \
+    </head> \
     <body> \
-        <form method="post" action="http://my-tyk-instance.com:3010/auth/1/ldap"> \
-            username: <input type="text" name="username"/> <br/> \
-            password: <input type="text" name="password"/> <br/> \
-            <input type="submit" value="login"> \
-        </form> \
+      <form method="post" action="http://my-tyk-instance.com:3010/auth/1/ldap"> \
+        username: <input type="text" name="username"/> <br/> \
+        password: <input type="text" name="password"/> <br/> \
+        <input type="submit" value="login"> \
+      </form> \
     </body> \
 </html>" \
 | sudo tee /usr/share/nginx/www/login.html > /dev/null
@@ -262,28 +262,28 @@ The request returns the data for profile 1, which for this example is:
 
 ```{.copyWrapper}
 {
-    "Status": "ok",
+  "Status": "ok",
+  "ID": "1",
+  "Data": {
     "ID": "1",
-    "Data": {
-        "ID": "1",
-        "OrgID": "59bfdf5b56c02c065d24638e",
-        "ActionType": "GenerateOrLoginUserProfile",
-        "MatchedPolicyID": "",
-        "Type": "passthrough",
-        "ProviderName": "ADProvider",
-        "ProviderConfig": {
-            "FailureRedirect": "http://my-tyk-instance.com:3000/?fail=true",
-            "LDAPAttributes": [],
-            "LDAPPort": "389",
-            "LDAPServer": "ldap.forumsys.com",
-            "LDAPUserDN": "cn=*USERNAME*,dc=example,dc=com"
-        },
-        "IdentityHandlerConfig": null,
-        "ProviderConstraints": {
-            "Domain": "",
-            "Group": ""
-        },
-        "ReturnURL": "http://my-tyk-instance.com:3000/tap"
-    }
+    "OrgID": "59bfdf5b56c02c065d24638e",
+    "ActionType": "GenerateOrLoginUserProfile",
+    "MatchedPolicyID": "",
+    "Type": "passthrough",
+    "ProviderName": "ADProvider",
+    "ProviderConfig": {
+      "FailureRedirect": "http://my-tyk-instance.com:3000/?fail=true",
+      "LDAPAttributes": [],
+      "LDAPPort": "389",
+      "LDAPServer": "ldap.forumsys.com",
+      "LDAPUserDN": "cn=*USERNAME*,dc=example,dc=com"
+    },
+    "IdentityHandlerConfig": null,
+    "ProviderConstraints": {
+      "Domain": "",
+      "Group": ""
+    },
+    "ReturnURL": "http://my-tyk-instance.com:3000/tap"
+  }
 }
 ```
