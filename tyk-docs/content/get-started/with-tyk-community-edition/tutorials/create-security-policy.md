@@ -3,9 +3,10 @@ date: 2017-03-23T10:39:14Z
 Title: Create a security policy - Community Edition
 menu:
   main:
-    parent: Community Edition
+    parent: "/with-tyk-community-edition"
     identifier: community-edition-create-security-policy
 weight: 3
+url: "/with-tyk-community-edition/tutorials/create-security-policy"
 ---
 
 ## <a name="what-is-a-security-policy"></a>What is a security policy ?
@@ -28,27 +29,27 @@ Each of these can also be overridden in isolation using the partitioning options
 Adding a policy to a file-based (Community Edition) Tyk Gateway is very easy. Polices are loaded into memory on load and so need to be specified in advanced in a file called `policies.json`. To add a policy, simply create or edit the `/policies/policies.json` file and add the policy object to the object array:
 
 ```{.copyWrapper}
-  {
-      "POLICYID": {
-          "access_rights": {
-              "{API-ID}": {
-                  "allowed_urls": [],
-                  "api_id": "{API-ID}",
-                  "api_name": "{API-NAME}",
-                  "versions": [
-                      "Default"
-                  ]
-              }
-          },
-          "active": true,
-          "name": "POLICY NAME",
-          "rate": 100,
-          "per": 1,
-          "quota_max": 10000,
-          "quota_renewal_rate": 3600,
-          "tags": ["Startup Users"]
-      }
+{
+  "POLICYID": {
+    "access_rights": {
+      "{API-ID}": {
+        "allowed_urls": [],
+        "api_id": "{API-ID}",
+        "api_name": "{API-NAME}",
+        "versions": [
+            "Default"
+        ]
+    }
+  },
+  "active": true,
+  "name": "POLICY NAME",
+  "rate": 100,
+  "per": 1,
+  "quota_max": 10000,
+  "quota_renewal_rate": 3600,
+  "tags": ["Startup Users"]
   }
+}
 ```
 
 The above creates a new policy with a policy ID that you can define, with the rate limits, and security profile that grants access to the APIs listed in the `access_rights` section.

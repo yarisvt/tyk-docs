@@ -13,11 +13,11 @@ weight: 2
 
 You will see a response with your new key:
 ```
-    {
-        "action": "create",
-        "key": "c2cb92a78f944e9a46de793fe28e847e",
-        "status": "ok"
-    }
+{
+  "action": "create",
+  "key": "c2cb92a78f944e9a46de793fe28e847e",
+  "status": "ok"
+}
 ```
 
 The value returned in the `key` parameter of the response is the access key you can now use to access the API that was specified in the `access_rights` section of the call

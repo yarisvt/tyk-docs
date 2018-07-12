@@ -48,28 +48,28 @@ You will also need your own API Key, to get these values:
 
 Once you have these values, you can use them to access the dashboard API, the below `curl` command will generate a token for one of your APIs:
 ```{.copyWrapper}
-    curl -X POST -H "authorization: 1238b7e0e2ff4c2957321724409ee2eb" \
-     -s \
-     -H "Content-Type: application/json" \
-     -X POST \
-     -d '{
-        "allowance": 1000,
-        "rate": 1000,
-        "per": 1,
-        "expires": -1,
-        "quota_max": -1,
-        "quota_renews": 1449051461,
-        "quota_remaining": -1,
-        "quota_renewal_rate": 60,
-        "access_rights": {
-            "ad5004d961a147d4649fd3216694ebe2": {
-                "api_id": "ad5004d961a147d4649fd3216694ebe2",
-                "api_name": "test-api",
-                "versions": ["Default"]
-            }
-        },
-        "meta_data": {}
-     }' http://admin.cloud.tyk.io/api/keys | python -mjson.tool
+curl -X POST -H "authorization: 1238b7e0e2ff4c2957321724409ee2eb" \
+  -s \
+  -H "Content-Type: application/json" \
+  -X POST \
+  -d '{
+    "allowance": 1000,
+    "rate": 1000,
+    "per": 1,
+    "expires": -1,
+    "quota_max": -1,
+    "quota_renews": 1449051461,
+    "quota_remaining": -1,
+    "quota_renewal_rate": 60,
+    "access_rights": {
+      "ad5004d961a147d4649fd3216694ebe2": {
+        "api_id": "ad5004d961a147d4649fd3216694ebe2",
+        "api_name": "test-api",
+        "versions": ["Default"]
+      }
+    },
+    "meta_data": {}
+  }' http://admin.cloud.tyk.io/api/keys | python -mjson.tool
 ```
 
 

@@ -13,11 +13,11 @@ weight: 1
 
 If the command succeeds, you will see:
 ```
-    {
-        "action": "added",
-        "key": "xxxxxxxxx",
-        "status": "ok"
-    }
+{
+  "action": "added",
+  "key": "xxxxxxxxx",
+  "status": "ok"
+}
 ```
 
 **What did we just do?**

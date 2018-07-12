@@ -28,12 +28,14 @@ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
 
 Then create a MongoDb source list file
 
-Ubuntu 14.04
+**On Ubuntu Trusty 14.04**
+
 ```{.copyWrapper}
 echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
 ```
 
-Ubuntu 16.04
+**On Ubuntu Xenial 16.04**
+
 ```{.copyWrapper}
 echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
 ```
@@ -52,14 +54,16 @@ sudo apt-get install -y mongodb-org
 
 Finally, start the mongod service - then ensure all is running.
 
-Ubuntu 14.04
+**On Ubuntu Trusty 14.04**
+
 ```
 # sudo service mongod start
 # sudo service mongod status
 mongod start/running, process 1904
 ```
 
-Ubuntu 16.04
+**On Ubuntu Xenial 16.04**
+
 ```
 # sudo service mongod start
 # sudo service mongod status
