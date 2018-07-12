@@ -75,11 +75,11 @@ Get started now, for free, or contact us with any questions.
 * [Get Started](https://tyk.io/pricing/compare-api-management-platforms/#get-started)
 * [Contact Us](https://tyk.io/about/contact/)
 
-    [1]: /docs/deploy-tyk-premise-production/
-    [2]: https://locust.io/
-    [3]: https://github.com/myzhan/boomer
-    [4]: https://github.com/TykTechnologies/tyk/pull/1753
-    [5]: /docs/security/dashboard/create-user-groups/
-    [6]: /docs/dashboard-admin-api/sso/
-    [7]: /docs/tyk-dashboard-api/user-groups/
-    [8]: /docs/configure/outbound-email-configuration/
+  [1]: /docs/deploy-tyk-premise-production/
+  [2]: https://locust.io/
+  [3]: https://github.com/myzhan/boomer
+  [4]: https://github.com/TykTechnologies/tyk/pull/1753
+  [5]: /docs/security/dashboard/create-user-groups/
+  [6]: /docs/dashboard-admin-api/sso/
+  [7]: /docs/tyk-dashboard-api/user-groups/
+  [8]: /docs/configure/outbound-email-configuration/
