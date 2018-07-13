@@ -198,22 +198,22 @@ Cache-Control: no-cache
 #### Sample Response
 ```
 [
-    {
-        "code": "5a7d110be6355b0c071cc339327563cb45174ae387f52f87a80d2496",
-        "expires": 1518158407
-    },
-    {
-        "code": "5a7d110be6355b0c071cc33988884222b0cf436eba7979c6c51d6dbd",
-        "expires": 1518158594
-    },
-    {
-        "code": "5a7d110be6355b0c071cc33990bac8b5261041c5a7d585bff291fec4",
-        "expires": 1518158638
-    },
-    {
-        "code": "5a7d110be6355b0c071cc339a66afe75521f49388065a106ef45af54",
-        "expires": 1518159792
-    }
+  {
+    "code": "5a7d110be6355b0c071cc339327563cb45174ae387f52f87a80d2496",
+    "expires": 1518158407
+  },
+  {
+    "code": "5a7d110be6355b0c071cc33988884222b0cf436eba7979c6c51d6dbd",
+    "expires": 1518158594
+  },
+  {
+    "code": "5a7d110be6355b0c071cc33990bac8b5261041c5a7d585bff291fec4",
+    "expires": 1518158638
+  },
+  {
+    "code": "5a7d110be6355b0c071cc339a66afe75521f49388065a106ef45af54",
+    "expires": 1518159792
+  }
 ]
 ```
 

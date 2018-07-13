@@ -109,9 +109,9 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 ```
 {
-    "Status": "OK",
-    "Message": "User group created",
-    "Meta": ""
+  "Status": "OK",
+  "Message": "User group created",
+  "Meta": ""
 }
 ```
 
@@ -135,8 +135,8 @@ Host: localhost:3000
 authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 {
-    "name": "Certificates Team 2",
-    "description": "Another certificates team",
+  "name": "Certificates Team 2",
+  "description": "Another certificates team",
 }
 ```
 
@@ -172,8 +172,8 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 ```
 {
-    "Status": "OK",
-    "Message": "User group deleted",
-    "Meta": ""
+  "Status": "OK",
+  "Message": "User group deleted",
+  "Meta": ""
 }
 ```

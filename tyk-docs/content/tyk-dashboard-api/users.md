@@ -29,31 +29,31 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 ```
 {
-    "users": [
-        {
-            "api_model": {},
-            "first_name": "John",
-            "last_name": "Smith",
-            "email_address": "john@jive.ly",
-            "password": "$2a$10$mRVfrAf72N66anVNhA1KVuYaOwOrXhFzxyg6bwgZemUeVo2MNOpIa",
-            "org_id": "54b53d3aeba6db5c35000002",
-            "active": true,
-            "id": "54b53d4bf25b920f09361526",
-            "access_key": "0cf5e6c37add465a406f19807c081765"
-        },
-        {
-            "api_model": {},
-            "first_name": "Test",
-            "last_name": "User",
-            "email_address": "banana@test.com",
-            "password": "",
-            "org_id": "54b53d3aeba6db5c35000002",
-            "active": true,
-            "id": "54bd0ad9ff4329b88985aafb",
-            "access_key": "f81ee6f0c8f2467d539c132c8a422346"
-        }
-    ],
-    "pages": 0
+  "users": [
+    {
+      "api_model": {},
+      "first_name": "John",
+      "last_name": "Smith",
+      "email_address": "john@jive.ly",
+      "password": "$2a$10$mRVfrAf72N66anVNhA1KVuYaOwOrXhFzxyg6bwgZemUeVo2MNOpIa",
+      "org_id": "54b53d3aeba6db5c35000002",
+      "active": true,
+      "id": "54b53d4bf25b920f09361526",
+      "access_key": "0cf5e6c37add465a406f19807c081765"
+    },
+    {
+      "api_model": {},
+      "first_name": "Test",
+      "last_name": "User",
+      "email_address": "banana@test.com",
+      "password": "",
+      "org_id": "54b53d3aeba6db5c35000002",
+      "active": true,
+      "id": "54bd0ad9ff4329b88985aafb",
+      "access_key": "f81ee6f0c8f2467d539c132c8a422346"
+    }
+  ],
+  "pages": 0
 }
 ```
 
@@ -79,15 +79,15 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 ```
 {
-    "api_model": {},
-    "first_name": "Test",
-    "last_name": "User",
-    "email_address": "banana@test.com",
-    "password": "",
-    "org_id": "54b53d3aeba6db5c35000002",
-    "active": true,
-    "id": "54bd0ad9ff4329b88985aafb",
-    "access_key": "f81ee6f0c8f2467d539c132c8a422346"
+  "api_model": {},
+  "first_name": "Test",
+  "last_name": "User",
+  "email_address": "banana@test.com",
+  "password": "",
+  "org_id": "54b53d3aeba6db5c35000002",
+  "active": true,
+  "id": "54bd0ad9ff4329b88985aafb",
+  "access_key": "f81ee6f0c8f2467d539c132c8a422346"
 }
 ```
 
@@ -115,12 +115,12 @@ Host: localhost:3000
 authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 {
-    "first_name": "Jason",
-    "last_name": "Jasonson",
-    "email_address": "jason@jasonsonson.com",
-    "active": true,
-    "password": "thisisatest",
-    "user_permissions": { "IsAdmin": "admin" }
+  "first_name": "Jason",
+  "last_name": "Jasonson",
+  "email_address": "jason@jasonsonson.com",
+  "active": true,
+  "password": "thisisatest",
+  "user_permissions": { "IsAdmin": "admin" }
 }
 ```
 
@@ -128,9 +128,9 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 ```
 {
-    "Status": "OK",
-    "Message": "User created",
-    "Meta": ""
+  "Status": "OK",
+  "Message": "User created",
+  "Meta": ""
 }
 ```
 
@@ -166,9 +166,9 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 ```
 {
-    "Status": "OK",
-    "Message": "User password updated",
-    "Meta": ""
+  "Status": "OK",
+  "Message": "User password updated",
+  "Meta": ""
 }
 ```
 
@@ -243,11 +243,11 @@ Host: localhost:3000
 authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 {
-    "first_name": "Jason",
-    "last_name": "File",
-    "email_address": "jason.file@jasonsonson.com",
-    "active": true,
-    "user_permissions": { "IsAdmin": "admin" }
+  "first_name": "Jason",
+  "last_name": "File",
+  "email_address": "jason.file@jasonsonson.com",
+  "active": true,
+  "user_permissions": { "IsAdmin": "admin" }
 }
 ```
 
@@ -283,8 +283,8 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 ```
 {
-    "Status": "OK",
-    "Message": "User deleted",
-    "Meta": ""
+  "Status": "OK",
+  "Message": "User deleted",
+  "Meta": ""
 }
 ```
