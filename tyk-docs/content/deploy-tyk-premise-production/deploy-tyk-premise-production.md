@@ -214,6 +214,14 @@ Understanding what files are created or modified by the Dashboard and Gateway du
 *   Dashboard will write the licence into the configuration file if you add it via the UI.
 *   From v2.3 onwards it is possible for a Dashboard to remotely change the config of a Gateway, which will cause the Gateway's configuration file to update.
 
+### Hardening your Tyk Installation
+
+To secure your Tyk installation, you can configure the following settings in your [tyk.conf](https://tyk.io/docs/configure/tyk-gateway-configuration-options/):
+
+`control_api_hostname` - Set the hostname to bind the REST API to.
+
+`control_api_port` - This allows you to run the Dashboard Admin API on a separate port, and protect it behind a firewall if needed.
+
  [1]: /docs/img/diagrams/deployGraph.png
  [2]: /docs/img/diagrams/deployGraphNoRateLimitQuota.png
  [3]: /docs/img/diagrams/deployGraphVanilla.png
