@@ -435,7 +435,7 @@ The hostname to bind the REST API to.
 
 ### <a name="control-api"></a>control_api_port
 
-This allows you to run the Admin Control API on separate port, and hide it behind a firewall if needed.
+This allows you to run the Gateway Control API on separate port, and protect it behind a firewall if needed.
 
 > **NOTE:** This option is available from v2.4 onwards.
 
