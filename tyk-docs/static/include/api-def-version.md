@@ -62,21 +62,21 @@ example request: `curl "https://company.cloud.tyk.io/my-api/v1/my-path"`
 
 ```{.json}
 {
-    "version-1": {
-        "name": "version-1",
-        "expires": "",
-        "paths": {
-            "ignored": [],
-            "white_list": [],
-            "black_list": []
-        },
-        "use_extended_paths": true,
-        "extended_paths": {
-            "ignored": [],
-            "white_list": [],
-            "black_list": []
-        }
+  "version-1": {
+    "name": "version-1",
+    "expires": "",
+    "paths": {
+      "ignored": [],
+      "white_list": [],
+      "black_list": []
+    },
+    "use_extended_paths": true,
+    "extended_paths": {
+      "ignored": [],
+      "white_list": [],
+      "black_list": []
     }
+  }
 }
 ```
     
@@ -111,17 +111,17 @@ Each entry in the ignored, blacklist and whitelist have the same specification. 
 
 ```{.json}
 {
-    "path": "{managed-path}",
-    "method_actions": {
-        "METHOD": {
-            "action": "{action-code}",
-            "code": {response-code},
-            "data": "{body}",
-            "headers": {
-                "{key}": "{value}"
-            }
-        }
+  "path": "{managed-path}",
+  "method_actions": {
+    "METHOD": {
+      "action": "{action-code}",
+      "code": {response-code},
+      "data": "{body}",
+      "headers": {
+        "{key}": "{value}"
+      }
     }
+  }
 }
 ```
     
@@ -135,15 +135,15 @@ If you set `action` to `reply` Tyk will override the path and reply with setting
 
 ```{.json}
 "version_data": {
-    "versions": {
-        "Default": {
-            ...
-            "global_headers": {
-                "x-header-name": "x-header-value"
-            }
-            ...
-        }
+  "versions": {
+    "Default": {
+      ...
+      "global_headers": {
+          "x-header-name": "x-header-value"
+      }
+      ...
     }
+  }
 },
 ```
 
@@ -151,15 +151,15 @@ If you set `action` to `reply` Tyk will override the path and reply with setting
 
 ```{.json}
 "version_data": {
-    "versions": {
-        "Default": {
-            ...
-            "global_headers_remove": [
-                "auth_id"
-            ]
-             ...
-        }
+  "versions": {
+    "Default": {
+      ...
+      "global_headers_remove": [
+          "auth_id"
+      ]
+       ...
     }
+  }
 },
 ```
 
@@ -172,30 +172,30 @@ An example entry:
 ```{.json}
 ...
 "ignored": [
-    {
-        "path": "/v1/ignored/literal",
-        "method_actions": {
-            "GET": {
-                "action": "no_action",
-                "code": 200,
-                "data": "",
-                "headers": {}
-            }
-        }
-    },
-    {
-        "path": "/v1/ignored/with_id/{id}",
-        "method_actions": {
-            "GET": {
-                "action": "reply",
-                "code": 200,
-                "data": "Hello World",
-                "headers": {
-                    "x-tyk-override": "tyk-override",
-                }
-            }
-        }
+  {
+    "path": "/v1/ignored/literal",
+    "method_actions": {
+      "GET": {
+        "action": "no_action",
+        "code": 200,
+        "data": "",
+        "headers": {}
+      }
     }
+  },
+  {
+    "path": "/v1/ignored/with_id/{id}",
+    "method_actions": {
+      "GET": {
+        "action": "reply",
+        "code": 200,
+        "data": "Hello World",
+        "headers": {
+          "x-tyk-override": "tyk-override",
+        }
+      }
+    }
+  }
 ],
     ...
 ```
@@ -207,30 +207,30 @@ An example entry:
 ```{.json}
 ...
 "black_list": [
-    {
-        "path": "v1/disallowed/blacklist/literal",
-        "method_actions": {
-            "GET": {
-                "action": "no_action",
-                "code": 200,
-                "data": "",
-                "headers": {}
-            }
-        }
-    },
-    {
-        "path": "v1/disallowed/blacklist/{id}",
-        "method_actions": {
-            "GET": {
-                "action": "reply",
-                "code": 200,
-                "data": "Not allowed buddy",
-                "headers": {
-                    "x-tyk-override-test": "tyk-override"
-                }
-            }
-        }
+  {
+    "path": "v1/disallowed/blacklist/literal",
+    "method_actions": {
+      "GET": {
+        "action": "no_action",
+        "code": 200,
+        "data": "",
+        "headers": {}
+      }
     }
+  },
+  {
+    "path": "v1/disallowed/blacklist/{id}",
+    "method_actions": {
+      "GET": {
+        "action": "reply",
+        "code": 200,
+        "data": "Not allowed buddy",
+        "headers": {
+          "x-tyk-override-test": "tyk-override"
+        }
+      }
+    }
+  }
 ], 
     ...
 ```
@@ -243,52 +243,52 @@ An example entry:
 ```{.json}
 ...
 "white_list": [
-    {
-        "path": "v1/allowed/whitelist/literal",
-        "method_actions": {
-            "GET": {
-                "action": "no_action",
-                "code": 200,
-                "data": "",
-                "headers": {}
-            }
-        }
-    },
-    {
-        "path": "v1/allowed/whitelist/reply/{id}",
-        "method_actions": {
-            "GET": {
-                "action": "reply",
-                "code": 200,
-                "data": "flump",
-                "headers": {
-                    "x-tyk-override-test": "tyk-override"
-                }
-            }
-        }
-    },
-    {
-        "path": "v1/allowed/whitelist/{id}",
-        "method_actions": {
-            "GET": {
-                "action": "no_action",
-                "code": 200,
-                "data": "",
-                "headers": {}
-            }
-        }
-    },
-    {
-        "path": "/tyk/rate-limits/",
-        "method_actions": {
-            "GET": {
-                "action": "no_action",
-                "code": 200,
-                "data": "",
-                "headers": {}
-            }
-        }
+  {
+    "path": "v1/allowed/whitelist/literal",
+    "method_actions": {
+      "GET": {
+        "action": "no_action",
+        "code": 200,
+        "data": "",
+        "headers": {}
+      }
     }
+  },
+  {
+    "path": "v1/allowed/whitelist/reply/{id}",
+    "method_actions": {
+      "GET": {
+        "action": "reply",
+        "code": 200,
+        "data": "flump",
+        "headers": {
+          "x-tyk-override-test": "tyk-override"
+        }
+      }
+    }
+  },
+  {
+    "path": "v1/allowed/whitelist/{id}",
+    "method_actions": {
+      "GET": {
+        "action": "no_action",
+        "code": 200,
+        "data": "",
+        "headers": {}
+      }
+    }
+  },
+  {
+    "path": "/tyk/rate-limits/",
+    "method_actions": {
+      "GET": {
+        "action": "no_action",
+        "code": 200,
+        "data": "",
+        "headers": {}
+      }
+    }
+  }
 ], 
 ...
 ```
@@ -302,10 +302,10 @@ A sample entry would be:
 ```{.json}
 ...
 "cache": [
-    "widgets/{widgetID}",
-    "widgets",
-    "foobars/{foobarID}",
-    "foobars"
+  "widgets/{widgetID}",
+  "widgets",
+  "foobars/{foobarID}",
+  "foobars"
 ], ...
 ```
 
@@ -314,14 +314,14 @@ A sample entry would be:
 ```{.json}
 ...
 "transform": [
-    {
-        "path": "widget/{id}",
-        "method": "POST"
-        "template_data": {
-            "template_mode": "file",
-            "template_source": "./templates/transform_test.tmpl"
-        }
+  {
+    "path": "widget/{id}",
+    "method": "POST"
+    "template_data": {
+      "template_mode": "file",
+      "template_source": "./templates/transform_test.tmpl"
     }
+  }
 ], 
 ...
 ```
@@ -343,12 +343,12 @@ Entries look like this:
 
 ```{.json}
 "transform_headers": [
-    {
-        "delete_headers": ["Content-Type", "authorization"],
-        "add_headers": {"x-tyk-test-inject": "new-value"},
-        "path": "widgets/{id}",
-        "method": "GET"
-    }
+  {
+    "delete_headers": ["Content-Type", "authorization"],
+    "add_headers": {"x-tyk-test-inject": "new-value"},
+    "path": "widgets/{id}",
+    "method": "GET"
+  }
 ]
 ```
         
@@ -366,14 +366,14 @@ Entries look like this:
 ```{.json}
 ...
 extended_paths: {
-    ...
-    hard_timeouts: [
-        {
-            path: "delay/5",
-            method: "GET",
-            timeout: 3
-        }
-    ]
+  ...
+  hard_timeouts: [
+    {
+      path: "delay/5",
+      method: "GET",
+      timeout: 3
+    }
+  ]
 }
 ...
 ```
@@ -390,13 +390,13 @@ The `path` and `method` properties are the same as all other `extended_path` mid
 
 ```{.json}
 "circuit_breakers": [
-    {
-        "path": "get",
-        "method": "GET",
-        "threshold_percent": 0.5,
-        "samples": 5,
-        "return_to_service_after": 60
-    }
+  {
+    "path": "get",
+    "method": "GET",
+    "threshold_percent": 0.5,
+    "samples": 5,
+    "return_to_service_after": 60
+  }
 ]
 ```
         
@@ -417,12 +417,12 @@ The transform is handled by the other two options, which can use any valid regex
 
 ```{.json}
 "url_rewrites": [
-    {
-        "path": "virtual/{wildcard1}/{wildcard2}",
-        "method": "GET",
-        "match_pattern": "virtual/(.*)/(d+)",
-        "rewrite_to": "new-path/id/$2/something/$1"
-    }
+  {
+    "path": "virtual/{wildcard1}/{wildcard2}",
+    "method": "GET",
+    "match_pattern": "virtual/(.*)/(d+)",
+    "rewrite_to": "new-path/id/$2/something/$1"
+  }
 ]
 ```
 

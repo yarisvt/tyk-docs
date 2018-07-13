@@ -23,17 +23,17 @@ This behaviour can be circumvented so that the `listen_path` is stripped from th
 * `proxy.service_discovery`: The service discovery section tells Tyk where to find information about the host to proxy to. In a clustered environment this is useful if servers are coming online and offline dynamically with new IP addresses. The service discovery module can pull out the required host data from any service discovery tool that exposes a RESTful endpoint that outputs a JSON object.
 
 ```{.copyWrapper}
-    enable_load_balancing: true,
-    service_discovery: {
-      use_discovery_service: true,
-      query_endpoint: "http://127.0.0.1:4001/v2/keys/services/multiobj",
-      use_nested_query: true,
-      parent_data_path: "node.value",
-      data_path: "array.hostname",
-      port_data_path: "array.port",
-      use_target_list: true,
-      cache_timeout: 10
-    },
+enable_load_balancing: true,
+service_discovery: {
+  use_discovery_service: true,
+  query_endpoint: "http://127.0.0.1:4001/v2/keys/services/multiobj",
+  use_nested_query: true,
+  parent_data_path: "node.value",
+  data_path: "array.hostname",
+  port_data_path: "array.port",
+  use_target_list: true,
+  cache_timeout: 10
+},
 ```
         
 
@@ -45,13 +45,13 @@ This behaviour can be circumvented so that the `listen_path` is stripped from th
 
 ```
 {
-    "action": "get",
-    "node": {
-        "key": "/services/single",
-        "value": "http://httpbin.org:6000",
-        "modifiedIndex": 6,
-        "createdIndex": 6
-    }
+  "action": "get",
+  "node": {
+    "key": "/services/single",
+    "value": "http://httpbin.org:6000",
+    "modifiedIndex": 6,
+    "createdIndex": 6
+  }
 }
 ```
 
@@ -61,13 +61,13 @@ Then your name space would be `node.value`.
 
 ```
 {
-    "action": "get",
-    "node": {
-        "key": "/services/single",
-        "value": "{"hostname": "http://httpbin.org", "port": "80"}",
-        "modifiedIndex": 6,
-        "createdIndex": 6
-    }
+  "action": "get",
+  "node": {
+    "key": "/services/single",
+    "value": "{"hostname": "http://httpbin.org", "port": "80"}",
+    "modifiedIndex": 6,
+    "createdIndex": 6
+  }
 }
 ```
 
