@@ -220,7 +220,7 @@ To secure your Tyk installation, you can configure the following settings in you
 
 `control_api_hostname` - Set the hostname to bind the REST API to.
 
-`control_api_port` - This allows you to run the Dashboard Admin API on a separate port, and protect it behind a firewall if needed.
+`control_api_port` - This allows you to run the Gateway Control API on a separate port, and protect it behind a firewall if needed.
 
  [1]: /docs/img/diagrams/deployGraph.png
  [2]: /docs/img/diagrams/deployGraphNoRateLimitQuota.png
