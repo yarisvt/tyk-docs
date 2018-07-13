@@ -31,8 +31,8 @@ Cache-Control: no-cache
 
 ```
 {
-    "status": "ok",
-    "error": ""
+  "status": "ok",
+  "error": ""
 }
 ```
 
@@ -60,7 +60,7 @@ Cache-Control: no-cache
 
 ```
 {
-    "status": "ok",
-    "error": ""
+  "status": "ok",
+  "error": ""
 }
 ```
