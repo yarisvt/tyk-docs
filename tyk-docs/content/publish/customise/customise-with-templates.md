@@ -23,9 +23,9 @@ The third option is "Custom" and this allows you to enter a template name into t
 To set a new template name up in your Tyk installation, you will need to add the file to the `portal` folder and ensure it starts and ends with the templates directive:
 
 ```
-    {{ define "customPage" }}
-    <!--- HTML IN HERE --/>
-    {{ end }}
+{{ define "customPage" }}
+<!--- HTML IN HERE --/>
+{{ end }}
 ```
 
 In the above snippet, we've created the `customPage` template, this can then be used as the template name in the CMS form when generating for the page type.
@@ -35,7 +35,7 @@ In the above snippet, we've created the `customPage` template, this can then be 
 You'll notice that in existing templates, certain fields are mapped out as content:
 
 ```
-    {{.Page.Fields.PanelThreeContent | markDown }}
+{{.Page.Fields.PanelThreeContent | markDown }}
 ```
 
 When you generate your own templates, you can use your own field names so that you can manage the content from inside the CMS:
@@ -45,7 +45,7 @@ When you generate your own templates, you can use your own field names so that y
 In the above example, you would be able to read the `MyContent` field by requesting it from the page data in the template like so:
 
 ```
-    {{.Page.Fields.MyContent| markDown }}
+{{.Page.Fields.MyContent| markDown }}
 ```
 
 You do not need to pipe the content through the Markdown filter, but it is advised as it gives you a lot more freedom with regards to how to style content blocks.

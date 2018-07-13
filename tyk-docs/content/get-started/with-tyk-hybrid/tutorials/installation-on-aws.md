@@ -76,15 +76,15 @@ Or alternatively, a more verbose sample that does the same without using the scr
 #cloud-config
 write_files:
   - content: |
-      TYK_GW_LISTENPORT=8080
-      TYK_GW_SECRET="test12345replaceme"
-      TYK_GW_STORAGE_HOST="localhost"
-      TYK_GW_STORAGE_PORT=6379
-      TYK_GW_STORAGE_USERNAME=""
-      TYK_GW_STORAGE_PASSWORD=""
-      TYK_GW_SLAVEOPTIONS_RPCKEY="orgidhere"
-      TYK_GW_SLAVEOPTIONS_APIKEY="apikeyhere"
-    path: /etc/default/tyk-gateway
+    TYK_GW_LISTENPORT=8080
+    TYK_GW_SECRET="test12345replaceme"
+    TYK_GW_STORAGE_HOST="localhost"
+    TYK_GW_STORAGE_PORT=6379
+    TYK_GW_STORAGE_USERNAME=""
+    TYK_GW_STORAGE_PASSWORD=""
+    TYK_GW_SLAVEOPTIONS_RPCKEY="orgidhere"
+    TYK_GW_SLAVEOPTIONS_APIKEY="apikeyhere"
+  path: /etc/default/tyk-gateway
 
 runcmd:
   - [ mv, /etc/init/tyk-gateway.disabled, /etc/init/tyk-gateway.conf ]

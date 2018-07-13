@@ -24,26 +24,26 @@ We're installing on a `t2.micro` because this is a tutorial, you'll need more RA
 
 First, add our GPG key which signs our binaries:
 ```{.copyWrapper}
-    curl https://packagecloud.io/gpg.key | sudo apt-key add -
+curl https://packagecloud.io/gpg.key | sudo apt-key add -
 ```
 
 Run update:
 ```{.copyWrapper}
-    sudo apt-get update
+sudo apt-get update
 ```
 
 Since our repositories are installed via HTTPS, you will need to make sure APT supports this:
 ```{.copyWrapper}
-    sudo apt-get install -y apt-transport-https 
+sudo apt-get install -y apt-transport-https 
 ```
 
 Now lets add the required repos and update again (notice the `-a` flag in the second Tyk commands - this is important!):
 ```{.copyWrapper}
-    echo "deb https://packagecloud.io/tyk/tyk-dashboard/ubuntu/ trusty main" | sudo tee /etc/apt/sources.list.d/tyk_tyk-dashboard.list
-    
-    echo "deb-src https://packagecloud.io/tyk/tyk-dashboard/ubuntu/ trusty main" | sudo tee -a /etc/apt/sources.list.d/tyk_tyk-dashboard.list
-    
-    sudo apt-get update
+echo "deb https://packagecloud.io/tyk/tyk-dashboard/ubuntu/ trusty main" | sudo tee /etc/apt/sources.list.d/tyk_tyk-dashboard.list
+
+echo "deb-src https://packagecloud.io/tyk/tyk-dashboard/ubuntu/ trusty main" | sudo tee -a /etc/apt/sources.list.d/tyk_tyk-dashboard.list
+
+sudo apt-get update
 ```
 
 **What we've done here is:**
@@ -56,7 +56,7 @@ Now lets add the required repos and update again (notice the `-a` flag in the se
 We're now ready to install the Tyk Dashboard. To install run:
 
 ```{.copyWrapper}
-    sudo apt-get install -y tyk-dashboard
+sudo apt-get install -y tyk-dashboard
 ```
 
 
@@ -72,7 +72,7 @@ You need to ensure the MongoDB and Redis services are running before proceeding.
 
 We can set the dashboard up with a helper setup command script. This will get the dashboard set up for the local instance:
 ```{.copyWrapper}
-    sudo /opt/tyk-dashboard/install/setup.sh --listenport=3000 --redishost=localhost --redisport=6379 --mongo=mongodb://127.0.0.1/tyk_analytics --tyk_api_hostname=$HOSTNAME --tyk_node_hostname=http://localhost --tyk_node_port=8080 --portal_root=/portal --domain="XXX.XXX.XXX.XXX"
+sudo /opt/tyk-dashboard/install/setup.sh --listenport=3000 --redishost=localhost --redisport=6379 --mongo=mongodb://127.0.0.1/tyk_analytics --tyk_api_hostname=$HOSTNAME --tyk_node_hostname=http://localhost --tyk_node_port=8080 --portal_root=/portal --domain="XXX.XXX.XXX.XXX"
 ```
 
 > **Note**: Make sure to use the actual DNS hostname or the public IP of your instance as the last parameter.
@@ -91,7 +91,7 @@ What we have done here is:
 
 ### Step 1: Start Tyk Dashboard
 ```{.copyWrapper}
-    sudo service tyk-dashboard start
+sudo service tyk-dashboard start
 ```
 
 
@@ -111,7 +111,7 @@ If all is going well, you will be taken to a log in screen - we'll get to that s
 
 Because we've just entered a license via the UI, we need to make sure that these changes get picked up, so to make sure things run smoothly, we restart the dashboard process (you only need to do this once) and then start the gateway:
 ```{.copyWrapper}
-    sudo service tyk-dashboard restart 
+sudo service tyk-dashboard restart 
 ```
 
 ### Step 4: Bootstrap the Dashboard with an initial User and Organisation
@@ -127,7 +127,7 @@ The best way to add this data is with the Admin API, to make it really easy we'v
 
 **To bootstrap your instance**:
 ```{.copyWrapper}
-    sudo /opt/tyk-dashboard/install/bootstrap.sh [DASHBOARD_HOSTNAME]
+sudo /opt/tyk-dashboard/install/bootstrap.sh [DASHBOARD_HOSTNAME]
 ```
 
 This command tells the bootstrap script to use the localhost as the base for the API calls, you can run the bootstrap remotely and change the first command line parameter to the DNS hostname of your instance.

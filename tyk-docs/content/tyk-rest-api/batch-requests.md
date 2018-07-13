@@ -20,29 +20,29 @@ Batch requests are created by POSTing to the `/{listen_path}/tyk/batch/` endpoin
 
 ```{json}
 {
-    "requests": [
-        {
-            "method": "GET",
-            "headers": {
-                "x-tyk-test": "1",
-                "x-tyk-version": "1.2",
-                "authorization": "1dbc83b9c431649d7698faa9797e2900f"
-            },
-            "body": "",
-            "relative_url": "get"
-        },
-        {
-            "method": "GET",
-            "headers": {
-                "x-tyk-test": "2",
-                "x-tyk-version": "1.2",
-                "authorization": "1dbc83b9c431649d7698faa9797e2900f"
-            },
-            "body": "",
-            "relative_url": "get"
-        }
-    ],
-    "suppress_parallel_execution": false
+  "requests": [
+    {
+      "method": "GET",
+      "headers": {
+        "x-tyk-test": "1",
+        "x-tyk-version": "1.2",
+        "authorization": "1dbc83b9c431649d7698faa9797e2900f"
+      },
+      "body": "",
+      "relative_url": "get"
+  },
+  {
+    "method": "GET",
+    "headers": {
+      "x-tyk-test": "2",
+      "x-tyk-version": "1.2",
+      "authorization": "1dbc83b9c431649d7698faa9797e2900f"
+    },
+    "body": "",
+    "relative_url": "get"
+    }
+  ],
+  "suppress_parallel_execution": false
 }
 ```
 
@@ -52,33 +52,33 @@ A response to the above when pointing at [httpbin](https://httpbin.org/) would l
 
 ```
 [
-    {
-        "relative_url": "get",
-        "code": 200,
-        "headers": {
-            "Access-Control-Allow-Credentials": [
-                "true"
-            ],
-            "Access-Control-Allow-Origin": [
-                "*"
-            ],
-            "Content-Length": [
-                "497"
-            ],
-            "Content-Type": [
-                "application/json"
-            ],
-            "Date": [
-                "Wed, 12 Nov 2014 15:32:43 GMT"
-            ],
-            "Server": [
-                "gunicorn/18.0"
-            ],
-            "Via": [
-                "1.1 vegur"
-            ]
-        },
-        "body": "{
+  {
+    "relative_url": "get",
+    "code": 200,
+    "headers": {
+      "Access-Control-Allow-Credentials": [
+        "true"
+      ],
+      "Access-Control-Allow-Origin": [
+        "*"
+      ],
+      "Content-Length": [
+        "497"
+      ],
+      "Content-Type": [
+        "application/json"
+      ],
+      "Date": [
+        "Wed, 12 Nov 2014 15:32:43 GMT"
+      ],
+      "Server": [
+        "gunicorn/18.0"
+      ],
+      "Via": [
+        "1.1 vegur"
+      ]
+    },
+    "body": "{
   "args": {}, 
   "headers": {
     "Accept-Encoding": "gzip", 
@@ -98,32 +98,32 @@ A response to the above when pointing at [httpbin](https://httpbin.org/) would l
 }"
     },
     {
-        "relative_url": "get",
-        "code": 200,
-        "headers": {
-            "Access-Control-Allow-Credentials": [
-                "true"
-            ],
-            "Access-Control-Allow-Origin": [
-                "*"
-            ],
-            "Content-Length": [
-                "497"
-            ],
-            "Content-Type": [
-                "application/json"
-            ],
-            "Date": [
-                "Wed, 12 Nov 2014 15:32:43 GMT"
-            ],
-            "Server": [
-                "gunicorn/18.0"
-            ],
-            "Via": [
-                "1.1 vegur"
-            ]
-        },
-        "body": "{
+      "relative_url": "get",
+      "code": 200,
+      "headers": {
+        "Access-Control-Allow-Credentials": [
+          "true"
+        ],
+        "Access-Control-Allow-Origin": [
+          "*"
+        ],
+        "Content-Length": [
+          "497"
+        ],
+        "Content-Type": [
+          "application/json"
+        ],
+        "Date": [
+          "Wed, 12 Nov 2014 15:32:43 GMT"
+        ],
+        "Server": [
+          "gunicorn/18.0"
+        ],
+        "Via": [
+          "1.1 vegur"
+        ]
+      },
+      "body": "{
   "args": {}, 
   "headers": {
     "Accept-Encoding": "gzip", 
@@ -169,17 +169,17 @@ This behaviour can be bypassed on a case-by-case basis by using the `suppress_re
 
 ```{json}
 "response_processors": [
-    {
-        "name": "header_injector",
-        "options": {
-            "add_headers": {"name": "value"},
-            "remove_headers": ["name"]
-        }
-    },
-    {
-      "name": "response_body_transform",
-      "options": {}
-    }
+  {
+      "name": "header_injector",
+      "options": {
+          "add_headers": {"name": "value"},
+          "remove_headers": ["name"]
+      }
+  },
+  {
+    "name": "response_body_transform",
+    "options": {}
+  }
 ]
 ```
     

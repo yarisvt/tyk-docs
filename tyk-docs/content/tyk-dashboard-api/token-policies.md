@@ -181,22 +181,22 @@ Content-Length: <body length>
 authorization: 7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 {
-    "last_updated": "0001-01-01T00:00:00Z",
-    "rate": 1000,
-    "per": 60,
-    "quota_max": -1,
-    "quota_renews": 1481546970,
-    "quota_remaining": 0,
-    "quota_renewal_rate": 60,
-    "access_rights": {
-        "35447b1469df4e846894b1e87372f6d7": {
-            "api_id": "35447b1469df4e846894b1e87372f6d7",
-            "api_name": "My API",
-            "versions": ["Default"]
-        }
-    },
-    "name": "My Policy",
-    "active": true
+  "last_updated": "0001-01-01T00:00:00Z",
+  "rate": 1000,
+  "per": 60,
+  "quota_max": -1,
+  "quota_renews": 1481546970,
+  "quota_remaining": 0,
+  "quota_renewal_rate": 60,
+  "access_rights": {
+    "35447b1469df4e846894b1e87372f6d7": {
+      "api_id": "35447b1469df4e846894b1e87372f6d7",
+      "api_name": "My API",
+      "versions": ["Default"]
+    }
+  },
+  "name": "My Policy",
+  "active": true
 }    
 ```
 
@@ -204,9 +204,9 @@ authorization: 7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 ```
 {
-    "Status": "OK",
-    "Message": "56b9fed54e86e40001000002",
-    "Meta": "null"
+  "Status": "OK",
+  "Message": "56b9fed54e86e40001000002",
+  "Meta": "null"
 }
 ```
 
@@ -266,9 +266,9 @@ authorization: 7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 ```
 {
-    "Status": "OK",
-    "Message": "Data updated",
-    "Meta": ""
+  "Status": "OK",
+  "Message": "Data updated",
+  "Meta": ""
 }
 ```
 

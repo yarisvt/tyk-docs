@@ -19,12 +19,12 @@ To isolate On-Premises installations across data centers you will need to use ou
 Setting up a gateway to be a shard, or a zone, is very easy. All you do is tell the node in the tyk.conf file what tags to respect and that it is segmented:
 
 ```{.copyWrapper}
-	...
-	"db_app_conf_options": {
-	    "node_is_segmented": true,
-	    "tags": ["qa", "uat"]
-	},
-	...
+...
+"db_app_conf_options": {
+  "node_is_segmented": true,
+  "tags": ["qa", "uat"]
+},
+...
 ```
 
 Tags are always treated as OR conditions, so this node will pick up all APIs that are marked as `qa` or `uat`.
@@ -48,7 +48,7 @@ When you save the API, the tags will become immediately active, and if any gatew
 In your API definition, add a tags section to the root of the API Definition:
 
 ```{.copyWrapper}
-	"tags": ["health"]
+"tags": ["health"]
 ```
 
 This will set the tags for the API and when the API is loaded by a gateway, these tags will be transferred in to the analytics data set.

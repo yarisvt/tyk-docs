@@ -45,29 +45,29 @@ This guide assumes the following:
 
    Example of a profiles.json:
 ```{.json}
-   {
-      "ActionType": "GenerateOrLoginUserProfile",
-      "ID": "{PROFILE-NAME-IN-TIB}",
-      "OrgID": "5a54a74550200d0001975584",
-      "IdentityHandlerConfig": {
-          "DashboardCredential": "{DASHBOARD-SECRET}"
-      },
-      "ProviderConfig": {
-          "CallbackBaseURL": "http://{TIB-DOMAIN}:{TIB-PORT}",
-          "FailureRedirect": "http://{DASHBOARD-DOMAIN}:{DASHBOARD-PORT}/?fail=true",
-          "UseProviders": [
-          {
-              "Key": "{Okta-App-Client-ID}",
-              "Secret": "{Okta-App-Client-SECRET}",
-              "DiscoverURL": "https://{IdP-DOMAIN}.oktapreview.com/oauth2/default/.well-known/openid-configuration",
-              "Name": "openid-connect"
-          }
-      ]
-      },
-      "ProviderName": "SocialProvider",
-      "ReturnURL": "http://{DASHBOARD-DOMAIN}:{DASHBOARD-PORT}/tap",
-      "Type": "redirect"
-  }
+{
+  "ActionType": "GenerateOrLoginUserProfile",
+  "ID": "{PROFILE-NAME-IN-TIB}",
+  "OrgID": "5a54a74550200d0001975584",
+  "IdentityHandlerConfig": {
+    "DashboardCredential": "{DASHBOARD-SECRET}"
+  },
+  "ProviderConfig": {
+    "CallbackBaseURL": "http://{TIB-DOMAIN}:{TIB-PORT}",
+    "FailureRedirect": "http://{DASHBOARD-DOMAIN}:{DASHBOARD-PORT}/?fail=true",
+    "UseProviders": [
+    {
+      "Key": "{Okta-App-Client-ID}",
+      "Secret": "{Okta-App-Client-SECRET}",
+      "DiscoverURL": "https://{IdP-DOMAIN}.oktapreview.com/oauth2/default/.well-known/openid-configuration",
+      "Name": "openid-connect"
+    }
+  ]
+  },
+  "ProviderName": "SocialProvider",
+  "ReturnURL": "http://{DASHBOARD-DOMAIN}:{DASHBOARD-PORT}/tap",
+  "Type": "redirect"
+}
 ```
 
 

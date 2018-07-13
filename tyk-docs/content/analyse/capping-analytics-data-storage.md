@@ -18,30 +18,30 @@ To add an expiry index to your analytics log data simply follow these three step
 Run this command in your preferred MongoDB tool:
 
 ```{.copyWrapper}
-    db.tyk_analytics.createIndex( { "expireAt": 1 }, { expireAfterSeconds: 0 } )
+db.tyk_analytics.createIndex( { "expireAt": 1 }, { expireAfterSeconds: 0 } )
 ```
 
 ### Step 2. Create an Organisation Quota
 
 ```{.copyWrapper}
-    curl --header "x-tyk-authorization: {tyk-gateway-secret}" --header "content-type: application/json" --data @expiry.txt http://{tyk-gateway-ip}:{port}/tyk/org/keys/{org-id}
+curl --header "x-tyk-authorization: {tyk-gateway-secret}" --header "content-type: application/json" --data @expiry.txt http://{tyk-gateway-ip}:{port}/tyk/org/keys/{org-id}
 ```
 
 @expiry.txt:
 
 ```{.copyWrapper}
-    {
-    "allowance": 10000,
-    "rate": 10000,
-    "per": 0,
-    "expires": 0,
-    "quota_max": -1,
-    "quota_renews": 1406121006,
-    "quota_remaining": 100000,
-    "quota_renewal_rate": 100000,
-    "org_id": "{your-org-id}",
-    "data_expires": 86400
-    }
+{
+"allowance": 10000,
+"rate": 10000,
+"per": 0,
+"expires": 0,
+"quota_max": -1,
+"quota_renews": 1406121006,
+"quota_remaining": 100000,
+"quota_renewal_rate": 100000,
+"org_id": "{your-org-id}",
+"data_expires": 86400
+}
 ```
 
 Set the data expires to a time in seconds for it to expire. Tyk will calculate the expiry date for you.
@@ -49,8 +49,8 @@ Set the data expires to a time in seconds for it to expire. Tyk will calculate t
 ### Step 3: Make Sure the Setting is Enabled in `tyk.conf`
 
 ```{.copyWrapper}
-    "enforce_org_data_age": true, 
-    "enforce_org_quota": false
+"enforce_org_data_age": true, 
+"enforce_org_quota": false
 ```
 
 > **Note**: This will only work for v2.2.0.23 or above, if you are running an earlier patch, you will need to `enforce_org_quota` set to `true`.
@@ -64,8 +64,8 @@ Set the data expires to a time in seconds for it to expire. Tyk will calculate t
 Run this command in your MongoDB shell:
 
 ```{.copyWrapper}
-    use tyk_analytics
-    db.runCommand({"convertToCapped": "tyk_analytics", size: 100000});
+use tyk_analytics
+db.runCommand({"convertToCapped": "tyk_analytics", size: 100000});
 ```
 
 ### Adding the Size Cap if using a mongo_selective Pump
@@ -74,5 +74,5 @@ The `mongo_selective` pump stores data on a per organisation basis. You will hav
 
 
 ```{.copyWrapper}
-    db.runCommand({"convertToCapped": "z_tyk_analyticz_<org-id>", size: 100000});
+db.runCommand({"convertToCapped": "z_tyk_analyticz_<org-id>", size: 100000});
 ```

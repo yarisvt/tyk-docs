@@ -39,13 +39,13 @@ To enforce a request size on your API, from your **Endpoint Designer**:
 To set up this middleware in your API Definition, simply add a new section to the `extended_paths` block of your API Definition configuration called `size_limits`:
 
 ```{.copyWrapper}
-    "size_limits": [
-        {
-          "path": "widget/{id}",
-          "method": "PUT",
-          "size_limit": 25
-        }
-      ]
+"size_limits": [
+  {
+    "path": "widget/{id}",
+    "method": "PUT",
+    "size_limit": 25
+  }
+  ]
 ```
 
 The size limit must be in in **bytes**.
@@ -54,7 +54,7 @@ The size limit must be in in **bytes**.
 
 To add a global check for size limits, simply add:
 ```
-    "global_size_limit": 500 
+"global_size_limit": 500 
 ```
 
 

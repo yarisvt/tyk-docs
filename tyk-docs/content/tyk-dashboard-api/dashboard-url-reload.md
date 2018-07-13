@@ -30,6 +30,6 @@ admin-auth:12345
 #### Sample Response
 ```
 {
-    "status": "ok"
+  "status": "ok"
 }
 ```

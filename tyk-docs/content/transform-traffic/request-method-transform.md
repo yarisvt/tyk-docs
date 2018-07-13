@@ -11,11 +11,11 @@ It is now possible, as of Tyk Gateway v2.2, to change the method of a request. T
 
 ```{.copyWrapper}
 method_transforms: [
-        {
-            path: "post",
-            method: "GET",
-            to_method: "POST"
-        }
+  {
+    path: "post",
+    method: "GET",
+    to_method: "POST"
+  }
 ],
 ```
 

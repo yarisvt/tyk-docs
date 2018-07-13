@@ -25,9 +25,9 @@ These are the number of allowed requests for the specified `per` value, and need
 
 So, if you want to restrict an organisation rate limit to 100 requests per second you will need to add the following to your request:
 ```
-    "allowance": 100,
-    "rate": 100,
-    "per": 5
+  "allowance": 100,
+  "rate": 100,
+  "per": 5
 ```
 
 > **NOTE:** if you don't want to have organisation level rate limiting, set `"rate"` or `"per"` to zero, or don't add them to your request.
@@ -61,22 +61,22 @@ Schema validation is implemented as for the rest of our plugins, and its configu
 The schema must be a draft v4 JSON Schema spec, see http://json-schema.org/specification-links.html#draft-4 for details. An example schema can look like this:
 ```
 {
-    "title": "Person",
-    "type": "object",
-    "properties": {
-        "firstName": {
-            "type": "string"
-        },
-        "lastName": {
-            "type": "string"
-        },
-        "age": {
-            "description": "Age in years",
-            "type": "integer",
-            "minimum": 0
-        }
+  "title": "Person",
+  "type": "object",
+  "properties": {
+    "firstName": {
+      "type": "string"
     },
-    "required": ["firstName", "lastName"]
+    "lastName": {
+      "type": "string"
+    },
+    "age": {
+      "description": "Age in years",
+      "type": "integer",
+      "minimum": 0
+    }
+  },
+  "required": ["firstName", "lastName"]
 }
 ```
 
@@ -88,22 +88,22 @@ The schema must be a draft v4 JSON Schema spec, see http://json-schema.org/speci
 This endpoint allows you to retrieve a list of all current tokens and their expiry date issued for a provided API ID and OAuth-client ID in the following format. New endpoint will work only for newly created tokens:
 ```
 [
-    {
-        "code": "5a7d110be6355b0c071cc339327563cb45174ae387f52f87a80d2496",
-        "expires": 1518158407
-    },
-    {
-        "code": "5a7d110be6355b0c071cc33988884222b0cf436eba7979c6c51d6dbd",
-        "expires": 1518158594
-    },
-    {
-        "code": "5a7d110be6355b0c071cc33990bac8b5261041c5a7d585bff291fec4",
-        "expires": 1518158638
-    },
-    {
-        "code": "5a7d110be6355b0c071cc339a66afe75521f49388065a106ef45af54",
-        "expires": 1518159792
-    }
+  {
+    "code": "5a7d110be6355b0c071cc339327563cb45174ae387f52f87a80d2496",
+    "expires": 1518158407
+  },
+  {
+    "code": "5a7d110be6355b0c071cc33988884222b0cf436eba7979c6c51d6dbd",
+    "expires": 1518158594
+  },
+  {
+    "code": "5a7d110be6355b0c071cc33990bac8b5261041c5a7d585bff291fec4",
+    "expires": 1518158638
+  },
+  {
+    "code": "5a7d110be6355b0c071cc339a66afe75521f49388065a106ef45af54",
+    "expires": 1518159792
+  }
 ]
 ```
 
@@ -126,9 +126,9 @@ Public keys are stored inside the Tyk certificate storage, so you can use Certif
 You can define them globally, from the Tyk Gateway configuration file using the `security.pinned_public_keys` option, or via an API definition `pinned_public_keys` field, using the following format:
 ```
 {
-    "example.com": "<key-id>",
-    "foo.com": "/path/to/pub.pem",
-    "*.wild.com": "<key-id>,<key-id-2>"
+  "example.com": "<key-id>",
+  "foo.com": "/path/to/pub.pem",
+  "*.wild.com": "<key-id>,<key-id-2>"
 }
 ```
 
@@ -299,13 +299,13 @@ There is also a change in the reply from the `GET /api/portal/developers` endpoi
 was approved, i.e.:
 ```
 "oauth_clients": {
-    "5a52dfce1c3b4802c10053c8": [
-        {
-            "client_id": "203defa5162b42708c6bcafcfa28c9fb",
-            "redirect_uri": "http://new1.com,http://new2.com",
-            "secret": "YjUxZDJjNmYtMzgwMy00YzllLWI2YzctYTUxODQ4ODYwNWQw"
-        }
-    ]
+  "5a52dfce1c3b4802c10053c8": [
+    {
+      "client_id": "203defa5162b42708c6bcafcfa28c9fb",
+      "redirect_uri": "http://new1.com,http://new2.com",
+      "secret": "YjUxZDJjNmYtMzgwMy00YzllLWI2YzctYTUxODQ4ODYwNWQw"
+    }
+  ]
 },
 ```
 
@@ -341,9 +341,9 @@ Host: localhost:3000
 admin-auth: 12345
     
 {
-    "ForSection": "dashboard",
-    "Email": "user@example.com",
-    "OrgID": "588b4f0bb275ff0001cc7471"
+  "ForSection": "dashboard",
+  "Email": "user@example.com",
+  "OrgID": "588b4f0bb275ff0001cc7471"
 }
 ```
 

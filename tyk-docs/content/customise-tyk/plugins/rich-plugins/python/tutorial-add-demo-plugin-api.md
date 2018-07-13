@@ -13,38 +13,38 @@ To add a Python plugin to your API, you must specify the bundle name using the `
 
 ```{.json}
 {
-    "name": "Tyk Test API",
-    "api_id": "1",
-    "org_id": "default",
-    "definition": {
-        "location": "header",
-        "key": "version"
-    },
-    "auth": {
-        "auth_header_name": "authorization"
-    },
-    "use_keyless": true,
-    "version_data": {
-        "not_versioned": true,
-        "versions": {
-            "Default": {
-                "name": "Default",
-                "expires": "3000-01-02 15:04",
-                "use_extended_paths": true,
-                "extended_paths": {
-                    "ignored": [],
-                    "white_list": [],
-                    "black_list": []
-                }
-            }
+  "name": "Tyk Test API",
+  "api_id": "1",
+  "org_id": "default",
+  "definition": {
+    "location": "header",
+    "key": "version"
+  },
+  "auth": {
+      "auth_header_name": "authorization"
+  },
+  "use_keyless": true,
+  "version_data": {
+    "not_versioned": true,
+    "versions": {
+      "Default": {
+        "name": "Default",
+        "expires": "3000-01-02 15:04",
+        "use_extended_paths": true,
+        "extended_paths": {
+          "ignored": [],
+          "white_list": [],
+          "black_list": []
         }
-    },
-    "proxy": {
-        "listen_path": "/quickstart/",
-        "target_url": "http://httpbin.org",
-        "strip_listen_path": true
-    },
-    "custom_middleware_bundle": "test-bundle"
+      }
+    }
+  },
+  "proxy": {
+    "listen_path": "/quickstart/",
+    "target_url": "http://httpbin.org",
+    "strip_listen_path": true
+  },
+  "custom_middleware_bundle": "test-bundle"
 }
 ```
 

@@ -26,11 +26,11 @@ With Tyk, you can set up some specific claims that will then enforce a token pol
 Currently HMAC Signing and RSA Public/Private key signing is supported. To enable centralised JWT on an API, add the following to the root of your API Definition:
 
 ```{.copyWrapper}
-    "enable_jwt": true,
-    "jwt_source": "BASE64-Encoded secret",
-    "jwt_identity_base_field": "sub",
-    "jwt_policy_field_name": "policy-id",
-    "jwt_signing_method": "rsa"
+  "enable_jwt": true,
+  "jwt_source": "BASE64-Encoded secret",
+  "jwt_identity_base_field": "sub",
+  "jwt_policy_field_name": "policy-id",
+  "jwt_signing_method": "rsa"
 ```
 
 This setup will use the `sub` claim as the base for this tokens identity, and this will form the basis of the token Tyk will use internally to enforce rate limits and quotas, the `policy-id` (e.g `72ab02b3be743101c6132342`) is the policy to apply to this token, the policy will be applied the first time the token is seen and then modified if the policy changes in the claim. This means you can control rate limits very easily using claims.
@@ -74,16 +74,16 @@ Tyk supports validating an inbound token against a stored key. Tyk will not issu
 Currently HMAC Signing and RSA Public/Private key signing is supported. To enable JWT on an API, add this to your API Definition:
 
 ```{.copyWrapper}
-    "enable_jwt": true,
-    "jwt_signing_method": "rsa"
+"enable_jwt": true,
+"jwt_signing_method": "rsa"
 ```
 
 Then set your tokens up with these new fields when you create them:
 
 ```{.copyWrapper}
-    "jwt_data": {
-        "secret": "Secret"
-    }
+"jwt_data": {
+  "secret": "Secret"
+}
 ```
     
 

@@ -25,26 +25,26 @@ We're installing on a `t2.micro` because this is a tutorial, you'll need more RA
 
 First, add our GPG key which signs our binaries:
 ```{.copyWrapper}
-    curl https://packagecloud.io/gpg.key | sudo apt-key add -
+curl https://packagecloud.io/gpg.key | sudo apt-key add -
 ```
 
 Run update:
 ```{.copyWrapper}
-    sudo apt-get update
+sudo apt-get update
 ```
 
 Since our repositories are installed via HTTPS, you will need to make sure APT supports this:
 ```{.copyWrapper}
-    sudo apt-get install -y apt-transport-https 
+sudo apt-get install -y apt-transport-https 
 ```
 
 Now lets add the required repos and update again (notice the `-a` flag in the second Tyk commands - this is important!):
 ```{.copyWrapper}
-    echo "deb https://packagecloud.io/tyk/tyk-gateway/ubuntu/ trusty main" | sudo tee /etc/apt/sources.list.d/tyk_tyk-gateway.list
-    
-    echo "deb-src https://packagecloud.io/tyk/tyk-gateway/ubuntu/ trusty main" | sudo tee -a /etc/apt/sources.list.d/tyk_tyk-gateway.list
-    
-    sudo apt-get update
+echo "deb https://packagecloud.io/tyk/tyk-gateway/ubuntu/ trusty main" | sudo tee /etc/apt/sources.list.d/tyk_tyk-gateway.list
+
+echo "deb-src https://packagecloud.io/tyk/tyk-gateway/ubuntu/ trusty main" | sudo tee -a /etc/apt/sources.list.d/tyk_tyk-gateway.list
+
+sudo apt-get update
 ```
 
 **What we've done here is:**
@@ -56,7 +56,7 @@ Now lets add the required repos and update again (notice the `-a` flag in the se
 
 We're now ready to install the Tyk Gateway. To install it, run:
 ```{.copyWrapper}
-    sudo apt-get install -y tyk-gateway
+sudo apt-get install -y tyk-gateway
 ```
 
 What we've done here is instructed apt-get to install the Tyk Gateway without prompting, wait for the downloads to complete.
@@ -73,7 +73,7 @@ This configuration assumes that you have already installed the Tyk Dashboard, an
 
 You can set up the core settings for Tyk Gateway with a single setup script, however for more involved deployments, you will want to provide your own configuration file. To get things running let's run:
 ```{.copyWrapper}
-    sudo /opt/tyk-gateway/install/setup.sh --dashboard=1 --listenport=8080 --redishost=localhost --redisport=6379
+sudo /opt/tyk-gateway/install/setup.sh --dashboard=1 --listenport=8080 --redishost=localhost --redisport=6379
 ```
 
 What we've done here is told the setup script that:
@@ -87,7 +87,7 @@ What we've done here is told the setup script that:
 
 The Tyk Gateway can be started now that it is configured. Use this command to start the Tyk Gateway:
 ```{.copyWrapper}
-    sudo service tyk-gateway start
+sudo service tyk-gateway start
 ```
 
 #### Pro Tip: Domains with Tyk Gateway

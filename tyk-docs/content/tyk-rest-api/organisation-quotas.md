@@ -47,14 +47,14 @@ x-tyk-authorization: 352d20ee67be67f6340b4c0605b044bc4
 Cache-Control: no-cache
 
 {
-    "quota_max": 60,
-    "quota_renews": 1406121006,
-    "quota_remaining": 0,
-    "quota_renewal_rate": 60,
-    "allowance": 100,
-    "rate": 100,
-    "per": 5,
-    "org_id": "53ac07777cbb8c2d53000002"
+  "quota_max": 60,
+  "quota_renews": 1406121006,
+  "quota_remaining": 0,
+  "quota_renewal_rate": 60,
+  "allowance": 100,
+  "rate": 100,
+  "per": 5,
+  "org_id": "53ac07777cbb8c2d53000002"
 }
 ```
 
@@ -68,10 +68,10 @@ Where the request fields:
 
 ```
 {
-    "key": "53ac07777cbb8c2d53000002",
-    "status": "ok",
-    "action": "create",
-    "is_inactive": false
+  "key": "53ac07777cbb8c2d53000002",
+  "status": "ok",
+  "action": "create",
+  "is_inactive": false
 }
 ```
 
@@ -103,14 +103,14 @@ x-tyk-authorization: 352d20ee67be67f6340b4c0605b044bc4
 Cache-Control: no-cache
 
 {
-    "quota_max": 60,
-    "quota_renews": 1406121006,
-    "quota_remaining": 0,
-    "quota_renewal_rate": 60,
-    "allowance": 100,
-    "rate": 100,
-    "per": 5,
-    "org_id": "53ac07777cbb8c2d53000002"
+  "quota_max": 60,
+  "quota_renews": 1406121006,
+  "quota_remaining": 0,
+  "quota_renewal_rate": 60,
+  "allowance": 100,
+  "rate": 100,
+  "per": 5,
+  "org_id": "53ac07777cbb8c2d53000002"
 }
 ```
 
@@ -118,9 +118,9 @@ Cache-Control: no-cache
 
 ```
 {
-    "key": "53ac07777cbb8c2d53000002",
-    "status": "ok",
-    "action": "modified"
+  "key": "53ac07777cbb8c2d53000002",
+  "status": "ok",
+  "action": "modified"
 }
 ```
 
@@ -147,9 +147,9 @@ Cache-Control: no-cache
 
 ```
 {
-    "key": "53ac07777cbb8c2d53000002",
-    "status": "ok",
-    "action": "deleted"
+  "key": "53ac07777cbb8c2d53000002",
+  "status": "ok",
+  "action": "deleted"
 }
 ```
 
@@ -178,11 +178,11 @@ Cache-Control: no-cache
 
 ```
 {
-    "keys": [
-        "53ac07777cbb8c2d53000002c29ebe0faf6540e0673d6af76b270088",
-        "53ac07777cbb8c2d530000027776e9f910e94cd9552c22c908d2d081",
-        "53ac07777cbb8c2d53000002d698728ce964432d7167596bc005c5fc",
-        "53ac07777cbb8c2d530000028210d848c5854cb35917b2f013529d95"
-    ]
+  "keys": [
+    "53ac07777cbb8c2d53000002c29ebe0faf6540e0673d6af76b270088",
+    "53ac07777cbb8c2d530000027776e9f910e94cd9552c22c908d2d081",
+    "53ac07777cbb8c2d53000002d698728ce964432d7167596bc005c5fc",
+    "53ac07777cbb8c2d530000028210d848c5854cb35917b2f013529d95"
+  ]
 }
 ```

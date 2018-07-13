@@ -23,19 +23,19 @@ Using Tyk, you would set up your API Definition with these additions to the `ext
 
 ```{.copyWrapper}
 "extended_paths": {
-    "ignored": [],
-    "white_list": [],
-    "black_list": [],
-    "cache": ["get"],
-    "transform": [],
-    "transform_headers": [
-        {
-            "delete_headers": ["authorization"],
-            "add_headers": {"x-widgets-secret": "the-secret-widget-key-is-secret"},
-            "path": "widgets{rest}",
-            "method": "GET"
-        }
-    ]
+  "ignored": [],
+  "white_list": [],
+  "black_list": [],
+  "cache": ["get"],
+  "transform": [],
+  "transform_headers": [
+    {
+      "delete_headers": ["authorization"],
+      "add_headers": {"x-widgets-secret": "the-secret-widget-key-is-secret"},
+      "path": "widgets{rest}",
+      "method": "GET"
+    }
+  ]
 }
 ```
 
@@ -79,21 +79,21 @@ In some cases you may wish to add a secure header to all outbound requests (e.g.
 
 ```{.copyWrapper}
 "version_data": {
-    "versions": {
-        "Default": {
-        ...
-        "global_headers": {
-            "X-Static": "foo",
-            "X-Request-ID":"$tyk_context.request_id",
-            "X-Path": "$tyk_context.path",
-            "X-Remote-Addr": "$tyk_context.remote_addr"
-        },
-        "global_headers_remove": [
-            "auth_id"
-        ]
-        ...
-        }
+  "versions": {
+    "Default": {
+    ...
+    "global_headers": {
+      "X-Static": "foo",
+      "X-Request-ID":"$tyk_context.request_id",
+      "X-Path": "$tyk_context.path",
+      "X-Remote-Addr": "$tyk_context.remote_addr"
+    },
+    "global_headers_remove": [
+      "auth_id"
+    ]
+    ...
     }
+  }
 },
 ```
 
@@ -115,8 +115,8 @@ Say in your session object you have included the following metadata:
 
 ```
 "meta_data": {
-    "uid": 12345,
-    "username": "norman_bates"
+  "uid": 12345,
+  "username": "norman_bates"
 }
 ```
 
@@ -124,12 +124,12 @@ To use this in your header transform, your API definition path would be:
 
 ```{.copyWrapper}
 "transform_headers": [
-    {
-        "delete_headers": [],
-        "add_headers": {"user-id": "$tyk_meta.uid", "user-name": "$tyk_meta.username"},
-        "path": "widgets/{id}",
-        "method": "GET"
-    },
+  {
+    "delete_headers": [],
+    "add_headers": {"user-id": "$tyk_meta.uid", "user-name": "$tyk_meta.username"},
+    "path": "widgets/{id}",
+    "method": "GET"
+  },
 ]
 ```
 
@@ -172,25 +172,25 @@ For more information, see [Context Variables][5].
 ### Example `global_headers` section
 ```{.copyWrapper}
 "version_data": {
-    "not_versioned": true,
-    "versions": {
-        "v1": {
-            "name": "v1",
-            "expires": "2100-01-02 15:04",
-            "use_extended_paths": true,
-            "paths": {
-                "ignored": [],
-                "white_list": [],
-                "black_list": []
-            },
-            "global_headers":{
-                "X-Static": "foo",
-                "X-Request-ID":"$tyk_context.request_id",
-                "X-Path": "$tyk_context.path",
-                "X-Remote-Addr": "$tyk_context.remote_addr"
-            }
-        }
+  "not_versioned": true,
+  "versions": {
+    "v1": {
+      "name": "v1",
+      "expires": "2100-01-02 15:04",
+      "use_extended_paths": true,
+      "paths": {
+        "ignored": [],
+        "white_list": [],
+        "black_list": []
+      },
+      "global_headers":{
+        "X-Static": "foo",
+        "X-Request-ID":"$tyk_context.request_id",
+        "X-Path": "$tyk_context.path",
+        "X-Remote-Addr": "$tyk_context.remote_addr"
+      }
     }
+  }
 }
 ```
 

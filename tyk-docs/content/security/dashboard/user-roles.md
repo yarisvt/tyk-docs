@@ -28,18 +28,18 @@ Selecting the **Account is Admin** checkbox from the Dashboard gives the user fu
 The permissions object, when fully set as an API entry or in MongoDB, looks like this:
 
 ```{.copyWrapper}
-    "user_permissions": {
-        "analytics": "read",
-        "apis": "write",
-        "hooks": "write",
-        "idm": "write",
-        "keys": "write",
-        "policy": "write",
-        "portal": "write",
-        "system": "write",
-        "users": "write",
-        "user_groups": "write"
-     }
+"user_permissions": {
+  "analytics": "read",
+  "apis": "write",
+  "hooks": "write",
+  "idm": "write",
+  "keys": "write",
+  "policy": "write",
+  "portal": "write",
+  "system": "write",
+  "users": "write",
+  "user_groups": "write"
+ }
 ```
 
 The way the permissions object works is that:

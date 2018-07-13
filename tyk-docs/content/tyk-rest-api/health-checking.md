@@ -54,10 +54,10 @@ Cache-Control: no-cache
 
 ```
 {
-    "throttle_requests_per_second": 0,
-    "quota_violations_per_second": 0,
-    "key_failures_per_second": 0,
-    "average_upstream_latency": 0,
-    "average_requests_per_second": 0
+  "throttle_requests_per_second": 0,
+  "quota_violations_per_second": 0,
+  "key_failures_per_second": 0,
+  "average_upstream_latency": 0,
+  "average_requests_per_second": 0
 }
 ```

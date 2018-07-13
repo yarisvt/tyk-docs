@@ -24,20 +24,20 @@ Adding the middleware plugin is as simple as adding it to your definition file i
 ...
 "event_handlers": {},
 "custom_middleware": {
-    "pre": [
-        {
-            "name": "sampleMiddleware",
-            "path": "middleware/sample.js",
-            "require_session": false
-        }
-    ],
-    "post": [
-        {
-            "name": "sampleMiddleware",
-            "path": "middleware/sample.js",
-            "require_session": false
-        }
-    ]
+  "pre": [
+    {
+      "name": "sampleMiddleware",
+      "path": "middleware/sample.js",
+      "require_session": false
+    }
+  ],
+  "post": [
+    {
+      "name": "sampleMiddleware",
+      "path": "middleware/sample.js",
+      "require_session": false
+    }
+  ]
 },
 "enable_batch_request_support": false,
 ...

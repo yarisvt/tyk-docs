@@ -30,24 +30,24 @@ The Proxy provider can do some clever things, such as extract JSON data from the
 The configuration below will proxy a request to `http://{TARGET-HOSTNAME}:{PORT}/` and evaluate the response status code, if the status code returned is `200` then TIB will assume the response is JSON (`"ResponseIsJson": true`) to extract an access token (e.g. if this is an OAuth pass-through request) and try and find an identity to bind the Dashboard user to in the `user_name` JSON field of the response object (`"UsernameField": "user_name"`):
 
 ```{.copyWrapper}
-    {
-        "ActionType": "GenerateOrLoginUserProfile",
-        "ID": "7",
-        "OrgID": "{YOUR-ORG-ID}",
-        "ProviderConfig": {
-            "AccessTokenField": "access_token",
-            "ExtractUserNameFromBasicAuthHeader": false,
-            "OKCode": 200,
-            "OKRegex": "",
-            "OKResponse": "",
-            "ResponseIsJson": true,
-            "TargetHost": "http://{TARGET-HOSTNAME}:{PORT}/",
-            "UsernameField": "user_name"
-        },
-        "ProviderName": "ProxyProvider",
-        "ReturnURL": "http://{DASH-DOMAIN}:{DASH-PORT}/tap",
-        "Type": "redirect"
-    }
+{
+  "ActionType": "GenerateOrLoginUserProfile",
+  "ID": "7",
+  "OrgID": "{YOUR-ORG-ID}",
+  "ProviderConfig": {
+    "AccessTokenField": "access_token",
+    "ExtractUserNameFromBasicAuthHeader": false,
+    "OKCode": 200,
+    "OKRegex": "",
+    "OKResponse": "",
+    "ResponseIsJson": true,
+    "TargetHost": "http://{TARGET-HOSTNAME}:{PORT}/",
+    "UsernameField": "user_name"
+  },
+  "ProviderName": "ProxyProvider",
+  "ReturnURL": "http://{DASH-DOMAIN}:{DASH-PORT}/tap",
+  "Type": "redirect"
+}
 ```
 
 

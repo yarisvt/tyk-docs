@@ -41,13 +41,13 @@ These tokens can be set as a *header, url parameter, or cookie name of a request
 The name of the key can be defined as part of the API definition under the `auth` section of an API Definition file:
 
 ```{.copyWrapper}
-    "auth": {
-        "auth_header_name": "authorization",
-        "use_param": false,
-        "param_name": "",
-        "use_cookie": false,
-        "cookie_name": ""
-    },
+"auth": {
+  "auth_header_name": "authorization",
+  "use_param": false,
+  "param_name": "",
+  "use_cookie": false,
+  "cookie_name": ""
+},
 ```
 
 To use URL query parameters instead of a header, set the `auth.use_param` setting in your API definition to `true`. 

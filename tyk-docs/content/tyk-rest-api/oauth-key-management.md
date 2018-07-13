@@ -27,8 +27,8 @@ x-tyk-authorization: 352d20ee67be67f6340b4c0605b044b7
 Cache-Control: no-cache
 
 {
-    "api_id": "25348e8cf157409b52e39357fd9578f1",
-    "redirect_uri": "http://client-app.com/oauth-redirect/"
+  "api_id": "25348e8cf157409b52e39357fd9578f1",
+  "redirect_uri": "http://client-app.com/oauth-redirect/"
 }
 ```
 
@@ -36,9 +36,9 @@ Cache-Control: no-cache
 
 ```
 {
-    "client_id": "061ba634e6644b40633fa9456b138f4b",
-    "secret": "MjA3OGEyNzctZTlmZC00YzYzLTZkMDItNDJlYzJkZTg2Mjcy",
-    "redirect_uri": "http://client-app.com/oauth-redirect/"
+  "client_id": "061ba634e6644b40633fa9456b138f4b",
+  "secret": "MjA3OGEyNzctZTlmZC00YzYzLTZkMDItNDJlYzJkZTg2Mjcy",
+  "redirect_uri": "http://client-app.com/oauth-redirect/"
 }
 ```
 
@@ -72,9 +72,9 @@ Cache-Control: no-cache
 
 ```
 {
-    "key": "061ba634e6644b40633fa9456b138f4b",
-    "status": "ok",
-    "action": "deleted"
+  "key": "061ba634e6644b40633fa9456b138f4b",
+  "status": "ok",
+  "action": "deleted"
 }
 ```
 
@@ -102,16 +102,16 @@ Cache-Control: no-cache
 
 ```
 [
-    {
-        "client_id": "03ae189a18f941024e6a870d4dfa7ae0",
-        "secret": "ZDY4NWY5NzctMDU0MS00MWQ1LTQwODYtNGUxZjdhMDg1ODY4",
-        "redirect_uri": "http://client-app.com/oauth-redirect/"
-    },
-    {
-        "client_id": "061ba634e6644b40633fa9456b138f4b",
-        "secret": "MjA3OGEyNzctZTlmZC00YzYzLTZkMDItNDJlYzJkZTg2Mjcy",
-        "redirect_uri": "http://client-app2.com/oauth-redirect/"
-    }
+  {
+    "client_id": "03ae189a18f941024e6a870d4dfa7ae0",
+    "secret": "ZDY4NWY5NzctMDU0MS00MWQ1LTQwODYtNGUxZjdhMDg1ODY4",
+    "redirect_uri": "http://client-app.com/oauth-redirect/"
+  },
+  {
+    "client_id": "061ba634e6644b40633fa9456b138f4b",
+    "secret": "MjA3OGEyNzctZTlmZC00YzYzLTZkMDItNDJlYzJkZTg2Mjcy",
+    "redirect_uri": "http://client-app2.com/oauth-redirect/"
+  }
 ]
 ```
 
@@ -147,8 +147,8 @@ response_type=code&client_id=21e2baf424674f6461faca6d45285bbb&redirect_uri=http%
 
 ```
 {
-    "code": "MWY0ZDRkMzktOTYwNi00NDRiLTk2YmQtOWQxOGQ3Mjc5Yzdk",
-    "redirect_to": "http://client-app.com/oauth-redirect/?code=MWY0ZDRkMzktOTYwNi00NDRiLTk2YmQtOWQxOGQ3Mjc5Yzdk"
+  "code": "MWY0ZDRkMzktOTYwNi00NDRiLTk2YmQtOWQxOGQ3Mjc5Yzdk",
+  "redirect_to": "http://client-app.com/oauth-redirect/?code=MWY0ZDRkMzktOTYwNi00NDRiLTk2YmQtOWQxOGQ3Mjc5Yzdk"
 }
 ```
 
@@ -156,10 +156,10 @@ response_type=code&client_id=21e2baf424674f6461faca6d45285bbb&redirect_uri=http%
 
 ```
 {
-    "access_token": "53ac07777cbb8c2d530000022b778ed6ef204a44794ed2bc9d120237",
-    "expires_in": 3600,
-    "redirect_to": "http://client-app.com/oauth-redirect/#access_token=53ac07777cbb8c2d530000022b778ed6ef204a44794ed2bc9d120237&expires_in=3600&token_type=bearer",
-    "token_type": "bearer"
+  "access_token": "53ac07777cbb8c2d530000022b778ed6ef204a44794ed2bc9d120237",
+  "expires_in": 3600,
+  "redirect_to": "http://client-app.com/oauth-redirect/#access_token=53ac07777cbb8c2d530000022b778ed6ef204a44794ed2bc9d120237&expires_in=3600&token_type=bearer",
+  "token_type": "bearer"
 }
 ```
 
@@ -185,9 +185,9 @@ Cache-Control: no-cache
 #### Sample Response
 ```
 {
-    "key": "061ba634e6644b40633fa9456b138f4b",
-    "status": "ok",
-    "action": "deleted"
+  "key": "061ba634e6644b40633fa9456b138f4b",
+  "status": "ok",
+  "action": "deleted"
 }
 ```
 
@@ -215,22 +215,22 @@ Cache-Control: no-cache
 #### Sample Response
 ```
 [
-    {
-        "code": "5a7d110be6355b0c071cc339327563cb45174ae387f52f87a80d2496",
-        "expires": 1518158407
-    },
-    {
-        "code": "5a7d110be6355b0c071cc33988884222b0cf436eba7979c6c51d6dbd",
-        "expires": 1518158594
-    },
-    {
-        "code": "5a7d110be6355b0c071cc33990bac8b5261041c5a7d585bff291fec4",
-        "expires": 1518158638
-    },
-    {
-        "code": "5a7d110be6355b0c071cc339a66afe75521f49388065a106ef45af54",
-        "expires": 1518159792
-    }
+  {
+    "code": "5a7d110be6355b0c071cc339327563cb45174ae387f52f87a80d2496",
+    "expires": 1518158407
+  },
+  {
+    "code": "5a7d110be6355b0c071cc33988884222b0cf436eba7979c6c51d6dbd",
+    "expires": 1518158594
+  },
+  {
+    "code": "5a7d110be6355b0c071cc33990bac8b5261041c5a7d585bff291fec4",
+    "expires": 1518158638
+  },
+  {
+    "code": "5a7d110be6355b0c071cc339a66afe75521f49388065a106ef45af54",
+    "expires": 1518159792
+  }
 ]
 ```
 

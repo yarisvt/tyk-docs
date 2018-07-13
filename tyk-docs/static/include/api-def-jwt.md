@@ -21,10 +21,10 @@ This means that in certain circumstances Tyk would reject requests to an API end
 You can disable the validation check on 3 claims `IssueAt`, `ExpireAt` and `NotBefore` by adding the following boolean fields to your API definition:
 
 ```{.json}
-    "enable_jwt": true,
-    "jwt_disable_issued_at_validation": true,
-    "jwt_disable_expires_at_validation": true,
-    "jwt_disable_not_before_validation": true
+  "enable_jwt": true,
+  "jwt_disable_issued_at_validation": true,
+  "jwt_disable_expires_at_validation": true,
+  "jwt_disable_not_before_validation": true
 ```
 
 See [JSON Web Tokens](https://tyk.io/docs/security/your-apis/json-web-tokens/) for more details.

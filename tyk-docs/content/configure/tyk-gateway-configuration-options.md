@@ -230,25 +230,25 @@ This setting defaults to `60`, this is the time window that Tyk will use to samp
 Set these options to hard-code values into the way the HTTP server behaves. this is highly experimental and should only be used for extreme tuning purposes, it is not recommended to be used unless absolutely necessary.
 
 ```
-	"http_server_options": {
-	    "override_defaults": false,
-	    "use_ssl": false,
-	    "enable_websockets": false,
-	    "flush_interval": 1,
-	    "certificates": [
-	        {
-	            "domain_name": "ssl.domain.com",
-	            "cert_file": "./certs/ssl.domain.com.cert",
-	            "key_file": "./certs/ssl.domain.com.cert.key"
-	        },
-	        {
-	            "domain_name": "cname.domain.com",
-	            "cert_file": "./certs/cert2/cname.domain.com.cert.cert",
-	            "key_file": "./certs/cert2/cname.domain.com.key"
-	        }
-	    ],
-	    "ssl_insecure_skip_verify": false
-	},
+"http_server_options": {
+  "override_defaults": false,
+  "use_ssl": false,
+  "enable_websockets": false,
+  "flush_interval": 1,
+  "certificates": [
+    {
+      "domain_name": "ssl.domain.com",
+      "cert_file": "./certs/ssl.domain.com.cert",
+      "key_file": "./certs/ssl.domain.com.cert.key"
+    },
+    {
+      "domain_name": "cname.domain.com",
+      "cert_file": "./certs/cert2/cname.domain.com.cert.cert",
+      "key_file": "./certs/cert2/cname.domain.com.key"
+    }
+  ],
+  "ssl_insecure_skip_verify": false
+},
 ```
 #### <a name="http_server_options-use_ssl"></a> http_server_options.use_ssl
 
@@ -292,9 +292,9 @@ Use this option to map pinned public keys. You need to use the following format:
 
 ```
 {
-    "example.com": "<key-id>",
-    "foo.com": "/path/to/pub.pem",
-    "*.wild.com": "<key-id>,<key-id-2>"
+  "example.com": "<key-id>",
+  "foo.com": "/path/to/pub.pem",
+  "*.wild.com": "<key-id>,<key-id-2>"
 }
 ```
 
@@ -317,21 +317,21 @@ The monitor section is useful if you wish to enforce a global trigger limit on o
 While Organisation-level and Key-level triggers can be tiered (e.g. trigger at 10%, trigger at 20%, trigger at 80%), in the node-level configuration only a global value can be set. If a global value and specific trigger level are the same the trigger will only fire once:
 
 ```
-	"monitor": {
-	    "enable_trigger_monitors": true,
-	    "configuration": {
-	        "method": "POST",
-	        "target_path": "http://domain.com/notify/quota-trigger",
-	        "template_path": "templates/monitor_template.json",
-	        "header_map": {
-	            "some-secret": "89787855"
-	        },
-	        "event_timeout": 10
-	    },
-	    "global_trigger_limit": 80.0,
-	    "monitor_user_keys": false,
-	    "monitor_org_keys": true
-	},
+"monitor": {
+  "enable_trigger_monitors": true,
+  "configuration": {
+    "method": "POST",
+    "target_path": "http://domain.com/notify/quota-trigger",
+    "template_path": "templates/monitor_template.json",
+    "header_map": {
+      "some-secret": "89787855"
+    },
+    "event_timeout": 10
+  },
+  "global_trigger_limit": 80.0,
+  "monitor_user_keys": false,
+  "monitor_org_keys": true
+},
 ```
 #### <a name="monitor-enable_trigger_monitors"></a> monitor.enable_trigger_monitors
 
