@@ -60,6 +60,14 @@ Tyk makes use of public-key message verification when it comes to messages that 
 
 These keys are also used for plugin security, so it is important to use them if you are deploying code to your Gateway. The public key that ships with your Gateways is used to verify the manifest and files that come with any plugin bundle that gets downloaded by the bundle downloader.
 
+### Change your Control Port
+
+To secure your Tyk installation, you can configure the following settings in your [tyk.conf](https://tyk.io/docs/configure/tyk-gateway-configuration-options/):
+
+`control_api_hostname` - Set the hostname to bind the REST API to.
+
+`control_api_port` - This allows you to run the Gateway Control API on a separate port, and protect it behind a firewall if needed.
+
 ### Split out your DB
 
 This is a no-brainer, but keep Redis and MongoDB off the system running the Gateway, they both use lots of RAM, and with Redis and the Gateway constantly communicating you will be facing resource contention on the CPU for a marginal decrease in latency.
@@ -213,14 +221,6 @@ Understanding what files are created or modified by the Dashboard and Gateway du
 *   Both the Gateway and Dashboard will create a default configuration file if one is not found.
 *   Dashboard will write the licence into the configuration file if you add it via the UI.
 *   From v2.3 onwards it is possible for a Dashboard to remotely change the config of a Gateway, which will cause the Gateway's configuration file to update.
-
-### Hardening your Tyk Installation
-
-To secure your Tyk installation, you can configure the following settings in your [tyk.conf](https://tyk.io/docs/configure/tyk-gateway-configuration-options/):
-
-`control_api_hostname` - Set the hostname to bind the REST API to.
-
-`control_api_port` - This allows you to run the Gateway Control API on a separate port, and protect it behind a firewall if needed.
 
  [1]: /docs/img/diagrams/deployGraph.png
  [2]: /docs/img/diagrams/deployGraphNoRateLimitQuota.png
