@@ -30,11 +30,11 @@ Here we have pushed the test to 3,000 requests per second, and we can see that T
 
 #### Vanilla Tyk
 
-Now if you were to just test Tyk as a pass-through auth proxy, we can see that 3k requests per second is easily handled:
+Now if you were to just test Tyk as a pass-through auth proxy, we can see that 4k requests per second is easily handled:
 
 ![Tyk 2.7 performance][3]
 
-This configuration has analytics recording disabled, but we are still authenticating the inbound request. As we can see we easily handle the 3k request per second mark, and we can go further with some more optimisations.
+This configuration has analytics recording disabled, but we are still authenticating the inbound request. As we can see we easily handle the 4k request per second mark, and we can go further with some more optimisations.
 
 ### Change all the shared secrets
 
