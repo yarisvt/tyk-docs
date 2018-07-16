@@ -18,6 +18,10 @@ Tyk Community Edition is the open-source API Gateway that is developed by our co
 *   Ensure port `8080` is open: this is used in this guide for Gateway traffic (the API traffic to be proxied).
 *   You have Redis installed and running
 
+```{.copyWrapper}
+sudo apt-get install -y redis-server
+```
+
 ## <a name="install-on-ubuntu"></a>Installing on Ubuntu
 
 First import the public key as required by Ubuntu APT
@@ -25,14 +29,6 @@ First import the public key as required by Ubuntu APT
 ```{.copyWrapper}
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
 ```
-
-### Install Redis
-
-```{.copyWrapper}
-sudo apt-get install -y redis-server
-```
-
-
 
 ### Run Installation Scripts
 
@@ -81,19 +77,18 @@ sudo service tyk-gateway start
 *   Ensure port `8080` is open: this is used in this guide for Gateway traffic (the API traffic to be proxied).
 *   EPEL (Extra Packages for Enterprise Linux) is a free, community based repository project from Fedora which provides high quality add-on software packages for Linux distribution including RHEL, CentOS, and Scientific Linux. EPEL isn't a part of RHEL/CentOS but it is designed for major Linux distributions. In our case we need it for Redis DB. Install EPEL using the instructions [here](http://fedoraproject.org/wiki/EPEL#How_can_I_use_these_extra_packages.3F).
 *   Install Redis using EPEL
-*   Tyk requires Python 3.4. Install via the following command:
-
-```{.copyWrapper}
-sudo yum install python34
-```
-
-### Install Redis
 
 ```{.copyWrapper}
 sudo yum install -y redis
 ```
 
-*(you may be asked to accept the GPG key for our repos and when the package installs, click yes to continue)*
+> **NOTE**: You may be asked to accept the GPG key for our repos and when the package installs, click yes to continue.
+
+*   Tyk requires Python 3.4. Install via the following command:
+
+```{.copyWrapper}
+sudo yum install python34
+```
 
 ### Start Redis
 
