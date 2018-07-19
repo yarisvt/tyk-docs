@@ -1,5 +1,3 @@
-
-
 Tyk lets you version your API and apply access policies to versions, for example, if you have an API v1 that has a `/widgets` endpoint that is deprecated in v2, you can blacklist that endpoint so that requests to it are stopped before they hit your system.
 
 In the same vein, you can white-list and ignore paths completely.
@@ -52,7 +50,19 @@ Tyk will look in the First part of the URL Path for the version information. For
   }
 }
 ```
-example request: `curl "https://company.cloud.tyk.io/my-api/v1/my-path"`
+
+> **NOTE**: Similar to other routers, matching is performed on a first-come-first-served basis.
+> Ensure that specific paths are higher up the list than generic ones.
+    
+```
+// In this example, PATH1 will always match, and /do-something will never match
+PATH1: (.*)
+PATH2: /do-something
+
+// In this example, (.*) will only match if /do-something did not match
+PATH1: /do-something
+PATH2: (.*)
+```
 
 * `version_data`: Information relating to your actual version are stored here, if you do not wish to use versioning, use the `not_versioned` option and set up an entry called `Default` (see below).
 
@@ -62,14 +72,9 @@ example request: `curl "https://company.cloud.tyk.io/my-api/v1/my-path"`
 
 ```{.json}
 {
-  "version-1": {
-    "name": "version-1",
+  "Default": {
+    "name": "Default",
     "expires": "",
-    "paths": {
-      "ignored": [],
-      "white_list": [],
-      "black_list": []
-    },
     "use_extended_paths": true,
     "extended_paths": {
       "ignored": [],
@@ -79,31 +84,12 @@ example request: `curl "https://company.cloud.tyk.io/my-api/v1/my-path"`
   }
 }
 ```
-    
+
 Each version of your API should be defined here with a unique name. This name is what will be matched by `definition.key`. Once Tyk has identified the API to load, and has allowed the access key through, it will check the access token's session data for access permissions. If it finds none, it will let the token through. However, if there are permissions and versions defined, it will be strict in **only** allowing access to that version. For more information about handling access control, see the [Security - Your APIs](https://tyk.io/docs/security/your-apis/) section.
 
 * `version_data.{version-name}.expires`: The expires header, if set, will deprecate access to the API after the time specified. The entry here takes the form of: `"YYYY-MM-DD HH:MM"`. If this is not set the version will never expire.
-
 * `version_data.{version-name}.override_target`: Setting this value will override the target of the API for this version, overriding the target will invalidate (and is not compatible with) Round Robin Load balancing and Service Discovery.
-
-* `version_data.{version-name}.ignored` (deprecated): This string array can define any paths (endpoints) in your API that should be ignored by Tyk, for example login, signup or any non-authenticated actions users can take. Specify these URL's here in the form of
-
-```
-[ "/user/login", "/user/signup" ]
-```
-
-Similar to other routers, matching is done on a first-come-first-served basis, ensuring that specific paths are higher up the list than generic ones.
-    
-> **Note**: It is possible to ignore non-generic paths using standard REST documentation markup, e.g. `/users/{user_id}/` will ignore `/users/12345/` and `/users/jively`, this is handy for cases where an entire sub-branch of a resource should be ignored (though each wildcard must be specified individually). Parameter names are arbitrary, and should be for reference only.
-
-* `version_data.{version-name}.white_list` (**deprecated**): A string array of paths to white-list in your API. This is an explicit list of paths that are allowed access. Any other endpoints, except those specified in `ignored_paths` will be refused access. Use this to enforce highly-specific access rules.
-    
-> **Note**: White listing paths is exclusive, so black listed paths will not take effect.
-
-* `version_data.{version-name}.black_list` (**deprecated**): The opposite of `white_list`. This will essentially block access to certain endpoints. This can be very handy if you are moving from a v1 to a v2 and have deprecated a path. Simply define the deprecated path in the list and requests to it with the new version header will be refused.
-
 * `version_data.{version-name}.use_extended_paths`: Set this value to `true` to use the new extended-paths feature. This will eventually become the default mode of operation.
-
 
 Extended paths allow you to control which upstream paths are to be handled in a specific way (ignored, as part of white list or black list) by both path and method. The extended meta-data set also allows you to provide forced reply data to override or trap inbound requests for specific versions. This is very useful for mocking or slowly exposing a development API to a live upstream back end.
     
@@ -111,14 +97,14 @@ Each entry in the ignored, blacklist and whitelist have the same specification. 
 
 ```{.json}
 {
-  "path": "{managed-path}",
+  "path": "SOME_PATH",
   "method_actions": {
     "METHOD": {
-      "action": "{action-code}",
-      "code": {response-code},
-      "data": "{body}",
+      "action": "ACTION_CODE",
+      "code": "RESPONSE_CODE",
+      "data": "BODY",
       "headers": {
-        "{key}": "{value}"
+        "KEY": "VALUE"
       }
     }
   }
@@ -399,14 +385,10 @@ The `path` and `method` properties are the same as all other `extended_path` mid
   }
 ]
 ```
-        
 
 * `version_data.{version-name}.extended_paths.circuit_breakers.threshold_percent`: The threshold to use for triggering an event, in this case it is between 0 and 1, with 1 being 100% of requests.
-
 * `version_data.{version-name}.extended_paths.circuit_breakers.samples`: The number of samples to apply the threshold to, so `x%` of `y` samples will trip the circuit.
-
 * `version_data.{version-name}.extended_paths.circuit_breakers.return_to_service_after`: The number of seconds to take the path offline. Once this time limit is up, the breaker is reset and the service comes back online.
-
 * `version_data.{version-name}.extended_paths.url_rewrites`: Tyk has support for rudimentary URL rewrites. This will enable you to modify inbound URLs to ones that your service understands. The URL rewrite section takes a similar form to other extended paths, with a bit of quirk.
     
 Tyk will match the `path` element. Like any other path in the extended paths section, here you can use wildcards such as `widgets/{id}` to show that anything should match.

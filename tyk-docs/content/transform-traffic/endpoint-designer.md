@@ -33,6 +33,22 @@ Your options are:
 
 Adding a path to a blacklist will force it to be blocked. This can be useful if you are versioning your API and are deprecating a resource. Instead of just making the path vanish you can block access to it.
 
+Accessing a path which has been blacklisted:
+
+```
+< HTTP/1.1 403 Forbidden
+< Content-Type: application/json
+< Date: Thu, 19 Jul 2018 21:42:43 GMT
+< Content-Length: 50
+<
+{
+  "error": "Requested endpoint is forbidden"
+}
+```
+
+> **NOTE**: For security reasons, the blacklist plugin is case-insensitive when performing the blacklist check.
+> For example, if path `/Pay/OneMillion` is added to a blacklist, the gateway will not proxy requests to `/Pay/OneMillion` or `/pay/onemillion`.
+
 ### Body Transform
 
 The Body Transform plugin  allows Body Transforms for both the Request and the Response. See [Request Body](/docs/transform-traffic/request-body/) and [Response Body](/docs/transform-traffic/response-body/) for more details.
@@ -107,9 +123,24 @@ If it's not in the right format, then the request will be rejected. And you can 
 
 ### Whitelist
 
-Adding a path to a  whitelist will cause the entire API to become whitelisted. This means any non-specified routes will be blocked, and only those listed in the Endpoint Designer will be allowed through. This is great if you wish to have very select access rules for your services.
+Adding a path to a whitelist will cause the entire API to become whitelisted. This means any non-specified routes will be blocked, and only those listed in the Endpoint Designer will be allowed through. This is great if you wish to have very select access rules for your services.
 
+Accessing a path which has **not** been whitelisted:
 
+```
+< HTTP/1.1 403 Forbidden
+< Content-Type: application/json
+< Date: Thu, 19 Jul 2018 21:42:43 GMT
+< Content-Length: 50
+<
+{
+  "error": "Requested endpoint is forbidden"
+}
+```
+
+> **NOTE**: For security reasons, the whitelist plugin is case-insensitive when performing the whitelist check.
+> For example, if path `/DoSomething` is added to a whitelist, the gateway will listen on the path `/DoSomething` but the path `/dosomething`
+would be whitelisted. Which means that the path will not be accessible and a 403 Forbidden response will always be returned.
 
 ## <a name="global"></a> Global Settings
 
