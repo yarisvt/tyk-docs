@@ -55,6 +55,7 @@ To enable Python plugins you need to add the following block to `tyk.conf`:
 ```{.copyWrapper}
 "coprocess_options": {
   "enable_coprocess": true,
+  "python_path_prefix": "/opt/tyk-gateway"
 },
 "enable_bundle_downloader": true,
 "bundle_base_url": "http://dummy-bundle-server.com/bundles/",
@@ -62,6 +63,8 @@ To enable Python plugins you need to add the following block to `tyk.conf`:
 ```
 
 `enable_coprocess`: enables the rich plugins feature.
+
+`python_path_prefix`: Sets the path to built-in Tyk modules, this will be part of the Python module lookup path. The value used here is the default one for most installations.
 
 `enable_bundle_downloader`: enables the bundle downloader.
 
