@@ -9,6 +9,8 @@ weight: 3
 
 ## <a name="overview"></a>Overview
 
+![Circuit Breaker Example][3]
+
 Tyk has a built-in circuit breaker pattern as a path-based option. Our circuit breaker is threshold-based, so if a sample size `x` of `y%` requests fail, the breaker will trip. The Gateway will stop **all** inbound requests to that service for a pre-defined period of time (a recovery time-period). You configure this time period using the `return_to_service_after` option in your API definition, or setup via the Dashboard. See [Configure with the API Definition](#with-api) or [Configure with the Dashboard] (#with-dashboard). This also triggers an event which you can hook into to perform corrective or logging action.
 
 The circuit breaker works across hosts (i.e. if you have multiple targets for an API, the sample is across **all** upstream requests).
@@ -90,5 +92,6 @@ Once the plugin is active, you can set up the various configurations options for
 
  [1]: /docs/img/dashboard/system-management/circuit_breaker_designer_2.5.png
  [2]: /docs/img/dashboard/system-management/circuit_breaker_config_2.5.png
+ [3]: /docs/img/dashboard/system-management/circuit-breaker-diagram.png
 
 
