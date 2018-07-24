@@ -128,7 +128,7 @@ You need to enter the following information:
 
 ### Step 4: Click "Generate API"
 
-Your API will appear in your APIs list. If you select **EDIT** from the **ACTIONS** drop-down list, you can see the endpoints (from the [ENDPOINT DESIGNER](https://tyk.io/docs/transform-traffic/endpoint-designer/)) that have been created as part of the import process
+Your API will appear in your APIs list. If you select **EDIT** from the **ACTIONS** drop-down list, you can see the endpoints (from the [ENDPOINT DESIGNER](https://tyk.io/docs/transform-traffic/endpoint-designer/)) that have been created as part of the import process.
 
 
 [1]: /docs/img/dashboard/system-management/apis2.7.png
