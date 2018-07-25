@@ -7,7 +7,7 @@ menu:
 weight: 8 
 ---
 
-### List developers
+### List Developers
 
 | **Property** | **Description**          |
 | ------------ | ------------------------ |
@@ -66,7 +66,7 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 }
 ```
 
-### List developers by API
+### List Developers by API
 
 | **Property** | **Description**                      |
 | ------------ | ------------------------------------ |
@@ -126,7 +126,54 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 }
 ```
 
-### Update a developer record
+
+## Add a Developer Record
+
+| **Property** | **Description**               |
+| ------------ | ----------------------------- |
+| Resource URL | `/api/portal/developers` |
+| Method       | POST                           |
+| Type         | None                          |
+| Body         | Developer Object              |
+| Param        | None                          |
+
+#### Sample Request
+
+```{.copyWrapper}
+POST /api/portal/developers HTTP/1.1
+Host: localhost
+Authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
+    
+{
+  "email": "blip@blop.com",
+  "password": "$2a$10$hlG1ujAHWUpnM37k.l1RhO6RrxkCpXki2yrGhufnDs1IBiUo4Kzqy",
+  "date_created": "2015-05-15T08:56:13.257-04:00",
+  "inactive": false,
+  "org_id": "53ac07777cbb8c2d53000002",
+  "api_keys": {
+    "b605a6f03cc14f8b74665452c263bf19":"90568dfa"
+  },
+  "fields": {
+    "Name": "",
+    "custom1": "",
+    "custom2": ""
+  }
+}
+```
+
+#### Sample Response
+
+```
+{
+  "Status":"OK",
+  "Message":"<developer-id>",
+  "Meta":""
+}
+```
+
+
+
+### Update a Developer Record
 
 | **Property** | **Description**               |
 | ------------ | ----------------------------- |
@@ -139,7 +186,7 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 #### Sample Request
 
 ```{.copyWrapper}
-GET /api/portal/developers/5555eceda8b6b60001000004 HTTP/1.1
+PUT /api/portal/developers/5555eceda8b6b60001000004 HTTP/1.1
 Host: localhost
 Authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
     
@@ -171,7 +218,7 @@ Authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 }
 ```
 
-### Delete a developer
+### Delete a Developer
 
 | **Property** | **Description**               |
 | ------------ | ----------------------------- |
