@@ -38,7 +38,7 @@ This configuration has analytics recording disabled, but we are still authentica
 
 ### Change all the shared secrets
 
-Tyk uses many shared secrets between services, and some of these are defaults in the configurations files, **make sure that these are changed before deploying to production**. The main secrets to consider are:
+Tyk uses many shared secrets between services, and some of these have defaults in the configuration files. **Ensure that these are changed before deploying to production**. The main secrets to consider are:
 
 #### `tyk.conf`:
 

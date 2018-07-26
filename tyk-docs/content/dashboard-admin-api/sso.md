@@ -8,7 +8,9 @@ weight: 5
 ---
 
 Our SSO API allows you to implement custom authentication schemes for the Dashboard and Portal. 
-Our Tyk Identity Broker (TIB) internally also uses this API. 
+Our Tyk Identity Broker (TIB) internally also uses this API.
+
+In a production environment, you need to change the default `admin_Secret` value that is called by the `admin-auth` header in your`tyk_analytics.conf` file. This is located in `/opt/tyk-dashboard`.
 
 ### Generate authentication token
 
