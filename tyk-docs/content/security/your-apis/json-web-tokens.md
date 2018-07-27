@@ -130,4 +130,4 @@ You can disable the validation check on 3 claims `iat`, `exp` & `nbf` by adding 
 [2]: /docs/img/diagrams/jwt2.png
 [3]: /docs/img/dashboard/system-management/jwt_auth_2.5.png
 [4]: /docs/img/dashboard/system-management/jwt_sign_2.5.png
-[5]: /docs/img/dashboard/system-management/jwt_claim_2.5.png
+[5]: /docs/img/dashboard/system-management/jwt_claim_2.7.png
