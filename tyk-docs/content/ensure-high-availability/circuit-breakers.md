@@ -11,7 +11,7 @@ weight: 3
 
 ![Circuit Breaker Example][3]
 
-Tyk has a built-in circuit breaker pattern as a path-based option. Our circuit breaker is threshold-based, so if a sample size `x` of `y%` requests fail, the breaker will trip. The Gateway will stop **all** inbound requests to that service for a pre-defined period of time (a recovery time-period). You configure this time period using the `return_to_service_after` option in your API definition, or setup via the Dashboard. See [Configure with the API Definition](#with-api) or [Configure with the Dashboard] (#with-dashboard). This also triggers an event which you can hook into to perform corrective or logging action.
+Tyk has a built-in circuit breaker pattern as a path-based option. Our circuit breaker is threshold-based, so if a sample size `x` of `y%` requests fail, the breaker will trip. The Gateway will stop **all** inbound requests to that service for a pre-defined period of time (a recovery time-period). You configure this time period using the `return_to_service_after` option in your API definition, or setup via the Dashboard. See [Configure with the API Definition](#with-api) or [Configure with the Dashboard] (#with-dashboard). This also triggers an event which you can hook into to perform corrective or logging action. When a circuit breaker is tripped, it will return a 503 "Service temporarily unavailable" error.
 
 The circuit breaker works across hosts (i.e. if you have multiple targets for an API, the sample is across **all** upstream requests).
 
