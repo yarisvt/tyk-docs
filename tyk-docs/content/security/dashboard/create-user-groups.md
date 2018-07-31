@@ -9,7 +9,14 @@ weight: 5
 
 ## <a name="introduction"></a>Introduction
 
-Instead of setting permissions per user, you can create a group, and assign it to one or more users. This also works for Single Sign On (SSO) as well, you can specify the group ID when setting up SSO. This feature is available to all our Cloud and Hybrid users. For On-Premises installations, this feature is available for customers with an "Unlimited" license.
+Instead of setting permissions per user, you can create a group, and assign it to one or more users. 
+
+You can use User Groups to help with Role Based Access Control (RBAC) for your users. For example, if you only want certain users to access the Tyk Logs, you can create a Logs User Group, then give those users the Logs Read permission and add them to your Logs User Group. See [User Roles](https://tyk.io/docs/security/dashboard/user-roles/) for assigning permissions to users.
+
+
+This also works for Single Sign On (SSO) as well, you can specify the group ID when setting up SSO. 
+
+This feature is available to all our Cloud and Hybrid users. For On-Premises installations, this feature is available for customers with an "Unlimited" license.
 
 In order to manage user groups, ensure that you have either "admin" or "user groups" permission for your user, which can be enabled by your admin.
 
