@@ -139,20 +139,16 @@ Although we have set the main factors of the key, they will be overridden by the
 
 ## <a name="with-api"></a>Create a policy with the Dashboard API
 
-On how to create a policy with the Dashboard API check [this section][1]
+[See here](https://tyk.io/docs/get-started/with-tyk-on-premise/tutorials/tyk-on-premises-pro/create-security-policy/#a-namewithapiatutorial-create-a-security-policy-with-the-api)
 
 ## <a name="create-a-file-based-policy"></a>Create a policy with the Gateway API
 
-On how to create a policy with the Gateway API check [this section][2]
+[See here](https://tyk.io/docs/with-tyk-community-edition/tutorials/create-security-policy/#a-name-create-a-file-based-policy-a-tutorial-create-a-policy-with-the-gateway-api).
 
 ## <a name="with-dashboard"></a>Create a policy with the Dashboard
 
-On how to create a policy with the Gateway API check [this section][3]
+[See here](https://tyk.io/docs/get-started/with-tyk-on-premise/tutorials/tyk-on-premises-pro/create-security-policy/#a-namewithdashboardatutorial-create-a-security-policy-with-the-dashboard)
 
-
-[1]: /docs/get-started/with-tyk-on-premise/tutorials/tyk-on-premise-pro/create-security-policy/#with-api
-[2]: /docs/get-started/with-tyk-on-premise/tutorials/tyk-on-premise-community-edition/create-security-policy/#create-a-file-based-policy
-[3]: /docs/get-started/with-tyk-on-premise/tutorials/tyk-on-premise-pro/create-security-policy/#with-dashboard
 
 
 
