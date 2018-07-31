@@ -120,8 +120,8 @@ Once it's working you can also add two more enhancements - SSO and MFA
 ## <a name="error"></a> Common Error
 If you get `400 Bad Request` it means the profile name in the login endpoint is not identical to the profile name in the callback that you set up on Okta's app:
 
-- On Okta's app - `Login redirect URIs:` http://localhost:3010/auth/{PROFILE-NAME-IN-TIB}/openid-connect/callback.
-- The endpoint to test - http://localhost:3010/auth/{PROFILE-NAME-IN-TIB}/openid-connect
+- On Okta's app - `Login redirect URIs:` `http://localhost:3010/auth/{PROFILE-NAME-IN-TIB}/openid-connect/callback`.
+- The endpoint to test - `http://localhost:3010/auth/{PROFILE-NAME-IN-TIB}/openid-connect`
 
 ![okta-bad-request-wrong-callback][5]
 
