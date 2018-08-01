@@ -46,7 +46,7 @@ Please see the [OAuth2 Flow](https://tyk.io/docs/security/your-apis/oauth-2-0/) 
     
 This is the URL that the user will be sent to (via POST).
     
-> **Note**: This interface method is only supported by modern browsers that respect a [307 redirect][5] (retaining method and data), and varies between browsers.
+> **Note**: This interface method is only supported by modern browsers that respect a 307 redirect (retaining method and data), and varies between browsers.
 
 * `notifications`: When Tyk implements an OAuth2 flow, because it will handle access requests on your behalf once authorisation codes have been issued, it will need to notify your system that these have occurred.
     
