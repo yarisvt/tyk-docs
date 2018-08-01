@@ -65,7 +65,7 @@ To enable Lua plugins you need to add the following block to `tyk.conf`:
 
 `enable_bundle_downloader` enables the bundle downloader.
 
-`bundle_base_url` is a base URL that will be used to download the bundle, in this example we have "test-bundle" specified in the API settings, Tyk will fetch the following URL: "http://my-bundle-server.com/bundles/test-bundle".
+`bundle_base_url` is a base URL that will be used to download the bundle, in this example we have "test-bundle" specified in the API settings, Tyk will fetch the following URL: `http://my-bundle-server.com/bundles/test-bundle`.
 
 `public_key_path` sets a public key, this is used for verifying signed bundles, you may omit this if unsigned bundles are used.
 
