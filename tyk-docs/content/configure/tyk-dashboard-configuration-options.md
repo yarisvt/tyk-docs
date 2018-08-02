@@ -257,7 +257,7 @@ If you set this value to `true`, then the `id` parameter in a stored policy (or 
 
 *   `disable_parallel_sessions`: As of v1.3.4, if set to `true`, it restricts an account to a single session. When an account logs in, any other open sessions for that account are logged out.
 
-*   `sso_permission_defaults`: As of v1.4, you can specify permissions of the user who logged using Admin SSO API (for example Tyk Identity Broker). See more info [here](https://tyk.io/docs/dashboard-admin-api/sso/)
+*   `sso_permission_defaults`: As of v1.4, you can specify permissions of the user who logged using Admin SSO API (for example Tyk Identity Broker). See [Dashboard Admin SSO API](https://tyk.io/docs/dashboard-admin-api/sso/) for more details.
 *   `sso_custom_login_url`: As of v1.4, you can specify custom dashboard login url, if you are using 3rd party authentication like TIB.
 *   `sso_custom_portal_login_url`: As of v1.4, you can specify custom portal login url, if you are using 3rd party authentication like TIB.
 
