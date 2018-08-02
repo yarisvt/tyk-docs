@@ -137,17 +137,14 @@ To apply the above policy to a key, we simply need to call the `/create` (or `/a
 
 Although we have set the main factors of the key, they will be overridden by the policy as soon as the key is loaded, this will happen each time the key appears, so modifying a policy will have an instant effect on the token.
 
-## <a name="with-api"></a>Create a policy with the Dashboard API
+## How You Can Create Policies
 
-[See here](https://tyk.io/docs/get-started/with-tyk-on-premise/tutorials/tyk-on-premises-pro/create-security-policy/#a-namewithapiatutorial-create-a-security-policy-with-the-api)
+[Create a Policy with the Dashboard API](https://tyk.io/docs/get-started/with-tyk-on-premise/tutorials/tyk-on-premises-pro/create-security-policy/#a-namewithapiatutorial-create-a-security-policy-with-the-api)
 
-## <a name="create-a-file-based-policy"></a>Create a policy with the Gateway API
+[Create a Policy with the Gateway API](https://tyk.io/docs/with-tyk-community-edition/tutorials/create-security-policy/#a-name-create-a-file-based-policy-a-tutorial-create-a-policy-with-the-gateway-api)
 
-[See here](https://tyk.io/docs/with-tyk-community-edition/tutorials/create-security-policy/#a-name-create-a-file-based-policy-a-tutorial-create-a-policy-with-the-gateway-api).
+[Create a Policy with the Dashboard](https://tyk.io/docs/get-started/with-tyk-on-premise/tutorials/tyk-on-premises-pro/create-security-policy/#a-namewithdashboardatutorial-create-a-security-policy-with-the-dashboard)
 
-## <a name="with-dashboard"></a>Create a policy with the Dashboard
-
-[See here](https://tyk.io/docs/get-started/with-tyk-on-premise/tutorials/tyk-on-premises-pro/create-security-policy/#a-namewithdashboardatutorial-create-a-security-policy-with-the-dashboard)
 
 
 
