@@ -30,7 +30,7 @@ To run queries against Tyk API you need get credentials, which you can get from 
 2.  In the **Users** list, click **Edit** for your user.
 3.  The API key is the **Tyk Dashboard API Access Credentials**, copy this somewhere you can reference it.
 
-### API key location
+### API Key Location
 Let's save it to the environment variable to simplify code examples in this guide. All the commands should be run in your terminal.
 
 >  **NOTE**: Do not forget to replace with your own value
@@ -86,7 +86,7 @@ By default, the Tyk Developer portal automatically accepts all developer registr
 
 If you want to allow developer registration but add an additional layer of verification, you can use the developer `inactive` attribute to handle it. By default, it is `false`, and you can set it to `true` if additional verification is needed. To make this work, you need to add additional logic to your custom portal code.
 
-### Updating a Developer. Example: Adding custom fields
+### Updating a Developer. Example: Adding Custom Fields
 
 Let's say we want to add new custom "field" to the developer, to store some internal meta information. Tyk so far does not support PATCH semantics, e.g. you cannot update only single field, you need to provide the full modified record.
 
@@ -123,7 +123,7 @@ curl https://admin.cloud.tyk.io/api/portal/developers/598d4a33ac42130001c1257c \
 Note that all non-empty custom fields are shown in the Tyk Dashboard Developer view. Besides, all the keys created for this developer inherit his custom fields, if they are specified in the Portal settings **Signup fields** list.
 
 
-### Login workflow: Checking User Credentials
+### Login Workflow: Checking User Credentials
 
 If you need to implement own login workflow, you need be able to validate user password.
 
@@ -256,7 +256,7 @@ curl "https://admin.cloud.tyk.io/api/activity/keys/aggregate/add2b342,5f1d9603,/
 ],"pages":0}
 ```
 
-In example above `add2b342,5f1d9603`, is 2 users keys. Note that this example shows hashed key values as described [here][1]. Key hashing is turned on for the Cloud, but for Hybrid and On-premise you can turn it off. Hash keys means that API administrator do not have access to real user keys, but he still can use this hashed values for showing analytics.
+In example above `add2b342,5f1d9603`, is 2 users keys. Note that this example shows hashed key values as described [here](https://tyk.io/docs/security/#a-name-key-hashing-a-key-hashing). Key hashing is turned on for the Cloud, but for Hybrid and On-Premises installations you can also turn it off. Hashed keys mean that the API administrator does not have access to real user keys, but they can still use the hashed values for showing analytics.
 
 ## <a name="building-portal"></a> Building a Portal
 
@@ -269,6 +269,3 @@ First, you need to install dependencies by running `gem install sinatra excon --
 Then run it like this: `TYK_PORTAL_PORT=8080 TYK_API_KEY=<your-api-key-here> ruby portal.rb`
 
 You can also specify the `TYK_DASHBOARD_URL` if you are trying this portal with an On-Premises installation. By default, it is configured to work with Cloud or Hybrid.
-
-
-[1]: /docs/security/concepts/key-hashing/
