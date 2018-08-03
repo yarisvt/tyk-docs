@@ -15,7 +15,7 @@ Tyk has a streamlined quickstart setup for Vagrant. This demo works with Ubuntu 
 
 You need to have [Virtual Box](https://www.virtualbox.org/wiki/Downloads) installed before using our Vagrant setup.
 
-Full, detailed instructions on how to [install Tyk on Ubuntu Server (LTS)](/docs/get-started/with-tyk-on-premise/installation/on-ubuntu/) or how to [install Tyk on Red Hat Enterprise Linux (RHEL)](/docs/get-started/with-tyk-on-premise/installation/redhat-rhel-centos/) are also available and go through the entire process manually.
+Full, detailed instructions on how to [install Tyk on Ubuntu Server (LTS)](https://tyk.io/docs/get-started/with-tyk-on-premise/installation/on-ubuntu/) or how to [install Tyk on Red Hat Enterprise Linux (RHEL)](https://tyk.io/docs/get-started/with-tyk-on-premise/installation/redhat-rhel-centos/) are also available and go through the entire process manually.
 
 Given this caveat, lets get you up and running.
 
@@ -199,12 +199,7 @@ You will now be able to log into and test your Tyk instance with the values give
 
 #### Next Steps
 
-*   [Set up and test your first API][3]
-*   [Set up your portal and publish your first API][4]
-
-[1]: /docs/get-started/with-tyk-on-premise/installation/on-ubuntu/
-[2]: /docs/get-started/with-tyk-on-premise/installation/redhat-rhel-centos/
-[3]: /docs/get-started/with-tyk-on-premise/tutorials/tyk-on-premise-pro/create-api/
-[4]: /docs/publish/tutorials/
+*   [Set up and test your first API](https://tyk.io/docs/get-started/with-tyk-on-premise/tutorials/tyk-on-premises-pro/create-api/)
+*   [Set up your portal and publish your first API](https://tyk.io/docs/publish/tutorials/publish-api-developer-portal/)
 
 
