@@ -52,13 +52,13 @@ python3 setup.py build --cpp_implementation && python3 setup.py install --cpp_im
 
 ### How to write Python Plugins?
 
-We have created a demo Python plugin repository [here](https://github.com/TykTechnologies/tyk-plugin-demo-python).
+We have created [a demo Python plugin repository](https://github.com/TykTechnologies/tyk-plugin-demo-python).
 
 The project implements a simple middleware for header injection, using a Pre hook (see [Tyk custom middleware hooks](https://tyk.io/docs/customise-tyk/plugins/javascript-middleware/middleware-scripting-guide/)). A single Python script contains the code for it, see [middleware.py](https://github.com/TykTechnologies/tyk-plugin-demo-python/blob/master/middleware.py).
 
  [1]: https://www.python.org/download/releases/3.4.0/
- [2]: https://pypi.python.org/pypi/protobuf
+ [2]: https://pypi.org/project/protobuf/
  [3]: https://developers.google.com/protocol-buffers/
- [4]: https://pypi.python.org/pypi/grpcio
+ [4]: https://pypi.org/project/grpcio/
  [5]: http://www.grpc.io/
  [6]: https://developers.google.com/protocol-buffers/docs/reference/python-generated#cpp_impl
