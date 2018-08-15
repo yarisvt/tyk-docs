@@ -413,8 +413,10 @@ Cache-Control: no-cache
 
 #### Sample Response
 
+```
 {
     "key": "987654321",
     "status": "ok",
     "action": "deleted"
 }
+```
