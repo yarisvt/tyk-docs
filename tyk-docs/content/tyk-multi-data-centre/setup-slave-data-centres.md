@@ -66,6 +66,7 @@ The most important elements here are:
 
 | Field         | Description    |
 |---------------|----------------|
+|`api_key`      |This the API key of a user which is used to authenticate and authorise access through MDCB. The user should be a standard Dashboard user. The user can have minimal privileges so as to reduce risk if compromised, with the suggested settings being `read` for `Real-time notifications` and the remaining options set to `deny`. 
 |`group_id:`    |This is the "zone" that this instance inhabits, e.g. the DC it lives in. It must be unique to each slave cluster / DC.|
 |`connection_string:`     |The MDCB instance or load balancer.|
 
