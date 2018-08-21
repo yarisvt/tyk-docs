@@ -54,7 +54,7 @@ python3 setup.py build --cpp_implementation && python3 setup.py install --cpp_im
 
 We have created a demo Python plugin repository [here][7].
 
-The project implements a simple middleware for header injection, using a Pre hook (see [Tyk custom middleware hooks][8]). A single Python script contains the code for it, see [mymiddleware.py][9].
+The project implements a simple middleware for header injection, using a Pre hook (see [Tyk custom middleware hooks][8]). A single Python script contains the code for it, see [middleware.py][9].
 
  [1]: https://www.python.org/download/releases/3.4.0/
  [2]: https://pypi.python.org/pypi/protobuf
@@ -64,4 +64,4 @@ The project implements a simple middleware for header injection, using a Pre hoo
  [6]: https://developers.google.com/protocol-buffers/docs/reference/python-generated#cpp_impl
  [7]: https://github.com/TykTechnologies/tyk-plugin-demo-python
  [8]: /docs/customise-tyk/plugins/javascript-middleware/middleware-scripting-guide/
- [9]: https://github.com/TykTechnologies/tyk-plugin-demo-python/blob/master/mymiddleware.py
+ [9]: https://github.com/TykTechnologies/tyk-plugin-demo-python/blob/master/middleware.py
