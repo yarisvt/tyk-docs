@@ -117,3 +117,11 @@ Various cloud providers such as Azure & AWS provide a Redis implementation which
 
 Should you wish to turn on encryption between any of Tyk's components & Redis - this can simply be achieved by setting
 `"use_ssl": true` alongside any Redis configuration settings within Tyk's config files.
+
+## Troubleshooting
+
+If you find that Tyk components fail to initialise when using Redis clustering, for example the application does not start and the last log file entry shows a message such as `Using clustered mode`. In this situation, try setting the environment variable `REDIGOCLUSTER_SHARDCOUNT` to `128` on all hosts which connect to the Redis Cluster i.e. Gateway, Dashboard, Pump, MDCB. E.g.
+
+`REDIGOCLUSTER_SHARDCOUNT=128`
+
+If setting to `128` does not resolve the issue, try `256` instead.
