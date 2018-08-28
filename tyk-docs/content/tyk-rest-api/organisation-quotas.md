@@ -9,9 +9,10 @@ weight: 8
 
 ### Overview
 
-It is possible to force API quota limiting across all keys that belong to a specific organisation ID, the rate limiting on an organisation level is useful for creating tiered access levels and trial accounts.
+It is possible to force API quota and rate limit across all keys that belong to a specific organisation ID. 
+Rate limiting on an organisation level is useful for creating tiered access levels and trial accounts.
 
-The Organisation rate limiting middleware works with both Quotas and Rate limiters. In order to manage this functionality, a simple API has been put in place to manage these sessions.
+The Organisation rate limiting middleware works with both Quotas and Rate Limiters. In order to manage this functionality, a simple API has been put in place to manage these sessions.
 
 Although the Organisation session-limiter uses the same session object, all other security keys are optional as they are not used.
 
