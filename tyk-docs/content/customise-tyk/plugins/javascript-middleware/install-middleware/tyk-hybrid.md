@@ -11,7 +11,7 @@ In some cases middleware references can't be directly embedded in API Definition
 
 A second method of loading API Definitions in Tyk nodes is to add them as a directory structure in the Tyk node. Tyk will load the middleware plugins dynamically on host-reload without needing a direct reference to them in the API Definition.
 
-The URL structure looks like this:
+The directory structure looks as follows:
 
 ```{.copyWrapper}
 middleware
