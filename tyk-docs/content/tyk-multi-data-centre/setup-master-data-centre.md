@@ -147,6 +147,14 @@ sudo systemctl start mdcb
 sudo systemctl enable mdcb
 ```
 
+## <a name="healthcheck"></a>Health check
+
+It is possible to perform a health check on the MDCB service. This allows you to determine if the service is running, so is useful when using MDCB with load balancers.
+
+MDCB uses a specific port for health checks. This is defined by the `healthcheck_port` configuration setting, and defaults to `8181`. Do **not** use the standard MDCB listen port (`listen_port`) for MDCB health checks.
+
+To use the health check service, call the `/health` endpoint i.e. `http://my-mdcb-host:8181/health`. This will return a `HTTP 200 OK` response if the service is running.
+
 ## <a name="troubleshooting"></a>Troubleshooting
 
 #### Check that the MDCB service is running 
