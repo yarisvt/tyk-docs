@@ -25,6 +25,8 @@ Modify the Tyk Gateway configuration (`tyk.conf`) as follows:
 
 `"optimisations_use_async_session_write": true,`
 
+`"use_db_app_configs": false,`
+
 Next, we need to ensure that the policy loader and analytics pump use the RPC driver:
 
 ```{.json}
