@@ -1,6 +1,6 @@
 ---
 date: 2017-03-27T16:56:33+01:00
-title: Dashboard bootstrap.sh Script Returns a "Unable to parse JSON" Error
+title: Unable to parse JSON Error from Dashboard bootstrap.sh Script
 menu:
   main:
     parent: "Tyk Installation"
@@ -47,4 +47,4 @@ The Redis service is not running when the `bootstrap.sh` script is run
 
 Run `sudo service redis start` before running the `bootstrap.sh` script.
 
-See [here](https://tyk.io/docs/get-started/with-tyk-on-premise/installation/redhat-rhel-centos/dashboard/#step-10-bootstrap-the-dashboard-with-an-initial-user-and-organisation) for more information.
+See [our installation guide](https://tyk.io/docs/get-started/with-tyk-on-premise/installation/redhat-rhel-centos/dashboard/#step-10-bootstrap-the-dashboard-with-an-initial-user-and-organisation) for more information.
