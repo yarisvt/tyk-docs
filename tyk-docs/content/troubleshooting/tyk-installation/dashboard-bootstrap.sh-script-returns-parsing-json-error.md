@@ -1,6 +1,6 @@
 ---
 date: 2017-03-27T16:56:33+01:00
-title: "Unable to parse JSON" Error from Dashboard bootstrap.sh
+title: Dashboard bootstrap.sh Script Returns a "Unable to parse JSON" Error
 menu:
   main:
     parent: "Tyk Installation"
