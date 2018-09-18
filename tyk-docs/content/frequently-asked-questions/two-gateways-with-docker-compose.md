@@ -11,7 +11,7 @@ weight: 0
 Spinning up another gateway with our [pro-demo-repo](https://github.com/TykTechnologies/tyk-pro-docker-demo) is very simple. 
 All you need to do is add a few lines to docker-compose.yml and docker-compose.yml and `up` your docker-compose as usual.
 
-> **Please note**: This will only work with an appropriate license. The free license is for development purposes and would allow running Tyk's platform with one gateway. If you want to test Tyk with more please contact us here  info@tyk.io and will be happy to discuss your case and PoC requirements.
+> **Please note**: This will only work with an appropriate license. The free license is for development purposes and would allow running Tyk's platform with one gateway. If you want to test Tyk with more please contact us here  info@tyk.io and we will be happy to discuss your case and PoC requirements.
 
 
 
