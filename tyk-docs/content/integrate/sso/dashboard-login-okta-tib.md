@@ -8,11 +8,13 @@ weight: 0
 ---
 
 
-This is an end-to-end worked example of how you can use [Okta](https://www.okta.com/) and our Tyk Identity Broker (TIB) to log in to your Dashboard.
+This is an end-to-end worked example of how you can use [Okta](https://www.okta.com/) and our [Tyk Identity Broker (TIB)](https://tyk.io/docs/concepts/tyk-components/identity-broker/
+) to log in to your Dashboard.
 This guide assumes the following:
-- You already have authorised access to Tyk's Dashboard. If you don't, [get the authorisation key with this doc](https://tyk.io/docs/security/dashboard/create-users/#a-name-with-api-a-create-a-dashboard-user-with-the-api).
-- For simplicity, you are running TIB locally on port 3010
-- You are able to edit TIB's configuration file.
+
+* You already have authorised access to Tyk's Dashboard. If you don't, [get the authorisation key with this doc](https://tyk.io/docs/security/dashboard/create-users/#a-name-with-api-a-create-a-dashboard-user-with-the-api).
+* For simplicity, you are running TIB locally on port 3010
+* You are able to edit TIB's configuration file.
 
 
 ## <a name="okta"></a>Okta's side
