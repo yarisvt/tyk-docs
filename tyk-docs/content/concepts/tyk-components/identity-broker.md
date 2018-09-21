@@ -9,7 +9,7 @@ weight: 4
 
 ## What is the Tyk Identity Broker (TIB)?
 
-The Tyk Identity Broker is a microservice portal that provides a bridge between various Identity Management Systems such as LDAP, Social OAuth (e.g. GPlus, Twitter, Github), legacy Basic Authentication providers, to your Tyk installation.
+The Tyk Identity Broker is a microservice portal that provides a bridge between various Identity Management Systems such as LDAP, Social OAuth (e.g. GPlus, Twitter, GitHub), legacy Basic Authentication providers, to your Tyk installation.
 
 TIB can bridge to the Tyk API Gateway, Tyk Portal or even Tyk Dashboard, and makes it easy to integrate custom IDMs to your system in a pluggable way.
 
@@ -31,6 +31,10 @@ TIB is also available as a Docker container from h[ttps://hub.docker.com/r/tykio
 The Tyk Identity Broker flow is quite complex, the initial authentication request must go via the broker, before being handled by the gateway:
 
 ![Tyk Identity Broker OAuth Flow][2]
+
+### Example TIB implementation with GitHub and OAuth 2.0
+
+<iframe width="870" height="480" src="https://www.youtube.com/embed/gqUaDM4aJTw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 [2]: /docs/img/diagrams/idbroker.png
 
