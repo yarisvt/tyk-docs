@@ -19,12 +19,15 @@ If not using the Dashboard, you need to include the `enable_context_vars` variab
 
 The context variables that are available are:
 
-*   `request_data`: If the inbound request contained any query data or form data, it will be available in this object, please see the transforms documentation for implementation.
-*   `path_parts`: The components of the path, split on `/`, please see the transforms documentation for implementation.
+*   `request_data`: If the inbound request contained any query data or form data, it will be available in this object, for the header injector, Tyk will format this data as `key:value1,value2,valueN;key:value1,value2` etc.
+*   `path_parts`: The components of the path, split on `/`, these values are made available in the format of a comma delimited list.
 *   `token`: The inbound raw token (if bearer tokens are being used) of this user.
-*   `jwt_claims_CLAIMNAME` - If JWT tokens are being used, then each claim in the JWT is available in this format to the context processor.
 *   `path`: The path that is being requested.
 *   `remote_addr`: The IP address of the connecting client.
+*   `jwt_claims_CLAIMNAME` - If JWT tokens are being used, then each claim in the JWT is available in this format to the context processor.
+*   `request_id` Allows the injection of request correlation ID (for example X-Request-ID)
+
+> **Note**: `request_id` is available from v1.3.6
 
 Components that use context variables:
 
