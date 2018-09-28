@@ -24,6 +24,7 @@ We're installing on a `t2.micro` because this is a tutorial, you'll need more RA
 ### Step 1: Set up our APT Repositories
 
 First, add our GPG key which signs our binaries:
+
 ```{.copyWrapper}
 curl https://packagecloud.io/gpg.key | sudo apt-key add -
 ```
@@ -55,9 +56,18 @@ sudo apt-get update
 ### Step 2: Install the Tyk Gateway
 
 We're now ready to install the Tyk Gateway. To install it, run:
+{{% tabs %}}
+{{% tab "Ubuntu" %}}
 ```{.copyWrapper}
 sudo apt-get install -y tyk-gateway
 ```
+{{% /tab %}}
+{{% tab "Docker" %}}
+```{.copyWrapper}
+docker pull ...
+```
+{{% /tab %}}
+{{% /tabs %}}
 
 What we've done here is instructed apt-get to install the Tyk Gateway without prompting, wait for the downloads to complete.
 
