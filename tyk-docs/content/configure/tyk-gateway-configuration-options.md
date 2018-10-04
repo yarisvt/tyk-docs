@@ -576,6 +576,10 @@ This allows you to add ssl ciphers which takes an array of strings as its value.
 
 Each string must be one of the allowed cipher suites as defined at https://golang.org/pkg/crypto/tls/#pkg-constants
 
+### <a name="proxy_ssl_disable_renegotiation"></a>proxy_ssl_disable_renegotiation
+
+From v2.7.2, TLS renegotiation is now enabled by default. You can disable it by setting `proxy_ssl_disable_renegotiation` to `false`.
+
 ### <a name="disable_regexp_cache"></a>disable_regexp_cache
 
 If set to `true` this allows you to disable the regular expression cache. The default setting is `false`.

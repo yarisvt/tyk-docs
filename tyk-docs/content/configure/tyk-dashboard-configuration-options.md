@@ -76,6 +76,7 @@ The file will look like the sample below, the various fields are explained in th
     "login_failure_username_limit": 3,
     "login_failure_ip_limit": 10,
     "login_failure_expiration": 900,
+    "login_disallow_forward_proxy": false,    
     "audit_log_path": "/tmp/audit.log",
     "allow_admin_reset_password": false
   },
@@ -220,6 +221,8 @@ For more information see the [SSL section in the documentation][1]
 *   `security.login_failure_ip_limit`: Controls how many times an IP Address can be used to attempt to log in before being denied access. The default is 0.
 
 *   `security.login_failure_expiration`: Controls how long before the failure limits are reset in seconds. The default is 900 seconds.
+
+*   `security.login_disallow_forward_proxy`: Set to `true` to allow the Tyk Dashboard login to ignore the host from the `X-Forwarded-For` header when accessing the Dashboard via a proxy. This can be useful for limiting retry attempts.    
 
 *   `security.audit_log_path`: This sets the path to your audit log. It will log all user actions and response statuses to it. Security information such as passwords are not logged.
 
