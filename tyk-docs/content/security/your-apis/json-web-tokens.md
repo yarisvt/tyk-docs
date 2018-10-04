@@ -126,6 +126,19 @@ You can disable the validation check on 3 claims `iat`, `exp` & `nbf` by adding 
 "jwt_disable_not_before_validation": true
 ```
 
+### JWT Clock Skew Configuration
+
+> **NOTE**: Available from v2.7.2 onwards
+
+You can now configure JWT clock skew using the following variables. All values are in seconds. The default is `0`.
+
+```{.json}
+"jwt_issued_at_validation_skew": 0,
+"jwt_expires_at_validation_skew": 0,
+"jwt_not_before_validation_skew": 0
+```
+
+
 [1]: http://jwt.io/introduction/
 [2]: /docs/img/diagrams/jwt2.png
 [3]: /docs/img/dashboard/system-management/jwt_auth_2.5.png
