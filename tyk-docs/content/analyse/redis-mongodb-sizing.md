@@ -16,7 +16,7 @@ Tyk has two types of analytics:
 When you make a request to the gateway, it creates analytics records and puts it into a temporary Redis list, which is synced (and then flushed after sync) every 10 seconds by the Tyk Pump. The Pump processes all synced analytic records, and forwards them to configured pumps. By default, to make the Tyk Dashboard work, there are 2 pumps: `mongo` (per request) and `mongo_aggregate` (for aggregate). 
 
 ## <a name="redis"></a>Redis
-The average single request analytics record (without detailed logging turned on) is around 1kb.
+The average single request analytics record (without detailed logging turned on) is around 1KB.
 
 In terms of Redis, in addition to key storage itself, it should be able to hold the last 10 seconds of analytics data, preferably more, in case of a Tyk pump failure. So if you have 100 requests per second, you will need approximately 6MB for storing 60 seconds of data. Be aware that if detailed logging is turned on, this can grow by a magnitude of 10. 
 
@@ -27,11 +27,11 @@ The aggregate record size depends on the number of APIs and Keys you have. Each 
 
 So an hourly aggregate record is computed like: 50 * active_apis + 50 * api_versions + 50 * active_api_keys  + 50 * oauth_keys, etc. 
 
-The average aggregate record size (created hourly), on our cloud it is ~ 40kb (single record include all the aggregate stats mentioned above).
+The average aggregate record size (created hourly), on our cloud it is ~ 40KB (single record include all the aggregate stats mentioned above).
 
-So for 1 million requests per day, it will generate 1kb * 1M request stats (1gb) + 24 * 40kb aggregate stats (~1mb).
+So for 1 million requests per day, it will generate 1KB * 1M request stats (1GB) + 24 * 40KB aggregate stats (~1MB).
 
-Per month: 30gb request logs + 30MB aggregate logs
+Per month: 30GB request logs + 30MB aggregate logs
 
 ## <a name="working"></a>MongoDB Working Data
 
@@ -47,8 +47,8 @@ For an aggregate collection, the average index size is 6% from the overall colle
 
 
 ## <a name="example"></a>Example
-if you serve 1M requests per day, and require fast access to the last seven days of request logs (usually way less, and the performance of the log viewer is not a concern), with 3 months of aggregated logs, the memory requirements for Mongo can be as follows:
+if you serve 1MB requests per day, and require fast access to the last seven days of request logs (usually way less, and the performance of the log viewer is not a concern), with 3 months of aggregated logs, the memory requirements for Mongo can be as follows:
 
-Request_logs_index ( 30% * (1GB * 7) ) + aggregated(3month * 30mb) ~= 2.1GB + 90MB = ~ 2.2GB
+Request_logs_index ( 30% * (1GB * 7) ) + aggregated(3month * 30MB) ~= 2.1GB + 90MB = ~ 2.2GB
 
-In addition to storing working data in memory, MongoDB also requires space for some internal data structures. In general multiplying the resulting number by 2x should be enough. In the above example, your MongoDB server should have around 4.4 GB of available memory. 
+In addition to storing working data in memory, MongoDB also requires space for some internal data structures. In general multiplying the resulting number by 2x should be enough. In the above example, your MongoDB server should have around 4.4GB of available memory. 
