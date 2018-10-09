@@ -39,3 +39,40 @@ Output:
 
 If you see the above output, then the API is loaded and is being protected by Tyk. You can now generate a token and try the same command in place of `null` to see if the request proxies.
 
+
+## <a name="test-new-api"></a> Test your new API using your local gateway
+
+### To access the proxied API via the gateway on your infrastructure ###
+```{.copyWrapper}
+curl -H "Authorization: null" https://your-gateway-hostname/test-api/get
+    
+Output:
+-------
+{
+  "error": "Key not authorised"
+}
+```
+If you see the above output, then the API is loaded and is being protected by Tyk. You can now generate a token and try the same command in place of `null` to see if the request proxies.
+
+### To access localhost API via the tyk-hybrid containered gateway on your infrastructure ###
+
+In order for docker to access your `localhost` you need to edit `start.sh` and add `-net=host` to the command that starts the container just before the image name.
+This should look like this:
+
+```{.copyWrapper}
+docker run --restart always -v $cwd/confs:/etc/nginx/sites-enabled \
+        -d --name tyk_hybrid \
+        -p $PORT:$PORT \
+        -p 80:80 \
+        -e PORT=$PORT \
+        -e SECRET=$SECRET \
+        -e ORGID=$ORGID \
+        -e APIKEY=$APIKEY \
+        -e REDISHOST=$REDISHOST \
+        -e REDISPW=$REDISPW \
+        -e RPORT=$RPORT \
+        -e BINDSLUG=1 \
+        --net=host \
+        $IMAGE
+```
+
