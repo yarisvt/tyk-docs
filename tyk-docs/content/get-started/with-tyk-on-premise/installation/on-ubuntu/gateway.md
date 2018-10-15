@@ -56,19 +56,10 @@ sudo apt-get update
 ### Step 2: Install the Tyk Gateway
 
 We're now ready to install the Tyk Gateway. To install it, run:
-{{% tabs %}}
-{{% tab "Ubuntu" %}}
+
 ```{.copyWrapper}
 sudo apt-get install -y tyk-gateway
 ```
-{{% /tab %}}
-{{% tab "Docker" %}}
-```{.copyWrapper}
-docker pull ...
-```
-{{% /tab %}}
-{{% /tabs %}}
-
 What we've done here is instructed apt-get to install the Tyk Gateway without prompting, wait for the downloads to complete.
 
 When Tyk is finished installing, it will have installed some init scripts, but it will not be running yet. The next step will be to setup the Gateway - thankfully this can be done with three very simple commands, however it does depend on whether you are configuring Tyk Gateway for use with the Dashboard or without (Community Edition).
