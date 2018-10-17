@@ -32,7 +32,7 @@ In the snippet above we can also see a set of settings fields, in order to react
 
 ### Customising the menu with the Dashboard
 
-The Dashboard has a simple menu editor, you can create the above data structures from "Portal Management" -> "Menus":
+The Dashboard has a simple menu editor, you can create the above data structures from the **Portal Management > Menus** option
 
 ![Menus nav][4]
 

@@ -24,17 +24,16 @@ Before starting work on implementing a custom developer portal, let's learn basi
 
 ### Obtaining a Dashboard API Key
 
-To run queries against Tyk API you need get credentials, which you can get from the user page:
+To run queries against Tyk API you need to obtain credentials from the **Users** screen.
 
 1.  Select **Users** from the **System Management** section.
 2.  In the **Users** list, click **Edit** for your user.
-3.  The API key is the **Tyk Dashboard API Access Credentials**, copy this somewhere you can reference it.
+3.  The API key is the **Tyk Dashboard API Access Credentials**, copy this somewhere you can refer to it.
 
 ### API Key Location
 Let's save it to the environment variable to simplify code examples in this guide. All the commands should be run in your terminal.
 
->  **NOTE**: Do not forget to replace with your own value
-export TYK_API_KEY=1efdefd6c93046bc4102f7bf77f17f4e
+>  **NOTE**: Don't forget to replace TYK_API_KEY=1efdefd6c93046bc4102f7bf77f17f4e with your own value
 
 ### Creating a Developer
 
