@@ -57,3 +57,24 @@ For example:
   ]
 },
 ```
+
+### Using Tyk Certificate Storage
+In Tyk Gateway 2.4 and Tyk Dashboard 1.4 we added [Mutual TLS support](https://tyk.io/docs/security/tls-and-ssl/mutual-tls/) including special Certificate storage, which is used to store all kinds of certificates from public to server certificates with private keys.
+
+In order to add new server certificates
+1) Ensure that both private key and certificates are in PEM format
+2) Concatenate Cert and Key files to single file
+3) Go to "Certificates" section of the Tyk Dashboard, upload certificate, and you will get a unique ID response
+4) Set it to the Tyk Gateway using one of the approaches below: 
+  * Using tyk.conf:
+    ```
+     "http_server_options": {
+        "ssl_certificates": ["<cert-id-1>", "<cert-id-2>"]
+     }
+     ```
+  * Using environmental variables (handy for Hybrid installation and Docker in general): `TYK_GW_HTTPSERVEROPTIONS_SSLCERTIFICATES=<cert-id>` (if you want set multiple certificates just separate them using comma)
+  
+The Domain in this case will be extracted from standard certificate fields: `Subject.CommonName` or `DNSNames`.
+
+Note: this approach only works with the Tyk Gateway at present. Dashboard support has not been implemented yet.
+
