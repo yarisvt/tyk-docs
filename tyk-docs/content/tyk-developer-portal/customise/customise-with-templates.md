@@ -1,10 +1,10 @@
 ---
 date: 2017-03-24T17:21:39Z
-title: Customise with templates
+title: Customise Page Templates
 menu:
   main:
     parent: "Customise"
-weight: 0 
+weight: 2 
 ---
 
 The Tyk Developer Portal can be fully customised using templates. The templates for the Portal are only available to On-Premises users currently. These templates are located in the `/opt/tyk-dashboard/portal` folder of your Tyk installation.

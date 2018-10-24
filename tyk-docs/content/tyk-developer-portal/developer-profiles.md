@@ -3,7 +3,7 @@ date: 2017-03-24T17:33:13Z
 title: Developer Profiles
 menu:
   main:
-    parent: "Portal Management"
+    parent: "Tyk Developer Portal"
 weight: 2 
 ---
 
@@ -44,6 +44,33 @@ In this panel, you will be able to see the various policies that the developer h
 To drill down into the specific usage patterns for each token, click **ANALYTICS** for the subscription.
 
 ![Developer subscriptions][6]
+
+### Changing Developer Policy Subscriptions
+
+#### Step 1: View the Developer Profile
+
+Browse to the developers list view and select the developer that you wish to manage.
+
+![Developer profile detail][13]
+
+#### Step 2: View Subscriptions List
+
+This sections shows you the current policy that the developer has access to, this view will always try to match the access level to a catalogue entry, if the policy assigned to a developer is not in the catalogue, the entry will read "(No Catalogue Entry)". We recommend that all policy levels are in your catalogue, even if they are not all live.
+
+#### Step 3: Click CHANGE POLICY
+
+This will open a pop-up window that shows you all available policies that can be assigned to the token for the end user.
+
+![Change policy button][14]
+
+#### Step 4: Select the New Policy
+
+![Change policy drop down list][15]
+
+#### Step 5: Save the Change
+
+Click **CHANGE KEY POLICY** to save the changes.
+
 
 ### Edit the Developer Profile
 
@@ -107,5 +134,8 @@ You will be sent an email with a link to reset your Developer password. Enter yo
  [10]: /docs/img/dashboard/portal-management/login_screen.png
  [11]: /docs/img/dashboard/portal-management/email_password_request.png
  [12]: /docs/img/dashboard/portal-management/password_confirmation.png
+ [13]: /docs/img/dashboard/portal-management/developer_edit_2.5.png
+ [14]: /docs/img/dashboard/portal-management/developer_subs_2.5.png
+ [15]: /docs/img/dashboard/portal-management/select_policy_2.5.png 
 
 
