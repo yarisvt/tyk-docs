@@ -3,7 +3,7 @@ date: 2017-03-24T17:42:45Z
 title: Portal events and notifications
 menu:
   main:
-    parent: "Portal Management"
+    parent: "Tyk Developer Portal"
 weight: 4 
 ---
 
@@ -35,7 +35,7 @@ Enabling monitors in your Tyk node means adding a new configuration section to y
 
 *   `enable_trigger_monitors`: Set to `true` to have the monitors start to measure quota thresholds.
 
-*   `configuration`: A webhook configuration object, please see the webhooks documentation for details.
+*   `configuration`: A webhook configuration object. See the [Webhooks documentation](https://tyk.io/docs/report-monitor-trigger-events/webhooks/) for details.
 
 *   `global_trigger_limit`: This is the global trigger threshold and will be applied to all tokens being measured. This number is a percentage of the quota that the user must reach before the notification is triggered.
 

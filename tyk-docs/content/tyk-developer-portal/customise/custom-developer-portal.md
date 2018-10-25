@@ -1,16 +1,16 @@
 ---
 date: 2017-03-24T17:18:28Z
-title: Create a Custom Developer Portal
+title: Creating a Custom Developer Portal
 menu:
   main:
     parent: "Customise"
-weight: 0 
+weight: 5 
 ---
 > **Note**: This functionality is available from v2.3.8
 
 ## <a name="why"></a> Why Build a Custom Developer Portal?
 
-The Tyk Dashboard includes portal functionality by default, but in some cases it is required to have custom logic or, for example, embed the portal into an existing platform. Thankfully Tyk is flexible enough to provide an easy way of integrating the portal to any platform and language using a few API calls.
+The Tyk Dashboard includes portal functionality by default, but in some cases it is required to use custom logic or, for example, embed the portal into an existing platform. Thankfully Tyk is flexible enough to provide an easy way of integrating the portal to any platform and language using a few API calls.
 
 The source code is available from the following GitHub repo - [https://github.com/TykTechnologies/tyk-custom-portal](https://github.com/TykTechnologies/tyk-custom-portal) 
 
@@ -20,21 +20,20 @@ A video covering the process of building a custom portal is available to view he
 
 ## <a name="building-blocks"></a> Building Blocks
 
-Before starting work on implementing a custom developer portal, let's learn basic building blocks.
+Before starting work on implementing a custom developer portal, let's understand the basic building blocks.
 
 ### Obtaining a Dashboard API Key
 
-To run queries against Tyk API you need get credentials, which you can get from the user page:
+To run queries against the Tyk Dashboard API you need to obtain credentials from the **Users** screen.
 
 1.  Select **Users** from the **System Management** section.
 2.  In the **Users** list, click **Edit** for your user.
-3.  The API key is the **Tyk Dashboard API Access Credentials**, copy this somewhere you can reference it.
+3.  The API key is the **Tyk Dashboard API Access Credentials**, copy this somewhere you can refer to it.
 
 ### API Key Location
 Let's save it to the environment variable to simplify code examples in this guide. All the commands should be run in your terminal.
 
->  **NOTE**: Do not forget to replace with your own value
-export TYK_API_KEY=1efdefd6c93046bc4102f7bf77f17f4e
+>  **NOTE**: Don't forget to replace TYK_API_KEY=1efdefd6c93046bc4102f7bf77f17f4e with your own value
 
 ### Creating a Developer
 
@@ -260,9 +259,9 @@ In example above `add2b342,5f1d9603`, is 2 users keys. Note that this example sh
 
 ## <a name="building-portal"></a> Building a Portal
 
-This guide includes the implementation of a full featured developer portal written in Ruby in just 250 lines of code. This portal implementation does not utilize any database and uses Tyk API to store and fetch all the data.
+This guide includes the implementation of a full featured developer portal written in Ruby in just 250 lines of code. This portal implementation does not utilize any database and uses our Tyk Dashboard API to store and fetch all the data.
 
-To run it, you need to have Ruby 2.3+ (latest version). Older versions may work but do not tested.
+To run it, you need to have Ruby 2.3+ (latest version). Older versions may work but have not been tested.
 
 First, you need to install dependencies by running `gem install sinatra excon --no-ri` in your terminal.
 

@@ -1,9 +1,10 @@
 ---
-date: 2017-03-24T17:09:48Z
-title: Portal Management
-weight: 160
-menu: "main"
-url: "/publish"
+date: 2017-03-23T13:17:43Z
+title: Developer Portal
+menu:
+  main:
+    parent: "Tyk Components"
+weight: 4 
 ---
 
 The Tyk Developer Portal is a small CMS-like system that enables you to expose a facade of your APIs and then allow third-party developers to register and use your APIs.
@@ -18,3 +19,10 @@ The developer portal enables you to:
 
 The developer Portal is available to Pro (On-Premises), Cloud and Hybrid users.
 
+For examples of how clients have used our portal, visit:
+
+[https://developer.ft.com/portal](https://developer.ft.com/portal)
+
+[https://developer.cityverve.org.uk/](https://developer.cityverve.org.uk/)
+
+[https://mn.developer.nokia.com/portal/](https://mn.developer.nokia.com/portal/)

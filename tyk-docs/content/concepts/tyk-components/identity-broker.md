@@ -4,7 +4,7 @@ title: Tyk Identity Broker
 menu:
   main:
     parent: "Tyk Components"
-weight: 4 
+weight: 6 
 ---
 
 ## What is the Tyk Identity Broker (TIB)?

@@ -1,13 +1,13 @@
 ---
 date: 2017-03-24T17:18:28Z
-title: Customise using the Dashboard
+title: Customise Pages with CSS
 menu:
   main:
     parent: "Customise"
-weight: 0 
+weight: 3 
 ---
 
-The main customisation that can be done with the dashboard is via the CSS Editor.
+The main customisation that can be done with the Tyk Dashboard is via the CSS Editor.
 
 #### Step 1: Open CSS Editor
 

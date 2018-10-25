@@ -1,10 +1,10 @@
 ---
 date: 2017-03-24T17:24:32Z
-title: Changing the navigation
+title: Customise the Portal Menus
 menu:
   main:
     parent: "Customise"
-weight: 0 
+weight: 1 
 ---
 
 The Portal supports a data structure to hold rudimentary menus, all pages have access to all menus, and can be accessed using the `.Menus.MenuName` field tag. They are arrays that consist of slugs and names, an implementation example would be:
@@ -32,7 +32,7 @@ In the snippet above we can also see a set of settings fields, in order to react
 
 ### Customising the menu with the Dashboard
 
-The Dashboard has a simple menu editor, you can create the above data structures from "Portal Management" -> "Menus":
+The Dashboard has a simple menu editor, you can create the above data structures from the **Portal Management > Menus** option
 
 ![Menus nav][4]
 

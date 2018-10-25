@@ -3,7 +3,7 @@ date: 2017-03-24T17:10:33Z
 title: Portal Concepts
 menu:
   main:
-    parent: "Portal Management"
+    parent: "Tyk Developer Portal"
 weight: 1 
 ---
 
@@ -67,7 +67,7 @@ The developer portal supports two types of documentation, and will render them d
 1.  API Blueprint - this is rendered to HTML templates using Jade and Aglio.
 2.  Swagger (OpenAPI) - either by pasting your Swagger JSON content into the code editor, or by linking to any public facing Swagger JSON URL. The URL version can be rendered using [Swagger UI](https://swagger.io/tools/swagger-ui/) which offers a sandbox environment where developers can interact with your API from the browser.
 
-Within an API Catalogue entry, documentation must be "Attached" to the catalogue entry for it to be published.
+Within an API Catalogue entry, documentation must be attached to the catalogue entry for it to be published.
 
 ## <a name="developers"></a> Developers
 
@@ -75,7 +75,7 @@ Within the developer portal, a developer is an end-user that has access to the d
 
 A developer record consists of some basic sign-up information and a set of admin-definable fields that get attached to the developer as metadata.
 
-Within the developer view of the Dashboard, it is possible to manage all access of a developer, including the access levels of their tokens.
+Within the developer view of the Tyk Dashboard, it is possible to manage all access of a developer, including the access levels of their tokens.
 
 
 

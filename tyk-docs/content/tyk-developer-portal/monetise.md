@@ -3,7 +3,7 @@ date: 2017-03-24T17:45:29Z
 title: Monetise
 menu:
   main:
-    parent: "Portal Management"
+    parent: "Tyk Developer Portal"
 weight: 5 
 ---
 
