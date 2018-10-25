@@ -152,6 +152,7 @@ Most of the changed below should be already in your `tyk.conf` by default:
 
 ```{.copyWrapper}
 "close_connections": false,
+"proxy_close_connections": false,
 "enforce_org_quotas": false,
 "enforce_org_data_detail_logging": false,
 "experimental_process_org_off_thread": true,
