@@ -22,7 +22,7 @@ All you need to do is add a few lines to docker-compose.yml and docker-compose.y
         - ./confs/tyk.conf:/opt/tyk-gateway/tyk.conf
     ```
 
-2. Add the following to docker-compose.yml (after _tyk-gateway2_ definition):
+2. Add the following to docker-compose.yml (after `tyk-gateway` definition):
 ```yml
   tyk-gateway2:
      image: tykio/tyk-gateway:latest
@@ -32,17 +32,4 @@ All you need to do is add a few lines to docker-compose.yml and docker-compose.y
      - tyk
      depends_on:
      - tyk-redis
-```
-
-3. In docker-compose.yml, under tyk-pump section, _depends_on_ add the gateway's name:
-```yml
-  tyk-pump:
-     image: tykio/tyk-pump-docker-pub:latest
-     networks:
-     - tyk
-     depends_on:
-     - tyk-redis
-     - tyk-mongo
-     - tyk-gateway
-     - tyk-gateway2
 ```
