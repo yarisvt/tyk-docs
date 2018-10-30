@@ -1,6 +1,6 @@
 ---
 date: 2017-03-27T16:13:15+01:00
-title: How to run two gateways with docker-compose
+title: How to run two Gateways with docker-compose
 menu:
   main:
     parent: "Frequently Asked Questions"
@@ -8,10 +8,10 @@ weight: 0
 ---
 
 
-Spinning up another gateway with our [pro-demo-repo](https://github.com/TykTechnologies/tyk-pro-docker-demo) is very simple. 
+Spinning up another Tyk Gateway with our [pro-demo-repo](https://github.com/TykTechnologies/tyk-pro-docker-demo) is very simple. 
 All you need to do is add a few lines to docker-compose.yml and docker-compose.yml and `up` your docker-compose as usual.
 
-> **Please note**: This will only work with an appropriate license. The free license is for development purposes and would allow running Tyk's platform with one gateway. If you want to test Tyk with more please contact us here  info@tyk.io and we will be happy to discuss your case and PoC requirements.
+> **Please note**: This will only work with an appropriate license. The free license is for development purposes and would allow running Tyk's platform with one Gateway. If you want to test Tyk with more please contact us here  info@tyk.io and we will be happy to discuss your case and PoC requirements.
 
 
 
