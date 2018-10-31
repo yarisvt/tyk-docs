@@ -84,7 +84,7 @@ margin:-90px 0 0;
 
 /* Blockquote */ 
 .wysiwyg blockquote:before {font-size: 20px; left: 20px; top: 30px;}
-.wysiwyg blockquote { padding: 23px 0px 1px 60px; background: #e1e1e1}
+.wysiwyg blockquote { padding: 23px 0px 1px 60px; background: #e1e1e1; margin-bottom:20px;}
 .wysiwyg blockquote p {margin-top: 7px; margin-bottom: 27px;}
 
 
