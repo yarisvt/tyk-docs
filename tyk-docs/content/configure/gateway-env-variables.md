@@ -159,4 +159,3 @@ weight: 12
 | enable_bundle_downloader             				| TYK_GW_ENABLEBUNDLEDOWNLOADER                       |
 | allow_remote_config                   			| TYK_GW_ALLOWREMOTECONFIG                            |
 | legacy_enable_allowance_countdown     			| TYK_GW_LEGACYENABLEALLOWANCECOUNTDOWN               |
-| security.certificates.control_api           | TYK_GW_SECURITY_CERTIFICATES_CONTROLAPI               |
