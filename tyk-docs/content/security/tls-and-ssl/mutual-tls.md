@@ -180,7 +180,7 @@ curl -cert client_cert.pem --key client_key.pem https://localhost:8181
 
 Since all certificate ID configuration options are just arrays, you can set them via environment variables, like this:
 ```{.copyWrapper}
-TYK_GW_SECUIRITY_CERTIFICATES_CONTROLAPI="<cert1-id>,<cert2-id>"
+TYK_GW_SECURITY_CERTIFICATES_CONTROLAPI="<cert1-id>,<cert2-id>"
 ```
 Separating your Certificate IDs by commas. The environment variables approach is also suited for Docker users. In this case, updating the Tyk SSL certificate is just matter of performing an API call to Tyk to add the certificate, and restarting your Docker container with the updated environment variable, containing new certificate ID or path.
 
