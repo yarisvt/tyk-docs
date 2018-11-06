@@ -227,7 +227,7 @@ This setting defaults to `60`, this is the time window that Tyk will use to samp
 
 ### <a name="http_server_options"></a> http_server_options
 
-Set these options to hard-code values into the way the HTTP server behaves. this is highly experimental and should only be used for extreme tuning purposes, it is not recommended to be used unless absolutely necessary.
+Set these options to hard-code values into the way the HTTP server behaves.
 
 ```
 "http_server_options": {
