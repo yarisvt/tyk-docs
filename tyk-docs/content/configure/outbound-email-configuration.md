@@ -39,7 +39,7 @@ To get email set up for your installation, add the following to your `tyk_analyt
 > Available from Tyk Dashboard version 1.7
 
 ```{.copyWrapper}
-"code:": "smtp",
+"code": "smtp",
 "settings": {
   "SMTPUsername": "email@example.com",
   "SMTPPassword": "examplepassword",
@@ -50,7 +50,7 @@ To get email set up for your installation, add the following to your `tyk_analyt
 #### Mandrill
 
 ```{.copyWrapper}
-"code:": "mandrill",
+"code": "mandrill",
 "settings": {
   "ClientKey": "xxxxxxxxx"
 },
