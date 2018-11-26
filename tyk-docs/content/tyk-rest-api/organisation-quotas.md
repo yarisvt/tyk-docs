@@ -12,9 +12,9 @@ weight: 8
 It is possible to force API quota and rate limit across all keys that belong to a specific organisation ID. 
 Rate limiting on an organisation level is useful for creating tiered access levels and trial accounts.
 
-The Organisation rate limiting middleware works with both Quotas and Rate Limiters. In order to manage this functionality, an API has been put in place to manage these sessions.
+The Organisation rate limiting middleware works with both Quotas and Rate Limits. In order to manage this functionality, an API has been put in place to manage these sessions.
 
-Although the Organisation session-limiter uses the same [session object](https://tyk.io/docs/tyk-rest-api/token-session-object-details/), all other security keys are optional.
+Although the Organisation session object uses the same [session object](https://tyk.io/docs/tyk-rest-api/token-session-object-details/), all other security keys are optional.
 
 ### Managing active status
 
@@ -63,9 +63,12 @@ Cache-Control: no-cache
 
 Where the request fields:
 
-- `"quota_*"` are specifying attributes for organization-level quota (`"quota_max": -1` will set unlimited quota)
+- `quota_max`: This sets the maximum number of requests for the specified period. Setting to `-1` will set an unlimited quota.
+- `quota_renews`: This sets the time for the quota to be applied to.
+- `quota_remaining`: The requests remaining for the current period. 
+- `quota_renewal_rate`: This has to be set to the same value as `quota_max`
 - `"allowance"`, `"rate"` and `"per"` are specifying attributes for organization level rate limiter (`"rate": 0` or `"per": 0` will set unlimited rate)
-- `"org_id"` - identifies the organization session key object
+- `"org_id"` - identifies the organisation session key object
 
 #### Sample response
 
