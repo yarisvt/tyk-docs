@@ -3,7 +3,7 @@ date: 2017-05-09T14:39:43Z
 Title: Installation on Heroku
 menu:
   main:
-    parent: "With Tyk Hybrid"
+    parent: "With Tyk Multi-Cloud"
 weight: 4
 ---
 

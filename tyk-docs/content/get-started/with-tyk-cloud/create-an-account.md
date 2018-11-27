@@ -1,6 +1,6 @@
 ---
 date: 2017-03-15T15:10:57Z
-title: Create an Account
+title: Create a Cloud Account
 menu: 
   main:
     parent: "With Tyk Cloud"

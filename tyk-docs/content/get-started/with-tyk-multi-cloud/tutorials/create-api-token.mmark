@@ -3,7 +3,7 @@ date: 2017-03-22T15:03:39Z
 Title: Create an API Key - Multi-Cloud
 menu:
   main:
-    parent: /with-tyk-hybrid
+    parent: /with-tyk-multi-cloud
 weight: 3
 ---
 <span data-filetype="mmark"></span>

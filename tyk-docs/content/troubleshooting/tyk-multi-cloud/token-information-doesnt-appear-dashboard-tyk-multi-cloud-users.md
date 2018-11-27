@@ -1,9 +1,9 @@
 ---
 date: 2017-03-27T17:00:24+01:00
-title: Token information doesn't appear in Dashboard for Tyk Multi-Cloud users
+title: Key information doesn't appear in Dashboard for Tyk Multi-Cloud users
 menu:
   main:
-    parent: "Tyk Hybrid"
+    parent: "Tyk Multi-Cloud"
 weight: 5 
 ---
 
