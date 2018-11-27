@@ -1,6 +1,6 @@
 ---
 date: 2017-03-13T15:35:00Z
-title: With Tyk Multi-Cloud
+title: With Tyk Hybrid
 menu: 
   main:
     parent: "Get started"
