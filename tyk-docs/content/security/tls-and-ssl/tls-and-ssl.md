@@ -8,7 +8,7 @@ weight: 2
 url: "/security/tls-and-ssl"
 ---
 
-Tyk supports TLS connections, and as of version 2.0 all TLS connections will also support HTTP/2. To enable SSL in your Tyk gateway and dashboard, you will need to modify the `tyk.conf` and `tyk_analytics` files to include a server options section like so:
+Tyk supports TLS connections, and as of version 2.0 all TLS connections will also support HTTP/2. To enable SSL in your Tyk Gateway and Dashboard, you will need to modify the `tyk.conf` and `tyk_analytics` files to include a server options section like so:
 
 ```{.copyWrapper}
 "http_server_options": {
@@ -72,9 +72,9 @@ In order to add new server certificates
         "ssl_certificates": ["<cert-id-1>", "<cert-id-2>"]
      }
      ```
-  * Using environmental variables (handy for Hybrid installation and Docker in general): `TYK_GW_HTTPSERVEROPTIONS_SSLCERTIFICATES=<cert-id>` (if you want set multiple certificates just separate them using comma)
+  * Using environmental variables (handy for Multi-Cloud installation and Docker in general): `TYK_GW_HTTPSERVEROPTIONS_SSLCERTIFICATES=<cert-id>` (if you want set multiple certificates just separate them using comma)
   
 The Domain in this case will be extracted from standard certificate fields: `Subject.CommonName` or `DNSNames`.
 
-Note: this approach only works with the Tyk Gateway at present. Dashboard support has not been implemented yet.
+> **Note**: this approach only works with the Tyk Gateway at present. Dashboard support has not been implemented yet.
 

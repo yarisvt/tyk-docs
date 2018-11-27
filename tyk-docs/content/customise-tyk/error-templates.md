@@ -9,7 +9,7 @@ weight: 2
 
 In v2.2 the error handler allowed the use a single JSON template to communicate errors to users (a default one is shipped with Tyk, it's located in `templates/error.json`).
 
-As of v2.3 it is possible to use different templates for specific HTTP error codes. The `content-type` header of the request is also checked, enabling the usage of different template formats, e.g. a XML template.
+As of v2.3 it is possible to use different templates for specific HTTP error codes. The `content-type` header of the request is also checked, enabling the usage of different template formats, e.g. an XML template.
 
 ## <a name="use-cases"></a> Use Cases
 

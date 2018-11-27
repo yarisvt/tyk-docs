@@ -9,7 +9,7 @@ weight: 2
 
 Dashboard users have twofold access to the dashboard: they can access both the Dashboard API and the dashboard itself, it is possible to generate users that have read-only access to certain sections of the dashboard and the underlying API.
 
-Dashboard users are not the same as developer portal users (“developers”), the user records are stored completely separately, and have different mechanics around user creation, management and access. For example, it is not possible to log into the developer portal using a dashboard account.
+Dashboard users are not the same as developer portal users ("developers"), the user records are stored completely separately, and have different mechanics around user creation, management and access. For example, it is not possible to log into the developer portal using a dashboard account.
 
 ## <a name="with-dashboard"></a>Create a Dashboard User with the Dashboard
 

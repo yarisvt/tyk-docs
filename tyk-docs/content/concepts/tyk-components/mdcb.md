@@ -7,7 +7,7 @@ menu:
 weight: 5 
 ---
 
-## What is MDCB ?
+## What is MDCB?
 
 The Multi Data Centre Bridge (MDCB) allows for centralised management of multiple independent Tyk clusters and the seamless transition of APIs between environments, availability zones and segmented nodes.
 

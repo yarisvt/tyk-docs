@@ -20,10 +20,10 @@ The average single request analytics record (without detailed logging turned on)
 
 In terms of Redis, in addition to key storage itself, it should be able to hold the last 10 seconds of analytics data, preferably more, in case of a Tyk pump failure. So if you have 100 requests per second, you will need approximately 6MB for storing 60 seconds of data. Be aware that if detailed logging is turned on, this can grow by a magnitude of 10. 
 
-> MDCB and Hybrid clients - the gateways write the data to a temporary Redis list and periodically send the analytics directly to the MDCB server, which, similar to Pump, processes them for purging to MongoDB.
+> MDCB and Multi-Cloud clients - the gateways write the data to a temporary Redis list and periodically send the analytics directly to the MDCB server, which, similar to Pump, processes them for purging to MongoDB.
 
 ## <a name="mongodb"></a>MongoDB
-The aggregate record size depends on the number of APIs and Keys you have. Each counter size ~ 50b, and every aggregated value has its own counter. 
+The aggregate record size depends on the number of APIs and Keys you have. Each counter size ~50b, and every aggregated value has its own counter. 
 
 So an hourly aggregate record is computed like: 50 * active_apis + 50 * api_versions + 50 * active_api_keys  + 50 * oauth_keys, etc. 
 
@@ -37,9 +37,9 @@ Per month: 30GB request logs + 30MB aggregate logs
 
 Working data in terms of MongoDB is the data you query most often. The graphs displayed on the Dashboard, except for the Log browser, use aggregated data. 
 
-So if you rely only on this kind of analytics, you will not experience issues with working data and memory issues. It is literally hundreds of MBs. 
+So if you rely only on this kind of analytic data, you will not experience issues with working data and memory issues. It is literally hundreds of MBs. 
 
-Even if you use the Log browser, its usage access is usually quite random, and it is unlikely that you check requests for every request. So it can’t be called working data. And it is ok to store it on disk, and allow MongoDB to do the disk lookups to fetch the data. 
+Even if you use the Log browser, its usage access is usually quite random, and it is unlikely that you check requests for every request. So it can't be called working data. And it is ok to store it on disk, and allow MongoDB to do the disk lookups to fetch the data. 
 
 Note, that in order to do fast queries, even from the disk, MongoDB uses indexes. MongoDB recommends that indexes should fit into memory, and be considered working data, but only the part of the index which is commonly used. For example the last month of data. 
 

@@ -8,9 +8,9 @@ weight: 2
 ---
 
 
-The Tyk Dashboard has a separate configuration file, it is small and comes packaged with the tarball. The Tyk Dashboard uses a separate configuration file as it may be installed on a different host to your Tyk nodes.
+The Tyk Dashboard has a separate configuration file, it is small and comes packaged with the tarball. It uses a separate configuration file as it may be installed on a different host to your Tyk nodes.
 
-The dashboard configuration file can be found in the `tyk-dashboard` folder and by default is called `tyk_analytics.conf`, though it can be renamed and specified using the `--conf` flag.
+The Dashboard configuration file can be found in the `tyk-dashboard` folder and by default is called `tyk_analytics.conf`, though it can be renamed and specified using the `--conf` flag.
 
 The file will look like the sample below, the various fields are explained in the following sections:
 
@@ -86,11 +86,11 @@ The file will look like the sample below, the various fields are explained in th
 ```
 
 
-* `listen_port`: Setting this value will change the port that Tyk Dashboard listens on, by default Tyk will try to listen on port `3000`.
+* `listen_port`: Setting this value will change the port that Tyk Dashboard listens on. By default Tyk will try to listen on port `3000`.
 
-* `notifications_listen_port`: port used for websockets connection for real-time dashboard notifications, defaults to `5000`.
+* `notifications_listen_port`: port used for websockets connection for real-time dashboard notifications. Defaults to `5000`.
 
-* `tyk_api_config`: This section details a node that Tyk Dashboard can speak to, Tyk Dashboard controls Tyk using the REST API, it only requires visibility to one node, so long as all nodes are using the same API Definitions.
+* `tyk_api_config`: This section details a node that the Tyk Dashboard can speak to. Tyk Dashboard controls Tyk using the REST API, it only requires visibility to one node, so long as all nodes are using the same API Definitions.
     
 > **Important**: If the Dashboard cannot see a Tyk node, key management functions will not work properly.
 
@@ -100,7 +100,7 @@ The file will look like the sample below, the various fields are explained in th
 
 *   `tyk_api_config.Secret`: The secret that you have set in the `tyk.conf` file, this is the key that Tyk Dashboard will use to speak to the Tyk node's REST API. Please note that this value should match with the `secret` value in `tyk.conf`.
 
-*   `shared_node_secret`: As of Tyk v2.0 and Tyk Dashboard 1.0 all Tyk API Gateway nodes that are configured to use the Dashboard as a back-end API Definition service (i.e. are managed by a Dashboard) will register with the Dashboard service on load, and claim a node ID that is provided by the license for the Dashboard. Please note that this value should match with [`node_secret`][3] Gateway configuration option value.
+*   `shared_node_secret`: As of Tyk Gateway **v2.0** and Tyk Dashboard **1.0** all Tyk API Gateway nodes that are configured to use the Dashboard as a back-end API Definition service (i.e. are managed by a Dashboard) will register with the Dashboard service on load, and claim a node ID that is provided by the license for the Dashboard. Please note that this value should match with [`node_secret`][3] Gateway configuration option value.
     
 Each node communicates with the Dashboard via a shared secret (this setting) and a nonce to ensure that out-of-band requests cannot be made. Nodes will send a heartbeat every few seconds to notify the Dashboard that they are running.
 
@@ -112,13 +112,13 @@ Each node communicates with the Dashboard via a shared secret (this setting) and
 
 *   `mongo_use_ssl`: Boolean setting for Mongo SSL support. Set to `true` to enable SSL.
 
-*   `page_size`: The page size that the dashboard should use, defaults to `10`. Should not be edited.
+*   `page_size`: The page size that the dashboard should use. Defaults to `10`. Should not be edited.
 
 *   `redis_port`: The port that your Redis installation is on.
     
 > **Important**: Tyk Dashboard uses Redis to store its session data and to communicate with your Tyk nodes occasionally. The Redis details used by the dashboard must be the same as those set for your Tyk installation.
 
-*   `redis_host`: The hostname for the Redis collection, can be an IP address.
+*   `redis_host`: The hostname for the Redis collection and can be an IP address.
 
 *   `redis_password`: If you have a set a password in your Redis configuration using its `requirepass` setting, enter it here. If this is set to empty, Tyk Dashboard will not attempt to login to Redis.
 
@@ -126,11 +126,11 @@ Each node communicates with the Dashboard via a shared secret (this setting) and
 
 *   `enable_cluster`: Set this to `true` if you are using a Redis cluster, then fill in the `redis_hosts` field.
 
-*   `redis_hosts`: You can also specify multiple Redis hosts here, Tyk will use this array if it is not empty, or it will use the individual legacy parameters above. You can specify multiple `host:port` combinations here
+*   `redis_hosts`: You can also specify multiple Redis hosts here. Tyk will use this array if it is not empty, or it will use the individual legacy parameters above. You can specify multiple `host:port` combinations here.
 
 *   `force_api_defaults`: Forces the Dashboard to use certain defaults when generating API definitions. Set this to `false` if you wish to manually set `listen_paths`.
 
-*   `notify_on_change`: Licensed users can use this setting to enable/disable whether Tyk Dashboard will notify all tyk nodes to hot-reload when an API definition is changed.
+*   `notify_on_change`: Licensed users can use this setting to enable/disable whether Tyk Dashboard will notify all Tyk nodes to hot-reload when an API definition is changed.
 
 *   `license_owner`: Deprecated, licenses are no long required to use the Dashboard.
 
