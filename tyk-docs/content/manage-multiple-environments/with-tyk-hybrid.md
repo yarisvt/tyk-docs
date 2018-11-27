@@ -8,17 +8,17 @@ menu:
 weight: 2 
 ---
 
-## <a name="tagging-introduction"></a>Hybrid Tagging Introduction
+## <a name="tagging-introduction"></a>Multi-Cloud Tagging Introduction
 
-With Tyk Hybrid it is easy to enable a sharded configuration, you will need to modify the `tyk.conf` file of you gateway (this may require deeper customisation, we can help you with that), and then enable the tags in your cloud dashboard.
+With Tyk Multi-Cloud it is easy to enable a sharded configuration, you will need to modify the `tyk.conf` file of you gateway (this may require deeper customisation, we can help you with that), and then enable the tags in your cloud dashboard.
 
-You can then launch your tagged gateways throughout your infrastructure, Tyk Hybrid will take care of synchronising API tokens, API Configurations and policies across your environments.
+You can then launch your tagged gateways throughout your infrastructure, Tyk Multi-Cloud will take care of synchronising API tokens, API Configurations and policies across your environments.
 
-Notes on Hybrid distributions:
+Notes on Multi-Cloud distributions:
 
-* Tokens are cached from our infrastructure down into the Redis instance that your hybrid gateway has access to, this means that if you have tokens that share environments, their quotas and rate limits will be applied on a per-environment basis, between environments, not across environments.
-* Updating a token in the dashboard will cause the cached version to be removed from your hybrid and then re-synched, this means their quotas will be reset.
-* To ensure that Tyk Hybrid gateways synchronise in isolated environments, ensure that the `group_id` is set to a data center ID under your `tyk.conf` `slave_options`, otherwise only one hybrid gateway will pick up keyspace changes.
+* Tokens are cached from our infrastructure down into the Redis instance that your Multi-Cloud Gateway has access to, this means that if you have tokens that share environments, their quotas and rate limits will be applied on a per-environment basis, between environments, not across environments.
+* Updating a token in the dashboard will cause the cached version to be removed from your Multi-Cloud and then re-synched, this means their quotas will be reset.
+* To ensure that Tyk Multi-Cloud gateways synchronise in isolated environments, ensure that the `group_id` is set to a data center ID under your `tyk.conf` `slave_options`, otherwise only one Multi-Cloud gateway will pick up keyspace changes.
 
 ## <a name="configure-gateway-as-shard"></a> Configure a Gateway as a shard
 

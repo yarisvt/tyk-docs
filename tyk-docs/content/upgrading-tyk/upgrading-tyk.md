@@ -9,8 +9,8 @@ url: "/upgrading-tyk"
 Depending on the version of Tyk you have installed, upgrading to the latest version works as follows:
 ## <a name="cloud"></a>Tyk Cloud
 Tyk Cloud users are automatically upgraded to the latest version as soon as it's released.
-## <a name="hybrid"></a>Tyk Hybrid Gateway
-We recommend you upgrade your Tyk Hybrid Gateway in the following way:
+## <a name="Multi-Cloud"></a>Tyk Multi-Cloud Gateway
+We recommend you upgrade your Tyk Multi-Cloud Gateway in the following way:
 
  1. Take a backup of your tyk.conf, tyk-analytics.conf and start.sh files. This is important if you have modified your Docker Container in your current version.
  2. Re-run the start.sh script:
@@ -46,7 +46,7 @@ sudo docker logs --tail=100 --follow tyk_hybrid
 ```
 
   
-This will show you the log output of the hybrid container, if you don't see any connectivity errors, and the log output ends something like this:
+This will show you the log output of the Multi-Cloud container, if you don't see any connectivity errors, and the log output ends something like this:
 ```
 time="Jul  7 08:15:03" level=info msg="Gateway started (vx.x.x.x)"
 time="Jul  7 08:15:03" level=info msg="--> Listening on port: 8080"

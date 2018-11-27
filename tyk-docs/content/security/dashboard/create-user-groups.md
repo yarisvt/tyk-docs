@@ -15,7 +15,7 @@ You can use User Groups to help with Role Based Access Control (RBAC) for your u
 
 This also works for Single Sign On (SSO) as well, you can specify the group ID when setting up SSO. 
 
-This feature is available to all our Cloud and Hybrid users. For On-Premises installations, this feature is available for customers with an "Unlimited" license.
+This feature is available to all our Cloud and Multi-Cloud users. For On-Premises installations, this feature is available for customers with an "Unlimited" license.
 
 In order to manage user groups, ensure that you have either "admin" or "user groups" permission for your user, which can be enabled by your admin.
 

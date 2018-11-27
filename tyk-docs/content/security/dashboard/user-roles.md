@@ -13,7 +13,7 @@ weight: 4
 
 The Tyk Dashboard allows multi-tenant and granular user access. Users can be assigned specific permissions to ensure that they only have very specific access to the dashboard pages, and to the underlying API.
 
-From v2.7 you can now assign users to a user group if you are an admin user or have the **User Group** permission assigned to you. See [User Groups](https://tyk.io/docs/security/dashboard/create-user-groups/) for more details. This feature is available to all our Cloud and Hybrid users. For On-Premises installations, this feature is available only for customers with an "Unlimited" license.
+From v2.7 you can now assign users to a user group if you are an admin user or have the **User Group** permission assigned to you. See [User Groups](https://tyk.io/docs/security/dashboard/create-user-groups/) for more details. This feature is available to all our Cloud and Multi-Cloud users. For On-Premises installations, this feature is available only for customers with an "Unlimited" license.
 
 It is important to note that all user roles are defined and enforced at the API level, and the UI is merely reactive.
 

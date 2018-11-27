@@ -6,15 +6,15 @@ menu:
 weight: 3
 ---
 
-> **NOTE**: Our Hybrid offering has been superseded by Tyk Multi-Cloud. See [Tyk Multi-Cloud](https://tyk.io/api-gateway/cloud/#multi-cloud) for more details.
+> **NOTE**: Tyk Multi-Cloud has superseded our Hybrid offering. See [Tyk Multi-Cloud](https://tyk.io/api-gateway/cloud/#multi-cloud) for more details. You can get a free 30 day trial of Tyk Multi-Cloud.
 
-Tyk Hybrid Gateway can be installed on AWS infrastructure using our AWS Marketplace AMI product. Once subscribed to it and a Tyk Cloud account is created please follow this guide to set up an instance.
+Tyk Multi-Cloud Gateway can be installed on AWS infrastructure using our AWS Marketplace AMI product. Once subscribed to it and a Tyk Cloud account is created please follow this guide to set up an instance.
 
 ## <a name="requirements"></a>Requirements
 
 To get started make sure you have:
 
-1. A Tyk Hybrid account. Click [here][1] for details of how to create one or to upgrade from a Cloud account
+1. A Tyk Multi-Cloud account. Click [here][1] for details of how to create one
 2. A subscription to the [Tyk Hybrid Gateway AMI from the AWS Marketplace](https://aws.amazon.com/marketplace/pp/B07BVPCL4R)
 
 ## <a name="quick-setup"></a>Quick setup

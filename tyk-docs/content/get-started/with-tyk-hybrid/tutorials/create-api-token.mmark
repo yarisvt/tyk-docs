@@ -1,6 +1,6 @@
 ---
 date: 2017-03-22T15:03:39Z
-Title: Create an API Key - Hybrid
+Title: Create an API Key - Multi-Cloud
 menu:
   main:
     parent: /with-tyk-hybrid
@@ -8,9 +8,9 @@ weight: 3
 ---
 <span data-filetype="mmark"></span>
 
-> **NOTE**: Our Hybrid offering has been superseded by Tyk Multi-Cloud. See [Tyk Multi-Cloud](https://tyk.io/api-gateway/cloud/#multi-cloud) for more details.
+> **NOTE**: Tyk Multi-Cloud has superseded our Hybrid offering. See [Tyk Multi-Cloud](https://tyk.io/api-gateway/cloud/#multi-cloud) for more details. You can get a free 30 day trial of Tyk Multi-Cloud.
 
-Creating an API Key with Tyk Hybrid is the same process as with Tyk Cloud. The only difference is that when you use the API key, you can use it either against your Cloud endpoints or against your Hybrid Gateway. Both are valid.
+Creating an API Key with Tyk Multi-Cloud is the same process as with Tyk Cloud. The only difference is that when you use the API key, you can use it either against your Cloud endpoints or against your Multi-Cloud Gateway. Both are valid.
 
 {{./static/include/create-api-key-include.md}}
 

@@ -157,7 +157,7 @@ Settings must be the same as for the original `tyk.conf` for Redis and for Mongo
 
 `elasticsearch_url` - If sniffing is disabled, the URL that all data will be sent to. Defaults to `http://localhost:9200`. The HTTP prefix must be included in the URL.
 
-`enable_sniffing` - If sniffing is enabled, the `elasticsearch_url` will be used to make a request to get a list of all the nodes in the cluster. The returned addresses will then be used. Defaults to 'false'.
+`enable_sniffing` - If sniffing is enabled, the `elasticsearch_url` will be used to make a request to get a list of all the nodes in the cluster. The returned addresses will then be used. Defaults to `false`.
 
 `document_type` - The type of the document that is created in ES. Defaults to "tyk_analytics"
 

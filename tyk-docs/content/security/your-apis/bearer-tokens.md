@@ -9,11 +9,11 @@ weight: 5
 
 ## <a name="what-is-a-bearer-token"></a>What is a bearer token ?
 
-> Any party in possession of a bearer token (a “bearer”) can use it to get access to the associated resources (without demonstrating possession of a cryptographic key). To prevent misuse, bearer tokens need to be protected from disclosure in storage and in transport.
+> Any party in possession of a bearer token (a "bearer") can use it to get access to the associated resources (without demonstrating possession of a cryptographic key). To prevent misuse, bearer tokens need to be protected from disclosure in storage and in transport.
 
-Tyk provides bearer token access as one of the most convenient building blocks for managing security to your API, in a Tyk setup, this is called “Access Tokens” and is the default mode of any API Definition created for Tyk.
+Tyk provides bearer token access as one of the most convenient building blocks for managing security to your API. In a Tyk setup, this is called "Access Tokens" and is the default mode of any API Definition created for Tyk.
 
-Bearer tokens are added to a request as a header or as a query parameter, if added as a header, they may be preceded by the word “Bearer” to indicate their type, though this is optional.
+Bearer tokens are added to a request as a header or as a query parameter. If added as a header, they may be preceded by the word "Bearer" to indicate their type, though this is optional.
 
 Traditionally these tokens are used as part of the `Authorization` header.
 

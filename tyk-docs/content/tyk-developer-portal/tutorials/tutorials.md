@@ -14,7 +14,7 @@ We have provided the following tutorials to get you started with the Developer P
 
 [Create a Portal Catalogue Entry](https://tyk.io/docs/get-started/with-tyk-cloud/tutorials/create-portal-entry/)
 
-## <a name="hybrid"></a>Hybrid
+## <a name="Multi-Cloud"></a>Multi-Cloud
 
 [Create a Portal Catalogue Entry](https://tyk.io/docs/get-started/with-tyk-hybrid/tutorials/create-a-portal-entry/)
 

@@ -5,8 +5,8 @@ menu:
   main:
     parent: "Troubleshooting"
 weight: 5
-url: "/troubleshooting/tyk-hybrid"
+url: "/troubleshooting/tyk-Multi-Cloud"
 ---
 
-[Token information doesn't appear in Dashboard for Tyk Hybrid users](/docs/troubleshooting/tyk-hybrid/token-information-doesnt-appear-dashboard-tyk-hybrid-users/)
+[Token information doesn't appear in Dashboard for Tyk Multi-Cloud users](/docs/troubleshooting/tyk-hybrid/token-information-doesnt-appear-dashboard-tyk-hybrid-users/)
 
