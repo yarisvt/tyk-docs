@@ -4,7 +4,7 @@ title: Create a security policy - Multi-Cloud
 weight: 0
 menu:
     main: 
-        parent: /with-tyk-hybrid
+        parent: /with-tyk-multi-cloud
 weight: 4
 ---
 <span data-filetype="mmark"></span>

@@ -1,11 +1,11 @@
 ---
 date: 2017-03-13T15:35:00Z
-title: With Tyk Hybrid
+title: With Tyk Multi-Cloud
 menu: 
   main:
     parent: "Get started"
 weight: 5
-url: "/get-started/with-tyk-hybrid"
+url: "/get-started/with-tyk-multi-cloud"
 ---
 
 > **NOTE**: Tyk Multi-Cloud has superseded our Hybrid offering. See [Tyk Multi-Cloud](https://tyk.io/api-gateway/cloud/#multi-cloud) for more details. You can get a free 30 day trial of Tyk Multi-Cloud.

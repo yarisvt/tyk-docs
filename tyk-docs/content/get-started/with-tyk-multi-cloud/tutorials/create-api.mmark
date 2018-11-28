@@ -4,7 +4,7 @@ Title: Create an API - Multi-Cloud
 markup: mmark
 menu:
   main:
-    parent: /with-tyk-hybrid
+    parent: /with-tyk-multi-cloud
 weight: 2
 ---
 <span data-filetype="mmark"></span>

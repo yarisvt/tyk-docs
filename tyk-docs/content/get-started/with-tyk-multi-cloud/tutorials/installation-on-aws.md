@@ -2,7 +2,7 @@
 title: "Installation on AWS"
 menu:
   main:
-    parent: "With Tyk Hybrid"
+    parent: "With Tyk Multi-Cloud"
 weight: 3
 ---
 

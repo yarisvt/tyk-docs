@@ -1,6 +1,6 @@
 ---
 date: 2017-03-27T16:44:21+01:00
-title: How to set a custom domain for the developer portal on Tyk Cloud or Hybrid
+title: How to set a custom domain for the developer portal on Tyk Cloud or Multi-Cloud
 menu:
   main:
     parent: "Frequently Asked Questions"

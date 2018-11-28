@@ -1,13 +1,13 @@
 ---
 date: 2017-03-15T16:50:08Z
-title: Create an account
+title: Create a Multi-Cloud Account
 menu: 
   main:
-    parent: "With Tyk Hybrid"
+    parent: "With Tyk Multi-Cloud"
 weight: 1
 ---
 
-> **NOTE**: Our Hybrid offering has been superseded by Tyk Multi-Cloud. See [Tyk Multi-Cloud](https://tyk.io/api-gateway/cloud/#multi-cloud) for more details.
+> **NOTE**: Tyk Multi-Cloud has superseded our Hybrid offering. See [Tyk Multi-Cloud](https://tyk.io/api-gateway/cloud/#multi-cloud) for more details. You can get a free 30 day trial of Tyk Multi-Cloud.
 
 ## <a name="create-an-account"></a>Create a Multi-Cloud account
 

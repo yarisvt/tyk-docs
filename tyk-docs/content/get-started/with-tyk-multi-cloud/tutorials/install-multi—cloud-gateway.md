@@ -3,7 +3,7 @@ date: 2017-03-22T14:14:38Z
 title: Install the Multi-Cloud Gateway
 menu:
   main:
-    parent: "With Tyk Hybrid"
+    parent: "With Tyk Multi-Cloud"
 weight: 2
 ---
 

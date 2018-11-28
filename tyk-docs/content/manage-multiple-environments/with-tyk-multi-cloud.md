@@ -1,10 +1,10 @@
 ---
 date: 2017-03-24T11:48:31Z
-title: With Tyk Hybrid
+title: With Tyk Multi-Cloud
 menu:
   main:
     parent: "Manage Multiple Environments"
-    identifier: multiple-environments-hybrid
+    identifier: multiple-environments-multi-cloud
 weight: 2 
 ---
 
