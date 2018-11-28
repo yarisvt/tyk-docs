@@ -141,7 +141,7 @@ send them to client without password. Using secure connection between slave Gate
 
 ## <a name="communication-admin-api"></a> Admin APIs and Internal Communication between Tyk Products 
 
-> NOTE: This feature will is planned for Gateway 2.5, Dashboard 1.5 and later. API and variable names may change.
+> NOTE: This feature is planned for Gateway v2.5, Dashboard v1.5 and later. API and variable names may change.
 
 All internal Tyk APIs can be protected with Mutual TLS. So you can additionally protect both Admin APIs from external access, and at the same time protect internal link connecting the Tyk Gateway, Dashboard, and MDCB.
 
@@ -154,11 +154,8 @@ To enable Mutual TLS on server side, you need to set the following options, depe
 ### Gateway 
 Set `security.control_api_use_mutual_tls` to `true`, and specify your list of certificates via `security.certificates.control_api`
 
-### Dashboard 
+### Dashboard & MDCB
 Set `security.admin_api_use_mutual_tls` to `true`, and specify your list of certificates via `security.certificates.admin_api`
-
-### <a name="mdcb-internal"></a> MDCB 
-Set `security.admin_api_use_mutual_tls` to `true`, and specify your list of certificates via `security.certificates.admin_api` 
 
 ## <a name="tips-tricks"></a> Tips and Tricks 
 You can create self-signed client and server certificates with this command:
