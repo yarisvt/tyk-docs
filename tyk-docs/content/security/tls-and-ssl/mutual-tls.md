@@ -139,24 +139,6 @@ The Management and slave environments usually do not share any secrets; thus a c
 To solve this issue, you need set `security. private_certificate_encoding_secret`  in the MDCB configuration file, to the same value as specified in your management gateway configuration file. By knowing the original secret, MDCB will be able to decode private keys, and 
 send them to client without password. Using secure connection between slave Gateways and MDCB is required in this case. See MDCB setup page for use_ssl usage.
 
-## <a name="communication-admin-api"></a> Admin APIs and Internal Communication between Tyk Products 
-
-> NOTE: This feature is planned for Gateway v2.5, Dashboard v1.5 and later. API and variable names may change.
-
-All internal Tyk APIs can be protected with Mutual TLS. So you can additionally protect both Admin APIs from external access, and at the same time protect internal link connecting the Tyk Gateway, Dashboard, and MDCB.
-
-For specifying client certificates Tyk re-uses the  `security.certificates.upstream` configuration 
-option (which is consistent across all Tyk products). So for example, in case of Gateway in an On-Premises installation, `security.certificates.upstream` value for the Mutual TLS connection to the dashboard will be: `{ "dashboard.domain":  "<cert-id">}`. You can specify an IP Address if using 
-without the domain, or include the port number if using a custom domain.
-
-To enable Mutual TLS on server side, you need to set the following options, depending on the product:
-
-### Gateway 
-Set `security.control_api_use_mutual_tls` to `true`, and specify your list of certificates via `security.certificates.control_api`
-
-### Dashboard & MDCB
-Set `security.admin_api_use_mutual_tls` to `true`, and specify your list of certificates via `security.certificates.admin_api`
-
 ## <a name="tips-tricks"></a> Tips and Tricks 
 You can create self-signed client and server certificates with this command:
 ```{.copyWrapper}
@@ -165,7 +147,7 @@ openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -node
 
 For the server in common name specify domain, or just pass -`subj "/CN=localhost"` to OpenSSL command. Then follow our [TLS and SSL Guide](https://www.tyk.io/docs/security/tls-and-ssl/).
 
-To get certificate SHA256 fingerprint use following command: 
+To get certificate SHA256 fingerprint use the following command: 
 ```{.copyWrapper}
 openssl x509 -noout -fingerprint -sha256 -inform pem -in <cert>
 ```
