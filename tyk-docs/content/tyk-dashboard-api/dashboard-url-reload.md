@@ -3,7 +3,7 @@ date: 2017-03-27T12:33:44+01:00
 title: Dashboard URL Reload
 menu:
   main:
-    parent: "Tyk Dashboard API"
+    parent: "Tyk Dashboard Admin API"
 weight: 10 
 ---
 
