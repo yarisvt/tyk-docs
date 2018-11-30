@@ -17,7 +17,7 @@ Click **CSS** from the **Portal Management** menu.
 
 #### Step 2: Make CSS Amendments
 
-In the CSS Editor, add the classes that you would like to override in the home page. For cloud and hybrid users, this will already be filled in with some initial overrides for you:
+In the CSS Editor, add the classes that you would like to override in the home page. For Tyk Cloud and Multi-Cloud users, this will already be filled in with some initial overrides for you:
 
 ![Portal CSS editor][2]
 
