@@ -255,7 +255,7 @@ curl "https://admin.cloud.tyk.io/api/activity/keys/aggregate/add2b342,5f1d9603,/
 ],"pages":0}
 ```
 
-In example above `add2b342,5f1d9603`, is 2 users keys. Note that this example shows [hashed key values as described here](https://tyk.io/docs/security/#a-name-key-hashing-a-key-hashing). Key hashing is turned on for the Cloud, but for Hybrid and On-Premises installations you can also turn it off. Hashed keys mean that the API administrator does not have access to real user keys, but they can still use the hashed values for showing analytics.
+In example above `add2b342,5f1d9603`, is 2 users keys. Note that this example shows [hashed key values as described here](https://tyk.io/docs/security/#a-name-key-hashing-a-key-hashing). Key hashing is turned on for the Cloud, but for Multi-Cloud and On-Premises installations you can also turn it off. Hashed keys mean that the API administrator does not have access to real user keys, but they can still use the hashed values for showing analytics.
 
 ## <a name="building-portal"></a> Building a Portal
 
@@ -267,4 +267,4 @@ First, you need to install dependencies by running `gem install sinatra excon --
 
 Then run it like this: `TYK_PORTAL_PORT=8080 TYK_API_KEY=<your-api-key-here> ruby portal.rb`
 
-You can also specify the `TYK_DASHBOARD_URL` if you are trying this portal with an On-Premises installation. By default, it is configured to work with Cloud or Hybrid.
+You can also specify the `TYK_DASHBOARD_URL` if you are trying this portal with an On-Premises installation. By default, it is configured to work with Cloud or Multi-Cloud.
