@@ -17,7 +17,7 @@ Our documentation helps you get the most out of your Tyk installation. It covers
 We have installation and tutorials for all Tyk Editions:
 
 * [Cloud][1]
-* [Multi-Cloud][2]
+* [Multi-Cloud](https://tyk.io/docs/get-started/with-tyk-multi-cloud/)
 * [On-Premises][3]
 
 Our tutorials cover all the subjects to get you started with Tyk, both using the Dashboard, and using our own APIs where available. From creating APIs to deploying your portal to your end users.
