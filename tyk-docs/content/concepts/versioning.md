@@ -10,7 +10,7 @@ Tyk enables full version life-cycle management for your APIs. It includes the ab
 
 ## <a name="dashboard"></a>Dashboard Settings
 
-In the API designer versioning is not enabled by default. This creates a "Default" version which can store any path-related data and settings. Versions are set by a unique version name that matches the version tag you use to identify the version in a request, this can either be as a header field or as an URL parameter.
+In the Tyk API Designer, versioning is not enabled by default. This creates a "Default" version which can store any path-related data and settings. Versions are set by a unique version name that matches the version tag you use to identify the version in a request, this can either be as a header field or as an URL parameter.
 
 ![No version screenshot][1]
 
@@ -81,11 +81,11 @@ The same applies as for versioned APIs and policies, except that the versioning 
 
 ### From the API
 
-Versioning an API with Tyk is very easy and should integrate easily with how your API definition is set up.
+Versioning an API with Tyk is straightforward and should integrate easily with how your API definition is set up.
 
 #### Step 1
 
-To activate versioning in an API, create a version entry in the version_data.versions section of the API Definition:
+To activate versioning in an API, create a version entry in the `version_data.versions` section of the API Definition:
 
 ```{.copyWrapper}
 {
