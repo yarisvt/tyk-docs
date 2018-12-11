@@ -28,9 +28,9 @@ You can list all your API definitions. You can use this for exporting and import
 #### Sample Request
 
 ```{.copyWrapper}
-GET /tyk/apis?p=0 HTTP/1.1
-Host: localhost:3000
-authorization: 7a7b140f-2480-4d5a-4e78-24049e3ba7f8
+GET /tyk/apis HTTP/1.1
+Host: localhost:8080
+x-tyk-authorization: node-secret
 ```
 
 #### Sample Response
@@ -205,8 +205,8 @@ You can retrieve an individual API definition via its ID.
 
 ```{.copyWrapper}
 GET /tyk/apis/55780c119b23c3000100004f HTTP/1.1
-Host: localhost
-authorization: 7a7b140f-2480-4d5a-4e78-24049e3ba7f8
+Host: localhost:8080
+x-tyk-authorization: 7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 ```
 
 #### Sample Response
