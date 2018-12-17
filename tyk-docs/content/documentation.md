@@ -60,6 +60,14 @@ How to use our APIs.
 * Tyk Identity Broker (TIB) v0.4.0
 * MDCB v1.5.7
 
+
+### Supported MongoDB and Redis Versions
+
+Tyk has been tested on the following versions:
+
+* MongoDB 3.x and 4.0.x
+* Redis 2.8.x to 4.0.x
+
   [1]: /docs/get-started/with-tyk-cloud/
   [2]: /docs/get-started/with-tyk-multi-cloud/
   [3]: /docs/get-started/with-tyk-on-premise/
