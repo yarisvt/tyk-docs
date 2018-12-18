@@ -1,6 +1,6 @@
 ---
 date: 2017-03-27T12:18:28+01:00
-title: Token Policies
+title: Policies
 menu:
   main:
     parent: "Tyk Dashboard API"
