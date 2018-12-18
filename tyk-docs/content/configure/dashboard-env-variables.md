@@ -14,6 +14,7 @@ weight: 13
 | tyk_api_config.Port                     | TYK_DB_TYKAPI_PORT                           |
 | tyk_api_config.Secret                   | TYK_DB_TYKAPI_SECRET                         |
 | mongo_url                               | TYK_DB_MONGOURL                              |
+| mongo_use_ssl       | TYK_DB_MONGOUSESSL   |
 | page_size                               | TYK_DB_PAGESIZE                              |
 | admin_secret                            | TYK_DB_ADMINSECRET                           |
 | shared_node_secret                      | TYK_DB_NODESECRET                            |
@@ -79,4 +80,3 @@ weight: 13
 | storage.optimisations_max_active            | TYK_DB_STORAGE_MAXACTIVE             |
 | sso_custom_login_url            | TYK_DB_SSOCUSTOMLOGINURL             |
 | enable_delete_key_by_hash       | TYK_DB_ENABLEDELETEKEYBYHASH            |
-| mongo_use_ssl       | TYK_DB_MONGOUSESSL            |
