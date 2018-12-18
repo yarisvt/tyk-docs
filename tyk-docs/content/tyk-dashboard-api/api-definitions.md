@@ -304,6 +304,22 @@ authorization: 7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 }
 ```
 
+### Delete API by ID
+
+#### Sample Request
+
+```{.copyWrapper}
+DELETE /api/apis/54c24242eba6db1c9a000002 HTTP/1.1
+Host: localhost
+Authorization: 7a7b140f-2480-4d5a-4e78-24049e3ba7f8
+```
+
+#### Sample Response
+
+```
+{"Status":"OK","Message":"API deleted","Meta":null}
+```
+
 ### Create API Definition
 
 Creating API definitions is slightly different to the core API, API definitions are wrapped inside an `api_definition` field and event handlers, such as webhooks are not embedded in the main `api_defintion` object (though they can be), webhooks are instead appended as references into the `hook_references` field, the API will embed the correct webhook data into the event handler interface.
