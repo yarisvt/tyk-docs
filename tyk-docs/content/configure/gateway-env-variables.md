@@ -155,7 +155,3 @@ weight: 12
 | use_redis_log                                     | TYK_GW_USEREDISLOG                                  |
 | use_sentry                                        | TYK_GW_USESENTRY                                    |
 | use_syslog                                        | TYK_GW_USESYSLOG                                    |
-|                                                   | TYK_GW_COMPILEDPATTERNSET_UUIDS                     |
-|                                                   | TYK_GW_COMPILEDPATTERNSET_IDS                       |
-|                                                   | TYK_GW_COMPILEDPATTERNSET_CUSTOM                    |
-|                                                   | TYK_GW_ANALYTICSCONFIG_IGNOREDIPSCOMPILED           |
