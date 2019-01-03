@@ -73,9 +73,8 @@ function myVirtualHandlerGetHeaders (request, session, config) {
 }
 ```
 
-> **NOTE**: Another option, instead of the steps above, you can use this link to import the api definition:
+> **NOTE**: Another option, instead of the steps above, you can use this link to import the API definition - [API Definition Import](https://gist.github.com/letzya/5b5edb3f9f59ab8e0c3c614219c40747).
 
-[https://gist.github.com/letzya/5b5edb3f9f59ab8e0c3c614219c40747](https://gist.github.com/letzya/5b5edb3f9f59ab8e0c3c614219c40747).
 The virtual function is `base64` encoded in the `function_source_uri` field.
 
 ## <a name="demonstrate-the-virtual-endpoint"></a>Demonstrating the Virtual Endpoint
