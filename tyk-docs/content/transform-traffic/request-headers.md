@@ -139,7 +139,7 @@ The variable names (`$tyk_meta`) are also available in the Dashboard fields and 
 
 ### Injecting Context Variables into Headers
 
-As of version 2.2 Tyk allows context variables to be injected into headers using the `$tyk_context.` namespace. See [Context Variables](https://tyk.io/docs/transform-traffic/request-headers/#a-name-context-variables-a-injecting-context-variables-into-headers) for more information.
+As of version 2.2 Tyk allows context variables to be injected into headers using the `$tyk_context.` namespace. See [Context Variables](https://tyk.io/docs/concepts/context-variables/) for more information.
 
 ### Example `global_headers` section
 ```{.copyWrapper}
