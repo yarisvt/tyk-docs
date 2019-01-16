@@ -62,6 +62,8 @@ In a production environment, where we recommend installing the Dashboard, Gatewa
 2. Tyk Gateway
 3. Tyk Pump
 
+Tyk is compatible with a blue-green or rolling update strategy.
+
 For a single machine installation, you should follow the instructions below for your operating system.
 
 Our repositories will be updated at [https://packagecloud.io/tyk](https://packagecloud.io/tyk) when new versions are released. As you set up these repositories when installing Tyk to upgrade all Tyk components  you can run:
@@ -93,7 +95,7 @@ Master DC:
 
 Then your Slave DC Gateways
 
-We recommend following a blue-green upgrading methodology with rolling updates for your Gateways.
+Tyk is compatible with a blue-green or rolling update strategy.
 
 ## <a name="new"></a>Don't Have Tyk Yet?
 
