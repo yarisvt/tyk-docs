@@ -81,6 +81,20 @@ sudo yum update
 > **Note**: For the Tyk Gateway before v2.5 and Tyk Dashboard before v1.5 there's a known Red Hat bug with init scripts being removed on package upgrade. In order to work around it, it's required to force reinstall the packages, e.g.:
 `sudo yum reinstall tyk-gateway tyk-dashboard`
 
+## Tyk Multi Data Centre Bridge
+
+Our recommended sequence for upgrading a MDCB installation is as follows:
+
+Master DC:
+
+1. Dashboard
+2. Gateway
+3. MDCB
+
+Then your Slave DC Gateways
+
+We recommend following a blue-green upgrading methodology with rolling updates for your Gateways.
+
 ## <a name="new"></a>Don't Have Tyk Yet?
 
 Get started now, for free, or contact us with any questions.
