@@ -38,11 +38,11 @@ How to use Tyk's [analytics][6] tools.
 
 ### Customising Tyk
 
-How to [customise][7] Tyk, using Rich Plugins and JavaScript Virtual Machine Middleware.
+How to [customise](https://tyk.io/docs/customise-tyk/plugins/) Tyk, using Rich Plugins and JavaScript Virtual Machine Middleware.
 
 ### Portal Configuration
 
-How to [personalise][8] your Developer Portal.
+How to [personalise](https://tyk.io/docs/tyk-developer-portal/customise/) your Developer Portal.
 
 ### Tyk APIs
 
