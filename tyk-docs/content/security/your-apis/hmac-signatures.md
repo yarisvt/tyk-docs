@@ -23,7 +23,7 @@ The full request header for an HMAC request uses the standard `Authorization` he
 Authorization: Signature keyId="hmac-key-1",algorithm="hmac-sha1",signature="Base64Encode(HMAC-SHA1(signing string))"
 ```
 
-Tyk **only** supports `SHA-1` encoded HMAC strings, in fact, when Tyk decodes the Authorization header, it disregards the algorithm field completely and assumes SHA-1 is being implemented. This may be changed over time.
+Tyk supports the following HMAC algorithms: "hmac-sha1", "hmac-sha256", "hmac-sha384", "hmac-sha512”, and reads value from algorithm header. You can limit allowed algorithms by setting `hmac_allowed_algorithms` field in API definition, like this: `"hmac_allowed_algorithms": ["hmac-sha256", "hmac-sha512"]`.
 
 The date format for an encoded string is:
 
