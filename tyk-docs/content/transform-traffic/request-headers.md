@@ -57,9 +57,10 @@ This ensures that this will only be applied to inbound requests.
 
 ![Request tab][2]
 
-#### Step 3: Setup header transforms
+#### Step 3: Setup header modify
 
 Select set the headers to delete and insert using the provided fields.
+Please note that any header you add would be capitalised. I.e. if you add `x-request-id` in the UI or in the API definition, in the response the caller will get `X-Request-Id`.
 
 > **Important**: Remember to click **ADD** to ensure they are added to the list.
 
