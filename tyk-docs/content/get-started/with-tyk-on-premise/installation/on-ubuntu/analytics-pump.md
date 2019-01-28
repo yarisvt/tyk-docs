@@ -30,7 +30,7 @@ We're installing on a `t2.micro` because this is a tutorial, you'll need more RA
 
 First, add our GPGP key which signs our binaries:
 ```{.copyWrapper}
-curl https://packagecloud.io/gpg.key | sudo apt-key add -
+curl https://packagecloud.io/tyk/tyk-pump/gpgkey | sudo apt-key add -
 ```
 
 Run update:
