@@ -91,7 +91,7 @@ You must also set:
 
 #### Step 2: Select the Cache Plugin
 
-From the path you want to cache, select the **Cache** plugin option from the drop-down list.
+Go to Endpoint Designer tab. From the path you want to cache, select the **Cache** plugin option from the drop-down list.
 
 ![Plugin dropdown list][5]
 
