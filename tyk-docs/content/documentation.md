@@ -66,7 +66,7 @@ How to use our APIs.
 Tyk has been tested on the following versions:
 
 * MongoDB 3.x and 4.0.x
-* Redis 2.8.x to 4.0.x
+* Redis 2.8.x to 5.0.x
 
   [1]: /docs/get-started/with-tyk-cloud/
   [2]: /docs/get-started/with-tyk-multi-cloud/
