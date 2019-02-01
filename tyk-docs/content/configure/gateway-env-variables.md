@@ -24,7 +24,7 @@ weight: 12
 | analytics_config.type                             | TYK_GW_ANALYTICSCONFIG_TYPE                         |
 | app_path                                          | TYK_GW_APPPATH                                      |
 | auth_override.auth_provider.meta                  | TYK_GW_AUTHOVERRIDE_AUTHPROVIDER_META                            |
-| auth_override.auth_provider.name                  | TYK_GW_AUTHOVERRIDE_AUTHPROVIDER_META                            |
+| auth_override.auth_provider.name                  | TYK_GW_AUTHOVERRIDE_AUTHPROVIDER_NAME                           |
 | auth_override.auth_provider.storage_engine        | TYK_GW_AUTHOVERRIDE_AUTHPROVIDER_STORAGEENGINE                   |
 | auth_override.force_auth_provider                 | TYK_GW_AUTHOVERRIDE_FORCEAUTHPROVIDER               |
 | auth_override.force_session_provider              | TYK_GW_AUTHOVERRIDE_FORCESESSIONPROVIDER            |
