@@ -100,7 +100,14 @@ Go to Endpoint Designer tab. From the path you want to cache, select the **Cache
 
 Upstream cache control enables you to set whether a response should be cached, and for how long. To enable this, you will need to set `enable_cache` to and `enable_upstream_cache_control` to `true`.
 
-Now you will also need to set on which paths to act, so add these paths to the `cache` list in the extended path section of your API version.
+Now you will also need to set on which paths to act, add thses paths as shown in the screengrab above or manually add these paths to the `cache` list in the `extended_paths` section of your API version as you can see below:
+``` json
+"extended_paths": {
+            "cache": [
+              "ip"
+            ]
+          }
+ ```          
 
 Tyk will evaluate the response headers sent from your application for these paths and based on the data in the response, activate and set the cache values.
 
