@@ -19,6 +19,7 @@ We have installation and tutorials for all Tyk Editions:
 * [Cloud][1]
 * [Multi-Cloud][2]
 * [On-Premises][3]
+* [Community Edition][12]
 
 Our tutorials cover all the subjects to get you started with Tyk, both using the Dashboard, and using our own APIs where available. From creating APIs to deploying your portal to your end users.
 
@@ -80,3 +81,4 @@ Tyk has been tested on the following versions:
   [9]: /docs/tyk-rest-api/
   [10]: /docs/tyk-dashboard-api/
   [11]: /docs/dashboard-admin-api/
+  [12]: /docs/get-started/with-tyk-community-edition/
