@@ -38,7 +38,7 @@ The Tyk Identity Broker (TIB) is configured through two files: The configuration
  "TykAPISettings": {
    "GatewayConfig": {
      "Endpoint": "http://{GATEWAY-DOMAIN}",
-     "Port": "",
+     "Port": "8080",
      "AdminSecret": "352d20ee67be67f6340b4c0605b044b7"
    },
      "DashboardConfig": {
