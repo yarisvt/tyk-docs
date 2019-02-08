@@ -123,13 +123,7 @@ Notice how we haven't actually started the gateway yet, because this is a Dashbo
 
 ### Step 8: Enter Dashboard license
 
-Go to `http://your-host-name:3000/`.
-
-You will see a screen asking for a license, enter it in the section marked "**Already have a license?**" and click `Use this license`.
-
-That's it, your Dashboard is now ready to be bootstrapped.
-
-> **Note:** You can bypass this step by adding your license manually to the `/var/opt/tyk-dashboard/tyk_analytics.conf` file directly in the field marked `license`.
+Add your license in `/var/opt/tyk-dashboard/tyk_analytics.conf` in the `license` field.
 
 If all is going well, you will be taken to a log in screen - we'll get to that soon.
 
@@ -160,7 +154,7 @@ sudo /opt/tyk-dashboard/install/bootstrap.sh XXX.XXX.XXX.XXX
 
 This command tells the bootstrap script to use the localhost as the base for the API calls, you can run the bootstrap remotely and change the first command line parameter to the DNS hostname of your instance.
 
-You will now be able to log into and test your Tyk instance with the values given to you by the bootstrap script.
+You will now be able to log into and test your Tyk instance from `http://your-host-name:3000/` with the values given to you by the bootstrap script.
 
 
  [1]: https://packagecloud.io
