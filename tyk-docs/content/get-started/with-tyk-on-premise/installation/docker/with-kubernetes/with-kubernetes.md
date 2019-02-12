@@ -4,11 +4,23 @@ title: Kubernetes Quickstart
 menu:
   main:
     parent: "With Docker"
-weight: 0
+weight: 1
 url: "/get-started/with-tyk-on-premise/installation/docker/with-kubernetes"
 ---
 
-Please see the [guide to setting up Tyk on Kubernetes][1] on Github.
+## Installing Kubernetes
 
-[1]: https://github.com/TykTechnologies/tyk-kubernetes
+Please see the [guide to setting up Tyk on Kubernetes](https://github.com/TykTechnologies/tyk-kubernetes) on Github.
+
+## Tyk Helm Chart
+
+https://github.com/TykTechnologies/tyk-helm-chart
+
+## Tyk Kubernetes Ingress Controller
+
+https://github.com/TykTechnologies/tyk-helm-chart#using-the-ingress-controller
+
+## Tyk as a Service Mesh
+
+https://github.com/TykTechnologies/tyk-helm-chart#using-the-injector
 
