@@ -44,6 +44,8 @@ helm install tc/redis --name redis --namespace=redis --set usePassword=false
 
 #### GKE allow connection to MemoryStore
 
+MemoryStore is a GCP service for Redis and is alternative to installing to k8s via helm above.
+
 ```
 git clone https://github.com/bowei/k8s-custom-iptables.git
 cd k8s-custom-iptables/
