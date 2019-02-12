@@ -12,7 +12,7 @@ url: "/get-started/with-tyk-on-premise/installation/docker/with-kubernetes"
 
 ### Helm / Tiller
 
-If you are deploying dependency databases or Tyk components via Helm charts, you will need to ensure that Helm is
+If you are deploying dependency databases or Tyk components via Helm Charts, you will need to ensure that Helm is
 installed on your host / bastion machine, and Tiller service account has been created.
 
 Install Tiller (Quickstart)
@@ -33,8 +33,8 @@ kubectl -n kube-system delete serviceaccount tiller
 
 ### Redis
 
-Redis needs to be installed inside the K8S cluster, or reachable from inside K8S. To get started quickly, you may use 
-the following Helm chart
+Redis needs to be installed inside the Kubernetes cluster, or reachable from inside Kubernetes. To get started quickly, you may use 
+the following Helm Chart
 
 ```
 helm repo add tc http://trusted-charts.stackpoint.io
@@ -55,8 +55,8 @@ TARGETS="IP_RANGE_OF_MEMORYSTORE_REDIS" ./install.sh
 ### MongoDB
 
 If you are deploying a Pro or Enterprise version of Tyk (With Dashboard and or MDCB component), you will need to have
-a MongoDB installation installed within the K8S cluster, or reachable from inside K8S. To get started quickly, you may 
-use the following Helm chart.
+a MongoDB installation installed within the Kubernetes cluster, or reachable from inside Kubernetes. To get started quickly, you may 
+use the following Helm Chart.
 
 ```
 helm repo add tc http://trusted-charts.stackpoint.io
