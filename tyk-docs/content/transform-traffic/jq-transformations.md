@@ -32,7 +32,7 @@ Your JQ request transform should return an object in the following format:
 
 `body` is required, while `rewrite_headers` and `tyk_context` are optional.
 
-## <a name="response-transformations"></a> Response Transforms 
+## <a name="response-transformations"></a> Response Transforms
 Inside a response transform you can use following variables:
 * `.body` - your current response body
 * `._tyk_context` - Tyk context variables. You can use it to access request headers as well.
