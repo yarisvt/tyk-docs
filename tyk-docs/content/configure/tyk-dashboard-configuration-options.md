@@ -95,13 +95,14 @@ The file will look like the sample below, the various fields are explained in th
     
 > **Important**: If the Dashboard cannot see a Tyk node, key management functions will not work properly.
 
+> **Warning**: In a sharded environment, the Gateway node specified in `tyk_api_config` must not be sharded.
+
 *   `tyk_api_config.Host`: This is the full URL of your Tyk node.
 
 *   `tyk_api_config.Port`: The port that Tyk is running on. The default is `8080`.
 
 *   `tyk_api_config.Secret`: The secret set in your `tyk.conf` file. This is the key that Tyk Dashboard will use to speak to the Tyk node's Gateway API. Note that this value has to match the `secret` value in `tyk.conf`.
 
-> **Warning**: In a sharded environment, the Gateway node specified in `tyk_api_config` must not be sharded.
 
 *   `shared_node_secret`: As of Tyk Gateway **v2.0** and Tyk Dashboard **v1.0** all Tyk API Gateway nodes that are configured to use the Dashboard as a back-end API Definition service (i.e. are managed by a Dashboard) will register with the Dashboard service on load, and claim a node ID that is provided by the license for the Dashboard. Please note that this value should match with [`node_secret`](https://tyk.io/docs/configure/tyk-gateway-configuration-options/#a-name-node-secret-a-node-secret) Gateway configuration option value.
     
