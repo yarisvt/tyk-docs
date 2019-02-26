@@ -86,8 +86,6 @@ admin-auth: 12345
 
 ### Update User
 
-> **Warning**: It is not possible to reset a user's password by updating the user record - please use the reset password functionality for this.
-
 You need to have the `users` [Permission object](https://tyk.io/docs/security/dashboard/user-roles/#the-permissions-object) set to write to use **Update User**.
 
 | **Property** | **Description**      |
