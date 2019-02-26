@@ -17,9 +17,7 @@ Tyk has it's own APT repositories hosted by the kind folks at [packagecloud.io][
 
 #### Tutorial
 
-This tutorial will run on an [Amazon AWS][2] *Ubuntu Server 14.04 LTS* instance. We will install Tyk Pump with all dependencies stored locally.
-
-We're installing on a `t2.micro` because this is a tutorial, you'll need more RAM and more cores for better performance.
+This tutorial has been tested on an Ubuntu Server 14.04 LTS Operating System. It should also work with few modifications if-any on Ubuntu 16.04 & 18.04.
 
 ### Prerequisites
 
@@ -30,7 +28,7 @@ We're installing on a `t2.micro` because this is a tutorial, you'll need more RA
 
 First, add our GPGP key which signs our binaries:
 ```{.copyWrapper}
-curl https://packagecloud.io/tyk/tyk-pump/gpgkey | sudo apt-key add -
+curl -L https://packagecloud.io/tyk/tyk-pump/gpgkey | sudo apt-key add -
 ```
 
 Run update:
@@ -42,7 +40,6 @@ Since our repositories are installed via HTTPS, you will need to make sure APT s
 ```{.copyWrapper}
 sudo apt-get install -y apt-transport-https 
 ```
- 
 
 Now lets add the required repos and update again (notice the `-a` flag in the second Tyk commands - this is important!):
 ```{.copyWrapper}
@@ -82,6 +79,7 @@ sudo /opt/tyk-pump/install/setup.sh --redishost=<hostname> --redisport=6379 --mo
 #### Step 4: Start Tyk Pump
 ```{.copyWrapper}
 sudo service tyk-pump start
+sudo service tyk-pump enable
 ```
 
 You can verify if Tyk Pump is running and working by tailing the log file:
@@ -90,7 +88,3 @@ sudo tail -f /var/log/upstart/tyk-pump.log
 ```
 
 [1]: https://packagecloud.io
-[2]: http://aws.amazon.com
-
-
-
