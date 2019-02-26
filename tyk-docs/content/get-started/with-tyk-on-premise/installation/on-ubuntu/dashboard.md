@@ -11,7 +11,7 @@ weight: 1
 
 Tyk has its own APT repositories hosted by the kind folks at [packagecloud.io][1], which makes it easy, safe and secure to install a trusted distribution of the Tyk Gateway stack.
 
-This tutorial has been tested on an Ubuntu 14.04 LTS operating system. We will install Tyk Dashboard with all dependencies locally.
+This tutorial has been tested on an Ubuntu 14.04 LTS operating system. It should also work with Ubuntu 16.04 & 18.04 with few if any modifications. We will install Tyk Dashboard with all dependencies locally.
 
 ### Prerequisites
 
@@ -92,11 +92,13 @@ What we have done here is:
 
 Add your license in `/var/opt/tyk-dashboard/tyk_analytics.conf` in the `license` field.
 
-If all is going well, you will be taken to a log in screen - we'll get to that soon.
-
 ### Step 2: Start Tyk Dashboard
+
+Start the dashboard service, and ensure it will start automatically on system boot.
+
 ```{.copyWrapper}
 sudo service tyk-dashboard start
+sudo service tyk-dashboard enable
 ```
 
 ### Step 3: Install Tyk Gateway
