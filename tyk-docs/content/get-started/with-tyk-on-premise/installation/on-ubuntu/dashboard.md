@@ -11,10 +11,6 @@ weight: 1
 
 Tyk has its own APT repositories hosted by the kind folks at [packagecloud.io][1], which makes it easy, safe and secure to install a trusted distribution of the Tyk Gateway stack.
 
-This tutorial will run on an Amazon AWS *Ubuntu Server 14.04 LTS* instance. We will install Tyk Dashboard with all dependencies stored locally.
-
-We're installing on a `t2.micro` because this is a tutorial, you'll need more RAM and more cores for better performance.
-
 ### Prerequisites
 
 *   Have MongoDb and Redis installed - see [here][2] for details.
@@ -24,7 +20,7 @@ We're installing on a `t2.micro` because this is a tutorial, you'll need more RA
 
 First, add our GPG key which signs our binaries:
 ```{.copyWrapper}
-curl https://packagecloud.io/tyk/tyk-dashboard/gpgkey | sudo apt-key add -
+curl -L https://packagecloud.io/tyk/tyk-dashboard/gpgkey | sudo apt-key add -
 ```
 
 Run update:
@@ -59,7 +55,6 @@ We're now ready to install the Tyk Dashboard. To install run:
 sudo apt-get install -y tyk-dashboard
 ```
 
-
 What we've done here is instructed `apt-get` to install the Tyk Dashboard without prompting. Wait for the downloads to complete.
 
 When the Tyk Dashboard has finished installing, it will have installed some `init` scripts, but it will not be running yet. The next step will be to setup each application - thankfully this can be done with three very simple commands.
@@ -91,24 +86,20 @@ What we have done here is:
 *   `--tyk_node_port=8080`: Tell the dashboard that the Tyk node it should communicate with is on port 8080.
 *   `--portal_root=/portal`: We want the portal to be shown on `/portal` of whichever domain we set for the portal.
 
-### Step 1: Start Tyk Dashboard
-```{.copyWrapper}
-sudo service tyk-dashboard start
-```
-
-
-### Step 2: Enter your Dashboard License
+### Step 1: Enter your Dashboard License
 
 Add your license in `/var/opt/tyk-dashboard/tyk_analytics.conf` in the `license` field.
 
 If all is going well, you will be taken to a log in screen - we'll get to that soon.
 
-### Step 3: Restart the Dashboard
-
-Because we've just entered a license via the UI, we need to make sure that these changes get picked up, so to make sure things run smoothly, we restart the dashboard process (you only need to do this once) and then start the gateway:
+### Step 2: Start Tyk Dashboard
 ```{.copyWrapper}
-sudo service tyk-dashboard restart 
+sudo service tyk-dashboard start
 ```
+
+### Step 3: Install Tyk Gateway
+
+Follow gateway installation instructions to connect to this dashboard instance before you continue on to step 4.
 
 ### Step 4: Bootstrap the Dashboard with an initial User and Organisation
 
