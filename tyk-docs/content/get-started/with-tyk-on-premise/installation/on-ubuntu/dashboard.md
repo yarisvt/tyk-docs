@@ -11,6 +11,8 @@ weight: 1
 
 Tyk has its own APT repositories hosted by the kind folks at [packagecloud.io][1], which makes it easy, safe and secure to install a trusted distribution of the Tyk Gateway stack.
 
+This tutorial has been tested on an Ubuntu 14.04 LTS operating system. We will install Tyk Dashboard with all dependencies locally.
+
 ### Prerequisites
 
 *   Have MongoDb and Redis installed - see [here][2] for details.
