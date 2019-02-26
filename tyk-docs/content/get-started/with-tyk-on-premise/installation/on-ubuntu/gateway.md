@@ -11,9 +11,9 @@ weight: 3
 
 Tyk has it's own APT repositories hosted by the kind folks at [packagecloud.io][1], which makes it easy, safe and secure to install a trusted distribution of the Tyk Gateway stack.
 
-This tutorial will run on an Amazon AWS **Ubuntu Server 14.04 LTS** instance. We will install the Tyk Gateway with all dependencies stored locally.
+This tutorial has been tested on **Ubuntu Server 14.04 LTS**. Tyk Gateway should install well with little to no modification on Ubuntu 16.04 and 18.04.
 
-We're installing on a `t2.micro` because this is a tutorial, you'll need more RAM and more cores for better performance.
+Please note however, that should you wish to write your own plugins in Python, we currently have a Python version dependency of 3.4. Python-3.4 ships with Ubuntu 14.04, however you may need to explicitly install it on newer Ubuntu Operating System releases.
 
 ### Prerequisites
 
@@ -26,7 +26,7 @@ We're installing on a `t2.micro` because this is a tutorial, you'll need more RA
 First, add our GPG key which signs our binaries:
 
 ```{.copyWrapper}
-curl https://packagecloud.io/tyk/tyk-gateway/gpgkey | sudo apt-key add -
+curl -L https://packagecloud.io/tyk/tyk-gateway/gpgkey | sudo apt-key add -
 ```
 
 Run update:
@@ -92,6 +92,7 @@ What we've done here is told the setup script that:
 The Tyk Gateway can be started now that it is configured. Use this command to start the Tyk Gateway:
 ```{.copyWrapper}
 sudo service tyk-gateway start
+sudo service tyk-gateway enable
 ```
 
 #### Pro Tip: Domains with Tyk Gateway
