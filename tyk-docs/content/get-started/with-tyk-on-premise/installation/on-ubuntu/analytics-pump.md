@@ -17,7 +17,7 @@ Tyk has it's own APT repositories hosted by the kind folks at [packagecloud.io][
 
 #### Tutorial
 
-This tutorial has been tested on an Ubuntu Server 14.04 LTS Operating System. It should also work with few modifications if-any on Ubuntu 16.04 & 18.04.
+This tutorial has been tested on an Ubuntu Server 14.04 LTS Operating System. It should also work with Ubuntu 16.04 & 18.04 with few if any modifications.
 
 ### Prerequisites
 
