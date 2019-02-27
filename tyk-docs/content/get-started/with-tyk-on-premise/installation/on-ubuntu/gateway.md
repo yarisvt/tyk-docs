@@ -11,7 +11,7 @@ weight: 3
 
 Tyk has it's own APT repositories hosted by the kind folks at [packagecloud.io][1], which makes it easy, safe and secure to install a trusted distribution of the Tyk Gateway stack.
 
-This tutorial has been tested on **Ubuntu Server 14.04 LTS**. Tyk Gateway should install well with little to no modification on Ubuntu 16.04 and 18.04.
+This tutorial has been tested on Ubuntu Server 14.04 LTS. It should also work with Ubuntu 16.04 & 18.04 with few if any modifications.
 
 Please note however, that should you wish to write your own plugins in Python, we currently have a Python version dependency of 3.4. Python-3.4 ships with Ubuntu 14.04, however you may need to explicitly install it on newer Ubuntu Operating System releases.
 
