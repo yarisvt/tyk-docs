@@ -8,6 +8,8 @@ weight: 1
 url: "/get-started/with-tyk-on-premise/installation/docker/with-kubernetes"
 ---
 
+There are two main ways to install Tyk on Kubernetes: Via our Helm chart, or manually. 
+
 ## Prerequisites
 
 ### Helm / Tiller
@@ -66,19 +68,29 @@ helm install tc/mongodb-replicaset --name mongodb --namespace=mongodb
 
 ---
 
-## Installing Kubernetes
-
-Please see the [guide to setting up Tyk on Kubernetes](https://github.com/TykTechnologies/tyk-kubernetes) on Github.
-
 ## Tyk Helm Chart
+This is the preferred (and easiest) way to install Tyk Pro on Kubernetes, it will install Tyk as an ingress to your K8s cluster, where you can then add new APIs to manage via Tyk Dashboard, or via k8s ingress specifications.
 
-https://github.com/TykTechnologies/tyk-helm-chart
+The full instructions on how to [install Tyk via the Helm chart are in the Github Respository](https://github.com/TykTechnologies/tyk-helm-chart)
 
-## Tyk Kubernetes Ingress Controller
+> The helm chart installs Tyk as a "sharded" deployment, this means that all APIs that get exposed to the outside of the cluster are tagged with the `ingress` tag. If an API is not tagged, it does not get loaded and you may experience `404s`. 
+> You can set a tag for your exposed services in the API Designer, under the "Advanced Options" tab, the section called `Segment Tags (Node Segmentation)`, this allows you to add new tags. To make an API public, simply add `ingress` to this section, click the "Add" button, and save the API.
+>
+> If you are using an ingress spec, then the Tyk k8s controller will do this for you.
+
+## Installing Tyk on Kubernetes Manually
+
+To install Tyk manually, please see the [guide to setting up Tyk on Kubernetes](https://github.com/TykTechnologies/tyk-kubernetes) on Github.
+
+## Tyk Kubernetes Ingress and Service Mesh Controller
+
+We provide a kubernetes controller that enables Tyk to be used as both a native ingress controller (expose services using an ingress specification), and as a service mesh sidecar injector. The source code for the controller can be seen in our Github repository here:
 
 https://github.com/TykTechnologies/tyk-helm-chart#using-the-ingress-controller
 
 ## Tyk as a Service Mesh
+
+To use Tyk as a Service Mesh sidecar injector, see the quick guide here:
 
 https://github.com/TykTechnologies/tyk-helm-chart#using-the-injector
 
