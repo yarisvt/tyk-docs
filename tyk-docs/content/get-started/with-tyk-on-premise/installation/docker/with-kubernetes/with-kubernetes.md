@@ -46,7 +46,7 @@ helm install tc/redis --name redis --namespace=redis --set usePassword=false
 
 #### GKE allow connection to MemoryStore
 
-MemoryStore is a GCP service for Redis and is alternative to installing to k8s via helm above.
+MemoryStore is a GCP service for Redis and is alternative to installing to K8s via Helm above.
 
 ```
 git clone https://github.com/bowei/k8s-custom-iptables.git
@@ -57,7 +57,7 @@ TARGETS="IP_RANGE_OF_MEMORYSTORE_REDIS" ./install.sh
 ### MongoDB
 
 If you are deploying a Pro or Enterprise version of Tyk (With Dashboard and or MDCB component), you will need to have
-a MongoDB installation installed within the Kubernetes cluster, or reachable from inside Kubernetes. To get started quickly, you may 
+a MongoDB installation installed within the Kubernetes cluster, or reachable from inside Kubernetes. To get started quickly, you can 
 use the following Helm Chart.
 
 ```
@@ -76,7 +76,7 @@ The full instructions on how to [install Tyk via the Helm chart are in the Githu
 > The helm chart installs Tyk as a "sharded" deployment, this means that all APIs that get exposed to the outside of the cluster are tagged with the `ingress` tag. If an API is not tagged, it does not get loaded and you may experience `404s`. 
 > You can set a tag for your exposed services in the API Designer, under the "Advanced Options" tab, the section called `Segment Tags (Node Segmentation)`, this allows you to add new tags. To make an API public, simply add `ingress` to this section, click the "Add" button, and save the API.
 >
-> If you are using an ingress spec, then the Tyk k8s controller will do this for you.
+> If you are using an Ingress spec, then the Tyk K8s controller will do this for you.
 
 ## Installing Tyk on Kubernetes Manually
 
@@ -84,7 +84,7 @@ To install Tyk manually, please see the [guide to setting up Tyk on Kubernetes](
 
 ## Tyk Kubernetes Ingress and Service Mesh Controller
 
-We provide a kubernetes controller that enables Tyk to be used as both a native ingress controller (expose services using an ingress specification), and as a service mesh sidecar injector. The source code for the controller can be seen in our Github repository here:
+We provide a Kubernetes controller that enables Tyk to be used as both a native Ingress controller (expose services using an Ingress specification), and as a service mesh sidecar injector. The source code for the controller can be seen in our Github repository here:
 
 https://github.com/TykTechnologies/tyk-helm-chart#using-the-ingress-controller
 
