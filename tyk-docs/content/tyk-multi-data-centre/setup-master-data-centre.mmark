@@ -197,10 +197,10 @@ tcp6       0      0 :::9091                 :::*                    LISTEN      
 #### Check the logs for MDCB
 
 ```{.copyWrapper}
-> sudo journalctl -u tyk-sink (add the -f flag to follow)
+> sudo journalctl -u tyk-sink 
 ```
 
-Should Return:
+Add the `-f` flag to follow the log. The command should return output similar to this:
 
 ```
 -- Logs begin at Thu 2018-05-03 09:30:56 UTC, end at Mon 2018-05-07 08:58:23 UTC. --
