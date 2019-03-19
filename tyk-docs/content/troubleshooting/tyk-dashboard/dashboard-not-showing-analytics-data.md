@@ -54,7 +54,7 @@ Ensure the Dashboard `tyk_analytics.conf` has:
 
 For scenarios where MDCB is used, ensure the `sink.conf` has:
 
-* `analytics.mongo_url` set to the same MongoDB instsance that the Dashboard is connected to.
+* `analytics.mongo_url` set to the same MongoDB instance that the Dashboard is connected to.
 * `forward_analytics_to_pump` set to the correct value for your solution. `false` if MDCB is directly recording the analytics itself, `true` if it is forwarding analytics data for the Pump to process. For the forwarding scenario, set the `storage` settings to the same Redis instance that the Pump is connected to.
 
 #### Browser caching stale data
