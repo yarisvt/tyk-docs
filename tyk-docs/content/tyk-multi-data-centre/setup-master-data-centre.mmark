@@ -226,7 +226,7 @@ The URL you use to access the Dashboard (including the port if not using the def
 
 `export ORG_ID=<YOUR_ORG_ID>`
 
-You can obtain this from the Dashboard, under your user account.
+This is the user **Organisation ID** from the Dashboard, available from your user account details.
 
 ![Org ID][1]
 
@@ -289,6 +289,6 @@ This should return:
 ```
 
 
-[1]: /docs/img/dashboard/system-management/user_orgid.png
+[1]: /docs/img/dashboard/system-management/api_access_cred_2.5.png
  
 
