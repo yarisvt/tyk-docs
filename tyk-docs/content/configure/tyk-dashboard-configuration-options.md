@@ -108,6 +108,8 @@ The file will look like the sample below, the various fields are explained in th
     
 Each node communicates with the Dashboard via a shared secret (this setting) and a nonce to ensure that out-of-band requests cannot be made. Nodes will send a heartbeat every few seconds to notify the Dashboard that they are running.
 
+*   `admin_secret`: Tyk Dashboard has a bootstrap API, this secret is for the bootstrap API, these call do things like: Create new organisations, create super users etc. See the Advanced API documentation for more on these endpoints.
+
 *   `mongo_url`: The full URL to your MongoDB instance, this can be a clustered instance if necessary and should include the database and username / password data.
     
 > **Important**: This should be the same as the credentials that your Tyk installation uses.
