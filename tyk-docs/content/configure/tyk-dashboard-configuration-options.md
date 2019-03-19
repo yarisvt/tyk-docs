@@ -234,9 +234,9 @@ For more information see [TLS and SSL](/docs/security/tls-and-ssl/)
 
 *   `security.audit_log_path`: This sets the path to your audit log. It will log all user actions and response statuses to it. Security information such as passwords are not logged.
 
-*   `allow_admin_reset_password`: This allows an admin user to reset the password of other users. The default is false.
+*   `security.allow_admin_reset_password`: This allows an admin user to reset the password of other users. The default is false.
 
-> **NOTE:** `allow_admin_reset_password` is available from v1.3.7 onwards
+> **NOTE:** `security.allow_admin_reset_password` is available from v1.3.7 onwards
 
 *   `home_dir`: The path to the home directory of Tyk Dashboard, this must be set in order for Portal templates and other files to be loadable. By default this is `/opt/tyk-dashboard/`.
 
