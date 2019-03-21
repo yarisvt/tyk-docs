@@ -1,6 +1,6 @@
 ---
 date: 2017-03-23T15:28:35Z
-title: Basic Auththentication
+title: Basic Authentication
 menu:
   main:
     parent: "Your APIs"
