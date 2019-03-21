@@ -4,6 +4,7 @@ title: Basic Authentication
 menu:
   main:
     parent: "Your APIs"
+    identifier: security-basic-authentication
 weight: 5 
 ---
 
