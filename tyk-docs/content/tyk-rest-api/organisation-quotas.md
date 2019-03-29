@@ -24,7 +24,7 @@ To disallow access to an entire group of keys without rate limiting the organisa
 
 | **Property** | **Description**   |
 | ------------ | ----------------- |
-| Resource URL | `/tyk/orgs/keys/` |
+| Resource URL | `/tyk/org/keys/` |
 | Method       | POST              |
 | Type         | JSON              |
 | Body         | Session Object    |
@@ -42,7 +42,7 @@ For **Gateway v2.6.0** onwards, you can now set rate limits at the organisation 
 #### Sample request
 
 ```{.copyWrapper}
-POST /tyk/orgs/keys/ HTTP/1.1
+POST /tyk/org/keys/ HTTP/1.1
 Host: localhost:8080
 x-tyk-authorization: 352d20ee67be67f6340b4c0605b044bc4
 Cache-Control: no-cache
@@ -80,7 +80,7 @@ Where the request fields:
 
 | **Property** | **Description**            |
 | ------------ | -------------------------- |
-| Resource URL | `/tyk/orgs/keys/{{orgId}}` |
+| Resource URL | `/tyk/org/keys/{{orgId}}` |
 | Method       | POST or PUT                |
 | Type         | JSON                       |
 | Body         | Session Object             |
