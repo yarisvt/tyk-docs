@@ -46,6 +46,8 @@ Tyk uses many shared secrets between services, and some of these have defaults i
 *   `secret`
 *   `node_secret`
 
+ > **NOTE**: These values must be the same, and the same value must also be used for `tyk_api_config.secret`.
+
 #### `tyk_analytics.conf`:
 
 *   `admin_secret`
@@ -90,6 +92,10 @@ If you are making use of the Tyk Caching feature, then it is possible to use a s
 Please note that for an on-premises installation, the number of gateway nodes you may register with your dashboard concurrently will be subject to the kind of license you have.
 
 Each gateway node will need to be configured in the same way, with the exception being if you want to shard your gateways. Each gateway node in the cluster will need connectivity to the same redis server & database.
+
+### Other Dashboard Security Considerations
+
+As well as changing the default secrets - see [Change all the shared secrets](/docs/deploy-tyk-premise-production/#change-all-the-shared-secrets), if you change the Control API port (see [Change your Control Port](/docs/deploy-tyk-premise-production/#change-your-control-port)), you also need to change the connection string settings in your `tyk_analytics.conf` file.
 
 ### Make sure you have enough Redis connections
 
@@ -172,6 +178,7 @@ If you set this value too high, you may encounter issues when slow clients occup
 You can calculate the right value using a straightforward formula: 
 
 if the latency between Tyk and your Upstream is around 50ms, then a single connection can handle 1s / 50s = 20 requests. So if you plan to handle 2000 requests per second using Tyk, the size of your connection pool should be at least 2000 / 20 = 100. For example, on low-latency environments (like 5ms), a connection pool of 100 connections will be enough for 20k RPS.
+
 
 ### Use the right hardware
 
