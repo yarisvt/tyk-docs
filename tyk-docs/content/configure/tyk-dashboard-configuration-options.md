@@ -130,6 +130,8 @@ Each node communicates with the Dashboard via a shared secret (this setting) and
 
 *   `redis_database`: Set this to the index of your Redis database if you are using more than one.
 
+*   `redis_timeout`: Set custom redis network timeout. Default value: 5 seconds.
+
 *   `enable_cluster`: Set this to `true` if you are using a Redis cluster, then fill in the `redis_hosts` field.
 
 *   `redis_hosts`: You can also specify multiple Redis hosts here. Tyk will use this array if it is not empty, or it will use the individual legacy parameters above. You can specify multiple `host:port` combinations here.
@@ -237,6 +239,10 @@ For more information see [TLS and SSL](/docs/security/tls-and-ssl/)
 *   `security.allow_admin_reset_password`: This allows an admin user to reset the password of other users. The default is false.
 
 > **NOTE:** `security.allow_admin_reset_password` is available from v1.3.7 onwards
+
+*   `security.enable_content_security_policy`: Enable browser Content-Security-Policy, e.g. CSP. The default is false.
+
+*   `security.allowed_content_sources`: If CSP enabled, specify space separated string, with list of allowed resources.
 
 *   `home_dir`: The path to the home directory of Tyk Dashboard, this must be set in order for Portal templates and other files to be loadable. By default this is `/opt/tyk-dashboard/`.
 
