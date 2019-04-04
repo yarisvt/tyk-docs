@@ -58,7 +58,7 @@ To use a cookie name instead of a header or request parameter, set the `use_cook
 
 ### Signature validation
 
-If you are migrating from platfroms like Mashery, which use request signing, you can enable signature verifications like this:
+If you are migrating from platforms like Mashery, which use request signing, you can enable signature validation like this:
 
 ```{.copyWrapper}
 "auth": {
