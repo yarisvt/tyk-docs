@@ -68,7 +68,7 @@ You can also try restarting the Dashboard service.
 Check if MongoDB contains analytics data by running the following query (but update the date parameter first):
 
 ```{.copyWrapper}
-db.getCollection('tyk_analytics_aggregates').find({timestamp: {$gte: new ISODate(“2016-09-26T23:59:00Z"")}})
+db.getCollection('tyk_analytics_aggregates').find({timestamp: {$gte: new ISODate("2016-09-26T23:59:00Z")}})
 ```
 
 The query gets all aggregated analytics data from the date provided, so if you set it to yesterday you will get all data since yesterday. The data must be in the ISO format.
