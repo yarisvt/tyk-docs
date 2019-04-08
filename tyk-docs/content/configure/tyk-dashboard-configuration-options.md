@@ -224,6 +224,10 @@ For legacy installs or upgrades using the host manager, leave this value as `fal
   "key_file": "new.cert.key"
 }
 ```
+
+*   `http_server_options.ssl_ciphers`: Array of allowed cipher suites as defined at https://golang.org/pkg/crypto/tls/#pkg-constants
+
+*   `http_server_options.prefer_server_ciphers`: Boolean value to control whether server selects the client's most preferred ciphersuite, or the server's most preferred ciphersuite. If set to `true`, the server's preference in order of the elements in `ssl_ciphers` is used.
     
 For more information see [TLS and SSL](/docs/security/tls-and-ssl/)
 
