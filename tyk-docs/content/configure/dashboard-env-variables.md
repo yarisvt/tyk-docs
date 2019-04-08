@@ -58,6 +58,7 @@ weight: 13
 | sentry_js_code                           | TYK_DB_SENTRYJSCODE                          |
 | show_org_id                              | TYK_DB_SHOWORGID                             |
 | sso_custom_login_url                     | TYK_DB_SSOCUSTOMLOGINURL                     |
+| sso_custom_portal_login_url              | TYK_DB_SSOCUSTOMPORTALLOGINURL               |
 | storage.optimisations_max_active         | TYK_DB_STORAGE_MAXACTIVE                     |
 | storage.optimisations_max_idle           | TYK_DB_STORAGE_MAXIDLE                       |
 | tagging_options.tag_all_apis_by_org      | TYK_DB_TAGGINGOPTIONS_TAGALLAPISBYORG        |
