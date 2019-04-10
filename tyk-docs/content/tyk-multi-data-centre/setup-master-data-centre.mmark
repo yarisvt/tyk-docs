@@ -272,7 +272,6 @@ Allows a slave to login as an organisation member into MDCB
 
 Enables key events such as updates and deletes, to be propagated to the various instance zones. API Definitions and Policies will be propagated by default.
 
-{{./static/include/file-handles.md}}
 
 ### Update Your Tyk Organisation
 
@@ -288,6 +287,7 @@ This should return:
 {"Status":"OK","Message":"Org updated","Meta":null}
 ```
 
+{{./static/include/file-handles.md}}
 
 [1]: /docs/img/dashboard/system-management/api_access_cred_2.5.png
  
