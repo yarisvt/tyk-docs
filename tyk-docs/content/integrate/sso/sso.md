@@ -56,7 +56,7 @@ Instructions on setting SSO with Google+ will be added soon.
 ## <a name="tyk-dashboard"></a> Tyk's Dashboard Admin REST API for SSO
 Our SSO REST API allows you to implement custom authentication schemes for the Dashboard and Portal. Our Tyk Identity Broker (TIB) internally also uses this API. See [Dashboard Admin API SSO](https://tyk.io/docs/dashboard-admin-api/sso/) for more details.
 
-## <a name="ldap"></a>SSO with LDAP integration
-Detailed instruction on setting [SSO with LDAP](https://tyk.io/docs/integrate/sso/dashboard-login-ldap-tib/).
+## <a name="ldap"></a>SSO with LDAP Integration
+Detailed instruction on setting [SSO with LDAP](/docs/integrate/3rd-party-identity-providers/ldap/).
 
 See [apply search filters](https://tyk.io/docs/integrate/3rd-party-identity-providers/openldap/#a-name-ldap-search-filters-a-using-advanced-ldap-search) to add advanced search to your LDAP authentication.
