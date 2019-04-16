@@ -26,7 +26,7 @@ If not using a Tyk Dashboard, add the field `enable_context_vars` to your API de
 *   `path`: The path that is being requested.
 *   `remote_addr`: The IP address of the connecting client.
 *   `request_id` Allows the injection of request correlation ID (for example X-Request-ID)
-*   `jwt_claims_CLAIMNAME` - If JWT tokens are being used, then each claim in the JWT is available in this format to the context processor. `CLAIMNAM` is case sensitive so use the exact claim.
+*   `jwt_claims_CLAIMNAME` - If JWT tokens are being used, then each claim in the JWT is available in this format to the context processor. `CLAIMNAME` is case sensitive so use the exact claim.
 *   `cookies_COOKIENAME` - If there are cookies, then each cookie is available in context processor in this format. `COOKIENAME` is case sensitive so use the exact cookie name and replace any `-` in the cookie name with `_`.
 *   `headers_HEADERNAME` - Headers are obviously exposed in context processor. You can access any header in the request using this format. 
 ** `HEADERNAME` format: Due to the way GoLang handles header parsing, incoming headers are converted to Capital Case. You also need to replace any `-` in the `HEADERNAME` name with `_`. For example, to get the value stored in `test-header`, the syntax would be `$tyk_context.headers_Test_Header`.
