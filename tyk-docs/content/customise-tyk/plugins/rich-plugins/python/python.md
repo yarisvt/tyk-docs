@@ -12,7 +12,7 @@ Tyk supports [Python 3.4.x][1], the main requirement is to have the Python share
 
 These Python modules are required as well:
 
-*   [Protobuf][2]: provides [Protocol Buffers][3] support, you may install it using: `pip3 install protobuf` See the note below, the alternative installation method may guarantee higher performance.
+*   [Protobuf][2]: provides [Protocol Buffers][3] support, you may install it using: `pip3 install protobuf` See the note below, the alternative installation method may guarantee higher performance. Protocol buffers can be versioned using the conventions outlined [here](http://h22208.www2.hpe.com/eginfolib/networking/docs/sdn/sdnc2_7/5200-0910prog/content/s_sdnc-app-ha-versioning-GPB.html).
 
 *   [gRPC][4]: provides [gRPC][5] support: `pip3 install grpcio`
 
