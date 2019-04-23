@@ -10,17 +10,18 @@ weight: 5
 Our SSO API allows you to implement custom authentication schemes for the Dashboard and Portal. 
 Our Tyk Identity Broker (TIB) internally also uses this API.
 
-In a production environment, you need to change the default `admin_Secret` value that is called by the `admin-auth` header in your`tyk_analytics.conf` file. This is located in `/opt/tyk-dashboard`.
+In a production environment, you need to change the default `admin_secret` value that is called by the `admin-auth` header in your`tyk_analytics.conf` file. This is located in `/opt/tyk-dashboard`.
 
 ### Generate authentication token
 
 The Dashboard exposes the `/admin/sso` Admin API which allows you to generate a temporary authentication token, valid for 60 seconds. 
 
 You should provide JSON payload with the following data:
-* `ForSection` - scope with possible values of `"dashboard"` or `"portal"`. 
-* `OrgID` - with your organisation id.
-* `GroupID` - the group id
-* `EmailAddress` - user email
+
+* `ForSection` - scope with possible values of `"dashboard"` or `"portal"` 
+* `OrgID` - with your organisation id. 
+* `GroupID` - the group id 
+* `EmailAddress` - user email 
 
 
 | **Property** | **Description**              |
@@ -53,6 +54,8 @@ admin-auth: 12345
 
 Once you have issued a token you can login to the dashboard using the `/tap` url, or to the portal using the `<portal-url>/sso` URL, and provide an authentication token via the `nonce` query param.
 If `nonce` is valid, Tyk will create a temporary user and log them in. 
+
+If you want to re-use existing dashboard users, instead of creating temporary ones, you can set `"sso_enable_user_lookup": true` variable in Tyk Analytics configuration file. This way you can set individual permissions for users logged via SSO.
 
 #### Set up default permissions for the dashboard
 If you use the token with `dashboard` scope, and would like to avoid login in as admin user (which is the default permissions), you can add the `sso_permission_defaults` configuration option to the Dashboard config file (`tyk_analytics.conf`) to specify SSO user permissions in the following format:

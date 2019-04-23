@@ -15,7 +15,7 @@ Tyk has a streamlined quickstart setup for Vagrant. This demo works with Ubuntu 
 
 You need to have [Virtual Box](https://www.virtualbox.org/wiki/Downloads) installed before using our Vagrant setup.
 
-Full, detailed instructions on how to [install Tyk on Ubuntu Server (LTS)](/docs/get-started/with-tyk-on-premise/installation/on-ubuntu/) or how to [install Tyk on Red Hat Enterprise Linux (RHEL)](/docs/get-started/with-tyk-on-premise/installation/redhat-rhel-centos/) are also available and go through the entire process manually.
+Full, detailed instructions on how to [install Tyk on Ubuntu Server (LTS)](https://tyk.io/docs/get-started/with-tyk-on-premise/installation/on-ubuntu/) or how to [install Tyk on Red Hat Enterprise Linux (RHEL)](https://tyk.io/docs/get-started/with-tyk-on-premise/installation/redhat-rhel-centos/) are also available and go through the entire process manually.
 
 Given this caveat, lets get you up and running.
 
@@ -163,13 +163,7 @@ sudo service tyk-pump start
 
 ### Step 13: Enter Dashboard license
 
-Go to `http://your-host-name:3000/`
-
-And you will see a screen asking for a license, enter it in the section marked "**Already have a license?**" and click `Use this license`.
-
-That's it, your Dashboard is now ready to be bootstrapped.
-
-> **Note:** You can bypass this step by adding your license manually to the `/opt/tyk-dashboard/tyk_analytics.conf` file directly in the field marked `license`.
+Add your license in `/var/opt/tyk-dashboard/tyk_analytics.conf` in the `license` field.
 
 If all is going well, you will be taken to a log in screen - we'll get to that soon.
 
@@ -195,16 +189,11 @@ sudo /opt/tyk-dashboard/install/bootstrap.sh my-tyk-instance.com
 
 This command tells the bootstrap script to use the localhost as the base for the API calls, you can run the bootstrap remotely and change the first command line parameter to the DNS hostname of your instance.
 
-You will now be able to log into and test your Tyk instance with the values given to you by the bootstrap script.
+You will now be able to log into and test your Tyk instance from `http://your-host-name:3000/` with the values given to you by the bootstrap script.
 
 #### Next Steps
 
-*   [Set up and test your first API][3]
-*   [Set up your portal and publish your first API][4]
-
-[1]: /docs/get-started/with-tyk-on-premise/installation/on-ubuntu/
-[2]: /docs/get-started/with-tyk-on-premise/installation/redhat-rhel-centos/
-[3]: /docs/get-started/with-tyk-on-premise/tutorials/tyk-on-premise-pro/create-api/
-[4]: /docs/publish/tutorials/
+*   [Set up and test your first API](https://tyk.io/docs/get-started/with-tyk-on-premise/tutorials/tyk-on-premises-pro/create-api/)
+*   [Set up your portal and publish your first API](https://tyk.io/docs/publish/tutorials/publish-api-developer-portal/)
 
 

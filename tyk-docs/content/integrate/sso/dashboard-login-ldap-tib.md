@@ -17,7 +17,7 @@ Good news, Tyk supports this!
 
 ## <a name="how"></a> How it works
 
-The Tyk Identity Broker (TIB) is an open-source project which can be used to integrate Tyk authentication with 3rd party identity providers (IDPs). You can use this to enable your Dashboard to authenticate users with your LDAP-powered identity providers such as Active Directory. TIB has been designed as a glue-code solution, so it can integrate with almost any identity provider (IDP). See [here](/docs/configure/tyk-identity-broker-configuration/) for details on configuring the TIB.
+The Tyk Identity Broker (TIB) is an open-source project which can be used to integrate Tyk authentication with 3rd party identity providers (IDPs). You can use this to enable your Dashboard to authenticate users with your LDAP-powered identity providers such as Active Directory. TIB has been designed as a glue-code solution, so it can integrate with almost any identity provider (IDP). See [Tyk Identity Broker Configuration](https://tyk.io/docs/configure/tyk-identity-broker-configuration/) for details on configuring the TIB.
 
 ### The High Level TIB Flow:
 
@@ -31,7 +31,7 @@ The Tyk Identity Broker (TIB) is an open-source project which can be used to int
 
 ## <a name="implementation"></a>Step-by-step implementation guide
 
-This guide assumes you already have a Tyk environment set up, with a Gateway and Dashboard. If you don't, please follow the [Tyk On-Premises getting started guide](/docs/get-started/with-tyk-on-premise/).
+This guide assumes you already have a Tyk environment set up, with a Gateway and Dashboard. If you don't, please follow the [Tyk On-Premises getting started guide](https://tyk.io/docs/get-started/with-tyk-on-premise/).
 
 The environment used for this guide is, for simplicity's sake, all contained on a single host running Ubuntu 14.04. The hostname `my-tyk-instance.com` has been set to point at `127.0.0.1`. For production environments it is recommended that each component is hosted separately and appropriate security measures are used such as HTTPS to secure connections.
 
@@ -154,7 +154,7 @@ The `profiles.json` for this example is as follows (again, update values for you
 ]
 ```
 
-Notice that this is a JSON array object with a single element; an LDAP profile. The LDAP server referenced by this profile is the freely-available service provided forumsys.com, see [their documentation](https://www.forumsys.com/tutorials/integration-how-to/ldap/online-ldap-test-server/) for more information. You can use any OpenLDAP compatible server.
+Notice that this is a JSON array object with a single element; an LDAP profile. The LDAP server referenced by this profile is the freely-available service provided forumsys.com. See [their documentation](https://www.forumsys.com/tutorials/integration-how-to/ldap/online-ldap-test-server/) for more information. You can use any OpenLDAP compatible server.
 
 ### 5. Start TIB
 
@@ -214,6 +214,8 @@ echo \
 ```
 
 The login form contains two inputs named `username` and `password`. TIB looks for these exact parameter names when processing the request, so if you are creating your own login page you must use these input names.
+
+Please make sure you are using `POST` method in the form, to avoid browser caching.
 
 The form action `http://my-tyk-instance.com:3010/auth/1/ldap` is the TIB endpoint which will start the authentication process. The URL can be broken down as follows:
 

@@ -4,14 +4,14 @@ title: Request Size Limits
 menu:
   main:
     parent: "Control & Limit Traffic"
-weight: 3 
+weight: 4 
 ---
 
 ## <a name="maximum-request-sizes"></a> Maximum Request Sizes
 
 Tyk supports forcing request size limits on a global and on a per-endpoint level. Tyk will reject any request that is too big. Size limits can be set on a global or per-path basis.
 
-> **Note for Tyk Cloud Users**: Tyk Cloud enforces a strict request size limit of 1MB an all inbound requests via our cloud architecture. This does not affect hybrid users.
+> **Note for Tyk Cloud Users**: Tyk Cloud enforces a strict request size limit of 1MB an all inbound requests via our cloud architecture. This does not affect Multi-Cloud users.
 
 ## <a name="max-request-size-with-dashboard"></a> Max Request Size with the Dashboard
 

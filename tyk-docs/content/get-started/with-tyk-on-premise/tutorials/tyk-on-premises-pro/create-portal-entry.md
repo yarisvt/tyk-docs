@@ -1,6 +1,6 @@
 ---
 date: 2017-03-23T11:34:17Z
-title: Create a portal entry - Pro Edition
+title: Create a Portal Entry - Pro Edition
 menu:
   main:
     parent: "Pro Edition"

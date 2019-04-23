@@ -109,6 +109,13 @@ The benefit here is that if RSA is used, then all that is stored in a Tyk instal
 
 ---
 
+## Option 3: Dynamic public key rotation using JWKs
+
+Instead of specifying static public key in API definition, it is possible to specify URL pointing to JSON Web Key Set (JWKs). At the most basic level, the JWKs is a set of keys containing the public keys that should be used to verify any JWT issued by the authorization server. You can read more about JWKs here: https://auth0.com/docs/jwks
+
+Using JWKs you can maintan dynamic list of currently active public keys, and safely rotate them, since both old and new JWT tokens will work, until you remove expired JWK. Generated JWT keys should have `kid` a claim, which should match with the `kid` field of JWK, used for validating the token. 
+
+
 ## Avoiding clock skew
 
 > **NOTE**: Available from v2.6.2 onwards
@@ -126,8 +133,21 @@ You can disable the validation check on 3 claims `iat`, `exp` & `nbf` by adding 
 "jwt_disable_not_before_validation": true
 ```
 
+### JWT Clock Skew Configuration
+
+> **NOTE**: Available from v2.7.2 onwards
+
+You can now configure JWT clock skew using the following variables. All values are in seconds. The default is `0`.
+
+```{.json}
+"jwt_issued_at_validation_skew": 0,
+"jwt_expires_at_validation_skew": 0,
+"jwt_not_before_validation_skew": 0
+```
+
+
 [1]: http://jwt.io/introduction/
 [2]: /docs/img/diagrams/jwt2.png
 [3]: /docs/img/dashboard/system-management/jwt_auth_2.5.png
 [4]: /docs/img/dashboard/system-management/jwt_sign_2.5.png
-[5]: /docs/img/dashboard/system-management/jwt_claim_2.5.png
+[5]: /docs/img/dashboard/system-management/jwt_claim_2.7.png

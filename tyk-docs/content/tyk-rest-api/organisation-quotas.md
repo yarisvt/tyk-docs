@@ -9,26 +9,29 @@ weight: 8
 
 ### Overview
 
-It is possible to force API quota limiting across all keys that belong to a specific organisation ID, the rate limiting on an organisation level is useful for creating tiered access levels and trial accounts.
+It is possible to force API quota and rate limit across all keys that belong to a specific organisation ID. 
+Rate limiting on an organisation level is useful for creating tiered access levels and trial accounts.
 
-The Organisation rate limiting middleware works with both Quotas and Rate limiters. In order to manage this functionality, a simple API has been put in place to manage these sessions.
+The Organisation rate limiting middleware works with both Quotas and Rate Limits. In order to manage this functionality, an API has been put in place to manage these sessions.
 
-Although the Organisation session-limiter uses the same session object, all other security keys are optional as they are not used.
+Although the Organisation session object uses the same [session object](https://tyk.io/docs/tyk-rest-api/token-session-object-details/), all other security keys are optional.
 
 ### Managing active status
 
-To disallow access to an entire group of keys without rate limiting the organisation, create a session object with the `"is_inactive"` key set to `true`, this will block access before any other middleware is executed. This is useful when managing subscriptions for an organisation group and access needs to be blocked because of non-payment.
+To disallow access to an entire group of keys without rate limiting the organisation, create a session object with the `is_inactive` key set to `true`, this will block access before any other middleware is executed. This is useful when managing subscriptions for an organisation group and access needs to be blocked because of non-payment.
 
 ### Create organisation keys
 
 | **Property** | **Description**   |
 | ------------ | ----------------- |
-| Resource URL | `/tyk/orgs/keys/` |
+| Resource URL | `/tyk/org/keys/` |
 | Method       | POST              |
 | Type         | JSON              |
 | Body         | Session Object    |
 
 #### Options
+
+The following options can be applied when Creating and Adding/Updating Organisation quotas.
 
 Adding the `reset_quota` parameter and setting it to `1`, will cause Tyk reset the organisations quota in the live quota manager, it is recommended to use this mechanism to reset organisation-level access if a monthly subscription is in place.
 
@@ -41,7 +44,7 @@ For **Gateway v2.6.0** onwards, you can now set rate limits at the organisation 
 #### Sample request
 
 ```{.copyWrapper}
-POST /tyk/orgs/keys/ HTTP/1.1
+POST /tyk/org/keys/ HTTP/1.1
 Host: localhost:8080
 x-tyk-authorization: 352d20ee67be67f6340b4c0605b044bc4
 Cache-Control: no-cache
@@ -60,9 +63,12 @@ Cache-Control: no-cache
 
 Where the request fields:
 
-- `"quota_*"` are specifying attributes for organization-level quota (`"quota_max": -1` will set unlimited quota)
+- `quota_max`: This sets the maximum number of requests for the specified period. Setting to `-1` will set an unlimited quota.
+- `quota_renews`: This sets the time for the quota to be applied to.
+- `quota_remaining`: The requests remaining for the current period. 
+- `quota_renewal_rate`: This has to be set to the same value as `quota_max`
 - `"allowance"`, `"rate"` and `"per"` are specifying attributes for organization level rate limiter (`"rate": 0` or `"per": 0` will set unlimited rate)
-- `"org_id"` - identifies the organization session key object
+- `"org_id"` - identifies the organisation session key object
 
 #### Sample response
 
@@ -79,20 +85,11 @@ Where the request fields:
 
 | **Property** | **Description**            |
 | ------------ | -------------------------- |
-| Resource URL | `/tyk/orgs/keys/{{orgId}}` |
+| Resource URL | `/tyk/org/keys/{{orgId}}` |
 | Method       | POST or PUT                |
 | Type         | JSON                       |
 | Body         | Session Object             |
 
-#### Options
-
-Adding the `reset_quota` parameter and setting it to `1`, will cause Tyk reset the organisations quota in the live quota manager, it is recommended to use this mechanism to reset organisation-level access if a monthly subscription is in place, simply PUT the same session object into Tyk with the reset parameter and the organisation will continue to have access.
-
-By default the quota will reset when the `per` limit is reached and the key refreshes, this means that should an organisation use the service from day 1 month 1, and then use up their quota by day 20. On day 30, the key expires and the quota is open again, however if the organisation only accesses the API again on day 10, month 2, then the quota will be active from day 10, month 2 and therefore renew on day 10 Month 4, since the rate limiter is initialised when the org is next seen.
-
-This reset quota mechanism is in place to allow a manual initialisation of the rate limiter to prevent this default reload off-cycle.
-
-For **Gateway v2.6.0** onwards, you can now set rate limits at the organisation level by using the following fields - `allowance` and `rate`. These are the number of allowed requests for the specified per value, and need to be set to the same value. If you don't want to have organisation level rate limiting, set "rate" or "per" to zero, or don't add them to your request.
 
 #### Sample request
 

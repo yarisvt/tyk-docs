@@ -25,6 +25,8 @@ Modify the Tyk Gateway configuration (`tyk.conf`) as follows:
 
 `"optimisations_use_async_session_write": true,`
 
+`"use_db_app_configs": false,`
+
 Next, we need to ensure that the policy loader and analytics pump use the RPC driver:
 
 ```{.json}
@@ -38,6 +40,8 @@ Next, we need to ensure that the policy loader and analytics pump use the RPC dr
 },
 ```
 
+NOTE: if you set `analytics_config.type` to `rpc` - make sure you don't have tyk-pump configured to send analytics via `hybrid` pump type.
+
 Lastly, we add the sections that enforce the RPC Slave mechanism:
 
 ```{.json}
@@ -45,9 +49,9 @@ Lastly, we add the sections that enforce the RPC Slave mechanism:
   "use_rpc": true,
   "rpc_key": "{ORGID}",
   "api_key": "{APIKEY}",
-  "connection_string": "{MDCB_HOSTNAME:9090}",
+  "connection_string": "{MDCB_HOSTNAME:9091}",
   "enable_rpc_cache": true,
-  "bind_to_slugs": true,
+  "bind_to_slugs": false,
   "group_id": "{ny}",
   "use_ssl": false,
   "ssl_insecure_skip_verify": true
@@ -66,8 +70,9 @@ The most important elements here are:
 
 | Field         | Description    |
 |---------------|----------------|
-|`group_id:`    |This is the "zone" that this instance inhabits, e.g. the DC it lives in. It must be unique to each slave cluster / DC.|
-|`connection_string:`     |The MDCB instance or load balancer.|
+|`api_key`      |This the API key of a user used to authenticate and authorise the Gateway's access through MDCB. The user should be a standard Dashboard user with minimal privileges so as to reduce risk if compromised. The suggested security settings are `read` for `Real-time notifications` and the remaining options set to `deny`.|
+|`group_id`    |This is the "zone" that this instance inhabits, e.g. the DC it lives in. It must be unique to each slave cluster / DC.|
+|`connection_string`     |The MDCB instance or load balancer.|
 
 Once this is complete, you can restart the Tyk Gateway in the Slave DC, and it will connect to the MDCB instance, load its API definitions, and is ready to proxy traffic.
 

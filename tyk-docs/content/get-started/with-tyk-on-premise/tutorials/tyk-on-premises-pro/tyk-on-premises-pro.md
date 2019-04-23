@@ -5,7 +5,7 @@ menu:
   main:
     parent: /with-tyk-on-premise
 weight: 0
-url: "/get-started/with-tyk-on-premise/tutorials/tyk-on-premise-pro"
+url: "/get-started/with-tyk-on-premises/tutorials/tyk-on-premise-pro"
 ---
 
 ## What is the Tyk Pro Edition?

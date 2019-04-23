@@ -23,6 +23,7 @@ Create a `pump.conf` file:
     "username": "",
     "password": "",
     "database": 0,
+    "timeout": 5,
     "optimisation_max_idle": 100,
     "optimisation_max_active": 0,
     "enable_cluster": false
@@ -136,6 +137,19 @@ Create a `pump.conf` file:
       }
     }
   },
+  "hybrid": {
+    "name": "hybrid",
+    "meta": {
+      "rpc_key": "abc",
+      "api_key": "xyz",
+      "connection_string": "localhost:9090",
+      "use_ssl": false,
+      "ssl_insecure_skip_verify": false,
+      "group_id": "",
+      "call_timeout": 30,
+      "rpc_pool_size": 30
+    }
+  },
   "uptime_pump_config": {
     "collection_name": "tyk_uptime_analytics",
     "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/{db_name}"
@@ -155,9 +169,9 @@ Settings must be the same as for the original `tyk.conf` for Redis and for Mongo
 #### Elasticsearch Config
 `index_name` - The name of the index that all the analytics data will be placed in. Defaults to "tyk_analytics"
 
-`elasticsearch_url` - If sniffing is disabled, the URL that all data will be sent to. Defaults to "http://localhost:9200"
+`elasticsearch_url` - If sniffing is disabled, the URL that all data will be sent to. Defaults to `http://localhost:9200`. The HTTP prefix must be included in the URL.
 
-`enable_sniffing` - If sniffing is enabled, the "elasticsearch_url" will be used to make a request to get a list of all the nodes in the cluster, the returned addresses will then be used. Defaults to false
+`enable_sniffing` - If sniffing is enabled, the `elasticsearch_url` will be used to make a request to get a list of all the nodes in the cluster. The returned addresses will then be used. Defaults to `false`.
 
 `document_type` - The type of the document that is created in ES. Defaults to "tyk_analytics"
 
@@ -172,11 +186,32 @@ Moesif is a logging and analytics service for APIs. The Moesif pump will move an
 
 `application_id` - Moesif App Id JWT. Multiple api_id's will go under the same app id.
 
+#### Hybrid RPC Config
+Pump type `hybrid` is used to send your analytics data to MDCB via RPC.
+
+NOTE: Make sure your tyk.conf has `analytics_config.type` set to empty string value.
+
+`rpc_key` - Put your organization ID in this field.
+
+`api_key` - This the API key of a user used to authenticate and authorise the Gateway's access through MDCB. The user should be a standard Dashboard user with minimal privileges so as to reduce risk if compromised. The suggested security settings are `read` for `Real-time notifications` and the remaining options set to `deny`.
+
+`connection_string` - The MDCB instance or load balancer.
+
+`use_ssl` - Set this field to `true` if you need secured connection (default value is `false`).
+
+`ssl_insecure_skip_verify` - Set this field to `true` if you use self signed certificate.
+
+`group_id` - This is the "zone" that this instance inhabits, e.g. the DC it lives in. It must be unique to each slave cluster / DC.
+
+`call_timeout` - This is the timeout (in milliseconds) for RPC calls.
+
+`rpc_pool_size` - This is maximum number of connections to MDCB.
+
 ### Capping analytics data
 
 Tyk Gateways can generate a lot of analytics data. A guideline is that for every 3 million requests that your Gateway processes it will generate roughly 1GB of data.
 
-If you have Tyk Pump set up with the aggregate pump as well as the regular MongoDB pump, then you can make the `tyk_analytics` collection a [capped collection][5]. Capping a collection guarantees that analytics data is rolling within a size limit, acting like a FIFO buffer which means that when it reaches a specific size, instead of continuing to grow, it will replace old records with new ones.
+If you have Tyk Pump set up with the aggregate pump as well as the regular MongoDB pump, then you can make the `tyk_analytics` collection a [capped collection](https://docs.mongodb.com/manual/core/capped-collections/). Capping a collection guarantees that analytics data is rolling within a size limit, acting like a FIFO buffer which means that when it reaches a specific size, instead of continuing to grow, it will replace old records with new ones.
 
 The `tyk_analytics` collection contains granular log data, which is why it can grow rapidly. The aggregate pump will convert this data into a aggregate format and store it in a separate collection. The aggregate collection is used for processing reporting requests as it is much more efficient.
 

@@ -23,7 +23,7 @@ As with Javascript Middleware you will need to enable the JSVM. You do this by s
 
 To create one of these methods, create a file and place it in a subdirectory of the Tyk configuration environment (ideally under the `middleware` folder in your Tyk installation). Here is a sample method:
 
-```{.copyWrapper}
+```javascript
 function myVirtualHandler (request, session, config) {
   log("Virtual Test running")
   
@@ -35,8 +35,8 @@ function myVirtualHandler (request, session, config) {
   var responseObject = {
     Body: "THIS IS A  VIRTUAL RESPONSE",
     Headers: {
-      "test": "virtual",
-      "test-2": "virtual"
+      "x-test": "virtual-header",
+      "x-test-2": "virtual-header-2"
     },
     Code: 200
   }
@@ -48,19 +48,18 @@ log("Virtual Test initialised")
 
 
 
-
 ### Adding Virtual Endpoints to your API Definition
 
 Virtual endpoints follow the same layout and setup as other elements in the `extended_path` section of the API definition:
 
-```{.copyWrapper}
+```{.json}
 ...
 virtual: [
   {
-    response_function_name: "batchTest",
+    response_function_name: "myVirtualHandler",
     function_source_type: "file",
     function_source_uri: "middleware/testVirtual.js",
-    path: "get-batch",
+    path: "call-serverless",
     method: "GET",
     use_session: true
   }
@@ -72,7 +71,7 @@ The parameters are as follows:
 *   `response_function_name`: This is the function to run when this virtual endpoint is requested. The function name must match exactly (including casing) the function name in your virtual middleware. We need to know this as it will be the entry point into your code, this will be called first. Make sure it is unique, all plugins run in the same VM, so if there are naming collisions you may end up with unpredictable behaviour.
 *   `function_source_type`: This can be `file` or `blob` If set to `file`, then Tyk will pre-load the JS from disk, if set to blob, then Tyk will base64-decode a string from the `function_source_uri` section.
 *   `function_source_uri`: This will be the relative path to the source of the functionality (e.g. `myfile.js`), or a blob of base64-encoded data that represents the same information. Blob mode is mainly used by the dashboard to make code injection easier on multiple node deployments.
-*   `path`: This is the relative URI path to which the virtual middleware will respond. For example, `http://domain/path`.
+*   `path`: This is the relative URI path to which the virtual middleware will respond. For example, `http://{YOUR-DOMAIN}/call-serverless`.
 *   `method`: This is the HTTP verb (`GET`, `POST` etc.) to which this virtual middleware will respond.
 *   `use_session`: If true then the key session data will be provided to the function as the `session` variable. See the plugins documentation for more detail about this object.
 
@@ -84,7 +83,7 @@ You can use the `config_data` special field in your API definition to pass custo
 
 Add the following to the root of your API definition:
 
-```{.copyWrapper}
+```{.json}
 "config_data": {
   "string": "string",
   "map": {
@@ -94,9 +93,9 @@ Add the following to the root of your API definition:
 }
 ```
 
-#### Sample use of `config_data`
+#### Example use of `config_data`
 
-```
+```javascript
 function myVirtualHandler (request, session, config) {      
   var responseObject = {
     Body: "THIS IS A  VIRTUAL RESPONSE",

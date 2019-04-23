@@ -15,7 +15,7 @@ The Tyk Gateway server is configured primarily via the `tyk.conf` file, this fil
 Environment variables can be used to override settings defined in the configuration file. The [Tyk Gateway environment variables page](/docs/configure/gateway-env-variables/) shows how the JSON member keys map to an environment variables. Where an environment variable is specified, its value will take precedence over the value in the configuration file.
 
 ### <a name="linter"></a> tyk lint
-In v2.4 we have added a new `tyk lint ` command which will validate your `tyk.conf` file and validate it for syntax correctness, misspelled attribute names or format of values. The Syntax can be:
+In **v2.4** we have added a new `tyk lint ` command which will validate your `tyk.conf` file and validate it for syntax correctness, misspelled attribute names or format of values. The Syntax can be:
 
 `tyk lint` or `tyk --conf=path lint`
 
@@ -107,6 +107,9 @@ The Redis instance port.
 
 If your Redis instance has a password set for access, you can tell Tyk about it here.
 
+#### <a name="storage-timeout"></a> storage.timeout
+
+Set cutom timeout for Redis network operations. Default value 5 seconds.
 
 #### <a name="storage-optimisation_max_idle"></a> storage.optimisation_max_idle
 
@@ -116,23 +119,11 @@ Set the number of maximum idle connections in the Redis connection pool, default
 
 Enable SSL/TLS connection between Tyk Gateway &amp; Redis.
 
-### <a name="maxmind"></a>MaxMind Database Settings
-
-#### <a name="enable_geo_ip"></a> enable_geo_ip
-
-Set this to `true` to allow you to use MaxMind GeoIP databases. You also need to set `geo_ip_db_path`.
-
-You can also enable storing GeoIP information in analytics by setting the following Gateway option: [`enable_analytics.enable_geo_ip`](https://tyk.io/docs/configure/tyk-gateway-configuration-options/#a-name-enable-analytics-enable-geo-ip-a-enable-analytics-enable-geo-ip)
-
-#### <a name="geo_ip_db_path"></a> geo_ip_db_path
-
-Set this value to the absolute path of your MaxMind GeoIP Database file, e.g.: `./GeoLite2-City.mmdb`. 
-
 #### <a name="enable_analytics"></a> enable_analytics
 
 Tyk is capable of recording every hit to your API into a database with various filtering parameters, set this value to `true` and fill in the sub-section below to enable logging.
 
-> **Note**: Tyk will store traffic data to Redis initially (for performance reasons) and then purge the data from Redis into MongoDB/CSV on a regular basis as determined by the `purge_delay` setting in your Tyk Pump configuration.
+> **Note**: For performance reasons, Tyk will store traffic data to Redis initially and then purge the data from Redis to  MongoDB or other, [data stores](https://tyk.io/docs/analyse/other-data-stores/), on a regular basis as determined by the `purge_delay` setting in your Tyk Pump configuration.
 
 ### <a name="analytics_config"></a> analytics_config
 
@@ -144,13 +135,19 @@ Set this value to `true` to have Tyk store the inbound request and outbound resp
 
 Setting `enforce_org_data_detail_logging` in the `tyk.conf` will enforce it (quotas must also be enforced for this to work), then setting `enable_detail_recording` in the org session object will enable or disable the logging method on a per-organisation basis. This can be useful for debugging live APIs.
 
-#### <a name="analytics_config-enable_geo_ip"></a> analytics_config.enable_geo_ip
+#### <a name="analytics_config-enable_geo_ip-enable_geo_ip_db_path"></a> analytics_config.enable_geo_ip and analytics_config.geo_ip_db_path
+
+##### <a name="enable_geo_ip"></a> enable_geo_ip
 
 As of Tyk API Gateway 2.0, Tyk can store GeoIP information based on MaxMind DB's, to enable GeoIP tracking on inbound request analytics, set this value to `true` and assign a DB using the `geo_ip_db_path` setting.
 
-#### <a name="analytics_config-enable_geo_ip_db_path"></a> analytics_config.enable_geo_ip_db_path
+Please make sure you have also enabled analytics storing by setting [`enable_analytics`](https://tyk.io/docs/configure/tyk-gateway-configuration-options/#a-name-enable-analytics-a-enable-analytics) in the Gateway.
 
-Set this value to the absolute path of your MaxMind GeoIP Database file, e.g.: `./GeoLite2-City.mmdb`. The analytics GeoIP DB can be replaced on disk, it will cleanly auto-reload every hour.
+##### <a name="enable_geo_ip_db_path"></a> geo_ip_db_path
+
+Set this value to the absolute path of your MaxMind GeoIP Database file, e.g.: `./GeoLite2-City.mmdb`. The analytics GeoIP DB can be replaced on disk, it will cleanly auto-reload every hour. 
+
+Don't forget to mount it in case you use containers.
 
 #### <a name="analytics_config-ignored_ips"></a> analytics_config.ignored_ips
 
@@ -221,13 +218,17 @@ This section enables the configuration of the health-check API endpoint and the 
 
 Setting this value to `true` will enable the health-check endpoint on `/Tyk/health`.
 
+#### <a name="health_check_endpoint_name"></a>health_check_endpoint_name
+
+From v2.7.5 you can now rename the `/hello`  endpoint by using this option. 
+
 #### <a name="health_check-health_check_value_timeouts"></a> health_check.health_check_value_timeouts
 
 This setting defaults to `60`, this is the time window that Tyk will use to sample health-check data. Increase this value for more accurate data (larger sample period), and decrease for less accurate. The reason this value is configurable is because sample data takes up space in your Redis DB to store the data to calculate samples, on high-availability systems this may not be desirable and smaller values may be preferred.
 
 ### <a name="http_server_options"></a> http_server_options
 
-Set these options to hard-code values into the way the HTTP server behaves. this is highly experimental and should only be used for extreme tuning purposes, it is not recommended to be used unless absolutely necessary.
+Set these options to hard-code values into the way the HTTP server behaves.
 
 ```
 "http_server_options": {
@@ -276,7 +277,7 @@ Set this to the number of seconds that Tyk should use to flush content from the 
 
 For more resilient connection management, it is suggested to use the `close_connections` option below.
 
-As of v2.2, `flush_interval` is in *milliseconds*.
+`flush_interval` is set in **milliseconds**.
 
 #### <a name="http_server_options-enable_websockets"></a> http_server_options.enable_websockets
 
@@ -306,9 +307,17 @@ Note that only public keys in PEM format are supported.
 
 #### <a name="close_connections"></a> close_connections
 
-Set this value to `true` to force Tyk to get clients to close the connection with the client, otherwise the connections will remain open for as long as your OS keeps TCP connections open, this can cause a file-handler limit to be exceeded.
+Set this value to `true` to force Tyk to close the connection with the client, otherwise the connections will remain open for as long as your OS keeps TCP connections open. This can cause a file-handler limit to be exceeded. Setting to `false` can have performance benefits as the connection can be reused.
+
+Prior to v2.6 this setting controlled the behaviour of both the client/Tyk connection and Tyk/server connection. Since v2.6 it is just for the client/Tyk connection, with Tyk/server being controlled by <a href='#proxy_close_connections'>proxy_close_connections</a>
 
 > **NOTE:** This option is available from v2.3.5 onwards.
+
+#### <a name="proxy_close_connections"></a> proxy_close_connections
+
+Set this value to `true` to force Tyk to close the connection with the server, otherwise the connections will remain open for as long as your OS keeps TCP connections open. This can cause a file-handler limit to be exceeded. Setting to `false` can have performance benefits as the connection can be reused.
+
+> **NOTE:** This option is available from v2.6 onwards.
 
 ### <a name="monitor"></a> monitor
 
@@ -575,6 +584,10 @@ You need to use the following values for this setting:
 This allows you to add ssl ciphers which takes an array of strings as its value.
 
 Each string must be one of the allowed cipher suites as defined at https://golang.org/pkg/crypto/tls/#pkg-constants
+
+### <a name="proxy_ssl_disable_renegotiation"></a>proxy_ssl_disable_renegotiation
+
+From v2.7.2, TLS renegotiation is now enabled by default. You can disable it by setting `proxy_ssl_disable_renegotiation` to `false`.
 
 ### <a name="disable_regexp_cache"></a>disable_regexp_cache
 

@@ -78,7 +78,7 @@ Tyk supports API mocking using our versioning `use_extended_paths` setup, adding
         "code": 200,
         "data": "Hello World",
         "headers": {
-            "x-tyk-override": "tyk-override"
+          "x-tyk-override": "tyk-override"
         }
       }
     }

@@ -41,7 +41,7 @@ The Master Data Centre need to consist of:
 2.  A Master Tyk Gateway instance(s) (will load and be aware of all configurations, it is important to ensure this is not public facing)
 3.  A primary Redis DB
 4.  A MongoDB replica set for the dashboard and MDCB
-5.  One or more MDCB instances, load balanced with port 9090 open for TCP connections
+5.  One or more MDCB instances, load balanced with port 9091 open for TCP connections
 
 ### The Slave Data Centres
 

@@ -9,7 +9,13 @@ weight: 5
 
 ## <a name="introduction"></a>Introduction
 
-Instead of setting permissions per user, you can create a group, and assign it to one or more users. This also works for Single Sign On (SSO) as well, you can specify the group ID when setting up SSO. This feature is available to all our Cloud and Hybrid users. For On-Premises installations, this feature is available for customers with an "Unlimited" license.
+Instead of setting permissions per user, you can create a group, and assign it to one or more users. 
+
+You can use User Groups to help with Role Based Access Control (RBAC) for your users. For example, if you only want certain users to access the Tyk Logs, you can create a Logs User Group, then give those users the Logs Read permission and add them to your Logs User Group. See [User Roles](https://tyk.io/docs/security/dashboard/user-roles/) for assigning permissions to users.
+
+This also works for Single Sign On (SSO) as well, you can specify the group ID when setting up SSO. 
+
+This feature is available to all our Cloud and Multi-Cloud users. For On-Premises installations, this feature is available for customers with an "Unlimited" license.
 
 In order to manage user groups, ensure that you have either "admin" or "user groups" permission for your user, which can be enabled by your admin.
 
@@ -46,6 +52,18 @@ Enter the name for your User Group, and an optional Description.
 Click Update to save the User details
 
 ![update user][6]
+
+## <a name="user-group-api"></a>Managing User Groups with the Dashboard API
+
+You can also manage User Groups via our Dashboard API. The following functions are available:
+
+* List all User Groups
+* Get a User Group via the User Group ID
+* Add a User Group
+* Update a User Group
+* Delete a User Group
+
+See [Dashboard API User Groups](https://tyk.io/docs/tyk-dashboard-api/user-groups/) for more details.
 
 
  [1]: /docs/img/dashboard/system-management/user_groups2.7.png

@@ -26,7 +26,7 @@ Setting up load balancing is done on a per API basis, and is defined in the API 
 
 > **Important**: You must fill in the `target_list` section.
 
-See the section on Service Discovery to see how you can integrate a service discovery system such as Consul or etcd with Tyk and enable dynamic load balancing support.
+See [Service Discovery](https://tyk.io/docs/ensure-high-availability/service-discovery/) to see how you can integrate a service discovery system such as Consul or etcd with Tyk and enable dynamic load balancing support.
 
 ### Configure load balancing via the Dashboard
 
