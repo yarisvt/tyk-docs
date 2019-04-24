@@ -63,6 +63,7 @@ weight: 12
 | enable_redis_rolling_limiter                      | TYK_GW_ENABLEREDISROLLINGLIMITER                    |
 | enable_sentinel_rate_limiter                      | TYK_GW_ENABLESENTINELRATELIMITER                    |
 | enable_separate_cache_store                       | TYK_GW_ENABLESEPERATECACHESTORE                     |
+| enable_hashed_keys_listing                        | TYK_GW_ENABLEHASHEDKEYSLISTING                      |
 | enforce_org_data_age                              | TYK_GW_ENFORCEORGDATAAGE                            |
 | enforce_org_data_detail_logging                   | TYK_GW_ENFORCEORGDATADEAILLOGGING                   |
 | enforce_org_quotas                                | TYK_GW_ENFORCEORGQUOTAS                             |
