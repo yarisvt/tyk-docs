@@ -90,7 +90,7 @@ In the above example, the `port_data_path` would be `port`.
 
 * `proxy.service_discovery.cache_timeout`: Tyk caches target data from a discovery service. In order to make this dynamic you can set a cache value when the data expires and new data is loaded.
 
-
+* `proxy.disable_strip_slash`: This boolean option allows you to add a way to disable the stripping of the slash suffix from a URL.
 
 ***Internal proxy setup***
 
@@ -105,7 +105,8 @@ This is an example of `proxy.transport` definition followed by explanations for 
     "ssl_ciphers": [
       "TLS_RSA_WITH_AES_128_GCM_SHA256", 
       "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"
-    ]
+    ],
+    "ssl_insecure_skip_verify": true
 }
 ```
 * `proxy.transport.proxy_url`: Use this setting to specify your custom proxy and port.
@@ -121,3 +122,5 @@ This is an example of `proxy.transport` definition followed by explanations for 
 |      1.2      |      771       |
 
 * `proxy.transport.ssl_ciphers`: You can add `ssl_ciphers` which takes an array of strings as its value. Each string must be one of the allowed cipher suites as defined at https://golang.org/pkg/crypto/tls/#pkg-constants
+
+* `proxy.transport.ssl_insecure_skip_verify`: Boolean flag to control at the API definition whether it is possible to use self-signed certs for some APIs, and actual certs for others. This also works for `TykMakeHttpRequest` & `TykMakeBatchRequest` in virtual endpoints.

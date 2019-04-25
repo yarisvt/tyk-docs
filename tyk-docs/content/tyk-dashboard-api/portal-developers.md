@@ -310,3 +310,74 @@ curl https://admin.cloud.tyk.io/api/portal/developers/password/:Id \
   "Status": "Error", "Message":"Developer password validation failed."
 }
 ```
+
+
+### Add Subscription To Developer
+
+| **Property** | **Description**               |
+| ------------ | ----------------------------- |
+| Resource URL | `/portal/developers/:Id/subscriptions` |
+| Method       | POST                           |
+| Type         | None                          |
+| Body         | Subscription Object           |
+| Param        | None                          |
+
+
+#### Sample Request
+
+```{.copyWrapper}
+curl https://admin.cloud.tyk.io/api//portal/developers/:Id/subscriptions \
+-X POST \
+-H "authorization: $TYK_API_KEY" \
+-d \
+'{
+  "policy_id": "<pol-id>",
+  "fields": {
+      "foo": "bar"
+  },
+  "oauth_info": {
+    "redirect_uri": "..."
+  }
+}'
+```
+
+### Change Developer Key Policy
+
+| **Property** | **Description**               |
+| ------------ | ----------------------------- |
+| Resource URL | `/portal/developers/:developerId/:keyId/:policyId` |
+| Method       | GET                           |
+| Type         | None                          |
+| Body         | None                          |
+| Param        | None                          |
+
+### Revoke Developer Key
+
+| **Property** | **Description**               |
+| ------------ | ----------------------------- |
+| Resource URL | `/portal/developers/key/:apiID/:keyID/:Id` |
+| Method       | DELETE                        |
+| Type         | None                          |
+| Body         | None                          |
+| Param        | None                          |
+
+### Reset Developer Key Quota
+
+| **Property** | **Description**               |
+| ------------ | ----------------------------- |
+| Resource URL | `/portal/developers/key/:apiID/:keyID/:Id/reset_quota` |
+| Method       | POST                          |
+| Type         | None                          |
+| Body         | None                          |
+| Param        | None                          |
+
+### Delete OAuth app
+
+| **Property** | **Description**               |
+| ------------ | ----------------------------- |
+| Resource URL | `/portal/developers/oauth/:apiId/:appId` |
+| Method       | DELETE                        |
+| Type         | None                          |
+| Body         | None                          |
+| Param        | None                          |
+

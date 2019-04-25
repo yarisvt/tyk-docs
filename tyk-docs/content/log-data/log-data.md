@@ -16,6 +16,15 @@ Log data is usually of the Error level and higher, though you can enable Debug m
 
 Tyk will try to output structured logs, and so will include context data around request errors where possible.
 
+From v2.4 you can set a logging level via the `tyk.conf` file. The following levels can be set:
+
+* debug
+* info
+* warn
+* error
+
+If unset or left empty, it will default to `info`.
+
 ## <a name="aggregated-logs-with-sentry"></a> Aggregated logs with Sentry
 
 Tyk's logger supports multiple back-ends, the one that currently ships with Tyk is the Sentry hook. This makes it possible to send log data from multiple Tyk processes to a Sentry server in order to monitor the context around HTTP errors and other notifications created by Tyk.

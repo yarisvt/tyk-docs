@@ -9,9 +9,9 @@ weight: 2
 
 ## <a name="set-up-virtual-endpoint"></a>Set up the Virtual Endpoint
 
-Virtual Endpoints are defined per api on an endpoint level. To set up a Virtual Endpoint:
+Virtual Endpoints are defined per API on an endpoint level. To set up a Virtual Endpoint:
 
-1. From the Endpoint Designer, Add a new Endpoint.
+1. From the **Endpoint Designer**, Add a new Endpoint.
 2. From the Plugins drop-down list, select **Virtual Endpoint**.
 3. From the Virtual Endpoint settings, add a unique name in the **JS function to call** option. You should also use the same name inside the function code. For this demo, we will use `myVirtualHandlerGetHeaders`.
 
@@ -73,9 +73,8 @@ function myVirtualHandlerGetHeaders (request, session, config) {
 }
 ```
 
-> **NOTE**: Another option, instead of the steps above, you can use this link to import the api definition:
+> **NOTE**: Another option, instead of the steps above, you can use this link to import the API definition - [API Definition Import](https://gist.github.com/letzya/5b5edb3f9f59ab8e0c3c614219c40747).
 
-[https://gist.github.com/letzya/5b5edb3f9f59ab8e0c3c614219c40747](https://gist.github.com/letzya/5b5edb3f9f59ab8e0c3c614219c40747).
 The virtual function is `base64` encoded in the `function_source_uri` field.
 
 ## <a name="demonstrate-the-virtual-endpoint"></a>Demonstrating the Virtual Endpoint

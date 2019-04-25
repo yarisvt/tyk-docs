@@ -4,7 +4,7 @@ title: API Definitions
 menu:
   main:
     parent: "Tyk Dashboard API"
-weight: 1 
+weight: 1
 ---
 
 ### Get List of APIs
@@ -147,6 +147,9 @@ Similar to API list response
 | Type         | None             |
 | Body         | None             |
 | Param        | None             |
+
+> `{id}` can either be the internal or public ID ( see `api_id` in the [sample
+response](#sample-response-1) )
 
 #### Sample request
 
@@ -304,6 +307,22 @@ authorization: 7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 }
 ```
 
+### Delete API by ID
+
+#### Sample Request
+
+```{.copyWrapper}
+DELETE /api/apis/54c24242eba6db1c9a000002 HTTP/1.1
+Host: localhost
+Authorization: 7a7b140f-2480-4d5a-4e78-24049e3ba7f8
+```
+
+#### Sample Response
+
+```
+{"Status":"OK","Message":"API deleted","Meta":null}
+```
+
 ### Create API Definition
 
 Creating API definitions is slightly different to the core API, API definitions are wrapped inside an `api_definition` field and event handlers, such as webhooks are not embedded in the main `api_defintion` object (though they can be), webhooks are instead appended as references into the `hook_references` field, the API will embed the correct webhook data into the event handler interface.
@@ -447,7 +466,7 @@ APIs that are created using the advanced Dashboard API are referenced by their i
 
 | **Property** | **Description**           |
 | ------------ | ------------------------- |
-| Resource URL | `/api/apis/{internal_id}` |
+| Resource URL | `/api/apis/{internal_or_external_id}` |
 | Method       | PUT                       |
 | Type         | None                      |
 | Body         | Advanced API Definition   |

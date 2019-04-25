@@ -9,6 +9,8 @@ weight: 3
 
 Sometimes you may be exposing an older API, or one that uses a legacy structure for input data, or you are actually creating a new API schema and models that are cleaner which you want to apply to your existing API without modifying it (it may have many legacy clients that cannot be upgraded).
 
+Our body transform middleware uses the Go template language. See [Godoc](https://golang.org/pkg/text/template/) to learn more and a useful [blogpost](https://blog.gopheracademy.com/advent-2017/using-go-templates/) on using Go templates.
+
 As of Tyk 1.5 it is possible to modify inbound JSON requests and as of v2.2 XML requests using a golang template.
 
 ## <a name="with-api"></a> Modification with API Definition

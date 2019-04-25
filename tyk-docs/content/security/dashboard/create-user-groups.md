@@ -15,7 +15,7 @@ You can use User Groups to help with Role Based Access Control (RBAC) for your u
 
 This also works for Single Sign On (SSO) as well, you can specify the group ID when setting up SSO. 
 
-This feature is available to all our Cloud and Hybrid users. For On-Premises installations, this feature is available for customers with an "Unlimited" license.
+This feature is available to all our Cloud and Multi-Cloud users. For On-Premises installations, this feature is available for customers with an "Unlimited" license.
 
 In order to manage user groups, ensure that you have either "admin" or "user groups" permission for your user, which can be enabled by your admin.
 
@@ -52,6 +52,18 @@ Enter the name for your User Group, and an optional Description.
 Click Update to save the User details
 
 ![update user][6]
+
+## <a name="user-group-api"></a>Managing User Groups with the Dashboard API
+
+You can also manage User Groups via our Dashboard API. The following functions are available:
+
+* List all User Groups
+* Get a User Group via the User Group ID
+* Add a User Group
+* Update a User Group
+* Delete a User Group
+
+See [Dashboard API User Groups](https://tyk.io/docs/tyk-dashboard-api/user-groups/) for more details.
 
 
  [1]: /docs/img/dashboard/system-management/user_groups2.7.png
