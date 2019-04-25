@@ -39,7 +39,11 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
       "org_id": "54b53d3aeba6db5c35000002",
       "active": true,
       "id": "54b53d4bf25b920f09361526",
-      "access_key": "0cf5e6c37add465a406f19807c081765"
+      "access_key": "0cf5e6c37add465a406f19807c081765",
+      "user_permissions": {
+                "IsAdmin": "admin",
+                "ResetPassword": "admin"
+      }
     },
     {
       "api_model": {},
@@ -50,7 +54,11 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
       "org_id": "54b53d3aeba6db5c35000002",
       "active": true,
       "id": "54bd0ad9ff4329b88985aafb",
-      "access_key": "f81ee6f0c8f2467d539c132c8a422346"
+      "access_key": "f81ee6f0c8f2467d539c132c8a422346",
+      "user_permissions": {
+                "user_groups": "read",
+                "users": "read"
+      }
     }
   ],
   "pages": 0
