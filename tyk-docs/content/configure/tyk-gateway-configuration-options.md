@@ -28,13 +28,13 @@ If `--conf` is not used, the first of the following paths to exist is used:
 
 Setting this value will change the port that Tyk listens on, by default Tyk will try to listen on port 8080.
 
-### <a name="secret"></a> secret
-
-This should be changed as soon as Tyk is installed on the system. This value is used in every interaction with the Tyk REST API, it should be passed along as the `X-Tyk-Authorization` header in any requests made. Tyk assumes that you are sensible enough not to expose the management endpoints to the public and to keep this configuration value to yourself.
-
 ### <a name="node_secret"></a> node_secret
 
 The shared secret between the Gateway and the Dashboard to ensure that API Definition downloads, heartbeat and Policy loads are from a valid source.
+
+### <a name="secret"></a> secret
+
+This should be changed as soon as Tyk is installed on the system. This value is used in every interaction with the Tyk REST API, it should be passed along as the `X-Tyk-Authorization` header in any requests made. Tyk assumes that you are sensible enough not to expose the management endpoints to the public and to keep this configuration value to yourself.
 
 ### <a name="template_path"></a> template_path
 
@@ -232,6 +232,7 @@ Set these options to hard-code values into the way the HTTP server behaves.
 
 ```
 "http_server_options": {
+  "enable_http2": true,
   "override_defaults": false,
   "use_ssl": false,
   "enable_websockets": false,
@@ -251,6 +252,11 @@ Set these options to hard-code values into the way the HTTP server behaves.
   "ssl_insecure_skip_verify": false
 },
 ```
+
+#### <a name="enable_http2"></a> enable_http2
+
+This defaults to true for HTTP/2 connections.
+
 #### <a name="http_server_options-use_ssl"></a> http_server_options.use_ssl
 
 Set to `true` to enable SSL connections.
@@ -454,18 +460,22 @@ For additional security it is possible to have Tyk put its REST API on a separat
 
 > **NOTE**: This has been deprecated. Enter a value for `control_api_hostname` instead.
 
+### <a name="hostname"></a> hostname
 
-### <a name="enable_jsvm"></a> enable_jsvm
-
-By default we have now disabled the JavaScript middleware system to ensure higher performance on nodes. If you are using the JSVM (custom middleware, or virtual endpoints), then enable this setting.
+The hostname to bind the node to. If set, all API traffic must go via this host name, otherwise it will raise a 404.
 
 ### <a name="enable_custom_domains"></a> enable_custom_domains
 
 Set this value to `true` to enable this node to bind APIs to custom domains set in the API definition.
 
-### <a name="hostname"></a> hostname
+### <a name="proxy_enable_http2"></a> proxy_enable_http2
 
-The hostname to bind the node to. If set, all API traffic must go via this host name, otherwise it will raise a 404.
+This defaults to `true` for HTTP/2 upstream connections.
+
+
+### <a name="enable_jsvm"></a> enable_jsvm
+
+By default we have now disabled the JavaScript middleware system to ensure higher performance on nodes. If you are using the JSVM (custom middleware, or virtual endpoints), then enable this setting.
 
 ### <a name="disable_virtual_path_blobs"></a> disable_virtual_path_blobs
 
