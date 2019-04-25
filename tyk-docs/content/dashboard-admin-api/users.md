@@ -16,7 +16,7 @@ In a production environment, you need to change the default `admin_Secret` value
 
 | **Property** | **Description**           |
 | ------------ | ------------------------- |
-| Resource URL | `/admin/users/{user-id}}` |
+| Resource URL | `/admin/users/{USER_ID}` |
 | Method       | GET                       |
 | Type         | None                      |
 | Body         | None                      |
@@ -88,13 +88,13 @@ admin-auth: 12345
 
 You need to have the `users` [Permission object](https://tyk.io/docs/security/dashboard/user-roles/#the-permissions-object) set to write to use **Update User**.
 
-| **Property** | **Description**      |
-| ------------ | -------------------- |
-| Resource URL | `/admin/users/{uid}` |
-| Method       | PUT                  |
-| Type         | None                 |
-| Body         | User Object          |
-| Param        | None                 |
+| **Property** | **Description**          |
+| ------------ | ------------------------ |
+| Resource URL | `/admin/users/{USER_ID}` |
+| Method       | PUT                      |
+| Type         | None                     |
+| Body         | User Object              |
+| Param        | None                     |
 
 
 #### Sample Request
@@ -121,5 +121,34 @@ admin-auth: 12345
   "Status": "OK",
   "Message": "User created",
   "Meta": ""
+}
+```
+
+#### Reset User Session
+
+This call allows you to reset a user's current Dashboard session.
+
+| **Property** | **Description**                            |
+| ------------ | ------------------------------------------ |
+| Resource URL | `/admin/users/{USER_ID}/actions/key/reset` |
+| Method       | PUT                                        |
+| Type         | None                                       |
+| Body         | User Object                                |
+| Param        | None                                       |
+
+#### Sample Request
+
+```{.copyWrapper}
+PUT /admin/users/54c25e845d932847067402e2/actions/key/reset HTTP/1.1
+Host: localhost:3000
+admin-auth: 12345
+
+{
+  "first_name": "Jason",
+  "last_name": "File",
+  "email_address": "jason.file@jasonsonson.com",
+  "active": true,
+  "password": "plaintext_password",
+  "user_permissions": { "IsAdmin": "admin" }
 }
 ```
