@@ -6,6 +6,8 @@ menu:
 weight: 12 
 ---
 
+The table shows how the JSON member keys maps to an environment variable. Where an environment variable is specified, its value will override the value in the [Tyk Gateway configuration file](/docs/configure/tyk-gateway-configuration-options/).
+
 
 | JSON Value                                        | Environment Variable Name                           |
 |---------------------------------------------------|-----------------------------------------------------|

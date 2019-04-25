@@ -71,6 +71,8 @@ To secure your Tyk installation, you can configure the following settings in you
 
 `control_api_port` - This allows you to run the Gateway Control API on a separate port, and protect it behind a firewall if needed.
 
+If you change this values, you need to update the two fields in the dashboard conf file `tyk_analytics.conf`, `tyk_api_config.Host`  and `tyk_api_config.Port` 
+
 ### Split out your DB
 
 This is a no-brainer, but keep Redis and MongoDB off the system running the Gateway, they both use lots of RAM, and with Redis and the Gateway constantly communicating you will be facing resource contention on the CPU for a marginal decrease in latency.

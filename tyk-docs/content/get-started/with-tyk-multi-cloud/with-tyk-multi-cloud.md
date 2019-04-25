@@ -44,7 +44,7 @@ A Tyk Multi-Cloud deployment is the best trade-off between running a Tyk node (o
 
 Tyk Multi-Cloud is installed as a network appliance, it should be run like any other reverse proxy within your application stack. To make this simple, we have developed a custom docker image that can be deployed and configured with a simple script, however you can modify this image, or in fact just re-use the configuration to fit your installation. Please contact your account manager to discuss options around container and gateway customisation for Multi-Cloud accounts.
 
-When Tyk Multi-Cloud starts, it will launch, connect to our systems via a high-speed, compressed RPC TCP tunnel (you will need to ensure port `9091` is open for inbound and outbound connections to the server) and register itself with your Dashboard.
+When Tyk Multi-Cloud starts, it will launch, establish a high-speed, compressed persistent RPC TCP tunnel with our cloud (you will need to ensure that your firewall is configured to allow outbound access to port `9091` on our servers). Once connection is established, this will enable bi-directional communications between our servers and your Tyk Gateway deployments.
 
 When requests come into your node, Tyk Multi-Cloud will act as your centralised Key and Policy repository, while all proxying, rate-limiting, quota management and enforcement happen locally, ensuring that traffic flowing through your nodes is as low-latency as if you had your own Tyk stack.
 

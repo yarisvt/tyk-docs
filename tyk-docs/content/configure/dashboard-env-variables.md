@@ -6,6 +6,7 @@ menu:
 weight: 13
 ---
 
+The table shows how the JSON member keys maps to an environment variable. Where an environment variable is specified, its value will override the value in the [Tyk Dashboard configuration file](/docs/configure/tyk-dashboard-configuration-options/).
 
 | JSON Value                               | Environment Variable Name                    |
 |------------------------------------------|----------------------------------------------|
