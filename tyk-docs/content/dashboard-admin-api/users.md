@@ -134,10 +134,10 @@ You need to have the `users` [Permission object](https://tyk.io/docs/security/da
 
 | **Property** | **Description**                            |
 | ------------ | ------------------------------------------ |
-| Resource URL | `/api/users/{USER_ID}/actions/key/reset` |
+| Resource URL | `/api/users/{USER_ID}/actions/key/reset`   |
 | Method       | PUT                                        |
 | Type         | None                                       |
-| Body         | None                                       |
+| Body         | {"userId":"{USER_ID}"}                     |
 | Param        | None                                       |
 
 #### Sample Request
