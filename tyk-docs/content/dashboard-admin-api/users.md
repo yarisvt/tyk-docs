@@ -130,7 +130,7 @@ This call allows you to reset a user's current Dashboard session.
 
 You need to have the `users` [Permission object](https://tyk.io/docs/security/dashboard/user-roles/#the-permissions-object) set to write to use this call.
 
-> **NOTE**: This also resets the Dashboard API credentials. 
+> **NOTE**: This also resets the user's Dashboard API credentials. 
 
 | **Property** | **Description**                            |
 | ------------ | ------------------------------------------ |
