@@ -203,15 +203,15 @@ This mechanism operates the same way as the header injection middleware.
 
 As of version 2.2 Tyk also allows context variables to be injected into the body using the `._tyk_context.` namespace, unlike the context exposed to the URL rewriter and header injector, the body transform can fully iterate through list indices so, for example, calling `_tyk_context.path_parts[0]` in a template will expose the first entry in the `path_parts` list.
 
-The context variables that are available are:
+Some of the context variables that are available are:
 
 *   `request_data`: If the inbound request contained any query data or form data, it will be available in this object as a `key:[]value` map.
-*   `path_parts`: The components of the path, split on `/`, it will be available in this object as a `key:[]value` map.
+*   `path_parts`: The components of the path, split on `/`, it will be available in this object as a `[]string` array.
 *   `token`: The inbound raw token (if bearer tokens are being used) of this user.
 *   `path`: The path that is being requested.
 *   `remote_addr`: The IP address of the connecting client.
 
-As headers are already exposed to context data, you can also access any header from context variables by using:
+As headers are also exposed to context data, you can access any header from context variables by using:
 
 ```{.copyWrapper}
 {{$tyk_context.headers_HEADERNAME}}
@@ -222,6 +222,7 @@ Or (for body transforms):
 ```{.copyWrapper}
 {{._tyk_context.headers_HEADERNAME}}
 ```
+Check this [doc](https://tyk.io/docs/concepts/context-variables/) for or all the context data option
 
 ## <a name="form-data"></a> Form Data
 
