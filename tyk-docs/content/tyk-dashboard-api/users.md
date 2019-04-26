@@ -7,6 +7,8 @@ menu:
 weight: 5 
 ---
 
+> **NOTE**: `USER_ID` is a placeholder for your User ID value.
+
 ### List Users
 
 | **Property** | **Description** |
@@ -69,7 +71,7 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 | **Property** | **Description**         |
 | ------------ | ----------------------- |
-| Resource URL | `/api/users/{user-id}`  |
+| Resource URL | `/api/users/{USER_ID}`  |
 | Method       | GET                     |
 | Type         | None                    |
 | Body         | None                    |
@@ -151,7 +153,7 @@ You need to have the `users` [Permission object](https://tyk.io/docs/security/da
 
 | **Property** | **Description**                      |
 | ------------ | -------------------------------------|
-| Resource URL | `/api/users/{user-id}/actions/reset` |
+| Resource URL | `/api/users/{USER_ID}/actions/reset` |
 | Method       | POST                                 |
 | Type         | None                                 |
 | Body         | Password Object                      |
@@ -185,7 +187,7 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 | **Property** | **Description**                                       |
 | ------------ | ------------------------------------------------------|
-| Resource URL | `/admin/users/{user-id}/actions/allow_reset_passwords`|
+| Resource URL | `/admin/users/{USER_ID}/actions/allow_reset_passwords`|
 | Method       | PUT                                                   |
 | Type         | None                                                  |
 | Body         | None                                                  |
@@ -193,7 +195,7 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 #### Sample Request
 ```{.copyWrapper}
-PUT -H "admin-auth: <your secret>" http://<dashboard>/admin/users/{user-id}/actions/allow_reset_passwords
+PUT -H "admin-auth: <your secret>" http://<dashboard>/admin/users/{USER_ID}/actions/allow_reset_passwords
 ```
 
 #### Sample Response
@@ -210,7 +212,7 @@ PUT -H "admin-auth: <your secret>" http://<dashboard>/admin/users/{user-id}/acti
 
 | **Property** | **Description**                                           |
 | ------------ | ----------------------------------------------------------|
-| Resource URL | `/admin/users/{user-id}/actions/disallow_reset_passwords` |
+| Resource URL | `/admin/users/{USER_ID}/actions/disallow_reset_passwords` |
 | Method       | PUT                                                       |
 | Type         | None                                                      |
 | Body         | None                                                      |
@@ -218,7 +220,7 @@ PUT -H "admin-auth: <your secret>" http://<dashboard>/admin/users/{user-id}/acti
 
 #### Sample Request
 ```{.copyWrapper}
-PUT -H "admin-auth: <your secret>" http://<dashboard>/admin/users/{user-id}/actions/disallow_reset_passwords
+PUT -H "admin-auth: <your secret>" http://<dashboard>/admin/users/{USER_ID}/actions/disallow_reset_passwords
 ```
 
 #### Sample Response
@@ -238,7 +240,7 @@ You need to have the `users` [Permission object](https://tyk.io/docs/security/da
 
 | **Property** | **Description**        |
 | ------------ | -----------------------|
-| Resource URL | `/api/users/{user-id}` |
+| Resource URL | `/api/users/{USER_ID}` |
 | Method       | PUT                    |
 | Type         | None                   |
 | Body         | User Object            |
@@ -274,7 +276,7 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 | **Property** | **Description**        |
 | ------------ | -----------------------|
-| Resource URL | `/api/users/{user-id}` |
+| Resource URL | `/api/users/{USER_ID}` |
 | Method       | DELETE                 |
 | Type         | None                   |
 | Body         | None                   |

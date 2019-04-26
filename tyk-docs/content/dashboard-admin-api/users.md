@@ -128,12 +128,14 @@ admin-auth: 12345
 
 This call allows you to reset a user's current Dashboard session.
 
+You need to have the `users` [Permission object](https://tyk.io/docs/security/dashboard/user-roles/#the-permissions-object) set to write to use **Reset User Session**.
+
 | **Property** | **Description**                            |
 | ------------ | ------------------------------------------ |
 | Resource URL | `/admin/users/{USER_ID}/actions/key/reset` |
 | Method       | PUT                                        |
 | Type         | None                                       |
-| Body         | User Object                                |
+| Body         | None                                       |
 | Param        | None                                       |
 
 #### Sample Request
@@ -142,13 +144,15 @@ This call allows you to reset a user's current Dashboard session.
 PUT /admin/users/54c25e845d932847067402e2/actions/key/reset HTTP/1.1
 Host: localhost:3000
 admin-auth: 12345
+users/{USER_ID}/actions/key/reset
+```
 
+#### Sample Response
+
+```{.copyWrapper}
 {
-  "first_name": "Jason",
-  "last_name": "File",
-  "email_address": "jason.file@jasonsonson.com",
-  "active": true,
-  "password": "plaintext_password",
-  "user_permissions": { "IsAdmin": "admin" }
+  "Status":"OK",
+  "Message":"User session renewed",
+  "Meta":null
 }
 ```
