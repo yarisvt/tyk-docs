@@ -23,7 +23,8 @@ Both have the same structure, similar to the rest of our plugins:
 `{ "path": "<path>", "method": "<method>", "filter": "<content>" }`
 
 ## <a name="request-transformations"></a> Request Transforms
-Inside a request transform you can use following variables: 
+Inside a request transform you can use following variables:
+
 * `.body` - your current request body
 * `._tyk_context` - Tyk context variables. You can use it to access request headers as well.
 
@@ -34,6 +35,7 @@ Your JQ request transform should return an object in the following format:
 
 ## <a name="response-transformations"></a> Response Transforms
 Inside a response transform you can use following variables:
+
 * `.body` - your current response body
 * `._tyk_context` - Tyk context variables. You can use it to access request headers as well.
 * `._tyk_response_headers` - Access to response headers
