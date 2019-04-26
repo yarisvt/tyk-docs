@@ -222,7 +222,7 @@ Or (for body transforms):
 ```{.copyWrapper}
 {{._tyk_context.headers_HEADERNAME}}
 ```
-Check this [doc](https://tyk.io/docs/concepts/context-variables/) for or all the context data option
+Check this [doc](https://tyk.io/docs/concepts/context-variables/) for all the context variable options.
 
 ## <a name="form-data"></a> Form Data
 
