@@ -567,7 +567,7 @@ Updating will completely replace the file descriptor and will not change an API 
 #### Sample request
 
 ```{.copyWrapper}
-PUT /tyk/apis/987654321 HTTP/1.1
+PUT /tyk/apis/2fdd8512a856434a61f080da67a88851 HTTP/1.1
 Host: localhost:8080
 x-tyk-authorization: 352d20ee67be67f6340b4c0605b044b7
 Connection: keep-alive

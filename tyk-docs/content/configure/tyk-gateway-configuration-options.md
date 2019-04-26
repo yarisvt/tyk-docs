@@ -12,7 +12,9 @@ weight: 1
 
 The Tyk Gateway server is configured primarily via the `tyk.conf` file, this file resides in `/opt/tyk-gateway` on most systems, but can also live anywhere and be directly targeted with the `--conf` flag.
 
-Environment variables can be used to override settings defined in the configuration file. The [Tyk Gateway environment variables page](/docs/configure/gateway-env-variables/) shows how the JSON member keys map to an environment variables. Where an environment variable is specified, its value will take precedence over the value in the configuration file.
+### Environment Variables
+
+Environment variables can be used to override settings defined in the configuration file. The [Tyk Gateway environment variables page](/docs/configure/gateway-env-variables/) shows how the JSON member keys maps to an environment variable. Where an environment variable is specified, its value will take precedence over the value in the configuration file.
 
 ### <a name="linter"></a> tyk lint
 In **v2.4** we have added a new `tyk lint ` command which will validate your `tyk.conf` file and validate it for syntax correctness, misspelled attribute names or format of values. The Syntax can be:
@@ -28,13 +30,13 @@ If `--conf` is not used, the first of the following paths to exist is used:
 
 Setting this value will change the port that Tyk listens on, by default Tyk will try to listen on port 8080.
 
-### <a name="secret"></a> secret
-
-This should be changed as soon as Tyk is installed on the system. This value is used in every interaction with the Tyk REST API, it should be passed along as the `X-Tyk-Authorization` header in any requests made. Tyk assumes that you are sensible enough not to expose the management endpoints to the public and to keep this configuration value to yourself.
-
 ### <a name="node_secret"></a> node_secret
 
 The shared secret between the Gateway and the Dashboard to ensure that API Definition downloads, heartbeat and Policy loads are from a valid source.
+
+### <a name="secret"></a> secret
+
+This should be changed as soon as Tyk is installed on the system. This value is used in every interaction with the Tyk REST API, it should be passed along as the `X-Tyk-Authorization` header in any requests made. Tyk assumes that you are sensible enough not to expose the management endpoints to the public and to keep this configuration value to yourself.
 
 ### <a name="template_path"></a> template_path
 
@@ -107,6 +109,9 @@ The Redis instance port.
 
 If your Redis instance has a password set for access, you can tell Tyk about it here.
 
+#### <a name="storage-timeout"></a> storage.timeout
+
+Set cutom timeout for Redis network operations. Default value 5 seconds.
 
 #### <a name="storage-optimisation_max_idle"></a> storage.optimisation_max_idle
 
@@ -116,23 +121,11 @@ Set the number of maximum idle connections in the Redis connection pool, default
 
 Enable SSL/TLS connection between Tyk Gateway &amp; Redis.
 
-### <a name="maxmind"></a>MaxMind Database Settings
-
-#### <a name="enable_geo_ip"></a> enable_geo_ip
-
-Set this to `true` to allow you to use MaxMind GeoIP databases. You also need to set `geo_ip_db_path`.
-
-You can also enable storing GeoIP information in analytics by setting the following Gateway option: [`enable_analytics.enable_geo_ip`](https://tyk.io/docs/configure/tyk-gateway-configuration-options/#a-name-enable-analytics-enable-geo-ip-a-enable-analytics-enable-geo-ip)
-
-#### <a name="geo_ip_db_path"></a> geo_ip_db_path
-
-Set this value to the absolute path of your MaxMind GeoIP Database file, e.g.: `./GeoLite2-City.mmdb`. 
-
 #### <a name="enable_analytics"></a> enable_analytics
 
 Tyk is capable of recording every hit to your API into a database with various filtering parameters, set this value to `true` and fill in the sub-section below to enable logging.
 
-> **Note**: Tyk will store traffic data to Redis initially (for performance reasons) and then purge the data from Redis into MongoDB/CSV on a regular basis as determined by the `purge_delay` setting in your Tyk Pump configuration.
+> **Note**: For performance reasons, Tyk will store traffic data to Redis initially and then purge the data from Redis to  MongoDB or other, [data stores](https://tyk.io/docs/analyse/other-data-stores/), on a regular basis as determined by the `purge_delay` setting in your Tyk Pump configuration.
 
 ### <a name="analytics_config"></a> analytics_config
 
@@ -144,13 +137,19 @@ Set this value to `true` to have Tyk store the inbound request and outbound resp
 
 Setting `enforce_org_data_detail_logging` in the `tyk.conf` will enforce it (quotas must also be enforced for this to work), then setting `enable_detail_recording` in the org session object will enable or disable the logging method on a per-organisation basis. This can be useful for debugging live APIs.
 
-#### <a name="analytics_config-enable_geo_ip"></a> analytics_config.enable_geo_ip
+#### <a name="analytics_config-enable_geo_ip-enable_geo_ip_db_path"></a> analytics_config.enable_geo_ip and analytics_config.geo_ip_db_path
+
+##### <a name="enable_geo_ip"></a> enable_geo_ip
 
 As of Tyk API Gateway 2.0, Tyk can store GeoIP information based on MaxMind DB's, to enable GeoIP tracking on inbound request analytics, set this value to `true` and assign a DB using the `geo_ip_db_path` setting.
 
-#### <a name="analytics_config-enable_geo_ip_db_path"></a> analytics_config.enable_geo_ip_db_path
+Please make sure you have also enabled analytics storing by setting [`enable_analytics`](https://tyk.io/docs/configure/tyk-gateway-configuration-options/#a-name-enable-analytics-a-enable-analytics) in the Gateway.
 
-Set this value to the absolute path of your MaxMind GeoIP Database file, e.g.: `./GeoLite2-City.mmdb`. The analytics GeoIP DB can be replaced on disk, it will cleanly auto-reload every hour.
+##### <a name="enable_geo_ip_db_path"></a> geo_ip_db_path
+
+Set this value to the absolute path of your MaxMind GeoIP Database file, e.g.: `./GeoLite2-City.mmdb`. The analytics GeoIP DB can be replaced on disk, it will cleanly auto-reload every hour. 
+
+Don't forget to mount it in case you use containers.
 
 #### <a name="analytics_config-ignored_ips"></a> analytics_config.ignored_ips
 
@@ -235,6 +234,7 @@ Set these options to hard-code values into the way the HTTP server behaves.
 
 ```
 "http_server_options": {
+  "enable_http2": true,
   "override_defaults": false,
   "use_ssl": false,
   "enable_websockets": false,
@@ -254,6 +254,11 @@ Set these options to hard-code values into the way the HTTP server behaves.
   "ssl_insecure_skip_verify": false
 },
 ```
+
+#### <a name="enable_http2"></a> enable_http2
+
+This defaults to true for HTTP/2 connections.
+
 #### <a name="http_server_options-use_ssl"></a> http_server_options.use_ssl
 
 Set to `true` to enable SSL connections.
@@ -288,7 +293,7 @@ As of v2.2, Tyk supports transparent websocket connection upgrades, to enable th
 
 #### <a name="http_server_options-ssl_insecure_skip_verify"></a>http_server_options.ssl_insecure_skip_verify
 
-This boolean option allows the use of self-signed certificates for the Gateway.
+Allows usage of self-signed certificates when connecting to the Gateway.
 
 #### <a name="security.pinned_public_keys"></a> security.pinned_public_keys
 
@@ -457,22 +462,26 @@ For additional security it is possible to have Tyk put its REST API on a separat
 
 > **NOTE**: This has been deprecated. Enter a value for `control_api_hostname` instead.
 
+### <a name="hostname"></a> hostname
 
-### <a name="enable_jsvm"></a> enable_jsvm
-
-By default we have now disabled the JavaScript middleware system to ensure higher performance on nodes. If you are using the JSVM (custom middleware, or virtual endpoints), then enable this setting.
+The hostname to bind the node to. If set, all API traffic must go via this host name, otherwise it will raise a 404.
 
 ### <a name="enable_custom_domains"></a> enable_custom_domains
 
 Set this value to `true` to enable this node to bind APIs to custom domains set in the API definition.
 
-### <a name="hostname"></a> hostname
+### <a name="proxy_enable_http2"></a> proxy_enable_http2
 
-The hostname to bind the node to. If set, all API traffic must go via this host name, otherwise it will raise a 404.
+This defaults to `true` for HTTP/2 upstream connections.
+
+
+### <a name="enable_jsvm"></a> enable_jsvm
+
+By default we have now disabled the JavaScript middleware system to ensure higher performance on nodes. If you are using the JSVM (custom middleware, or virtual endpoints), then enable this setting.
 
 ### <a name="disable_virtual_path_blobs"></a> disable_virtual_path_blobs
 
-If you do not wish for virtual path JavaScript code that is loaded from the dashboard to run on virtual endpoints in the node, set this value to `false` and the code will not be loaded into the VM when the API definition initialises. This is useful for systems where you want to avoid having third-party code run.
+If you do not wish for virtual path JavaScript code that is loaded from the dashboard to run on virtual endpoints in the node, set this value to `true` and the code will not be loaded into the VM when the API definition initialises. This is useful for systems where you want to avoid having third-party code run.
 
 ### <a name="experimental_process_org_off_thread"></a> experimental_process_org_off_thread
 

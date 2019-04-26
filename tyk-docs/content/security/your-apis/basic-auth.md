@@ -1,9 +1,10 @@
 ---
 date: 2017-03-23T15:28:35Z
-title: Basic Auththentication
+title: Basic Authentication
 menu:
   main:
     parent: "Your APIs"
+    identifier: security-basic-authentication
 weight: 5 
 ---
 
@@ -154,6 +155,20 @@ curl -X POST -H "Authorization: {YOUR API KEY}"
 ```
 
 > **Note**: The most important thing to ensure with both of these commands is that the ORG ID is set correctly and consistently.
+
+### Extracting credentials from the body
+
+In some cases, like dealing with SOAP, user credentials can be passed via request body. In this case you can configure basic auth plugin to extract username and password from body, by providing regexps like this:
+
+```{.copyWrapper}
+"basic_auth": {
+    "extract_from_body": true,
+    "body_user_regexp": "<User>(.*)</User>",
+    "body_password_regexp": "<Password>(.*)</Password>"
+}
+```
+
+Note that regexp should contain only one match group, which points to the actual value.
 
 
 [1]: /docs/img/dashboard/system-management/basic_auth_2.5.png

@@ -7,6 +7,8 @@ menu:
 weight: 5 
 ---
 
+> **NOTE**: `USER_ID` is a placeholder for your User ID value.
+
 ### List Users
 
 | **Property** | **Description** |
@@ -39,7 +41,11 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
       "org_id": "54b53d3aeba6db5c35000002",
       "active": true,
       "id": "54b53d4bf25b920f09361526",
-      "access_key": "0cf5e6c37add465a406f19807c081765"
+      "access_key": "0cf5e6c37add465a406f19807c081765",
+      "user_permissions": {
+                "IsAdmin": "admin",
+                "ResetPassword": "admin"
+      }
     },
     {
       "api_model": {},
@@ -50,7 +56,11 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
       "org_id": "54b53d3aeba6db5c35000002",
       "active": true,
       "id": "54bd0ad9ff4329b88985aafb",
-      "access_key": "f81ee6f0c8f2467d539c132c8a422346"
+      "access_key": "f81ee6f0c8f2467d539c132c8a422346",
+      "user_permissions": {
+                "user_groups": "read",
+                "users": "read"
+      }
     }
   ],
   "pages": 0
@@ -61,7 +71,7 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 | **Property** | **Description**         |
 | ------------ | ----------------------- |
-| Resource URL | `/api/users/{user-id}`  |
+| Resource URL | `/api/users/{USER_ID}`  |
 | Method       | GET                     |
 | Type         | None                    |
 | Body         | None                    |
@@ -130,7 +140,8 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 {
   "Status": "OK",
   "Message": "User created",
-  "Meta": ""
+  "Meta": "",
+  "access_key": "f81ee6f0c8f2467d539c132c8a422346"
 }
 ```
 
@@ -142,7 +153,7 @@ You need to have the `users` [Permission object](https://tyk.io/docs/security/da
 
 | **Property** | **Description**                      |
 | ------------ | -------------------------------------|
-| Resource URL | `/api/users/{user-id}/actions/reset` |
+| Resource URL | `/api/users/{USER_ID}/actions/reset` |
 | Method       | POST                                 |
 | Type         | None                                 |
 | Body         | Password Object                      |
@@ -176,7 +187,7 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 | **Property** | **Description**                                       |
 | ------------ | ------------------------------------------------------|
-| Resource URL | `/admin/users/{user-id}/actions/allow_reset_passwords`|
+| Resource URL | `/admin/users/{USER_ID}/actions/allow_reset_passwords`|
 | Method       | PUT                                                   |
 | Type         | None                                                  |
 | Body         | None                                                  |
@@ -184,7 +195,7 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 #### Sample Request
 ```{.copyWrapper}
-PUT -H "admin-auth: <your secret>" http://<dashboard>/admin/users/{user-id}/actions/allow_reset_passwords
+PUT -H "admin-auth: <your secret>" http://<dashboard>/admin/users/{USER_ID}/actions/allow_reset_passwords
 ```
 
 #### Sample Response
@@ -201,7 +212,7 @@ PUT -H "admin-auth: <your secret>" http://<dashboard>/admin/users/{user-id}/acti
 
 | **Property** | **Description**                                           |
 | ------------ | ----------------------------------------------------------|
-| Resource URL | `/admin/users/{user-id}/actions/disallow_reset_passwords` |
+| Resource URL | `/admin/users/{USER_ID}/actions/disallow_reset_passwords` |
 | Method       | PUT                                                       |
 | Type         | None                                                      |
 | Body         | None                                                      |
@@ -209,7 +220,7 @@ PUT -H "admin-auth: <your secret>" http://<dashboard>/admin/users/{user-id}/acti
 
 #### Sample Request
 ```{.copyWrapper}
-PUT -H "admin-auth: <your secret>" http://<dashboard>/admin/users/{user-id}/actions/disallow_reset_passwords
+PUT -H "admin-auth: <your secret>" http://<dashboard>/admin/users/{USER_ID}/actions/disallow_reset_passwords
 ```
 
 #### Sample Response
@@ -229,7 +240,7 @@ You need to have the `users` [Permission object](https://tyk.io/docs/security/da
 
 | **Property** | **Description**        |
 | ------------ | -----------------------|
-| Resource URL | `/api/users/{user-id}` |
+| Resource URL | `/api/users/{USER_ID}` |
 | Method       | PUT                    |
 | Type         | None                   |
 | Body         | User Object            |
@@ -265,7 +276,7 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 | **Property** | **Description**        |
 | ------------ | -----------------------|
-| Resource URL | `/api/users/{user-id}` |
+| Resource URL | `/api/users/{USER_ID}` |
 | Method       | DELETE                 |
 | Type         | None                   |
 | Body         | None                   |

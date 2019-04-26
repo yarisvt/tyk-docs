@@ -87,7 +87,11 @@ Once installed, modify your `/opt/tyk-sink/tyk_sink.conf` file as follows:
     "type": "redis",
     "host": "localhost",
     "port": 6379,
-    "enabled_cluster": false
+    "username": "",
+    "password": "",
+    "enable_cluster": false,
+    "redis_use_ssl": false,
+    "redis_ssl_insecure_skip_verify": false
   },
   "security": {
     "private_certificate_encoding_secret": "<gateway-secret>"
@@ -99,6 +103,8 @@ Once installed, modify your `/opt/tyk-sink/tyk_sink.conf` file as follows:
   ],
   "analytics": {
     "mongo_url": "mongodb://localhost/tyk_analytics"
+    "mongo_use_ssl": false,
+    "mongo_ssl_insecure_skip_verify": false
   },
   "license": "MDCB_LICENSE_KEY"
 }
@@ -197,10 +203,10 @@ tcp6       0      0 :::9091                 :::*                    LISTEN      
 #### Check the logs for MDCB
 
 ```{.copyWrapper}
-> sudo journalctl -u tyk-sink (add the -f flag to follow)
+> sudo journalctl -u tyk-sink 
 ```
 
-Should Return:
+Add the `-f` flag to follow the log. The command should return output similar to this:
 
 ```
 -- Logs begin at Thu 2018-05-03 09:30:56 UTC, end at Mon 2018-05-07 08:58:23 UTC. --
@@ -226,7 +232,7 @@ The URL you use to access the Dashboard (including the port if not using the def
 
 `export ORG_ID=<YOUR_ORG_ID>`
 
-You can obtain this from the Dashboard, under your user account.
+This is the user **Organisation ID** from the Dashboard, available from your user account details.
 
 ![Org ID][1]
 
@@ -272,7 +278,6 @@ Allows a slave to login as an organisation member into MDCB
 
 Enables key events such as updates and deletes, to be propagated to the various instance zones. API Definitions and Policies will be propagated by default.
 
-{{./static/include/file-handles.md}}
 
 ### Update Your Tyk Organisation
 
@@ -288,7 +293,8 @@ This should return:
 {"Status":"OK","Message":"Org updated","Meta":null}
 ```
 
+{{./static/include/file-handles.md}}
 
-[1]: /docs/img/dashboard/system-management/user_orgid.png
+[1]: /docs/img/dashboard/system-management/api_access_cred_2.5.png
  
 

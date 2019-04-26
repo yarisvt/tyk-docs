@@ -20,6 +20,7 @@ Run this command in your preferred MongoDB tool:
 ```{.copyWrapper}
 db.tyk_analytics.createIndex( { "expireAt": 1 }, { expireAfterSeconds: 0 } )
 ```
+This (command)[https://docs.mongodb.com/manual/tutorial/expire-data/#expire-documents-at-a-specific-clock-time] sets the value of `expireAt` to correspond to the time the document should expire. MongoDB will automatically delete documents from the `tyk_analytics` collection 0 seconds after the `expireAt` time in the document. The `expireAt` will be calculated and creeated by Tyk in the following step.
 
 ### Step 2. Create an Organisation Quota
 
@@ -44,7 +45,7 @@ curl --header "x-tyk-authorization: {tyk-gateway-secret}" --header "content-type
 }
 ```
 
-Set the data expires to a time in seconds for it to expire. Tyk will calculate the expiry date for you.
+`data_expires` - Sets the data expires to a time in seconds for it to expire. Tyk will calculate the expiry date for you.
 
 ### Step 3: Make Sure the Setting is Enabled in `tyk.conf`
 
@@ -61,7 +62,7 @@ Set the data expires to a time in seconds for it to expire. Tyk will calculate t
 
 >  **Note**: The size value should be in bytes, and we recommend using a value just under the amount of RAM on your machine.
 
-Run this command in your MongoDB shell:
+Run this (command)[https://docs.mongodb.com/manual/reference/command/convertToCapped/] in your MongoDB shell:
 
 ```{.copyWrapper}
 use tyk_analytics

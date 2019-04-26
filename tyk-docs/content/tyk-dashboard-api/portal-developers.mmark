@@ -311,5 +311,78 @@ curl https://admin.cloud.tyk.io/api/portal/developers/password/:Id \
 }
 ```
 
+<<<<<<< HEAD:tyk-docs/content/tyk-dashboard-api/portal-developers.mmark
 <span data-filetype="mmark"></span>
 {{./static/include/portal-developer-analytics.md}}
+=======
+
+### Add Subscription To Developer
+
+| **Property** | **Description**               |
+| ------------ | ----------------------------- |
+| Resource URL | `/portal/developers/:Id/subscriptions` |
+| Method       | POST                           |
+| Type         | None                          |
+| Body         | Subscription Object           |
+| Param        | None                          |
+
+
+#### Sample Request
+
+```{.copyWrapper}
+curl https://admin.cloud.tyk.io/api//portal/developers/:Id/subscriptions \
+-X POST \
+-H "authorization: $TYK_API_KEY" \
+-d \
+'{
+  "policy_id": "<pol-id>",
+  "fields": {
+      "foo": "bar"
+  },
+  "oauth_info": {
+    "redirect_uri": "..."
+  }
+}'
+```
+
+### Change Developer Key Policy
+
+| **Property** | **Description**               |
+| ------------ | ----------------------------- |
+| Resource URL | `/portal/developers/:developerId/:keyId/:policyId` |
+| Method       | GET                           |
+| Type         | None                          |
+| Body         | None                          |
+| Param        | None                          |
+
+### Revoke Developer Key
+
+| **Property** | **Description**               |
+| ------------ | ----------------------------- |
+| Resource URL | `/portal/developers/key/:apiID/:keyID/:Id` |
+| Method       | DELETE                        |
+| Type         | None                          |
+| Body         | None                          |
+| Param        | None                          |
+
+### Reset Developer Key Quota
+
+| **Property** | **Description**               |
+| ------------ | ----------------------------- |
+| Resource URL | `/portal/developers/key/:apiID/:keyID/:Id/reset_quota` |
+| Method       | POST                          |
+| Type         | None                          |
+| Body         | None                          |
+| Param        | None                          |
+
+### Delete OAuth app
+
+| **Property** | **Description**               |
+| ------------ | ----------------------------- |
+| Resource URL | `/portal/developers/oauth/:apiId/:appId` |
+| Method       | DELETE                        |
+| Type         | None                          |
+| Body         | None                          |
+| Param        | None                          |
+
+>>>>>>> master:tyk-docs/content/tyk-dashboard-api/portal-developers.md

@@ -12,6 +12,10 @@ The Tyk Dashboard has a separate configuration file, it is small and comes packa
 
 The Dashboard configuration file can be found in the `tyk-dashboard` folder and by default is called `tyk_analytics.conf`, though it can be renamed and specified using the `--conf` flag.
 
+### Environment Variables
+
+Environment variables can be used to override settings defined in the configuration file. The [Tyk Dashboard environment variables page](/docs/configure/dashboard-env-variables/) shows how the JSON member keys map to an environment variables. Where an environment variable is specified, its value will take precedence over the value in the configuration file.
+
 The file will look like the sample below, the various fields are explained in the following sections:
 
 ``` {.copyWrapper}
@@ -43,6 +47,7 @@ The file will look like the sample below, the various fields are explained in th
   "license_key": "..."
   "hash_keys": true,
   "enable_delete_key_by_hash": false,
+  "enable_master_keys": false,
   "email_backend": {
     "enable_email_notifications": true,
     "code": "provider-name",
@@ -81,8 +86,13 @@ The file will look like the sample below, the various fields are explained in th
     "audit_log_path": "/tmp/audit.log",
     "allow_admin_reset_password": false
   },
-  "dashboard_session_lifetime": 60
-
+  "dashboard_session_lifetime": 60,
+  "audit": {
+    "enabled": true,
+    "format": "json",
+    "path": "/tmp/audit.log",
+    "detailed_recording": false
+  }
 }
 ```
 
@@ -108,11 +118,13 @@ The file will look like the sample below, the various fields are explained in th
     
 Each node communicates with the Dashboard via a shared secret (this setting) and a nonce to ensure that out-of-band requests cannot be made. Nodes will send a heartbeat every few seconds to notify the Dashboard that they are running.
 
+*   `admin_secret`: Tyk Dashboard has a bootstrap API, this secret is for the bootstrap API, these call do things like: Create new organisations, create super users etc. See the Advanced API documentation for more on these endpoints.
+
 *   `mongo_url`: The full URL to your MongoDB instance, this can be a clustered instance if necessary and should include the database and username / password data.
     
 > **Important**: This should be the same as the credentials that your Tyk installation uses.
 
-*   `mongo_ssl_insecure_skip_verify`: Boolean setting for Mongo SSL support. Set to `true` to enable SSL.
+*   `mongo_ssl_insecure_skip_verify`: Allows usage of self-signed certificates when connecting to an encrypted MongoDB database.
 
 *   `mongo_use_ssl`: Boolean setting for Mongo SSL support. Set to `true` to enable SSL.
 
@@ -128,6 +140,8 @@ Each node communicates with the Dashboard via a shared secret (this setting) and
 
 *   `redis_database`: Set this to the index of your Redis database if you are using more than one.
 
+*   `redis_timeout`: Set custom redis network timeout. Default value: 5 seconds.
+
 *   `enable_cluster`: Set this to `true` if you are using a Redis cluster, then fill in the `redis_hosts` field.
 
 *   `redis_hosts`: You can also specify multiple Redis hosts here. Tyk will use this array if it is not empty, or it will use the individual legacy parameters above. You can specify multiple `host:port` combinations here.
@@ -141,6 +155,8 @@ Each node communicates with the Dashboard via a shared secret (this setting) and
 *   `hash_keys`: If your Tyk Gateway is using hashed tokens, set this value here to `true` so it matches. The Dashboard will now operate in a mode that is compatible with key hashing.
 
 *   `enable_delete_key_by_hash`: To delete a key by its hash, set this option to `true`.
+
+*  `enable_master_keys`: If this value is set to true, session objects (key definitions) that do not have explicit access rights set will be allowed by Tyk. This means that keys that are created have access to ALL APIs, which in many cases is unwanted behaviour unless you are sure about what you are doing. To use this setting also requires the corresponding Gateway configuration setting [allow_master_keys](/docs/configure/tyk-gateway-configuration-options/#a-name-allow-master-keys-a-allow-master-keys) to be set to `true`.
 
 *   `email_backend`: Tyk supports an interface-based email back-end system.We support `mandrill`, `sendgrid`, `amazonses` and `mailgun`. See [Outbound Email Configuration][4] for more details on configuring these different providers.
 
@@ -215,6 +231,10 @@ For legacy installs or upgrades using the host manager, leave this value as `fal
   "key_file": "new.cert.key"
 }
 ```
+
+*   `http_server_options.ssl_ciphers`: Array of allowed cipher suites as defined at https://golang.org/pkg/crypto/tls/#pkg-constants
+
+*   `http_server_options.prefer_server_ciphers`: Boolean value to control whether server selects the client's most preferred ciphersuite, or the server's most preferred ciphersuite. If set to `true`, the server's preference in order of the elements in `ssl_ciphers` is used.
     
 For more information see [TLS and SSL](/docs/security/tls-and-ssl/)
 
@@ -230,11 +250,21 @@ For more information see [TLS and SSL](/docs/security/tls-and-ssl/)
 
 *   `security.login_disallow_forward_proxy`: Set to `true` to allow the Tyk Dashboard login to ignore the host from the `X-Forwarded-For` header when accessing the Dashboard via a proxy. This can be useful for limiting retry attempts.    
 
-*   `security.audit_log_path`: This sets the path to your audit log. It will log all user actions and response statuses to it. Security information such as passwords are not logged.
+*   `security.audit_log_path`: This sets the path to your audit log and enables audit with default settings. It will log all user actions and response statuses to it. Security information such as passwords are not logged.
 
-*   `allow_admin_reset_password`: This allows an admin user to reset the password of other users. The default is false.
+*   `security.allow_admin_reset_password`: This allows an admin user to reset the password of other users. The default is false.
 
-> **NOTE:** `allow_admin_reset_password` is available from v1.3.7 onwards
+*   `security.enable_content_security_policy`: Enable browser Content-Security-Policy, e.g. CSP. The default is false.
+
+*   `security.allowed_content_sources`: If CSP enabled, specify space separated string, with list of allowed resources.
+
+> **NOTE** From 1.8 we have included enhancements to password management in the dashboard
+
+*   `security.user_password_max_days` Set the maximum lifetime of a password for a user. They will be prompted to reset if password lifetime exceeds the configured expiry value. e.g. if value set to `30` any user password set over 30 days in past will be considered invalid and must be reset.
+
+*   `security.enforce_password_history` Set a maximum number of previous passwords used by a user that cannot be reused. e.g. If set to `5` the user upon setting their password cannot reuse any of their 5 most recently used password for that Tyk user account.
+
+*   `security.force_first_login_pw_reset` A newly created user will be forced to reset their password upon first login. Defaults to `false`.
 
 *   `home_dir`: The path to the home directory of Tyk Dashboard, this must be set in order for Portal templates and other files to be loadable. By default this is `/opt/tyk-dashboard/`.
 
@@ -260,17 +290,57 @@ If you set this value to `true`, then the `id` parameter in a stored policy (or 
 
 *   `use_sharded_analytics`: If using the `mongo-pump-selective` pump, where data is written to org-id-specific collections in MongoDB, then enabling this option will switch querying for analytics over to the independent collection entries.
 
-*   `enable_aggregate_lookups`: As of v1.2, if using the new Aggregate Pump, Tyk Analytics can make use of the newer, faster Analytics lookup, to ensure that this can be made backwards compatible. This option must be set to `true`, in conjunction with the `aggregate_lookup_cutoff` value.
+*   `enable_aggregate_lookups`: If using the new Aggregate Pump, Tyk Analytics can make use of the newer, faster Analytics lookup, to ensure that this can be made backwards compatible. This option must be set to `true`, in conjunction with the `aggregate_lookup_cutoff` value.
 
-*   `aggregate_lookup_cutoff`: As of v1.2, set this to a date value of the form `DD/MM/YYYY`. Any analytics queries before this date will fall back to the raw base log data collection (slower). This is to ensure continuity of service and a smooth upgrade process with no loss of data.
+*   `aggregate_lookup_cutoff`: Set this to a date value of the form `DD/MM/YYYY`. Any analytics queries before this date will fall back to the raw base log data collection (slower). This is to ensure continuity of service and a smooth upgrade process with no loss of data.
 
-*   `disable_parallel_sessions`: As of v1.3.4, if set to `true`, it restricts an account to a single session. When an account logs in, any other open sessions for that account are logged out.
+*   `disable_parallel_sessions`: If set to `true`, it restricts an account to a single session. When an account logs in, any other open sessions for that account are logged out.
 
-*   `sso_permission_defaults`: As of v1.4, you can specify permissions of the user who logged in using Admin SSO API (for example Tyk Identity Broker). See [Dashboard Admin SSO API](https://tyk.io/docs/dashboard-admin-api/sso/) for more details.
-*   `sso_custom_login_url`: As of v1.4, you can specify a custom dashboard login url if you are using 3rd party authentication like TIB.
-*   `sso_custom_portal_login_url`: As of v1.4, you can specify custom portal login url if you are using 3rd party authentication like TIB.
+*   `sso_permission_defaults`: Specify permissions of the user who logged in using Admin SSO API (for example Tyk Identity Broker). See [Dashboard Admin SSO API](https://tyk.io/docs/dashboard-admin-api/sso/) for more details.
+*   `sso_custom_login_url`: Specify a custom dashboard login URL if you are using 3rd party authentication like TIB.
+*   `sso_custom_portal_login_url`: Specify custom portal login URL if you are using 3rd party authentication like TIB.
 
+*   `enable_multi_org_users`: As of 1.8, this enables the ability to share users across multiple organisations in a Tyk Dashboard Installation (Note: requires > 2 node licence). 
 
-### Environment variables
+> **NOTE:** `audit` is available from v1.8 onwards
 
-Environment variables can be used to override settings defined in the configuration file. The [Tyk Dashboard environment variables page](/docs/configure/dashboard-env-variables/) shows how the JSON member keys map to the environment variables. Where an environment variable is specified, its value will take precedence over the value in the configuration file.
+*   `audit`: This section specifies settings for audit logging. All Dashboard API requests with URI starting with `/api` will be logged in audit log.
+
+*   `audit.enabled`: Enables audit logging, set to `false` by default. NOTE: setting value `security.audit_log_path` has the same effect as setting `enabled` to `true`
+
+*   `audit.format`: Specifies the format of audit log file, possible values are `json` and `text` (`text` is default value)
+
+*   `audit.path`: Specifies path to file with audit log, overwrites value `security.audit_log_path` if it was set
+
+*   `audit.detailed_recording`: Enables detailed records in audit log, by defaultt set to `false`. If set to `true` then audit log records will contain http-request (without body) and full http-response including body
+
+Audit record fields for `json` format:
+
+*   `req_id` - unique request ID
+
+*   `org_id` - organization ID
+
+*   `date` - date in `RFC1123` format
+
+*   `timestamp` - unix timestamp
+
+*   `ip` - IP address the request was originating from
+
+*   `user` - dashboard user who performed the request
+
+*   `action` - description of action performed (`i.e. `Update User`)
+
+*   `method` - HTTP-method of the request
+
+*   `url` - URL of the request
+
+*   `status` - HTTP response status of the request
+
+*   `diff` - provides diff of changed fields (available only for PUT requests)
+
+*   `request_dump` - HTTP request copy (available if `audit.detailed_recording` is set to `true`)
+
+*   `response_dump` - HTTP response copy (available if `audit.detailed_recording` is set to `true`)
+
+Audit record fields for `text` format - all fields are in plain text separated with new line and provided in the same order as fields for `json` format. 
+

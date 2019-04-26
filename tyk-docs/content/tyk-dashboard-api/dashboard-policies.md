@@ -136,7 +136,7 @@ authorization: 7a7b140f-2480-4d5a-4e78-24049e3ba7f8
           "url": "/some_resource/(.*)"
         },
       ],
-      "api_id": "35447b1269df4e846894b7e87312f6d7",
+      "apiid": "35447b1269df4e846894b7e87312f6d7",
       "apiname": "My API",
       "versions": [
         "Default"
@@ -190,7 +190,7 @@ authorization: 7a7b140f-2480-4d5a-4e78-24049e3ba7f8
   "quota_renewal_rate": 60,
   "access_rights": {
     "35447b1469df4e846894b1e87372f6d7": {
-      "api_id": "35447b1469df4e846894b1e87372f6d7",
+      "apiid": "35447b1469df4e846894b1e87372f6d7",
       "api_name": "My API",
       "versions": ["Default"]
     }
@@ -240,7 +240,7 @@ authorization: 7a7b140f-2480-4d5a-4e78-24049e3ba7f8
   "quota_renewal_rate": 60,
   "access_rights": {
     "35447b1469df4e846894b1e87372f6d7": {
-      "api_id": "35447b1469df4e846894b1e87372f6d7",
+      "apiid": "35447b1469df4e846894b1e87372f6d7",
       "api_name": "My API",
       "versions": ["Default"],
       "allowed_urls": []

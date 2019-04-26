@@ -7,11 +7,11 @@ menu:
 weight: 0 
 ---
 
-In some cases middleware references can't be directly embedded in API Definitions (for example, when using the dashboard in a Pro install). However, there is an easy way to distribute and enable custom middleware for an API on a Tyk node.
+In some cases middleware references can't be directly embedded in API Definitions (for example, when using the Tyk Dashboard in an On-Premises Pro installation). However, there is an easy way to distribute and enable custom middleware for an API in a Tyk node by adding them as a directory structure.
 
-A second method of loading API Definitions in Tyk nodes is to add them as a directory structure in the Tyk node, Tyk will load the middleware plugins dynamically on host-reload without needing a direct reference to them in the API Definition.
+Tyk will load the middleware plugins dynamically on host-reload without needing a direct reference to them in the API Definition.
 
-The URL structure looks like this:
+The directory structure should look like this:
 
 ```{.copyWrapper}
 middleware
@@ -24,7 +24,7 @@ middleware
       / {middlewareObject2Name}.js
 ```
 
-Tyk will check for a folder that matches the `API Id` being loaded, and then load the `pre` and `post` middleware from the respective folders.
+Tyk will check for a folder that matches the `API Id` being loaded, and then load the `pre` and `post` middleware from the respective directories.
 
 > **NOTE**:The filename **must** match the object to be loaded exactly.
 
@@ -32,6 +32,6 @@ If your middleware requires session injection, then append `_with_session` to th
 
 ### Enable the JSVM
 
-Before you can use Javascript Middleware you will need to enable the JSVM
+Before you can use Javascript Middleware you will need to enable the JSVM.
 
 You can do this by setting `enable_jsvm` to `true` in your `tyk.conf` file.
