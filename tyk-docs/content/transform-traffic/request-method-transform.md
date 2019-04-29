@@ -32,5 +32,5 @@ Then select the path you wish to change to.
 ![Method Path][2]
 
 
- [1]: /docs/img/dashboard/system-management/method_transform_2.5.png
+ [1]: /docs/img/dashboard/system-management/endpoint_design_method_trans_1.8.png
  [2]: /docs/img/dashboard/system-management/method_to_path_2.5.png
