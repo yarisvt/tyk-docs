@@ -75,5 +75,4 @@ Context variables are exposed in three plugin middleware but are accessed differ
 ```
 
 [1]: /docs/img/dashboard/system-management/context_variables_2.5.png
-
 [2]: /docs/img/dashboard/system-management/context_variables_ui.png
