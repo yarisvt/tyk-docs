@@ -70,7 +70,7 @@ The table shows how the JSON member keys maps to an environment variable. Where 
 | enforce_org_data_detail_logging                   | TYK_GW_ENFORCEORGDATADEAILLOGGING                   |
 | enforce_org_quotas                                | TYK_GW_ENFORCEORGQUOTAS                             |
 | event_handlers.events                             | TYK_GW_EVENTHANDLERS_EVENTS                         |
-| event_trigers_defunct                             | TYK_GW_EVENTTRIGGERS                                |
+| event_triggers_defunct                            | TYK_GW_EVENTTRIGGERS                                |
 | experimental_process_org_off_thread               | TYK_GW_EXPERIMENTALPROCESSORGOFFTHREAD              |
 | force_global_session_lifetime                     | TYK_GW_FORCEGLOBALSESSIONLIFETIME                   |
 | global_session_lifetime                           | TYK_GW_GLOBALSESSIONLIFETIME                        |
