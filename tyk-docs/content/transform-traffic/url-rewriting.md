@@ -54,11 +54,11 @@ To rewrite a URL using the Dashboard, you can use the same values are defined in
 
 ### Step 1: Add an Endpoint for the Path
 
-From the **Endpoint Designer** add an endpoint that matches the path you want to rewrite.
+From the **Endpoint Designer** add an endpoint that matches the path you want to rewrite. Select the **URL Rewrite** plugin.
 
 ![Endpoint designer][1]
 
-### Step 2: Configure the URL Rewrite
+### Step 2: Configure the URL Rewrite Plugin
 
 Add the regex capture groups and the new URL to the relevant sections.
 
@@ -174,7 +174,7 @@ When triggers are added, you can edit or remove them inside the **Advanced URL r
 ![URL rewrite list trigger][5]
 
 
-[1]: /docs/img/dashboard/system-management/rewrite_endpoint_2.5.png
+[1]: /docs/img/dashboard/system-management/endpoint_design_url_rewrite_1.8.png
 [2]: /docs/img/dashboard/system-management/configure_rewrite_2.5.png
 [3]: /docs/concepts/context-variables/
 [4]: /docs/img/dashboard/system-management/rewriteEndpointDesigner_add_trigger.png

@@ -45,7 +45,7 @@ Now Tyk keys that you create with an Access Definition rule that is set to this 
 
 To inject new headers into a request using the GUI, you must make the edits in the Endpoint Designer section of your API Definition.
 
-### Step 1: Add an Endpoint and select the Modify Headers option
+### Step 1: Add an Endpoint and select the Modify Headers Plugin
 
 You must also set a method and a request pattern to match against. These patterns can contain wildcards in the form of any string bracketed by curly braces. These wildcards are so they are human readable and do not translate to variable names. Under the hood, a wildcard translates to the "match everything" regex of: `(.*)`.
 
@@ -169,7 +169,7 @@ As of version 2.2 Tyk allows context variables to be injected into headers using
 
 
 
-[1]: /docs/img/dashboard/system-management/headers_endpoint_2.5.png
+[1]: /docs/img/dashboard/system-management/end_design_modify_headers_1.8.png
 [2]: /docs/img/dashboard/system-management/header_request_tab_2.5.png
 [3]: /docs/img/dashboard/system-management/set_headers_2.5.png
 [4]: /docs/img/dashboard/system-management/global_headers_2.5.png
