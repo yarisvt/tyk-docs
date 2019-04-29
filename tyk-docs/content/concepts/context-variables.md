@@ -34,45 +34,45 @@ If not using a Tyk Dashboard, add the field `enable_context_vars` to your API de
 
 ### Plugins that can use context variables:
 Context variables are exposed in three plugin middleware but are accessed differently depending on the caller as follows:
+
 1.   URL Rewriter - Syntax is `$tyk_context.CONTEXTVARIABLES`
 2.   Modify Headers - Syntax is `$tyk_context.CONTEXTVARIABLES`
-3.   Body Transforms - Syntax is `{{_tyk_context.CONTEXTVARIABLES}}`
+3.   Body Transforms - Syntax is `{{ ._tyk_context.CONTEXTVARIABLES }}`
 
 ### Example use of context variables
 
 #### Examples of the syntax to use with all the available context varibles:
-```{.json}
-    "x-remote-addr": "$tyk_context.remote_addr",
-    "x-token": "$tyk_context.token",
-    "x-jwt-sub": "$tyk_context.jwt_claims_sub",
-    "x-part-path": "$tyk_context.path_parts",
-    "x-jwt-pol": "$tyk_context.jwt_claims_pol",
-    "x-cookie": "$tyk_context.cookies_Cookie_Context_Var",
-    "x-cookie-sensitive": "$tyk_context.cookies_Cookie_Case_sensitive",
-    "x-my-header": "$tyk_context.headers_My_Header",
-    "x-path": "$tyk_context.path",
-    "x-request-data": "$tyk_context.request_data",
-    "x-req-id": "$tyk_context.request_id"
+```
+"x-remote-addr": "$tyk_context.remote_addr",
+"x-token": "$tyk_context.token",
+"x-jwt-sub": "$tyk_context.jwt_claims_sub",
+"x-part-path": "$tyk_context.path_parts",
+"x-jwt-pol": "$tyk_context.jwt_claims_pol",
+"x-cookie": "$tyk_context.cookies_Cookie_Context_Var",
+"x-cookie-sensitive": "$tyk_context.cookies_Cookie_Case_sensitive",
+"x-my-header": "$tyk_context.headers_My_Header",
+"x-path": "$tyk_context.path",
+"x-request-data": "$tyk_context.request_data",
+"x-req-id": "$tyk_context.request_id"
 ```
 ![Example of the syntax in the UI][2]
 
 #### The context variable values in the response:
-```{.json}
-    "My-Header": "this-is-my-header",
-    "User-Agent": "PostmanRuntime/7.4.0",
-    "X-Cookie": "this-is-my-cookie",
-    "X-Cookie-Sensitive": "case-sensitive",
-    "X-Jwt-Pol": "5bca6a739afe6a00017eb267",
-    "X-Jwt-Sub": "john.doe@test.com",
-    "X-My-Header": "this-is-my-header",
-    "X-Part-Path": "context-var-example,anything",
-    "X-Path": "/context-var-example/anything",
-    "X-Remote-Addr": "127.0.0.1",
-    "X-Req-Id": "e3e99350-b87a-4d7d-a75f-58c1f89b2bf3",
-    "X-Request-Data": "key1:val1;key2:val2",
-    "X-Token": "5bb2c2abfb6add0001d65f699dd51f52658ce2d3944d3d6cb69f07a2"
 ```
-
+"My-Header": "this-is-my-header",
+"User-Agent": "PostmanRuntime/7.4.0",
+"X-Cookie": "this-is-my-cookie",
+"X-Cookie-Sensitive": "case-sensitive",
+"X-Jwt-Pol": "5bca6a739afe6a00017eb267",
+"X-Jwt-Sub": "john.doe@test.com",
+"X-My-Header": "this-is-my-header",
+"X-Part-Path": "context-var-example,anything",
+"X-Path": "/context-var-example/anything",
+"X-Remote-Addr": "127.0.0.1",
+"X-Req-Id": "e3e99350-b87a-4d7d-a75f-58c1f89b2bf3",
+"X-Request-Data": "key1:val1;key2:val2",
+"X-Token": "5bb2c2abfb6add0001d65f699dd51f52658ce2d3944d3d6cb69f07a2"
+```
 
 [1]: /docs/img/dashboard/system-management/context_variables_2.5.png
 
