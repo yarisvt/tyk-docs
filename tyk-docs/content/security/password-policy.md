@@ -7,7 +7,7 @@ menu:
 weight: 9 
 ---
 
-Tyk allows you to control password requirements for users and developers. You can find the configuration files in the `schemas` directory of your Tyk installation folder. For the Dashboard users configuration is stored in `schemas/password.json`, for developers it is registered via your portal: `schemas/developer_password.json`.
+Tyk allows you to control password requirements for users, developers and basic auth keys. You can find the configuration files in the `schemas` directory of your Tyk installation folder. For the Dashboard users configuration is stored in `schemas/password.json`, for developers it is registered via your portal: `schemas/developer_password.json`, for basic auth keys: `./schemas/basic_auth.json`
 
 The following validators are available:
 
