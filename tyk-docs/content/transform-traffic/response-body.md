@@ -47,7 +47,7 @@ Setting up response transforms in your API definition is very similar to setting
 }
 ```
 
-Tyk will load and evaluate the template on start, if you modify the template, you will need to restart Tyk in order for the changes to take effect.
+Tyk will load and evaluate the template on start, if you modify the template, you will need to restart The Gateway in order for the changes to take effect.
 
 The field representations are:
 
@@ -78,3 +78,23 @@ A middleware called `header_transform`, added in v2.1, ensures headers such as `
 In this configuration, you set the `headers` to target and the `target host` to replace the values with. In the above example, the `Link` and `Location` headers will be modified from the server-generated response, with the protocol, domain and port of the value set in `target_host`.
 
 (This is not supported in the Dashboard yet.)
+
+### Using Context Variables
+
+You can also use Context Variables in a response body transform. The syntax is as follows:
+
+`{{ ._tyk_context.CONTEXTVARIABLES }}`
+
+See [Context Variables](/docs/concepts/context-variables/) for more details.
+
+### Using Meta Data
+
+You can also inject meta data into a response body transform. The syntax is as follows:
+
+`._tyk_meta.KEYNAME`
+
+See [Request Body Meta Data](/docs/transform-traffic/request-body/#a-name-meta-data-a-meta-data) for more details.
+
+
+
+

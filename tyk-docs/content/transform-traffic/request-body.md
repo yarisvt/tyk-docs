@@ -11,7 +11,7 @@ Sometimes you may be exposing an older API, or one that uses a legacy structure 
 
 Our body transform middleware uses the Go template language. See [Godoc](https://golang.org/pkg/text/template/) to learn more and a useful [blogpost](https://blog.gopheracademy.com/advent-2017/using-go-templates/) on using Go templates.
 
-As of Tyk 1.5 it is possible to modify inbound JSON requests and as of v2.2 XML requests using a golang template.
+As of Tyk 1.5 it is possible to modify inbound JSON requests and as of v2.2 XML requests using a Golang template.
 
 ## <a name="with-api"></a> Modification with API Definition
 
@@ -36,7 +36,7 @@ Setting up transforms in your API definition is easy:
 }
 ```
 
-Tyk will load and evaluate the template on start, if you modify the template, you will need to restart Tyk in order for the changes to take effect.
+Tyk will load and evaluate the template on start. If you modify the template, you will need to restart Tyk in order for the changes to take effect.
 
 The field representations are:
 
@@ -92,7 +92,7 @@ Assume your inbound date structure is as follows:
 
 ### Template
 
-You could use a golang template that looks like this to transform it into a different format:
+You could use a Golang template that looks like this to transform it into a different format:
 
 ```{.copyWrapper}
 {
@@ -182,7 +182,7 @@ You get this output:
 ```
 ## <a name="meta-data"></a> Meta Data
 
-It is also possible to insert key meta data into a body transform, you can do this by calling the `._tyk_meta.KEYNAME` namespace, e.g.:
+It is also possible to insert key meta data into a body transform. You can do this by calling the `._tyk_meta.KEYNAME` namespace, e.g.:
 
 ```{.copyWrapper}
 {
@@ -201,7 +201,7 @@ This mechanism operates the same way as the header injection middleware.
 
 ## <a name="request-body-context-data"></a> Context Data
 
-As of version 2.2 Tyk also allows context variables to be injected into the body using the `._tyk_context.` namespace, unlike the context exposed to the URL rewriter and header injector, the body transform can fully iterate through list indices so, for example, calling `_tyk_context.path_parts[0]` in a template will expose the first entry in the `path_parts` list.
+As of version 2.2 Tyk also allows context variables to be injected into the body using the `._tyk_context.` namespace. Unlike the context exposed to the URL rewriter and header injector, the body transform can fully iterate through list indices so, for example, calling `_tyk_context.path_parts[0]` in a template will expose the first entry in the `path_parts` list.
 
 Some of the context variables that are available are:
 
@@ -222,13 +222,13 @@ Or (for body transforms):
 ```{.copyWrapper}
 {{._tyk_context.headers_HEADERNAME}}
 ```
-Check this [doc](https://tyk.io/docs/concepts/context-variables/) for all the context variable options.
+See [Context Variables](/docs/concepts/context-variables/) for more details.
 
 ## <a name="form-data"></a> Form Data
 
 It is possible to work with inbound form data by making use of the Context Variable feature built into Tyk. If context variables are enabled in your API definition, then it is possible to iterate through form or querystring data in your template.
 
-You do this by using the `._tyk_context.` namespace, unlike the context exposed to the URL rewriter and header injector, the body transform can fully iterate through list indices, so for example calling `{{ index ._tyk_context.request_data.variablename 0 }}` in a template will expose the first entry in the `request_data.variablename` key/value array.
+You do this by using the `._tyk_context.` namespace. Unlike the context exposed to the URL rewriter and header injector, the body transform can fully iterate through list indices, so for example calling `{{ index ._tyk_context.request_data.variablename 0 }}` in a template will expose the first entry in the `request_data.variablename` key/value array.
 
 The `request_data` section is populated if the inbound request contained any query data or form data, it will be available in this object as a `key:[]value` map.
 
