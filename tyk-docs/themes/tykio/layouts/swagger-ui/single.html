@@ -4,6 +4,7 @@
 <script src="https://unpkg.com/swagger-ui-dist@3.20.3/swagger-ui-standalone-preset.js"></script>
 <script src="https://unpkg.com/swagger-ui-dist@3.20.3/swagger-ui-bundle.js"></script>
 <script>
+setTimeout(function(){
 const DisableTryItOutPlugin = function() {
   return {
     statePlugins: {
@@ -39,6 +40,7 @@ var ui = SwaggerUIBundle({
   })
 
   document.querySelector(".page-content.wysiwyg").className = "page-content"
+}, 0);
 </script>
 <style>
 .swagger-ui .base-url, .swagger-ui .scheme-container, .swagger-ui .title small, .swagger-ui .global-server-container { display: none !important }
