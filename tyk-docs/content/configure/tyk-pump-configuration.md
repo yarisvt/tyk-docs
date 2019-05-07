@@ -15,7 +15,7 @@ Create a `pump.conf` file:
 ```{.json}
 {
   "analytics_storage_type": "redis",
-    "analytics_storage_config": {
+  "analytics_storage_config": {
     "type": "redis",
     "host": "localhost",
     "port": 6379,
@@ -23,61 +23,50 @@ Create a `pump.conf` file:
     "username": "",
     "password": "",
     "database": 0,
-    "timeout": 5,
     "optimisation_max_idle": 100,
     "optimisation_max_active": 0,
     "enable_cluster": false
   },
-  "purge_delay": 10,
+  "purge_delay": 1,
   "pumps": {
     "dummy": {
-    "name": "dummy",
-    "meta": {}
-  },
-  "mongo": {
-    "name": "mongo",
-    "meta": {
-      "collection_name": "tyk_analytics", 
-      "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/{db_name}",
-      "mongo_ssl_insecure_skip_verify": true,
-      "mongo_use_ssl": true                    
-    }
-  },
-  "mongo-pump-aggregate": {
-    "name": "mongo-pump-aggregate",
-    "meta": {
-      "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/{db_name}",
-      "use_mixed_collection": true
-    }
-  },
-  "csv": {
-    "name": "csv",
-    "meta": {
-    "csv_dir": "./"
-    }
-  },
-  "elasticsearch": {
-    "name": "elasticsearch",
-    "meta": {
-      "index_name": "tyk_analytics",
-      "elasticsearch_url": "localhost:9200",
-    "enable_sniffing": false,
-    "document_type": "tyk_analytics",
-    "rolling_index": false,
-    "extended_stats": false,
-    "version": "5"
-    }
-  },
-  "influx": {
-  "name": "influx",
-  "meta": {
-    "database_name": "tyk_analytics",
-    "address": "http//localhost:8086",
+      "type": "dummy",
+      "meta": {}
+    },
+    "mongo": {
+      "type": "mongo",
+      "meta": {
+        "collection_name": "tyk_analytics",
+        "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/{db_name}"
+      }
+    },
+    "csv": {
+      "type": "csv",
+      "meta": {
+        "csv_dir": "./"
+      }
+    },
+    "elasticsearch": {
+      "type": "elasticsearch",
+      "meta": {
+        "index_name": "tyk_analytics",
+        "elasticsearch_url": "localhost:9200",
+        "enable_sniffing": false,
+        "document_type": "tyk_analytics",
+        "rolling_index": false,
+        "extended_stats": false,
+        "version": "5"
+      }
+    },
+    "influx": {
+      "type": "influx",
+      "meta": {
+        "database_name": "tyk_analytics",
+        "address": "http//localhost:8086",
         "username": "root",
         "password": "root",
         "fields": ["request_time"],
-        "tags": [
-          "path",
+        "tags": ["path",
           "response_code",
           "api_key",
           "api_version",
@@ -86,69 +75,91 @@ Create a `pump.conf` file:
           "raw_request",
           "ip_address",
           "org_id",
-          "oauth_id"
-          ]
-    }
-  },
-  "moesif": {
-  "name": "moesif",
-  "meta": {
-    "application_id": ""
-    }
-  },
-  "statsd": {
-  "name": "statsd",
-  "meta": {
-    "address": "localhost:8125",
-    "fields": ["request_time"],
-    "tags": [
-      "path",
-      "response_code",
-      "api_key",
-      "api_version",
-      "api_name",
-      "api_id",
-      "raw_request",
-      "ip_address",
-      "org_id",
-      "oauth_id"
-      ]
-    }
-  },
-  "graylog": {
-  "name": "graylog",
-  "meta": {
-    "host": "10.60.6.15",
-    "port": 12216,
-    "tags": [
-      "method",
-      "path",
-      "response_code",
-      "api_key",
-      "api_version",
-      "api_name",
-      "api_id",
-      "org_id",
-      "oauth_id",
-      "raw_request",
-      "request_time",
-      "raw_response"
-      ]
+          "oauth_id"]
       }
-    }
-  },
-  "hybrid": {
-    "name": "hybrid",
-    "meta": {
-      "rpc_key": "abc",
-      "api_key": "xyz",
-      "connection_string": "localhost:9090",
-      "use_ssl": false,
-      "ssl_insecure_skip_verify": false,
-      "group_id": "",
-      "call_timeout": 30,
-      "rpc_pool_size": 30
-    }
+    },
+    "moesif": {
+      "type": "moesif",
+      "meta": {
+        "application_id": ""
+      }
+    },
+    "splunk": {
+      "type": "splunk",
+      "meta": {
+        "collector_token": "<token>",
+        "collector_url": "<url>",
+        "ssl_insecure_skip_verify": false,
+        "ssl_cert_file": "<cert-path>",
+        "ssl_key_file": "<key-path>",
+        "ssl_server_name": "<server-name>"
+      }
+    },
+    "statsd": {
+      "type": "statsd",
+      "meta": {
+        "address": "localhost:8125",
+        "fields": ["request_time"],
+        "tags": ["path",
+            "response_code",
+            "api_key",
+            "api_version",
+            "api_name",
+            "api_id",
+            "raw_request",
+            "ip_address",
+            "org_id",
+            "oauth_id"]
+      }
+    },
+    "prometheus": {
+            "type": "prometheus",
+      "meta": {
+        "listen_address": "localhost:9090",
+        "path": "/metrics"
+      }
+    },
+    "graylog": {
+      "type": "graylog",
+      "meta": {
+        "host": "10.60.6.15",
+        "port": 12216,
+        "tags": [
+          "method",
+          "path",
+          "response_code",
+          "api_key",
+          "api_version",
+          "api_name",
+          "api_id",
+          "org_id",
+          "oauth_id",
+          "raw_request",
+          "request_time",
+          "raw_response"
+        ]
+      }
+    },
+        "hybrid": {
+            "type": "hybrid",
+            "meta": {
+                "rpc_key": "5b5fd341e6355b5eb194765e",
+                "api_key": "008d6d1525104ae77240f687bb866974",
+                "connection_string": "localhost:9090",
+                "use_ssl": false,
+                "ssl_insecure_skip_verify": false,
+                "group_id": "",
+                "call_timeout": 30,
+                "ping_timeout": 60,
+                "rpc_pool_size": 30
+            }
+        },
+        "logzio": {
+            "type": "logzio",
+            "meta": {
+                "token": "<YOUR-LOGZ.IO-TOKEN>"
+            }
+        }
   },
   "uptime_pump_config": {
     "collection_name": "tyk_uptime_analytics",
@@ -206,6 +217,22 @@ NOTE: Make sure your tyk.conf has `analytics_config.type` set to empty string va
 `call_timeout` - This is the timeout (in milliseconds) for RPC calls.
 
 `rpc_pool_size` - This is maximum number of connections to MDCB.
+
+
+#### Prometheus Config
+Prometheus is an open-source monitoring system with a dimensional data model, flexible query language, efficient time series database and modern alerting approach.
+
+Add the following section to expose the `/metrics` endpoint:
+
+```{.json}
+"prometheus": {
+        "type": "prometheus",
+  "meta": {
+    "listen_address": "localhost:9090",
+    "path": "/metrics"
+  }
+},
+```
 
 ### Capping analytics data
 
