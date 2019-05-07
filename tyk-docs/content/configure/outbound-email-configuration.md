@@ -47,7 +47,11 @@ To get email set up for your installation, add the following to your `tyk_analyt
 },
 ```
 
-From Tyk Dashboard v1.8.0, if `SMTPUsername` or `SMTPPassword` is omitted, Tyk assumes that authentication is not required for your SMTP server. When starting up and initialising the email driver, the Dashboard should output a log message as follows:
+#### SMTP NoAuth
+
+> Available from Tyk Dashboard version 1.8
+
+If `SMTPUsername` or `SMTPPassword` is omitted, Tyk assumes that authentication is not required for your SMTP server. When starting up and initialising the email driver, the Dashboard should output a log message as follows:
 
 ```
 [May  6 13:46:41]  INFO email: initializing SMTP email driver
