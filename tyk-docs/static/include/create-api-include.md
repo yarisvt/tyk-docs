@@ -55,13 +55,14 @@ To see the URL given to your API, select the API from the list to open it again.
 
 ## <a name="with-api"></a>Tutorial: Create an API with the API
 
-With Tyk Cloud, it is also possible to create APIs using Tyk's REST API. You will need an API key for your organisation and one command to create the API and make it live.
+It is possible to create APIs using Tyk's Gateway REST API. You will need an API key for your organisation and one command to create the API and make it live.
 
-### Step 1: Get an API key for Tyk Cloud
+### Step 1: Get an API Key
 
-Select "Users" from the "System Management" section. Click **Edit** for your user, then scroll to the bottom of the page. Your API Key is the first entry:
+From the Tyk Dashboard, select "Users" from the "System Management" section. Click **Edit** for your user, then scroll to the bottom of the page. Your API Key is the first entry:
 
 ![API key location][7]
+
 
 ### Step 2: Create an API
 
@@ -122,7 +123,7 @@ If the command succeeds, you will see:
 
 **What did we just do?**
 
-We just sent an API Definition to the Tyk `/apis` endpoint. API Definitions are described further [here][8]. These objects encapsulate all of the settings for an API within Tyk Cloud.
+We just sent an API Definition to the Tyk `/apis` endpoint. API Definitions are described further [here][8]. These objects encapsulate all of the settings for an API.
 
 ## <a name="test-new-api"></a>Test your new API
 
