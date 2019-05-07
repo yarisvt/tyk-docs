@@ -11,9 +11,17 @@ weight: 3
 
 The Tyk Pump is a micro-service supplied with the Tyk Platform to move analytics data from your front-end gateways to a data sink of your choice.
 
-Its primary use is to ensure that analytics data reaches the Dashboard, however it also has plugins for CSV export and ElasticSearch.
+Its primary use is to ensure that analytics data reaches the Dashboard, however it also has plugins for the following:
+* CSV export
+* ElasticSearch
+* Moesif
+* StatsD
+* Influx
+* Hybrid RPC
 
-When deployed as part of a standard installation, Tyk Pump moves data between Redis and MongoDB.
+When deployed as part of a standard installation, Tyk Pump moves data between Redis and the Pump, and can then be sent to other services as listed above.
+
+See [Tyk Pump Configuration](/docs/configure/tyk-pump-configuration/) for more details.
 
 Tyk Pump can be horizontally scaled without causing duplicate data.
 
