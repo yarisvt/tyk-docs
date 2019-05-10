@@ -1,5 +1,5 @@
 ---
-title: Tyk Kubernetes Ingress Controller 
+title: Tyk Kubernetes Ingress and Service Mesh Controller 
 menu:
   main:
     parent: "With Docker"
@@ -398,7 +398,7 @@ The sections to edit are the `volumeMounts` section and the `volumes` section. O
   
 Notice that the value of the template annotation matches the name of the template that you set in the wrapper of the template file, not the file name!
 
-#### Using Tyk for your service mesh
+#### Using Tyk for your Service Mesh
 
 The service mesh capability is only supported by the Tyk Pro edition at the moment. We are working on making a version that works with the Community Edition (it is not a technical limitation, just an operational one). 
 
