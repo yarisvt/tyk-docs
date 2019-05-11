@@ -81,7 +81,7 @@ If you have enabled email notifications, the Portal will attempt to send notific
 
 The templates are twofold, text-only and HTML, please see the standard included ones to see the various template fields that can be customised.
 
-### Extra Portal Events
+### Extra Dashboard And Portal Events
 
 The Dashboard and Portal also support a certain level of events that you can use to notify your systems of various things that have happened in the Portal.
 
