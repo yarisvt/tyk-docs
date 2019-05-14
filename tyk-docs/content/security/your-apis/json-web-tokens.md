@@ -116,34 +116,23 @@ Instead of specifying static public key in API definition, it is possible to spe
 Using JWKs you can maintan dynamic list of currently active public keys, and safely rotate them, since both old and new JWT tokens will work, until you remove expired JWK. Generated JWT keys should have `kid` a claim, which should match with the `kid` field of JWK, used for validating the token. 
 
 
-## Avoiding clock skew
+## JWT Clock Skew Configuration
 
-> **NOTE**: Available from v2.6.2 onwards
+> **NOTE**: Available from v2.7.2 onwards
 
 Due to the nature of distributed systems it is expected that despite best efforts you can end up in a situation with clock skew between the issuing party (An OpenID/OAuth provider) and the validating party (Tyk).
 
 This means that in certain circumstances Tyk would reject requests to an API endpoint secured with JWT with the `Token is not valid yet` error . This occurs due to the clock on the Tyk server being behind the clock on the Identity Provider server even with all servers ntp sync'd from the same ntp server.
 
-You can disable the validation check on 3 claims `iat`, `exp` & `nbf` by adding the following boolean fields to your API definition:
-
-```{.json}
-"enable_jwt": true,
-"jwt_disable_issued_at_validation": true,
-"jwt_disable_expires_at_validation": true,
-"jwt_disable_not_before_validation": true
-```
-
-### JWT Clock Skew Configuration
-
-> **NOTE**: Available from v2.7.2 onwards
-
-You can now configure JWT clock skew using the following variables. All values are in seconds. The default is `0`.
+You can now configure JWT clock skew using the following variables. All values are in seconds. The default is `0` (i.e. no skew).
 
 ```{.json}
 "jwt_issued_at_validation_skew": 0,
 "jwt_expires_at_validation_skew": 0,
 "jwt_not_before_validation_skew": 0
 ```
+
+The fields to disable the validation of the 3 claims `jwt_disable_XYZ_at_validation` are no longer in use since the new ones gives more flexability 
 
 
 [1]: http://jwt.io/introduction/
