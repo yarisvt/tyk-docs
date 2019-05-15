@@ -173,9 +173,25 @@ Create a `pump.conf` file:
 
 > **Note**: `mongo_ssl_insecure_skip_verify` and `mongo_use_ssl` are available from v1.3.6 onwards.
 
-Pumps are then added to the `pumps` section of this document, each should represent a sink to purge the data into.
+Pumps are then added to the `pumps` section. Each should represent a sink to purge the data into.
 
 Settings must be the same as for the original `tyk.conf` for Redis and for MongoDB.
+
+### Other Supported Backend Services
+
+The following services are supported:
+
+* MongoDB (to replace built-in purging)
+* CSV
+* ElasticSearch (2.0+)
+* Graylog
+* InfluxDB
+* Moesif
+* Splunk
+* StatsD
+* Hybrid (Tyk RPC)
+* Prometheus
+* Logz.io
 
 #### Elasticsearch Config
 `index_name` - The name of the index that all the analytics data will be placed in. Defaults to "tyk_analytics"
