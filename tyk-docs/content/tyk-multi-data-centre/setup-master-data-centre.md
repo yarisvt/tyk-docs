@@ -1,6 +1,5 @@
 ---
 title: Setup Master Data Centre
-markup: mmark
 weight: 1
 menu:
     main: 
@@ -292,8 +291,6 @@ This should return:
 ```
 {"Status":"OK","Message":"Org updated","Meta":null}
 ```
-
-{{./static/include/file-handles.md}}
 
 [1]: /docs/img/dashboard/system-management/api_access_cred_2.5.png
  
