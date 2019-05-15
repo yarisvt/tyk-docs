@@ -130,9 +130,7 @@ You can now configure JWT clock skew using the following variables. All values a
 "jwt_issued_at_validation_skew": 0,
 "jwt_expires_at_validation_skew": 0,
 "jwt_not_before_validation_skew": 0
-```
-
-The fields to disable the validation of the 3 claims `jwt_disable_XYZ_at_validation` are no longer in use since the new ones gives more flexability 
+``` 
 
 
 [1]: http://jwt.io/introduction/
