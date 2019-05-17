@@ -31,7 +31,9 @@ Create a `pump.conf` file:
   "pumps": {
     "dummy": {
       "type": "dummy",
-      "meta": {}
+      "meta": {
+        
+      }
     },
     "mongo": {
       "type": "mongo",
@@ -65,8 +67,11 @@ Create a `pump.conf` file:
         "address": "http//localhost:8086",
         "username": "root",
         "password": "root",
-        "fields": ["request_time"],
-        "tags": ["path",
+        "fields": [
+          "request_time"
+        ],
+        "tags": [
+          "path",
           "response_code",
           "api_key",
           "api_version",
@@ -75,7 +80,8 @@ Create a `pump.conf` file:
           "raw_request",
           "ip_address",
           "org_id",
-          "oauth_id"]
+          "oauth_id"
+        ]
       }
     },
     "moesif": {
@@ -99,21 +105,36 @@ Create a `pump.conf` file:
       "type": "statsd",
       "meta": {
         "address": "localhost:8125",
-        "fields": ["request_time"],
-        "tags": ["path",
-            "response_code",
-            "api_key",
-            "api_version",
-            "api_name",
-            "api_id",
-            "raw_request",
-            "ip_address",
-            "org_id",
-            "oauth_id"]
+        "fields": [
+          "request_time"
+        ],
+        "tags": [
+          "path",
+          "response_code",
+          "api_key",
+          "api_version",
+          "api_name",
+          "api_id",
+          "raw_request",
+          "ip_address",
+          "org_id",
+          "oauth_id"
+        ]
+      }
+    },
+    "dogstatsd": {
+      "name": "dogstatsd",
+      "meta": {
+        "address": "localhost:8125",
+        "namespace": "pump",
+        "async_uds": true,
+        "async_uds_write_timeout_seconds": 2,
+        "buffered": true,
+        "buffered_max_messages": 32
       }
     },
     "prometheus": {
-            "type": "prometheus",
+      "type": "prometheus",
       "meta": {
         "listen_address": "localhost:9090",
         "path": "/metrics"
@@ -140,26 +161,26 @@ Create a `pump.conf` file:
         ]
       }
     },
-        "hybrid": {
-            "type": "hybrid",
-            "meta": {
-                "rpc_key": "5b5fd341e6355b5eb194765e",
-                "api_key": "008d6d1525104ae77240f687bb866974",
-                "connection_string": "localhost:9090",
-                "use_ssl": false,
-                "ssl_insecure_skip_verify": false,
-                "group_id": "",
-                "call_timeout": 30,
-                "ping_timeout": 60,
-                "rpc_pool_size": 30
-            }
-        },
-        "logzio": {
-            "type": "logzio",
-            "meta": {
-                "token": "<YOUR-LOGZ.IO-TOKEN>"
-            }
-        }
+    "hybrid": {
+      "type": "hybrid",
+      "meta": {
+        "rpc_key": "5b5fd341e6355b5eb194765e",
+        "api_key": "008d6d1525104ae77240f687bb866974",
+        "connection_string": "localhost:9090",
+        "use_ssl": false,
+        "ssl_insecure_skip_verify": false,
+        "group_id": "",
+        "call_timeout": 30,
+        "ping_timeout": 60,
+        "rpc_pool_size": 30
+      }
+    },
+    "logzio": {
+      "type": "logzio",
+      "meta": {
+        "token": "<YOUR-LOGZ.IO-TOKEN>"
+      }
+    }
   },
   "uptime_pump_config": {
     "collection_name": "tyk_uptime_analytics",
@@ -189,6 +210,7 @@ The following services are supported:
 * Moesif
 * Splunk
 * StatsD
+* DogStatsD
 * Hybrid (Tyk RPC)
 * Prometheus
 * Logz.io
@@ -212,6 +234,41 @@ The following services are supported:
 Moesif is a logging and analytics service for APIs. The Moesif pump will move analytics data from Tyk to Moesif.
 
 `application_id` - Moesif App Id JWT. Multiple api_id's will go under the same app id.
+
+#### DogStatsD
+
+* `address`: address of the datadog agent including host & port
+* `namespace`: prefix for your metrics to datadog
+* `async_uds`: Enable async UDS over UDP https://github.com/Datadog/datadog-go#unix-domain-sockets-client
+* `async_uds_write_timeout_seconds`: Integer write timeout in seconds if async_uds: true
+* `buffered`: Enable buffering of messages
+* `buffered_max_messages`: Max messages in single datagram if buffered: true. Default 16
+* `sample_rate`: default 1 which equates to 100% of requests. To sample at 50%, set to 0.5
+
+```{.json}
+"dogstatsd": {
+  "name": "dogstatsd",
+  "meta": {
+    "address": "localhost:8125",
+    "namespace": "pump",
+    "async_uds": true,
+    "async_uds_write_timeout_seconds": 2,
+    "buffered": true,
+    "buffered_max_messages": 32,
+    "sample_rate": 0.5
+  }
+},
+```
+
+On startup, you should see the loaded configs when initialising the DogStatsD pump.
+
+```
+[May 10 15:23:44]  INFO dogstatsd: initializing pump
+[May 10 15:23:44]  INFO dogstatsd: namespace: pump.
+[May 10 15:23:44]  INFO dogstatsd: sample_rate: 50%
+[May 10 15:23:44]  INFO dogstatsd: buffered: true, max_messages: 32
+[May 10 15:23:44]  INFO dogstatsd: async_uds: true, write_timeout: 2s
+```
 
 #### Hybrid RPC Config
 Pump type `hybrid` is used to send your analytics data to MDCB via RPC.
