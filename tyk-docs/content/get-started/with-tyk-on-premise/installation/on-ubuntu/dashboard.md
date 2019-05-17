@@ -90,7 +90,7 @@ What we have done here is:
 
 ### Step 1: Enter your Dashboard License
 
-Add your license in `/var/opt/tyk-dashboard/tyk_analytics.conf` in the `license` field.
+Add your license in `/opt/tyk-dashboard/tyk_analytics.conf` in the `license` field.
 
 ### Step 2: Start Tyk Dashboard
 
