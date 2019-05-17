@@ -1,6 +1,5 @@
 ---
 title: Setup Master Data Centre
-markup: mmark
 weight: 1
 menu:
     main: 
@@ -146,12 +145,12 @@ Once installed, modify your `/opt/tyk-sink/tyk_sink.conf` file as follows:
 You should now be able to start the MDCB service, check that it is up and running and ensure that the service starts on system boot:
 
 ```{.copyWrapper}
-sudo systemctl start mdcb
+sudo systemctl start tyk-sink
 ```
 
 
 ```{.copyWrapper}
-sudo systemctl enable mdcb
+sudo systemctl enable tyk-sink
 ```
 
 ## <a name="healthcheck"></a>Health check
@@ -292,8 +291,6 @@ This should return:
 ```
 {"Status":"OK","Message":"Org updated","Meta":null}
 ```
-
-{{./static/include/file-handles.md}}
 
 [1]: /docs/img/dashboard/system-management/api_access_cred_2.5.png
  
