@@ -83,7 +83,7 @@ If you are migrating from platforms like Mashery, which use request signing, you
  
  `signature.secret`: the shared secret which was used to sign the request
  - Can hold a dynamic value, by referencing `$tyk_meta` or `$tyk_context` variables.
- - Example: `"secret": "$tyk_meta.individual_secret"`. Assuming the session object's meta data contains the shared secret for that key. see https://tyk.io/docs/tyk-rest-api/token-session-object-details/
+ - Example: `"secret": "$tyk_meta.individual_secret"`. Which effectively means that you have created/imported the api key into Tyk, and have stored the shared secret in the field `individual_secret` of the session token's meta-data.
 
 `signature.allowed_clock_skew`: allowed deviation in seconds between UNIX timestamp of Tyk & UNIX timestamp used to generate the signed request
 
