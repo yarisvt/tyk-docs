@@ -61,6 +61,7 @@ To use a cookie name instead of a header or request parameter, set the `use_cook
 If you are migrating from platforms like Mashery, which use request signing, you can enable signature validation like this:
 
 ```{.copyWrapper}
+...
 "auth": {
   "validate_signature": true,
   "signature": {
@@ -70,10 +71,21 @@ If you are migrating from platforms like Mashery, which use request signing, you
     "allowed_clock_skew": 2
   }
 }
+...
 ```
+`validate_signature`: boolean value to tell Tyk whether to enable signature validation or not
 
-Supported algroritms `MasherySHA256` and `MasheryMD5`.
-`signature.secret` field can hold dynamic value, by referrencing `$tyk_meta` or `$tyk_context` variables. Example: `"secret": "$tyk_meta.individual_secret"`.
+`signature.algorithm`: the algorithm you wish to validate the signature against. Currently supported
+ - `MasherySHA256`
+ - `MasheryMD5`
+ 
+ `signature.header`: header key of attempted signature
+ 
+ `signature.secret`: the shared secret which was used to sign the request
+ - Can hold a dynamic value, by referencing `$tyk_meta` or `$tyk_context` variables.
+ - Example: `"secret": "$tyk_meta.individual_secret"`. Assuming the session object's meta data contains the shared secret for that key. see https://tyk.io/docs/tyk-rest-api/token-session-object-details/
+
+`signature.allowed_clock_skew`: allowed deviation in seconds between UNIX timestamp of Tyk & UNIX timestamp used to generate the signed request
 
 ### Custom tokens
 
