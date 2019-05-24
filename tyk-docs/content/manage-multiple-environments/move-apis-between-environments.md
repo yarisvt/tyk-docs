@@ -4,7 +4,7 @@ title: Move APIs Between Environments
 menu:
   main:
     parent: "Manage Multiple Environments"
-weight: 0 
+weight: 4 
 ---
 
 It is possible to move APIs between Tyk environments in the following ways:
@@ -54,6 +54,10 @@ Select the **From Tyk Definition** tab and paste the contents of the JSON file i
 This will now import the API Definition into your new environment, if you have kept the API ID in the JSON document as is, the ID will remain the same.
 
 > **Important**: The ID you use in with any Dashboard API integrations will change as the documents physical ID will have changed with the import.
+
+## Use Tyk-Sync
+
+You can also use our new Tyk-Sync tool which allows you to sync your APIs (and Policies) with a Version Control System (VCS). You can then move your APIs between environments. See [Tyk-Sync](/docs/manage-multiple-environments/tyk-sync/) for more details.
 
 [1]: /docs/img/dashboard/system-management/created_apis_2.5.png
 [2]: /docs/img/dashboard/system-management/export_api_2.5.png
