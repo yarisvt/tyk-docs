@@ -176,6 +176,9 @@ A `refresh` type will send a new `refresh_token`, the `old_refresh_token` (to id
 *   Access tokens will use the Tyk access controls (versioning and named API ID's) to grant and deny access to APIs, not the Client ID.
 *   OAuth access data is stored in Analytics records so that data can be grouped by Client ID.
 
+#### Accessing multiple APIs with the same API token
+oAuth2 by design has single authentification point, however you can configure Tyk to issue tokens which will have access to multiple APIs. In order to do that, create a policy which includes **one** oAuth2 API which used for authentification (e.g. issuing tokens), and rest of APIs inside policy should use standard Auth Token method. 
+
 [1]: /docs/tyk-rest-api/token-management/
 [2]: /docs/tyk-rest-api/api-definition-object-details/
 
