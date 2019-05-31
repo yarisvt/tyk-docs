@@ -29,13 +29,13 @@ From Tyk Dashboard v1.8, you can now create and manage OAuth clients from the De
 6. Click **Select API**
 7. Then click **Save and continue**:
     ![Save][4]
-8. You can now add details about your application, and set a redirect URL to the application.
+8. You can now add details about your application, and set a redirect URL to the application. If you want to use this client for more than one application, you can add other redirect URLs as necessary.
 
 
 [1]: /docs/img/dashboard/portal-management/dev_portal_homev1.8.png
 [2]: /docs/img/dashboard/portal-management/portal_first-oauth_client.png
-[3]: /docs/img/dashboard/portal-management/portal_oauth_select_api.png
-[4]: /docs/img/dashboard/portal-management/portal_oauth_connected_api.png
+[3]: /docs/img/dashboard/portal-management/portal_oauth_select_api2.png
+[4]: /docs/img/dashboard/portal-management/portal_oauth_connected_api2.png
 
 
 
