@@ -7,7 +7,7 @@ menu:
 weight: 0 
 ---
 
-The use a custom domain for the developer portal, please get in touch with us via the support portal.
+To use a custom domain for the developer portal, please get in touch with us via the support portal.
 
 You will need to either send us the SSL certificate which you want to use or we can provision one for you.
 
