@@ -15,7 +15,7 @@ Create a `pump.conf` file:
 ```{.json}
 {
   "analytics_storage_type": "redis",
-    "analytics_storage_config": {
+  "analytics_storage_config": {
     "type": "redis",
     "host": "localhost",
     "port": 6379,
@@ -31,48 +31,48 @@ Create a `pump.conf` file:
   "purge_delay": 10,
   "pumps": {
     "dummy": {
-    "name": "dummy",
-    "meta": {}
-  },
-  "mongo": {
-    "name": "mongo",
-    "meta": {
-      "collection_name": "tyk_analytics", 
-      "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/{db_name}",
-      "mongo_ssl_insecure_skip_verify": true,
-      "mongo_use_ssl": true                    
-    }
-  },
-  "mongo-pump-aggregate": {
-    "name": "mongo-pump-aggregate",
-    "meta": {
-      "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/{db_name}",
-      "use_mixed_collection": true
-    }
-  },
-  "csv": {
-    "name": "csv",
-    "meta": {
-    "csv_dir": "./"
-    }
-  },
-  "elasticsearch": {
-    "name": "elasticsearch",
-    "meta": {
-      "index_name": "tyk_analytics",
-      "elasticsearch_url": "localhost:9200",
-    "enable_sniffing": false,
-    "document_type": "tyk_analytics",
-    "rolling_index": false,
-    "extended_stats": false,
-    "version": "5"
-    }
-  },
-  "influx": {
-  "name": "influx",
-  "meta": {
-    "database_name": "tyk_analytics",
-    "address": "http//localhost:8086",
+      "name": "dummy",
+      "meta": {}
+    },
+    "mongo": {
+      "name": "mongo",
+      "meta": {
+        "collection_name": "tyk_analytics", 
+        "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/{db_name}",
+        "mongo_ssl_insecure_skip_verify": true,
+        "mongo_use_ssl": true                    
+      }
+    },
+    "mongo-pump-aggregate": {
+      "name": "mongo-pump-aggregate",
+      "meta": {
+        "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/{db_name}",
+        "use_mixed_collection": true
+      }
+    },
+    "csv": {
+      "name": "csv",
+      "meta": {
+        "csv_dir": "./"
+      }
+    },
+    "elasticsearch": {
+      "name": "elasticsearch",
+      "meta": {
+        "index_name": "tyk_analytics",
+        "elasticsearch_url": "localhost:9200",
+        "enable_sniffing": false,
+        "document_type": "tyk_analytics",
+        "rolling_index": false,
+        "extended_stats": false,
+        "version": "5"
+      }
+    },
+    "influx": {
+      "name": "influx",
+      "meta": {
+        "database_name": "tyk_analytics",
+        "address": "http//localhost:8086",
         "username": "root",
         "password": "root",
         "fields": ["request_time"],
@@ -87,53 +87,53 @@ Create a `pump.conf` file:
           "ip_address",
           "org_id",
           "oauth_id"
-          ]
-    }
-  },
-  "moesif": {
-  "name": "moesif",
-  "meta": {
-    "application_id": ""
-    }
-  },
-  "statsd": {
-  "name": "statsd",
-  "meta": {
-    "address": "localhost:8125",
-    "fields": ["request_time"],
-    "tags": [
-      "path",
-      "response_code",
-      "api_key",
-      "api_version",
-      "api_name",
-      "api_id",
-      "raw_request",
-      "ip_address",
-      "org_id",
-      "oauth_id"
-      ]
-    }
-  },
-  "graylog": {
-  "name": "graylog",
-  "meta": {
-    "host": "10.60.6.15",
-    "port": 12216,
-    "tags": [
-      "method",
-      "path",
-      "response_code",
-      "api_key",
-      "api_version",
-      "api_name",
-      "api_id",
-      "org_id",
-      "oauth_id",
-      "raw_request",
-      "request_time",
-      "raw_response"
-      ]
+        ]
+      }
+    },
+    "moesif": {
+      "name": "moesif",
+      "meta": {
+        "application_id": ""
+      }
+    },
+    "statsd": {
+      "name": "statsd",
+      "meta": {
+        "address": "localhost:8125",
+        "fields": ["request_time"],
+        "tags": [
+          "path",
+          "response_code",
+          "api_key",
+          "api_version",
+          "api_name",
+          "api_id",
+          "raw_request",
+          "ip_address",
+          "org_id",
+          "oauth_id"
+        ]
+      }
+    },
+    "graylog": {
+      "name": "graylog",
+      "meta": {
+        "host": "10.60.6.15",
+        "port": 12216,
+        "tags": [
+          "method",
+          "path",
+          "response_code",
+          "api_key",
+          "api_version",
+          "api_name",
+          "api_id",
+          "org_id",
+          "oauth_id",
+          "raw_request",
+          "request_time",
+          "raw_response"
+        ]
       }
     }
   },
