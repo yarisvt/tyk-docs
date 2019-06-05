@@ -170,14 +170,14 @@ The fields will be populated depending on the type of notification is being sent
 
 A `refresh` type will send a new `refresh_token`, the `old_refresh_token` (to identify the key being changed) and the`new_oauth_token` to update the identity record.
 
-#### Notes on the Tyk OAuth2 Flow
+#### Notes on the Tyk OAuth 2.0 Flow
 
 *   Once a token has been generated, it uses the same machinery as standard access tokens, so quotas, limits and expiry can all be set as part of the key.
 *   Access tokens will use the Tyk access controls (versioning and named API ID's) to grant and deny access to APIs, not the Client ID.
 *   OAuth access data is stored in Analytics records so that data can be grouped by Client ID.
 
 #### Accessing multiple APIs with the same API token
-oAuth2 by design has single authentification point, however you can configure Tyk to issue tokens which will have access to multiple APIs. In order to do that, create a policy which includes **one** oAuth2 API which used for authentification (e.g. issuing tokens), and rest of APIs inside policy should use standard Auth Token method. 
+OAuth 2.0 by design has a single authentication point. However you can configure Tyk to issue tokens which will have access to multiple APIs. In order to do that, create a policy which includes **one** OAuth 2.0 API which is used for authentication (e.g. issuing tokens), and the rest of the APIs inside the policy should use the standard Auth Token method. 
 
 
 [2]: /docs/tyk-rest-api/api-definition-object-details/
