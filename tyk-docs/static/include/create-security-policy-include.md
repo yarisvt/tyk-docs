@@ -43,6 +43,16 @@ Usage quotas can only be a positive number, or -1 (unlimited).
 
 > **NOTE:** The Usage Quota set by a policy will override a quota applied to an individual key.
 
+#### Limits and Quotas per API
+
+![Quotes Per API][9]
+
+Select **Enable Limits** in this section, if you want to set different Rate Limits and Quotas for each individual API added in the Access Rights section.
+
+Click **Add Limits** for each API and set the limits and quotas in the pop-up that is displayed.
+
+This is available from v1.8.0 of the Tyk Dashboard.
+
 
 ### Step 6: Add a security entry
 
@@ -121,3 +131,4 @@ For more information on how policies are constructed and a detailed explanation 
  [6]: /docs/img/dashboard/system-management/access_rights_2.5.png
  [7]: /docs/img/dashboard/system-management/keys_create_2.5.png
  [8]: /docs/concepts/what-is-a-security-policy/
+ [9]: /docs/img/dashboard/system-management/limits-quotas_per-api.png

@@ -92,6 +92,8 @@ The file will look like the sample below, the various fields are explained in th
     "format": "json",
     "path": "/tmp/audit.log",
     "detailed_recording": false
+  },
+  "enable_multi_org_users"
   }
 }
 ```
@@ -343,5 +345,9 @@ Audit record fields for `json` format:
 
 *   `response_dump` - HTTP response copy (available if `audit.detailed_recording` is set to `true`)
 
-Audit record fields for `text` format - all fields are in plain text separated with new line and provided in the same order as fields for `json` format. 
+Audit record fields for `text` format - all fields are in plain text separated with new line and provided in the same order as fields for `json` format.
+
+*  `enable_multi_org_users`: Set to `true` to create users in different organisations, using the same email address. Users will then be able to select an organisation when logging in, and can easily switch between organisations via the navigation menu.
+
+> **NOTE**: This is only available for clients with a two node or more Tyk Dashboard licence.
 

@@ -15,7 +15,7 @@ Tyk has two methods you can use to enable OAuth 2.0
 
 The first is to integrate a standard OAuth 2.0 flow into your application using one of the many OAuth libraries that exist for popular frameworks and languages. And then when your API issues a token, use the Tyk REST API to create a key session for your own generated key.
 
-Set up your API to use [standard tokens][1] and set the Authorisation header to be `Authorization`, Tyk will now treat the `auth_token` as any other, respecting it's expiry date and any access control mechanisms that may be in place. It may be the case that you will need to put the OAuth `/access` and `/authorize` endpoints into the `ignored_paths` list of your API version to ensure that those requests reach your API.
+Set up your API to use Auth Token as the Authentication Mode and set the Authorisation header to be `Authorization`, Tyk will now treat the `auth_token` as any other, respecting it's expiry date and any access control mechanisms that may be in place. It may be the case that you will need to put the OAuth `/access` and `/authorize` endpoints into the `ignored_paths` list of your API version to ensure that those requests reach your API.
 
 ### Option 2 - use the Tyk OAuth flow
 
@@ -179,6 +179,6 @@ A `refresh` type will send a new `refresh_token`, the `old_refresh_token` (to id
 #### Accessing multiple APIs with the same API token
 oAuth2 by design has single authentification point, however you can configure Tyk to issue tokens which will have access to multiple APIs. In order to do that, create a policy which includes **one** oAuth2 API which used for authentification (e.g. issuing tokens), and rest of APIs inside policy should use standard Auth Token method. 
 
-[1]: /docs/tyk-rest-api/token-management/
+
 [2]: /docs/tyk-rest-api/api-definition-object-details/
 
