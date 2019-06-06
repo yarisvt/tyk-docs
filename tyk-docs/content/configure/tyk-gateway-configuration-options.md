@@ -14,7 +14,7 @@ The Tyk Gateway server is configured primarily via the `tyk.conf` file, this fil
 
 ### Environment Variables
 
-Environment variables can be used to override settings defined in the configuration file. The [Tyk Gateway environment variables page](/docs/configure/gateway-env-variables/) shows how the JSON member keys maps to an environment variable. Where an environment variable is specified, its value will take precedence over the value in the configuration file.
+Environment variables can be used to override the settings defined in the configuration file. See [Tyk Gateway Environment Variables](/docs/configure/environment-variables/#gateway) for details. Where an environment variable is specified, its value will take precedence over the value in the configuration file.
 
 ### <a name="linter"></a> tyk lint
 In **v2.4** we have added a new `tyk lint ` command which will validate your `tyk.conf` file and validate it for syntax correctness, misspelled attribute names or format of values. The Syntax can be:
@@ -613,4 +613,3 @@ If you set `disable_regexp_cache` to false, you can use this setting to limit ho
 
 > **NOTE:** This option is available from v2.7.0 onwards.
 
- [1]: /docs/others/Gateway-Environment-Vars.xlsx
