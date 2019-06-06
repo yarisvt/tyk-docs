@@ -11,8 +11,20 @@ For each JSON based configuration option in the [Gateway](/docs/configure/tyk-ga
 The format for creating Environment Variables is as follows:
 
 * All Environment Variables are written in uppercase
-* All underscores in the JSON are removed in the environment variable
-* All full stops in the JSON are replaced by an underscore
+* All underscores in the JSON key are removed in the environment variable
+* All full stops in the JSON key are replaced by an underscore
+
+### Example
+
+```
+{
+  "foo_bar.baz": "value"
+}
+```
+
+Becomes
+
+`FOOBAR_BAZ`
 
 ## Gateway
 
