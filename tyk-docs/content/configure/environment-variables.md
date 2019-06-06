@@ -6,65 +6,61 @@ menu:
 weight: 12 
 ---
 
-For each JSON based configuration option in the [Gateway](/docs/configure/tyk-gateway-configuration-options/), [Dashboard](/docs/configure/tyk-dashboard-configuration-options/) and [Pump](/docs/configure/tyk-pump-configuration/) configuration files, you can map to an Environment Variable. The Environment Variable will then override the configuration file option.
+You can use environment variables to override the config file settings for the Gateway, Dashboard and Pump. Environment variables are created from the dot notation versions of the JSON objects contained with the config files.
 
-The format for creating Environment Variables is as follows:
+## How to configure an Environment Variable
 
-* All Environment Variables are written in uppercase
-* All underscores in the JSON key are removed in the environment variable
-* All full stops in the JSON key are replaced by an underscore
+> **NOTE**:The following example uses a section from the Gateway config file `tyk.conf`, but the same applies to the Dashboard and the Pump configs.
 
-### Example
+### Step One - Convert the JSON to dot notation
 
 ```
-{
-  "foo_bar.baz": "value"
-}
+"policies": {
+    "policy_source": "service",
+    "policy_connection_string": "http://tyk-dashboard:3000",
+    "policy_record_name": "tyk_policies",
+    "allow_explicit_policy_id": true
+  }
 ```
 
-Becomes
+When targeting the various keys, you need to use dot notation, so the above policies settings become:
 
-`FOOBAR_BAZ`
+```
+policies.policy_source
+policies.policy_connection_string
+policies.policy_record_name
+policies.allow_explicit_policy_id
+```
 
-## Gateway
+### Step Two - Convert the dot notation to environment variables
 
-Each Gateway environment variable requires a `TYK_GW_` prefix
+* Remember this is for the Gateway, so we have to add the `TYK_GW_` prefix.
+* Any underscores are removed.
+* The dot notation is converted to underscores. 
+* The Environment variables are written in uppercase.
 
-### Example
+So:
 
-#### JSON Config File Option
+```
+policies.policy_source
+policies.policy_connection_string
+policies.policy_record_name
+policies.allow_explicit_policy_id
+```
 
-`analytics_config.normalise_urls.enabled`
+Becomes:
 
-#### Equivalent Environment Variable
+```
+TYK_GW_POLICIES_POLICYSOURCE
+TYK_GW_POLICIES_POLICYCONNECTIONSTRING
+TYK_GW_POLICIES_POLICYRECORDNAME
+TYK_GW_POLICIES_ALLOWEXPLICITPOLICYID
+```
 
-`TYK_GW_ANALYTICSCONFIG_NORMALISEURLS_ENABLED`
+## Prefixes
 
+* As above, Gateway environment variables require a `TYK_GW_` prefix
+* Dashboard environment variables require a `TYK_DB_` prefix
+* Pump environment variables require a `TYK_PMP_` prefix
 
-## Dashboard
-
-Each Dashboard environment variable requires a `TYK_DB_` prefix
-
-### Example
-
-#### JSON Config File Option
-
-`email_backend.settings`
-
-#### Equivalent Environment Variable
-
-`TYK_DB_EMAILBACKEND_SETTINGS`
-
-## Pump
-
-Each Pump environment variable requires a `TYK_PMP_` prefix
-
-### Example
-
-#### JSON Config File Option
-
-`analytics_storage_type`
-
-#### Equivalent Environment Variable
-
-`TYK_PMP_ANALYTICSSTORAGETYPE`
+### 
