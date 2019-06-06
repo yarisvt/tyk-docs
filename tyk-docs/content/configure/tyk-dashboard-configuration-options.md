@@ -14,7 +14,7 @@ The Dashboard configuration file can be found in the `tyk-dashboard` folder and 
 
 ### Environment Variables
 
-Environment variables can be used to override the settings defined in the configuration file. See [Tyk Dashboard Environment Variables](/docs/configure/environment-variables/#dashboard) for details. Where an environment variable is specified, its value will take precedence over the value in the configuration file.
+Environment variables can be used to override the settings defined in the configuration file. See [Environment Variables](/docs/configure/environment-variables/) for details. Where an environment variable is specified, its value will take precedence over the value in the configuration file.
 
 The file will look like the sample below, the various fields are explained in the following sections:
 
