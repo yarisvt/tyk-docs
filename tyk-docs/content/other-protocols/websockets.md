@@ -23,47 +23,27 @@ https://target:443/
 
 We are going to set up Tyk with a WebSocket proxy using our [Tyk Pro Docker Demo](https://github.com/TykTechnologies/tyk-pro-docker-demo) installation.
 
-You will also need a WebSocket client. We will use a Chrome Browser extension called [Simple WebSocket Client](https://chrome.google.com/webstore/detail/simple-websocket-client/pfdhoblngboilpfeibdedpjgfnlcodoo?hl=en).
+We will be using http://websocket.org/echo.html to test the connection.
 
-### Step 1. Set up the WebSockets Server
-
-We have a repo with the server code [here](https://github.com/sedkis/websocket-example)
-
-Clone the repo and run the install and start commands as per the Readme.
-
-```{.copyWrapper}
-npm install
-```
-
-Then
-
-```{.copyWrapper}
-npm start
-```
-
-You now have a WebSockets server listening on port 3001.
-
-### Step 2. Setup the API in Tyk
+### Step 1. Setup the API in Tyk
 
 Create a new API in Tyk. For this demo we are going to select Open (Keyless) as the **Authentication mode**.
 
-Set the **Target URL** to `ws://localhost:3001`
+Set the **Target URL** to `ws://echo.websocket.org`
 
 This gives you a **Gateway URL** of: `http://tyk-test.com:8080/websocket/`
 
-We will change `http` to `ws` in the WebSocket client.
+We will change `http` to `ws` in the websocket.org test site.
 
 ### Step 3. Test the Connection
 
-Using the **Simple WebSocket Client** in **Chrome**, in the Server Location field, enter:
+From http://websocket.org/echo.html enter the following in the **Location** field.
 
 `ws://www.tyk-test.com:8080/websocket/`
 
-![Server Location][1]
+Enter some text in the **Message** field, and click **Send**. You should see your sent message in the **Log** field.
 
-Then connect another instance to the WebSocket Server and watch them send messages to each other through Tyk:
-
-![Server Location][2]
+![WebSocket Test][1]
 
 
 
@@ -71,8 +51,9 @@ Then connect another instance to the WebSocket Server and watch them send messag
 
 
 
-[1]: /docs/img/dashboard/system-management/websocket_server1.png
-[2]: /docs/img/dashboard/system-management/websocket_server2.png
+
+[1]: /docs/img/dashboard/system-management/websocket_test.png
+
 
 
 
