@@ -23,41 +23,33 @@ Create a `pump.conf` file:
     "username": "",
     "password": "",
     "database": 0,
-    "timeout": 5,
     "optimisation_max_idle": 100,
     "optimisation_max_active": 0,
     "enable_cluster": false
   },
-  "purge_delay": 10,
+  "purge_delay": 1,
   "pumps": {
     "dummy": {
-      "name": "dummy",
-      "meta": {}
-    },
-    "mongo": {
-      "name": "mongo",
+      "type": "dummy",
       "meta": {
-        "collection_name": "tyk_analytics", 
-        "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/{db_name}",
-        "mongo_ssl_insecure_skip_verify": true,
-        "mongo_use_ssl": true                    
+        
       }
     },
-    "mongo-pump-aggregate": {
-      "name": "mongo-pump-aggregate",
+    "mongo": {
+      "type": "mongo",
       "meta": {
-        "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/{db_name}",
-        "use_mixed_collection": true
+        "collection_name": "tyk_analytics",
+        "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/{db_name}"
       }
     },
     "csv": {
-      "name": "csv",
+      "type": "csv",
       "meta": {
         "csv_dir": "./"
       }
     },
     "elasticsearch": {
-      "name": "elasticsearch",
+      "type": "elasticsearch",
       "meta": {
         "index_name": "tyk_analytics",
         "elasticsearch_url": "localhost:9200",
@@ -65,17 +57,19 @@ Create a `pump.conf` file:
         "document_type": "tyk_analytics",
         "rolling_index": false,
         "extended_stats": false,
-        "version": "5"
+        "version": "6"
       }
     },
     "influx": {
-      "name": "influx",
+      "type": "influx",
       "meta": {
         "database_name": "tyk_analytics",
         "address": "http//localhost:8086",
         "username": "root",
         "password": "root",
-        "fields": ["request_time"],
+        "fields": [
+          "request_time"
+        ],
         "tags": [
           "path",
           "response_code",
@@ -91,16 +85,29 @@ Create a `pump.conf` file:
       }
     },
     "moesif": {
-      "name": "moesif",
+      "type": "moesif",
       "meta": {
         "application_id": ""
       }
     },
+    "splunk": {
+      "type": "splunk",
+      "meta": {
+        "collector_token": "<token>",
+        "collector_url": "<url>",
+        "ssl_insecure_skip_verify": false,
+        "ssl_cert_file": "<cert-path>",
+        "ssl_key_file": "<key-path>",
+        "ssl_server_name": "<server-name>"
+      }
+    },
     "statsd": {
-      "name": "statsd",
+      "type": "statsd",
       "meta": {
         "address": "localhost:8125",
-        "fields": ["request_time"],
+        "fields": [
+          "request_time"
+        ],
         "tags": [
           "path",
           "response_code",
@@ -115,8 +122,26 @@ Create a `pump.conf` file:
         ]
       }
     },
+    "dogstatsd": {
+      "name": "dogstatsd",
+      "meta": {
+        "address": "localhost:8125",
+        "namespace": "pump",
+        "async_uds": true,
+        "async_uds_write_timeout_seconds": 2,
+        "buffered": true,
+        "buffered_max_messages": 32
+      }
+    },
+    "prometheus": {
+      "type": "prometheus",
+      "meta": {
+        "listen_address": "localhost:9090",
+        "path": "/metrics"
+      }
+    },
     "graylog": {
-      "name": "graylog",
+      "type": "graylog",
       "meta": {
         "host": "10.60.6.15",
         "port": 12216,
@@ -135,19 +160,27 @@ Create a `pump.conf` file:
           "raw_response"
         ]
       }
-    }
-  },
-  "hybrid": {
-    "name": "hybrid",
-    "meta": {
-      "rpc_key": "abc",
-      "api_key": "xyz",
-      "connection_string": "localhost:9090",
-      "use_ssl": false,
-      "ssl_insecure_skip_verify": false,
-      "group_id": "",
-      "call_timeout": 30,
-      "rpc_pool_size": 30
+    },
+    "hybrid": {
+      "type": "hybrid",
+      "meta": {
+        "rpc_key": “<org-id>“,
+        "api_key": “<api-key>”,
+        "aggregated": false,
+        "connection_string": "localhost:9090",
+        "use_ssl": false,
+        "ssl_insecure_skip_verify": false,
+        "group_id": "",
+        "call_timeout": 30,
+        "ping_timeout": 60,
+        "rpc_pool_size": 30
+      }
+    },
+    "logzio": {
+      "type": "logzio",
+      "meta": {
+        "token": "<YOUR-LOGZ.IO-TOKEN>"
+      }
     }
   },
   "uptime_pump_config": {
@@ -162,9 +195,26 @@ Create a `pump.conf` file:
 
 > **Note**: `mongo_ssl_insecure_skip_verify` and `mongo_use_ssl` are available from v1.3.6 onwards.
 
-Pumps are then added to the `pumps` section of this document, each should represent a sink to purge the data into.
+Pumps are then added to the `pumps` section. Each should represent a sink to purge the data into.
 
 Settings must be the same as for the original `tyk.conf` for Redis and for MongoDB.
+
+### Other Supported Backend Services
+
+The following services are supported:
+
+* MongoDB (to replace built-in purging)
+* CSV
+* ElasticSearch (2.0+)
+* Graylog
+* InfluxDB
+* Moesif
+* Splunk
+* StatsD
+* DogStatsD
+* Hybrid (Tyk RPC)
+* Prometheus
+* Logz.io
 
 #### Elasticsearch Config
 `index_name` - The name of the index that all the analytics data will be placed in. Defaults to "tyk_analytics"
@@ -179,21 +229,58 @@ Settings must be the same as for the original `tyk.conf` for Redis and for Mongo
 
 `extended_stats` - If set to true will include the following additional fields: Raw Request, Raw Response and User Agent.
 
-`version` - Specifies the ES version. Use "3" for ES 2.x, and "5" for ES 5.0. Defaults to "3".
+`version` - Specifies the ES version. Use "3" for ES 3.x, "5" for ES 5.0 and "6" for ES 6.0. Defaults to "3".
 
 #### Moesif Config
 Moesif is a logging and analytics service for APIs. The Moesif pump will move analytics data from Tyk to Moesif.
 
 `application_id` - Moesif App Id JWT. Multiple api_id's will go under the same app id.
 
+#### DogStatsD
+
+* `address`: address of the datadog agent including host & port
+* `namespace`: prefix for your metrics to datadog
+* `async_uds`: Enable async UDS over UDP https://github.com/Datadog/datadog-go#unix-domain-sockets-client
+* `async_uds_write_timeout_seconds`: Integer write timeout in seconds if async_uds: true
+* `buffered`: Enable buffering of messages
+* `buffered_max_messages`: Max messages in single datagram if buffered: true. Default 16
+* `sample_rate`: default 1 which equates to 100% of requests. To sample at 50%, set to 0.5
+
+```{.json}
+"dogstatsd": {
+  "name": "dogstatsd",
+  "meta": {
+    "address": "localhost:8125",
+    "namespace": "pump",
+    "async_uds": true,
+    "async_uds_write_timeout_seconds": 2,
+    "buffered": true,
+    "buffered_max_messages": 32,
+    "sample_rate": 0.5
+  }
+},
+```
+
+On startup, you should see the loaded configs when initialising the DogStatsD pump.
+
+```
+[May 10 15:23:44]  INFO dogstatsd: initializing pump
+[May 10 15:23:44]  INFO dogstatsd: namespace: pump.
+[May 10 15:23:44]  INFO dogstatsd: sample_rate: 50%
+[May 10 15:23:44]  INFO dogstatsd: buffered: true, max_messages: 32
+[May 10 15:23:44]  INFO dogstatsd: async_uds: true, write_timeout: 2s
+```
+
 #### Hybrid RPC Config
-Pump type `hybrid` is used to send your analytics data to MDCB via RPC.
+Hybrid Pump allows you to install Tyk Pump inside Multi-Cloud installations. You can configure Tyk Pump to send data to the source of your choice (i.e. ElasticSearch), and in parallel, forward analytics to the Tyk Cloud. Additionally, you can set the aggregated flag to send only aggregated analytics to MDCB or Tyk Cloud, in order to save network bandwidth between DCs.
 
 NOTE: Make sure your tyk.conf has `analytics_config.type` set to empty string value.
 
 `rpc_key` - Put your organization ID in this field.
 
 `api_key` - This the API key of a user used to authenticate and authorise the Gateway's access through MDCB. The user should be a standard Dashboard user with minimal privileges so as to reduce risk if compromised. The suggested security settings are `read` for `Real-time notifications` and the remaining options set to `deny`.
+
+`aggregated` - Set this field to `true` to send only aggregated analytics to MDCB or Tyk Cloud.
 
 `connection_string` - The MDCB instance or load balancer.
 
@@ -206,6 +293,43 @@ NOTE: Make sure your tyk.conf has `analytics_config.type` set to empty string va
 `call_timeout` - This is the timeout (in milliseconds) for RPC calls.
 
 `rpc_pool_size` - This is maximum number of connections to MDCB.
+
+
+#### Prometheus Config
+Prometheus is an open-source monitoring system with a dimensional data model, flexible query language, efficient time series database and modern alerting approach. 
+
+Add the following section to expose the `/metrics` endpoint:
+
+```{.json}
+"prometheus": {
+        "type": "prometheus",
+  "meta": {
+    "listen_address": "localhost:9090",
+    "path": "/metrics"
+  }
+},
+```
+
+`listen_address` - this is the URL that Prometheus can pull data from.
+
+### Multiple Pumps
+
+From Tyk Pump v0.6.0 you can now create multiple pumps of the same type by by setting the top level type as a custom values. For example:
+
+```{.json}
+"csv": {
+  "type": "csv",
+  "meta": {
+    "csv_dir": "./"
+  }
+},
+"csv_alt": {
+  "type": "csv",
+    "meta": {
+    "csv_dir": "./"
+  }
+}
+```
 
 ### Capping analytics data
 
