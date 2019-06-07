@@ -35,7 +35,7 @@ This gives you a **Gateway URL** of: `http://tyk-test.com:8080/websocket/`
 
 We will change `http` to `ws` in the websocket.org test site.
 
-### Step 3. Test the Connection
+### Step 2. Test the Connection
 
 From http://websocket.org/echo.html enter the following in the **Location** field.
 
