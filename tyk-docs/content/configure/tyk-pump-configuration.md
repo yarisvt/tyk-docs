@@ -57,7 +57,7 @@ Create a `pump.conf` file:
         "document_type": "tyk_analytics",
         "rolling_index": false,
         "extended_stats": false,
-        "version": "5"
+        "version": "6"
       }
     },
     "influx": {
@@ -164,8 +164,9 @@ Create a `pump.conf` file:
     "hybrid": {
       "type": "hybrid",
       "meta": {
-        "rpc_key": "5b5fd341e6355b5eb194765e",
-        "api_key": "008d6d1525104ae77240f687bb866974",
+        "rpc_key": “<org-id>“,
+        "api_key": “<api-key>”,
+        "aggregated": false,
         "connection_string": "localhost:9090",
         "use_ssl": false,
         "ssl_insecure_skip_verify": false,
@@ -228,7 +229,7 @@ The following services are supported:
 
 `extended_stats` - If set to true will include the following additional fields: Raw Request, Raw Response and User Agent.
 
-`version` - Specifies the ES version. Use "3" for ES 2.x, and "5" for ES 5.0. Defaults to "3".
+`version` - Specifies the ES version. Use "3" for ES 3.x, "5" for ES 5.0 and "6" for ES 6.0. Defaults to "3".
 
 #### Moesif Config
 Moesif is a logging and analytics service for APIs. The Moesif pump will move analytics data from Tyk to Moesif.
@@ -271,13 +272,15 @@ On startup, you should see the loaded configs when initialising the DogStatsD pu
 ```
 
 #### Hybrid RPC Config
-Pump type `hybrid` is used to send your analytics data to MDCB via RPC.
+Hybrid Pump allows you to install Tyk Pump inside Multi-Cloud installations. You can configure Tyk Pump to send data to the source of your choice (i.e. ElasticSearch), and in parallel, forward analytics to the Tyk Cloud. Additionally, you can set the aggregated flag to send only aggregated analytics to MDCB or Tyk Cloud, in order to save network bandwidth between DCs.
 
 NOTE: Make sure your tyk.conf has `analytics_config.type` set to empty string value.
 
 `rpc_key` - Put your organization ID in this field.
 
 `api_key` - This the API key of a user used to authenticate and authorise the Gateway's access through MDCB. The user should be a standard Dashboard user with minimal privileges so as to reduce risk if compromised. The suggested security settings are `read` for `Real-time notifications` and the remaining options set to `deny`.
+
+`aggregated` - Set this field to `true` to send only aggregated analytics to MDCB or Tyk Cloud.
 
 `connection_string` - The MDCB instance or load balancer.
 
@@ -293,7 +296,7 @@ NOTE: Make sure your tyk.conf has `analytics_config.type` set to empty string va
 
 
 #### Prometheus Config
-Prometheus is an open-source monitoring system with a dimensional data model, flexible query language, efficient time series database and modern alerting approach.
+Prometheus is an open-source monitoring system with a dimensional data model, flexible query language, efficient time series database and modern alerting approach. 
 
 Add the following section to expose the `/metrics` endpoint:
 
@@ -305,6 +308,27 @@ Add the following section to expose the `/metrics` endpoint:
     "path": "/metrics"
   }
 },
+```
+
+`listen_address` - this is the URL that Prometheus can pull data from.
+
+### Multiple Pumps
+
+From Tyk Pump v0.6.0 you can now create multiple pumps of the same type by by setting the top level type as a custom values. For example:
+
+```{.json}
+"csv": {
+  "type": "csv",
+  "meta": {
+    "csv_dir": "./"
+  }
+},
+"csv_alt": {
+  "type": "csv",
+    "meta": {
+    "csv_dir": "./"
+  }
+}
 ```
 
 ### Capping analytics data
