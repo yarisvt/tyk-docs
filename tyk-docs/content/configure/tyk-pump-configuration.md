@@ -333,6 +333,5 @@ Existing collections will never be modified.
 
 ### Environment Variables
 
-Environment variables can be used to override settings defined in the configuration file. The [Tyk Pump environment variables page](/docs/configure/pump-env-variables/) shows how the JSON member keys maps to the environment variable. Where an environment variable is specified, its value will take precedence over the value in the configuration file.
+Environment variables can be used to override the settings defined in the configuration file. See [Environment Variables](/docs/configure/environment-variables/) for details. Where an environment variable is specified, its value will take precedence over the value in the configuration file.
 
- [1]: /docs/others/Gateway-Environment-Vars.xlsx

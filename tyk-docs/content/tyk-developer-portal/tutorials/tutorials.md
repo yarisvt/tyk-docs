@@ -4,7 +4,7 @@ title: Tyk Portal Tutorials
 menu:
   main:
     parent: "Tyk Developer Portal"
-weight: 6
+weight: 7
 url: "/tyk-developer-portal/tutorials"
 ---
 

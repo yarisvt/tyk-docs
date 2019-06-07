@@ -98,3 +98,35 @@ If `SMTPUsername` or `SMTPPassword` is omitted, Tyk assumes that authentication 
   "SecretAccessKey": "KEY"
 },
 ```
+
+### Customise your Key Approval Emails
+
+#### Editing the Email Body
+
+1. Select **Settings** from your **Dashboard** > **Portal Management**
+2. From the "API Key approval email" section, select "Enable custom approval email", and edit the API Key email body.
+
+![Email-Customisation][1]
+
+#### Add an image or logo to the Key Approval Email
+
+1. Select "Enable custom approval email" as above.
+2. In the "API Key email body copy" field, enter `<img src="[LINK TO IMAGE]"/>`
+
+![Email-Image][2]
+
+> **NOTE**: The `LINK TO IMAGE` must be a publicly hosted resource.
+
+In an On-Premises installation you have full access to the HTML template, allowing you further customisation.
+
+
+
+
+
+
+
+
+[1]: /docs/img/dashboard/portal-management/email_key_approval.png
+[2]: /docs/img/dashboard/portal-management/email_image.png
+
+
