@@ -4,7 +4,7 @@ title: Move Keys Between Environments
 menu:
   main:
     parent: "Manage Multiple Environments"
-weight: 0 
+weight: 5 
 ---
 
 Tyk currently does not have a facility to export a group of keys from one environment and reissue them in another and still be able to manage those keys from within the Dashboard.
