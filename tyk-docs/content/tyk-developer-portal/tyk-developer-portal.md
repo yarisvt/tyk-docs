@@ -10,7 +10,5 @@ This section describes the basics of configuring your Developer Portal and some 
 
 [https://developer.ft.com/portal](https://developer.ft.com/portal)
 
-[https://developer.cityverve.org.uk/](https://developer.cityverve.org.uk/)
-
 [https://mn.developer.nokia.com/portal/](https://mn.developer.nokia.com/portal/)
 

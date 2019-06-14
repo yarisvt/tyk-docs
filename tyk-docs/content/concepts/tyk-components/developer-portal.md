@@ -23,6 +23,4 @@ For examples of how clients have used our portal, visit:
 
 [https://developer.ft.com/portal](https://developer.ft.com/portal)
 
-[https://developer.cityverve.org.uk/](https://developer.cityverve.org.uk/)
-
 [https://mn.developer.nokia.com/portal/](https://mn.developer.nokia.com/portal/)
