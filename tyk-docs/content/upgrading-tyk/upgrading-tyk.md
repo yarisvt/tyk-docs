@@ -12,7 +12,7 @@ Tyk Cloud users are automatically upgraded to the latest version as soon as it's
 ## <a name="Multi-Cloud"></a>Tyk Multi-Cloud Gateway
 We recommend you upgrade your Tyk Multi-Cloud Gateway in the following way:
 
- 1. Take a backup of your tyk.conf, tyk-analytics.conf and start.sh files. This is important if you have modified your Docker Container in your current version.
+ 1. Take a backup of your `tyk.conf` and `start.sh` files. This is important if you have modified your Docker Container in your current version.
  2. Re-run the start.sh script:
 
 ### For Mac OS Users
