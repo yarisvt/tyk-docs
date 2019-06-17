@@ -23,7 +23,7 @@ In order to do this, Tyk Multi-Cloud Gateways use a compressed RPC channel back 
 
 ### Getting Started
 
-To get started with Tyk Multi-Cloud, follow our [tutorial][1] to create an account.
+To get started with Tyk Multi-Cloud, [create an account](/docs/get-started/with-tyk-multi-cloud/create-an-account/).
 
 ## <a name="what-are-the-benefits-of-Multi-Cloud"></a>What are the benefits of Multi-Cloud ?
 
@@ -50,4 +50,4 @@ When requests come into your node, Tyk Multi-Cloud will act as your centralised 
 
 Tyk Multi-Cloud's RPC system has been built in such a way as to minimise latency, it's performance profile is the same as a full local deployment, just without any of the overhead of managing a failover MongoDB cluster or a Tyk Dashboard installation.
 
- [1]: /docs/get-started/with-tyk-hybrid/create-an-account/
+
