@@ -5,8 +5,10 @@ menu: "main"
 url: "/upgrading-tyk"
 ---
 
-## <a name="intro"></a>Introduction
-Depending on the version of Tyk you have installed, upgrading to the latest version works as follows:
+## <a name="intro"></a>IntroductionF
+Follow the instructions relevant to your Tyk setup to upgrade your Tyk components.
+Note: Upgrading Tyk will not overwrite your configuration files.  However, it is especially good practice to routinely back these files up, especially right before upgrading your software.
+
 ## <a name="cloud"></a>Tyk Cloud
 Tyk Cloud users are automatically upgraded to the latest version as soon as it's released.
 ## <a name="Multi-Cloud"></a>Tyk Multi-Cloud Gateway
