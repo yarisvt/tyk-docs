@@ -62,5 +62,6 @@ TYK_GW_POLICIES_ALLOWEXPLICITPOLICYID
 * As above, Gateway environment variables require a `TYK_GW_` prefix
 * Dashboard environment variables require a `TYK_DB_` prefix
 * Pump environment variables require a `TYK_PMP_` prefix
+* MDCB environment variables require a `TYK_MDCB_` prefix
 
 ### 
