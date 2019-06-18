@@ -5,7 +5,7 @@ menu: "main"
 url: "/upgrading-tyk"
 ---
 
-## <a name="intro"></a>IntroductionF
+## <a name="intro"></a>Introduction
 Follow the instructions relevant to your Tyk setup to upgrade your Tyk components.
 Note: Upgrading Tyk will not overwrite your configuration files.  However, it is especially good practice to routinely back these files up, especially right before upgrading your software.
 
