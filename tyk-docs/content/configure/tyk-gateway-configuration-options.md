@@ -453,8 +453,9 @@ The hostname to bind the REST API to.
 ### <a name="control-api"></a>control_api_port
 
 This allows you to run the Gateway Control API on separate port, and protect it behind a firewall if needed.
+Please make sure you follow these [instructions](https://tyk.io/docs/deploy-tyk-premise-production/#change-your-control-port) when setting the control port.
 
-> **NOTE:** This option is available from v2.4 onwards.
+> **Note:** This option is available from v2.4 onwards.
 
 ### <a name="enable_api_segregation"></a> enable_api_segregation
 
