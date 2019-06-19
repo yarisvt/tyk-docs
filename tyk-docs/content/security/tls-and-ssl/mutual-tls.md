@@ -70,7 +70,7 @@ generating certificate SHA256 fingerprint using following command:
 openssl x509 -noout -fingerprint -sha256 -inform pem -in <cert>.
 ```
 
-You may notice that you can't get the raw certificate back, only its meta information. This is to ensure security. Certificates with private keys have special treatment and are encoded before storing: if a private key is found it gets encrypted with AES256 algorithm 3 using `security.private_certificate_encoding_secret` from the Gateway configuration file and if it is empty, it will fallback to the value in the field [secret](https://tyk.io/docs/configure/tyk-gateway-configuration-options/#a-name-secret-a-secret).
+You may notice that you can't get the raw certificate back, only its meta information. This is to ensure security. Certificates with private keys have special treatment and are encoded before storing. If a private key is found it will be encrypted with AES256 algorithm 3 using the `security.private_certificate_encoding_secret` secret, defined in `tyk.conf` file. If a private key is not defined, it will use the [secret](https://tyk.io/docs/configure/tyk-gateway-configuration-options/#a-name-secret-a-secret) value in `tyk.conf`.
 
 ## <a name="authorisation"></a> Authorisation 
 At the TLS level, authorisation means allowing only clients who provide client certificates that are verified and trusted by the server. 
