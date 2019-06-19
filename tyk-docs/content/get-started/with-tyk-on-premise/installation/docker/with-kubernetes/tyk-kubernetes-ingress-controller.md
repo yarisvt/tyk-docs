@@ -47,7 +47,7 @@ Then run the chart:
 
 ### Overview of the Community Edition configuration
 
-The way the community edition is sintalled as an ingress controller is by running the gateways in CE mode (no dashboard configuration), and adding the Tyk K8s controller as a side-car to these pods. When an update is detected in the K8s API, all the controllers will convert the ingress spec into an API definition and push it into the gateway via the Gateway REST API. 
+The way the community edition is installed as an ingress controller is by running the gateways in CE mode (no dashboard configuration), and adding the Tyk K8s controller as a side-car to these pods. When an update is detected in the K8s API, all the controllers will convert the ingress spec into an API definition and push it into the gateway via the Gateway REST API. 
 
 This API is *not exposed* outside of the pod, the only way to interact with the gateway REST API is to use the `kubectl port-forward` feature (there is an example of this below).
 
@@ -104,7 +104,7 @@ If you want to manage both north-south and east-west traffic, then you will need
 kubectl create -f ./tyk-k8s/webhook/mutatingwebhook-ca-bundle.yaml
 ```
 
-This command will install the mutating webhook, i.e. it will tell your cluster to pass all deployments to the controller for parsing, if a deployment is detected that should be managed, then the controller will modify the depllyment to inject the sidecar and orchestrate the route creation for Tyk to be the intermediary between your services.
+This command will install the mutating webhook, i.e. it will tell your cluster to pass all deployments to the controller for parsing, if a deployment is detected that should be managed, then the controller will modify the deployment to inject the sidecar and orchestrate the route creation for Tyk to be the intermediary between your services.
 
 ## How the controller works
 
@@ -114,9 +114,9 @@ The controller has two key components:
 1. An ingress manager
 2. A service mesh webhook listener
 
-When Tyk is first installed via the helm chart, it will in stall itself as a DaemonSet and acquire a random node-port for it's service. The service is exposed as an External Load Balancer, which will trigger your cloud environemnt to provision one and add the exposed Tyk Gateways to it's backend list.
+When Tyk is first installed via the helm chart, it will in stall itself as a DaemonSet and acquire a random node-port for it's service. The service is exposed as an External Load Balancer, which will trigger your cloud environment to provision one and add the exposed Tyk Gateways to it's backend list.
 
-This means that the gateways are now exposed to the outseide of your cluster through a load balancer provisioned by your cloud environment.
+This means that the gateways are now exposed to the outside of your cluster through a load balancer provisioned by your cloud environment.
 
 These external-facing gateways are tagged, or "sharded" in the terminology of our docs. This means that they will only ever load API Definitions for services that have been defined and tagged with the same tag name. The tag-name for the ingress gateways are (unimaginatively) tagged as "ingress". This is worth remembering if you ever create a service route manually using the Tyk Gateway API or the Tyk Dashboard API Designer.
 
@@ -124,9 +124,9 @@ At this point, the controller cannot act as a service mesh controller, to get th
 
 ### The ingress controller
 
-The manager listens for events from the kubernetes service API for the creation or deletion of ingress specs. When an INgress spec is detected, the controller will check whether it is responsible for handling it, and if it is, processes the hostnames, paths and TLS certificate entries.
+The manager listens for events from the kubernetes service API for the creation or deletion of ingress specs. When an ingress spec is detected, the controller will check whether it is responsible for handling it, and if it is, processes the hostnames, paths and TLS certificate entries.
 
-For hostnames and paths, it will generate individual API Definitions (the internal structure used by the gateway to hold all infromation related to managing a service) for each unique path. These API Definitions are then pushed into the Tyk APIs to be managed. These API Definitions are also automatically tagged with the "ingress" tag so they are guaranteed to be loaded.
+For hostnames and paths, it will generate individual API Definitions (the internal structure used by the gateway to hold all information related to managing a service) for each unique path. These API Definitions are then pushed into the Tyk APIs to be managed. These API Definitions are also automatically tagged with the "ingress" tag so they are guaranteed to be loaded.
 
 Here we say "Tyk APIs" because - depending on your deployment (Pro or Gateway) - it will use either the dashboard or the gateway APIs, which are subtly different. This should all be transparent to you as the end user, but under the hood, Tyk tries to be clever about how to interact with the gateway.
 
@@ -160,7 +160,7 @@ spec:
           servicePort: 80
 ```
 
-If we then push this ingress definiton to kubernetes, you will find a new service in your Tyk Pro API Dashboard, or in the API list if you are using the Tyk Community Edition API.
+If we then push this ingress definition to kubernetes, you will find a new service in your Tyk Pro API Dashboard, or in the API list if you are using the Tyk Community Edition API.
 
 #### Transport Layer Security (TLS)
 
@@ -192,11 +192,11 @@ Pro users can just visit their dashboard API List page to see the same listings 
 
 #### Modifying how your services behave
 
-The ingress controller will build services against a Tyk API Defenition that is defined as "open" by default.  This won't be what you want most of the time,  there are three ways to modify how the API will behave: using annotations, using a template or a combination of the two (annotations and a template).
+The ingress controller will build services against a Tyk API Definition that is defined as "open" by default.  This won't be what you want most of the time,  there are three ways to modify how the API will behave: using annotations, using a template or a combination of the two (annotations and a template).
 
 ##### Annotations
 
-In ordr to make full use of the annotations, it's important to familiarise yourself with how Tyk API Definitions are structured, there are *many* options you can set in order to get different behaviour, and the annotations that are supplied by the inress controller provide a way to set values directly in the generated JSON of the Tyk API Definition. We recommend using annotations for maybe one or two settings, if you find yourself using them for more it may be worth making use of Templates.
+In ordr to make full use of the annotations, it's important to familiarise yourself with how Tyk API Definitions are structured, there are *many* options you can set in order to get different behaviour, and the annotations that are supplied by the ingress controller provide a way to set values directly in the generated JSON of the Tyk API Definition. We recommend using annotations for maybe one or two settings, if you find yourself using them for more it may be worth making use of Templates.
 
 The annotations that are provided are basically setters, and are set to specific types (such as string, bool, int etc.), below is a table of the annotations, what they do, and an example:
 
@@ -242,7 +242,7 @@ As you can see though, this mechanism could be prone to human error, and yo woul
 
 ##### Templates
 
-Working with templates is very simple, however it does mean these template files need to be available to the controller, adding them will require a redeployment of the tyk-k8s pod. First, we need to modify the conifg map for the kubernetes controller:
+Working with templates is very simple, however it does mean these template files need to be available to the controller, adding them will require a redeployment of the tyk-k8s pod. First, we need to modify the configmap for the kubernetes controller:
 
 ```
 # Opens vim with the configuration, you can edit this and save it to update the config map on the cluster
@@ -281,7 +281,7 @@ Once you have created them, add the to the namespace as config maps:
 kubectl create configmap token_auth.html --from-file=token_auth.html=token_auth.html --namespace tyk
 ```
 
-The last thing to do is to make sure they are available to the Tyk controller, and to ensure it picks up the new configuration, to do this you'll need to edit the deployment. If you are using the Tyk Community Edition versin, you will need to redeploy with the helm chart (as all gateways need to be updated) by editing the `deployment-tyk-k8s.yaml` file like so:
+The last thing to do is to make sure they are available to the Tyk controller, and to ensure it picks up the new configuration, to do this you'll need to edit the deployment. If you are using the Tyk Community Edition version, you will need to redeploy with the helm chart (as all gateways need to be updated) by editing the `deployment-tyk-k8s.yaml` file like so:
 
 ```
 	### --- there's other stuff up here
@@ -385,7 +385,7 @@ For each deployment, the controller will generate two API definitions:
 1. The ingress API Definition for the service, this is loaded *only* by the proxy that is attached as a sidecar to the service
 2. The egress API definition for the service, this is loaded by all gateways in the mesh and makes the service usable from requesting services
 
-Tyk will collect analytics information for each of these services and they will also be isible in the Tyk Dashboard if you wish to drill down or modify the behaviour of a service.
+Tyk will collect analytics information for each of these services and they will also be visible in the Tyk Dashboard if you wish to drill down or modify the behaviour of a service.
 
 If you delete a deployment from the cluster, the controller will detect and remove the relevant routes from the Tyk gateways so they are no longer available.
 
@@ -393,4 +393,4 @@ You can use all of the annotations for the ingress controller in the service mes
 
 #### Mutual TLS
 
-Mutual TLS is supported by Tyk, however the mesh does not auto-generate these certificates yet and they need to be added manualyl through the dashboard. This is functionality that is coming soon.
+Mutual TLS is supported by Tyk, however the mesh does not auto-generate these certificates yet and they need to be added manually through the dashboard. 
