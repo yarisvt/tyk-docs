@@ -28,7 +28,7 @@ Click a request to view its details.
 
 On an On-Premises installation, if you have request and response logging enabled, then you can also view the request payload and the response if it is available.
 To enable request and response logging, set both `enable_analytics` and
-`enable_detailed_recording` to `true` in your `tyk.conf` file. You then need to re-start your Tyk Pump.
+`enable_detailed_recording` to `true` in your `tyk.conf` file. You then need to restart your Tyk Gateway(s).
 
 **A warning on detailed logging:** This mode generates a very large amount of data, and that data exponentially increases the size of your log data set, and may cause problems with delivering analytics in bulk to your MongoDB instances. This mode should only be used to debug your APIs for short periods of time.
 
