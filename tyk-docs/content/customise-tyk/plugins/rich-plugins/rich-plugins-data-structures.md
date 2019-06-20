@@ -22,7 +22,7 @@ This is intended for users to generate their own bindings using the appropriate 
 
 ### MiniRequestObject (coprocess_mini_request_object.proto)
 
-The `Coprocess.MiniRequestObject` is the main request data structure used by rich plugins It's used for middleware calls and contains important fields like headers, parameters, body and URL. A `MiniRequestObject` is part of a `Coprocess.Object`.
+The `Coprocess.MiniRequestObject` is the main request data structure used by rich plugins. It's used for middleware calls and contains important fields like headers, parameters, body and URL. A `MiniRequestObject` is part of a `Coprocess.Object`.
 
 ```{.copyWrapper}
 message MiniRequestObject {
@@ -74,7 +74,7 @@ Contains the request body. See `ReturnOverrides` for response body modifications
 Contains the raw request body (bytes).
 
 `url`
-The request URL
+The request URL.
 
 `params`
 A read-only field that contains the request params. Modifying this value won't affect the request params.
@@ -92,7 +92,7 @@ See `ReturnOverrides` for more information.
 The request method, e.g. GET, POST, etc.
 
 `request_uri`
-Raw unprocessed url which include query string and fragments
+Raw unprocessed URL which includes query string and fragments.
 
 `scheme`
 Contains the URL scheme, e.g. `http`, `https`.
@@ -123,7 +123,7 @@ message Object {
 `hook_type`
 Contains the middleware hook type: pre, post, custom auth.
 
-`Hook_name`
+`hook_name`
 Contains the hook name.
 
 `request`
@@ -136,7 +136,7 @@ Contains the session object, see `SessionState` for more details.
 Contains the metadata. This is a dynamic field.
 
 `spec`
-Contains information about API definition, including `APIID`, `OrgID` and `config_data`
+Contains information about API definition, including `APIID`, `OrgID` and `config_data`.
 
 ### ReturnOverrides (coprocess_return_overrides.proto)
 
@@ -176,7 +176,7 @@ No longer used.
 `allowance`
 No longer used, should be the same as `rate`.
 
-`rate`  
+`rate` 
 The number of requests that are allowed in the specified rate limiting window.
 
 `per`
@@ -195,7 +195,7 @@ An epoch that defines when the quota renews.
 The number of requests remaining for this user's quota (unrelated to rate limit).
 
 `quota_renewal_rate`
-The time, in seconds. during which the quota is valid. So for 1000 requests per hour, this value would be 3600 while `quota_max` and `quota_remaining` would be 1000.
+The time in seconds during which the quota is valid. So for 1000 requests per hour, this value would be 3600 while `quota_max` and `quota_remaining` would be 1000.
 
 `access_rights`
 Access rights can be defined either by the Dashboard or via an API, depending on the version of Tyk you are using. See the Tutorials section for [Cloud](/docs/get-started/with-tyk-cloud/tutorials/), [Multi-Cloud](/docs/get-started/with-tyk-multi-cloud/tutorials/) and [On-Premises](/docs/get-started/with-tyk-on-premise/tutorials/) (Community and Pro) for more details.
