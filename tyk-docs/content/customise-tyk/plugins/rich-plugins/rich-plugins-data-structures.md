@@ -13,7 +13,7 @@ This page describes the data structures used by Tyk rich plugins, and is used in
 
 *   Python (built-in)
 *   Lua (built-in)
-*   gRPC (external, compatible with any supported [gRPC language](https://grpc.io/docs/)
+*   gRPC (external, compatible with any supported [gRPC language](https://grpc.io/docs/))
 
 
 We keep our stable Protocol Buffer definitions in the following GitHub repository:
