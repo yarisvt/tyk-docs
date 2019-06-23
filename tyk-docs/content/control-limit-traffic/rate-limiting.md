@@ -38,6 +38,10 @@ Using `global_rate_limit` API definition field you can specifies a global API ra
  
 The API rate limit is an aggregate value across all users, which works in parallel with user rate limits, but has higher priority.
 
+#### Global Rate Limiter Algorithm
+
+The algorithm used by the global rate limiter will be the same algorithm configured for the key rate limiter.
+
 #### Setting Global Rate Limits from the Dashboard 
  
 From the Dashboard, you can specify the Global Rate Limits from the API Designer: 
