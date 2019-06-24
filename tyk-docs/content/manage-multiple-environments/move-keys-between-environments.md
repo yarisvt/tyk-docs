@@ -11,6 +11,10 @@ Tyk currently does not have a facility to export a group of keys from one enviro
 
 However, it is possible to temporarily allow access to existing keys in a new environment, but it should be noted that these keys should eventually be expired and re-generated within the new environment.
 
-### Creating Custom Keys
+### Moving Keys Between Environments
 
 In order to use a legacy key in a new environment, simply extract the key from the old environment using a `GET /tyk/keys/{keyID}` request and then `PUT` that key to the Gateway REST API (not create) under `/tyk/keys/{keyId}`. This will insert the key into Tyk, and Tyk will respect that key. However, it may not be visible in the Dashboard. This is called a custom key.
+
+### Creating Custom Keys
+
+To create a key with a custom identifier, ie Token, simply create a new key by making a `PUT` to the `/tyk/keys/{keyId}`, where `keyId` is your custom value.
