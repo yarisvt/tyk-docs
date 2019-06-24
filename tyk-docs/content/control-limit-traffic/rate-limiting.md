@@ -52,6 +52,10 @@ From the Dashboard, you can specify the Global Rate Limits from the API Designer
 
 Yes, the rate limiter can be disabled for an API Definition by checking **Disable Rate Limits** in your API Designer, or by setting the value of `disable_rate_limit` to `true` in your API definition.
 
+Alternatively, you could also set the values of `Rate` and `Per (Seconds)` to be 0 in the API Designer.
+
+Note, Disabling the rate limiter at the global level does not disable the rate limiting at the key level.  Tyk will enforce the rate limit at the key level regardless of this setting.
+
 ### Can I rate limit by IP address?
 
 Not yet, though IP-based rate limiting is possible using custom pre-processor middleware JavaScript that generates tokens based on IP addresses.
