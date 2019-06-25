@@ -124,7 +124,7 @@ curl -X POST -H "x-tyk-authorization: 352d20fe67be67f6340b4c0605b044c3" \
 The following command will create a basic authentication  user with the Tyk Dashboard API:
 
 ```{.copyWrapper}
-curl -X POST -H "Authorization: {YOUR API KEY}"
+curl -X POST -H "Authorization: 907aed9f88514f175f1dccf8a921f741"
  -s
  -H "Content-Type: application/json"
  -X POST
