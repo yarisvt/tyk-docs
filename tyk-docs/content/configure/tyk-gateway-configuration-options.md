@@ -528,7 +528,7 @@ Set this value to `true` to have Tyk manage session data using a goroutine, this
 
 ### <a name="disable_dashboard_zeroconf"></a> disable_dashboard_zeroconf
 
-Disable the capability of the Gateway to "autodiscover" the Dashboard through heartbeat messages via Redis.
+Disable the capability of the Gateway to "autodiscover" the Dashboard through heartbeat messages via Redis. The goal of zeroconf is auto-discovery, so you do not have to specify the Tyk Dashboard address in `tyk.conf`. In some specific cases, for example, when the Dashboard is bound to a public domain, not accessible inside an internal network, or similar, `disable_dashboard_zeroconf` can be set to true, in favour of directly specifying a Tyk Dashboard address.
 
 ### <a name="auth_override"></a> auth_override
 
