@@ -125,7 +125,7 @@ If it's not in the right format, then the request will be rejected. And you can 
 
 ### Whitelist
 
-Adding a path to a whitelist will cause the entire API to become whitelisted. This means any non-specified routes will be blocked, and only those listed in the Endpoint Designer will be allowed through. This is great if you wish to have very select access rules for your services.
+Adding a path to a whitelist will cause the entire API to become blacklisted. This means any non-specified routes will be blocked, and only those listed in the Endpoint Designer will be allowed through. This is great if you wish to have very select access rules for your services.
 
 Accessing a path which has **not** been whitelisted:
 
