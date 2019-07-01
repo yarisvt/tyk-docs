@@ -4,7 +4,7 @@ title: Kubernetes Quickstart
 menu:
   main:
     parent: "With Docker"
-weight: 1
+weight: 3
 url: "/get-started/with-tyk-on-premise/installation/docker/with-kubernetes"
 ---
 
