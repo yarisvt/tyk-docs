@@ -42,6 +42,13 @@ Create a `pump.conf` file:
         "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/{db_name}"
       }
     },
+    "mongo-pump-aggregate": {
+      "name": "mongo-pump-aggregate",
+      "meta": {
+        "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/{db_name}",
+        "use_mixed_collection": true
+      }
+    },
     "csv": {
       "type": "csv",
       "meta": {
@@ -164,8 +171,8 @@ Create a `pump.conf` file:
     "hybrid": {
       "type": "hybrid",
       "meta": {
-        "rpc_key": “<org-id>“,
-        "api_key": “<api-key>”,
+        "rpc_key": "<org-id>",
+        "api_key": "<api-key>",
         "aggregated": false,
         "connection_string": "localhost:9090",
         "use_ssl": false,
@@ -198,6 +205,9 @@ Create a `pump.conf` file:
 Pumps are then added to the `pumps` section. Each should represent a sink to purge the data into.
 
 Settings must be the same as for the original `tyk.conf` for Redis and for MongoDB.
+
+#### Tyk Dashboard
+The Tyk Dashboard uses the `mongo-pump-aggregate` collection to display analytics. This is different than the standard `mongo` pump plugin that will store individual analytic items into MongoDB. The aggregate functionality was built to be fast, as querying raw analytics is expensive in large data sets.
 
 ### Other Supported Backend Services
 
