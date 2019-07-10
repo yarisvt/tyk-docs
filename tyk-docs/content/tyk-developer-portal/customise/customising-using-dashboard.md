@@ -31,7 +31,7 @@ Alternatively, you can update the CSS with an API call.  the below `curl` comman
 
 ```{.copyWrapper}
 curl -X PUT http://tyk-dashboard.com/api/portal/css \
-  -H "authorization: 1238b7e0e2ff4c2957321724409ee2eb" \
+  -H "authorization: 8f297c42596541034c37ea8dc9349fef" \
   -s \
   -H "Content-Type: application/json" \
   -d '{
