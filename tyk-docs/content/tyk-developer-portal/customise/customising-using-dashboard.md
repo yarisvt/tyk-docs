@@ -39,7 +39,7 @@ curl -X PUT http://tyk-dashboard.com/api/portal/css \
     "id":{CSS_BLOCK_ID},
     "org_id": "5cca0452817e000001c2a543",
     "page_css": ".btn-success {background-color: magenta}"
-  }'
+  }' | python -mjson.tool
 ```
 
 To get the CSS_BLOCK_ID, run this `curl` command:
