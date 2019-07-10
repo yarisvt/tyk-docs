@@ -42,7 +42,7 @@ curl -X PUT http://tyk-dashboard.com/api/portal/css \
   }' | python -mjson.tool
 ```
 
-To get the CSS_BLOCK_ID, run this `curl` command:
+To get the `CSS_BLOCK_ID`, run this `curl` command:
 
 ```{.copyWrapper}
 curl www.tyk-test.com:3000/api/portal/css \
@@ -57,7 +57,7 @@ Response:
     "page_css": ".btn-success {background-color: magenta1}"
 }
 ```
-The `id` is the css_block_id to use in the update Curl above.
+The `id` is the `CSS_BLOCK_ID` to use in the update Curl above.
 
 ![Email CSS editor][3]
 
