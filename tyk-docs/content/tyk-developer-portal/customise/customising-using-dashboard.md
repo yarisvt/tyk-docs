@@ -26,6 +26,39 @@ In the CSS Editor, add the classes that you would like to override in the home p
 
 If you wish to customise how emails are displayed to end-users, then you can also add new classes to the Email CSS editor, these classes will be added in-line to the email that is sent out:
 
+### Updating CSS With API
+Alternatively, you can update the CSS with an API call.  the below `curl` command will update the CSS for your organization.
+
+```{.copyWrapper}
+curl -X PUT http://tyk-dashboard.com/api/portal/css \
+  -H "authorization: 1238b7e0e2ff4c2957321724409ee2eb" \
+  -s \
+  -H "Content-Type: application/json" \
+  -d '{
+    "email_css": "",
+    "id":{CSS_BLOCK_ID},
+    "org_id": "5cca0452817e000001c2a543",
+    "page_css": ".btn-success {background-color: magenta}"
+  }'
+```
+
+To get the CSS_BLOCK_ID, run this `curl` command:
+
+```{.copyWrapper}
+curl www.tyk-test.com:3000/api/portal/css \
+-H "Authorization:8f297c42596541034c37ea8dc9349fef" | python -mjson.tool
+```
+Response:
+```{.copyWrapper}
+{
+    "email_css": "",
+    "id": "5d264778f56e1a89e7c47d7d",
+    "org_id": "5d0290bff56e1a636ac540c0",
+    "page_css": ".btn-success {background-color: magenta1}"
+}
+```
+The `id` is the css_block_id to use in the update Curl above.
+
 ![Email CSS editor][3]
 
 Once you have finished making your changes, click the "Update" button, the new CSS should be available almost immediately on your site.
