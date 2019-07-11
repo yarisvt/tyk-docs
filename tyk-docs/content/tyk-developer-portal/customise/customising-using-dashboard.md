@@ -26,34 +26,34 @@ In the CSS Editor, add the classes that you would like to override in the home p
 
 If you wish to customise how emails are displayed to end-users, then you can also add new classes to the Email CSS editor, these classes will be added in-line to the email that is sent out:
 
-### Updating CSS With API
-Alternatively, you can update the CSS with an API call.  the below `curl` command will update the CSS for your organization.
+### Updating CSS via API
+Alternatively, you can update the CSS with an API call.  The below `curl` command will update the CSS for your organization.
 
 ```{.copyWrapper}
 curl -X PUT http://tyk-dashboard.com/api/portal/css \
-  -H "authorization: 8f297c42596541034c37ea8dc9349fef" \
+  -H "authorization: {DASHBOARD-API-KEY}" \
   -s \
   -H "Content-Type: application/json" \
   -d '{
     "email_css": "",
     "id":{CSS_BLOCK_ID},
-    "org_id": "5cca0452817e000001c2a543",
+    "org_id": "{ORG_ID}",
     "page_css": ".btn-success {background-color: magenta}"
-  }' | python -mjson.tool
+  }' 
 ```
 
 To get the `CSS_BLOCK_ID`, run this `curl` command:
 
 ```{.copyWrapper}
 curl www.tyk-test.com:3000/api/portal/css \
--H "Authorization:8f297c42596541034c37ea8dc9349fef" | python -mjson.tool
+-H "Authorization:{DASHBOARD-API-KEY}"
 ```
 Response:
 ```{.copyWrapper}
 {
     "email_css": "",
-    "id": "5d264778f56e1a89e7c47d7d",
-    "org_id": "5d0290bff56e1a636ac540c0",
+    "id": "SOME_ID",
+    "org_id": "SOME_ORG_ID",
     "page_css": ".btn-success {background-color: magenta1}"
 }
 ```
