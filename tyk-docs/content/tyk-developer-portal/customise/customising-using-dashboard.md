@@ -27,37 +27,39 @@ In the CSS Editor, add the classes that you would like to override in the home p
 If you wish to customise how emails are displayed to end-users, then you can also add new classes to the Email CSS editor, these classes will be added in-line to the email that is sent out:
 
 ### Updating CSS via API
-Alternatively, you can update the CSS with an API call.  The below `curl` command will update the CSS for your organization.
+Alternatively, as always, you can perform the above actions with an API call instead of through the Dashboard UI.
 
-```{.copyWrapper}
-curl -X PUT http://tyk-dashboard.com/api/portal/css \
-  -H "authorization: {DASHBOARD-API-KEY}" \
-  -s \
-  -H "Content-Type: application/json" \
-  -d '{
-    "email_css": "",
-    "id":{CSS_BLOCK_ID},
-    "org_id": "{ORG_ID}",
-    "page_css": ".btn-success {background-color: magenta}"
-  }' 
-```
+First, we'll need to get the block ID of the CSS component in order to update it.  This is stored in Mongo by the Dashboard.
+To get the block ID, we have to make a REST call to the Dashboard API.  
 
-To get the `CSS_BLOCK_ID`, run this `curl` command:
+To do so, run this `curl` command:
 
 ```{.copyWrapper}
 curl www.tyk-test.com:3000/api/portal/css \
--H "Authorization:{DASHBOARD-API-KEY}"
+-H "Authorization:<DASHBOARD API KEY>"
 ```
 Response:
 ```{.copyWrapper}
 {
     "email_css": "",
-    "id": "SOME_ID",
-    "org_id": "SOME_ORG_ID",
+    "id": "<CSS BLOCK ID>",
+    "org_id": "<ORG ID>",
     "page_css": ".btn-success {background-color: magenta1}"
 }
 ```
-The `id` is the `CSS_BLOCK_ID` to use in the update Curl above.
+Now we can use the `id` and the `org_id` to update the CSS.
+The below `curl` command will update the CSS for a specific organization.
+
+```{.copyWrapper}
+curl -X PUT http://tyk-dashboard.com/api/portal/css \
+  -H "authorization:<DASHBOARD API KEY>" \
+  -d '{
+    "email_css": "",
+    "id": "<CSS BLOCK ID>",
+    "org_id":"<ORG ID>",
+    "page_css": ".btn-success {background-color: magenta}"
+  }' 
+```
 
 ![Email CSS editor][3]
 
