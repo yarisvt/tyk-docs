@@ -9,7 +9,7 @@ weight: 5
 
 ### Description
 
-Users receive the error "Error initialising system: couldn't unmarshal config: invalid character” in their logs when starting up the Gateway. 
+Users receive the error "Error initialising system: couldn't unmarshal config: invalid character" in their logs when starting up the Gateway. 
 
 ### Cause
 
