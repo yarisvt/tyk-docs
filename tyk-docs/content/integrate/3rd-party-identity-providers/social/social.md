@@ -23,6 +23,7 @@ The social provider for the Tyk Identity Broker is a thin wrapper around the exc
 *   Spotify
 *   Twitch
 *   Twitter
+*   Salesforce
 
 The social provider is ideal for SSO-style logins for the Dashboard or for the Portal. For certain providers (mainly Google+), where email addresses are returned as part of the user data, a constraint can be added to validate the users domain. This is useful for Google For Business Apps users that want to grant access to their domain users for the Dashboard.
 

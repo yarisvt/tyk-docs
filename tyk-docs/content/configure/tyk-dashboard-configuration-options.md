@@ -14,7 +14,7 @@ The Dashboard configuration file can be found in the `tyk-dashboard` folder and 
 
 ### Environment Variables
 
-Environment variables can be used to override settings defined in the configuration file. The [Tyk Dashboard environment variables page](/docs/configure/dashboard-env-variables/) shows how the JSON member keys map to an environment variables. Where an environment variable is specified, its value will take precedence over the value in the configuration file.
+Environment variables can be used to override the settings defined in the configuration file. See [Environment Variables](/docs/configure/environment-variables/) for details. Where an environment variable is specified, its value will take precedence over the value in the configuration file.
 
 The file will look like the sample below, the various fields are explained in the following sections:
 
@@ -92,6 +92,8 @@ The file will look like the sample below, the various fields are explained in th
     "format": "json",
     "path": "/tmp/audit.log",
     "detailed_recording": false
+  },
+  "enable_multi_org_users"
   }
 }
 ```
@@ -118,7 +120,8 @@ The file will look like the sample below, the various fields are explained in th
     
 Each node communicates with the Dashboard via a shared secret (this setting) and a nonce to ensure that out-of-band requests cannot be made. Nodes will send a heartbeat every few seconds to notify the Dashboard that they are running.
 
-*   `admin_secret`: Tyk Dashboard has a bootstrap API, this secret is for the bootstrap API, these call do things like: Create new organisations, create super users etc. See the Advanced API documentation for more on these endpoints.
+*   `admin_secret`: This secret is to be used by a special set of endpoints that we call "Admin APIs". This API is part of the super-admin context and therefore has a separate endpoint prefix `/admin`. It also requires a special auth header called `admin-auth`.
+This purpose of these endpoints is to allow functionality that regular Dashboard users should not have, such as create new organisations, create super users etc. See the [Admin API](https://tyk.io/docs/dashboard-admin-api/) for more information on these endpoints.
 
 *   `mongo_url`: The full URL to your MongoDB instance, this can be a clustered instance if necessary and should include the database and username / password data.
     
@@ -342,5 +345,9 @@ Audit record fields for `json` format:
 
 *   `response_dump` - HTTP response copy (available if `audit.detailed_recording` is set to `true`)
 
-Audit record fields for `text` format - all fields are in plain text separated with new line and provided in the same order as fields for `json` format. 
+Audit record fields for `text` format - all fields are in plain text separated with new line and provided in the same order as fields for `json` format.
+
+*  `enable_multi_org_users`: Set to `true` to create users in different organisations, using the same email address. Users will then be able to select an organisation when logging in, and can easily switch between organisations via the navigation menu.
+
+> **NOTE**: This is only available for clients with a two node or more Tyk Dashboard licence.
 

@@ -38,6 +38,10 @@ Using `global_rate_limit` API definition field you can specifies a global API ra
  
 The API rate limit is an aggregate value across all users, which works in parallel with user rate limits, but has higher priority.
 
+#### Global Rate Limiter Algorithm
+
+The algorithm used by the global rate limiter will be the same algorithm configured for the key rate limiter.
+
 #### Setting Global Rate Limits from the Dashboard 
  
 From the Dashboard, you can specify the Global Rate Limits from the API Designer: 
@@ -47,6 +51,10 @@ From the Dashboard, you can specify the Global Rate Limits from the API Designer
 ### Can I disable the rate limiter?
 
 Yes, the rate limiter can be disabled for an API Definition by checking **Disable Rate Limits** in your API Designer, or by setting the value of `disable_rate_limit` to `true` in your API definition.
+
+Alternatively, you could also set the values of `Rate` and `Per (Seconds)` to be 0 in the API Designer.
+
+> **Note**: Disabling the rate limiter at the global level does not disable the rate limiting at the key level.  Tyk will enforce the rate limit at the key level regardless of this setting.
 
 ### Can I rate limit by IP address?
 

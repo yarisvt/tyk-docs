@@ -6,13 +6,15 @@ url: "/upgrading-tyk"
 ---
 
 ## <a name="intro"></a>Introduction
-Depending on the version of Tyk you have installed, upgrading to the latest version works as follows:
+Follow the instructions relevant to your Tyk setup to upgrade your Tyk components.
+Note: Upgrading Tyk will not overwrite your configuration files.  However, it is especially good practice to routinely back these files up, especially right before upgrading your software.
+
 ## <a name="cloud"></a>Tyk Cloud
 Tyk Cloud users are automatically upgraded to the latest version as soon as it's released.
 ## <a name="Multi-Cloud"></a>Tyk Multi-Cloud Gateway
 We recommend you upgrade your Tyk Multi-Cloud Gateway in the following way:
 
- 1. Take a backup of your tyk.conf, tyk-analytics.conf and start.sh files. This is important if you have modified your Docker Container in your current version.
+ 1. Take a backup of your `tyk.conf` and `start.sh` files. This is important if you have modified your Docker Container in your current version.
  2. Re-run the start.sh script:
 
 ### For Mac OS Users

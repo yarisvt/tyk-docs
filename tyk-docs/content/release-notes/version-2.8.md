@@ -306,6 +306,7 @@ Tyk's JSVM `TykMakeHttpRequest` function will also respect the above configurati
 - Exposing oAuth2 APIs to developer portal
 - Allow for the retrieval of an API via it's external API
 - Allow updating keys by hash
+- Added support for `SMTP` noauth.
 
 ### Tyk Pump 0.6
 

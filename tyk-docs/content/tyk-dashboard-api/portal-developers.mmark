@@ -311,10 +311,8 @@ curl https://admin.cloud.tyk.io/api/portal/developers/password/:Id \
 }
 ```
 
-<<<<<<< HEAD:tyk-docs/content/tyk-dashboard-api/portal-developers.mmark
 <span data-filetype="mmark"></span>
 {{./static/include/portal-developer-analytics.md}}
-=======
 
 ### Add Subscription To Developer
 
@@ -384,5 +382,3 @@ curl https://admin.cloud.tyk.io/api//portal/developers/:Id/subscriptions \
 | Type         | None                          |
 | Body         | None                          |
 | Param        | None                          |
-
->>>>>>> master:tyk-docs/content/tyk-dashboard-api/portal-developers.md

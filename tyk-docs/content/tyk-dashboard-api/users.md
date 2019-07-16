@@ -149,7 +149,7 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 If a user is created with a blank password, you will need to add a password in a second API call to set a password. In this scenario, the `current_password` field is not required. To change an current password, you need to know the existing password set in **Add User**.
 
-You need to have the `users` [Permission object](https://tyk.io/docs/security/dashboard/user-roles/#the-permissions-object) set to write to use **Set User Password**.
+You need to have the `users` [Permission object](https://tyk.io/docs/security/dashboard/user-roles/#the-permissions-object) set to **read** to use **Set User Password**.
 
 | **Property** | **Description**                      |
 | ------------ | -------------------------------------|

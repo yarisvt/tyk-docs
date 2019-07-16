@@ -14,7 +14,7 @@ The Tyk Gateway server is configured primarily via the `tyk.conf` file, this fil
 
 ### Environment Variables
 
-Environment variables can be used to override settings defined in the configuration file. The [Tyk Gateway environment variables page](/docs/configure/gateway-env-variables/) shows how the JSON member keys maps to an environment variable. Where an environment variable is specified, its value will take precedence over the value in the configuration file.
+Environment variables can be used to override the settings defined in the configuration file. See [Environment Variables](/docs/configure/environment-variables/) for details. Where an environment variable is specified, its value will take precedence over the value in the configuration file.
 
 ### <a name="linter"></a> tyk lint
 In **v2.4** we have added a new `tyk lint ` command which will validate your `tyk.conf` file and validate it for syntax correctness, misspelled attribute names or format of values. The Syntax can be:
@@ -453,8 +453,9 @@ The hostname to bind the REST API to.
 ### <a name="control-api"></a>control_api_port
 
 This allows you to run the Gateway Control API on separate port, and protect it behind a firewall if needed.
+Please make sure you follow these [instructions](https://tyk.io/docs/deploy-tyk-premise-production/#change-your-control-port) when setting the control port.
 
-> **NOTE:** This option is available from v2.4 onwards.
+> **Note:** This option is available from v2.4 onwards.
 
 ### <a name="enable_api_segregation"></a> enable_api_segregation
 
@@ -527,7 +528,7 @@ Set this value to `true` to have Tyk manage session data using a goroutine, this
 
 ### <a name="disable_dashboard_zeroconf"></a> disable_dashboard_zeroconf
 
-Disable the capability of the Gateway to "autodiscover" the Dashboard through heartbeat messages via Redis.
+Disable the capability of the Gateway to "autodiscover" the Dashboard through heartbeat messages via Redis. The goal of zeroconf is auto-discovery, so you do not have to specify the Tyk Dashboard address in `tyk.conf`. In some specific cases, for example, when the Dashboard is bound to a public domain, not accessible inside an internal network, or similar, `disable_dashboard_zeroconf` can be set to true, in favour of directly specifying a Tyk Dashboard address.
 
 ### <a name="auth_override"></a> auth_override
 
@@ -613,4 +614,3 @@ If you set `disable_regexp_cache` to false, you can use this setting to limit ho
 
 > **NOTE:** This option is available from v2.7.0 onwards.
 
- [1]: /docs/others/Gateway-Environment-Vars.xlsx

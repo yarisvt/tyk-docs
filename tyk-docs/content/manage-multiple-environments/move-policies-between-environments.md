@@ -4,7 +4,7 @@ title: Move Policies Between Environments
 menu:
   main:
     parent: "Manage Multiple Environments"
-weight: 0 
+weight: 6 
 ---
 
 Moving policies between two (Dashboard) environments is not as easy as moving API definitions and requires working with the Dashboard API to first retrieve the policies, and then modifying the document to reinsert them in your new environment:
@@ -110,4 +110,8 @@ curl -X POST -H "authorization: {API-TOKEN}" \
 ```
 
 That's it, Tyk will now load this policy, and you will be able to manage and edit it the same way in your new environment, if you are re-creating tokens in your new environment, then those tokens' ACL does not need to be changed to a new policy ID since the legacy one will always be used as the reference for the policy.
+
+## Use Tyk-Sync
+
+You can also use our new Tyk-Sync tool which allows you to sync your Policies (and APIs) with a Version Control System (VCS). You can then move your Policies between environments. See [Tyk-Sync](/docs/manage-multiple-environments/tyk-sync/) for more details.
 

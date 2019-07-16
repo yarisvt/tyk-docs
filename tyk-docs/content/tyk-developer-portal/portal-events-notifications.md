@@ -81,11 +81,11 @@ If you have enabled email notifications, the Portal will attempt to send notific
 
 The templates are twofold, text-only and HTML, please see the standard included ones to see the various template fields that can be customised.
 
-### Extra Portal Events
+### Extra Dashboard And Portal Events
 
 The Dashboard and Portal also support a certain level of events that you can use to notify your systems of various things that have happened in the Portal.
 
-To configure them, add an `event_options` section to an Organisation document when you are creating them (see the Dashboard REST API documentation to see how to create an Organisation record using the API).
+To configure them, add an `event_options` section to an Organisation when you are creating them. See [Creating an Organisation via the Dashboard Admin API](/docs/dashboard-admin-api/organisations/#create-an-organisation) for more details.
 
 Within this object, you can then register either webhooks or an email address to notify when an event occurs:
 
