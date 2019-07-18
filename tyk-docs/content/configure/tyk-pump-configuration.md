@@ -373,3 +373,10 @@ configurations to your `uptime_pump_config` and / or `mongo.meta` objects in `pu
 If capped collections are enabled and a max size is not set, a default cap size of `5Gib` is applied. 
 Existing collections will never be modified.
 
+
+> **NOTE**: An alternative to capped collections is MongoDB's **Time To Live** indexing (TTL). TTL indexes are incompatible with capped collections. If you have set a capped collection, a TTL index will not get created, and you will see error messages in the MongoDB logs. See [MongoDB TTL Docs](https://docs.mongodb.com/manual/tutorial/expire-data/) for more details on TTL indexes.
+
+### Environment Variables
+
+Environment variables can be used to override settings defined in the configuration file. The [Tyk Pump environment variables page](/docs/configure/pump-env-variables/) shows how the JSON member keys maps to the environment variable. Where an environment variable is specified, its value will take precedence over the value in the configuration file.
+
