@@ -7,7 +7,7 @@ menu:
 weight: 7
 ---
 
-## Bootstrap
+## bootstrap
 
 To list the available flags, execute `tyk-analytics bootstrap -h`:
 
