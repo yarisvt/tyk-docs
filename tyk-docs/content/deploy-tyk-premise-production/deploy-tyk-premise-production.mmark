@@ -192,14 +192,6 @@ Make sure your system has resource limits set to handle lots of inbound traffic.
 
 {{./static/include/file-handles.md}}
 
-#### TCP connection recycling
-
-Use this at your own peril - it's not always recommended and you need to be sure it fits your use case, but you can squeeze a bit more performance out of a Gateway install by running this on the command line:
-
-```{.copyWrapper}
-sysctl -w net.ipv4.tcp_tw_recycle=1
-```
-
 Careful with it though, it could lead to unterminated connections.
 
 ### File modification at runtime
@@ -215,4 +207,3 @@ Understanding what files are created or modified by the Dashboard and Gateway du
  [3]: /docs/img/diagrams/deployGraphVanilla.png
  [5]: https://docs.mongodb.com/manual/core/capped-collections/
  [6]: https://docs.mongodb.com/manual/reference/command/convertToCapped/
-
