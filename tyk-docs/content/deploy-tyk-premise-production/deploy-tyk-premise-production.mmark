@@ -188,11 +188,45 @@ Tyk is CPU-bound, you will get exponentially better performance the more cores y
 
 ### Resource limits
 
-Make sure your system has resource limits set to handle lots of inbound traffic.
+Make sure your system has resource limits set to handle an appropriate number of connections.
 
-{{./static/include/file-handles.md}}
+You can increase the maximum number of files available to the kernel by modifying `/etc/sysctl.conf`.
 
-Careful with it though, it could lead to unterminated connections.
+```
+fs.file-max=160000
+```
+
+Please note that a single file, with associated inode & dcache consumes approximately 1KB ram. As such, setting
+`fs.file-max=160000` will consume a maximum of 160MB ram.
+
+The changes will apply after a system reboot, but if you do not wish to reboot quite yet, you can apply the change
+for the current session using `echo 160000 > /proc/sys/fs/file-max`.
+
+Now we need to configure the file handles available to your Tyk services. We shall assume your operating system is using
+systemd, the default init system for all major Linux distributions.
+
+Override your `systemd` unit files for each of the Tyk services using `systemctl edit {service_name}`.
+
+* Gateway `systemctl edit tyk-gateway.service`
+* Dashboard `systemctl edit tyk-dashboard.service`
+* Pump `systemctl edit tyk-pump.service`
+* Multi Data-Centre Bridge `systemctl edit tyk-sink.service`
+
+You may then add `LimitNOFILE=80000` to the `[Service]` directive as follows:
+
+```text
+[Service]
+LimitNOFILE=80000
+```
+
+After making these changes, you will need to restart your service, for example:
+
+```bash
+systemctl restart tyk-gateway.service
+```
+
+If you are not using `systemd`, please consult your Operating System documentation for controlling the Number of File
+Descriptors available for your process.
 
 ### File modification at runtime
 
