@@ -41,6 +41,10 @@ By default, the setting is `info`. You also have the following options:
 
 You will be advised by support which setting to change the logging level to.
 
+### Setting via Environment Variables
+
+You can also set the log level with the `TYK_GW_TYK_LOGLEVEL` environment variable.
+
 ## Tyk Version
 
 To check which version of the Tyk Gateway you have installed, run `tyk --version` from your Gateway installation directory (by default `/opt/tyk-gateway/`).
