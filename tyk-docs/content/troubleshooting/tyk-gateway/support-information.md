@@ -7,7 +7,7 @@ weight: 8
 url: "/troubleshooting/tyk-gateway/support-information"
 ---
 
-When contacting support, you may be asked to supply extra information and supply log files, etc, so we can quickly handle your issue. Questions may include:
+When contacting support, you may be asked to supply extra information and supply log files, etc, so we can quickly handle your request. Questions may include:
 
 * "Can you send us your log files"
 * "Can you change the logging detail level"
