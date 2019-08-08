@@ -19,4 +19,75 @@ The meta data field is important, because it can be used in various ways:
 
 Meta data is also injected by other Tyk Components when keys are created using "generative" methods, such as JSON Web Token and OIDC session creation and via the Developer Portal, to include information about the underlying identity of the token when it comes from a third-party such as an OAuth IDP (e.g. OIDC).
 
+### Plugins that can use meta data:
+Meta data is exposed in three plugin middleware but are accessed differently depending on the caller as follows:
+
+1.   URL Rewriter - Syntax is `$tyk_meta.METADATA_KEY`
+2.   Modify Headers - Syntax is `$tyk_meta.METADATA_KEY`
+3.   Body Transforms - Syntax is `{{ ._tyk_meta.METADATA_KEY }}`
+
+You also have access to meta data in custom middleware.  Take a [look at this PoC][2] that injects a JWT value into meta data and then accesses it later in the stream.
+
+
+### Enable Meta Data
+Meta data is automatically enabled except with body transformation plugin. 
+To enable meta data for body transformations, set `"enable_session` to true in the API definition:
+
+```{.copyWrapper}
+{
+  ...
+  "template_data": {
+    "input_type": "json",
+    "template_mode": "blob",
+    "enable_session": true,
+    "template_source": "e3sgLl90eWtfbWV0YS5qd3QgfX0=",
+    "input": "",
+    "output": ""
+  }
+},
+```
+
+`template_data` exists under both "transform" and "transform_response".  This is for the request body transform and the response body transform, respectively.
+
+A more complete API definition where meta data is activated in both request and response body transformations looks like this:
+
+```{.copyWrapper}
+{
+  ...
+  "extended_paths": {
+    "transform": [
+      {
+        "template_data": {
+          "input_type": "json",
+          "template_mode": "blob",
+          "enable_session": true,
+          "template_source": "Ymxvb3A=",
+          "input": "",
+          "output": ""
+        },
+        "path": "/get",
+        "method": "GET",
+        "fromDashboard": true
+      }
+    ],
+    "transform_response": [
+      {
+        "template_data": {
+          "input_type": "json",
+          "template_mode": "blob",
+          "enable_session": true,
+          "template_source": "e3sgLl90eWtfbWV0YS5qd3QgfX0=",
+          "input": "",
+          "output": ""
+        },
+        "path": "/get",
+        "method": "GET",
+        "fromDashboard": true
+      }
+    ]
+  }
+}
+```
+
  [1]: /docs/concepts/what-is-a-session-object/ 
+ [2]: https://github.com/TykTechnologies/tyk-grpc-go-basicauth-jwt
