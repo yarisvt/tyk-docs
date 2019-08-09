@@ -201,11 +201,10 @@ Please note that a single file, with associated inode & dcache consumes approxim
 The changes will apply after a system reboot, but if you do not wish to reboot quite yet, you can apply the change
 for the current session using `echo 160000 > /proc/sys/fs/file-max`.
 
+### File Handles / File Descriptors
+Now we need to configure the file handles available to your Tyk services.
+
 #### systemd
-
-Now we need to configure the file handles available to your Tyk services. We shall assume your operating system is using
-systemd, the default init system for all major Linux distributions.
-
 Override your `systemd` unit files for each of the Tyk services using `systemctl edit {service_name}`.
 
 * Gateway `systemctl edit tyk-gateway.service`
@@ -226,7 +225,7 @@ After making these changes, you will need to restart your service, for example:
 systemctl restart tyk-gateway.service
 ```
 
-#### docker
+#### Docker
 
 You may set ulimits in a container using the `--ulimit` option. See
 <a href="https://docs.docker.com/engine/reference/commandline/run/#set-ulimits-in-container---ulimit" target="_blank">Docker documentation</a> for setting ulimits.
@@ -236,6 +235,8 @@ docker run --ulimit nofile=80000:80000 \
   -it --name tyk-gateway \
   tykio/tyk-gateway:latest
 ```
+
+#### Other
 
 If you are not using systemd or Docker, please consult your Operating System documentation for controlling the Number of
 File Descriptors available for your process.
