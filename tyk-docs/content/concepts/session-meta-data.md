@@ -4,10 +4,8 @@ title: Session Meta Data
 menu:
   main:
     parent: "Concepts"
-weight: 3 
+weight: 85 
 ---
-
-## Concept: Meta Data
 
 As described in [What is a Session Object?][1], all Tyk tokens can contain a meta data field. This field is a string key/value map that can store any kind of information about the underlying identity of a session.
 
