@@ -90,4 +90,4 @@ A more complete API definition where meta data is activated in both request and 
  [2]: https://github.com/TykTechnologies/tyk-grpc-go-basicauth-jwt
  [3]: https://tyk.io/docs/transform-traffic/request-body/#a-name-meta-data-a-meta-data
  [4]: https://tyk.io/docs/transform-traffic/request-headers/#a-name-meta-data-a-injecting-custom-dynamic-data-into-headers
- [5]: https://tyk.io/docs/transform-traffic/url-rewriting/
+ [5]: https://tyk.io/docs/transform-traffic/url-rewriting/#meta-data
