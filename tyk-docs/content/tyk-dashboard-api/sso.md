@@ -1,5 +1,5 @@
 ---
-date: 2017-03-27T12:47:13+01:00
+date: 2019-08-09T12:47:13+01:00
 title: Dashboard API Single Sign On
 menu:
   main:
@@ -47,3 +47,5 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 ```{.copyWrapper}
 {"Status":"OK","Message":"SSO Nonce created","Meta":"YTNiOGUzZjctYWZkYi00OTNhLTYwODItZTAzMDI3MjM0OTEw"}
 ```
+
+See [Single Sign On](/docs/integrate/sso) documentation for how to use this token and more details.

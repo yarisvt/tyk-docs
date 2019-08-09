@@ -73,7 +73,7 @@ However, the admin API requires `admin-auth` header which should be same with `a
 Once you have issued a token you can login to the dashboard using the `/tap` url, or to the portal using the `<portal-url>/sso` URL, and provide an authentication token via the `nonce` query param.
 If `nonce` is valid, Tyk will create a temporary user and log them in. 
 
-If you want to re-use existing dashboard users, instead of creating temporary ones, you can set `"sso_enable_user_lookup": true` variable in Tyk Analytics configuration file. This way you can set individual permissions for users logged via SSO.
+If you want to re-use existing dashboard users, instead of creating temporary ones, you can set `"sso_enable_user_lookup": true` variable in the Dashboard config file (`tyk_analytics.conf`). This way you can set individual permissions for users logged via SSO.
 
 #### Set up default permissions for the dashboard
 If you use the token with `dashboard` scope, and would like to avoid login in as admin user (which is the default permissions), you can add the `sso_permission_defaults` configuration option to the Dashboard config file (`tyk_analytics.conf`) to specify SSO user permissions in the following format:

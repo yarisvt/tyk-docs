@@ -49,3 +49,5 @@ admin-auth: 12345
 ```{.copyWrapper}
 {"Status":"OK","Message":"SSO Nonce created","Meta":"YTNiOGUzZjctYWZkYi00OTNhLTYwODItZTAzMDI3MjM0OTEw"}
 ```
+
+See [Single Sign On](/docs/integrate/sso) documentation for how to use this token and more details.
