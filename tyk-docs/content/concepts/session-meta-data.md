@@ -27,6 +27,7 @@ Meta data is exposed in three plugin middleware but are accessed differently dep
 3.   Body Transforms - Syntax is `{{ ._tyk_meta.METADATA_KEY }}`
 
 You also have access to meta data in custom middleware.  Take a [look at this PoC][2] that injects a JWT value into meta data and then accesses it later in the stream.
+You also have access to meta data in custom middleware.  For an example of this, take a look at this [gRPC enabled GO Server][2].  It's a PoC middleware that injects a JWT value into meta data and then accesses it later in the stream.
 
 
 ### Enable Meta Data
