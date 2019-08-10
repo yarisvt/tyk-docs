@@ -49,6 +49,36 @@ For integrating with etcd, you can use the following configurations:
 	portPath = ""
 ```
 
+## <a name="etcd"></a> Zookeeper Example
+
+For this, you need to spin up a REST server that communicates with the Zookeeper instance.
+Here is one open source project, ZooREST, that does just that: https://github.com/Difrex/zoorest
+
+With Zookeeper and ZooREST running, test the query endpoint. Don't forget the `+json`:
+```{.copyWrapper}
+$ curl http://zoorest:8889/v1/get/zk_tyk+json
+{
+    "data": {
+        "path": "httpbin.org"
+    },
+    "error": "",
+    "path": "/zk_tyk",
+    "state": "OK",
+    "zkstat": {}
+}
+```
+
+Then, you can use the following Tyk SD configurations:
+```{.copyWrapper}
+	isNested = false
+	isTargetList = false
+	endpointReturnsList = false
+	portSeperate = false
+	dataPath = "data.path"
+	parentPath = ""
+	portPath = ""
+```
+
 ## <a name="consul"></a> Consul Example
 
 For integrating service discovery with Consul, you can use the following configuration parameters:
@@ -81,7 +111,7 @@ routers:
     header: Custom-Header
 ```
 
-### Configure Tyk
+Then, in your Tyk Dashboard:
 
 1. Select your API from the **System Management > APIs** section and click **Edit**.
 
@@ -93,7 +123,7 @@ routers:
 
 This is needed since Tyk appends a "Host" header when proxying the request and the "Host" header is also the default header expected by Linkerd.
 
-#### For further Linkerd information, see:
+##### For further Linkerd information, see:
 
 [Linkerd - HTTP proxy documentation][1] (Alternatives Section)
 
