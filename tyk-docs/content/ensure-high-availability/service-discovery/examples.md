@@ -12,13 +12,13 @@ weight: 0
 For integrating service discovery with Mesosphere, you can use the following configuration parameters:
 
 ```{.copyWrapper}
-	isNested = false
-	isTargetList = true
-	endpointReturnsList = false
-	portSeperate = true
-	dataPath = "host"
-	parentPath = "tasks"
-	portPath = "ports"
+  isNested = false
+  isTargetList = true
+  endpointReturnsList = false
+  portSeperate = true
+  dataPath = "host"
+  parentPath = "tasks"
+  portPath = "ports"
 ```
 
 ## <a name="eureka"></a> Eureka Example
@@ -26,13 +26,13 @@ For integrating service discovery with Mesosphere, you can use the following con
 For integrating service discovery with Eureka, you can use the following configuration parameters (this assumes that the endpoint will return JSON and not XML, this is achieved by creating an API Definition that injects the header that requests the data type and using this API Definition as the endpoint):
 
 ```{.copyWrapper}
-	isNested = false
-	isTargetList = true
-	endpointReturnsList = false
-	portSeperate = true
-	dataPath = "hostName"
-	parentPath = "application.instance"
-	portPath = "port.$"
+  isNested = false
+  isTargetList = true
+  endpointReturnsList = false
+  portSeperate = true
+  dataPath = "hostName"
+  parentPath = "application.instance"
+  portPath = "port.$"
 ```
 
 ## <a name="etcd"></a> Etcd Example
@@ -40,13 +40,13 @@ For integrating service discovery with Eureka, you can use the following configu
 For integrating with etcd, you can use the following configurations:
 
 ```{.copyWrapper}
-	isNested = false
-	isTargetList = false
-	endpointReturnsList = false
-	portSeperate = false
-	dataPath = "node.value"
-	parentPath = ""
-	portPath = ""
+  isNested = false
+  isTargetList = false
+  endpointReturnsList = false
+  portSeperate = false
+  dataPath = "node.value"
+  parentPath = ""
+  portPath = ""
 ```
 
 ## <a name="etcd"></a> Zookeeper Example
@@ -58,25 +58,25 @@ With Zookeeper and ZooREST running, test the query endpoint. Don't forget the `+
 ```{.copyWrapper}
 $ curl http://zoorest:8889/v1/get/zk_tyk+json
 {
-    "data": {
-        "path": "httpbin.org"
-    },
-    "error": "",
-    "path": "/zk_tyk",
-    "state": "OK",
-    "zkstat": {}
+  "data": {
+      "path": "httpbin.org"
+  },
+  "error": "",
+  "path": "/zk_tyk",
+  "state": "OK",
+  "zkstat": {}
 }
 ```
 
 Then, you can use the following Tyk SD configurations:
 ```{.copyWrapper}
-	isNested = false
-	isTargetList = false
-	endpointReturnsList = false
-	portSeperate = false
-	dataPath = "data.path"
-	parentPath = ""
-	portPath = ""
+  isNested = false
+  isTargetList = false
+  endpointReturnsList = false
+  portSeperate = false
+  dataPath = "data.path"
+  parentPath = ""
+  portPath = ""
 ```
 
 ## <a name="consul"></a> Consul Example
@@ -84,13 +84,13 @@ Then, you can use the following Tyk SD configurations:
 For integrating service discovery with Consul, you can use the following configuration parameters:
 
 ```{.copyWrapper}
-	isNested = false
-	isTargetList = true
-	endpointReturnsList = true
-	portSeperate = true
-	dataPath = "Address"
-	parentPath = ""
-	portPath = "ServicePort"
+  isNested = false
+  isTargetList = true
+  endpointReturnsList = true
+  portSeperate = true
+  dataPath = "Address"
+  parentPath = ""
+  portPath = "ServicePort"
 ```
 
 ## <a name="linkerd"></a> Linkerd Example
@@ -104,11 +104,11 @@ To integrate Tyk with Linkerd perform the following:
 For integrating with Linkerd, you need to add the following configuration to your `linkerd.yaml` file, located in the `config/` directory:
 
 ```{.copyWrapper}
-routers:
-- protocol: http
-  identifier:
-    kind: io.l5d.header.token
-    header: Custom-Header
+  routers:
+  - protocol: http
+    identifier:
+      kind: io.l5d.header.token
+      header: Custom-Header
 ```
 
 Then, in your Tyk Dashboard:
