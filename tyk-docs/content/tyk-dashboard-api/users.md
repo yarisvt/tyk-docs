@@ -293,7 +293,7 @@ You need to have the `users` [Permission object](https://tyk.io/docs/security/da
 ```{.copyWrapper}
 PUT /api/users/54c25e845d932847067402e2/actions/key/reset HTTP/1.1
 Host: localhost:3000
-admin-auth: 12345
+authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 {
   "userId":"{USER_ID}"
 }
