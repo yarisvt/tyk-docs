@@ -75,7 +75,7 @@ admin-auth: 12345
 }
 ```
 
-> **NOTE**: You can also create a user without an `org_id`. This will create a "Super User", that won't be visible in the Users section of the Dashboard, but who can access APIs, etc, for all organisations created within Tyk.
+> **NOTE**: You can also create a user without an `org_id`. This will create a "Super User", who has global access to all APIs, Policies, etc, for all organisations created within Tyk.
 
 #### Sample Response
 
