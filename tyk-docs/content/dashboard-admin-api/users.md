@@ -66,6 +66,7 @@ Host: localhost:3000
 admin-auth: 12345
 
 {
+  "org_id": "5d15d3068ba30a0001621bfe",
   "first_name": "Jason",
   "last_name": "Jasonson",
   "email_address": "jason@jasonsonson.com",
@@ -73,6 +74,8 @@ admin-auth: 12345
   "user_permissions": { "IsAdmin": "admin" }
 }
 ```
+
+> **NOTE**: You can also create a user without an `org_id`. This will create a "Super User", who has global access to all APIs, Policies, etc, for all organisations created within Tyk.
 
 #### Sample Response
 
