@@ -79,10 +79,28 @@ admin-auth: 12345
 ```
 {
   "Status": "OK",
-  "Message": "User created",
-  "Meta": ""
+  "Message": "e5485fa02e12425974e1220e1636e4d0",
+  "Meta": {
+    "api_model": {},
+    "first_name": "Jason",
+    "last_name": "user",
+    "email_address": "jason@jasonsonson.com",
+    "org_id": "",
+    "active": true,
+    "id": "5d55378edd4b9e9c308e87da",
+    "access_key": "e5485fa02e12425974e1220e1636e4d0",
+    "user_permissions": {
+      "IsAdmin": "admin"
+    },
+    "group_id": "",
+    "password_max_days": 0,
+    "password_updated": "0001-01-01T00:00:00Z",
+    "PWHistory": [],
+    "created_at": "2019-08-15T10:44:30.784Z"
+  }
 }
 ```
+
 
 ### Update User
 
