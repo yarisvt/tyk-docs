@@ -96,7 +96,7 @@ Once installed, modify your `/opt/tyk-sink/tyk_sink.conf` file as follows:
     "private_certificate_encoding_secret": "<gateway-secret>"
   },
   "hash_keys": true,
-  "forward_analytics_to_pump": false,
+  "forward_analytics_to_pump": true,
   "aggregates_ignore_tags": [
     
   ],
