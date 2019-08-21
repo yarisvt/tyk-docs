@@ -25,7 +25,26 @@ The Gateway will log its output to `stderr` and `stdout`. In a typical installat
 
 Tyk will try to output structured logs, and so will include context data around request errors where possible.
 
-### How do I change my Gateway Logging Level?
+### How do I increase Logging Verbosity?
+
+You can set the logging verbosity in two ways:
+
+ 1. Via an Environment Variable to affect all Tyk components
+ 2. Just for the Gateway via your `tyk.conf` config file  
+
+### Setting via Environment Variable
+
+The environment variable is `TYK_GW_TYK_LOGLEVEL`.
+
+By default, the setting is `info`. You also have the following options:
+
+* `debug`
+* `warn`
+* `error`
+
+You will be advised by support which setting to change the logging level to.
+
+#### For the Gateway
 
 You can set the logging level in your `tyk.conf` by adding the following:
 
@@ -40,10 +59,6 @@ By default, the setting is `info`. You also have the following options:
 * `error`
 
 You will be advised by support which setting to change the logging level to.
-
-### Setting via Environment Variables
-
-You can also set the log level with the `TYK_GW_TYK_LOGLEVEL` environment variable.
 
 ## Tyk Version
 
