@@ -34,7 +34,7 @@ You can set the logging verbosity in two ways:
 
 ### Setting via Environment Variable
 
-The environment variable is `TYK_GW_TYK_LOGLEVEL`.
+The environment variable is `TYK_LOGLEVEL`.
 
 By default, the setting is `info`. You also have the following options:
 
