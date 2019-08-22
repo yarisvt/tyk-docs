@@ -93,6 +93,10 @@ If you use the token with `dashboard` scope, and would like to avoid login in as
 }
 ```
 
+As alternative, you can set `sso_default_group_id` to specify User Group ID assigned to SSO users.
+
+In order to set individual user permissions, you should first create this users in the dashboard first, set needed permissions, enable `sso_enable_user_lookup` to `true` inside dashboard config. If SSO user with the same email will be found in Dashboard users, it will re-use his permissions. 
+
 #### Sample Login Request
 
 ```{.copyWrapper}
