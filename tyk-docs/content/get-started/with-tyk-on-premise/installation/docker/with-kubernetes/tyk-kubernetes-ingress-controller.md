@@ -51,7 +51,7 @@ The way the community edition is installed as an ingress controller is by runnin
 
 This API is *not exposed* outside of the pod, the only way to interact with the gateway REST API is to use the `kubectl port-forward` feature (there is an example of this below).
 
-The gateway will still use a TLS certificate, however this will be unsigned, to use a signed cert yo uwill need to supply one as per the note above.
+The gateway will still use a TLS certificate, however this will be unsigned, to use a signed cert you will need to supply one as per the note above.
 
 If you haven't used Tyk before, when you generate API tokens or other credentials using the Tyk Gateway REST API, you can do this against any of the pods, since this data is stored and centralised in redis.
 
