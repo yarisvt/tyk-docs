@@ -63,6 +63,8 @@ From v1.4, you can add your documentation before or after saving your API.
 
 To save the API, click **SAVE**.
 
+> **NOTE**: For On-Premises installations, you need to restart your Dashboard service for the changes to take effect.
+
 ### Step 7: Take a look
 
 You can now visit your portal to see the API catalogue entry. Select **Open Your Portal** from the **Your Developer Portal** menu:
