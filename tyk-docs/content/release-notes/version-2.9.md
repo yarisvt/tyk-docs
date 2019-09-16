@@ -48,3 +48,6 @@ We made a massic rewrite of our Python scripting engine, in order to simplify us
 From now on, you no longer need to use separate Tyk binary for Python plugins: everything is bundled to the main binary.
 Which also means that you can combine JSVM, Python and Coprocess plugins inside the same installation. 
 In addition now you can use any Python 3.x version: Tyk will automatically detect supported version and will load needed libraries. If you have multiple Python version available, you can specify exact version using `python_version`. 
+
+### Importing Custom Keys using Dashboard API
+If you migrate from another platform to Tyk, and have keys of custom format, now you can import such keys via new Dashoart API call: `POST /api/keys/{custom_key} {key-payload}`. It means that even our Multi-Cloud users can use this feature. 
