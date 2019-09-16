@@ -42,3 +42,9 @@ Added a global dns cache in order to reduce the number of request to gateway's l
     "multiple_ips_handle_strategy": "pick_first" //A strategy, which will be used when dns query will reply with more than 1 ip address per single host.
 },
 ```
+
+### Python plugin improvements
+We made a massic rewrite of our Python scripting engine, in order to simplify usage and installation of Python scripts. 
+From now on, you no longer need to use separate Tyk binary for Python plugins: everything is bundled to the main binary.
+Which also means that you can combine JSVM, Python and Coprocess plugins inside the same installation. 
+In addition now you can use any Python 3.x version: Tyk will automatically detect supported version and will load needed libraries. If you have multiple Python version available, you can specify exact version using `python_version`. 
