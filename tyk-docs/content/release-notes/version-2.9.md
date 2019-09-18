@@ -6,6 +6,25 @@ menu:
 weight: 1
 ---
 
+### APIs as products
+
+With this release we remove all the barriers on how you can mix and match policies together, providing you the ultimate flexibility for configuring your access rules.
+
+Now key can have multiple policies, each containing rules for different APIs. In this case each distinct policy will have own rate limit and quota counters. For example if first policy gives access to `API1` and second policy to `API2` and `API3`, if you create a key with both policies, user will have access to all three APIs, where `API1` will have quotas and rate limits defined inside first policy, and `API2`, `API3` will have shared quotas and rate limits defined inside second policy.
+
+Additionally now you can mix policies defined for the same API but having different path and methods access rules. For example you can have one policy which allows only access to `/users`  and second policy giving user access to `/companies` path. If you create key with both policies, their access rules will be merged, and user will get access to both paths.
+
+#### Developer portal updates
+
+Developers now can have multiple API keys, and subscribe to multiple catalogues with a single key. Go to the portal settings and set `Enable subscribing to multiple APIs with single key` option to enable this new flow. When enabled, developers will see the new API generation user interface, which allows users to request access to multiple Catalogues of the **same type**  with a single key. 
+
+From implementation point of view, Developer objects now have  `Keys` attribute, which is the map where key is a `key` and value is array of policy ids. `Subscriptions` field considered deprecated, with retained compatibility. Added new set of Developer APIs to manage the keys, similar to deprecated subscriptions APIs. [See documentation]
+
+Another changes:
+- Added two new Portal templates, which is used by new key request flow  `portal/templates/request_multi_key.html`, `portal/templates/request_multi_key_success.html`
+- Portal Catalogue list page updated to show Catalogue authentication mode
+- API dashboard screen now show keys instead of subscriptions, and if subscribed to multiple policies, it will show allowance rules for all catalogues.
+- Key request API updated to accept `apply_policies` array instead of `for_plan`
 
 ### HMAC request signing 
 
