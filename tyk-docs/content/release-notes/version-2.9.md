@@ -26,6 +26,12 @@ Another changes:
 - API dashboard screen now show keys instead of subscriptions, and if subscribed to multiple policies, it will show allowance rules for all catalogues.
 - Key request API updated to accept `apply_policies` array instead of `for_plan`
 
+### Go plugins
+ 
+[Go](https://golang.org/) is an open source programming language that makes it easy to build simple, reliable, and efficient software. The whole Tyk stack is written in Go language, and it is one of the reasons of behind our success. 
+
+With this release you now can write native Go plugins for the Tyk. Which means extreme flexibility and the best performance without any overhead. Follow our [documentation](/customise-tyk/plugins/golang-plugins/golang-plugins.md) to learn more.
+
 ### HMAC request signing 
 
 Now Tyk can sign request with HMAC, before sending to the upsteam.
