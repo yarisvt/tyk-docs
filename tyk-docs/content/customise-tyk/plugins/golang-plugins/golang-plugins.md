@@ -474,3 +474,8 @@ type myReply struct {
 func main() {}
 ```
 Here we see how internal state of Golang plugin is used by exported function `MyProcessRequest` (the one we set in API spec in `"custom_middleware"` section). Internal state used to count hits to different endpoints and reply back with stats for the called endpoint.
+
+### Reloading of Tyk Golang plugin
+Some times you will need to update Golang plugin with new version. There are two ways to do this:
+- API reload with NEW path or file name of your `.so` file with plugin. You will need to update API spec section `"custom_middleware"` with specifying new value for `"path"` field of plugin you need to reload
+- Tyk main process reload . This will do force reload of all Golang plugins for all APIs
