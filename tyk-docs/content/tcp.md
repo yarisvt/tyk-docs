@@ -25,12 +25,43 @@ The simplest TCP API definition looks like this:
   }
 }
 
-Tyk supports multiplexing based on certificate SNI information, which means that you can have multiple TCP services on the **same port**, served on different domains. 
+Tyk supports multiplexing based on certificate SNI information, which means that you can have multiple TCP services on the **same port**, served on different domains. Additionally all services on the same port, should share the same protocol: either `tcp`, `tls`, `http` or `https`.
 
 If Tyk sits behind another proxy, which has PROXY protocol enabled, you can set `enable_proxy_protocol` to `true`. 
-If your upstream expects PROXY protocol,.
 
 Rest of the features like load balancing, service discovery, Mutual TLS (both authorisation and communication with upstream), certificate pinning: all work exactly the same way as for your HTTP APIs. 
+
+### Port whitelisting 
+
+By default, you will not be able to run service on a custom port, until you whitelist needed ports. 
+Since TCP services can be configured via the Dashboard, you should be careful who can create such services, and which ports they an use. Example of whitelisting ports in `tyk.conf`:
+
+```
+{
+  ...
+  "ports_whitelist": {
+    "https": {
+      "ranges": [
+        {
+          "from": 8000,
+          "to": 9000
+        }
+      ]
+    },
+    "tls": {
+      "ports": [
+        6000,
+        6015
+      ]
+    }
+  }
+  ...
+}
+```
+As you can see, you can use either `ranges` or `ports` dirrectives (or combine them). 
+
+You can also disable whitelisting and allow any TCP port by setting `disable_ports_whitelist` to `true`.
+
 
 ### Health checks
 
