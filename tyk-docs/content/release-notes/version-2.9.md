@@ -6,15 +6,15 @@ menu:
 weight: 1
 ---
 
-### TCP proxying
+### TCP Proxying
 
 Tyk now can be used as a reverse proxy for your TCP services. It means that you can put Tyk not only on top of your APIs, but on top of **any** network application, like databases, services using custom protocols and etc.
 
 The main benefit of using Tyk as your TCP proxy is that functionality you used to managed your APIs now can be used for your TCP services as well.  Features like load balancing, service discovery, Mutual TLS (both authorisation and communication with upstream), certificate pinning: all work exactly the same way as for your HTTP APIs. 
 
-[Read docs](/tcp-proxy)
+[TCP Proxy Docs](/docs/concepts/tcp-proxy/)
 
-### APIs as products
+### APIs as Products
 
 With this release we remove all the barriers on how you can mix and match policies together, providing you the ultimate flexibility for configuring your access rules.
 
@@ -22,7 +22,7 @@ Now key can have multiple policies, each containing rules for different APIs. In
 
 Additionally now you can mix policies defined for the same API but having different path and methods access rules. For example you can have one policy which allows only access to `/users`  and second policy giving user access to `/companies` path. If you create key with both policies, their access rules will be merged, and user will get access to both paths.
 
-#### Developer portal updates
+#### Developer Portal Updates
 
 Developers now can have multiple API keys, and subscribe to multiple catalogues with a single key. Go to the portal settings and set `Enable subscribing to multiple APIs with single key` option to enable this new flow. When enabled, developers will see the new API generation user interface, which allows users to request access to multiple Catalogues of the **same type**  with a single key. 
 
@@ -38,7 +38,7 @@ Another changes:
  
 [Go](https://golang.org/) is an open source programming language that makes it easy to build simple, reliable, and efficient software. The whole Tyk stack is written in Go language, and it is one of the reasons of behind our success. 
 
-With this release you now can write native Go plugins for the Tyk. Which means extreme flexibility and the best performance without any overhead. Follow our [documentation](/customise-tyk/plugins/golang-plugins/golang-plugins.md) to learn more.
+With this release you now can write native Go plugins for Tyk. Which means extreme flexibility and the best performance without any overhead. Follow our [documentation](/customise-tyk/plugins/golang-plugins/golang-plugins.md) to learn more.
 
 ### HMAC request signing 
 
@@ -49,7 +49,7 @@ The feature is implemented using [Draft 10](https://tools.ietf.org/html/draft-ca
 `(request-target)` and all the headers of the request will be used for generating signature string. 
 If request doesn't contain `Date` header, middleware will add one as it is required according to above draft.
 
-A new config option `request_signing` is added in API Definition to enable/disable request signing. It has following format
+A new config option `request_signing` is added in API Definition to enable/disable request signing. It has following format:
 
 ```json
 "request_signing": {
@@ -59,7 +59,8 @@ A new config option `request_signing` is added in API Definition to enable/disab
   "algorithm": "hmac-sha256"
 }
 ```
-Following algorithms are supported:
+The following algorithms are supported:
+
 1. `hmac-sha1`
 2. `hmac-sha256`
 3. `hmac-sha384`
@@ -76,11 +77,11 @@ Added a global dns cache in order to reduce the number of request to gateway's l
 },
 ```
 
-### Python plugin improvements
-We made a massic rewrite of our Python scripting engine, in order to simplify usage and installation of Python scripts. 
-From now on, you no longer need to use separate Tyk binary for Python plugins: everything is bundled to the main binary.
+### Python Plugin Improvements
+We have made a massive rewrite of our Python scripting engine in order to simplify installation and usage of Python scripts. 
+From now on, you no longer need to use a separate Tyk binary for Python plugins. Everything is now bundled to the main binary.
 Which also means that you can combine JSVM, Python and Coprocess plugins inside the same installation. 
-In addition now you can use any Python 3.x version: Tyk will automatically detect supported version and will load needed libraries. If you have multiple Python version available, you can specify exact version using `python_version`. 
+In addition you can now use any Python 3.x version. Tyk will automatically detect supported a version and will load the required libraries. If you have multiple Python version available, you can specify the exact version using `python_version`. 
 
-### Importing Custom Keys using Dashboard API
-If you migrate from another platform to Tyk, and have keys of custom format, now you can import such keys via new Dashoart API call: `POST /api/keys/{custom_key} {key-payload}`. It means that even our Multi-Cloud users can use this feature. 
+### Importing Custom Keys using the Dashboard API
+If you migrate from another platform to Tyk, and have custom format keys, you can now import these keys via a new Dashboard API call: `POST /api/keys/{custom_key} {key-payload}`. It means that even our Multi-Cloud users can now use this feature. 

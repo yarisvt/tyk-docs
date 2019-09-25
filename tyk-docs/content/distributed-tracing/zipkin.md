@@ -9,7 +9,7 @@ menu:
 
 Zipkin is a distributed tracing system. It helps gather timing data needed to troubleshoot latency problems in service architectures.
 
-To enable this tracer, you need to have a working zipkin server.
+To enable this tracer, you need to have a working Zipkin server.
 
 ## Configuring
 
@@ -25,7 +25,7 @@ In `tyk.conf` on `tracing` setting
 }
 ```
 
-`options` are settings that are used to initialize the zipkin client.
+`options` are settings that are used to initialize the Zipkin client.
 
 # Sample configuration
 
@@ -43,4 +43,4 @@ In `tyk.conf` on `tracing` setting
 }
 ```
 
-`reporter.url` is the url to the zipkin server, where trace data will be sent.
+`reporter.url` is the URL to the Zipkin server, where trace data will be sent.
