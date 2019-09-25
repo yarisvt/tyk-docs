@@ -36,8 +36,8 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
   "Data": [{
     "id": "5ad097c87af3f40001b27f40",
     "org_id": "xxxxxxxxxxxxxxxxxxxxx",
-    "for_api": "",
-    "for_plan": "5a9847db3602190001f44427",
+    "for_plan": "5a9847db3602190001f44427", // deprecated
+    "apply_policies": ["5a9847db3602190001f44427"],
     "by_user": "5a9ea3a019efc400011107ae",
     "fields": {},
     "approved": false,
@@ -50,13 +50,11 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
         "date_created": "2018-03-06T14:20:16.876Z",
         "inactive": false,
         "org_id": "57ecd735f467ac0001000003",
-        "api_keys": {
-            "0c96391111344ce4568dc6ee534eadbc": "",
-            "383781134c874ebf6e576cf8a9a20811": ""
+        "keys": {
+            "<key-id>": ["<policy-id>"],
         },
         "subscriptions": {
-            "58a58cf13637730001a2dfb4": "a37bb462",
-            "5a1ebbe19af17900011dcab3": "7c2d7c2f"
+            "<policy-id>": "<key-id>",
         },
         "fields": {},
         "nonce": "",
@@ -136,13 +134,13 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 {
   "id": "554c789030c55e4ca0000002",
   "org_id": "53ac07777cbb8c2d53000002",
-  "for_api": "",
   "by_user": "554c733a30c55e4b16000002",
   "fields": {},
   "approved": true,
   "date_created": "2015-05-08T04:49:20.992-04:00",
   "version": "v2",
-  "for_plan": "554c789030c55e4ca0101002"
+  "for_plan": "554c789030c55e4ca0101002", // deprecated
+  "apply_policies": ["554c789030c55e4ca0101002"]
 }
 ```
 
@@ -202,7 +200,8 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
     "custom1": "sdf",
     "custom2": "sdf"
   },
-  "for_plan": "554c789030c55e4ca0101002",
+  "for_plan": "554c789030c55e4ca0101002", // deprecated
+  "apply_policies": ["554c789030c55e4ca0101002"],
   "version": "v2"
 }
 ```
