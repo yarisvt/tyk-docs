@@ -168,6 +168,26 @@ Use this to match the ID with a regular expression. This requires additional par
 
 Using the example above, if we send a header like `prefix-d28e17f7`, given the regular expression we're using, the extracted ID value will be `d28e17f7`.
 
+## Example Session
+Here's an example of a Session being built in GoLang custom middleware:
+```Go
+extractorDeadline := time.Now().Add(time.Second * 5).Unix()
+object.Session = &coprocess.SessionState{
+
+        LastUpdated: time.Now().String(),
+        Rate: 5,
+        Per:  10,
+        QuotaMax:            int64(0),
+        QuotaRenews:         time.Now().Unix(),
+        Metadata: map[string]string{
+            "token": "my-unique-token",
+        },
+        ApplyPolicies: ["5d8929d8f56e1a138f628269"],
+    }
+```
+(source)[https://github.com/TykTechnologies/tyk-grpc-go-basicauth-jwt/blob/master/main.go#L102]
+
+Note: When using an ID Extractor, you must set a `LastUpdated` or else token updates will not be applied.  If you don't set an ID Extractor, Tyk will store session information in the cache based off the `token` field that is set in the metadata.
 
 
 
