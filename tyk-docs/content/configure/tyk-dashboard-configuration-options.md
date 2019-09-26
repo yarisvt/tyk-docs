@@ -217,7 +217,7 @@ For legacy installs or upgrades using the host manager, leave this value as `fal
 
 *   `host_config.portal_root_path`: The root path for the portal.
 
-*   `host_config.generate_secure_paths`: As of v2.1, Tyk Dashboard tries to generate URLs for you that can be used straight from the Dashboard. If you prefer to have the URLs start with `https`, set this option to `true`. This is a purely aesthetic change.
+*   `host_config.generate_secure_paths`: If you prefer to have your URLs start with `https`, set this option to `true`.
 
 *   `host_config.secure_cookies`: This enables HTTPS "secure" cookies.
 
