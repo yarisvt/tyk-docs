@@ -97,8 +97,8 @@ Add your license in `/opt/tyk-dashboard/tyk_analytics.conf` in the `license` fie
 Start the dashboard service, and ensure it will start automatically on system boot.
 
 ```{.copyWrapper}
-sudo service tyk-dashboard start
-sudo service tyk-dashboard enable
+sudo systemctl start tyk-dashboard
+sudo systemctl enable tyk-dashboard
 ```
 
 ### Step 3: Install Tyk Gateway
