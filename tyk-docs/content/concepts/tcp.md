@@ -12,6 +12,8 @@ url: "/concepts/tcp-proxy"
 
 Tyk can be used as a reverse proxy for your TCP services. It means that you can put Tyk not only on top of your APIs, but on top of **any** network application, like databases, services using custom protocols and etc.
 
+#### Set via your API
+
 In order to enable TCP proxying, set the `protocol` field either to `tcp` or `tls`. In the case of TLS, you can also specify a `certificate` field with a certificate ID or path to it.
 
 Similar to above, the proxy target scheme should be set to `tcp://` or `tls://`, depending if you upstream secured by TLS or not.
@@ -26,6 +28,16 @@ The simplest TCP API definition looks like this:
     "target_url": "tls://upstream:9191"
   }
 }
+
+#### Set via your Dashboard
+
+From the **API Designer > Core Settings** tab, select the appropriate protocol from the Protocol field drop-down list.
+
+Enter the network port number in the **Port** field.
+
+If using TLS you can also add a PEM formatted SSL certificate in the **Upstream Certificates** section from the **Advanced Options** tab.
+
+![Protocol][1]
 
 Tyk supports multiplexing based on certificate SNI information, which means that you can have multiple TCP services on the **same port**, served on different domains. Additionally all services on the same port, should share the same protocol: either `tcp`, `tls`, `http` or `https`.
 
@@ -132,3 +144,6 @@ Here is quite complex example of using health checks, which shows a Redis Sentin
 At the moment Tyk supports only 2 commands:
  - `send`  send string to server
 - `expect`  expect string from the server
+
+
+[1]: /docs/img/dashboard/system-management/api-protocol.png
