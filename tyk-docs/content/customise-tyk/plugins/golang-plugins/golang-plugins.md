@@ -425,7 +425,7 @@ A Golang plugin as a package can have `func init()` and it gets called only once
 
 It is possible to create structures or open connections to 3d party services/storage and then share them within every call to thenexported function in your Golang plugin.
 
-For example, here is simple example of a Tyk Golang plugin with a simple hit-counter:
+For example, here is an example of a Tyk Golang plugin with a simple hit-counter:
 
 ```go
 package main
@@ -499,10 +499,59 @@ type myReply struct {
 
 func main() {}
 ```
-Here we see how the internal state of the Golang plugin is used by the exported function `MyProcessRequest` (the one we set in the API spec in the `"custom_middleware"` section). The internal state used to count hits to different endpoints and reply back with stats for the called endpoint.
+Here we see how the internal state of the Golang plugin is used by the exported function `MyProcessRequest` (the one we set in the API spec in the `"custom_middleware"` section). The map `hitCounter` is used to keep internal state and count hits to different endpoints. Then our exported Golang plugin function sends HTTP reply with endpoint hit statistics.
 
-### Reloading of Tyk Golang plugin
+### Loading Tyk Golang plugin from bundle
+So far we have loaded Golang plugins only directly from file system. You can also use Tyk's bundle instrumentation (see [Plugin Bundles][1] for more details). You can deploy your Tyk Golang plugins to special HTTP-server and then your plugins will be fetched and loaded from that HTTP endpoint.
+
+You will need to set in `tyk.conf` these two fields:
+- `"enable_bundle_downloader": true` - this enables plugin bundles downloader
+- `"bundle_base_url": "http://mybundles:8000/abc"` - this specifies the base URL with HTTP server where you place your bundles with Golang plugins (this endpoint has to be reachable from node with Tyk running)
+
+Also, you will need to specify field in API spec:
+- `"custom_middleware_bundle"` - here you place your filename with bundle (`.zip` archive) to be fetched from HTTP-endpoint you specified in `tyk.conf` parameter `"bundle_base_url"`
+
+So, API spec will have this field:
+```json
+"custom_middleware_bundle": "FooBarBundle.zip"
+```
+
+Let's look at `FooBarBundle.zip` contents. It is just a ZIP-archive with two files archived inside:
+- `AddFooBarHeader.so` - this is our Golang plugin
+- `manifest.json` - this is special file with meta information used by Tyk's bundle loader
+
+The contents of `manifest.json`:
+```json
+{
+  "file_list": [
+    "AddFooBarHeader.so"
+  ],
+  "custom_middleware": {
+    "post": [
+      {
+        "name": "AddFooBarHeader",
+        "path": "AddFooBarHeader.so"
+      }
+    ]
+  },
+  "driver": "goplugin",
+  ...
+}
+```
+Here we see:
+- field `"custom_middleware"` with exactly the same structure we used to specify `"custom_middleware"` in API spec without bundle
+- field `"path"` in section `"post"` now contains just a file name without any path. This field specifies `.so` filename placed in ZIP archive with bundle (remember how we specified `"custom_middleware_bundle": "FooBarBundle.zip"`).
+
+#### How to build bundle with Golang plugin
+You will need to use special [Bundler tool][2] to create bundles with Golang plugins. 
+
+### Reloading Tyk Golang plugin
 Sometimes you will need to update your Golang plugin with a new version. There are two ways to do this:
 
 * An API reload with a NEW path or file name of your `.so` file with the plugin. You will need to update the API spec section `"custom_middleware"`, specifying a new value for the `"path"` field of the plugin you need to reload.
 * Tyk main process reload. This will do force a reload of all Golang plugins for all APIs.
+
+If plugin is loaded as a bundle and you need to update it - you will need to update your API spec with new `.zip` file name in field `"custom_middleware_bundle"`. Make sure this new `.zip` file is uploaded and available via bundle HTTP endpoint before you update API spec.
+
+ [1]: /docs/customise-tyk/rich-plugins/plugin-bundles.md
+ [2]: /docs/customise-tyk/rich-plugins/plugin-bundles.md#bundler-tool
