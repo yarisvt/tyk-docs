@@ -176,20 +176,36 @@ sudo service tyk-dashboard restart
 sudo service tyk-gateway start
 ```
 
-### Step 15: Bootstrap the Dashboard with an initial user and organisation
+### Step 15 - Test the Tyk Dashboard URL
 
-When Tyk Dashboard is created for the first time, it has no initial user base or organisation to add data to, so we need to add this.
+Go to:
 
-The best way to add this data is with the Admin API, to make it really easy we've supplied a bootstrap script that will set you up. If you want to customise it, take a look at the file in `/opt/tyk-dashboard/install/bootstrap.sh`
-
-**To bootstrap your instance, run from INSIDE the Vagrant box**:
-```{.copyWrapper}
-sudo /opt/tyk-dashboard/install/bootstrap.sh my-tyk-instance.com
+```{copy.Wrapper}
+127.0.0.1:3000
 ```
 
-This command tells the bootstrap script to use the localhost as the base for the API calls, you can run the bootstrap remotely and change the first command line parameter to the DNS hostname of your instance.
+You should get to the Tyk Dashboard Setup screen:
 
-You will now be able to log into and test your Tyk instance from `http://your-host-name:3000/` with the values given to you by the bootstrap script.
+![Tyk Dashboard Bootstrap Screen][1]
+
+### Step Six - Create your Organisation and Default User
+
+You need to enter the following:
+
+* Your **Organisation Name**
+* Your **Organisation Slug**
+* Your User **Email Address**
+* Your User **First and Last Name**
+* A **Password** for your User
+* **Re-enter** your user **Password**
+
+> **NOTE**: For a password, we recommend a combination of alphanumeric characters, with both upper and lower case letters.
+
+Click **Bootstrap** to save the details.
+
+### Step Seven - Login to the Dashboard
+
+You can now log in to the Tyk Dashboard from `127.0.0.1:3000`, using the username and password created in the Dashboard Setup screen.
 
 #### Next Steps
 

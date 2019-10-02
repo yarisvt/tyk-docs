@@ -13,11 +13,12 @@ Tyk supports the use of the following plugins to extend Tyk functionality:
 *   [Rich Plugins][1]
 *   [JavaScript Vitual Machine Middleware][2] (JSVM Middleware)
 *   [Authentication Plugins][3]
+*   [Golang native plugins][5]
 
 > **Note**: Plugins are only available for Multi-Cloud and On-Premises installations.
 
 ## <a name="plugin-requirements"></a>Requirements
-All plugins require the following addition to be made to your `tyk.conf` file:
+All plugins (except [Golang native plugins][5]) require the following addition to be made to your `tyk.conf` file:
 
 ```{.copyWrapper}
 "coprocess_options": {
@@ -70,3 +71,4 @@ There are some caveats to plugins:
  [2]: /docs/customise-tyk/plugins/javascript-middleware/
  [3]: /docs/customise-tyk/plugins/auth-plugins/
  [4]: /docs/customise-tyk/plugins/rich-plugins/grpc/
+ [5]: /docs/customise-tyk/plugins/golang-plugins/

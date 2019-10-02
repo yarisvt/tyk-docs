@@ -32,8 +32,8 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
   "Data": [
     {
       "_id": "554c733a30c55e4b16000002",
-      "api_keys": {
-        "b605a6f03cc14f8b74665452c263bf19": "90568dfa"
+      "keys": {
+        "<key-id>": ["<policy-id>"]
       },
       "date_created": "2015-05-08T04:26:34.287-04:00",
       "email": "test@test.com",
@@ -43,12 +43,11 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
         "custom2": "Test"
       },
       "inactive": false,
-      "org_id": "53ac07777cbb8c2d53000002",
-      "password": "$2a$10$ztUTWXmyrK6B5fdKoisohuhZlQ3P1weQZ2CBwR6HYw1rWyiBJ7ZSW"
+      "org_id": "53ac07777cbb8c2d53000002"
     },
     {
       "_id": "5555ec63a8b6b60001000001",
-      "api_keys": {},
+      "keys": {},
       "date_created": "2015-05-15T08:53:54.873-04:00",
       "email": "foo@bar.com",
       "fields": {
@@ -57,75 +56,13 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
         "custom2": ""
       },
       "inactive": false,
-      "org_id": "53ac07777cbb8c2d53000002",
-      "password": "$2a$10$8mGEdcow4dwVDAt4If.Sieps57oGZDwEVvwTNYq1J8FLba4fHw9Nu"
+      "org_id": "53ac07777cbb8c2d53000002"
     },
     ...
   ],
   "Pages": 1
 }
 ```
-
-### List Developers by API
-
-| **Property** | **Description**                      |
-| ------------ | ------------------------------------ |
-| Resource URL | `/api/portal/developers/api/{apiID}` |
-| Method       | GET                                  |
-| Type         | None                                 |
-| Body         | None                                 |
-| Param        | None                                 |
-
-#### Sample Request
-
-```{.copyWrapper}
-GET /api/portal/developers/api/ HTTP/1.1
-Host: localhost
-authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
-```
-
-#### Sample Response
-
-```
-{
-  "Data": [
-    {
-      "_id": "554c733a30c55e4b16000002",
-      "api_keys": {
-        "b605a6f03cc14f8b74665452c263bf19": "9184c7d0"
-      },
-      "date_created": "2015-05-08T04:26:34.287-04:00",
-      "email": "xxxx@xxxx.com",
-      "fields": {
-        "Name": "Mondgo Britain",
-        "custom1": "Test",
-        "custom2": "Test"
-      },
-      "inactive": false,
-      "org_id": "53ac07777cbb8c2d53000002",
-      "password": "$2a$10$ztUTWXmyrK6B5fdKoisohuhZlQ3P1weQZ2CBwR6HYw1rWyiBJ7ZSW"
-    },
-    {
-      "_id": "5555ef2e24cb3e0001000001",
-      "api_keys": {
-        "b605a6f03cc14f8b74665452c263bf19": "90e670bc"
-      },
-      "date_created": "2015-05-15T09:05:50.675-04:00",
-      "email": "xxxxxxx@yyyyy.io",
-      "fields": {
-        "Name": "Martin",
-        "custom1": "test",
-        "custom2": "test"
-      },
-      "inactive": false,
-      "org_id": "53ac07777cbb8c2d53000002",
-      "password": "$2a$10$MH.nxHBneFuuGTrVgfxeRecgmYNHVHm8Bo7DWVqY5o2anlPgJ2zWa"
-    }
-  ],
-  "Pages": 0
-}
-```
-
 
 ## Add a Developer Record
 
@@ -150,8 +87,8 @@ Authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
   "date_created": "2015-05-15T08:56:13.257-04:00",
   "inactive": false,
   "org_id": "53ac07777cbb8c2d53000002",
-  "api_keys": {
-    "b605a6f03cc14f8b74665452c263bf19":"90568dfa"
+  "keys": {
+    "<api-key>": ["<policy-id>"]
   },
   "fields": {
     "Name": "",
@@ -197,8 +134,8 @@ Authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
   "date_created": "2015-05-15T08:56:13.257-04:00",
   "inactive": false,
   "org_id": "53ac07777cbb8c2d53000002",
-  "api_keys": {
-    "b605a6f03cc14f8b74665452c263bf19":"90568dfa"
+  "keys": {
+    "<key-id>": ["<policy-id>"]
   },
   "fields": {
     "Name": "",
@@ -277,7 +214,7 @@ If the user credentials are verified, the HTTP response code will be 200 (OK), o
 
 | **Property** | **Description**                             |
 | ------------ | ------------------------------------------- |
-| Resource URL | `/api//portal/developers/password/:Id`      |
+| Resource URL | `/api/portal/developers/password/:Id`      |
 | Method       | POST                                        |
 | Type         | None                                        |
 | Body         | None                                        |
@@ -313,6 +250,92 @@ curl https://admin.cloud.tyk.io/api/portal/developers/password/:Id \
 
 <span data-filetype="mmark"></span>
 {{./static/include/portal-developer-analytics.md}}
+
+### Add Key To Developer
+
+| **Property** | **Description**               |
+| ------------ | ----------------------------- |
+| Resource URL | `/portal/developers/:Id/subscriptions` |
+| Method       | POST                           |
+| Type         | None                          |
+| Body         | Subscription Object           |
+| Param        | None                          |
+
+
+#### Sample Request
+
+```{.copyWrapper}
+curl https://admin.cloud.tyk.io/api/portal/developers/:Id/keys \
+-X POST \
+-H "authorization: $TYK_API_KEY" \
+-d \
+'{
+  "apply_policies": ["<pol-id>"],
+  "fields": {
+      "foo": "bar"
+  },
+  "oauth_info": {
+    "redirect_uri": "..."
+  }
+}'
+```
+
+### Change Developer Key Policy
+
+| **Property** | **Description**               |
+| ------------ | ----------------------------- |
+| Resource URL | `/portal/developers/:developerId/keys/:keyId` |
+| Method       | PUT                           |
+| Type         | None                          |
+| Body         | Policy change Object                           |
+| Param        | None                          |
+
+
+#### Sample Request
+
+```{.copyWrapper}
+curl https://admin.cloud.tyk.io/api/portal/developers/:developerId/keys/:keyId \
+-X PUT \
+-H "authorization: $TYK_API_KEY" \
+-d \
+'{
+  "apply_policies": ["<pol-id>"]
+}'
+```
+
+### Revoke Developer Key
+
+| **Property** | **Description**               |
+| ------------ | ----------------------------- |
+| Resource URL | `/portal/developers/:developerId/keys/:keyID` |
+| Method       | DELETE                        |
+| Type         | None                          |
+| Body         | None                          |
+| Param        | None                          |
+
+### Reset Developer Key Quota
+
+| **Property** | **Description**               |
+| ------------ | ----------------------------- |
+| Resource URL | `/portal/developers/:developerId/keys/:keyID/reset_quota` |
+| Method       | POST                          |
+| Type         | None                          |
+| Body         | None                          |
+| Param        | None                          |
+
+### Delete OAuth app
+
+| **Property** | **Description**               |
+| ------------ | ----------------------------- |
+| Resource URL | `/portal/developers/oauth/:appId` |
+| Method       | DELETE                        |
+| Type         | None                          |
+| Body         | None                          |
+| Param        | None                          |
+
+
+
+## Deprecated APIS
 
 ### Add Subscription To Developer
 
