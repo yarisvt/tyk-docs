@@ -40,6 +40,10 @@ margin:-90px 0 0;
 .header-github {
   left: 90px;
 }
+
+.search input:placeholder-shown:valid {
+  border-color: #fff;
+}
 /* Footer */
 .footer {
   background: #505071;
