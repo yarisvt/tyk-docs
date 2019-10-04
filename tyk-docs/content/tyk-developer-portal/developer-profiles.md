@@ -47,6 +47,12 @@ To drill down into the specific usage patterns for each Key, click **ANALYTICS**
 
 ![Developer Keys][6]
 
+### Add a New Key
+
+To subscribe a developer to a new Key, from the Edit Developer screen, click **New Key**. From the pop-up screen, select one or more policies from the drop-down list and click **Request Key**.
+
+ ![New Key Request][16]
+
 ### Changing Developer Policy Keys
 
 #### Step 1: View the Developer Profile
@@ -140,6 +146,7 @@ You will be sent an email with a link to reset your Developer password. Enter yo
  [12]: /docs/img/dashboard/portal-management/password_confirmation.png
  [13]: /docs/img/dashboard/portal-management/developer_edit_2.5.png
  [14]: /docs/img/dashboard/portal-management/keys_dev_profile.png
- [15]: /docs/img/dashboard/portal-management/change_key_policy.png 
+ [15]: /docs/img/dashboard/portal-management/change_key_policy.png
+ [16]: /docs/img/dashboard/portal-management/new_key_request.png 
 
 
