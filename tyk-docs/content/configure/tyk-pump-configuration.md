@@ -330,6 +330,8 @@ Add the following section to expose the `/metrics` endpoint:
 
 `listen_address` - this is the URL that Prometheus can pull data from.
 
+> **NOTE**: When running Prometheus as a Docker image then remove `localhost` from `listen_address`. For example:  `"listen_address": ":9090"`.
+
 ### Multiple Pumps
 
 From Tyk Pump v0.6.0 you can now create multiple pumps of the same type by by setting the top level type as a custom values. For example:
