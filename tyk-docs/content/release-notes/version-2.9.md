@@ -34,11 +34,39 @@ Another changes:
 - API dashboard screen now show keys instead of subscriptions, and if subscribed to multiple policies, it will show allowance rules for all catalogues.
 - Key request API updated to accept `apply_policies` array instead of `for_plan`
 
+
+### JWT and OpenID scope support 
+
+Now you can set granular permissions on per user basis, by injecting permissions to the "scope" claim of JWT token. To make it work you need to provide mapping between scope and policy ID, and thanks to enchanced policy merging capabilities mentioned above, Tyk will read scope value from JWT token and will generate dynamic access rules. Your JWT scopes can look like "users:read companies:write" or similar, it is up to your imagination. OpenID supports it as well, but at the moment only if your OIDC provider can generate ID tokens in JWT format (which is very common this days).
+
+[JWT Scope docs](/docs/integrate/api-auth-mode/open-id-connect).
+
 ### Go plugins
  
 [Go](https://golang.org/) is an open source programming language that makes it easy to build simple, reliable, and efficient software. The whole Tyk stack is written in Go language, and it is one of the reasons of behind our success. 
 
-With this release you now can write native Go plugins for Tyk. Which means extreme flexibility and the best performance without any overhead. Follow our [documentation](/customise-tyk/plugins/golang-plugins/golang-plugins.md) to learn more.
+With this release you now can write native Go plugins for Tyk. Which means extreme flexibility and the best performance without any overhead. 
+
+Your plugin can be as simple as:
+```go
+package main
+import (
+	"net/http"
+)
+// AddFooBarHeader adds custom "Foo: Bar" header to the request
+func AddFooBarHeader(rw http.ResponseWriter, r *http.Request) {
+	r.Header.Add("Foo", "Bar")
+}
+```
+
+Follow our [documentation](/docs/customise-tyk/plugins/golang-plugins/golang-plugins.md) to learn more.
+
+### Distributed tracing
+We listen to our customers, and tracing was one of the most common requests recently. Distributed tracking takes your monitoring and profiling experience to the next level, since you can see the whole request flow, even if it has complex route though multiple services. And inside this flow, you can go deep down to the details like individual middleware execution performance.
+At the moment we presenting OpenTracing support, with Zipkin and Jaeger as supported tracers.
+
+See the [documentation](/docs/distributed-tracing/distributed-tracing).
+
 
 ### HMAC request signing 
 
@@ -66,6 +94,11 @@ The following algorithms are supported:
 3. `hmac-sha384`
 4. `hmac-sha512`
 
+### Simplified Dashboard installation experience
+We worked a lot with our clients, to build a way nicer experience of on-boarding to Tyk. Now instead of using command line, you can just run dashboard, and follow user friendly web form, which will configure your dashboard. However, we did not forget about our experienced users too, and now provide CLI enchanced tools for bootstrapping Tyk in advanced maneer. 
+
+See updated [Getting Started](/get-started/with-tyk-on-premise) section and [new CLI documentation](/docs/get-started/with-tyk-on-premise/installation/bootstrapper-cli).
+
 ### DNS Caching
 Added a global dns cache in order to reduce the number of request to gateway's local dns server and appropriate gateway config section. This feature is turned off by default.
 
@@ -84,4 +117,17 @@ Which also means that you can combine JSVM, Python and Coprocess plugins inside 
 In addition you can now use any Python 3.x version. Tyk will automatically detect supported a version and will load the required libraries. If you have multiple Python version available, you can specify the exact version using `python_version`. 
 
 ### Importing Custom Keys using the Dashboard API
-If you migrate from another platform to Tyk, and have custom format keys, you can now import these keys via a new Dashboard API call: `POST /api/keys/{custom_key} {key-payload}`. It means that even our Multi-Cloud users can now use this feature. 
+Previously if you wanted migrate to Tyk and keep existing API keys, you had to use low level Tyk Gateway API, which had lot of constraints, especially when its coming to complex setups with multiple organizations and data centers. 
+
+We introducing a new Dashboard API for importing custom keys, which is as simple as `POST /api/keys/{custom_key} {key-payload}`. New API ensures that Keys from multiple orgs will not intersect, and it works for multi-data center setups, and even Tyk SaaS.
+
+### Single sign on for the Tyk SaaS
+
+Before SSO was possible only for Tyk On-Premise, since it required access to low-level Dashboard Admin APIs.
+With 2.9 we added new a new Dashboard SSO API, which you can use without having super admin access, and it works on organization level. This means that all our Tyk SaaS users can use 3-rd party IDPs to manange Dashboard users and Portal developers.
+
+See the (documentation)[/docs/tyk-dashboard-api/sso/]
+
+### Importing WSDL APIs
+
+WSDL now is a first class citizen at Tyk. You can take your WSDL definition and simply import to the dashboard, creating a nice boilerplate for your service. Additionally we presenting documentation on how to work with SOAP of any complexity with Tyk. See the [documentation](/docs/concepts/soap)
