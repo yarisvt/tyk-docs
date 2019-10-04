@@ -54,7 +54,10 @@ Security policies are used instead of a one-to-one mapping because they encapsul
 2.  Quota
 3.  Access Lists (What APIs and which versions are permitted)
 4.  Granular access (Which methods and paths are allowed, e.g. you may want to only expose read-only access to the portal, so only GET requests are allowed)
-5.  Multi-key-management (With a policy, you can manage thousands of tokens, instead of one by one)
+5.  Multi-policy-management (With a Key, you can assign more than one policy to an APIs and each policy will have it's own counter).
+6.  Subscribe to multiple APIs with a single Key request. To enable this functionality, select **Enable subscribing to multiple APIs with a single key** from the Portal Management Settings. The APIs you group together via a single key should all be of the same authentication type.
+
+![Multiple APIs][1]
 
 Within the developer portal admin area, under a developer record, you will see their subscriptions. Those subscriptions represent the tokens they have and their policy level access. It is possible to then "upgrade" or "downgrade" a developers access without actually managing their token, but just assigning a new policy to that token.
 
@@ -78,7 +81,7 @@ A developer record consists of some basic sign-up information and a set of admin
 Within the developer view of the Tyk Dashboard, it is possible to manage all access of a developer, including the access levels of their tokens.
 
 
-
+ [1]: /docs/img/dashboard/portal-management/multi-api-setting.png
 
 
 

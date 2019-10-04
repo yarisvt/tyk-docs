@@ -69,7 +69,7 @@ To set up an API Definition to use OIDC, add the following block to the definiti
 #### JWT scope to policy mapping support
 > **NOTE**: This feature is available starting from v2.9
 
-You can map JWT scopes to security policies to be applied to a key. To enable this feature you will need to specify fields in :
+You can map JWT scopes to security policies to be applied to a key. To enable this feature you will need to add the following fields in your API:
 ```{.copyWrapper}
   "jwt_scope_to_policy_mapping": {
     "admin": "59672779fa4387000129507d",
@@ -79,9 +79,28 @@ You can map JWT scopes to security policies to be applied to a key. To enable th
 }
 ```
 Here we have set:
-- field `"jwt_scope_claim_name"` identifies the JWT claim name which contains scopes. This API Spec field is optional with default value `"scope"`. This claim value is a string with space delimited list of values (by standard)
-- field `"jwt_scope_to_policy_mapping"` provides mapping of scopes (read from claim) to actual policy ID. I.e. in this example we specify that scope "admin" will apply policy `"59672779fa4387000129507d"` to a key
+
+* `jwt_scope_to_policy_mapping` provides a mapping of scopes (read from claim) to an actual policy ID. In this example we specify that scope "admin" will apply policy `"59672779fa4387000129507d"` to a key.
+* `jwt_scope_claim_name` identifies the JWT claim name which contains scopes. This API Spec field is optional with default value `"scope"`. This claim value is a string with space delimited list of values (by standard)
+
+
 > **NOTE**: several scopes in JWT claim will lead to have several policies applied to a key. In this case all policies should have `"per_api"` set to `true` and shouldn't have the same `API ID` in access rights. I.e. if claim with scopes contains value `"admin developer"` then two policies `"59672779fa4387000129507d"` and `"53222349fa4387004324324e"` will be applied to a key (with using our example config above).
+
+#### Setting JWT Scope Claims with the Dashboard
+
+You can also map your JWT scope to your policies from the **Endpoint Designer**.
+
+1. Create a new API or edit an existing API that has the **Authentication mode** set to **JSON Web Token (JWT)**.
+2. At the bottom of the **Core Settings** tab, select **Use Scope Claim**.
+![Use Scope Claim][2]
+3. Enter a **Scope Name** for your scope. For example "admin" in the above example.
+4. Enter a **Claim Name** for your scope. This is the equivalent to setting `jwt_scope_claim_name` above.
+5. Select an available policy from the **Policies** drop-down list. This is the equivalent to setting `jwt_scope_to_policy_mapping` above.
+6. Click add to save the scope claim.
+7. Repeat this process for all the scope claims you want to add to the API.
+8. Click **Update** to save the new settings for your API.
+
+
 
 ## <a name="example"></a> Worked Example: API with OpenIDC Using Auth0
 
@@ -165,3 +184,4 @@ If you take the auth header out, or malform it, you will get the following respo
 ```
 
  [1]: /docs/img/diagrams/openid_connect.png
+ [2]: /docs/img/dashboard/system-management/jwt_scope_claim.png

@@ -37,15 +37,17 @@ The next panel will show you their apI usage as an aggregate for all the tokens 
 
 ![Developer usage graph][5]
 
-### Developer Subscriptions
+### Developer Keys
 
-In this panel, you will be able to see the various policies that the developer has signed up to, and enable you to revoke or update their access to a different policy (e.g. upgrade them to a higher policy tier).
+In this panel, you will be able to see the various Keys the developer has access to, and the policies that are connected to the individual Key.
 
-To drill down into the specific usage patterns for each token, click **ANALYTICS** for the subscription.
+> **NOTE**: From version 1.9, you can now apply multiple policies to an individual Key.
 
-![Developer subscriptions][6]
+To drill down into the specific usage patterns for each Key, click **ANALYTICS** for the Key.
 
-### Changing Developer Policy Subscriptions
+![Developer Keys][6]
+
+### Changing Developer Policy Keys
 
 #### Step 1: View the Developer Profile
 
@@ -53,17 +55,19 @@ Browse to the developers list view and select the developer that you wish to man
 
 ![Developer profile detail][13]
 
-#### Step 2: View Subscriptions List
+#### Step 2: View Keys List
 
-This sections shows you the current policy that the developer has access to, this view will always try to match the access level to a catalogue entry, if the policy assigned to a developer is not in the catalogue, the entry will read "(No Catalogue Entry)". We recommend that all policy levels are in your catalogue, even if they are not all live.
+This sections shows you the Keys and the policies connected to them. This view will always try to match the access level to a catalogue entry, if the policy assigned to a developer is not in the catalogue, the entry will read "(No Catalogue Entry)". We recommend that all policy levels are in your catalogue, even if they are not all live.
 
-#### Step 3: Click CHANGE POLICY
+#### Step 3: Click Options
 
-This will open a pop-up window that shows you all available policies that can be assigned to the token for the end user.
+From the Options drop-down for the Key, select **Change Policy**.
 
-![Change policy button][14]
+![Keys Sections][14]
 
 #### Step 4: Select the New Policy
+
+Select a new policy to add to your Key from the **Policies** drop-down list. You can also remove existing policies connected to the Key.
 
 ![Change policy drop down list][15]
 
@@ -135,7 +139,7 @@ You will be sent an email with a link to reset your Developer password. Enter yo
  [11]: /docs/img/dashboard/portal-management/email_password_request.png
  [12]: /docs/img/dashboard/portal-management/password_confirmation.png
  [13]: /docs/img/dashboard/portal-management/developer_edit_2.5.png
- [14]: /docs/img/dashboard/portal-management/developer_subs_2.5.png
- [15]: /docs/img/dashboard/portal-management/select_policy_2.5.png 
+ [14]: /docs/img/dashboard/portal-management/keys_dev_profile.png
+ [15]: /docs/img/dashboard/portal-management/change_key_policy.png 
 
 
