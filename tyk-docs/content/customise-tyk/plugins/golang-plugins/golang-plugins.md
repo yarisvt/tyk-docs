@@ -49,10 +49,10 @@ We see that the Golang plugin:
 * has an empty `func main()`
 * has one exported `func AddFooBarHeader` which must have the same method signature as `type HandlerFunc func(ResponseWriter, *Request)` from the standard `"net/http"` Golang package
 
-#### Building a plugin
+### Building a plugin
 
-Specifics of Go plugins, is that they should be build using exactly the same binary when its going to be installed.
-In order to make it work, we provide a special docker image, which we internally use for building our official binaries too.
+Specifics of Go plugins, is that they should be build using exactly the same binary when its going to be installed. In order to make it work, we provide a special docker image, which we internally use for building our official binaries too.
+
 Just mount your plugin directory to `/go/src/plugin-build` image location, and specify Tyk version via docker tag. The final argument is plugin name. For example command below, if run from the same directory as your plugin code, will build plugin named `post.so`, for Tyk Gateway 2.9.0:
 
 ```bash
@@ -66,6 +66,10 @@ go build -buildmode=plugin -o post.so
 ```
 
 As a result of the build command we get a shared library with the plugin implementation placed at `pre.so`.
+
+If your plugin depends on third party libraries, ensure to vendor them, before building. If you are using [Go modules](https://blog.golang.org/using-go-modules), it should be as simple as running `go mod vendor` command.
+
+### Loading a plugin
 
 Now we need to instruct Tyk to load this shared library for some API so it will start processing traffic as part of the chain of middleware. To do so we will need to edit our API spec using the raw JSON editor in the Tyk Dashboard or directly in the JSON file (in the case of the Community Edition). This change needs to be done for the `"custom_middleware"` field and it should look like this:
 
