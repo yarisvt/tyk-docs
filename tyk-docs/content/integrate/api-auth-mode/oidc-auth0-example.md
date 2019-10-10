@@ -71,8 +71,8 @@ Save the API.
 curl -X GET \
   https://yourthang.cloud.tyk.io/openid-1/get \
   -H 'authorization: Bearer your token'
-That's it, it should just work - I just did this, and it works fine.
 ```
+That's it!
 
 
 ### Headers and Responses:
