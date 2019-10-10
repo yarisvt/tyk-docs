@@ -69,7 +69,7 @@ To set up an API Definition to use OIDC, add the following block to the definiti
 #### JWT scope to policy mapping support
 > **NOTE**: This feature is available starting from v2.9
 
-You can map JWT scopes to security policies to be applied to a key. To enable this feature you will need to add the following fields in your API:
+You can map JWT scopes to security policies (including OIDC) to be applied to a key. To enable this feature you will need to add the following fields in your API:
 ```{.copyWrapper}
   "jwt_scope_to_policy_mapping": {
     "admin": "59672779fa4387000129507d",
@@ -88,7 +88,7 @@ Here we have set:
 
 #### Setting JWT Scope Claims with the Dashboard
 
-You can also map your JWT scope to your policies from the **Endpoint Designer**.
+You can also map your JWT scope to your policies from the **API Designer**.
 
 1. Create a new API or edit an existing API that has the **Authentication mode** set to **JSON Web Token (JWT)**.
 2. At the bottom of the **Core Settings** tab, select **Use Scope Claim**.
