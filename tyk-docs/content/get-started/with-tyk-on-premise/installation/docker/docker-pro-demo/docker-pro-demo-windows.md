@@ -66,121 +66,29 @@ Go to:
 127.0.0.1:3000
 ```
 
-You should get to the Tyk Dashboard login screen:
+You should get to the Tyk Dashboard Setup screen:
 
-![Tyk Dashboard Login Screen][1]
+![Tyk Dashboard Bootstrap Screen][1]
 
-### Step Six - Create an Organisation via Postman
+### Step Six - Create your Organisation and Default User
 
-You need to create an organisation for your initial user to belong to.
+You need to enter the following:
 
-* **Request**: POST
-* **URL**: `127.0.0.1:3000/admin/organisations/`
-* **Header**: Key `admin-auth` Value `12345`
-* **Body** (raw set to application/json):
+* Your **Organisation Name**
+* Your **Organisation Slug**
+* Your User **Email Address**
+* Your User **First and Last Name**
+* A **Password** for your User
+* **Re-enter** your user **Password**
 
-#### Sample Request
+> **NOTE**: For a password, we recommend a combination of alphanumeric characters, with both upper and lower case letters.
 
-```{copy.Json}
-{"owner_name": "TestOrg5 Ltd.",
-"owner_slug": "testorg",
-"cname_enabled":true,
-"cname": "localhost"}
-```
+Click **Bootstrap** to save the details.
 
-This will return a `"org_id"` value. You need this value to create your user.
-
-#### Sample Response
-
-```
-{
-    "Status": "OK",
-    "Message": "Org created",
-    "Meta": "5d07b4b0661ea80001b3d40d"
-}
-```
+You can now log in to the Tyk Dashboard from `127.0.0.1:3000`, using the username and password created in the Dashboard Setup screen.
 
 
-### Step Seven - Create a User via Postman
-
-This sets up an initial user to enable you to login to your Dashboard.
-
-* **Request**: POST
-* **URL**: `127.0.0.1:3000/admin/users`
-* **Header**: Key `admin-auth` Value `12345`
-* **Body** (raw set to application/json):
-
-#### Sample Request
-
-```{copy.Json}
-{"first_name": "",
-"last_name": "",
-"email_address": "",
-"active": true,
-"org_id": "5d07b4b0661ea80001b3d40d"}
-```
-
-Enter a `first_name`, `last_name`, `email_address` and the `org_id` value created in **Step 6**.
-
-This creates a `access_key` value. You need this to create a password for the user.
-
-#### Sample Response
-
-```
-{
-    "Status": "OK",
-    "Message": "e1d655236f4e43cf687d83ac3b2a5054",
-    "Meta": {
-        "api_model": {},
-        "first_name": "Mark",
-        "last_name": "Southee",
-        "email_address": "mark+8@tyk.io",
-        "org_id": "5d07b4b0661ea80001b3d40d",
-        "active": true,
-        "id": "5d07b4b0661ea80001b3d40d",
-        "access_key": "e1d655236f4e43cf687d83ac3b2a5054",
-        "user_permissions": {
-            "IsAdmin": "admin",
-            "ResetPassword": "admin"
-        },
-        "group_id": "",
-        "password_max_days": 0,
-        "password_updated": "0001-01-01T00:00:00Z",
-        "PWHistory": [],
-        "created_at": "2019-06-20T09:43:07.839Z"
-    }
-}
-```
-
-
-
-### Step Eight - Add a password for your User
-
-This creates a password for the user setup in **Step Seven**. Replace `USER_ID` with your `user_id` value. For the `Authorization` Header, the Value you need to enter is the `access_key` value from the create user request. 
-
-* **Request**: POST
-* **URL**: `127.0.0.1:3000/api/users/USER_ID/actions/reset`
-* **Header**: Key `Authorzation` Value `SECRET_VALUE`
-* **Body** (raw set to application/json):
-
-#### Sample Request
-
-```{copy.Json}
-{"new_password":"Password"}
-```
-
-#### Sample Response
-
-```
-{
-    "Status": "OK",
-    "Message": "User password updated",
-    "Meta": null
-}
-```
-
-
-### Step Nine - Set up a Portal Catalogue
+### Step Seven - Set up a Portal Catalogue
 
 This creates a portal catalogue for your developer portal. For the `Authorization` Header, the Value you need to enter is the `access_key` value from the create user request. In the body add the `org_id` value created in **Step One**.
 
@@ -205,7 +113,7 @@ This creates a portal catalogue for your developer portal. For the `Authorizatio
 }
 ```
 
-### Step Ten - Create your default Portal Pages
+### Step Eight - Create your default Portal Pages
 
 This creates the default home page for your developer portal. For the `Authorization` Header, the Value you need to enter is the `access_key` value from the create user request.
 
@@ -251,7 +159,7 @@ This creates the default home page for your developer portal. For the `Authoriza
 }
 ```
 
-### Step Eleven - Setup the Portal URL
+### Step Nine - Setup the Portal URL
 
 This creates the developer portal URL. For the `Authorization` Header, the Value you need to enter is the `secret` value from your `/confs/tyk_analytics.conf`.
 
@@ -279,4 +187,4 @@ This creates the developer portal URL. For the `Authorization` Header, the Value
 
 
 
-[1]: /docs/img/dashboard/system-management/dashboard_login.png
+[1]: /docs/img/dashboard/system-management/bootstrap_screen.png

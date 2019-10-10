@@ -56,6 +56,19 @@ If this is set to `true`, the same value should be enabled in the Dashboard conf
 
 Set to `false` by default, set this to `true` to enable the retrieval all (or per API) key hash listings.
 
+### <a name="enable_update_key_by_hash"></a>enable_update_key_by_hash
+
+Available from **v2.8**, this setting allows you to update keys with just its hash value. Set to `false` by default.
+
+> **NOTE**: This setting applies to On-Premises and MDCB installations only.
+
+
+### <a name="enable_delete_key_by_hash"></a>enable_delete_key_by_hash
+
+Available from **v2.8**, this setting allows you to delete keys with just its hash value. Set to `false` by default.
+
+> **NOTE**: This setting applies to On-Premises and MDCB installations only.
+
 ### <a name="allow_master_keys"></a> allow_master_keys
 
 If this value is set to `true`, session objects (key definitions) that do not have explicit access rights set will be allowed by Tyk. This means that keys that are created have access to ALL APIs, which in many cases is unwanted behaviour unless you are sure about what you are doing.

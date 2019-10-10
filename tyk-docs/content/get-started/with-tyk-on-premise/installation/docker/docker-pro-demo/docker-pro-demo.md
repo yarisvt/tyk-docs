@@ -58,36 +58,31 @@ Go to:
 127.0.0.1:3000
 ```
 
-You should get to the Tyk Dashboard login screen:
+You should get to the Tyk Dashboard Setup screen:
 
-![Tyk Dashboard Login Screen][1]
+![Tyk Dashboard Bootstrap Screen][1]
 
-### Step Six - Bootstrap the Tyk Installation
+### Step Six - Create your Organisation and Default User
 
-This will create the following:
+You need to enter the following:
 
-* An Organisation
-* A User
-* A Password for the User
-* A Catalogue for your Deveolper Portal
-* A default Home page for your Developer Portal
-* The URL for your Developer Portal
+* Your **Organisation Name**
+* Your **Organisation Slug**
+* Your User **Email Address**
+* Your User **First and Last Name**
+* A **Password** for your User
+* **Re-enter** your user **Password**
 
+> **NOTE**: For a password, we recommend a combination of alphanumeric characters, with both upper and lower case letters.
 
-Run the following command from the installation directory:
-
-```
-chmod +x setup.sh 
-./setup.sh
-```
-
+Click **Bootstrap** to save the details.
 
 ### Step Seven - Login to the Dashboard
 
-You can now log in to the Tyk Dashboard from `127.0.0.1:3000`, using the username and password created by the setup script:
+You can now log in to the Tyk Dashboard from `127.0.0.1:3000`, using the username and password created in the Dashboard Setup screen.
 
 
 
 
 
-[1]: /docs/img/dashboard/system-management/dashboard_login.png
+[1]: /docs/img/dashboard/system-management/bootstrap_screen.png

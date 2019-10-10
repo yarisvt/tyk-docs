@@ -57,24 +57,33 @@ docker-compose -f docker-compose.yml -f docker-local.yml up
 
 This will will download and setup the five Docker containers. This may take some time and will display all output.
 
-### Step Five - Run the Setup Script
+### Step Five - Got to the Dashboard URL
 
-Open another Powershell Terminal in Administrator Mode from the same folder as the setup script, run the command:
+Go to:
+
 ```{copy.Wrapper}
-bash
+127.0.0.1:3000
 ```
 
-This will open a bash prompt in Powershell, now run:
-```{copy.Wrapper}
-./setup.sh
-```
+You should get to the Tyk Dashboard Setup screen:
 
-### Alternatively - Run the Setup Script
+![Tyk Dashboard Bootstrap Screen][1]
 
-Open a WSL terminal in the same folder as the setup script and run the script.  
+### Step Six - Create your Organisation and Default User
 
-The Setup script will run for a short time and provide you with login details, including login IP, along with a sample User Name and Password. 
+You need to enter the following:
 
-Follow the login details and view the Tyk Dashboard. ....
+* Your **Organisation Name**
+* Your **Organisation Slug**
+* Your User **Email Address**
+* Your User **First and Last Name**
+* A **Password** for your User
+* **Re-enter** your user **Password**
+
+> **NOTE**: For a password, we recommend a combination of alphanumeric characters, with both upper and lower case letters.
+
+Click **Bootstrap** to save the details.
+
+You can now log in to the Tyk Dashboard from `127.0.0.1:3000`, using the username and password created in the Dashboard Setup screen.
 
 
