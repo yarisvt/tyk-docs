@@ -140,8 +140,7 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 {
   "Status": "OK",
   "Message": "User created",
-  "Meta": "",
-  "access_key": "f81ee6f0c8f2467d539c132c8a422346"
+  "Meta": ""
 }
 ```
 
