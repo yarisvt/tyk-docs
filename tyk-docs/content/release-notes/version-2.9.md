@@ -63,7 +63,7 @@ func AddFooBarHeader(rw http.ResponseWriter, r *http.Request) {
 See our [Golang plugin documentation](/docs/customise-tyk/plugins/golang-plugins/golang-plugins) for more details.
 
 ### Distributed tracing
-We have listen to you, and tracing is recently one of your most common requests. Distributed tracking takes your monitoring and profiling experience to the next level, since you can see the whole request flow, even if it has complex route though multiple services. And inside this flow, you can go deep down into the details like individual middleware execution performance.
+We have listened to you, and tracing is recently one of your most common requests. Distributed tracing takes your monitoring and profiling experience to the next level, since you can see the whole request flow, even if it has complex route though multiple services. And inside this flow, you can go deep down into the details like individual middleware execution performance.
 At the moment we are offering [OpenTracing](https://opentracing.io/) support, with [Zipkin](https://zipkin.io/) and [Jaeger](https://www.jaegertracing.io/) as supported tracers.
 
 See our [Distributed Tracing documentation](/docs/opentracing/) for more details.
