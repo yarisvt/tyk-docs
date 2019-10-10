@@ -627,3 +627,37 @@ If you set `disable_regexp_cache` to false, you can use this setting to limit ho
 
 > **NOTE:** This option is available from v2.7.0 onwards.
 
+
+### <a name="dns-caching"></a> DNS caching
+
+This section enables the global configuration of the expireable dns records caching for gateway API endpoints. By design caching affects only http(s), ws(s) protocols apis and doesn't affect any plugin/middleware dns queries.
+
+```
+"dns_cache": {
+    "enabled": true, //Turned off by default
+    "ttl": 60, //Time in seconds before the record will be removed from cache
+    "multiple_ips_handle_strategy": "random" //A strategy, which will be used when dns query will reply with more than 1 ip address per single host.
+}
+```
+
+#### <a name="dns-cache-enabled"></a> dns_cache.enabled
+
+Valid values: `true`, `false`
+Default value: `false`
+Setting this value to `true` will enable caching of dns queries responses used for API endpoint's host names.
+By default caching is disabled.
+
+#### <a name="dns-cache-ttl"></a> dns_cache.ttl
+
+Units: seconds
+Default value: `0`
+This setting allows to specify duration in seconds before the record will be removed from cache after being added to it on first dns query resolution of API endpoints.
+Setting ttl to `-1` prevents record from being expired and removed from cache on next check interval.
+
+#### <a name="dns-cache-multiple-ips-handle-strategy"></a> dns_cache.multiple_ips_handle_strategy
+Valid values: `pick_first`, `random`, `no_cache`
+A strategy, which will be used when dns query will reply with more than 1 ip address per single host.
+As dns query response ip addresses can have changing order depending on dns server balancing strategy(eg: round robin, geographically dependent origin-ip ordering, etc) this option allows to not to limit connection to first host within cached response list or prevent response caching.
+- `pick_first` will instruct gateway to connect to first ip in returned ips list and cache the response.
+- `random` will instruct gateway to connect to random ip in returned ips list and cache the response.
+- `no_cache` will instruct gateway to connect to first ip in returned ips list and fetch each addresses list without caching on each API endpoint dns query.

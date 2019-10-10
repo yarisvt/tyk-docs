@@ -44,6 +44,17 @@ Tyk enables you to manage this flow in a few ways:
 
 A key request can be created using the Dashboard API too, in fact, the Key-Request mechanism is a great way to create a mapping between an identity (a developer) and a token, and managing that process.
 
+### Multiple APIs for a single Key Requests
+
+New for v1.9, a developer can now request access to multiple APIs with a single key request. The APIs you group together via a single key should all be of the same authentication type.
+
+ ![Multiple APIs per Key Request][2]
+
+
+To enable this functionality, select **Enable subscribing to multiple APIs with a single key** from the Portal Management Settings. 
+
+![Multiple APIs][1]
+
 ## <a name="policies"></a> Policies
 
 In the context of the developer portal, a security policy is the main "element" being exposed to public access. The policy is the same as a standard policy, and the policy forms the baseline template that gets used when the portal generates a token for the developer.
@@ -54,7 +65,7 @@ Security policies are used instead of a one-to-one mapping because they encapsul
 2.  Quota
 3.  Access Lists (What APIs and which versions are permitted)
 4.  Granular access (Which methods and paths are allowed, e.g. you may want to only expose read-only access to the portal, so only GET requests are allowed)
-5.  Multi-key-management (With a policy, you can manage thousands of tokens, instead of one by one)
+5.  Multi-policy-management (With a Key, you can assign more than one policy to an APIs and each policy will have it's own counter).
 
 Within the developer portal admin area, under a developer record, you will see their subscriptions. Those subscriptions represent the tokens they have and their policy level access. It is possible to then "upgrade" or "downgrade" a developers access without actually managing their token, but just assigning a new policy to that token.
 
@@ -78,7 +89,8 @@ A developer record consists of some basic sign-up information and a set of admin
 Within the developer view of the Tyk Dashboard, it is possible to manage all access of a developer, including the access levels of their tokens.
 
 
-
+ [1]: /docs/img/dashboard/portal-management/multi-api-setting.png
+ [2]: /docs/img/dashboard/portal-management/multi-api-per-request.png
 
 
 

@@ -125,7 +125,7 @@ Notice how we haven't actually started the gateway yet, because this is a Dashbo
 
 Add your license in `/var/opt/tyk-dashboard/tyk_analytics.conf` in the `license` field.
 
-If all is going well, you will be taken to a log in screen - we'll get to that soon.
+If all is going well, you will be taken to a Dashboard setup screen - we'll get to that soon.
 
 ### Step 9: Restart the Dashboard process
 
@@ -134,27 +134,36 @@ Because we've just entered a license via the UI, we need to make sure that these
 sudo service tyk-dashboard restart 
 ```
 
-### Step 10: Bootstrap the Dashboard with an initial user and organisation
+### Step 10 - Go to the Tyk Dashboard URL
 
-When the Tyk Dashboard is created for the first time, it has no initial user base or organisation to add data to, so we need to add this.
+Go to:
 
-The best way to add this data is with the Admin API, to make it really easy we've supplied a bootstrap script that will set you up. If you want to customise it, take a look at the file in `/opt/tyk-dashboard/install/bootstrap.sh`.
-
-**Prerequisites for this command**
-
-*   This command assumes you are running on a Linux shell such as Bash
-*   This command assumes you have Python 2.7 or 3.4 installed
-*   You have Redis and MongoDB running
-
-**To bootstrap your instance**:
-
-```{.copyWrapper}
-sudo /opt/tyk-dashboard/install/bootstrap.sh XXX.XXX.XXX.XXX
+```{copy.Wrapper}
+127.0.0.1:3000
 ```
 
-This command tells the bootstrap script to use the localhost as the base for the API calls, you can run the bootstrap remotely and change the first command line parameter to the DNS hostname of your instance.
+You should get to the Tyk Dashboard Setup screen:
 
-You will now be able to log into and test your Tyk instance from `http://your-host-name:3000/` with the values given to you by the bootstrap script.
+![Tyk Dashboard Bootstrap Screen][1]
+
+### Step 11 - Create your Organisation and Default User
+
+You need to enter the following:
+
+* Your **Organisation Name**
+* Your **Organisation Slug**
+* Your User **Email Address**
+* Your User **First and Last Name**
+* A **Password** for your User
+* **Re-enter** your user **Password**
+
+> **NOTE**: For a password, we recommend a combination of alphanumeric characters, with both upper and lower case letters.
+
+Click **Bootstrap** to save the details.
+
+### Step 12 - Login to the Dashboard
+
+You can now log in to the Tyk Dashboard from `127.0.0.1:3000`, using the username and password created in the Dashboard Setup screen.
 
 
  [1]: https://packagecloud.io
