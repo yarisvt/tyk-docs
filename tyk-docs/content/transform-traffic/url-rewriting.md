@@ -174,7 +174,7 @@ When triggers are added, you can edit or remove them inside the **Advanced URL r
 ![URL rewrite list trigger][5]
 
 
-[1]: /docs/img/dashboard/system-management/endpoint_design_url_rewrite_1.8.png
+[1]: /docs/img/dashboard/system-management/url-rewrite-plugin.png
 [2]: /docs/img/dashboard/system-management/configure_rewrite_2.5.png
 [3]: /docs/concepts/context-variables/
 [4]: /docs/img/dashboard/system-management/rewriteEndpointDesigner_add_trigger.png
