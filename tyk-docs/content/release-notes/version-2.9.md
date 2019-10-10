@@ -26,7 +26,7 @@ Additionally you can now mix policies defined for the same API but having differ
 
 Developers now can have multiple API keys, and subscribe to multiple catalogues with a single key. Go to the Portal settings and set `Enable subscribing to multiple APIs with single key` option to enable this new flow. When enabled, developers will see the new API generation user interface, which allows users to request access to multiple Catalogues of the **same type**  with a single key. 
 
-From an implementation point of view, Developer objects now have a `Keys` attribute, which is the map where the key is a `key` and the value is an array of policy IDs. The `Subscriptions` field can be considered as deprecated, with retained backwards compatibility. We have added new set of Developer APIs to manage the keys, similar to the deprecated subscriptions APIs. [See documentation]
+From an implementation point of view, Developer objects now have a `Keys` attribute, which is the map where the key is a `key` and the value is an array of policy IDs. The `Subscriptions` field can be considered as deprecated, with retained backwards compatibility. We have added new set of Developer APIs to manage the keys, similar to the deprecated subscriptions APIs.
 
 Other changes:
 
@@ -40,7 +40,7 @@ Other changes:
 
 Now you can set granular permissions on per user basis, by injecting permissions to the "scope" claim of a JSON Web Token. To make it work you need to provide mapping between the scope and policy ID, and thanks to enchanced policy merging capabilities mentioned above, Tyk will read the scope value from the JWT and will generate dynamic access rules. Your JWT scopes can look like `"users:read companies:write"` or similar, it is up to your imagination. OpenID supports it as well, but at the moment only if your OIDC provider can generate ID tokens in JWT format (which is very common this days).
 
-See our [JWT Scope docs](/docs/integrate/api-auth-mode/open-id-connect) for more details.
+See our [JWT Scope docs](/docs/integrate/api-auth-mode/open-id-connect/#jwt-scope-to-policy-mapping-support) for more details.
 
 ### Go plugins
  
@@ -60,13 +60,13 @@ func AddFooBarHeader(rw http.ResponseWriter, r *http.Request) {
 }
 ```
 
-See our [Golang plugin documentation](/docs/customise-tyk/plugins/golang-plugins/golang-plugins.md) for more details.
+See our [Golang plugin documentation](/docs/customise-tyk/plugins/golang-plugins/golang-plugins) for more details.
 
 ### Distributed tracing
 We have listen to you, and tracing is recently one of your most common requests. Distributed tracking takes your monitoring and profiling experience to the next level, since you can see the whole request flow, even if it has complex route though multiple services. And inside this flow, you can go deep down into the details like individual middleware execution performance.
 At the moment we are offering [OpenTracing](https://opentracing.io/) support, with [Zipkin](https://zipkin.io/) and [Jaeger](https://www.jaegertracing.io/) as supported tracers.
 
-See our [Distributed Tracing documentation](/docs/distributed-tracing/distributed-tracing) for more details.
+See our [Distributed Tracing documentation](/docs/opentracing/) for more details.
 
 
 ### HMAC request signing 
@@ -98,7 +98,7 @@ The following algorithms are supported:
 ### Simplified Dashboard installation experience
 We worked a lot with our clients to build a way nicer on-boarding experience for Tyk. Instead of using the command line, you can just run the Dashboard, and complete a form which will configure your Dashboard. However, we did not forget about our experienced users too, and now provide a CLI enchanced tool for bootstrapping Tyk via a command line. 
 
-See our updated [Getting Started](/get-started/with-tyk-on-premise) section and [new CLI documentation](/docs/get-started/with-tyk-on-premise/installation/bootstrapper-cli).
+See our updated [Getting Started](/docs/get-started/with-tyk-on-premise/) section and [new CLI documentation](/docs/get-started/with-tyk-on-premise/installation/bootstrapper-cli).
 
 ### DNS Caching
 Added a global DNS cache in order to reduce the number of request to a Gateway's local DNS server and the appropriate gateway config section. This feature is turned off by default.
@@ -124,6 +124,8 @@ We have introduced a new Dashboard API for importing custom keys, which is as si
 ### Single sign on for the Tyk SaaS
 
 Before SSO was possible only for Tyk On-Premise, since it required access to low-level Dashboard Admin APIs. With 2.9 we have added new a new Dashboard SSO API, which you can use without having super admin access, and it works at the organisation level. This means that all our Tyk SaaS users can use 3rd party IDPs to manage Dashboard users and Portal developers.
+
+> **NOTE**: This feature is available by request. Please contact our sales team for details.
 
 See our [Dashboard SSO documentation](/docs/tyk-dashboard-api/sso/) for more details.
 
