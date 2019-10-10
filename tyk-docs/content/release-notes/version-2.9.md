@@ -132,3 +132,21 @@ See our [Dashboard SSO documentation](/docs/tyk-dashboard-api/sso/) for more det
 ### Importing WSDL APIs
 
 WSDL now is a first class citizen at Tyk. You can take your WSDL definition and simply import to the Dashboard, creating a nice boilerplate for your service. See [Import APIs](/docs/configure/import-apis/) for more details.
+
+### Updated Versions
+
+* Tyk Gateway 2.9.0
+* Tyk Dashboard 1.9.0
+* Tyk Pump 0.8.0
+* Tyk MDCB 1.7.0
+
+### Upgrading From Version 2.8
+
+#### Tyk On-Premises
+
+For this release, you should upgrade your Tyk Pump first.
+
+#### Tyk MDCB
+
+For this release, you should upgrade your MDCB component first.
+
