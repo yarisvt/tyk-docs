@@ -169,7 +169,7 @@ As of version 2.2 Tyk allows context variables to be injected into headers using
 
 
 
-[1]: /docs/img/dashboard/system-management/end_design_modify_headers_1.8.png
+[1]: /docs/img/dashboard/system-management/modify-header-plugin.png
 [2]: /docs/img/dashboard/system-management/header_request_tab_2.5.png
 [3]: /docs/img/dashboard/system-management/set_headers_2.5.png
 [4]: /docs/img/dashboard/system-management/global_headers_2.5.png

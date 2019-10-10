@@ -62,5 +62,5 @@ To add the Validate JSON plugin via the Dashboard:
 ![validate json options][2]
 
 
-[1]: /docs/img/dashboard/system-management/endpoint_designer_validate_json_1.8.png
+[1]: /docs/img/dashboard/system-management/validate-json-plugin.png
 [2]: /docs/img/dashboard/system-management/validate_json_options.png
