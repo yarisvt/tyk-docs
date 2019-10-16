@@ -47,6 +47,7 @@ The file will look like the sample below, the various fields are explained in th
   "license_key": "..."
   "hash_keys": true,
   "enable_delete_key_by_hash": false,
+  "enable_update_key_by_hash": false,
   "enable_master_keys": false,
   "email_backend": {
     "enable_email_notifications": true,
@@ -160,6 +161,8 @@ This purpose of these endpoints is to allow functionality that regular Dashboard
 *   `hash_keys`: If your Tyk Gateway is using hashed tokens, set this value here to `true` so it matches. The Dashboard will now operate in a mode that is compatible with key hashing.
 
 *   `enable_delete_key_by_hash`: To delete a key by its hash, set this option to `true`.
+
+*   `enable_update_key_by_hash`: To update a key by its hash, set this option to `true`.
 
 *  `enable_master_keys`: If this value is set to true, session objects (key definitions) that do not have explicit access rights set will be allowed by Tyk. This means that keys that are created have access to ALL APIs, which in many cases is unwanted behaviour unless you are sure about what you are doing. To use this setting also requires the corresponding Gateway configuration setting [allow_master_keys](/docs/configure/tyk-gateway-configuration-options/#a-name-allow-master-keys-a-allow-master-keys) to be set to `true`.
 
