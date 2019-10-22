@@ -116,7 +116,7 @@ Once installed, modify your `/opt/tyk-sink/tyk_sink.conf` file as follows:
 |`listen_port`                 |      int       |The rpc port which worker gateways will connect to. Open this port to accept connections via your firewall.<br>If this value is not set, the MDCB application will apply a default value of 9091.|
 |`healthcheck_port`            |      int       |This port lets MDCB allow standard health checks.<br>If this value is not set, the MDCB component will apply a default value of 8181.|
 |`server_options.use_ssl`      |      bool       |If use_ssl is set to true, you need to enter the cert_file and key_file path names for certificate.|
-|`server_options.min_version`  |      int        |The `min_version` setting should be the minimum TLS protocol version required from the client.<br> For TLS 1.0 use 769<br>For TLS 1.1 use 770<br>For TLS 1.2 use 771|
+|`server_options.min_version`  |      int        |The `min_version` setting should be the minimum TLS protocol version required from the client.<br> For TLS 1.0 use 769<br>For TLS 1.1 use 770<br>For TLS 1.2 use 771<br>For TLS 1.3 use 772|
 |`server_options.certificate.cert_file` |   string  |Filesystem location for pem encoded certificate|
 |`server_options.certificate.key_file` |   string  |Filesystem location for pem encoded private key|
 |`storage` |   object  |This section describes your centralised Redis DB. This will act as your master key store for all of your clusters.|
