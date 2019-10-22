@@ -39,11 +39,12 @@ You need to use the following values for setting the TLS `min_version`:
 |      1.0      |      769       |
 |      1.1      |      770       |
 |      1.2      |      771       |
+|      1.3      |      772       |
 
 
 #### Specify TLS Cipher Suites for Tyk Gateway & Tyk Dashboard
 
-Each protocol (TLS 1.0, 1.1, 1.2) provides cipher suites. With strength of encryption determined by the cipher negotiated between client & server.
+Each protocol (TLS 1.0, 1.1, 1.2, 1.3) provides cipher suites. With strength of encryption determined by the cipher negotiated between client & server.
 
 You can optionally add the additional `http_server_options` config option `ssl_ciphers` in `tyk.conf` and `tyk-analytics.conf` which takes an array of strings as its value.
 
