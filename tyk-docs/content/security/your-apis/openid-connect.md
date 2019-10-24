@@ -29,6 +29,6 @@ With this flow, Tyk does not need to be aware of the user or the token in advanc
 ![Tyk OpenID Connect with Auth0](/docs/img/diagrams/openid_connect.png)
 
 
-For more details about our OpenID Connect support see [OpenID Integration](http://localhost:1313/docs/integrate/api-auth-mode/open-id-connect/).
+For more details about our OpenID Connect support see [OpenID Integration](/docs/integrate/api-auth-mode/open-id-connect/).
 
 See a [worked example of using OpenID Connect with Auth0](/docs/integrate/api-auth-mode/oidc-auth0-example/).
