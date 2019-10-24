@@ -11,67 +11,67 @@ weight: 0
 ## Quick start
 This quick start guide will help you to understand the idea behind Golang plugins in less than 5-10 minutes.
 
-You will look at:
+We will look at:
 
-* some simple example to see how to customize/extend Tyk with Golang plugins
-* look at some code get some ideas where to go next
-* process how to build Golang plugin and get it loaded by Tyk
+* Some simple examples to see how to customise and extend Tyk with Golang plugins
+* Look at some code to get some ideas as to where to go next
+* Follow the process of how to build a Golang plugin and get it loaded by Tyk
 
 Golang plugins are a very flexible and powerful way to extend the functionality of Tyk. It is based on utilising the native Golang plugins API (see https://golang.org/pkg/plugin for more details).
 
-Every HTTP request (to your API, protected and managed by Tyk) gets passed through a chain of built-in middleware inside Tyk. The middleware perform tasks like authentication, rate limiting, white or black listing and many others - it depends on the particular API specification. In other words the chain of middleware is specific to an API and gets created at API re-load time. The Golang plugins feature allows developers to create custom middleware in Golang and then they can be added to chain of middleware. So when Tyk performs an API re-load it also loads custom middleware and "injects" them into a chain to be called at different stages of the HTTP request life cycle.
+Every HTTP request (to your API, protected and managed by Tyk) gets passed through a chain of built-in middleware inside Tyk. This middleware performs tasks like authentication, rate limiting, white or black listing and many others - it depends on the particular API specification. In other words the chain of middleware is specific to an API and gets created at API re-load time. Golang plugins allow developers to create custom middleware in Golang and then add them to the chain of middleware. So when Tyk performs an API re-load it also loads the custom middleware and "injects" them into a chain to be called at different stages of the HTTP request life cycle.
 
 ### Golang Plugin example
 
 Let's create a plugin with very basic functionality:
 
-* we need to add custom header `"Foo: Bar"` to request 
-* this needs to happen right before request gets passed to some upstream behind Tyk API gateway
+* We will add a custom header `"Foo: Bar"` to a request. 
+* This needs to happen right before the request is passed to an upstream target behind the Tyk API Gateway
 
 The plugin code will look like this:
-```go
+```.go
 package main
 
 import (
-	"net/http"
+  "net/http"
 )
 
 // AddFooBarHeader adds custom "Foo: Bar" header to the request
 func AddFooBarHeader(rw http.ResponseWriter, r *http.Request) {
-	r.Header.Add("Foo", "Bar")
+  r.Header.Add("Foo", "Bar")
 }
 
 func main() {}
 ```
 We see that the Golang plugin:
 
-* is a Golang project with a `main` package
-* has an empty `func main()`
-* has one exported `func AddFooBarHeader` which must have the same method signature as `type HandlerFunc func(ResponseWriter, *Request)` from the standard `"net/http"` Golang package
+* Is a Golang project with a `main` package
+* Has an empty `func main()`
+* Has one exported `func AddFooBarHeader` which must have the same method signature as `type HandlerFunc func(ResponseWriter, *Request)` from the standard `"net/http"` Golang package
 
-### Building a plugin
+### Building a Golang plugin
 
-Specifics of Go plugins, is that they should be build using exactly the same binary when its going to be installed. In order to make it work, we provide a special docker image, which we internally use for building our official binaries too.
+A specific of Golang plugins is that they need to be built using exactly the same Tyk binary as the one to be installed. In order to make it work, we provide a special docker image, which we internally use for building our official binaries too.
 
-Just mount your plugin directory to `/go/src/plugin-build` image location, and specify Tyk version via docker tag. The final argument is plugin name. For example command below, if run from the same directory as your plugin code, will build plugin named `post.so`, for Tyk Gateway 2.9.0:
+Just mount your plugin directory to the `/go/src/plugin-build` image location, and specify your Tyk version via a docker tag. The final argument is the plugin name. For the example command below, if run from the same directory as your plugin code, this will build a plugin named `post.so`, for Tyk Gateway 2.9.0:
 
-```bash
+```.bash
 docker run -v `pwd`:/go/src/plugin-build tyk-plugin-compiler:2.9.0 post`
 ```
 
-If you are building plugin for Gateway version compiled from the source, you can use the following command:
+If you are building a plugin for a Gateway version compiled from the source, you can use the following command:
 
-```bash
+```.bash
 go build -buildmode=plugin -o post.so
 ```
 
-As a result of the build command we get a shared library with the plugin implementation placed at `pre.so`.
+As a result of this build command we get a shared library with the plugin implementation placed at `pre.so`.
 
 If your plugin depends on third party libraries, ensure to vendor them, before building. If you are using [Go modules](https://blog.golang.org/using-go-modules), it should be as simple as running `go mod vendor` command.
 
-### Loading a plugin
+### Loading a Golang plugin
 
-Now we need to instruct Tyk to load this shared library for some API so it will start processing traffic as part of the chain of middleware. To do so we will need to edit our API spec using the raw JSON editor in the Tyk Dashboard or directly in the JSON file (in the case of the Community Edition). This change needs to be done for the `"custom_middleware"` field and it should look like this:
+Now we need to instruct Tyk to load this shared library for an API so it will start processing traffic as part of the middleware chain. To do so we will need to edit our API spec using the raw JSON editor in the Tyk Dashboard or directly in the JSON file (in the case of the Community Edition). This change needs to be done for the `"custom_middleware"` field and it should look like this:
 
 ```.json
 "custom_middleware": {
@@ -91,11 +91,11 @@ Now we need to instruct Tyk to load this shared library for some API so it will 
 Here we have:
 
 * The `"driver"` field has a new value of `goplugin` which says to Tyk that this custom middleware is a Golang native plugin.
-* We use middleware with the type of `post` because we want this custom middleware to process request right before it gets passed to upstream (we will look at other types a little bit later).
+* We use middleware with the type of `post` because we want this custom middleware to process the request right before it gets passed to the upstream target (we will look at other types later).
 * In the `post` section - the field `mame` contains your function name from the plugin project.
 * In the `post` section - the field `path` is the full or relative (to the Tyk binary) path to `.so` file with plugin implementation (make sure Tyk has read access to this file)
 
-Also, let's set fields `"use_keyless": true` and `"target_url": "http://httpbin.org/"` - for testing purposes (we need to see what request arrives to our upstream and `httpbin.org` is a perfect fit for that)
+Also, let's set fields `"use_keyless": true` and `"target_url": "http://httpbin.org/"` - for testing purposes (we need to see what request arrives to our upstream target and `httpbin.org` is a perfect fit for that.
 
 The API needs to be reloaded after that change (this happens automatically when you save the updated API in the Dashboard).
 
@@ -127,59 +127,59 @@ All four types of custom middleware are supported by Tyk Golang plugins. They re
 * `"post_auth_check"` - contains array of middle-wares to be run after authentication, at this point we have authenticated session API key for the given key (in request context) so we can perform any extra checks.
 * `"post"` - contains array of middle-wares to be run at the very end of middle-ware chain, at this point Tyk is about to request a round-trip to the upstream target.
 
-Golang plugin custom middleware with the type of `"auth_check"` can be used only if:
+The Golang plugin custom middleware `"auth_check"` can be used only if:
 
-* The API is protected, API spec has field set as `"use_keyless": false`
-* The API spec has field set `"use_go_plugin_auth": true`
+* The API is protected, with the API spec has the `"use_keyless"` field set to `false`
+* The API spec has the `"use_go_plugin_auth"` field set to `true`.
 
-and `"post_auth_check"` can be used:
+Then `"post_auth_check"` can be used when:
 
 * When the API is protected, the API spec has field set as `"use_keyless": false`
 * With any auth method specified in API spec
 
-> **NOTE**: These fields are populated automatically with correct values when you change authentication method for API in Tyk Dashboard
+> **NOTE**: These fields are populated automatically with the correct values when you change the authentication method for the API in the Tyk Dashboard
 
 ### Sending HTTP-response from Tyk Golang plugin
 
-It is possible to send a response from the Golang plugin custom middleware. So in the case HTTP response was sent:
+It is possible to send a response from the Golang plugin custom middleware. So in the case that the HTTP response was sent:
 
-* The HTTP request processing is stopped and other middle-wares in chain won't be used.
-* The HTTP request round-trip to upstream won't happen
+* The HTTP request processing is stopped and other middleware in the chain won't be used.
+* The HTTP request round-trip to the upstream target won't happen
 * Analytics records will still be created and sent to the analytics processing flow.
 
-Let's look at example how to send a HTTP response from the Tyk Golang plugin. Imagine we need middleware which would send JSON with the current time if the request contains the parameter `get_time=1` in the request query string:
+Let's look at an example of how to send a HTTP response from the Tyk Golang plugin. Imagine that we need middleware which would send JSON with the current time if the request contains the parameter `get_time=1` in the request query string:
 
 ```.go
 package main
 
 import (
-	"encoding/json"
-	"net/http"
-	"time"
+  "encoding/json"
+  "net/http"
+  "time"
 )
 
 func SendCurrentTime(rw http.ResponseWriter, r *http.Request) {
-	// check if we don't need to send reply
-	if r.URL.Query().Get("get_time") != "1" {
-		// allow request to be processed and sent to upstream
+  // check if we don't need to send reply
+  if r.URL.Query().Get("get_time") != "1" {
+    // allow request to be processed and sent to upstream
         return
-	}
+  }
 
-	// prepare data to send
-	replyData := map[string]interface{}{
-		"current_time": time.Now(),
-	}
+  // prepare data to send
+  replyData := map[string]interface{}{
+    "current_time": time.Now(),
+  }
 
-	jsonData, err := json.Marshal(replyData)
-	if err != nil {
-		rw.WriteHeader(http.StatusInternalServerError)
-		return
-	}
+  jsonData, err := json.Marshal(replyData)
+  if err != nil {
+    rw.WriteHeader(http.StatusInternalServerError)
+    return
+  }
 
-	// send HTTP response from Golang plugin
-	rw.Header().Set("Content-Type", "application/json")
-	rw.WriteHeader(http.StatusOK)
-	rw.Write(jsonData)
+  // send HTTP response from Golang plugin
+  rw.Header().Set("Content-Type", "application/json")
+  rw.WriteHeader(http.StatusOK)
+  rw.Write(jsonData)
 }
 
 func main() {}
@@ -210,7 +210,7 @@ Then let's edit the API spec to use this custom middleware:
 
 Let's check that we still perform a round trip to the upstream target if the request query string parameter `get_time` is not set:
 
-```bash
+```.bash
 curl http://localhost:8181/my_api_name/get
                  
 {
@@ -227,7 +227,7 @@ curl http://localhost:8181/my_api_name/get
 
 Now let's check if our Golang plugin sends a HTTP 200 response (with JSON containing current time) when we set `get_time=1` query string parameter:
 
-```bash
+```.bash
 curl -v http://localhost:8181/my_api_name/get?get_time=1
 *   Trying ::1...
 * TCP_NODELAY set
@@ -245,18 +245,19 @@ curl -v http://localhost:8181/my_api_name/get?get_time=1
 * Connection #0 to host localhost left intact
 {"current_time":"2019-09-11T23:44:10.040878-04:00"}
 ```
+
 Here we see that:
 
 * We've got a HTTP 200 response code.
 * The response body has JSON payload with current time.
-* The upstream target was not reached, our Tyk Golang plugin served this request and stopped processing after the response was sent.
+* The upstream target was not reached. Our Tyk Golang plugin served this request and stopped processing after the response was sent.
 
 ### Authentication with a Golang plugin
 
 You can implement your own authentication method, using a Golang plugin and custom `"auth_check"` middleware. Please make sure that:
 
-* The API is protected, API spec has field set as `"use_keyless": false`
-* The API spec has the field `"use_go_plugin_auth": true` set
+* The API is protected with `"use_keyless` set to `false`
+* The API spec has  `"use_go_plugin_auth"` set to `true`
 
 Let's have a look at the code example. Imagine we need to implement a very trivial authentication method when only one key is supported (in the real world you would want to store your keys in some storage or have some more complex logic).
 
@@ -264,44 +265,45 @@ Let's have a look at the code example. Imagine we need to implement a very trivi
 package main
 
 import (
-	"net/http"
+  "net/http"
 
-	"github.com/TykTechnologies/tyk/ctx"
-	"github.com/TykTechnologies/tyk/headers"
-	"github.com/TykTechnologies/tyk/user"
+  "github.com/TykTechnologies/tyk/ctx"
+  "github.com/TykTechnologies/tyk/headers"
+  "github.com/TykTechnologies/tyk/user"
 )
 
 func getSessionByKey(key string) *user.SessionState {
-	// here goes our logic to check if passed API key is valid and appropriate key session can be retrieved
+  // here goes our logic to check if passed API key is valid and appropriate key session can be retrieved
 
-	// perform auth (only one token "abc" is allowed)
-	if key != "abc" {
-		return nil
-	}
+  // perform auth (only one token "abc" is allowed)
+  if key != "abc" {
+    return nil
+  }
 
-	// return session
-	return &user.SessionState{
-		OrgID: "default",
-		Alias: "abc-session",
-	}
+  // return session
+  return &user.SessionState{
+    OrgID: "default",
+    Alias: "abc-session",
+  }
 }
 
 func MyPluginAuthCheck(rw http.ResponseWriter, r *http.Request) {
-	// try to get session by API key
-	key := r.Header.Get(headers.Authorization)
-	session := getSessionByKey(key)
-	if session == nil {
-		// auth failed, reply with 403
-		rw.WriteHeader(http.StatusForbidden)
-		return
-	}
+  // try to get session by API key
+  key := r.Header.Get(headers.Authorization)
+  session := getSessionByKey(key)
+  if session == nil {
+    // auth failed, reply with 403
+    rw.WriteHeader(http.StatusForbidden)
+    return
+  }
 
-	// auth was successful, add session and key to request's context so other middle-wares can use it
-	ctx.SetSession(r, session, key, true)
+  // auth was successful, add session and key to request's context so other middle-wares can use it
+  ctx.SetSession(r, session, key, true)
 }
 
 func main() {}
 ```
+
 A couple of notes about this code:
 
 * The package `"github.com/TykTechnologies/tyk/ctx"` is used to set a session in the request context - this is something `"auth_check"`-type custom middleware is responsible for.
@@ -309,7 +311,7 @@ A couple of notes about this code:
 * Our Golang plugin sends a 403 HTTP response if authentication fails.
 * Our Golang plugin just adds a session to the request context and returns if authentication was successful.
 
-Let's build the plugin by running command in a folder with plugin project:
+Let's build the plugin by running the following command in the folder containing your plugin project:
 
 ```.bash
 go build -buildmode=plugin -o /tmp/MyPluginAuthCheck.so
@@ -317,7 +319,7 @@ go build -buildmode=plugin -o /tmp/MyPluginAuthCheck.so
 
 Now let's check if our custom authentication works as expected (only one key `"abc"` should work).
 
-Authentication fails with wrong API key:
+Authentication will fail with the wrong API key:
 
 ```.bash
  curl -v -H "Authorization: xyz" http://localhost:8181/my_api_name/get
@@ -336,9 +338,10 @@ Authentication fails with wrong API key:
 < 
 * Connection #0 to host localhost left intact
 ```
+
 Here we see that our custom middleware replied with a 403 response and request processing was stopped at this point.
 
-Authentication successful with right API key:
+Authentication successful with the right API key:
 
 ```.bash
 curl -v -H "Authorization: abc" http://localhost:8181/my_api_name/get
@@ -379,6 +382,7 @@ curl -v -H "Authorization: abc" http://localhost:8181/my_api_name/get
 }
 * Connection #0 to host localhost left intact
 ```
+
 Here we see that our custom middleware successfully authenticated the request and we received a reply from the upstream target.
 
 ### Logging from Golang plugin
@@ -391,17 +395,17 @@ To do so you just need to import  the package `"github.com/TykTechnologies/tyk/l
 package main
 
 import (
-	"net/http"
+  "net/http"
 
-	"github.com/TykTechnologies/tyk/log"
+  "github.com/TykTechnologies/tyk/log"
 )
 
 var logger = log.Get()
 
 // AddFooBarHeader adds custom "Foo: Bar" header to the request
 func AddFooBarHeader(rw http.ResponseWriter, r *http.Request) {
-	logger.Info("Processing HTTP request in Golang plugin!!")
-	r.Header.Add("Foo", "Bar")
+  logger.Info("Processing HTTP request in Golang plugin!!")
+  r.Header.Add("Foo", "Bar")
 }
 
 func main() {}
@@ -412,6 +416,7 @@ func main() {}
 All custom middleware implemented as Golang plugins support Tyk's current  built in instrumentation.
 
 The format for an event name with meta data is: `"GoPluginMiddleware:" + Path + ":" + SymbolName`,  e.g., for our example the event name will be:
+
 ```go
 "GoPluginMiddleware:/tmp/AddFooBarHeader.so:AddFooBarHeader"
 ```
@@ -422,16 +427,17 @@ The format for metric with execution time (in nanoseconds) will have the same fo
 "GoPluginMiddleware:/tmp/AddFooBarHeader.so:AddFooBarHeader.exec_time"
 ```
 
-### Internal state of Tyk Golang plugin
+### Internal state of a Tyk Golang plugin
+
 A Golang plugin can be treated as normal Golang package but:
 
-* This package name is always `"main"` and this package cannot be imported.
+* The package name is always `"main"` and this package cannot be imported.
 * This package loads at run-time by Tyk and loads after all other Golang packages.
 * This package has to have an empty `func main() {}`.
 
 A Golang plugin as a package can have `func init()` and it gets called only once (when Tyk loads this plugin for the first time for an API).
 
-It is possible to create structures or open connections to 3d party services/storage and then share them within every call to thenexported function in your Golang plugin.
+It is possible to create structures or open connections to 3d party services/storage and then share them within every call and the export the function in your Golang plugin.
 
 For example, here is an example of a Tyk Golang plugin with a simple hit-counter:
 
@@ -439,97 +445,101 @@ For example, here is an example of a Tyk Golang plugin with a simple hit-counter
 package main
 
 import (
-	"encoding/json"
-	"net/http"
-	"sync"
+  "encoding/json"
+  "net/http"
+  "sync"
 
-	"github.com/TykTechnologies/tyk/ctx"
-	"github.com/TykTechnologies/tyk/log"
-	"github.com/TykTechnologies/tyk/user"
+  "github.com/TykTechnologies/tyk/ctx"
+  "github.com/TykTechnologies/tyk/log"
+  "github.com/TykTechnologies/tyk/user"
 )
 
 var logger = log.Get()
 
 // plugin exported functionality
 func MyProcessRequest(rw http.ResponseWriter, r *http.Request) {
-	endPoint := r.Method + " " + r.URL.Path
-	logger.Info("Custom middleware, new hit:", endPoint)
+  endPoint := r.Method + " " + r.URL.Path
+  logger.Info("Custom middleware, new hit:", endPoint)
 
-	hitCounter := recordHit(endPoint)
-	logger.Debug("New hit counter value:", hitCounter)
+  hitCounter := recordHit(endPoint)
+  logger.Debug("New hit counter value:", hitCounter)
 
-	if hitCounter > 100 {
-		logger.Warning("Hit counter to high")
-	}
+  if hitCounter > 100 {
+    logger.Warning("Hit counter to high")
+  }
 
-	reply := myReply{
-		Session:    ctx.GetSession(r),
-		Endpoint:   endPoint,
-		HitCounter: hitCounter,
-	}
+  reply := myReply{
+    Session:    ctx.GetSession(r),
+    Endpoint:   endPoint,
+    HitCounter: hitCounter,
+  }
 
-	jsonData, err := json.Marshal(reply)
-	if err != nil {
-		logger.Error(err.Error())
-		rw.WriteHeader(http.StatusInternalServerError)
-		return
-	}
+  jsonData, err := json.Marshal(reply)
+  if err != nil {
+    logger.Error(err.Error())
+    rw.WriteHeader(http.StatusInternalServerError)
+    return
+  }
 
-	rw.Header().Set("Content-Type", "application/json")
-	rw.WriteHeader(http.StatusOK)
-	rw.Write(jsonData)
+  rw.Header().Set("Content-Type", "application/json")
+  rw.WriteHeader(http.StatusOK)
+  rw.Write(jsonData)
 }
 
 // called once plugin is loaded, this is where we put all initialization work for plugin
 // i.e. setting exported functions, setting up connection pool to storage and etc.
 func init() {
-	hitCounter = make(map[string]uint64)
+  hitCounter = make(map[string]uint64)
 }
 
 // plugin internal state and implementation
 var (
-	hitCounter   map[string]uint64
-	hitCounterMu sync.Mutex
+  hitCounter   map[string]uint64
+  hitCounterMu sync.Mutex
 )
 
 func recordHit(endpoint string) uint64 {
-	hitCounterMu.Lock()
-	defer hitCounterMu.Unlock()
-	hitCounter[endpoint]++
-	return hitCounter[endpoint]
+  hitCounterMu.Lock()
+  defer hitCounterMu.Unlock()
+  hitCounter[endpoint]++
+  return hitCounter[endpoint]
 }
 
 type myReply struct {
-	Session    *user.SessionState `json:"session"`
-	Endpoint   string             `json:"endpoint"`
-	HitCounter uint64             `json:"hit_counter"`
+  Session    *user.SessionState `json:"session"`
+  Endpoint   string             `json:"endpoint"`
+  HitCounter uint64             `json:"hit_counter"`
 }
 
 func main() {}
 ```
-Here we see how the internal state of the Golang plugin is used by the exported function `MyProcessRequest` (the one we set in the API spec in the `"custom_middleware"` section). The map `hitCounter` is used to keep internal state and count hits to different endpoints. Then our exported Golang plugin function sends HTTP reply with endpoint hit statistics.
 
-### Loading Tyk Golang plugin from bundle
-So far we have loaded Golang plugins only directly from file system. You can also use Tyk's bundle instrumentation (see [Plugin Bundles][1] for more details). You can deploy your Tyk Golang plugins to special HTTP-server and then your plugins will be fetched and loaded from that HTTP endpoint.
+Here we see how the internal state of the Golang plugin is used by the exported function `MyProcessRequest` (the one we set in the API spec in the `"custom_middleware"` section). The map `hitCounter` is used to send internal state and count hits to different endpoints. Then our exported Golang plugin function sends a HTTP reply with endpoint hit statistics.
+
+### Loading a Tyk Golang plugin from a bundle
+So far we have loaded Golang plugins only directly from file system. You can also use Tyk's bundle instrumentation (see [Plugin Bundles](/docs/customise-tyk/rich-plugins/plugin-bundles.md) for more details). You can deploy your Tyk Golang plugins to special HTTP-server and then your plugins will be fetched and loaded from that HTTP endpoint.
 
 You will need to set in `tyk.conf` these two fields:
 
 * `"enable_bundle_downloader": true` - this enables plugin bundles downloader
 * `"bundle_base_url": "http://mybundles:8000/abc"` - this specifies the base URL with HTTP server where you place your bundles with Golang plugins (this endpoint has to be reachable from node with Tyk running)
 
-Also, you will need to specify field in API spec:
-- `"custom_middleware_bundle"` - here you place your filename with bundle (`.zip` archive) to be fetched from HTTP-endpoint you specified in `tyk.conf` parameter `"bundle_base_url"`
+Also, you will need to specify the following field in your API spec:
 
-So, API spec will have this field:
-```json
+`"custom_middleware_bundle"` - here you place your filename with bundle (`.zip` archive) to be fetched from the HTTP endpoint you specified in your `tyk.conf` parameter `"bundle_base_url"`
+
+So, your API spec will have this field:
+```.json
 "custom_middleware_bundle": "FooBarBundle.zip"
 ```
 
 Let's look at `FooBarBundle.zip` contents. It is just a ZIP-archive with two files archived inside:
-- `AddFooBarHeader.so` - this is our Golang plugin
-- `manifest.json` - this is special file with meta information used by Tyk's bundle loader
+
+* `AddFooBarHeader.so` - this is our Golang plugin
+* `manifest.json` - this is special file with meta information used by Tyk's bundle loader
 
 The contents of `manifest.json`:
+
 ```.json
 {
   "file_list": [
@@ -547,21 +557,19 @@ The contents of `manifest.json`:
   ...
 }
 ```
+
 Here we see:
 
 * field `"custom_middleware"` with exactly the same structure we used to specify `"custom_middleware"` in API spec without bundle
 * field `"path"` in section `"post"` now contains just a file name without any path. This field specifies `.so` filename placed in ZIP archive with bundle (remember how we specified `"custom_middleware_bundle": "FooBarBundle.zip"`).
 
 #### How to build bundle with Golang plugin
-You will need to use a special [Bundler tool][2] to create bundles with Golang plugins. 
+You will need to use a special [Bundler tool](/docs/customise-tyk/rich-plugins/plugin-bundles.md#bundler-tool) to create bundles with Golang plugins. 
 
 ### Reloading Tyk Golang plugin
 Sometimes you will need to update your Golang plugin with a new version. There are two ways to do this:
 
 * An API reload with a NEW path or file name of your `.so` file with the plugin. You will need to update the API spec section `"custom_middleware"`, specifying a new value for the `"path"` field of the plugin you need to reload.
-* Tyk main process reload. This will do force a reload of all Golang plugins for all APIs.
+* Tyk main process reload. This will force a reload of all Golang plugins for all APIs.
 
-If plugin is loaded as a bundle and you need to update it - you will need to update your API spec with new `.zip` file name in field `"custom_middleware_bundle"`. Make sure this new `.zip` file is uploaded and available via bundle HTTP endpoint before you update API spec.
-
- [1]: /docs/customise-tyk/rich-plugins/plugin-bundles.md
- [2]: /docs/customise-tyk/rich-plugins/plugin-bundles.md#bundler-tool
+If a plugin is loaded as a bundle and you need to update it you will need to update your API spec with new `.zip` file name in the `"custom_middleware_bundle"` field. Make sure the new `.zip` file is uploaded and available via the bundle HTTP endpoint before you update your API spec.

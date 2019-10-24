@@ -71,4 +71,4 @@ There are some caveats to plugins:
  [2]: /docs/customise-tyk/plugins/javascript-middleware/
  [3]: /docs/customise-tyk/plugins/auth-plugins/
  [4]: /docs/customise-tyk/plugins/rich-plugins/grpc/
- [5]: /docs/customise-tyk/plugins/golang-plugins/
+ [5]: /docs/customise-tyk/plugins/golang-plugins/golang-plugins/
