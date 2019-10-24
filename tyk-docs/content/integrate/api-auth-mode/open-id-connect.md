@@ -25,7 +25,7 @@ With this flow, Tyk does not need to be aware of the user or the token in advanc
 
 ### Auth0 example flow
 
-[Worked Example: API with OpenIDC Using Auth0!](/docs/integrate/api-auth-mode/oidc-auth0-example/)
+[Worked Example: API with OpenIDC Using Auth0](/docs/integrate/api-auth-mode/oidc-auth0-example/)
 
 ![Tyk OpenID Connect with Auth0][1]
 
