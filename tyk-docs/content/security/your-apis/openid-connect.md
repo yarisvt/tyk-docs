@@ -26,64 +26,9 @@ With this flow, Tyk does not need to be aware of the user or the token in advanc
 
 ### Auth0 example flow
 
-![Tyk OpenID Connect with Auth0][1]
+![Tyk OpenID Connect with Auth0](/docs/img/diagrams/openid_connect.png)
 
-### Behaviour - Internal Tokens
 
-When an OIDC token is processed, Tyk generates an internal representation of the bearer, this ID is a hash of the organisation and user-id provided by the IDP for this user. Tyk uses this internal ID to hang policy rules off of during the lifetime of the users usage of the API.
+For more details about our OpenID Connect support see [OpenID Integration](/docs/integrate/api-auth-mode/open-id-connect/).
 
-It is useful for the downstream service to be able to query this data somehow in order to manage access (e.g. to invalidate the token at some point). To make this possible, Tyk adds the internal Token ID to the meta-data of the session object.
-
-It is possible to inject this as a header into the request moving upstream to the underlying service using header injection and invoking the reserved metadata field: `$tyk_meta.TykJWTSessionID`. Additionally you can access `Client ID` using `$tyk_meta.ClientID`.
-
-It is also possible to access the JWT claims, using `$tyk_context.jwt_claims_CLAIMNAME` by injecting as a context variable in a request header. See [Request Headers][2] for more details.
-
-### Aliases
-
-In order to make OIDC Access tokens meaningful in analytics data, Tyk will also set an Alias for the internal token so the user can be easily identified in analytics. The OIDC Alias will always be the `ClientID + User ID` provided by the IDP. This will be displayed for analytics purposes.
-
-#### Setting up OIDC
-
-To set up an API Definition to use OIDC, add the following block to the definition, and ensure no other access methods are enabled:
-
-```{.copyWrapper}
-"use_openid": true,
-"openid_options": {
-  "providers": [
-    {
-      "issuer": "accounts.google.com",
-      "client_ids": {
-        "MTIzNDU2Nzc4OQ==": "5654566b30c55e3904000003"
-      }
-    }
-  ],
-  "segregate_by_client": false
-}
-```
-
-*   `use_openid`: Set to true to enable the OpenID Connect check.
-*   `openid_options.providers`: A list of authorised providers and their client IDs/Matched Policies.
-*   `openid_options.providers.client_ids`: The list of client IDs and policy IDs to apply to users thereof. **Note:** Client IDs are Base64 encoded, so the map is `base64(clientid):policy_id` .When a valid user appears from a matching IDP/Client ID, the policy listed in this entry will be applied to their token across OIDC ID Tokens.
-*   `openid_options.segregate_by_client`: Enable this to have the policy applied to the combination of the User ID AND the Client ID. For example: 
-    *   **If disabled**: When Alice uses the mobile app to log into the API, Tyk applies the same rate limit and access rules as if she had logged in via the web app or the desktop client. 
-    *   **If enabled**: When Alice uses the mobile app to log into the API, Tyk applies different rate limit and access rules than if she had logged in via the web app or the desktop client, in fact, each client and user combination will have its **own** internal representation.
-
-#### JWT scope to policy mapping support
-> **NOTE**: This feature is available starting from v2.9
-
-You can map JWT scopes to security policies to be applied to a key. To enable this feature you will need to specify fields in :
-```{.copyWrapper}
-  "jwt_scope_to_policy_mapping": {
-    "admin": "59672779fa4387000129507d",
-    "developer": "53222349fa4387004324324e"
-  },
-  "jwt_scope_claim_name": "our_scope"
-}
-```
-Here we have set:
-- field `"jwt_scope_claim_name"` identifies the JWT claim name which contains scopes. This API Spec field is optional with default value `"scope"`. This claim value is a string with space delimited list of values (by standard)
-- field `"jwt_scope_to_policy_mapping"` provides mapping of scopes (read from claim) to actual policy ID. I.e. in this example we specify that scope "admin" will apply policy `"59672779fa4387000129507d"` to a key
-> **NOTE**: several scopes in JWT claim will lead to have several policies applied to a key. In this case all policies should have `"per_api"` set to `true` and shouldn't have the same `API ID` in access rights. I.e. if claim with scopes contains value `"admin developer"` then two policies `"59672779fa4387000129507d"` and `"53222349fa4387004324324e"` will be applied to a key (with using our example config above).
-
-[1]: /docs/img/diagrams/openid_connect.png
-[2]: /docs/transform-traffic/request-headers/
+See a [worked example of using OpenID Connect with Auth0](/docs/integrate/api-auth-mode/oidc-auth0-example/).
