@@ -7,7 +7,7 @@ menu:
 weight: 1 
 ---
 
-## What is theTyk Gateway?
+## What is the Tyk Gateway?
 
 The primary application for Community Edition users and Pro users alike, the Tyk Open Source API Gateway does all the heavy lifting of actually managing your requests: traffic proxying, access control, data transformation, logging and more.
 
