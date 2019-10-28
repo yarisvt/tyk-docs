@@ -451,7 +451,7 @@ Change the expiry time of OAuth token (in seconds).
 
 ### <a name="oauth_refresh_token_expire"></a> oauth_refresh_token_expire
 
-Change the expiry time of refresh token, by default 1 hour (in seconds).
+Change the expiry time of refresh token, by default 14 days (in seconds).
 
 ### <a name="oauth_token_expired_retain_period"></a>oauth_token_expired_retain_period
 
