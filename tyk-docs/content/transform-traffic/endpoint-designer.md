@@ -48,8 +48,7 @@ Accessing a path which has been blacklisted:
 }
 ```
 
-> **NOTE**: For security reasons, the blacklist plugin is case-insensitive when performing the blacklist check.
-> For example, if path `/Pay/OneMillion` is added to a blacklist, the gateway will not proxy requests to `/Pay/OneMillion` or `/pay/onemillion`.
+> **NOTE**: The blacklist plugin is case-sensitive when performing the blacklist check.
 
 ### Body Transform
 
@@ -140,9 +139,8 @@ Accessing a path which has **not** been whitelisted:
 }
 ```
 
-> **NOTE**: For security reasons, the whitelist plugin is case-insensitive when performing the whitelist check.
-> For example, if path `/DoSomething` is added to a whitelist, the gateway will listen on the path `/DoSomething` but the path `/dosomething`
-would be whitelisted. Which means that the path will not be accessible and a 403 Forbidden response will always be returned.
+> **NOTE**: The whitelist plugin is case-sensitive when performing the whitelist check.
+> 
 
 ## <a name="global"></a> Global Settings
 
