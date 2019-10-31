@@ -107,9 +107,9 @@ This creates a portal catalogue for your developer portal. For the `Authorizatio
 
 ```
 {
-    "Status": "OK",
-    "Message": "5d07b4b0661ea80001b3d40d",
-    "Meta": null
+  "Status": "OK",
+  "Message": "5d07b4b0661ea80001b3d40d",
+  "Meta": null
 }
 ```
 
@@ -125,27 +125,30 @@ This creates the default home page for your developer portal. For the `Authoriza
 #### Sample Request
 
 ```{copy.Json}
-{"is_homepage": true,
-"template_name":"", "title":"Tyk Developer Portal",
-"slug":"home",
-"fields":
-{"JumboCTATitle": "Tyk Developer Portal",
-"SubHeading": "Sub Header",
-"JumboCTALink": "#cta",
-"JumboCTALinkTitle": "Your awesome APIs, hosted with Tyk!",
-"PanelOneContent": "Panel 1 content.",
-"PanelOneLink": "#panel1",
-"PanelOneLinkTitle": "Panel 1 Button",
-"PanelOneTitle": "Panel 1 Title",
-"PanelThereeContent": "",
-"PanelThreeContent": "Panel 3 content.",
-"PanelThreeLink": "#panel3",
-"PanelThreeLinkTitle": "Panel 3 Button",
-"PanelThreeTitle": "Panel 3 Title",
-"PanelTwoContent": "Panel 2 content.",
-"PanelTwoLink": "#panel2",
-"PanelTwoLinkTitle": "Panel 2 Button",
-"PanelTwoTitle": "Panel 2 Title"}
+{
+  "fields": {
+    "JumboCTALink": "#cta",
+    "JumboCTALinkTitle": "Your awesome APIs, hosted with Tyk!",
+    "JumboCTATitle": "Tyk Developer Portal",
+    "PanelOneContent": "Panel 1 content.",
+    "PanelOneLink": "#panel1",
+    "PanelOneLinkTitle": "Panel 1 Button",
+    "PanelOneTitle": "Panel 1 Title",
+    "PanelThereeContent": "",
+    "PanelThreeContent": "Panel 3 content.",
+    "PanelThreeLink": "#panel3",
+    "PanelThreeLinkTitle": "Panel 3 Button",
+    "PanelThreeTitle": "Panel 3 Title",
+    "PanelTwoContent": "Panel 2 content.",
+    "PanelTwoLink": "#panel2",
+    "PanelTwoLinkTitle": "Panel 2 Button",
+    "PanelTwoTitle": "Panel 2 Title",
+    "SubHeading": "Sub Header"
+  },
+  "is_homepage": true,
+  "slug": "home",
+  "template_name": "",
+  "title": "Tyk Developer Portal"
 }
 ```
 
@@ -153,9 +156,9 @@ This creates the default home page for your developer portal. For the `Authoriza
 
 ```
 {
-    "Status": "OK",
-    "Message": "5d07b4b0661ea80001b3d40d",
-    "Meta": null
+  "Status": "OK",
+  "Message": "5d07b4b0661ea80001b3d40d",
+  "Meta": null
 }
 ```
 
@@ -171,7 +174,7 @@ This creates the developer portal URL. For the `Authorization` Header, the Value
 #### Sample Request
 
 ```{copy.Json}
-{}
+{SECRET_VALUE}
 ```
 
 
@@ -179,9 +182,9 @@ This creates the developer portal URL. For the `Authorization` Header, the Value
 
 ```
 {
-    "Status": "OK",
-    "Message": "5d07b4b0661ea80001b3d40d",
-    "Meta": null
+  "Status": "OK",
+  "Message": "5d07b4b0661ea80001b3d40d",
+  "Meta": null
 }
 ```
 
