@@ -7,11 +7,13 @@ menu:
 weight: 1
 ---
 
-Some Dashboard APIs are paginated.  You can define what page of the results to return by adding a parameter `p` which starts at 0, indicating which page you'd like to retrieve.
+Select Dashboard APIs are paginated.  
 
-Alternatively, passing `-1` as a parameter will return all items.
+You can choose what page of results to return by adding a parameter `p` which starts at 1.
 
-The default page size is 10. You can overwrite the default page size in your tyk_analytics.conf [using the page_size key](https://tyk.io/docs/configure/tyk-dashboard-configuration-options/#environment-variables). It's suggested you do not modify it as it will affect the performance of the Dashboard.
+Alternatively, passing `0` or lower as a parameter will return all items.
+
+The default page size is 10. You can overwrite the default page size in your dashboard configuration file [using the page_size key](https://tyk.io/docs/configure/tyk-dashboard-configuration-options/#environment-variables). It's suggested you do not modify it as it will affect the performance of the Dashboard.
 
 #### Sample Request:
 
