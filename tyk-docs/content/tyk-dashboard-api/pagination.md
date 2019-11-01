@@ -9,11 +9,11 @@ weight: 1
 
 Select Dashboard APIs are paginated.  
 
-You can choose what page of results to return by adding a parameter `p` which starts at 1.
+You can select the number of result pages to return by adding a parameter `p` which starts at 1.
 
 Alternatively, passing `0` or lower as a parameter will return all items.
 
-The default page size is 10. You can overwrite the default page size in your dashboard configuration file [using the page_size key](https://tyk.io/docs/configure/tyk-dashboard-configuration-options/#environment-variables). It's suggested you do not modify it as it will affect the performance of the Dashboard.
+The default page size is 10. You can overwrite the default page size in your dashboard configuration file [using the page_size key](https://tyk.io/docs/configure/tyk-dashboard-configuration-options/#environment-variables). It is recommended you do not modify it as it will affect the performance of the Dashboard.
 
 #### Sample Request:
 
