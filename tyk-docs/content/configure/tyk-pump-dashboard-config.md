@@ -7,7 +7,7 @@ menu:
 weight: 4 
 ---
 
-Let's walk through setting up analytics in the Dashboard via Pump
+Let's walk through setting up analytics in the Dashboard via the Pump.
 
 There are 3 different pumps we want to look at:
 
@@ -40,7 +40,7 @@ This collection [should be capped](/docs/configure/tyk-pump-configuration/#cappi
 ### mongo-pump-aggregate
 This pump stores data in a collection called `z_tyk_analyticz_aggregate_{ORG ID}`.  
 
-There are minimal number of documents that get stored, don't need to worry about capping this.  The documents contain aggregate info across an individual API, such as total requests, errors, and more.
+There are minimal number of documents that get stored, so you don't need to worry about capping this. The documents contain aggregate info across an individual API, such as total requests, errors, and more.
 
 This pump supplies the data for the following sub categories `API Usage Data`:
 
@@ -66,7 +66,7 @@ pump config
 
 ### mongo-pump-selective
 
-this pump stores data in collections called `z_tyk_analyticz_{ORG ID}`.
+This pump stores data in collections called `z_tyk_analyticz_{ORG ID}`.
 
 If the Dashboard configuration key `use_sharded_keys` equals `true`, then the Dashboard will use these collections to populate `Log Browser`.
 
