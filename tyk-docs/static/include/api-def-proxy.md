@@ -92,7 +92,7 @@ In the above example, the `port_data_path` would be `port`.
 
 * `proxy.disable_strip_slash`: This boolean option allows you to add a way to disable the stripping of the slash suffix from a URL.
 
-***Internal proxy setup***
+#### Internal proxy setup
 
 The transport section allows you to specify a custom proxy and set the minimum TLS versions and any SSL ciphers.
 
@@ -109,7 +109,7 @@ This is an example of `proxy.transport` definition followed by explanations for 
     "ssl_insecure_skip_verify": true
 }
 ```
-* `proxy.transport.proxy_url`: Use this setting to specify your custom proxy and port.
+* `proxy.transport.proxy_url`: Use this setting to specify your custom forward proxy and port.
 
 * `proxy.transport.ssl_min_version`: Use this setting to specify your minimum TLS version:
 
