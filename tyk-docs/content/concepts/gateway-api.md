@@ -5,7 +5,7 @@ menu:
   main:
     parent: "Concepts"
     identifier: concepts-gateway-api
-weight: 95 
+weight: 95
 ---
 
 The Tyk Gateway REST API is the primary means for integrating your application with the Tyk API Gateway system. This API is very small, and has no granular permissions system. It is intended to be used *purely* for internal automation and integration.
@@ -14,11 +14,11 @@ The Tyk Gateway REST API is the primary means for integrating your application w
 
 The Tyk Gateway API is capable of:
 
-*   Managing session objects (token generation)
-*   Managing and listing policies
-*   Managing and listing API Definitions (*only* when not using the Dashboard)
-*   Hot reloads / reloading a cluster configuration
-*   OAuth client creation (*only* when not using the Dashboard)
+* Managing session objects (token generation)
+* Managing and listing policies
+* Managing and listing API Definitions (*only* when not using the Dashboard)
+* Hot reloads / reloading a cluster configuration
+* OAuth client creation (*only* when not using the Dashboard)
 
 In order to use the REST API, you'll need to set the `secret` parameter in your `tyk.conf` file.
 
