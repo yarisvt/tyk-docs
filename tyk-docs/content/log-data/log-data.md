@@ -14,7 +14,8 @@ Tyk will try to output structured logs, and so will include context data around 
 
 ### <a name="logging-level"></a> Logging level
 
-Log data is usually of the Error level and higher, though you can enable Debug mode reporting by adding the `--debug` flag to the process run command
+Log data is usually of the Error level and higher, though you can enable Debug mode reporting by adding the `--debug` flag to the process run command.
+
 > **Warning**: Debug mode logging generates a lot of output and is not recommended.
 
 From v2.4 you can set a logging level via the `tyk.conf` file. The following levels can be set:
@@ -24,7 +25,7 @@ From v2.4 you can set a logging level via the `tyk.conf` file. The following lev
 * warn
 * error
 
-If unset or left empty, it will default to `info`.
+If unset or left empty, it will default to `info`. See [log_level](/docs/configure/tyk-gateway-configuration-options/#a-name-log-level-a-log-level) for more details.
 
 ## <a name="aggregated-logs"></a> Integration with 3rd party aggregated log and error tools
 

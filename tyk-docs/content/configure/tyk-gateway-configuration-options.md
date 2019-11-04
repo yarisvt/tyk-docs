@@ -573,11 +573,13 @@ This can specify a default timeout in seconds for upstream API requests.
 > **NOTE:** This option is available from v2.3.8 onwards.
 
 ### <a name="log-level"></a>log_level
-You can now set a logging level via the `tyk.conf` file. The following levels can be set:
+You can now set a logging level via `log_level`. The following levels can be set:
+
 * debug
 * info
 * warn
 * error
+
 If unset or left empty, it will default to `info`.
 
 > **NOTE:** This option is available from v2.4 onwards.
