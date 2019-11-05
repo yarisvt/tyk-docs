@@ -5,7 +5,6 @@ menu:
   main:
     parent: "With Docker"
 weight: 1
-
 ---
 
 ## Get Started with Docker & Tyk API Gateway
@@ -36,7 +35,7 @@ You need to add the following to your hosts file:
 
 You should have received your free developer licence via email. Copy the licence key in the following location from your `/confs/tyk_analytics.conf` file:
 
-```
+``` conf
 "license_key": ""
 ```
 
@@ -80,9 +79,5 @@ Click **Bootstrap** to save the details.
 ### Step Seven - Login to the Dashboard
 
 You can now log in to the Tyk Dashboard from `127.0.0.1:3000`, using the username and password created in the Dashboard Setup screen.
-
-
-
-
 
 [1]: /docs/img/dashboard/system-management/bootstrap_screen.png
