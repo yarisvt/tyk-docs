@@ -17,7 +17,7 @@ This demo is great for proof of concept and demo purposes, but if you want to te
 ## Prerequisites
 
 * Our Pro Demo Docker [GitHub repo](https://github.com/TykTechnologies/tyk-pro-docker-demo)
-* A free Tyk On-Premises [Developer licence](https://tyk.io/product/tyk-on-premises-free-edition/)
+* A free Tyk On-Premises [Developer licence](https://tyk.io/get-started/)
 
 ### Step One - Clone the Repo
 
