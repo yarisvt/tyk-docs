@@ -17,12 +17,12 @@ weight: 1
 
 ## Prerequisites
 
-* Our Pro Demo Docker [GitHub repo](https://github.com/TykTechnologies/tyk-pro-docker-demo)
+* Our [Tyk Pro Docker demo on GitHub](https://github.com/TykTechnologies/tyk-pro-docker-demo)
 * A free Tyk On-Premises [Developer licence](https://tyk.io/get-started/)
 
-### Step One - Clone the Repo
+### Step One - Clone the GitHub repo
 
-Clone the repo above to a location on your machine.
+Clone the Docker demo repo from GitHub to a location on your machine.
 
 ### Step Two - Edit your hosts file
 
@@ -33,7 +33,7 @@ You need to add the following to your hosts file:
 127.0.0.1 www.tyk-test.com
 ```
 
-### Step Three - Add your Developer Licence
+### Step Three - Add your developer licence
 
 You should have received an e-mail with your free developer licence after going through
 [the signup process](https://signup.tyk.io/product/tyk-on-premises-free-edition/).
@@ -44,7 +44,7 @@ Copy the license key to the following location in your `/confs/tyk_analytics.con
 "license_key": ""
 ```
 
-### Step Four - Run the Docker Compose File
+### Step Four - Run the Docker Compose file
 
 Run the following command from your installation folder:
 
@@ -64,9 +64,9 @@ Go to:
 
 You should get to the Tyk Dashboard Setup screen:
 
-![Tyk Dashboard Bootstrap Screen][1]
+![Tyk Dashboard Bootstrap screen][1]
 
-### Step Six - Create your Organisation and Default User
+### Step Six - Create your organisation and default user
 
 You need to enter the following:
 
@@ -82,7 +82,7 @@ letters.
 
 Click **Bootstrap** to save the details.
 
-### Step Seven - Login to the Dashboard
+### Step Seven - log in to the Tyk Dashboard
 
 You can now log in to the Tyk Dashboard from `127.0.0.1:3000`, using the username and password created in the Dashboard
 Setup screen.
