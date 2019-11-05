@@ -9,9 +9,11 @@ weight: 1
 
 ## Get Started with Docker & Tyk API Gateway
 
-> **Warning!** This demo is **NOT** designed for production use or performance testing. The Tyk Pro Docker Demo is our full, [On-Premises](https://tyk.io/api-gateway/on-premise/) solution, which includes our Gateway, Dashboard and analytics processing pipeline.
-This demo will run Tyk On-Premises on your machine, which contains 5 containers: Tyk Gateway, Tyk Dashboard, Tyk Pump, Redis and MongoDB.
-This demo is great for proof of concept and demo purposes, but if you want to test performance, you need to move each component to a separate machine.
+> **Warning!** This demo is **NOT** designed for production use or performance testing. The Tyk Pro Docker demo is our
+> full [On-Premises](https://tyk.io/api-gateway/on-premise/) solution, which includes our Gateway, Dashboard, and
+> analytics processing pipeline. This demo will run Tyk On-Premises on your machine, which contains 5 containers: Tyk
+> Gateway, Tyk Dashboard, Tyk Pump, Redis and MongoDB. This demo is great for proof of concept and demo purposes, but
+> if you want to test performance, you will need to move each component to a separate machine.
 
 ## Prerequisites
 
@@ -33,7 +35,10 @@ You need to add the following to your hosts file:
 
 ### Step Three - Add your Developer Licence
 
-You should have received your free developer licence via email. Copy the licence key in the following location from your `/confs/tyk_analytics.conf` file:
+You should have received an e-mail with your free developer licence after going through
+[the signup process](https://signup.tyk.io/product/tyk-on-premises-free-edition/).
+
+Copy the license key to the following location in your `/confs/tyk_analytics.conf` file:
 
 ``` conf
 "license_key": ""
@@ -72,12 +77,14 @@ You need to enter the following:
 * A **Password** for your User
 * **Re-enter** your user **Password**
 
-> **NOTE**: For a password, we recommend a combination of alphanumeric characters, with both upper and lower case letters.
+> **NOTE**: For a password, we recommend a combination of alphanumeric characters, with both upper and lower case
+letters.
 
 Click **Bootstrap** to save the details.
 
 ### Step Seven - Login to the Dashboard
 
-You can now log in to the Tyk Dashboard from `127.0.0.1:3000`, using the username and password created in the Dashboard Setup screen.
+You can now log in to the Tyk Dashboard from `127.0.0.1:3000`, using the username and password created in the Dashboard
+Setup screen.
 
 [1]: /docs/img/dashboard/system-management/bootstrap_screen.png
