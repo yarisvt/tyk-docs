@@ -48,7 +48,8 @@ This pump supplies the data for the following sub categories `API Usage Data`:
 * Activity by Key
 * Errors
 
-pump config
+You will need to set the `enable_aggregate_lookups` field to true to in the [dashboard configuration file](https://tyk.io/docs/configure/tyk-dashboard-configuration-options/) in addition to adding the below pump to your pump conf file:
+
 ```{.json}
 {
   ...
