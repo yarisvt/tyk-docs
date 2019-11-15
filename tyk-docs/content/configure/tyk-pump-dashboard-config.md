@@ -65,6 +65,8 @@ You will need to set the `enable_aggregate_lookups` field to true to in the [das
 }
 ```
 
+The `use_mixed_collection` flag will store aggregate analytics into an analytics, org-less collection called `tyk_analytics_aggregates`.  This will be used to query aggregate analytics across the entire Tyk setup, such as the case for a super user without an organisation.
+
 ### mongo-pump-selective
 
 This pump stores data in collections called `z_tyk_analyticz_{ORG ID}`.
