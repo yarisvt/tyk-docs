@@ -130,12 +130,14 @@ You can now configure JWT clock skew using the following variables. All values a
 "jwt_issued_at_validation_skew": 0,
 "jwt_expires_at_validation_skew": 0,
 "jwt_not_before_validation_skew": 0
-``` 
+```
 
 #### JWT scope to policy mapping support
+
 > **NOTE**: This feature is available starting from v2.9
 
-You can map JWT scopes to security policies to be applied to a key. To enable this feature you will need to specify fields in API spec:
+You can map JWT scopes to security policies to be applied to a key. To enable this feature you will need to specify the following fields in your API spec:
+
 ```{.copyWrapper}
   "jwt_scope_to_policy_mapping": {
     "admin": "59672779fa4387000129507d",
@@ -144,10 +146,12 @@ You can map JWT scopes to security policies to be applied to a key. To enable th
   "jwt_scope_claim_name": "our_scope"
 }
 ```
+
 Here we have set:
 
-- field `"jwt_scope_claim_name"` identifies the JWT claim name which contains scopes. This API Spec field is optional with default value `"scope"`. This claim value is a string with space delimited list of values (by standard)
-- field `"jwt_scope_to_policy_mapping"` provides mapping of scopes (read from claim) to actual policy ID. I.e. in this example we specify that scope "admin" will apply policy `"59672779fa4387000129507d"` to a key
+- `"jwt_scope_to_policy_mapping"` provides mapping of scopes (read from claim) to actual policy ID. I.e. in this example we specify that scope "admin" will apply policy `"59672779fa4387000129507d"` to a key
+- `"jwt_scope_claim_name"` identifies the JWT claim name which contains scopes. This API Spec field is optional with default value `"scope"`. This claim value is a string with space delimited list of values (by standard)
+
 
 > **NOTE**: several scopes in JWT claim will lead to have several policies applied to a key. In this case all policies should have `"per_api"` set to `true` and shouldn't have the same `API ID` in access rights. I.e. if claim with scopes contains value `"admin developer"` then two policies `"59672779fa4387000129507d"` and `"53222349fa4387004324324e"` will be applied to a key (with using our example config above).
 
