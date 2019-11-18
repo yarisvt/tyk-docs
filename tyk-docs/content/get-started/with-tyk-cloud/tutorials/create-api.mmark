@@ -23,7 +23,7 @@ If the command succeeds, you will see:
 
 **What did we just do?**
 
-We just sent an API Definition to the Tyk `/apis` endpoint. API Definitions are described further [here][8]. These objects encapsulate all of the settings for an API within Tyk Cloud.
+We just sent an API Definition to the Tyk `/apis` endpoint. See [API Definition Objects](/docs/tyk-rest-api/api-definition-objects/) for more details . These objects encapsulate all of the settings for an API within Tyk Cloud.
 
 ## <a name="test-new-api"></a>Test your new API
 
