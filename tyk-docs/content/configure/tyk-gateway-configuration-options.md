@@ -663,3 +663,8 @@ As dns query response ip addresses can have changing order depending on dns serv
 - `pick_first` will instruct gateway to connect to first ip in returned ips list and cache the response.
 - `random` will instruct gateway to connect to random ip in returned ips list and cache the response.
 - `no_cache` will instruct gateway to connect to first ip in returned ips list and fetch each addresses list without caching on each API endpoint dns query.
+
+### <a name="hide_generator_header"></a> hide_generator_header
+
+By default, we set the `X-Generator` header to `tyk.io` when returning errors. You can set `hide_generator_header` to `true`to turn this header off.
+
