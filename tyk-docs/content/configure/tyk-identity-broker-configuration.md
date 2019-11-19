@@ -76,27 +76,27 @@ For Identity Handlers that provide token-based access, it is possible to enforce
 
 Since profiles are unlikely to change often, profiles are kept in-memory, but can be added, removed and modified using an API for automated setups if required.
 
-### <a name="backend-database"></a> BackEnd.Database
+### <a name="backend-database"></a> BackEnd.IdentityBackendSettings.Database
 
 If you are using multiple databases (not supported in Redis cluster), let TIB know which DB to use for Identity caching.
 
-### <a name="backend-password"></a> BackEnd.Password
+### <a name="backend-password"></a> BackEnd.IdentityBackendSettings.Password
 
 The password for your Redis DB (recommended).
 
-### <a name="backend-hosts"></a> BackEnd.Hosts
+### <a name="backend-hosts"></a> BackEnd.IdentityBackendSettings.Hosts
 
 Add your Redis hosts here as a map of hostname:port. Since TIB uses the same cluster driver as Tyk, it is possible to have TIB interact with your existing Redis cluster if you enable it.
 
-### <a name="backend-maxidle"></a> BackEnd.MaxIdle
+### <a name="backend-maxidle"></a> BackEnd.IdentityBackendSettings.MaxIdle
 
 Max idle connections to Redis.
 
-### <a name="backend-maxactive"></a> BackEnd.MaxActive
+### <a name="backend-maxactive"></a> BackEnd.IdentityBackendSettings.MaxActive
 
 Max active Redis connections.
 
-### <a name="backend-enablecluster"></a> BackEnd.EnableCluster
+### <a name="backend-enablecluster"></a> BackEnd.IdentityBackendSettings.EnableCluster
 
 If you are using Redis cluster, enable it here to enable the slots mode.
 
