@@ -4,7 +4,7 @@ title: Policies Guide
 menu:
   main:
     parent: "Security Policies"
-weight: 1 
+weight: 1
 ---
 
 ## <a name="security-policy-example"></a>Security Policy Example
@@ -67,7 +67,7 @@ To the policy object, when the key is generated, the expiry will be forced.
 
 ### Configuring Pro Edition to use a policy list
 
-Tyk Pro (The dashboard) has policies enabled by default.
+Tyk Pro (The Dashboard) has policies enabled by default.
 
 ### Configuring Community Edition to use a policy list
 
@@ -109,7 +109,8 @@ The record is a single JSON object, with each named key representing the policy 
 ### Applying a policy to a key
 
 To apply the above policy to a key, we simply need to call the `/create` (or `/add`) endpoint in the Tyk REST API with a session object that has the `apply_policy_id` flag set to the name `default` (or whatever you named your policy).
-> **NOTE**: Although `apply_policy_id` is still supported, it is now deprecated. `apply_policies` is now used to list your policy IDs as an array. This supports the **Multiple Policy** feature introduced in the  **v2.4/1.4** release.
+
+> **NOTE**: Although `apply_policy_id` is still supported, it is now deprecated. `apply_policies` is now used to list your policy IDs as an array. This supports the **Multiple Policy** feature introduced in the **v2.4** release.
 
 ```{.copyWrapper}
 {
@@ -123,6 +124,7 @@ To apply the above policy to a key, we simply need to call the `/create` (or `/a
   "quota_renewal_rate": 90000,
   "access_rights": {},
   "org_id": "53ac07777cbb8c2d53000002",
+  "EnableHTTPSignatureValidation": false,
   "hmac_enabled": false,
   "hmac_string": "",
   "is_inactive": false,
@@ -144,9 +146,3 @@ Although we have set the main factors of the key, they will be overridden by the
 [Create a Policy with the Gateway API](https://tyk.io/docs/with-tyk-community-edition/tutorials/create-security-policy/#a-name-create-a-file-based-policy-a-tutorial-create-a-policy-with-the-gateway-api)
 
 [Create a Policy with the Dashboard](https://tyk.io/docs/get-started/with-tyk-on-premise/tutorials/tyk-on-premises-pro/create-security-policy/#a-namewithdashboardatutorial-create-a-security-policy-with-the-dashboard)
-
-
-
-
-
-
