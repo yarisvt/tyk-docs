@@ -1,5 +1,5 @@
 ---
-date: 2018-05-18T15:46:41Z
+date: 2019-12-03T15:46:41Z
 Title: Install Tyk On-Premises on AWS
 menu:
   main:
