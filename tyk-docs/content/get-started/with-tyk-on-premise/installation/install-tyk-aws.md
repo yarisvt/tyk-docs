@@ -23,9 +23,6 @@ There are three CloudFormation products to get you started.
 ### Pricing / Licensing
 The license for these products is baked into the product as an hourly cost.
 
-### Example
-Here's a video to walk you through how to set up a PoC environment:
-
 
 ## CloudFormation BYOL (Bring Your Own License)
 You may already have a license, and simply want help launching a Tyk Stack on AWS.  For you, there is a BYOL CloudFormation product that will get you started with a 2 Gateway node stack:
