@@ -136,7 +136,7 @@ Example: `{{ .myField | jsonMarshal }}`
 
 Now you can add a `?block=true` argument to the `/tyk/reload` API endpoint, which will block a response, until the reload is performed. This can be useful in scripting environments like CI/CD workflows.
 
-[Docs](/docs/tyk-rest-api/hot-reload/)
+[Docs](/docs/tyk-rest-api/)
 
 ### `tyk_js_path` file now contains only user code
 

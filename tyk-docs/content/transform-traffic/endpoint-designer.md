@@ -4,10 +4,8 @@ Title: Endpoint Designer
 menu:
   main:
     parent: "Transform Traffic"
-weight: 9 
+weight: 9
 ---
-
-
 
 The Endpoint Designer is a powerful and versatile way for you to add specific behaviours to your API. By Default, Tyk will proxy all traffic through the listen path that you have defined.
 
@@ -23,9 +21,9 @@ In a new path definition, you can set multiple options, and if you do not specif
 
 Your options are:
 
-* **Method**: The method you are targeting, can be any valid HTTP method, simply pick one from the drop-down menu.
-* **Relative Path**: The relative path to the target. For example, if your API is listening on an `/api` listen path, and you want to match the `/api/get` URL, in the Endpoint Designer you should match for the `/get` endpoint. It is important to exclude aberrant slashes (`/`) from your path matching, as otherwise the gateway may not match the path correctly. A path can contain wild cards, such as `{id}`, the actual value in the wildcard is not used (it is translated into a regex), however it is useful to make the path more human readable when editing.
-* **Plugin**: A path can belong to multiple plug-ins, these plug-ins define the behaviour you want to impose on the matched request.
+- **Method**: The method you are targeting, can be any valid HTTP method, simply pick one from the drop-down menu.
+- **Relative Path**: The relative path to the target. For example, if your API is listening on an `/api` listen path, and you want to match the `/api/get` URL, in the Endpoint Designer you should match for the `/get` endpoint. It is important to exclude aberrant slashes (`/`) from your path matching, as otherwise the gateway may not match the path correctly. A path can contain wild cards, such as `{id}`, the actual value in the wildcard is not used (it is translated into a regex), however it is useful to make the path more human readable when editing.
+- **Plugin**: A path can belong to multiple plug-ins, these plug-ins define the behaviour you want to impose on the matched request.
 
 > **NOTE**: When using Regular Expressions with the following plugins (Mock Response, Blacklist and Whitelist) you need to add `$` to the end of your URL. This prevents anything following the endpoint being mocked as well. For example, adding `/mock` also means `/mock/somepath` can also be mocked. Using `/mock$` prevents `/somepath` being added and mocked to your endpoint.
 
@@ -48,11 +46,11 @@ Accessing a path which has been blacklisted:
 }
 ```
 
-> **NOTE**: The blacklist plugin is case-sensitive when performing the blacklist check.
+> **NOTE**: The blacklist plugin is case-insensitive when performing the blacklist check.
 
 ### Body Transform
 
-The Body Transform plugin  allows Body Transforms for both the Request and the Response. See [Request Body](/docs/transform-traffic/request-body/) and [Response Body](/docs/transform-traffic/response-body/) for more details.
+The Body Transform plugin allows Body Transforms for both the Request and the Response. See [Request Body](/docs/transform-traffic/request-body/) and [Response Body](/docs/transform-traffic/response-body/) for more details.
 
 ### Cache
 
@@ -106,7 +104,7 @@ This plugin will ensure that requests are only accepted if they are under a cert
 
 ### Track Endpoint
 
-This plugin allows you to manually select each endpoint for tracking. 
+This plugin allows you to manually select each endpoint for tracking.
 
 ### URL Rewrite
 
@@ -139,8 +137,7 @@ Accessing a path which has **not** been whitelisted:
 }
 ```
 
-> **NOTE**: The whitelist plugin is case-sensitive when performing the whitelist check.
-> 
+> **NOTE**: The whitelist plugin is case-insensitive when performing the whitelist check.
 
 ## <a name="global"></a> Global Settings
 
@@ -158,9 +155,9 @@ The Endpoint Designer has a Debugging tab that allows you to test your endpoints
 
 The Debugging tab consists of the following sections:
 
-* Request
-* Response
-* Logs
+- Request
+- Response
+- Logs
 
 ### Request
 
@@ -168,9 +165,9 @@ The Debugging tab consists of the following sections:
 
 In this section you can enter the following information:
 
-* Method - select the method for your test from the drop-down list
-* Path - your endpoint to test
-* Headers/Body - enter any header information, such as Authorization, etc. Enter any body information. For example, entering user information if creating/updating a user.
+- Method - select the method for your test from the drop-down list
+- Path - your endpoint to test
+- Headers/Body - enter any header information, such as Authorization, etc. Enter any body information. For example, entering user information if creating/updating a user.
 
 Once you have entered all your request information, click RUN. Debugging Response and Log information will be displayed:
 
@@ -186,9 +183,6 @@ The Response section shows the JSON response for your request.
 
 The debugging level is set to **debug** for the request. This outputs all logging information in the Endpoint Designer. In the Tyk Gateway logs you will see a single request. Any Error messages will be displayed at the bottom of the Logs output.
 
-
-
 [1]: /docs/img/dashboard/system-management/debugging_request.png
 [2]: /docs/img/dashboard/system-management/debugging_response.png
 [3]: /docs/img/dashboard/system-management/debugging_log_error.png
-

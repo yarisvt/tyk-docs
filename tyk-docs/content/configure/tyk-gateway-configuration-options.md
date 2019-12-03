@@ -1,14 +1,15 @@
-   ---
+---
+
 date: 2017-03-27T12:51:44+01:00
 title: Tyk Gateway Configuration Options
 menu:
-  main:
-    parent: "Configure"
-weight: 1 
+main:
+parent: "Configure"
+weight: 1
+
 ---
 
 ## <a name="configuration"></a> Tyk Gateway Configuration
-
 
 The Tyk Gateway server is configured primarily via the `tyk.conf` file, this file resides in `/opt/tyk-gateway` on most systems, but can also live anywhere and be directly targeted with the `--conf` flag.
 
@@ -17,7 +18,8 @@ The Tyk Gateway server is configured primarily via the `tyk.conf` file, this fil
 Environment variables can be used to override the settings defined in the configuration file. See [Environment Variables](/docs/configure/environment-variables/) for details. Where an environment variable is specified, its value will take precedence over the value in the configuration file.
 
 ### <a name="linter"></a> tyk lint
-In **v2.4** we have added a new `tyk lint ` command which will validate your `tyk.conf` file and validate it for syntax correctness, misspelled attribute names or format of values. The Syntax can be:
+
+In **v2.4** we have added a new `tyk lint` command which will validate your `tyk.conf` file and validate it for syntax correctness, misspelled attribute names or format of values. The Syntax can be:
 
 `tyk lint` or `tyk --conf=path lint`
 
@@ -62,7 +64,6 @@ Available from **v2.8**, this setting allows you to update keys with just its ha
 
 > **NOTE**: This setting applies to On-Premises and MDCB installations only.
 
-
 ### <a name="enable_delete_key_by_hash"></a>enable_delete_key_by_hash
 
 Available from **v2.8**, this setting allows you to delete keys with just its hash value. Set to `false` by default.
@@ -75,7 +76,7 @@ If this value is set to `true`, session objects (key definitions) that do not ha
 
 ### <a name="min_key_length"></a>min_key_length
 
-This allows you to set a minimum key length for Authorisation key requests. Any request containing less than the minimum length will automatically rejected. The default setting is `3`. 
+This allows you to set a minimum key length for Authorisation key requests. Any request containing less than the minimum length will automatically rejected. The default setting is `3`.
 
 ### <a name="use_db_app_configs"></a> use_db_app_configs
 
@@ -91,12 +92,11 @@ Set the URL to your Dashboard instance (or a load balanced instance), the URL sh
 
 > **Note**: the same will need to be done for Policy loading, see the policies section below.
 
-
 #### <a name="db_app_conf_options-node_is_segmented"></a> db_app_conf_options.node_is_segmented
 
 Set to `true` to enable filtering (sharding) of APIs.
 
-> **Note**: If you set to `true` for multiple gateway nodes, you should ensure that `management_node` is set to `false`. This is to ensure visibility for the management node across all APIs. 
+> **Note**: If you set to `true` for multiple gateway nodes, you should ensure that `management_node` is set to `false`. This is to ensure visibility for the management node across all APIs.
 
 #### <a name="db_app_conf_options-tags"></a> db_app_conf_options.tags
 
@@ -138,7 +138,7 @@ Enable SSL/TLS connection between Tyk Gateway &amp; Redis.
 
 Tyk is capable of recording every hit to your API into a database with various filtering parameters, set this value to `true` and fill in the sub-section below to enable logging.
 
-> **Note**: For performance reasons, Tyk will store traffic data to Redis initially and then purge the data from Redis to  MongoDB or other, [data stores](https://tyk.io/docs/analyse/other-data-stores/), on a regular basis as determined by the `purge_delay` setting in your Tyk Pump configuration.
+> **Note**: For performance reasons, Tyk will store traffic data to Redis initially and then purge the data from Redis to MongoDB or other, [data stores](https://tyk.io/docs/analyse/other-data-stores/), on a regular basis as determined by the `purge_delay` setting in your Tyk Pump configuration.
 
 ### <a name="analytics_config"></a> analytics_config
 
@@ -160,7 +160,7 @@ Please make sure you have also enabled analytics storing by setting [`enable_ana
 
 ##### <a name="enable_geo_ip_db_path"></a> geo_ip_db_path
 
-Set this value to the absolute path of your MaxMind GeoIP Database file, e.g.: `./GeoLite2-City.mmdb`. The analytics GeoIP DB can be replaced on disk, it will cleanly auto-reload every hour. 
+Set this value to the absolute path of your MaxMind GeoIP Database file, e.g.: `./GeoLite2-City.mmdb`. The analytics GeoIP DB can be replaced on disk, it will cleanly auto-reload every hour.
 
 Don't forget to mount it in case you use containers.
 
@@ -180,10 +180,10 @@ Set this to `true` to enable normalisation.
 
 Set this to `true` to have Tyk automatically clean up UUIDs, it will match the following styles:
 
-* `/15873a748894492162c402d67e92283b/search`
-* `/CA761232-ED42-11CE-BACD-00AA0057B223/search`
-* `/ca761232-ed42-11ce-BAcd-00aa0057b223/search`
-* `/ca761232-ed42-11ce-BAcd-00aa0057b223/search`
+- `/15873a748894492162c402d67e92283b/search`
+- `/CA761232-ED42-11CE-BACD-00AA0057B223/search`
+- `/ca761232-ed42-11ce-BAcd-00aa0057b223/search`
+- `/ca761232-ed42-11ce-BAcd-00aa0057b223/search`
 
 Each UUID will be replaced with a placeholder `{uuid}`
 
@@ -191,7 +191,7 @@ Each UUID will be replaced with a placeholder `{uuid}`
 
 Set this to `true` to have Tyk automatically match for numeric ID's, it will match with a preceding slash so as not to capture actual numbers:
 
-* `/widgets/123456/getParams will become /widgets/{id}/getParams`
+- `/widgets/123456/getParams will become /widgets/{id}/getParams`
 
 #### <a name="analytics_config-normalise_urls-custom_patterns"></a> analytics_config.normalise_urls.custom_patterns
 
@@ -212,7 +212,6 @@ Policies are loaded when Tyk starts and if changed require a hot-reload so they 
 A policy can be defined in a file (stand alone mode) or from the same database as the Dashboard.
 
 #### <a name="policies-policy_source"></a> policies.policy_source
-
 
 Set this value to `file` to look on the file system for a definition file, set to service to use the Dashboard `service`. This value must be set. Note the option for `mongo` has now been removed.
 
@@ -235,7 +234,7 @@ Setting this value to `true` will enable the health-check endpoint on `/Tyk/heal
 
 #### <a name="health_check_endpoint_name"></a>health_check_endpoint_name
 
-From v2.7.5 you can now rename the `/hello`  endpoint by using this option. 
+From v2.7.5 you can now rename the `/hello` endpoint by using this option.
 
 #### <a name="health_check-health_check_value_timeouts"></a> health_check.health_check_value_timeouts
 
@@ -282,7 +281,7 @@ A list of certificates and domains to match against. Please see the SSL section 
 
 #### <a name="http_server_options-ssl_certificates"></a> http_server_options.ssl_certificates
 
-Added in 2.4, as altertnative to `http_server_options.certificates`, which supports our [Certificate API](/docs/security/tls-and-ssl/mutual-tls/#certificates-management) format. It should be a list of certificate IDs returned by Certificate API, or paths to certificate in PEM format (including private key). 
+Added in 2.4, as altertnative to `http_server_options.certificates`, which supports our [Certificate API](/docs/security/tls-and-ssl/mutual-tls/#certificates-management) format. It should be a list of certificate IDs returned by Certificate API, or paths to certificate in PEM format (including private key).
 
 #### <a name="http_server_options-skip_url_cleaning"></a> http_server_options.skip_url_cleaning
 
@@ -363,6 +362,7 @@ While Organisation-level and Key-level triggers can be tiered (e.g. trigger at 1
   "monitor_org_keys": true
 },
 ```
+
 #### <a name="monitor-enable_trigger_monitors"></a> monitor.enable_trigger_monitors
 
 Set this to `true` to have monitors enabled in your configuration for the node.
@@ -488,7 +488,6 @@ Set this value to `true` to enable this node to bind APIs to custom domains set 
 
 This defaults to `true` for HTTP/2 upstream connections.
 
-
 ### <a name="enable_jsvm"></a> enable_jsvm
 
 By default we have now disabled the JavaScript middleware system to ensure higher performance on nodes. If you are using the JSVM (custom middleware, or virtual endpoints), then enable this setting.
@@ -551,18 +550,17 @@ Is used as part of the RPC / Hybrid back-end configuration when using Tyk Enterp
 
 Enables the real-time Gateway log view in the Dashboard.
 
-
 ### <a name="management_node"></a> management_node
 
 If set to `true`, distributed rate limiter will be disabled for this node, and it will be excluded from rate limit calculation.
 
-> **Note**: If you set `db_app_conf_options.node_is_segmented` to `true` for multiple gateway nodes, you should ensure that `management_node` is set to `false`. This is to ensure visibility for the management node across all APIs. 
+> **Note**: If you set `db_app_conf_options.node_is_segmented` to `true` for multiple gateway nodes, you should ensure that `management_node` is set to `false`. This is to ensure visibility for the management node across all APIs.
 
 > This option is available from v2.3.4 and onwards.
 
 ### <a name="proxy_ssl_insecure_skip_verify"></a> proxy_ssl_insecure_skip_verify
 
-This boolean option allows you to skip SSL checking for upstream APIs with self-signed certificates. The default setting is false. 
+This boolean option allows you to skip SSL checking for upstream APIs with self-signed certificates. The default setting is false.
 
 > **NOTE:** This option is available from v2.3.5 onwards.
 
@@ -573,18 +571,20 @@ This can specify a default timeout in seconds for upstream API requests.
 > **NOTE:** This option is available from v2.3.8 onwards.
 
 ### <a name="log-level"></a>log_level
+
 You can now set a logging level via `log_level`. The following levels can be set:
 
-* debug
-* info
-* warn
-* error
+- debug
+- info
+- warn
+- error
 
 If unset or left empty, it will default to `info`.
 
 > **NOTE:** This option is available from v2.4 onwards.
 
 ### <a name="enable-key-logging"></a>enable_key_logging
+
 By default all key ids in logs are hidden. Turn it on if you want to see them for debugging reasons.
 
 > **NOTE:** This option is available from v2.5 onwards.
@@ -601,11 +601,11 @@ You use this setting to have Tyk only accept connections from TLS V1.0, 1.1 and 
 
 You need to use the following values for this setting:
 
-| TLS Version   | Value to Use   |
-|---------------|----------------|
-|      1.0      |      769       |
-|      1.1      |      770       |
-|      1.2      |      771       |
+| TLS Version | Value to Use |
+| ----------- | ------------ |
+| 1.0         | 769          |
+| 1.1         | 770          |
+| 1.2         | 771          |
 
 ### <a name="proxy_ssl_ciphers"></a>proxy_ssl_ciphers
 
@@ -628,7 +628,6 @@ If set to `true` this allows you to disable the regular expression cache. The de
 If you set `disable_regexp_cache` to false, you can use this setting to limit how long the regular expression cache is kept for in seconds. The default is `60` seconds. This must be a positive value. If you set to `0` this sets it uses the default value.
 
 > **NOTE:** This option is available from v2.7.0 onwards.
-
 
 ### <a name="dns-caching"></a> DNS caching
 
@@ -657,9 +656,19 @@ This setting allows to specify duration in seconds before the record will be rem
 Setting ttl to `-1` prevents record from being expired and removed from cache on next check interval.
 
 #### <a name="dns-cache-multiple-ips-handle-strategy"></a> dns_cache.multiple_ips_handle_strategy
+
 Valid values: `pick_first`, `random`, `no_cache`
 A strategy, which will be used when dns query will reply with more than 1 ip address per single host.
 As dns query response ip addresses can have changing order depending on dns server balancing strategy(eg: round robin, geographically dependent origin-ip ordering, etc) this option allows to not to limit connection to first host within cached response list or prevent response caching.
+
 - `pick_first` will instruct gateway to connect to first ip in returned ips list and cache the response.
 - `random` will instruct gateway to connect to random ip in returned ips list and cache the response.
 - `no_cache` will instruct gateway to connect to first ip in returned ips list and fetch each addresses list without caching on each API endpoint dns query.
+
+### <a name="hide_generator_header"></a> hide_generator_header
+
+By default, we set the `X-Generator` header to `tyk.io` when returning errors. You can set `hide_generator_header` to `true`to turn this header off.
+
+### <a name="oauth_error_status_code"></a> oauth_error_status_code
+
+New in v2.9.2, you can now configure the OAuth error status code returned. If not set, it defaults to a 403 error.

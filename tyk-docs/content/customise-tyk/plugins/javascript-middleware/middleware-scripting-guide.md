@@ -4,12 +4,12 @@ title: Middleware Scripting Guide
 menu:
   main:
     parent: "Javascript Middleware"
-weight: 3 
+weight: 3
 ---
 
 ## Middleware Scripting
 
-Middleware scripting is done in either a *pre* or *post* middleware chain context, dynamic middleware can be applied to both session-based APIs and Open (Keyless) APIs.
+Middleware scripting is done in either a _pre_ or _post_ middleware chain context, dynamic middleware can be applied to both session-based APIs and Open (Keyless) APIs.
 
 The difference between the middleware types are:
 
@@ -17,13 +17,11 @@ The difference between the middleware types are:
 
 2.  **Post**: These middleware components have access to the session object (the user quota, allowances and auth data), but have the option to disable it, as deserialising it into the JSVM is computationally expensive and can add latency.
 
-> **NOTE**: A new JSVM instance is created for *each* API that is managed, this means that inter-API communication is not possible via shared methods (they have different bounds), however it *is* possible using the session object if a key is shared across APIs.
+> **NOTE**: A new JSVM instance is created for _each_ API that is managed, this means that inter-API communication is not possible via shared methods (they have different bounds), however it _is_ possible using the session object if a key is shared across APIs.
 
 ### Declared Plugin Functions
 
 Plugin functions are available globally in the same namespace. So, if you include two or more JSVM plugins that call the same function, the last declared plugin implementation of the function will be returned.
-
-
 
 ### Enable the JSVM
 
@@ -53,9 +51,9 @@ sampleMiddleware.NewProcessRequest(function(request, session, spec) {
 
   console.log("This middleware does nothing, but will print this to your terminal.")
 
-  // You MUST return both the request and session metadata    
+  // You MUST return both the request and session metadata
   return sampleMiddleware.ReturnData(request, session.meta_data);
-});    
+});
 ```
 
 #### Middleware component variables
@@ -86,6 +84,7 @@ The `request` object provides a set of arrays that can be manipulated, that when
   ReturnOverrides {
     ResponseCode: int
     ResponseError: string
+    ResponseHeaders []string
   }
   IgnoreBody    bool
   Method        string
@@ -94,18 +93,34 @@ The `request` object provides a set of arrays that can be manipulated, that when
 }
 ```
 
-*   `Headers`: This is an object of string arrays, and represents the current state of the request header. This object cannot be modified directly, but can be used to read header data.
-*   `SetHeaders`: This is a key-value map that will be set in the header when the middleware returns the object, existing headers will be overwritten and new headers will be added.
-*   `DeleteHeaders`: Any header name that is in this list will be deleted from the outgoing request. `DeleteHeaders` happens before `SetHeaders`.
-*   `Body`: This represents the body of the request, if you modify this field it will overwrite the request.
-*   `URL`: This represents the path portion of the outbound URL, use this to redirect a URL to a different endpoint upstream.
-*   `AddParams`: You can add parameters to your request here, for example internal data headers that are only relevant to your network setup.
-*   `DeleteParams`: These parameters will be removed from the request as they pass through the middleware. `DeleteParams` happens before `AddParams`.
-*   `ReturnOverrides`: Values stored here are used to stop or halt middleware execution and return an error code if the middleware operation has failed.
-*   `IgnoreBody`: If this parameter is set to true, the original request body will be used. If set to false the `Body` field will be used, this is the default behavior.
-*   `Method`: Contains the HTTP method (`GET`, `POST`, etc.).
-*   `RequestURI`: Contains the request URI, including the query string, e.g. `/path?key=value`.
-*   `Scheme`: Contains the URL scheme, e.g. `http`, `https`.
+- `Headers`: This is an object of string arrays, and represents the current state of the request header. This object cannot be modified directly, but can be used to read header data.
+- `SetHeaders`: This is a key-value map that will be set in the header when the middleware returns the object, existing headers will be overwritten and new headers will be added.
+- `DeleteHeaders`: Any header name that is in this list will be deleted from the outgoing request. `DeleteHeaders` happens before `SetHeaders`.
+- `Body`: This represents the body of the request, if you modify this field it will overwrite the request.
+- `URL`: This represents the path portion of the outbound URL, use this to redirect a URL to a different endpoint upstream.
+- `AddParams`: You can add parameters to your request here, for example internal data headers that are only relevant to your network setup.
+- `DeleteParams`: These parameters will be removed from the request as they pass through the middleware. `DeleteParams` happens before `AddParams`.
+- `ReturnOverrides`: Values stored here are used to stop or halt middleware execution and return an error code if the middleware operation has failed. You can also set the `ResponseHeader` for the response.
+- `IgnoreBody`: If this parameter is set to true, the original request body will be used. If set to false the `Body` field will be used, this is the default behavior.
+- `Method`: Contains the HTTP method (`GET`, `POST`, etc.).
+- `RequestURI`: Contains the request URI, including the query string, e.g. `/path?key=value`.
+- `Scheme`: Contains the URL scheme, e.g. `http`, `https`.
+
+#### JSVM Example
+
+```
+var testJSVMData = new TykJS.TykMiddleware.NewMiddleware({});
+
+testJSVMData.NewProcessRequest(function(request, session, config) {
+	request.ReturnOverrides.ResponseError = "Foobarbaz"
+	request.ReturnOverrides.ResponseCode = 200
+	request.ReturnOverrides.ResponseHeaders = {
+		"X-Foo": "Bar",
+		"X-Baz": "Qux"
+	}
+	return testJSVMData.ReturnData(request, {});
+});
+```
 
 Using the methods outlined above, alongside the API functions that are made available to the VM, allows for a powerful set of tools for shaping and structuring inbound traffic to your API, as well as processing, validating or re-structuring the data as it is inbound.
 
@@ -168,4 +183,3 @@ testJSVMData.NewProcessRequest(function(request, session, spec) {
   return testJSVMData.ReturnData(request, {});
 });
 ```
-
