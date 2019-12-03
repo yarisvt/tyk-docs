@@ -9,10 +9,10 @@ url: "/get-started/with-tyk-on-premise/installation/on-aws"
 ---
 
 
-## CloudFormation
+# CloudFormation
 To get started easily with deployment on AWS, Tyk offers AWS CloudFormation products which run and bootstrap the entire stack.
 
-It uses Elasticache for in-memory, and a Mongo Master/Slave setup with two slaves.
+It uses Elasticache in place of Redis, and Mongo running in HA mode in EC2.
 
 There are three CloudFormation products to get you started. 
 
@@ -22,6 +22,49 @@ There are three CloudFormation products to get you started.
 
 ### Pricing / Licensing
 The license for these products is baked into the product as an hourly cost.
+
+## PoC
+PoC will run with a single GW node, Elasticache, and 3 Mongo nodes: Master, Slave, Arbiter.
+
+##### Logging Into Dashboard
+Once the stack is running, in order to access the Dashboard, simply set up an Elastic IP to the Dashboard instance and then visit:
+
+`http://<elastic_public_ip>:3000`
+
+The username & password were created using the variables you gave the CloudFormation template
+
+username: `<TYKDashboardAdminUserName>@<TYKDBAdminOrganization>.com`
+
+Password: `<TYKDashboardAdminUserPassword>`
+
+1. You need to use a password that is at least 8 characters long, or you will not be able to log 
+in.
+2. The CF Template already creates Security Groups for the Dashboard with port 3000 open
+
+##### Accessing the GW
+In order to access GW, simply assign Elastic IP to the instance.  The security groups are already set up to allow traffic on port 8080.
+
+To test, visit: 
+
+```bash
+$ curl http://<elastic_public_ip>:8080/hello
+Hello Tiki
+```
+
+## High Availability
+Everything is the same as PoC, except of course we are running two Gateway nodes instead of 1.  
+
+#### Accessing Gateways
+The CloudFormation stack sets up an Elastic Load Balancer for the Gateway cluster.  We simply need to navigate to the Load Balancing section and find the  `TYKElasticLoadBalancerALB`.  The Cloud Formation template sets up a public DNS entry, something like `TYKElasticLoadBalancerALB-2050138050.us-east-1.elb.amazonaws.com`
+
+We can check it is running by visiting
+```bash
+$ curl TYKElasticLoadBalancerALB-2050138050.us-east-1.elb.amazonaws.com/hello
+Hello Tiki
+```
+
+Note that it is already setup to accept traffic on port 80 and forward it to the Gateways to port 8080.
+
 
 
 ## CloudFormation BYOL (Bring Your Own License)
