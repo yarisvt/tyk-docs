@@ -52,7 +52,7 @@ Hello Tiki
 ```
 
 ## High Availability
-Everything is the same as PoC, except of course we are running two Gateway nodes instead of 1.  
+Everything is the same as PoC, except of course we are running two Gateway nodes instead of one.  
 
 #### Accessing Gateways
 The CloudFormation stack sets up an Elastic Load Balancer for the Gateway cluster.  We simply need to navigate to the Load Balancing section and find the  `TYKElasticLoadBalancerALB`.  The Cloud Formation template sets up a public DNS entry, something like `TYKElasticLoadBalancerALB-2050138050.us-east-1.elb.amazonaws.com`
