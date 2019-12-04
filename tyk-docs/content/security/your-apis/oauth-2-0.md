@@ -4,7 +4,7 @@ title: OAuth 2.0
 menu:
   main:
     parent: "Your APIs"
-weight: 5 
+weight: 5
 ---
 
 Inserting an API gateway into an OAuth 2.0 flow is quite tricky, as OAuth assumes that the resource owner issuing the tokens is also the identity holder for authentication purposes.
@@ -25,10 +25,10 @@ Tyk can act as a full blown OAuth 2.0 provider for Authorisation an access token
 
 Tyk supports the following grants:
 
-*   Authorization Code
-*   Refresh token 
-*   Password
-*   Client Credentials
+- [Authorization Code](/docs/security/your-apis/oauth2.0/auth-code-grant)
+- Refresh token
+- Password
+- Client Credentials
 
 The Tyk OAuth flow is described in the following sections.
 
@@ -47,9 +47,9 @@ The Tyk OAuth flow is described in the following sections.
 
 This seems like a complicated process and very verbose - however in actuality, the integration piece is very small. As an API owner, the only steps that require active integration are:
 
-*   Step (1) Creating OAuth Client ID's (This would need to be done anyway)
-*   Step (4) Creating a page to receive the OAuth POST request, log the user in, authorise the client ID and redirect them back to the client app
-*   Step (9) Create a webhook endpoint that accepts a POST request in order to store and update OAuth key data
+- Step (1) Creating OAuth Client ID's (This would need to be done anyway)
+- Step (4) Creating a page to receive the OAuth POST request, log the user in, authorise the client ID and redirect them back to the client app
+- Step (9) Create a webhook endpoint that accepts a POST request in order to store and update OAuth key data
 
 ##### Access token flow (e.g. mobile apps, single-page web apps)
 
@@ -133,8 +133,8 @@ You'll notice the inclusion of the `oauth_client_id` field, this is for analytic
 
 What Tyk does with this data is as follows:
 
-*   If the request is an auth-code request, then when an access token is requested, the `key_rules` is decoded and used to generate the new key.
-*   If the request is by your app and is for a token, then the key is generated directly from this data.
+- If the request is an auth-code request, then when an access token is requested, the `key_rules` is decoded and used to generate the new key.
+- If the request is by your app and is for a token, then the key is generated directly from this data.
 
 #### Using bound policies with OAuth Client IDs
 
@@ -152,7 +152,6 @@ The notification that is sent to the webhook you specify is a POST request with 
 X-Tyk-Shared-Secret: your-shared-secret
 ```
 
-
 And the POST body will have the following fields, they will be populated depending on the type of request that is being reacted to:
 
 ```{.copyWrapper}
@@ -165,20 +164,18 @@ And the POST body will have the following fields, they will be populated dependi
 }
 ```
 
-
-The fields will be populated depending on the type of notification is being sent - the two types being `refresh` and `new`, a `new` request will have an `auth_code` (this will be the auth code that requested access), `new_oauth_token` (the key to store against your user ID, based on the `auth_code`) and `refresh_token` (if enabled - this is the refresh token that *can* be used to generate a new access token without your API knowing).
+The fields will be populated depending on the type of notification is being sent - the two types being `refresh` and `new`, a `new` request will have an `auth_code` (this will be the auth code that requested access), `new_oauth_token` (the key to store against your user ID, based on the `auth_code`) and `refresh_token` (if enabled - this is the refresh token that _can_ be used to generate a new access token without your API knowing).
 
 A `refresh` type will send a new `refresh_token`, the `old_refresh_token` (to identify the key being changed) and the`new_oauth_token` to update the identity record.
 
 #### Notes on the Tyk OAuth 2.0 Flow
 
-*   Once a token has been generated, it uses the same machinery as standard access tokens, so quotas, limits and expiry can all be set as part of the key.
-*   Access tokens will use the Tyk access controls (versioning and named API ID's) to grant and deny access to APIs, not the Client ID.
-*   OAuth access data is stored in Analytics records so that data can be grouped by Client ID.
+- Once a token has been generated, it uses the same machinery as standard access tokens, so quotas, limits and expiry can all be set as part of the key.
+- Access tokens will use the Tyk access controls (versioning and named API ID's) to grant and deny access to APIs, not the Client ID.
+- OAuth access data is stored in Analytics records so that data can be grouped by Client ID.
 
 #### Accessing multiple APIs with the same API token
-OAuth 2.0 by design has a single authentication point. However you can configure Tyk to issue tokens which will have access to multiple APIs. In order to do that, create a policy which includes **one** OAuth 2.0 API which is used for authentication (e.g. issuing tokens), and the rest of the APIs inside the policy should use the standard Auth Token method. 
 
+OAuth 2.0 by design has a single authentication point. However you can configure Tyk to issue tokens which will have access to multiple APIs. In order to do that, create a policy which includes **one** OAuth 2.0 API which is used for authentication (e.g. issuing tokens), and the rest of the APIs inside the policy should use the standard Auth Token method.
 
 [2]: /docs/tyk-rest-api/api-definition-object-details/
-
