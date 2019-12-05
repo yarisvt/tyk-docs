@@ -762,6 +762,29 @@ paths:
                 client_id: test
                 api_id: id
                 policy_id: policy
+      '/tyk/oauth/clients/{apiID}':
+    put:
+      summary: Update OAuth metadata and Policy ID
+      description: Allows you to update the metadata and Policy ID for an OAuth client.
+      tags:
+        - OAuth
+      operationId: updateoAuthClient
+      parameters:
+        - description: The API ID
+          name: apiID
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OAuth client metadata updated
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/NewClientRequest'
   '/tyk/oauth/clients/{apiID}':
     get:
       summary: List oAuth clients
