@@ -23,12 +23,12 @@ Tyk can act as a full blown OAuth 2.0 provider for Authorisation an access token
 
 <iframe width="870" height="480" src="https://www.youtube.com/embed/C4CUDTIHynk" frameborder="0" gesture="media" allowfullscreen></iframe>
 
-Tyk supports the following grants:
+Tyk supports the following grant types:
 
 - [Authorization Code](/docs/security/your-apis/oauth2.0/auth-code-grant)
-- Refresh token
-- Password
-- Client Credentials
+- [Refresh Token](/docs/security/your-apis/oauth2.0/refresh-token-grant)
+- [Username and Password](/docs/security/your-apis/oauth2.0/refresh-token-grant)
+- [Client Credentials](/docs/security/your-apis/oauth2.0/client-credentials-grant)
 
 The Tyk OAuth flow is described in the following sections.
 
