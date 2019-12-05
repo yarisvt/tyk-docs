@@ -4,7 +4,7 @@ Title: Tyk Pump on Ubuntu
 menu:
   main:
     parent: "On Ubuntu"
-weight: 2 
+weight: 2
 ---
 
 ## Install Tyk Pump on Ubuntu
@@ -17,31 +17,35 @@ Tyk has it's own APT repositories hosted by the kind folks at [packagecloud.io][
 
 #### Tutorial
 
-This tutorial has been tested on an Ubuntu Server 14.04 LTS Operating System. It should also work with Ubuntu 16.04 & 18.04 with few if any modifications.
+This tutorial has been tested Ubuntu 16.04 & 18.04 with few if any modifications.
 
 ### Prerequisites
 
-*   You have installed MongoDB and Redis.
-*   You have installed the Tyk Dashboard.
+- You have installed MongoDB and Redis.
+- You have installed the Tyk Dashboard.
 
 #### Step 1: Set up our APT repositories
 
 First, add our GPGP key which signs our binaries:
+
 ```{.copyWrapper}
 curl -L https://packagecloud.io/tyk/tyk-pump/gpgkey | sudo apt-key add -
 ```
 
 Run update:
+
 ```{.copyWrapper}
 sudo apt-get update
 ```
 
 Since our repositories are installed via HTTPS, you will need to make sure APT supports this:
+
 ```{.copyWrapper}
-sudo apt-get install -y apt-transport-https 
+sudo apt-get install -y apt-transport-https
 ```
 
 Now lets add the required repos and update again (notice the `-a` flag in the second Tyk commands - this is important!):
+
 ```{.copyWrapper}
 echo "deb https://packagecloud.io/tyk/tyk-pump/ubuntu/ trusty main" | sudo tee /etc/apt/sources.list.d/tyk_tyk-pump.list
 
@@ -52,12 +56,13 @@ sudo apt-get update
 
 **What we've done here is:**
 
-*   Added the Tyk Pump repository
-*   Updated our package list
+- Added the Tyk Pump repository
+- Updated our package list
 
 #### Step 2: Install the Tyk Pump
 
 We're now ready to install the Tyk Pump. To install it, run:
+
 ```{.copyWrapper}
 sudo apt-get install -y tyk-pump
 ```
@@ -77,12 +82,14 @@ sudo /opt/tyk-pump/install/setup.sh --redishost=<hostname> --redisport=6379 --mo
 ```
 
 #### Step 4: Start Tyk Pump
+
 ```{.copyWrapper}
 sudo service tyk-pump start
 sudo service tyk-pump enable
 ```
 
 You can verify if Tyk Pump is running and working by tailing the log file:
+
 ```{.copyWrapper}
 sudo tail -f /var/log/upstart/tyk-pump.log
 ```
