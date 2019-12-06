@@ -4,12 +4,12 @@ title: Tyk-Sync
 menu:
   main:
     parent: "Manage Multiple Environments"
-weight: 7 
+weight: 7
 ---
 
 Tyk-Sync is a command line tool and library to manage and synchronise a Tyk installation with your version control system (VCS).
 
-> NOTE: Tyk-Sync works with APIs and Policies. It does not work with Keys. See [Move Keys between environments](/docs/manage-multiple-environments/move-keys-between-environments/) for details. 
+> NOTE: Tyk-Sync works with APIs and Policies. It does not work with Keys. See [Move Keys between environments](/docs/manage-multiple-environments/move-keys-between-environments/) for details.
 
 ## Features
 
@@ -20,9 +20,9 @@ Tyk-Sync is a command line tool and library to manage and synchronise a Tyk inst
 - Synchronise a Tyk Dashboard's APIs and Policies with your VCS (one-way, definitions are written to the Dashboard)
 - Synchronise a Tyk Community Edition Gateway APIs with those stored in a VCS (one-way, definitions are written to the Gateway)
 - Dump Policies and APIs in a transportable format from a Dashboard to a directory
-- Support for importing, converting and publishing Swagger (Open API Spec) files to Tyk.
+- Support for importing, converting and publishing Swagger JSON files (OpenAPI 2.0 and 3.0 are supported) to Tyk.
 - Specialized support for Git. But since API and policy definitions can be read directly from
-the file system, it will integrate with any VCS.
+  the file system, it will integrate with any VCS.
 
 ### Sync
 
@@ -123,4 +123,3 @@ SYNC Updating Policy: Test policy 1
 
 The command provides output to identify which actions have been taken. If using a Tyk Gateway, the Gateway will be
 automatically hot-reloaded.
-
