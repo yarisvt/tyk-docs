@@ -127,7 +127,7 @@ Flags:
     --test               Use test publisher, output results to stdio
 ```
 
-### Update
+### Update Command
 
 Update will attempt to identify matching APIs or Policies in the target, and update those APIs. It does not create new ones. Use `tyk-sync publish` or `tyk-git sync` for new content.
 
