@@ -1,4 +1,5 @@
 <!-- START OMIT -->
+
 ## <a name="with-dashboard"></a>Tutorial: Create an API with the Dashboard
 
 We have a video walkthrough for creating an API
@@ -17,16 +18,10 @@ We will use the Tyk Dashboard to create a very simple API that has no special el
 
 ### Step 3: Set up the Base Configuration for your API
 
-![API Designer][3]
+- From the **API Settings** section, add your **API Name**. This will also act as the slug for your **API URL**.
+- From the **Targets** section, add your **Target URL**. This will set the upstream origin that hosts the service you want to proxy to. For this tutorial you can use [http://httpbin.org](http://httpbin.org). If you wish to use more than one target URL you can select **Enable round-robin load balancing**. For this tutorial, we will just use a single upstream target. See [Load Balancing](/docs/ensure-high-availability/load-balancing/) for more details.
 
-In this section:
-
-*   **API Name**: The name you want to give this group of endpoints. This will represent the API.
-*   **API Slug**: The URL segment that will map to this API, e.g. if set to `widgets` then the full API URL will be `https://your-organisation.cloud.tyk.io/widgets`.
-*   **Target URL**: The upstream origin that hosts the service you want to proxy to.
-*   **Enable round-robin load balancing**: This allows you to enter more than one target URL. We will ignore this for now.
-
-#### Step 4: Set up the Authentication for your API
+### Step 4: Set up the Authentication for your API
 
 From the **Authentication** section:
 
@@ -34,12 +29,12 @@ From the **Authentication** section:
 
 You have the following options:
 
-*   **Authentication mode**: This is the security method to use with your API. There can be only one per API. In this case, set it to `Auth Token`, as this is the simplest security mechanism to use.
-*   **Strip Authorization Data**: Select this option to strip any authorization data from your API requests.
-*   **Auth Key Header Name**: The header name that will hold the token on inbound requests. The default for this is `Authorization`.
-*   **Allow Query Parameter As Well As Header**: Set this option to enable checking the query parameter as well as the header for an auth token. For this tutorial, leave this `unchecked`.
-*   **Use Cookie Value**: It is possible to use a cookie value as well as the other two token locations. Set this as `unchecked`.
-*   **Enable client certificate**: Select this to use the Mutual TLS functionality introduced in v1.4. See [Mutual TLS](/docs/security/tls-and-ssl/mutual-tls/) for details on implementing Mutual TLS.
+- **Authentication mode**: This is the security method to use with your API. There can be only one per API. In this case, set it to `Auth Token`, as this is the simplest security mechanism to use.
+- **Strip Authorization Data**: Select this option to strip any authorization data from your API requests.
+- **Auth Key Header Name**: The header name that will hold the token on inbound requests. The default for this is `Authorization`.
+- **Allow Query Parameter As Well As Header**: Set this option to enable checking the query parameter as well as the header for an auth token. For this tutorial, leave this `unchecked`.
+- **Use Cookie Value**: It is possible to use a cookie value as well as the other two token locations. Set this as `unchecked`.
+- **Enable client certificate**: Select this to use the Mutual TLS functionality introduced in v1.4. See [Mutual TLS](/docs/security/tls-and-ssl/mutual-tls/) for details on implementing Mutual TLS.
 
 ### Step 5: Save the API
 
@@ -55,12 +50,12 @@ To see the URL given to your API, select the API from the list to open it again.
 
 ## <a name="with-api"></a>Tutorial: Create an API with the Dashboard API
 
-It is possible to create APIs using Tyk Dashboard's REST API. 
+It is possible to create APIs using Tyk Dashboard's REST API.
 You will need an API key for your organisation and one command to create the API and make it live.
 
 ### Obtain your Dashboard API key & Dashboard URL
 
-From the Tyk Dashboard, select "Users" from the "System Management" section. 
+From the Tyk Dashboard, select "Users" from the "System Management" section.
 Click **Edit** for your user, then scroll to the bottom of the page. Your API Key is the first entry:
 
 ![API key location][7]
@@ -94,7 +89,7 @@ For a fresh install, you will see that no APIs currently exist
 
 ### Create your first API
 
-This example API definition configures the Tyk Gateway to reverse proxy to the http://httpbin.org 
+This example API definition configures the Tyk Gateway to reverse proxy to the http://httpbin.org
 request/response service.
 
 To view the raw API definition object, you may visit: https://bit.ly/2PdEHuv
@@ -182,10 +177,10 @@ Congratulations - You have just created your first keyless API, then protected i
 
 [1]: /docs/img/dashboard/system-management/apis2.7.png
 [2]: /docs/img/dashboard/system-management/add_API_button_new_2.5.png
-[3]: /docs/img/dashboard/system-management/api_settings_2.5.png
 [4]: /docs/img/dashboard/system-management/authentication_2.5.png
 [5]: /docs/img/dashboard/system-management/api_save_2.5.png
 [6]: /docs/img/dashboard/system-management/api_url_2.5.png
 [7]: /docs/img/dashboard/system-management/api_access_cred_2.5.png
 [8]: /docs/tyk-rest-api/api-definition-object-details/
+
 <!-- END OMIT -->
