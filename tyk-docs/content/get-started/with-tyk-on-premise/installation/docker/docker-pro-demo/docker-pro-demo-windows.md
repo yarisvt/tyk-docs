@@ -5,27 +5,21 @@ menu:
   main:
     parent: "With Docker"
 weight: 2
-
----
-
-> **Warning!** This demo is **NOT** designed for production use or performance testing. The Tyk Pro Docker Demo is our full, [On-Premises](https://tyk.io/api-gateway/on-premise/) solution, which includes our Gateway, Dashboard and analytics processing pipeline.
-This demo will run Tyk On-Premises on your machine, which contains 5 containers: Tyk Gateway, Tyk Dashboard, Tyk Pump, Redis and MongoDB.
-This demo is great for proof of concept and demo purposes, but if you want to test performance, you need to move each component to a separate machine.
-
+---> **Warning!** This demo is **NOT** designed for production use or performance testing. The Tyk Pro Docker Demo is our full, [On-Premises](https://tyk.io/api-gateway/on-premise/) solution, which includes our Gateway, Dashboard and analytics processing pipeline.
+> This demo will run Tyk On-Premises on your machine, which contains 5 containers: Tyk Gateway, Tyk Dashboard, Tyk Pump, Redis and MongoDB.
+> This demo is great for proof of concept and demo purposes, but if you want to test performance, you need to move each component to a separate machine.
 
 > **NOTE**: You use this at your own risk. Tyk is not supported on the Windows platform. However you can test it as a proof of concept using our Pro Demo Docker installation.
 
-
-
 ## Prerequisites
 
-* MS Windows 10 Pro
-* [Docker Desktop for Windows](https://docs.docker.com/docker-for-windows/install/) running with a signed in [Docker ID](https://docs.docker.com/docker-id/)
-* Git for Windows
-* PowerShell running as administrator
-* Postman for [Windows](https://www.getpostman.com/downloads/)
-* Our Pro Demo Docker [GitHub repo](https://github.com/TykTechnologies/tyk-pro-docker-demo)
-* A free Tyk On-Premises [Developer licence](https://tyk.io/product/tyk-on-premises-free-edition/)
+- MS Windows 10 Pro
+- [Docker Desktop for Windows](https://docs.docker.com/docker-for-windows/install/) running with a signed in [Docker ID](https://docs.docker.com/docker-id/)
+- Git for Windows
+- PowerShell running as administrator
+- Postman for [Windows](https://www.getpostman.com/downloads/)
+- Our Pro Demo Docker [GitHub repo](https://github.com/TykTechnologies/tyk-pro-docker-demo)
+- A free Tyk On-Premises [Developer licence](https://tyk.io/product/tyk-on-premises-free-edition/)
 
 ### Step One - Clone the Repo
 
@@ -68,18 +62,18 @@ Go to:
 
 You should get to the Tyk Dashboard Setup screen:
 
-![Tyk Dashboard Bootstrap Screen][1]
+![Tyk Dashboard Bootstrap Screen](/docs/img/dashboard/system-management/bootstrap_screen.png)
 
 ### Step Six - Create your Organisation and Default User
 
 You need to enter the following:
 
-* Your **Organisation Name**
-* Your **Organisation Slug**
-* Your User **Email Address**
-* Your User **First and Last Name**
-* A **Password** for your User
-* **Re-enter** your user **Password**
+- Your **Organisation Name**
+- Your **Organisation Slug**
+- Your User **Email Address**
+- Your User **First and Last Name**
+- A **Password** for your User
+- **Re-enter** your user **Password**
 
 > **NOTE**: For a password, we recommend a combination of alphanumeric characters, with both upper and lower case letters.
 
@@ -87,15 +81,14 @@ Click **Bootstrap** to save the details.
 
 You can now log in to the Tyk Dashboard from `127.0.0.1:3000`, using the username and password created in the Dashboard Setup screen.
 
-
 ### Step Seven - Set up a Portal Catalogue
 
 This creates a portal catalogue for your developer portal. For the `Authorization` Header, the Value you need to enter is the `access_key` value from the create user request. In the body add the `org_id` value created in **Step One**.
 
-* **Request**: POST
-* **URL**: `127.0.0.1:3000/api/portal/catalogue`
-* **Header**: Key `Authorzation` Value `SECRET_VALUE`
-* **Body** (raw set to application/json):
+- **Request**: POST
+- **URL**: `127.0.0.1:3000/api/portal/catalogue`
+- **Header**: Key `Authorzation` Value `SECRET_VALUE`
+- **Body** (raw set to application/json):
 
 #### Sample Request
 
@@ -117,10 +110,10 @@ This creates a portal catalogue for your developer portal. For the `Authorizatio
 
 This creates the default home page for your developer portal. For the `Authorization` Header, the Value you need to enter is the `access_key` value from the create user request.
 
-* **Request**: POST
-* **URL**: `127.0.0.1:3000/api/portal/catalogue`
-* **Header**: Key `Authorzation` Value `SECRET_VALUE`
-* **Body** (raw set to application/json):
+- **Request**: POST
+- **URL**: `127.0.0.1:3000/api/portal/catalogue`
+- **Header**: Key `Authorzation` Value `SECRET_VALUE`
+- **Body** (raw set to application/json):
 
 #### Sample Request
 
@@ -166,17 +159,16 @@ This creates the default home page for your developer portal. For the `Authoriza
 
 This creates the developer portal URL. For the `Authorization` Header, the Value you need to enter is the `secret` value from your `/confs/tyk_analytics.conf`.
 
-* **Request**: POST
-* **URL**: `127.0.0.1:3000/api/portal/configuration`
-* **Header**: Key `Authorzation` Value `SECRET_VALUE`
-* **Body** (raw set to application/json):
+- **Request**: POST
+- **URL**: `127.0.0.1:3000/api/portal/configuration`
+- **Header**: Key `Authorzation` Value `SECRET_VALUE`
+- **Body** (raw set to application/json):
 
 #### Sample Request
 
 ```{copy.Json}
 {SECRET_VALUE}
 ```
-
 
 #### Sample Response
 
@@ -187,7 +179,3 @@ This creates the developer portal URL. For the `Authorization` Header, the Value
   "Meta": null
 }
 ```
-
-
-
-[1]: /docs/img/dashboard/system-management/bootstrap_screen.png

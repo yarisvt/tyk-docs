@@ -1,11 +1,14 @@
 ---
-
 title: Kubernetes Docker Pro Demo on Windows Linux Subsystem
 menu:
-main:
-parent: "With Docker"
+  main:
+    parent: "With Docker"
 weight: 3
----> **Warning!** This demo is **NOT** designed for production use or performance testing. The Tyk Pro Docker Demo is our full, [On-Premises](https://tyk.io/api-gateway/on-premise/) solution, which includes our Gateway, Dashboard and analytics processing pipeline.
+---
+
+> **NOTE**: Installing Tyk on Kubernetes requires a multi-node Tyk licence. If you are evaluating Tyk on Kubernetes, [contact us](https://tyk.io/about/contact/) to obtain an temporary licence.
+
+> **Warning!** This demo is **NOT** designed for production use or performance testing. The Tyk Pro Docker Demo is our full, [On-Premises](https://tyk.io/api-gateway/on-premise/) solution, which includes our Gateway, Dashboard and analytics processing pipeline.
 
 > This demo will run Tyk On-Premises on your machine, which contains 5 containers: Tyk Gateway, Tyk Dashboard, Tyk Pump, Redis and MongoDB.
 > This demo is great for proof of concept and demo purposes, but if you want to test performance, you need to move each component to a separate machine.
@@ -14,9 +17,9 @@ weight: 3
 
 ## Prerequisites
 
-- MS Windows 10 Pro with [Windows Linux Subsystem](https://docs.microsoft.com/en-us/windows/wsl/install-win10) and [Hyper-V](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) enabled
+- MS Windows 10 Pro with [Windows Linux Subsystem](https://docs.microsoft.com/en-us/windows/wsl/install-win10) and [Hyper-V](https://blogs.technet.microsoft.com/canitpro/2015/09/08/step-by-step-enabling-hyper-v-for-use-on-windows-10/) enabled
 - [Tyk Helm Chart](https://github.com/TykTechnologies/tyk-helm-chart)
-- [Minikube](https://github.com/kubernetes/minikube)
+- [minikube](https://minikube.sigs.k8s.io/docs/start/windows/)
 - [Kubectl](https://kubernetes.io/docs/reference/kubectl/overview/)
 - [Docker Desktop for Windows](https://docs.docker.com/docker-for-windows/install/) running with a signed in [Docker ID](https://docs.docker.com/docker-id/)
 - Git for Windows
@@ -25,62 +28,218 @@ weight: 3
 - A free Tyk On-Premises [Developer licence](https://tyk.io/product/tyk-on-premises-free-edition/)
 - Optional: Ubuntu on Windows
 
-### Step One - Clone the Repo
+### Step One (Optional) - Delete any old minikube clusters
 
-Clone the repo above to a location on your machine.
-
-### Step Two - Edit your hosts file
-
-You need to add the following to your Windows hosts file:
-
-```{copy.Wrapper}
-127.0.0.1 www.tyk-portal-test.com
-127.0.0.1 www.tyk-test.com
+```{.copyWrapper}
+minikube delete
 ```
 
-### Step Three - Add your Developer Licence
+### Step Two - Start the minikube cluster
 
-You should have received your free developer licence via email. Copy the licence key in the following location from your `\confs\tyk_analytics.conf` file:
-
-```
-"license_key": ""
+```{.copyWrapper}
+minikube start
 ```
 
-### Step Four - Run the Docker Compose File
+### Step Three - View your running pods
 
-From PowerShell, run the following command from your installation folder:
-
-```{copy.Wrapper}
-docker-compose -f docker-compose.yml -f docker-local.yml up
+```{.copyWrapper}
+kubectl get pods --all-namespaces
 ```
 
-This will will download and setup the five Docker containers. This may take some time and will display all output.
+### Step Four - Update Helm
 
-### Step Five - Got to the Dashboard URL
-
-Go to:
-
-```{copy.Wrapper}
-127.0.0.1:3000
+```{.copyWrapper}
+cd C:\Tools\helm_patched\
 ```
 
-You should get to the Tyk Dashboard Setup screen:
+Then
 
-![Tyk Dashboard Bootstrap Screen][1]
+```{.copyWrapper}
+helm repo add stable https://kubernetes-charts.storage.googleapis.com
+```
 
-### Step Six - Create your Organisation and Default User
+Then
 
-You need to enter the following:
+```{.copyWrapper}
+helm repo update
+```
 
-- Your **Organisation Name**
-- Your **Organisation Slug**
-- Your User **Email Address**
-- Your User **First and Last Name**
-- A **Password** for your User
-- **Re-enter** your user **Password**
+### Step Five - Create and enable your Tiller account
 
-> **NOTE**: For a password, we recommend a combination of alphanumeric characters, with both upper and lower case letters.
+```{.copyWrapper}
+kubectl -n kube-system create serviceaccount tiller
+```
 
-Click **Bootstrap** to save the details.
+Then
 
-You can now log in to the Tyk Dashboard from `127.0.0.1:3000`, using the username and password created in the Dashboard Setup screen.
+```{.copyWrapper}
+kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceaccount=kube-system:tiller
+```
+
+Then
+
+```{.copyWrapper}
+helm init --service-account=tiller
+```
+
+Then
+
+```{.copyWrapper}
+kubectl create namespace tyk-ingress
+```
+
+### Step Six - Install MongoDB
+
+```{.copyWrapper}
+helm install stable/mongodb --name tyk-mongo  --set "replicaSet.enabled=true" -n tyk-ingress
+```
+
+#### Sample Output
+
+> **NOTE**: You get your MongoDB endpoint from the install output (example)
+
+```
+# MongoDB can be accessed via port 27017 on the following DNS name from within your cluster:
+
+# tyk-mongo-mongodb.tyk-ingress.svc.cluster.local
+
+#
+
+# To get the root password run:
+
+#
+
+# export MONGODB_ROOT_PASSWORD=$(kubectl get secret --namespace tyk-ingress tyk-mongo-mongodb -o jsonpath="{.data.mongodb-root-password}" | base64 --decode)
+
+#
+
+# To connect to your database run the following command:
+
+#
+
+# kubectl run --namespace tyk-ingress tyk-mongo-mongodb-client --rm --tty -i --restart='Never' --image bitnami/mongodb --command -- mongo admin --host tyk-mongo-mongodb --authenticationDatabase admin -u root -p $MONGODB_ROOT_PASSWORD
+
+#
+
+# To connect to your database from outside the cluster execute the following commands:
+
+#
+
+# kubectl port-forward --namespace tyk-ingress svc/tyk-mongo-mongodb 27017:27017 &
+
+# mongo --host 127.0.0.1 --authenticationDatabase admin -p $MONGODB_ROOT_PASSWORD
+```
+
+### Step Seven - Install Redis
+
+```{.copyWrapper}
+helm install stable/redis --name tyk-redis --namespace tyk-ingress
+```
+
+> **NOTE**: You get your Redis endpoint from the install output (example)
+
+#### Sample Output
+
+```
+# Redis can be accessed via port 6379 on the following DNS names from within your cluster:
+
+#
+
+# tyk-redis-master.tyk-ingress.svc.cluster.local for read/write operations
+
+# tyk-redis-slave.tyk-ingress.svc.cluster.local for read-only operations
+
+#
+
+# To get your password run:
+
+#
+
+# export REDIS_PASSWORD=$(kubectl get secret --namespace tyk-ingress tyk-redis -o jsonpath="{.data.redis-password}" | base64 --decode)
+
+#
+
+# To connect to your Redis server:
+
+#
+
+# 1. Run a Redis pod that you can use as a client:
+
+#
+
+# kubectl run --namespace tyk-ingress tyk-redis-client --rm --tty -i --restart='Never'  --env REDIS_PASSWORD=$REDIS_PASSWORD --image docker.io/bitnami/redis:5.0.7-debian-9-r12 -- bash
+
+#
+
+# 2. Connect using the Redis CLI:
+
+# redis-cli -h tyk-redis-master -a $REDIS_PASSWORD
+
+# redis-cli -h tyk-redis-slave -a $REDIS_PASSWORD
+
+#
+
+# To connect to your database from outside the cluster execute the following commands:
+
+#
+
+# kubectl port-forward --namespace tyk-ingress svc/tyk-redis-master 6379:6379 &
+
+# redis-cli -h 127.0.0.1 -p 6379 -a $REDIS_PASSWORD
+```
+
+### Step Eight - Amend your Tyk Pro settings
+
+In your Tyk Pro install directory, amend your `values.yaml` file with your Tyk Licence info and MongoDB and Redis endpoint values.
+
+### Step Nine - Get your Redis password and decode as base64
+
+```{.copyWrapper}
+kubectl get secret --namespace tyk-ingress tyk-redis -o jsonpath="{.data.redis-password}"
+```
+
+### Step Ten - Get your MongoDB password and decode as base64
+
+```{.copyWrapper}
+kubectl get secret --namespace tyk-ingress tyk-mongo-mongodb -o jsonpath="{.data.mongodb-root-password}"
+```
+
+### Step Eleven - Install Tyk Pro
+
+```{.copyWrapper}
+cd C:\Tools\helm_patched\tyk-helm-chart-master\
+```
+
+Then
+
+```{.copyWrapper}
+helm install ./tyk-pro --values .\values.yaml --namespace tyk-ingress
+```
+
+### Step Twelve - Check that all your pods are running
+
+```{.copyWrapper}
+kubectl get pods --all-namespaces
+```
+
+### Step Thirteen - Get your IP Address and Port
+
+```{.copyWrapper}
+minikube ip
+```
+
+Then
+
+```{.copyWrapper}
+kubectl get --namespace tyk-ingress -o jsonpath="{.spec.ports[0].nodePort}" services dashboard-svc-bold-condor-tyk-pro
+```
+
+### Step Fourteen - Replace IP Address and Port
+
+From a Bash shell replace the values with those from **Step Thirteen**.
+
+```{.copyWrapper}
+& cd /mnt/c/Tools/helm_patched/tyk-helm-chart-master/tyk-pro/scripts
+
+& ./bootstrap_k8s.sh 192.168.180.72:32037 12345 tyk-ingress
+```
