@@ -1,11 +1,12 @@
 ---
-date: 2017-03-22T16:54:02Z
+
 title: Kubernetes Docker Pro Demo on Windows Linux Subsystem
 menu:
-  main:
-    parent: "With Docker"
+main:
+parent: "With Docker"
 weight: 3
 ---> **Warning!** This demo is **NOT** designed for production use or performance testing. The Tyk Pro Docker Demo is our full, [On-Premises](https://tyk.io/api-gateway/on-premise/) solution, which includes our Gateway, Dashboard and analytics processing pipeline.
+
 > This demo will run Tyk On-Premises on your machine, which contains 5 containers: Tyk Gateway, Tyk Dashboard, Tyk Pump, Redis and MongoDB.
 > This demo is great for proof of concept and demo purposes, but if you want to test performance, you need to move each component to a separate machine.
 
@@ -13,7 +14,10 @@ weight: 3
 
 ## Prerequisites
 
-- MS Windows 10 Pro with [Windows Linux Subsystem](https://docs.microsoft.com/en-us/windows/wsl/install-win10) enabled
+- MS Windows 10 Pro with [Windows Linux Subsystem](https://docs.microsoft.com/en-us/windows/wsl/install-win10) and [Hyper-V](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) enabled
+- [Tyk Helm Chart](https://github.com/TykTechnologies/tyk-helm-chart)
+- [Minikube](https://github.com/kubernetes/minikube)
+- [Kubectl](https://kubernetes.io/docs/reference/kubectl/overview/)
 - [Docker Desktop for Windows](https://docs.docker.com/docker-for-windows/install/) running with a signed in [Docker ID](https://docs.docker.com/docker-id/)
 - Git for Windows
 - PowerShell running as administrator
