@@ -12,13 +12,18 @@ url: "/get-started/with-tyk-on-premise/installation/on-ubuntu"
 
 Installing Tyk on Ubuntu is very straightforward, follow the guides and tutorials in this section to have Tyk up and running in no time.
 
-> **NOTE**: For a production environment, we recommend that the Gateway, Dashboard and Pump are installed on separate machines. If installing multiple Gateways, you should install each on a separate machine. For more information on deploying to a production environment, see [here](https://tyk.io/docs/deploy-tyk-premise-production/).
+> **NOTE**: For a production environment, we recommend that the Gateway, Dashboard and Pump are installed on separate machines. If installing multiple Gateways, you should install each on a separate machine. See [Deploy to Production](https://tyk.io/docs/deploy-tyk-premise-production/) For more details.
 
 ## <a name="prerequisites"></a> Prerequisites
 
-Before installing the Tyk components in the order below, you need to install firstly MongoDb, then Redis.
+Before installing the Tyk components in the order below, you need to install firstly MongoDB, then Redis.
 
-### Install MongoDb 3.2
+### Supported Verions of MongoDB and Redis
+
+- MongoDB 3.x and 4.0.x
+- Redis 2.8.x to 5.0.x
+
+### Install MongoDB 3.2
 
 First import the public key as required by Ubuntu APT
 
@@ -26,13 +31,7 @@ First import the public key as required by Ubuntu APT
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
 ```
 
-Then create a MongoDb source list file
-
-**On Ubuntu Trusty 14.04**
-
-```{.copyWrapper}
-echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
-```
+Then create a MongoDB source list file
 
 **On Ubuntu Xenial 16.04**
 
@@ -53,14 +52,6 @@ sudo apt-get install -y mongodb-org
 ```
 
 Finally, start the mongod service - then ensure all is running.
-
-**On Ubuntu Trusty 14.04**
-
-```
-# sudo service mongod start
-# sudo service mongod status
-mongod start/running, process 1904
-```
 
 **On Ubuntu Xenial 16.04**
 
@@ -89,9 +80,9 @@ sudo apt-get install -y redis-server
 
 We then recommend installing Tyk in the following order:
 
-* [Dashboard][2]
-* [Pump][1]
-* [Gateway][3]
+- [Dashboard][2]
+- [Pump][1]
+- [Gateway][3]
 
 [1]: /docs/get-started/with-tyk-on-premise/installation/on-ubuntu/analytics-pump
 [2]: /docs/get-started/with-tyk-on-premise/installation/on-ubuntu/dashboard

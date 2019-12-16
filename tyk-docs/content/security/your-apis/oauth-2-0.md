@@ -91,7 +91,7 @@ To get OAuth set up in your API configuration, you will need to set up your API 
     }
 ```
 
-As can be seen - a lot more configuration required than the other methods. The details of each of these settings can be seen in the [breakdown of the API Definition file][2] elsewhere.
+As can be seen - a lot more configuration is required than with other methods. See [API Definition Objects](/docs/tyk-rest-api/api-definition-objects/) for more details.
 
 The key elements to take into account here are the enabling of the `use_oauth2` flag and the `notifications` section.
 
@@ -177,5 +177,3 @@ A `refresh` type will send a new `refresh_token`, the `old_refresh_token` (to id
 #### Accessing multiple APIs with the same API token
 
 OAuth 2.0 by design has a single authentication point. However you can configure Tyk to issue tokens which will have access to multiple APIs. In order to do that, create a policy which includes **one** OAuth 2.0 API which is used for authentication (e.g. issuing tokens), and the rest of the APIs inside the policy should use the standard Auth Token method.
-
-[2]: /docs/tyk-rest-api/api-definition-object-details/
