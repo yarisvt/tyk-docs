@@ -222,7 +222,7 @@ authorization: 7a7b140f-2480-4d5a-4e78-24049e3ba7f8
                       "GET": {
                         "action": "reply",
                         "code": 200,
-                        "data": "{"foo": "bar"}",
+                        "data": "{'foo': 'bar'}",
                         "headers": {
                           "x-test": "test"
                         }
@@ -389,7 +389,7 @@ authorization: 7a7b140f-2480-4d5a-4e78-24049e3ba7f8
                         "GET": {
                           "action": "reply",
                           "code": 200,
-                          "data": "{"foo": "bar"}",
+                          "data": "{'foo': 'bar'}",
                           "headers": {
                             "x-test": "test"
                           }
@@ -528,7 +528,7 @@ authorization: 7a7b140f-2480-4d5a-4e78-24049e3ba7f8
                       "GET": {
                         "action": "reply",
                         "code": 200,
-                        "data": "{"foo": "bar"}",
+                        "data": "{'foo': 'bar'}",
                         "headers": {
                             "x-test": "test"
                         }
