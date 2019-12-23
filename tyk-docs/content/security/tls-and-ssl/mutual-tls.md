@@ -24,6 +24,10 @@ Tyk has support for Mutual TLS in the following areas:
 
 The main requirement to make it work is that SSL traffic should be terminated by Tyk itself. If you are using a load balancer, you should configure it to work in TCP mode.
 
+### mTLS for cloud users:
+- Cloud users can secure their upstream services with mTLS and certificate pinning but mTLS between the client (caller of the API) and Tyk's gateway cannot be done for the time being. 
+- Multi cloud users - since you own and manage the gateways, can use mTLS for gateway <--> upstream  as well as client <--> gateway connections.
+
 Before going into details about each of these areas, let's describe the basic building blocks used to make it work.
 
 ## <a name="certificates"></a> Certificates 
