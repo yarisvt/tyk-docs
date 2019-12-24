@@ -14,9 +14,9 @@ Mutual TLS is a common security practice that uses client TLS certificates to pr
 
 In most cases when you try to access a secured HTTPS/TLS endpoint, you experience only the client-side check of the server certificate. The purpose of this check is to ensure that no fraud is involved and the data transfer between the client and server is encrypted. In fact, the TLS standard allows specifying the client certificate as well, so the server can accept connections only for clients with certificates registered with the server certificate authority, or provide additional security checks based on the information stored in the client certificate. This is what we call "Mutual TLS" - when both sides of the connection verify certificates.
 
-## <a name="mtls-support"></a> How Tyk Supports Mutual TLS 
+## <a name="mtls-support"></a> How Tyk Supports mutual TLS 
 
-Tyk has support for Mutual TLS in the following areas:
+Tyk has support for mutual TLS in the following areas:
 
 * Authorisation (white-listing certificates on API level)
 * Authentication (creating keys based on certificates)
@@ -26,7 +26,7 @@ The main requirement to make it work is that SSL traffic should be terminated by
 
 ### mTLS for cloud users:
 - Cloud users can secure their upstream services with mTLS and certificate pinning but mTLS between the client (caller of the API) and Tyk's gateway cannot be done for the time being. 
-- Multi cloud users - since you own and manage the gateways, can use mTLS for gateway <--> upstream  as well as client <--> gateway connections.
+- Multi cloud users - since you own and manage the gateways, you can use mTLS for gateway <--> upstream  as well as client <--> gateway connections.
 
 Before going into details about each of these areas, let's describe the basic building blocks used to make it work.
 
@@ -37,7 +37,7 @@ Let's start with certificate definition. Here is what [Wikipedia](https://en.wik
 
 > In cryptography, a public key certificate, also known as a digital certificate or identity certificate, is an electronic document used to prove the ownership of a public key. The certificate includes information about the key, information about the identity of its owner (called the subject), and the digital signature of an entity that has verified the certificate's contents (called the issuer). If the signature is valid, and the software examining the certificate trusts the issuer, then it can use that key to communicate securely with the certificate's subject.
 
-When it comes to authorisation, it is enough for the server that has a public client certificate in its trusted certificate storage to trust it. However, if you need to send a request to the server protected by Mutual TLS, or need to configure the TLS server itself, you also need to have a private key, used while generating the certificate, to sign the request.
+When it comes to authorisation, it is enough for the server that has a public client certificate in its trusted certificate storage to trust it. However, if you need to send a request to the server protected by mutual TLS, or need to configure the TLS server itself, you also need to have a private key, used while generating the certificate, to sign the request.
 
 Using Tyk, you have two main certificate use cases:
 
@@ -96,7 +96,7 @@ If all your APIs have a common set of certificates, you can define them in your 
 
 Select **Strip Authorization Data** to strip any authorization data from your API requests.  
 
-Be aware that Mutual TLS authorisation has special treatment because it is not "authentication" and does not provide any identifying functionality, like keys, so you need to mix it with another authentication modes options like **Auth Key** or **Keyless**. On the dashboard, you need to choose **Use multiple auth mechanism** in the **Authentication mode** drop-down, where you should select **Mutual TLS** and another option which suits your use-case. 
+Be aware that mutual TLS authorisation has special treatment because it is not "authentication" and does not provide any identifying functionality, like keys, so you need to mix it with another authentication modes options like **Auth Key** or **Keyless**. On the dashboard, you need to choose **Use multiple auth mechanism** in the **Authentication mode** drop-down, where you should select **Mutual TLS** and another option which suits your use-case. 
 
 ### <a name="fallback-http-authorisation"></a> Fallback to HTTP Authorisation 
 The TLS protocol has no access to the HTTP payload and works on the lower level; thus the only information we have at the TLS handshake level is the domain. In fact, even a domain is not included into a TLS handshake by default, but there is TLS extension called SNI (Server Name Indication) 
@@ -104,7 +104,7 @@ which allows the client to send the domain name to the TLS handshake level.
 
 With this in mind, the only way to make API authorisation work fully at the  TLS level, each API protected by Mutual TLS should be deployed on its own domain.
 
-However, Tyk will gracefully fallback to a client certificate authorisation at the HTTP level in cases when you want to have multiple Mutual TLS protected APIs on the same domain, or you have clients that do not support the SNI extension. No additional configuration is needed. In case of such fallback, 
+However, Tyk will gracefully fallback to a client certificate authorisation at the HTTP level in cases when you want to have multiple mutual TLS protected APIs on the same domain, or you have clients that do not support the SNI extension. No additional configuration is needed. In case of such fallback, 
 instead of getting TLS error, a client will receive 403 HTTP error.
 
 ## <a name="authentication"></a> Authentication 
@@ -124,7 +124,7 @@ While creating a key, select **Authenticate using your client certificate**  and
 ![keys_cert][3]
 
 ### <a name="using-with-authorization"></a> Using with Authorization 
-Mutual TLS authentication does not require Mutual TLS authorisation to be turned on, and can be used separately. For example you may allow some of the users be authenticated by using a token in the header or similar, and some of the users via client certificates. 
+Mutual TLS authentication does not require mutual TLS authorisation to be turned on, and can be used separately. For example you may allow some of the users be authenticated by using a token in the header or similar, and some of the users via client certificates. 
 
 If you want use them both, just configure them separately. No additional knowledge is required.
 
