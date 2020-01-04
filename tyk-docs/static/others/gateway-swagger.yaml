@@ -1020,6 +1020,27 @@ paths:
                 keys:
                   - "key1"
                   - "key2"
+  '/tyk/orgs/keys/{keyID}':
+    parameters:
+      - description: The Key ID
+        name: keyID
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      summary: Get an Organisation Key
+      description: Get session info about specified orgnanisation key. Should return up to date rate limit and quota usage numbers.
+      tags:
+        - Organisation Quotas
+      operationId: getOrgKey
+      responses:
+        '200':
+          description: Key object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SessionState'
     post:
       summary: Create an organisation key
       description: |-
@@ -1051,27 +1072,6 @@ paths:
                 action: created
                 key: '{...KEY JSON definition...}'
                 status: ok
-  '/tyk/orgs/keys/{keyID}':
-    parameters:
-      - description: The Key ID
-        name: keyID
-        in: path
-        required: true
-        schema:
-          type: string
-    get:
-      summary: Get an Organisation Key
-      description: Get session info about specified orgnanisation key. Should return up to date rate limit and quota usage numbers.
-      tags:
-        - Organisation Quotas
-      operationId: getOrgKey
-      responses:
-        '200':
-          description: Key object
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/SessionState'
     put:
       summary: Update Organisation Key
       description: |-
