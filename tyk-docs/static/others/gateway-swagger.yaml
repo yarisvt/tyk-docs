@@ -1020,7 +1020,7 @@ paths:
                 keys:
                   - "key1"
                   - "key2"
-  '/tyk/orgs/keys/{keyID}':
+  '/tyk/org/keys/{keyID}':
     parameters:
       - description: The Key ID
         name: keyID
