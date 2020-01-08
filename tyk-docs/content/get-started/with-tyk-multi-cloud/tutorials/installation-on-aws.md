@@ -69,7 +69,7 @@ Here's a very simple "user data" snippet that configures a Tyk Hybrid Gateway pr
 ```{.copyWrapper}
 #cloud-config
 runcmd:
-  - [ /tmp/setup_hybrid.sh, -o, "orgidhere", -k, "apikeyhere", -s, "gwapisecrethere"]
+  - [ /opt/tyk-gateway/setup_hybrid.sh, -o, "orgidhere", -k, "apikeyhere", -s, "gwapisecrethere"]
 ```
 
 Or alternatively, a more verbose sample that does the same without using the script in case a more granular configuration is required:
@@ -90,7 +90,7 @@ write_files:
 
 runcmd:
   - [ systemctl, enable, tyk-gateway ]
-  - [ mv, /tmp/tyk_hybrid.conf, /opt/tyk-gateway/tyk.conf ]
+  - [ mv, /opt/tyk-gateway/tyk_hybrid.conf, /opt/tyk-gateway/tyk.conf ]
   - [ systemctl, start, redis]
   - [ systemctl, enable, redis ]
   - [ systemctl, start, tyk-gateway ]
