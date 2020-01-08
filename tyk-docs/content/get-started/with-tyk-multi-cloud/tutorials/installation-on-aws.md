@@ -98,7 +98,7 @@ runcmd:
 
 ## <a name="ami-notes"></a>Notes on AMI
 
-The Tyk Hybrid Gateway AMI is based on the latest (at the moment of creation) Amazon Linux AMI (**not** Amazon Linux 2), which itself is based on CentOS 6. Please refer to [Amazon Linux documentation][5] for details as well as [our notes on init systems][6] used in Linux distributions for details on how to manage the process and extract service logs.
+The Tyk Hybrid Gateway AMI is based on the latest (at the moment of creation) Amazon Linux 2 AMI, which itself is based on CentOS 7. Please refer to [Amazon Linux documentation][5] for details as well as [our notes on init systems][6] used in Linux distributions for details on how to manage the process and extract service logs.
 
 Attributes for [ENA/SR-IOV][7] are set on this AMI and since Amazon Linux comes pre-packaged with related drivers it's eligible for use with EC2 instance types supporting these types of networking (such as "c5" class).
 
@@ -106,6 +106,6 @@ Attributes for [ENA/SR-IOV][7] are set on this AMI and since Amazon Linux comes 
  [2]: /docs/img/dashboard/system-management/org_id.png
  [3]: /docs/configure/gateway-env-variables/
  [4]: /docs/configure/tyk-gateway-configuration-options/
- [5]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/amazon-linux-ami-basics.html
+ [5]: https://aws.amazon.com/amazon-linux-2/
  [6]: /docs/get-started/with-tyk-on-premise/#init-systems
  [7]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking.html
