@@ -8,7 +8,7 @@ weight: 2
 
 ## <a name="what-is"></a> What is Mutual TLS?
 
-> NOTE: Mutual TLS feature supported starting from Tyk Gateway 2.4, Tyk Dashboard 1.4 and MDCB 1.4
+> **NOTE**: Mutual TLS feature supported starting from Tyk Gateway 2.4, Tyk Dashboard 1.4 and MDCB 1.4
 
 Mutual TLS is a common security practice that uses client TLS certificates to provide an additional layer of protection, allowing to cryptographically verify the client information. 
 
@@ -135,15 +135,18 @@ If your upstream API is protected with mutual TLS you can configure Tyk to send 
 Upstream certificates can be defined on API definition level or global level in your Gateway configuration file. Specified client certificates will be used not only for internal Tyk calls but also for HTTP calls inside your JSVM middleware. 
 
 Inside your API definition you should set the `upsteam_certificates` field to the following format:
-`{"example.com": "<cert-id>"}`. Defining on a global level looks the same, but should be specified via the `security.certificates.upstream` field in your Gateway configuration file. 
+`{"example.com": "<cert-id>"}`. Defining on a global level looks the same, but should be specified via the `security.certificates.upstream` field in your Gateway configuration file.
 
-##### *NOTE*
-Please do NOT include the protocol or Tyk will not match your certs to the correct domain
+#### HTTP/HTTPS Protocol
 
-- BAD `https://api.production.myupstream.com`
-- GOOD `api.production.myupstream.com`
+> **NOTE**: Do NOT include the protocol or Tyk will not match your certificates to the correct domain.
 
-However, you need to include the port if the request is made via a non-standard HTTP port.
+ For example: 
+ 
+ - **BAD** `https://api.production.myupstream.com` 
+ - **GOOD** `api.production.myupstream.com`. 
+ 
+ However, you need to include the port if the request is made via a non-standard HTTP port.
 
 ##### Wild Cards
 To set a default client certificate, use `*` instead of domain name: `{"*": "<cert-id>"}`
