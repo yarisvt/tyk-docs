@@ -11,7 +11,7 @@ Tyk enables you to actively monitor both user and organisation quotas. These act
 
 ### Tyk Cloud Users
 
-Monitors are disabled by default in Tyk cloud. Portal events are enabled and can be defined by raising a support ticket.
+Monitors are disabled by default in Tyk Cloud. Portal events are enabled and can be defined by raising a support ticket.
 
 ### Enable Monitors in your `tyk.conf`
 
@@ -47,7 +47,7 @@ Enabling monitors in your Tyk node means adding a new configuration section to y
 
 #### Setting Custom Triggers on a Per Key or a Per-Organisation Basis
 
-Sometimes you will not want to have every user have a trigger event at the same levels, you can set manual trigger levels by adding a `monitor` section to the Session Object that defines a keys access details, this can also be added to the session object of an organisation ID:
+Sometimes you will not want to have every user have a trigger event at the same levels. You can set manual trigger levels by adding a `monitor` section to the Session Object that defines a key's access details. This can also be added to the session object of an organisation ID:
 
 ```{.copyWrapper}
 "monitor": {
@@ -71,21 +71,21 @@ The webhook payload will take the following format:
 } 
 ```
 
-If the event is triggered by an organisation, then the key field will be empty, if it is an auth token, then the `key` field will have raw representation of the token that caused the quota trigger to fire.
+If the event is triggered by an organisation, then the key field will be empty. If it is an auth token, then the `key` field will have raw representation of the token that caused the quota trigger to fire.
 
 ### Portal Events
 
-Tyk Dashboard and the Portal now support email notifications powered by Mandrill, Sendgrid, Mailgun and Amazon SES.
+The Tyk Dashboard and the Portal now support email notifications powered by Mandrill, Sendgrid, Mailgun and Amazon SES.
 
 #### How Email Notifications Work
 
-If you have enabled email notifications, the Portal will attempt to send notifications regarding a user's sign-up status or key request status to their username email-address. These templates can be found in the `portal/email_templates` folder.
+If you have enabled email notifications, the Portal will attempt to send notifications regarding a user's sign-up status or key request status to their username email address. These templates can be found in the `portal/email_templates` folder.
 
-The templates are twofold, text-only and HTML, please see the standard included ones to see the various template fields that can be customised.
+The templates are available as text based or HTML. See the standard included ones to see the various template fields that can be customised.
 
 ### Extra Dashboard And Portal Events
 
-The Dashboard and Portal also support a certain level of events that you can use to notify your systems of various things that have happened in the Portal.
+The Dashboard and Portal also support a certain level of events that you can use to notify your system of various things that have happened in the Portal.
 
 To configure them, add an `event_options` section to an Organisation when you are creating them. See [Creating an Organisation via the Dashboard Admin API](/docs/dashboard-admin-api/organisations/#create-an-organisation) for more details.
 
