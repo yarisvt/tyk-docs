@@ -488,7 +488,7 @@ This defaults to `true` for HTTP/2 upstream connections.
 
 ### <a name="enable_jsvm"></a> enable_jsvm
 
-By default we have now disabled the JavaScript middleware system to ensure higher performance on nodes. If you are using the JSVM (custom middleware, or virtual endpoints), then enable this setting.
+This defaults to `false`. Set to `true` if you are using JSVM custom middleware or virtual endpoints.
 
 ### <a name="disable_virtual_path_blobs"></a> disable_virtual_path_blobs
 
