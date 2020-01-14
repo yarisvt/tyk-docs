@@ -30,7 +30,10 @@ Below is a sample TIB profile that can be used to log a user into the Dashboard 
   },
   "ProviderName": "ADProvider",
   "ReturnURL": "http://{DASH-DOMAIN}:{DASH-PORT}/tap",
-  "Type": "passthrough"
+  "Type": "passthrough",
+  "IdentityHandlerConfig": {
+		"DashboardCredential": "ADVANCED-API-USER-API-TOKEN"
+  }
 }
 
 ```
