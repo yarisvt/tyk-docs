@@ -21,6 +21,9 @@ Below is a sample TIB profile that can be used to log a user into the Dashboard 
   "ActionType": "GenerateOrLoginUserProfile",
   "ID": "4",
   "OrgID": "{YOUR-ORG-ID}",
+  "IdentityHandlerConfig": {
+		"DashboardCredential": "ADVANCED-API-USER-API-TOKEN"
+  },
   "ProviderConfig": {
     "FailureRedirect": "http://{DASH-DOMAIN}:{DASH-PORT}/?fail=true",
     "LDAPAttributes": [],
@@ -30,10 +33,7 @@ Below is a sample TIB profile that can be used to log a user into the Dashboard 
   },
   "ProviderName": "ADProvider",
   "ReturnURL": "http://{DASH-DOMAIN}:{DASH-PORT}/tap",
-  "Type": "passthrough",
-  "IdentityHandlerConfig": {
-		"DashboardCredential": "ADVANCED-API-USER-API-TOKEN"
-  }
+  "Type": "passthrough" 
 }
 
 ```
