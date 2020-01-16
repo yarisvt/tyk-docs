@@ -14,15 +14,7 @@ From the [gRPC documentation][1]:
 
 ### How can I use gRPC with Tyk?
 
-Tyk supports gRPC pass though proxying when using HTTP/2 as a transport (the most common way to deploy gRPC services). The only requirement is enabling HTTP/2 support on the Gateway side, for both incoming and upstream connections, by setting http_server_options.enable_http2 and proxy_enable_http2 to true in your Gateway config file.
-
-You also need to set your `listen_path` in your API definitions.
-
-The gRPC over HTTP2 specification defines the rules on how the gRPC protocol maps to a HTTP request. In the context of the API Gateway, we are intersted in the following:
-
-- HTTP path follows the format `/{Service-Name}/{method name}`, for example: `/google.pubsub.v2.PublisherService/CreateTopic`. You can use this feature to apply standard ACL rules via Keys and Policies, or use url rewrite plugins in our [Endpoint Desiger](/docs/transform-traffic/url-rewriting/#a-name-url-rewrite-with-endpoint-designer-a-rewrite-a-url-with-the-endpoint-designer).
-- HTTP method is always POST
-gRPC custom request metadata is added as HTTP headers, where metadata key is directly mapped to the HTTP header with the same name.
+Using Tyk with your gRPC client and server is very easy. Since gRPC uses HTTP/2, you need to enable it by setting `enable_http2=true` for Downstream-Tyk and `proxy_enable_http2=true` for Tyk-Upstream connections. You also need to set your listen_path in your API definitions. See [gRPC Proxy](/docs/concepts/grpc-proxy/) for more details.
 
  
 
