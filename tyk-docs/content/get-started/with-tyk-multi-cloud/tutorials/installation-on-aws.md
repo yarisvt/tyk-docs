@@ -31,7 +31,7 @@ This guide assumes the "1-Click" install was selected on the Marketplace and an 
 ### To setup a Tyk Hybrid Gateway instance provisioned by the "1-Click" option
 
 1. Connect to the instance using SSH (make sure to use the key specified during the provisioning), e.g. `ssh -i your_key.pem ec2-user@instance.address`
-2. Once inside the instance execute `sudo /tmp/setup_hybrid.sh -o your-organisation-id -k your-api-key` (more options described below)
+2. Once inside the instance execute `sudo /opt/tyk-gateway/setup_hybrid.sh -o your-organisation-id -k your-api-key` (more options described below)
 3. If everything went well, Tyk Hybrid Gateway will be running on port 8080, with a Redis storage server running on the same instance
 4. Make sure your EC2 security groups attached to the instance allow inbound traffic on port 8080
 
