@@ -3,7 +3,7 @@ date: 2017-03-24T16:28:03Z
 title: Other Data Stores
 menu:
   main:
-    parent: "Analyse"
+    parent: "Analytics and Reporting"
 weight: 10 
 ---
 
@@ -71,7 +71,7 @@ Settings must be the same as for the original `tyk.conf` for Redis and for Mongo
 
 ### Environment Variables
 
-[Environment variables](https://tyk.io/docs/configure/pump-env-variables/) can be used to override settings defined in `pump.conf`. Where an environment variable is specified, its value will take precedence over the value in the configuration file.
+[Environment variables](/docs/configure/pump-env-variables/) can be used to override settings defined in `pump.conf`. Where an environment variable is specified, its value will take precedence over the value in the configuration file.
 
 ## <a name="elasticsearch"></a> ElasticSearch
 
@@ -188,5 +188,3 @@ The Moesif Analytics Pump requires the following configuration to be added to yo
 ```
 
 *   `application_id`: Moesif App Id JWT. Multiple api_id's will go under the same Moesif app id.
-
-[1]: /docs/others/Gateway-Environment-Vars.xlsx

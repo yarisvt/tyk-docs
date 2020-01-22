@@ -3,7 +3,7 @@ date: 2017-03-24T16:05:56Z
 title: Log Browser
 menu:
   main:
-    parent: "Analyse"
+    parent: "Analytics and Reporting"
 weight: 5 
 ---
 
@@ -18,11 +18,11 @@ The Log Browser will isolate individual log lines in your analytics data set and
 
 You will be presented with a list of requests, and their meta-data:
 
-![Log Viewer][1]
+![Log Viewer](/docs/img/dashboard/usage-data/log_browser_new.png)
 
 Click a request to view its details. 
 
-![Log Viewer Details][2]
+![Log Viewer Details](/docs/img/dashboard/usage-data/log_details_2.5.png)
 
 ### On-Premises Installations Option
 
@@ -31,9 +31,3 @@ To enable request and response logging, set both `enable_analytics` and
 `enable_detailed_recording` to `true` in your `tyk.conf` file. You then need to restart your Tyk Gateway(s).
 
 **A warning on detailed logging:** This mode generates a very large amount of data, and that data exponentially increases the size of your log data set, and may cause problems with delivering analytics in bulk to your MongoDB instances. This mode should only be used to debug your APIs for short periods of time.
-
-[1]: /docs/img/dashboard/usage-data/log_browser_new.png
-[2]: /docs/img/dashboard/usage-data/log_details_2.5.png
-
-
-

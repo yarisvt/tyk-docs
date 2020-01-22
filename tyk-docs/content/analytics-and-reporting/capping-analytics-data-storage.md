@@ -3,7 +3,7 @@ date: 2017-03-24T16:15:28Z
 title: Capping Analytics Data Storage
 menu:
   main:
-    parent: "Analyse"
+    parent: "Analytics and Reporting"
 weight: 9 
 ---
 
