@@ -19,8 +19,6 @@ The developer portal enables you to:
 
 The developer Portal is available to Pro (On-Premises), Cloud and Multi-Cloud users.
 
-For examples of how clients have used our portal, visit:
+For an example of how clients have used our portal, visit:
 
 [https://developer.ft.com/portal](https://developer.ft.com/portal)
-
-[https://mn.developer.nokia.com/portal/](https://mn.developer.nokia.com/portal/)

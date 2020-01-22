@@ -1,12 +1,10 @@
 ---
-
 date: 2017-03-27T12:51:44+01:00
 title: Tyk Gateway Configuration Options
 menu:
-main:
-parent: "Configure"
+  main:
+    parent: "Configure"
 weight: 1
-
 ---
 
 ## <a name="configuration"></a> Tyk Gateway Configuration

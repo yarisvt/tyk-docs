@@ -182,16 +182,16 @@ This endpoint allows you to retrieve a list of all current tokens and their expi
 
 | **Property** | **Description**                                      |
 | ------------ | ---------------------------------------------------- |
-| Resource URL | `/tyk/oauth/clients/{apiID}/{oauthClientId}/tokens` |
+| Resource URL | `/api/apis/oauth/clients/{apiID}/{oauthClientId}/tokens` |
 | Method       | GET                                                  |
 | Type         |                                                      |
 | Body         | NONE                                                 |
 
 #### Sample Request
 ```{.copyWrapper}
-GET /tyk/oauth/clients/528a67c1ac9940964f9a41ae79235fcc/25348e8cf157409b52e39357fd9578f1/tokens HTTP/1.1
-Host: localhost:8080
-x-tyk-authorization: 352d20ee67be67f6340b4c0605b044b7
+GET /api/apis/oauth/clients/528a67c1ac9940964f9a41ae79235fcc/25348e8cf157409b52e39357fd9578f1/tokens HTTP/1.1
+Host: localhost:3000
+Authorization: {{API Access Credentials}}
 Cache-Control: no-cache
 ```
 

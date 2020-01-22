@@ -118,13 +118,13 @@ authorization: 7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 ### Search APIs by name
 
-| **Property** | **Description** |
-| ------------ | --------------- |
-| Resource URL | `/api/apis/search`    |
-| Method       | GET             |
-| Type         | None            |
-| Body         | None            |
-| Param        | None            |
+| **Property** | **Description**    |
+| ------------ | ------------------ |
+| Resource URL | `/api/apis/search` |
+| Method       | GET                |
+| Type         | None               |
+| Body         | None               |
+| Param        | None               |
 
 #### Sample Request
 
@@ -149,7 +149,7 @@ Similar to API list response
 | Param        | None             |
 
 > `{id}` can either be the internal or public ID ( see `api_id` in the [sample
-response](#sample-response-1) )
+> response](#sample-response-1) )
 
 #### Sample request
 
@@ -222,7 +222,7 @@ authorization: 7a7b140f-2480-4d5a-4e78-24049e3ba7f8
                       "GET": {
                         "action": "reply",
                         "code": 200,
-                        "data": "{"foo": "bar"}",
+                        "data": "{\"foo\":\"bar\"}",
                         "headers": {
                           "x-test": "test"
                         }
@@ -389,7 +389,7 @@ authorization: 7a7b140f-2480-4d5a-4e78-24049e3ba7f8
                         "GET": {
                           "action": "reply",
                           "code": 200,
-                          "data": "{"foo": "bar"}",
+                          "data": "{\"foo\":\"bar\"}",
                           "headers": {
                             "x-test": "test"
                           }
@@ -464,13 +464,13 @@ Please note that Tyk matches the Ignored paths in the order in which they are sp
 
 APIs that are created using the advanced Dashboard API are referenced by their internal ID instead of their API-ID.
 
-| **Property** | **Description**           |
-| ------------ | ------------------------- |
+| **Property** | **Description**                       |
+| ------------ | ------------------------------------- |
 | Resource URL | `/api/apis/{internal_or_external_id}` |
-| Method       | PUT                       |
-| Type         | None                      |
-| Body         | Advanced API Definition   |
-| Param        | None                      |
+| Method       | PUT                                   |
+| Type         | None                                  |
+| Body         | Advanced API Definition               |
+| Param        | None                                  |
 
 #### Sample Request
 
@@ -528,7 +528,7 @@ authorization: 7a7b140f-2480-4d5a-4e78-24049e3ba7f8
                       "GET": {
                         "action": "reply",
                         "code": 200,
-                        "data": "{"foo": "bar"}",
+                        "data": "{\"foo\":\"bar\"}",
                         "headers": {
                             "x-test": "test"
                         }
