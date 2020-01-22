@@ -3,7 +3,7 @@ date: 2017-03-24T16:14:31Z
 title: Useful Debug Modes
 menu:
   main:
-    parent: "Analyse"
+    parent: "Analytics and Reporting"
 weight: 8 
 ---
 
@@ -26,4 +26,3 @@ To enable detail logging is very simple, just enable the setting in your `tyk.co
 You will need to restart the Gateway in order for this to work.
 
 You will also need Tyk Pump configured to move your data into your preferred data store.
-

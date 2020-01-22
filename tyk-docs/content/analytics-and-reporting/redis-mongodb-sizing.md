@@ -2,7 +2,7 @@
 title: Redis and MongoDB Sizing Guide
 menu:
   main:
-    parent: "Analyse"
+    parent: "Analytics and Reporting"
 weight: 11 
 ---
 
