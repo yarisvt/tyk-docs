@@ -5,7 +5,7 @@ menu:
   main:
     parent: "Ensure High Availability"
 weight: 1
-url: "/ensure-high-availability/service-discovery"
+url: "/planning-for-production/ensure-high-availability/service-discovery"
 ---
 
 Service Discovery is a very useful feature for when you have a dynamically changing upstream service set.
@@ -22,7 +22,7 @@ We recommend using the SD module in conjunction with the circuit breaker feature
 
 The Service Discovery settings are located in the Core tab from the the API Designer.
 
-![Service discovery checkbox location][1]
+![Service discovery checkbox location](/docs/img/dashboard/system-management/service_discovery_2.5.png)
 
 ### Configuring Service Discovery via the Dashboard
 
@@ -30,7 +30,7 @@ Select **Enable service discovery** to enable the discovery module.
 
 Once enabled, you will have all the options to configure your Service Discovery endpoints:
 
-![Service discovery configuration form][2]
+![Service discovery configuration form](/docs/img/dashboard/system-management/service_discovery_config_2.5.png)
 
 The settings are as follows:
 
@@ -154,7 +154,3 @@ In the above example, the `port_data_path` would be `port`.
 *   `service_discovery.cache_timeout`: Tyk caches target data from a discovery service, in order to make this dynamic you can set a cache value when the data expires and new data is loaded. Setting it too low will cause Tyk to call the SD service too often, setting it too high could mean that failures are not recovered from quickly enough.
 
 *   `service_discovery.target_path`: Use this setting to set a target path to append to the discovered endpoint, since many SD services only provide host and port data, it is important to be able to target a specific resource on that host, setting this value will enable that.
-
-[1]: /docs/img/dashboard/system-management/service_discovery_2.5.png
-[2]: /docs/img/dashboard/system-management/service_discovery_config_2.5.png
-
