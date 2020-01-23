@@ -38,7 +38,7 @@ This is what a manifest could look like:
 }
 ```
 
-After saving this file as `manifest.json`, build it using [tyk-cli][1]:
+After saving this file as `manifest.json`, build it using [tyk-cli](https://github.com/TykTechnologies/tyk-cli):
 
 ```{.copyWrapper}
 tyk-cli bundle build -output mybundle.zip -key mykey.pem
@@ -53,10 +53,5 @@ tyk bundle build -output mybundle.zip -key mykey.pem
 
 A gRPC server must be implemented in the language of your choice, we have prepared different tutorials for some of them:
 
-*   [Ruby][2]
-*   [C#/.NET][3]
-
- [1]: https://github.com/TykTechnologies/tyk-cli
- [2]: https://github.com/TykTechnologies/tyk-plugin-demo-ruby
- [3]: https://github.com/TykTechnologies/tyk-plugin-demo-dotnet
-
+*   [Ruby](https://github.com/TykTechnologies/tyk-plugin-demo-ruby)
+*   [C#/.NET](https://github.com/TykTechnologies/tyk-plugin-demo-dotnet)

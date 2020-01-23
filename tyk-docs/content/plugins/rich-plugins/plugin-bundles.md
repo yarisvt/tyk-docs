@@ -170,6 +170,4 @@ Alternatively, you may delete the cached bundle from Tyk manually and then trigg
 
 > **Note**: Remember to set `"enable_coprocess": true` in your `tyk.conf` when using rich plugins!
 
-The bundler tool is an open-source project which you can find on [GitHub][1].
-
- [1]: https://github.com/TykTechnologies/tyk-cli
+The bundler tool is an open-source project which you can find on [GitHub](https://github.com/TykTechnologies/tyk-cli).

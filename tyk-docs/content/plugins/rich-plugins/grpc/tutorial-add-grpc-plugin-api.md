@@ -73,9 +73,4 @@ To enable gRPC plugins you need to add the following block to `tyk.conf`:
 `public_key_path` sets a public key, this is used for verifying signed bundles, you may omit this if unsigned bundles are used.
 
 ## ReturnOverrides
-From version 1.3.6, you can now  override response code, headers and body using ReturnOverrides. See the [Extend ReturnOverides][1] sample for details.
-
- [1]: https://github.com/TykTechnologies/tyk/pull/763
-
-
-
+From version 1.3.6, you can now  override response code, headers and body using ReturnOverrides. See the [Extend ReturnOverides](https://github.com/TykTechnologies/tyk/pull/763) sample for details.

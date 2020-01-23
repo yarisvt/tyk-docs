@@ -26,7 +26,7 @@ The main idea of the ID extractor is to reduce the number of calls made to your 
 When enabled, the ID extractor runs right before the authentication step, allowing it to take control of the flow and decide whether to call your authentication mechanism or not.
 
 If my ID is cached by this mechanism and my plugin isn't longer called, how do I expire it?
-When you implement your own authentication mechanism using plugins, you initialize the session object from your own code. The session object has a field that's used to configure the lifetime of a cached ID, this field is called `id_extractor_deadline`. See [Plugin Data Structures](/docs/customise-tyk/plugins/rich-plugins/rich-plugins-data-structures/) for more details. 
+When you implement your own authentication mechanism using plugins, you initialize the session object from your own code. The session object has a field that's used to configure the lifetime of a cached ID, this field is called `id_extractor_deadline`. See [Plugin Data Structures](/docs/plugins/rich-plugins/rich-plugins-data-structures/) for more details. 
 The value of this field should be a UNIX timestamp on which the cached ID will expire, like `1507268142958`. It's an integer.
 
 For example, this snippet is used in a NodeJS plugin, inside a custom authentication function:
@@ -185,7 +185,7 @@ object.Session = &coprocess.SessionState{
         ApplyPolicies: ["5d8929d8f56e1a138f628269"],
     }
 ```
-(source)[https://github.com/TykTechnologies/tyk-grpc-go-basicauth-jwt/blob/master/main.go#L102]
+[source](https://github.com/TykTechnologies/tyk-grpc-go-basicauth-jwt/blob/master/main.go#L102)
 
 Note: When using an ID Extractor, you must set a `LastUpdated` or else token updates will not be applied.  If you don't set an ID Extractor, Tyk will store session information in the cache based off the `token` field that is set in the metadata.
 
