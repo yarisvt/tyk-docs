@@ -102,19 +102,19 @@ To add an uptime test using the dashboard is very simple. Make sure that you hav
 
 From the API Designer select the **Uptime Tests** tab:
 
-![Uptime tests tab location][1]
+![Uptime tests tab location](/docs/img/dashboard/system-management/uptime_tests_2.5.png)
 
 ### Step 2: Click Add
 
 Click **Add** to add a test:
 
-![Add button location][2]
+![Add button location](/docs/img/dashboard/system-management/add_uptime_2.5.png)
 
 ### Step 3: Enter Path Details
 
 From the **Path Details** pop-up, complete the details and click **Add** to add the test:
 
-![Test details form and add button location][3]
+![Test details form and add button location](/docs/img/dashboard/system-management/uptime_paths_2.5.png)
 
 ## <a name="events"></a> Events
 
@@ -145,9 +145,3 @@ If you have configured Tyk to use round-robin load balancing, you can enable an 
 }
 ...
 ```
-
-[1]: /docs/img/dashboard/system-management/uptime_tests_2.5.png
-[2]: /docs/img/dashboard/system-management/add_uptime_2.5.png
-[3]: /docs/img/dashboard/system-management/uptime_paths_2.5.png
-
-

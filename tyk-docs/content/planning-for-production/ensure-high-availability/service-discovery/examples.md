@@ -125,16 +125,8 @@ This is needed since Tyk appends a "Host" header when proxying the request and t
 
 ##### For further Linkerd information, see:
 
-[Linkerd - HTTP proxy documentation][1] (Alternatives Section)
+[Linkerd - HTTP proxy documentation](https://linkerd.io/features/http-proxy/ ) (Alternatives Section)
 
-[Linkered - Header Token Identifier documentation][3]
+[Linkered - Header Token Identifier documentation](https://linkerd.io/config/0.9.1/linkerd/index.html#header-token-identifier)
 
-[The original Community Contribution][2]
-
-
-[1]: https://linkerd.io/features/http-proxy/ 
-
-[2]: https://community.tyk.io/t/using-tyk-gateway-with-linkerd/1568
-
-[3]: https://linkerd.io/config/0.9.1/linkerd/index.html#header-token-identifier
-
+[The original Community Contribution](https://community.tyk.io/t/using-tyk-gateway-with-linkerd/1568)

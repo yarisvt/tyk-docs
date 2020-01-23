@@ -31,11 +31,8 @@ extended_paths: {
 
 To enable an enforced timeout on an endpoint, select **Enforced timeout** plugin from the **Plugins** drop-down list:
 
-![Plugin dropdown][1]
+![Plugin dropdown](/docs/img/dashboard/system-management/enforced_timeouts_2.5.png)
 
 Then enter the enforced timeout in seconds for the endpoint:
 
-![Enforced timeout configuration][2]
-
-[1]: /docs/img/dashboard/system-management/enforced_timeouts_2.5.png
-[2]: /docs/img/dashboard/system-management/enforced_timeouts_config_2.5.png
+![Enforced timeout configuration](/docs/img/dashboard/system-management/enforced_timeouts_config_2.5.png)

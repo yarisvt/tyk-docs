@@ -26,15 +26,12 @@ Setting up load balancing is done on a per API basis, and is defined in the API 
 
 > **Important**: You must fill in the `target_list` section.
 
-See [Service Discovery](https://tyk.io/docs/ensure-high-availability/service-discovery/) to see how you can integrate a service discovery system such as Consul or etcd with Tyk and enable dynamic load balancing support.
+See [Service Discovery](/docs/planning-for-production/ensure-high-availability/service-discovery/) to see how you can integrate a service discovery system such as Consul or etcd with Tyk and enable dynamic load balancing support.
 
 ### Configure load balancing via the Dashboard
 
 To set up load balancing via the Dashboard, from the **Core Settings** tab in the **API Designer** select **Enable round-robin load balancing** from the **API Settings** options:
 
-![Dashboard load balancing configuration][1]
+![Dashboard load balancing configuration](/docs/img/dashboard/system-management/load_balancing_2.5.png)
 
 You can now add your Load Balancing **Upstream targets**.
-
- [1]: /docs/img/dashboard/system-management/load_balancing_2.5.png
-

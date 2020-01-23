@@ -1,9 +1,11 @@
 ---
 date: 2017-03-24T10:10:41Z
 title: Ensure High Availability
-weight: 80
-menu: "main"
-url: "/ensure-high-availability"
+weight: 1
+menu:
+  main:
+    parent: "Planning for Production"
+url: "/planning-for-production/ensure-high-availability"
 ---
 
 In many cases, it is necessary to ensure service levels for your clients, be this in maximum round-trip times, guaranteed responses, self-healing architecture or triaging failing services.
