@@ -11,7 +11,7 @@ weight: 1
 
 Embedded JavaScript interpreters offer the bare bones of a scripting language, but not necessarily the functions that you would expect, especially with JavaScript, where objects such as `XMLHttpRequest()` are a given. However, those interfaces are actually provided by the browser / DOM that the script engine are executing in. In a similar vein, we have included a series of functions to the JSVM for convenience and give the interpreter more capability.
 
-This list is regularly revised and any new suggestions should be made in our [Github issue tracker][1].
+This list is regularly revised and any new suggestions should be made in our [Github issue tracker](https://github.com/TykTechnologies/tyk/issues).
 
 Below is the list of functions currently provided by Tyk.
 
@@ -74,5 +74,3 @@ TykSetKeyData(event.EventMetaData.Key, JSON.stringify(thisSession));
 ```
     
 All of these methods are described in functional examples in the Tyk `middleware/` and `event_handlers/` folders.
-
- [1]: https://github.com/TykTechnologies/tyk/issues

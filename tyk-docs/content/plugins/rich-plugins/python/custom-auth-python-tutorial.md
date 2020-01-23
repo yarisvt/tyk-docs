@@ -11,11 +11,11 @@ weight: 1
 This tutorial will guide you through the creation of a custom authentication plugin, written in Python.
 A custom authentication plugin allows you to implement your own authentication logic and override the default Tyk authentication mechanism. The sample code implements a very simple key check; currently it supports a single, hard-coded key. It could serve as a starting point for your own authentication logic. We have tested this plugin with Ubuntu 14.
 
-The code used in this tutorial is also available in [this GitHub repository][1].
+The code used in this tutorial is also available in [this GitHub repository](https://github.com/TykTechnologies/tyk-plugin-demo-python).
 
 ## <a name="requirements"></a>Requirements
 
-* Tyk API Gateway: This can be installed using standard package management tools like Yum or APT, or from source code. See [here][2] for more installation options.
+* Tyk API Gateway: This can be installed using standard package management tools like Yum or APT, or from source code. See [here](https://tyk.io/docs/get-started/with-tyk-on-premise/installation/) for more installation options.
 
 ### Dependencies
 
@@ -55,7 +55,7 @@ This file should be named "manifest.json" and needs to have the following conten
 
 ### Contents of middleware.py
 
-We import decorators from the Tyk module this gives us the `Hook` decorator, and we import [Tyk Python API helpers](https://tyk.io/docs/customise-tyk/plugins/rich-plugins/python/tyk-python-api-methods/)
+We import decorators from the Tyk module this gives us the `Hook` decorator, and we import [Tyk Python API helpers](/docs/plugins/rich-plugins/python/tyk-python-api-methods/)
 
 We implement a middleware function and register it as a hook, the input includes the request object, the session object, the API meta data and its specification:
 
@@ -89,7 +89,7 @@ For Tyk 2.8 use:
 
 `/opt/tyk-gateway/bin/tyk bundle build -y`
 
-A plugin bundle is a packaged version of the plugin, it may also contain a cryptographic signature of its contents. The `-y` flag tells the Tyk CLI tool to skip the signing process in order to simplify the flow of this tutorial. For more information on the Tyk CLI tool, see [here][4].
+A plugin bundle is a packaged version of the plugin, it may also contain a cryptographic signature of its contents. The `-y` flag tells the Tyk CLI tool to skip the signing process in order to simplify the flow of this tutorial. For more information on the Tyk CLI tool, see [here](https://tyk.io/docs/customise-tyk/plugins/rich-plugins/plugin-bundles/#using-the-bundler-tool).
 
 You should now have a `bundle.zip` file in the plugin directory.
 
@@ -146,12 +146,12 @@ The second parameter is specific to this tutorial, and should be used in combina
 
 To attach the plugin to an API, From the **Advanced Options** tab in the **API Designer** enter **bundle.zip** in the **Plugin Bundle ID** field.
 
-![Plugin Options][6]
+![Plugin Options](/docs/img/dashboard/system-management/plugin_options_2.5.png)
 
 We also need to modify the authentication mechanism that's used by the API.
 From the **Core Settings** tab in the **API Designer** select **Use Custom Auth (plugin)** from the **Authentication - Authentication Mode** drop-down list. 
 
-![Advanced Options][7]
+![Advanced Options](/docs/img/dashboard/system-management/plugin_auth_mode_2.5.png)
 
 
 ## <a name="testing"></a>Testing the Plugin
@@ -192,16 +192,3 @@ In this tutorial we learned how Tyk plugins work. For a production-level setup w
 
 * Configure Tyk to use your own key so that you can enforce cryptographic signature checks when loading plugin bundles, and sign your plugin bundles!
 * Configure an appropriate web server and path to serve your plugin bundles.
-
-
-
-
-[1]: https://github.com/TykTechnologies/tyk-plugin-demo-python
-[2]: https://tyk.io/docs/get-started/with-tyk-on-premise/installation/
-[3]: https://github.com/TykTechnologies/tyk-cli
-[4]: https://tyk.io/docs/customise-tyk/plugins/rich-plugins/plugin-bundles/#using-the-bundler-tool
-[5]: https://tyk.io/docs/customise-tyk/plugins/rich-plugins/rich-plugins-work/#coprocess-dispatcher-hooks
-[6]: /docs/img/dashboard/system-management/plugin_options_2.5.png
-[7]: /docs/img/dashboard/system-management/plugin_auth_mode_2.5.png
-
-

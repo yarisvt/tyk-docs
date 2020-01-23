@@ -11,13 +11,13 @@ weight: 2
 
 The ID Extractor is a caching mechanism that's used in combination with Tyk Plugins. It can be used specifically with plugins that implement custom authentication mechanisms. The ID Extractor works for all rich plugins: gRPC-based plugins, Python and Lua.
 
-See [ID Extractor](https://tyk.io/docs/customise-tyk/plugins/rich-plugins/id-extractor/) for more details.
+See [ID Extractor](/docs/plugins/rich-plugins/id-extractor/) for more details.
 
 ### Interoperability
 
-This feature implements an in-process message passing mechanism, based on [Protocol Buffers][1], any supported languages should provide a function to receive, unmarshal and process this kind of messages.
+This feature implements an in-process message passing mechanism, based on [Protocol Buffers](https://developers.google.com/protocol-buffers/), any supported languages should provide a function to receive, unmarshal and process this kind of messages.
 
-The main interoperability task is achieved by using [cgo][2] as a bridge between a supported language -like Python- and the Go codebase.
+The main interoperability task is achieved by using [cgo](https://golang.org/cmd/cgo/) as a bridge between a supported language -like Python- and the Go codebase.
 
 Your C bridge function must accept and return a `CoProcessMessage` data structure like the one described in [`api.h`][3], where `p_data` is a pointer to the serialized data and `length` indicates the length of it.
 
@@ -67,7 +67,7 @@ This component is in charge of dispatching your HTTP requests to the custom midd
 
 ### Coprocess Gateway API
 
-[`coprocess_api.go`][4] provides a bridge between the gateway API and C, any function that needs to be exported should have the `export` keyword:
+[`coprocess_api.go`](https://github.com/TykTechnologies/tyk/blob/master/coprocess.go) provides a bridge between the gateway API and C, any function that needs to be exported should have the `export` keyword:
 
 ```{.copyWrapper}
 //export TykTriggerEvent
@@ -81,7 +81,7 @@ func TykTriggerEvent( CEventName *C.char, CPayload *C.char ) {
 }
 ```
 
-You should also expect a header file declaration of this function in [`api.h`][3], like this:
+You should also expect a header file declaration of this function in [`api.h`](https://github.com/TykTechnologies/tyk/blob/master/coprocess/api.h), like this:
 
 ```{.copyWrapper}
 #ifndef TYK_COPROCESS_API
@@ -90,7 +90,7 @@ extern void TykTriggerEvent(char* event_name, char* payload);
 #endif
 ```
 
-The language binding will include this header file (or declare the function inline) and perform the necessary steps to call it with the appropriate arguments (like an FFI mechanism could do). As a reference, this is how this could be achieved if you're building a [Cython][5] module:
+The language binding will include this header file (or declare the function inline) and perform the necessary steps to call it with the appropriate arguments (like an FFI mechanism could do). As a reference, this is how this could be achieved if you're building a [Cython](http://cython.org/) module:
 
 ```{.copyWrapper}
 cdef extern:
@@ -157,10 +157,3 @@ def MyCustomMiddleware(request, session, spec):
     request.object.return_overrides.response_error = "{\"key\": \"value\"}\n"
     return request, session
 ```
-
-
- [1]: https://developers.google.com/protocol-buffers/
- [2]: https://golang.org/cmd/cgo/
- [3]: https://github.com/TykTechnologies/tyk/blob/master/coprocess/api.h
- [4]: https://github.com/TykTechnologies/tyk/blob/master/coprocess.go
- [5]: http://cython.org/
