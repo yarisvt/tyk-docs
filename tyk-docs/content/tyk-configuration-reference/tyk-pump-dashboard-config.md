@@ -19,9 +19,9 @@ There are 3 different pumps we want to look at:
 
 This Pump simply saves all individual requests across every organization to a collection called `tyk_analytics`. Each request will be stored as a single document.
 
-The Dashboard will use this collection to show requests under `API Usage Data -> Log Browser` unless [use_sharded_analytics](/docs/configure/tyk-dashboard-configuration-options/) are set to true, in which case, `Log Browser` will be populated using the `mongo-pump-selective` pump below.
+The Dashboard will use this collection to show requests under `API Usage Data -> Log Browser` unless [use_sharded_analytics](/docs/tyk-configuration-reference/tyk-dashboard-configuration-options/) are set to true, in which case, `Log Browser` will be populated using the `mongo-pump-selective` pump below.
 
-This collection [should be capped](/docs/configure/tyk-pump-configuration/#capping-analytics-data) due to the number of individual documents.
+This collection [should be capped](/docs/tyk-configuration-reference/tyk-pump-configuration/#capping-analytics-data) due to the number of individual documents.
 
 ```{.json}
 {
@@ -48,7 +48,7 @@ This pump supplies the data for the following sub categories `API Usage Data`:
 * Activity by Key
 * Errors
 
-You will need to set the `enable_aggregate_lookups` field to true to in the [dashboard configuration file](https://tyk.io/docs/configure/tyk-dashboard-configuration-options/) in addition to adding the below pump to your pump conf file:
+You will need to set the `enable_aggregate_lookups` field to true to in the [dashboard configuration file](https://tyk.io/docs/tyk-configuration-reference/tyk-dashboard-configuration-options/) in addition to adding the below pump to your pump conf file:
 
 ```{.json}
 {
@@ -73,7 +73,7 @@ This pump stores data in collections called `z_tyk_analyticz_{ORG ID}`.
 
 If the Dashboard configuration key `use_sharded_keys` equals `true`, then the Dashboard will use these collections to populate `Log Browser`.
 
-This collection [should be capped](/docs/configure/tyk-pump-configuration/#capping-analytics-data) due to the number of individual documents.
+This collection [should be capped](/docs/tyk-configuration-reference/tyk-pump-configuration/#capping-analytics-data) due to the number of individual documents.
 ```{.json}
 {
   ...

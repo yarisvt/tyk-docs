@@ -3,7 +3,7 @@ date: 2017-03-27T15:58:49+01:00
 title: Configure your Gateway from the Dashboard
 menu:
   main:
-    parent: "Configure"
+    parent: "Tyk Configuration Reference"
 weight: 9 
 ---
 

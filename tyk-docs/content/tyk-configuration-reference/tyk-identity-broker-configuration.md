@@ -3,7 +3,7 @@ date: 2017-03-27T15:00:50+01:00
 title: Tyk Identity Broker Configuration Options
 menu:
   main:
-    parent: "Configure"
+    parent: "Tyk Configuration Reference"
 weight: 3 
 ---
 
