@@ -1,9 +1,11 @@
 ---
 title: "Distributed Tracing"
 date: 2019-07-29T10:28:52+03:00
-weight: 121
-menu: "main"
-url: "/opentracing"
+weight: 5
+menu: 
+  main:
+    parent: "Advanced Configuration"
+url: "/advanced-configuration/opentracing"
 ---
 > Distributed tracing, also called distributed request tracing, is a method used to profile and monitor applications, especially those built using a microservices architecture. Distributed tracing helps pinpoint where failures occur and what causes poor performance.  
 
