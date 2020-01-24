@@ -2,7 +2,7 @@
 title: Tyk Environment Variables
 menu:
   main:
-    parent: "Configure"
+    parent: "Tyk Configuration Reference"
 weight: 12 
 ---
 

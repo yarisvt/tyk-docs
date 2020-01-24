@@ -3,7 +3,7 @@ date: 2017-03-27T15:51:05+01:00
 title: Outbound Email Configuration
 menu:
   main:
-    parent: "Configure"
+    parent: "Tyk Configuration Reference"
 weight: 6 
 ---
 
@@ -106,14 +106,14 @@ If `SMTPUsername` or `SMTPPassword` is omitted, Tyk assumes that authentication 
 1. Select **Settings** from your **Dashboard** > **Portal Management**
 2. From the "API Key approval email" section, select "Enable custom approval email", and edit the API Key email body.
 
-![Email-Customisation][1]
+![Email-Customisation](/docs/img/dashboard/portal-management/email_key_approval.png)
 
 #### Add an image or logo to the Key Approval Email
 
 1. Select "Enable custom approval email" as above.
 2. In the "API Key email body copy" field, enter `<img src="[LINK TO IMAGE]"/>`
 
-![Email-Image][2]
+![Email-Image](/docs/img/dashboard/portal-management/email_image.png)
 
 > **NOTE**: The `LINK TO IMAGE` must be a publicly hosted resource.
 
@@ -121,20 +121,7 @@ In an On-Premises installation you have full access to the HTML template, allowi
 
 #### Portal Manager Email Settings
 
-![Portal-Manager-Email][3]
+![Portal-Manager-Email](/docs/img/dashboard/portal-management/portal-email-address.png)
 
 1. Select **Settings** from your **Dashboard** > **Portal Management**
 2. From the **Portal manager email address** section, enter the email address of the person responsible for approving your developer API subscription requests. See [Portal Key Requests](/docs/tyk-developer-portal/portal-concepts/#a-name-key-requests-a-key-requests) for more details.
-
-
-
-
-
-
-
-
-[1]: /docs/img/dashboard/portal-management/email_key_approval.png
-[2]: /docs/img/dashboard/portal-management/email_image.png
-[3]: /docs/img/dashboard/portal-management/portal-email-address.png
-
-

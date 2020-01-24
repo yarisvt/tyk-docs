@@ -3,7 +3,7 @@ date: 2017-03-27T15:57:11+01:00
 title: Securing System Payloads
 menu:
   main:
-    parent: "Configure"
+    parent: "Tyk Configuration Reference"
 weight: 8 
 ---
 

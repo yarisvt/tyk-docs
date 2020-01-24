@@ -3,7 +3,7 @@ date: 2017-03-27T14:55:44+01:00
 title: Tyk Dashboard Configuration Options
 menu:
   main:
-    parent: "Configure"
+    parent: "Tyk Configuration Reference"
 weight: 2 
 ---
 
@@ -14,7 +14,7 @@ The Dashboard configuration file can be found in the `tyk-dashboard` folder and 
 
 ### Environment Variables
 
-Environment variables can be used to override the settings defined in the configuration file. See [Environment Variables](/docs/configure/environment-variables/) for details. Where an environment variable is specified, its value will take precedence over the value in the configuration file.
+Environment variables can be used to override the settings defined in the configuration file. See [Environment Variables](/docs/tyk-configuration-reference/environment-variables/) for details. Where an environment variable is specified, its value will take precedence over the value in the configuration file.
 
 The file will look like the sample below, the various fields are explained in the following sections:
 
@@ -119,7 +119,7 @@ The file will look like the sample below, the various fields are explained in th
 *   `tyk_api_config.Secret`: The secret set in your `tyk.conf` file. This is the key that Tyk Dashboard will use to speak to the Tyk node's Gateway API. Note that this value has to match the `secret` value in `tyk.conf`.
 
 
-*   `shared_node_secret`: As of Tyk Gateway **v2.0** and Tyk Dashboard **v1.0** all Tyk API Gateway nodes that are configured to use the Dashboard as a back-end API Definition service (i.e. are managed by a Dashboard) will register with the Dashboard service on load, and claim a node ID that is provided by the license for the Dashboard. Please note that this value should match with [`node_secret`](https://tyk.io/docs/configure/tyk-gateway-configuration-options/#a-name-node-secret-a-node-secret) Gateway configuration option value.
+*   `shared_node_secret`: As of Tyk Gateway **v2.0** and Tyk Dashboard **v1.0** all Tyk API Gateway nodes that are configured to use the Dashboard as a back-end API Definition service (i.e. are managed by a Dashboard) will register with the Dashboard service on load, and claim a node ID that is provided by the license for the Dashboard. Please note that this value should match with [`node_secret`](/docs/tyk-configuration-reference/tyk-gateway-configuration-options/#a-name-node-secret-a-node-secret) Gateway configuration option value.
     
 Each node communicates with the Dashboard via a shared secret (this setting) and a nonce to ensure that out-of-band requests cannot be made. Nodes will send a heartbeat every few seconds to notify the Dashboard that they are running.
 
@@ -170,7 +170,7 @@ This purpose of these endpoints is to allow functionality that regular Dashboard
 
 *   `enable_email_notifications`: Set to `true` to have Tyk send emails for things such as key approvals and portal sign ups.
 
-*   `code`: The code of the back-end to use, `mandrill`, `sendgrid`, `amazonses` and `mailgun` are supported. See [Outbound Email Configuration](/docs/configure/outbound-email-configuration/) for more details on configuring these different providers.
+*   `code`: The code of the back-end to use, `mandrill`, `sendgrid`, `amazonses` and `mailgun` are supported. See [Outbound Email Configuration](/docs/tyk-configuration-reference/outbound-email-configuration/) for more details on configuring these different providers.
 
 *   `email_backend.settings`: The custom settings sections for the back end.
 
@@ -244,7 +244,7 @@ For legacy installs or upgrades using the host manager, leave this value as `fal
 
 *   `http_server_options.prefer_server_ciphers`: Boolean value to control whether server selects the client's most preferred ciphersuite, or the server's most preferred ciphersuite. If set to `true`, the server's preference in order of the elements in `ssl_ciphers` is used.
     
-For more information see [TLS and SSL](/docs/security/tls-and-ssl/)
+For more information see [TLS and SSL](/docs/basic-config-and-security/security/tls-and-ssl/)
 
 *   `security`: This section controls login limits for both the Dashboard and the Developer Portal. The path for you audit log is also set here.
 
@@ -304,7 +304,7 @@ If you set this value to `true`, then the `id` parameter in a stored policy (or 
 
 *   `disable_parallel_sessions`: If set to `true`, it restricts an account to a single session. When an account logs in, any other open sessions for that account are logged out.
 
-*   `sso_permission_defaults`: Specify permissions of the user who logged in using Admin SSO API (for example Tyk Identity Broker). See [Dashboard Admin SSO API](https://tyk.io/docs/dashboard-admin-api/sso/) for more details.
+*   `sso_permission_defaults`: Specify permissions of the user who logged in using Admin SSO API (for example Tyk Identity Broker). See [Dashboard Admin SSO API](/docs/dashboard-admin-api/sso/) for more details.
 *   `sso_custom_login_url`: Specify a custom dashboard login URL if you are using 3rd party authentication like TIB.
 *   `sso_custom_portal_login_url`: Specify custom portal login URL if you are using 3rd party authentication like TIB.
 

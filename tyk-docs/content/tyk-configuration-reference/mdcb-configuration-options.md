@@ -3,7 +3,7 @@ date: 2017-03-27T15:49:20+01:00
 title: MDCB Configuration Options
 menu:
   main:
-    parent: "Configure"
+    parent: "Tyk Configuration Reference"
 weight: 5 
 ---
 
