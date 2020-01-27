@@ -5,7 +5,7 @@ menu:
   main:
     parent: "Installation"
 weight: 5
-url: "/getting-started/with-tyk-on-premises"
+url: "/getting-started/installation/with-tyk-on-premises"
 ---
 
 ## <a name="what-is-tyk-on-premises"></a>What is Tyk On-Premises?
@@ -22,17 +22,17 @@ The full Tyk On-Premises system consists of:
 
 > **NOTE**: For a production environment, we recommend that the Gateway, Dashboard and Pump are installed on separate machines. If installing multiple Gateways, you should install each on a separate machine. For more information on deploying to a production environment, see [here](/docs/planning-for-production/).
 
-## <a name="package-options">Installing Tyk On-Premises: Managed releases and package options
+## <a name="package-options"></a>Installing Tyk On-Premises: Managed releases and package options
 
 Tyk can be installed on almost any Linux environment, we've also created Docker containers that can be deployed and configured easily. Supported by the Tyk team, you can get Tyk for:
 
-* [Ubuntu](/docs/getting-started/with-tyk-on-premise/installation/on-ubuntu/) (x86, ARM and AMD64)
-* [Red Hat](/docs/getting-started/with-tyk-on-premise/installation/redhat-rhel-centos/) / CentOS (x86, ARM and AMD64)
+* [Ubuntu](/docs/getting-started/with-tyk-on-premises/installation/on-ubuntu/) (x86, ARM and AMD64)
+* [Red Hat](/docs/getting-started/with-tyk-on-premises/installation/redhat-rhel-centos/) / CentOS (x86, ARM and AMD64)
 * [Tarballs](https://github.com/TykTechnologies/tyk/releases) for any other Linux variant (x86, ARM and AMD64)
 * [Docker images](https://hub.docker.com/u/tykio/)
-* [Heroku](/docs/getting-started/with-tyk-on-premise/installation/on-heroku/)
+* [Heroku](/docs/getting-started/with-tyk-on-premises/installation/on-heroku/)
 
-We distribute Tyk via Packagecloud.io APT and Yum repositories, as well as via our [Github repository for the Tarballs][3].
+We distribute Tyk via Packagecloud.io APT and Yum repositories, as well as via our [Github repository for the Tarballs](http://upstart.ubuntu.com/cookbook/).
 
 ### Getting Started
 
@@ -81,6 +81,3 @@ The `service` command can usually be used with SysVinit scripts, as well as invo
 
 
 Please consult with respective init system documentation for more details on how to use and configure it.
-
- [2]: https://www.freedesktop.org/wiki/Software/systemd/
- [3]: http://upstart.ubuntu.com/cookbook/

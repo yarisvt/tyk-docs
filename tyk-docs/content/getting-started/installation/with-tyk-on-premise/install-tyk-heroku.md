@@ -12,6 +12,7 @@ url: "/getting-started/with-tyk-on-premises/installation/on-heroku"
 
 A full Tyk installation can be deployed to Heroku dynos and workers using [Heroku Container Registry & Runtime](https://devcenter.heroku.com/articles/) functionality. This guide will utilise [Tyk Docker images](https://hub.docker.com/u/tykio/) with a small amount of customisation as well as an external MongoDB service.
 
+
 ## <a name="prerequisites"></a> Prerequisites
 
 1. Docker daemon installed and running locally
@@ -350,6 +351,7 @@ Inspect the logs (`heroku logs -a infinite-plains-14949`) to check that deployme
 
 You're ready to follow the guide on [creating and managing your APIs](/docs/try-out-tyk/tutorials/create-api/) with this Heroku deployment.
 
+
 > Note: to use the [geographic log distribution](/docs/analytics-and-reporting/geographic-distribution/) feature in the Dashboard please supply the GeoLite2 DB in the `gateway` directory, uncomment the marked line in `Dockerfile.web` and set the `analytics_config.enable_geo_ip` setting (or `TYK_GW_ANALYTICSCONFIG_ENABLEGEOIP` env var) to `true`.
 
 ## <a name="private-spaces"></a> Heroku Private Spaces
@@ -416,4 +418,5 @@ Specifically, upgrading version of any Tyk components is done by editing the cor
 
 Once these changes have been made just run `heroku container:push --recursive -a app_name` on the corresponding directory as shown previously in this guide. This will do all the building and pushing as well as gracefully deploying on your Heroku app.
 
-Please refer to [Heroku documentation on containers and registry](https://devcenter.heroku.com/articles/) for more information.
+
+Please refer to [Heroku documentation on containers and registry](https://devcenter.heroku.com/articles/container-registry-and-runtime) for more information.

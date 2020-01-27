@@ -19,6 +19,4 @@ You set up Tyk to send traffic from your dedicated service endpoint (`your_organ
 You can then start issuing tokens, either manually or via the developer portal, that give developers access to your Tyk proxy, which then meters, manages and secures your upstream service.
 
 #### Getting Started
-To get started with Tyk Cloud, follow our [tutorial][1] to create an account.
-
-[1]: /docs/get-started/with-tyk-cloud/create-an-account/
+To get started with Tyk Cloud, follow our [tutorial](/docs/getting-started/installation/with-tyk-cloud/create-an-account/) to create an account.

@@ -11,7 +11,7 @@ weight: 4
 
 ## Prerequisite
 
-*   Our Docker image - see [Docker Quickstart][1] for more details.
+*   Our Docker image - see [Docker Pro Demo](/docs/getting-started/installation/with-tyk-on-premise/docker/docker-pro-demo/docker-pro-demo/) for more details.
 
 ### Steps
 
@@ -30,5 +30,3 @@ weight: 4
     *   SECRET 
 
 > **NOTE:** This will only work with port 80 deployments and other ports will be ignored.
-
- [1]: /docs/get-started/with-tyk-on-premise/installation/docker/docker-quickstart/

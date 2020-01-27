@@ -14,7 +14,7 @@ Tyk Multi-Cloud Gateway can be installed on AWS infrastructure using our AWS Mar
 
 To get started make sure you have:
 
-1. A Tyk Multi-Cloud account. Click [here][1] for details of how to create one
+1. A Tyk Multi-Cloud account. Click [here](/docs/getting-started/installation/with-tyk-multi-cloud/create-an-account/) for details of how to create one
 2. A subscription to the [Tyk Hybrid Gateway AMI from the AWS Marketplace](https://aws.amazon.com/marketplace/pp/B07BVPCL4R)
 
 ## <a name="quick-setup"></a>Quick setup
@@ -26,7 +26,7 @@ This guide assumes the "1-Click" install was selected on the Marketplace and an 
 1.  Go to <https://admin.cloud.tyk.io> and login with your new details.
 2.  Click "Users" and select your name, you will see your Organisation ID, take note of this:
     
-    ![RPC credentials][2]
+![RPC credentials](/docs/img/dashboard/system-management/org_id.png)
 
 ### To setup a Tyk Hybrid Gateway instance provisioned by the "1-Click" option
 
@@ -55,7 +55,7 @@ The Gateway can be more finely tuned for this first setup using the following co
 * `--redis-use-ssl`: if set, the Redis connection will assume it's encrypted (use with Redis providers that support in-transit encryption)
 * `--no-bind-slugs`: if set, the gateway will listen to API IDs as root paths instead of API slugs (default)
 
-This is just a portion of configuration options available for the gateway to facilitate a quick setup. The [rest][4] may be set by either editing/replacing the `/opt/tyk-gateway/tyk.conf` file or adding [environment variables][3] to `/etc/default/tyk-gateway` file.
+This is just a portion of configuration options available for the gateway to facilitate a quick setup. The [rest](/docs/tyk-configuration-reference/tyk-gateway-configuration-options/) may be set by either editing/replacing the `/opt/tyk-gateway/tyk.conf` file or adding [environment variables](/docs/tyk-configuration-reference/environment-variables/) to `/etc/default/tyk-gateway` file.
 
 
 ## <a name="automation"></a>Automation
@@ -98,14 +98,6 @@ runcmd:
 
 ## <a name="ami-notes"></a>Notes on AMI
 
-The Tyk Hybrid Gateway AMI is based on the latest (at the moment of creation) Amazon Linux AMI (**not** Amazon Linux 2), which itself is based on CentOS 6. Please refer to [Amazon Linux documentation][5] for details as well as [our notes on init systems][6] used in Linux distributions for details on how to manage the process and extract service logs.
+The Tyk Hybrid Gateway AMI is based on the latest (at the moment of creation) Amazon Linux AMI (**not** Amazon Linux 2), which itself is based on CentOS 6. Please refer to [Amazon Linux documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/amazon-linux-ami-basics.html) for details as well as [our notes on init systems](/docs/getting-started/with-tyk-on-premises/#a-name-init-systems-a-init-systems) used in Linux distributions for details on how to manage the process and extract service logs.
 
-Attributes for [ENA/SR-IOV][7] are set on this AMI and since Amazon Linux comes pre-packaged with related drivers it's eligible for use with EC2 instance types supporting these types of networking (such as "c5" class).
-
- [1]: /docs/get-started/with-tyk-hybrid/create-an-account/
- [2]: /docs/img/dashboard/system-management/org_id.png
- [3]: /docs/configure/gateway-env-variables/
- [4]: /docs/configure/tyk-gateway-configuration-options/
- [5]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/amazon-linux-ami-basics.html
- [6]: /docs/get-started/with-tyk-on-premise/#init-systems
- [7]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking.html
+Attributes for [ENA/SR-IOV](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking.html) are set on this AMI and since Amazon Linux comes pre-packaged with related drivers it's eligible for use with EC2 instance types supporting these types of networking (such as "c5" class).
