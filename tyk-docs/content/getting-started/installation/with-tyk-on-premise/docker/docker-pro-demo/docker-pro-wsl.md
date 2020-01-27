@@ -39,7 +39,13 @@ You need to add the following to your Windows hosts file:
 127.0.0.1 www.tyk-test.com
 ```
 
-### Step Three - Add your Developer Licence
+### Step Three - Configure file permissions
+In order to mount the files, you need to allow Docker engine has access to your Drive. 
+You can do that by going to the Docker settings, Shared Drives view, and manage the access. 
+If after all you will get issue regarding path permissions, you will need to create a separate user specifically for the docker according to this instructions https://github.com/docker/for-win/issues/3385#issuecomment-571267988
+
+
+### Step Four - Add your Developer Licence
 
 You should have received your free developer licence via email. Copy the licence key in the following location from your `\confs\tyk_analytics.conf` file:
 
@@ -47,7 +53,7 @@ You should have received your free developer licence via email. Copy the licence
 "license_key": ""
 ```
 
-### Step Four - Run the Docker Compose File
+### Step Five - Run the Docker Compose File
 
 From PowerShell, run the following command from your installation folder:
 
@@ -57,7 +63,15 @@ docker-compose -f docker-compose.yml -f docker-local.yml up
 
 This will will download and setup the five Docker containers. This may take some time and will display all output.
 
-### Step Five - Got to the Dashboard URL
+**NOTE**
+If you are getting issues related to errors when mounting files, you may need to modify 
+`docker-local.yml` file, and change configs paths from related to absolute, and from linux format to windows format, like this:
+```
+volumes:
+  - C:\Tyk\confs\tyk_analytics.conf:/opt/tyk-dashboard/tyk_analytics.conf
+```
+
+### Step Six - Got to the Dashboard URL
 
 Go to:
 
@@ -69,7 +83,7 @@ You should get to the Tyk Dashboard Setup screen:
 
 ![Tyk Dashboard Bootstrap Screen][1]
 
-### Step Six - Create your Organisation and Default User
+### Step Seven - Create your Organisation and Default User
 
 You need to enter the following:
 
