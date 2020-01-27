@@ -46,7 +46,7 @@ Using multiple partitioned policies you can create basic building blocks separat
  
 We have added a new `apply_policies` field to the Key definition, which is a string array of Policy IDs. The old `apply_policy_id` field is still supported, but is now deprecated.
 
-In the Dashboard, in the **Keys** sceen, when clicking **Add key**, you can choose multime policies in the **Apply Policies** section.
+In the Dashboard, in the **Keys** sceen, when clicking **Add key**, you can choose multiple policies in the **Apply Policies** section.
 
 ![Apply Policies](/docs/img/dashboard/system-management/add_key_apply_policies.png)
 
