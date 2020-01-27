@@ -338,6 +338,32 @@ Add the following section to expose the `/metrics` endpoint:
 
 > **NOTE**: When running Prometheus as a Docker image then remove `localhost` from `listen_address`. For example: `"listen_address": ":9090"`.
 
+### Logzio Config
+
+Logz.io is a cloud observability platform providing Log Management built on ELK, Infrastructure Monitoring based on Grafana, and an ELK-based Cloud SIEM.
+
+The following configuration values are available:
+
+Example simplest configuration just needs the token for sending data to your logzio account.
+
+```
+"logzio": {
+      "type": "logzio",
+      "meta": {
+        "token": "<YOUR-LOGZ.IO-TOKEN>"
+      }
+    }
+```
+
+More advanced fields:
+
+`url` - If you do not want to use the default Logzio url i.e. when using a proxy. Default is `https://listener.logz.io:8071`
+`queue_dir` - The dir for the queue.
+`drain_duration` - Set drain duration (flush logs on disk). Default value is `3s`
+`disk_threshold` - Set disk queue threshold, once the threshold is crossed the sender will not enqueue the received logs. Default value is `98` (percentage of disk).
+`check_disk_space` - Set the sender to check if it crosses the maximum allowed disk usage. Default value is `true`.
+
+
 ### Multiple Pumps
 
 From Tyk Pump v0.6.0 you can now create multiple pumps of the same type by by setting the top level type as a custom values. For example:
