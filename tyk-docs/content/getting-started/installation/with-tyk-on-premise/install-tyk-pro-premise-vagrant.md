@@ -11,7 +11,7 @@ weight: 5
 
 Tyk has a streamlined quickstart setup for Vagrant. This demo works with Ubuntu Xenial (16.04) and makes use of direct-pipes to Bash from a web script. This is a quick way to demo Tyk - **this installation method is not suitable for production**.
 
-Full, detailed instructions on how to [install Tyk on Ubuntu Server (LTS)](https://tyk.io/docs/get-started/with-tyk-on-premise/installation/on-ubuntu/) or how to [install Tyk on Red Hat Enterprise Linux (RHEL)](https://tyk.io/docs/get-started/with-tyk-on-premise/installation/redhat-rhel-centos/) are also available and go through the entire process manually.
+Full, detailed instructions on how to [install Tyk on Ubuntu Server (LTS)](/docs/getting-started/with-tyk-on-premises/installation/on-ubuntu/) or how to [install Tyk on Red Hat Enterprise Linux (RHEL)](/docs/getting-started/with-tyk-on-premises/installation/redhat-rhel-centos/) are also available and go through the entire process manually.
 
 Given this caveat, lets get you up and running.
 
@@ -91,5 +91,5 @@ You can now log in to the Tyk Dashboard from <http://my-tyk-instance.com:3000> u
 
 #### Next Steps
 
-* [Set up and test your first API](https://tyk.io/docs/get-started/with-tyk-on-premise/tutorials/tyk-on-premises-pro/create-api/)
-* [Set up your portal and publish your first API](https://tyk.io/docs/publish/tutorials/publish-api-developer-portal/)
+* [Set up and test your first API](/docs/try-out-tyk/tutorials/create-api/)
+* [Set up your portal and publish your first API](/docs/try-out-tyk/tutorials/create-portal-entry/)
