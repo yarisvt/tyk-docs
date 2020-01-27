@@ -5,7 +5,7 @@ menu:
   main:
     parent: "With Docker"
 weight: 3
-url: "/getting-started/with-tyk-on-premises/installation/docker/with-kubernetes"
+url: "/getting-started/installation/with-tyk-on-premises/docker/with-kubernetes"
 ---
 
 There are two main ways to install Tyk on Kubernetes: Via our Helm chart, or manually.

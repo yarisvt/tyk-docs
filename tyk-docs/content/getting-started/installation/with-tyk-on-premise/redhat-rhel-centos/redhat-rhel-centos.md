@@ -5,7 +5,7 @@ menu:
   main:
     parent: "With Tyk On-Premises"
 weight: 3
-url: "/getting-started/with-tyk-on-premises/installation/redhat-rhel-centos"
+url: "/getting-started/installation/with-tyk-on-premises/redhat-rhel-centos"
 ---
 
 ## Install Tyk API Gateway on Red Hat (RHEL) / CentOS
