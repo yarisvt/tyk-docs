@@ -5,7 +5,7 @@ menu:
   main:
     parent: "With Tyk On-Premises"
 weight: 1
-url: "/getting-started/with-tyk-on-premises/installation/docker"
+url: "/getting-started/installation/with-tyk-on-premises/docker"
 ---
 
 Tyk has three containers that are available to set up a Docker installation:

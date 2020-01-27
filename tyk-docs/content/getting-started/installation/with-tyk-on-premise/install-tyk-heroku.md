@@ -10,7 +10,8 @@ url: "/getting-started/with-tyk-on-premises/installation/on-heroku"
 
 ## <a name="heroku"></a> Install Tyk API Gateway on Heroku
 
-A full Tyk installation can be deployed to Heroku dynos and workers using [Heroku Container Registry & Runtime](https://devcenter.heroku.com/articles/container-registry-and-runtime) functionality. This guide will utilise [Tyk Docker images](https://hub.docker.com/u/tykio/) with a small amount of customisation as well as an external MongoDB service.
+A full Tyk installation can be deployed to Heroku dynos and workers using [Heroku Container Registry & Runtime](https://devcenter.heroku.com/articles/) functionality. This guide will utilise [Tyk Docker images](https://hub.docker.com/u/tykio/) with a small amount of customisation as well as an external MongoDB service.
+
 
 ## <a name="prerequisites"></a> Prerequisites
 
@@ -348,7 +349,8 @@ latest: digest: sha256:d67b8f55d729bb56e06fe38e17c2016a36f2edcd4f01760c0e62a13bb
 
 Inspect the logs (`heroku logs -a infinite-plains-14949`) to check that deployment was successful, also the node should be registered by the Dashboard in "System Management" -> "Nodes and Licenses" section.
 
-You're ready to follow the guide on [creating and managing your APIs](/docs/try-out-tyk/tutorials/tutorials/) with this Heroku deployment.
+You're ready to follow the guide on [creating and managing your APIs](/docs/try-out-tyk/tutorials/create-api/) with this Heroku deployment.
+
 
 > Note: to use the [geographic log distribution](/docs/analytics-and-reporting/geographic-distribution/) feature in the Dashboard please supply the GeoLite2 DB in the `gateway` directory, uncomment the marked line in `Dockerfile.web` and set the `analytics_config.enable_geo_ip` setting (or `TYK_GW_ANALYTICSCONFIG_ENABLEGEOIP` env var) to `true`.
 
@@ -415,5 +417,6 @@ Since this deployment is based on Docker images and containers, upgrading or mak
 Specifically, upgrading version of any Tyk components is done by editing the corresponding `Dockerfile` and replacing the base image version tag. E.g. changing `FROM tykio/tyk-gateway:v2.5.4` to `FROM tykio/tyk-gateway:v2.6.1` will pull the Tyk gateway 2.6.1. We highly recommend specifying concrete version tags instead of `latest` for better house keeping.
 
 Once these changes have been made just run `heroku container:push --recursive -a app_name` on the corresponding directory as shown previously in this guide. This will do all the building and pushing as well as gracefully deploying on your Heroku app.
+
 
 Please refer to [Heroku documentation on containers and registry](https://devcenter.heroku.com/articles/container-registry-and-runtime) for more information.
