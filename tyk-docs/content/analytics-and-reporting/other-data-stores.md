@@ -71,7 +71,7 @@ Settings must be the same as for the original `tyk.conf` for Redis and for Mongo
 
 ### Environment Variables
 
-[Environment variables](/docs/configure/pump-env-variables/) can be used to override settings defined in `pump.conf`. Where an environment variable is specified, its value will take precedence over the value in the configuration file.
+[Environment variables](/docs/tyk-configuration-reference/environment-variables/) can be used to override settings defined in `pump.conf`. Where an environment variable is specified, its value will take precedence over the value in the configuration file.
 
 ## <a name="elasticsearch"></a> ElasticSearch
 

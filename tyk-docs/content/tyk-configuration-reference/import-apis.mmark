@@ -86,7 +86,7 @@ Tyk supports API mocking using our versioning `use_extended_paths` setup, adding
 ],
 ```
 
-See [Versioning](/docs/concepts/versioning/) for more details.
+See [Versioning](/docs/getting-started/key-concepts/versioning/) for more details.
 
 ## <a name="import-dashboard"></a> Import APIs via the Dashboard API
 
@@ -96,11 +96,11 @@ See [Versioning](/docs/concepts/versioning/) for more details.
 
 ### Step 1: Select "APIs" from the "System Management" section
 
-![API listing page link location][1]
+![API listing page link location](/docs/img/dashboard/system-management/apis2.7.png)
 
 ### Step 2: Click "IMPORT API"
 
-![Add API button location][2]
+![Add API button location](/docs/img/dashboard/system-management/add_API_button_new_2.5.png)
 
 Tyk supports the following import options:
 
@@ -111,17 +111,17 @@ Tyk supports the following import options:
 
 To import a Tyk Definition, just copy and paste the definition into the code editor.
 
-![Import Tyk Definition][4]
+![Import Tyk Definition](/docs/img/dashboard/system-management/import_tyk_def.png)
 
 For Apiary Blueprint and Swagger, the process is the same. For example:
 
 Click the "From Swagger (JSON)" option from the pop-up
 
-![Import popup][3]
+![Import popup](/docs/img/dashboard/system-management/import_json.png)
 
 For WSDL:
 
-![Import WSDL][5]
+![Import WSDL](/docs/img/dashboard/system-management/import_wsdl.png)
 
 ### Step 3: Enter API Information
 
@@ -135,13 +135,6 @@ You need to enter the following information:
 ### Step 4: Click "Generate API"
 
 Your API will appear in your APIs list. If you select **EDIT** from the **ACTIONS** drop-down list, you can see the endpoints (from the [ENDPOINT DESIGNER](https://tyk.io/docs/transform-traffic/endpoint-designer/)) that have been created as part of the import process.
-
-
-[1]: /docs/img/dashboard/system-management/apis2.7.png
-[2]: /docs/img/dashboard/system-management/add_API_button_new_2.5.png
-[3]: /docs/img/dashboard/system-management/import_json.png
-[4]: /docs/img/dashboard/system-management/import_tyk_def.png
-[5]: /docs/img/dashboard/system-management/import_wsdl.png
 
 
 

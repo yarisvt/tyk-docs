@@ -46,4 +46,4 @@ If your API is segmented, node tags will be appended to the analytics data, this
 
 `management_node` is available from v2.3.4 and onwards.
 
-See [Tyk Gateway Configuration Options](/docs/configure/tyk-gateway-configuration-options/) for more details on node tags.
+See [Tyk Gateway Configuration Options](/docs/tyk-configuration-reference/tyk-gateway-configuration-options/) for more details on node tags.

@@ -2,8 +2,8 @@
 title: Redis and MongoDB Sizing Guide
 menu:
   main:
-    parent: "Analytics and Reporting"
-weight: 11 
+    parent: "Planning for Production"
+weight: 2 
 ---
 
 ## <a name="analytics"></a>Analytics
