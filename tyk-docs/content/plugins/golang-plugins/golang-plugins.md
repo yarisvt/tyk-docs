@@ -518,7 +518,7 @@ func main() {}
 Here we see how the internal state of the Golang plugin is used by the exported function `MyProcessRequest` (the one we set in the API spec in the `"custom_middleware"` section). The map `hitCounter` is used to send internal state and count hits to different endpoints. Then our exported Golang plugin function sends a HTTP reply with endpoint hit statistics.
 
 ### Loading a Tyk Golang plugin from a bundle
-So far we have loaded Golang plugins only directly from file system. You can also use Tyk's bundle instrumentation (see [Plugin Bundles](/docs/customise-tyk/rich-plugins/plugin-bundles.md) for more details). You can deploy your Tyk Golang plugins to special HTTP-server and then your plugins will be fetched and loaded from that HTTP endpoint.
+So far we have loaded Golang plugins only directly from file system. You can also use Tyk's bundle instrumentation (see [Plugin Bundles](/docs/plugins/rich-plugins/plugin-bundles/) for more details). You can deploy your Tyk Golang plugins to special HTTP-server and then your plugins will be fetched and loaded from that HTTP endpoint.
 
 You will need to set in `tyk.conf` these two fields:
 
@@ -565,7 +565,7 @@ Here we see:
 * field `"path"` in section `"post"` now contains just a file name without any path. This field specifies `.so` filename placed in ZIP archive with bundle (remember how we specified `"custom_middleware_bundle": "FooBarBundle.zip"`).
 
 #### How to build bundle with Golang plugin
-You will need to use a special [Bundler tool](/docs/customise-tyk/rich-plugins/plugin-bundles.md#bundler-tool) to create bundles with Golang plugins. 
+You will need to use a special [Bundler tool](/docs/rich-plugins/plugin-bundles.md#bundler-tool) to create bundles with Golang plugins. 
 
 ### Reloading Tyk Golang plugin
 Sometimes you will need to update your Golang plugin with a new version. There are two ways to do this:

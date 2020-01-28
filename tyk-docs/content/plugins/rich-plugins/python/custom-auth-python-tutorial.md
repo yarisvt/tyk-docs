@@ -15,7 +15,7 @@ The code used in this tutorial is also available in [this GitHub repository](htt
 
 ## <a name="requirements"></a>Requirements
 
-* Tyk API Gateway: This can be installed using standard package management tools like Yum or APT, or from source code. See [here](https://tyk.io/docs/get-started/with-tyk-on-premise/installation/) for more installation options.
+* Tyk API Gateway: This can be installed using standard package management tools like Yum or APT, or from source code. See [here](/docs/getting-started/installation/with-tyk-on-premises/) for more installation options.
 
 ### Dependencies
 
@@ -89,7 +89,7 @@ For Tyk 2.8 use:
 
 `/opt/tyk-gateway/bin/tyk bundle build -y`
 
-A plugin bundle is a packaged version of the plugin, it may also contain a cryptographic signature of its contents. The `-y` flag tells the Tyk CLI tool to skip the signing process in order to simplify the flow of this tutorial. For more information on the Tyk CLI tool, see [here](https://tyk.io/docs/customise-tyk/plugins/rich-plugins/plugin-bundles/#using-the-bundler-tool).
+A plugin bundle is a packaged version of the plugin, it may also contain a cryptographic signature of its contents. The `-y` flag tells the Tyk CLI tool to skip the signing process in order to simplify the flow of this tutorial. For more information on the Tyk CLI tool, see [here](docs/plugins/rich-plugins/plugin-bundles/#using-the-bundler-tool).
 
 You should now have a `bundle.zip` file in the plugin directory.
 

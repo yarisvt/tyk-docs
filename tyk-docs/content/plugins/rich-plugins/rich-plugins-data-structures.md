@@ -198,7 +198,7 @@ The number of requests remaining for this user's quota (unrelated to rate limit)
 The time in seconds during which the quota is valid. So for 1000 requests per hour, this value would be 3600 while `quota_max` and `quota_remaining` would be 1000.
 
 `access_rights`
-Access rights can be defined either by the Dashboard or via an API, depending on the version of Tyk you are using. See the Tutorials section for [Cloud](/docs/get-started/with-tyk-cloud/tutorials/), [Multi-Cloud](/docs/get-started/with-tyk-multi-cloud/tutorials/) and [On-Premises](/docs/get-started/with-tyk-on-premise/tutorials/) (Community and Pro) for more details.
+Access rights can be defined either by the Dashboard or via an API, depending on the version of Tyk you are using. See our [Tutorials](/docs/try-out-tyk/tutorials/tutorials/) section for  for more details.
 
 `org_id`
 The organisation this user belongs to. This can be used in conjunction with the org_id setting in the API Definition object to have tokens "owned" by organisations.
@@ -241,17 +241,7 @@ Tags are embedded into analytics data when the request completes. If a policy ha
 As of v2.1, an Alias offers a way to identify a token in a more human-readable manner, add an Alias to a token in order to have the data transferred into Analytics later on so you can track both hashed and un-hashed tokens to a meaningful identifier that doesn't expose the security of the underlying token.
 
 `id_extractor_deadline`
-See [Auth Plugins](/docs/customise-tyk/plugins/auth-plugins/) for additional information.
+See [Auth Plugins](/docs/plugins/auth-plugins/) for additional information.
 
 `session_lifetime`
-Overrides the global session lifetime, see [Physical Token Expiry](/docs/security/your-apis/physical-token-expiry/) for additional information.
-
-
-
-
-
-
-
-
-
-
+Overrides the global session lifetime, see [Physical Token Expiry](/docs/basic-config-and-security/security/your-apis/physical-token-expiry/) for additional information.
