@@ -44,7 +44,7 @@ This is the path to the Tyk templates, as of the current version there is only o
 
 ### <a name="app_path"></a> app_path
 
-If Tyk is being used in its standard configuration (CE Mode), then API definitions are stored in the apps folder (by default in `/opt/tyk-gateway/apps`). This file is scanned for files that ending in `.json` extension and interpreted at startup or reload. See [API Management](/docs/tyk-rest-api/api-management/) for more details.
+If Tyk is being used in its standard configuration (CE Mode), then API definitions are stored in the apps folder (by default in `/opt/tyk-gateway/apps`). This file is scanned for files that ending in `.json` extension and interpreted at startup or reload. See the API Management section of the [Tyk Gateway REST API](/docs/tyk-rest-api/) for more details.
 
 ### <a name="hash_keys"></a> hash_keys
 
@@ -604,6 +604,7 @@ You need to use the following values for this setting:
 | 1.0         | 769          |
 | 1.1         | 770          |
 | 1.2         | 771          |
+| 1.3         | 772          |
 
 ### <a name="proxy_ssl_ciphers"></a>proxy_ssl_ciphers
 
