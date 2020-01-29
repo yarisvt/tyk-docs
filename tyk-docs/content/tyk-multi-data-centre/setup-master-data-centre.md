@@ -13,8 +13,8 @@ The Master Data Centre (DC) will contain all the standard components of a standa
 We will assume that your account manager has provided you with a valid MDCB and Dashboard License.
 We will assume that the following components are up and running in your master DC:
 
-* MongoDB 3.0 / 3.2 (Higher versions not tested)
-* Redis
+* MongoDB (check [supported versions](/docs/#supported-mongodb-and-redis-versions))
+* Redis (check [supported versions](/docs/#supported-mongodb-and-redis-versions))
 * Dashboard
 * Gateway / Gateway Cluster
 * Working Tyk-Pro [On Premises installation](/docs/getting-started/installation/with-tyk-on-premises/)
