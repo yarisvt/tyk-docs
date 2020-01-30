@@ -138,3 +138,7 @@ The Domain in this case will be extracted from standard certificate fields: `Sub
 ### Dynamically setting SSL certificates for custom domains
 
 If you include certificateID or certificate path to API definition `certificates` field, Gateway will dynamically load this ceritficate for your custom domain, so you will not need to restart the process. You can do it from Dashboard UI too, in custom domain section.
+
+## Internal Proxy Setup
+
+From v2.9.3 you can also specify a custom proxy and set the minimum TLS versions and any SSL ciphers within your API definitions. See [Internal Proxy Setup](/docs/tyk-rest-api/api-definition-objects/proxy-settings/#internal-proxy-setup) for more details.

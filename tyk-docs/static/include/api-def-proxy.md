@@ -120,6 +120,7 @@ This is an example of `proxy.transport` definition followed by explanations for 
 |      1.0      |      769       |
 |      1.1      |      770       |
 |      1.2      |      771       |
+|      1.3      |      772       |
 
 * `proxy.transport.ssl_ciphers`: You can add `ssl_ciphers` which takes an array of strings as its value. Each string must be one of the allowed cipher suites as defined at https://golang.org/pkg/crypto/tls/#pkg-constants
 

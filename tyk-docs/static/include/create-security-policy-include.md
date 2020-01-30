@@ -60,7 +60,15 @@ This is available from v1.8.0 of the Tyk Dashboard.
 
 **Required** - A security entry is required for all policies (even partitioned ones) as we need to ensure access is always explicit for APIs managed by Tyk. Click **Add** to apply an API to the Access Rule.
 
-### Step 7: Save the policy
+### Step 7: Add Tags and Metadata
+
+![Tags and Metadata](/docs/img/dashboard/system-management/tags_meta2.9.3.png)
+
+* Tags that you add can be used in the Analytics for the policy. Tag descriptions are case sensitive.
+* Metadata such as User IDs can be used by middleware components. See [Session Metadata](/docs/getting-started/key-concepts/session-meta-data/) for more details.  
+
+
+### Step 8: Save the policy
 
 ![Save a Policy][7]
 

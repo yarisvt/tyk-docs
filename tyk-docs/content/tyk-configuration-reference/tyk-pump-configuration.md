@@ -39,7 +39,7 @@ Create a `pump.conf` file:
     "dummy": {
       "type": "dummy",
       "meta": {
-
+        
       }
     },
     "mongo": {
@@ -50,10 +50,10 @@ Create a `pump.conf` file:
       }
     },
     "mongo-pump-aggregate": {
-      "name": "mongo-pump-aggregate",
+      "type": "mongo-pump-aggregate",
       "meta": {
-        "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/{db_name}",
-        "use_mixed_collection": true
+	"mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/{db_name}",
+	"use_mixed_collection": true
       }
     },
     "csv": {
@@ -71,7 +71,7 @@ Create a `pump.conf` file:
         "document_type": "tyk_analytics",
         "rolling_index": false,
         "extended_stats": false,
-        "version": "6"
+        "version": "5"
       }
     },
     "influx": {
@@ -137,7 +137,7 @@ Create a `pump.conf` file:
       }
     },
     "dogstatsd": {
-      "name": "dogstatsd",
+      "type": "dogstatsd",
       "meta": {
         "address": "localhost:8125",
         "namespace": "pump",
@@ -178,10 +178,10 @@ Create a `pump.conf` file:
     "hybrid": {
       "type": "hybrid",
       "meta": {
-        "rpc_key": "<org-id>",
-        "api_key": "<api-key>",
-        "aggregated": false,
+        "rpc_key": "5b5fd341e6355b5eb194765e",
+        "api_key": "008d6d1525104ae77240f687bb866974",
         "connection_string": "localhost:9090",
+	"aggregated": false,
         "use_ssl": false,
         "ssl_insecure_skip_verify": false,
         "group_id": "",
@@ -194,6 +194,25 @@ Create a `pump.conf` file:
       "type": "logzio",
       "meta": {
         "token": "<YOUR-LOGZ.IO-TOKEN>"
+      }
+    },
+    "kafka": {
+      "type": "kafka",
+      "meta": {
+        "broker": [
+            "localhost:9092"
+        ],
+        "ssl": {
+            "enabled": false,
+            "insecure_skip_verify": false
+        },
+        "client_id": "tyk-pump",
+        "topic": "tyk-pump",
+        "timeout": 60,
+        "compressed": true,
+        "meta_data": {
+            "key": "value"
+        }
       }
     }
   },
@@ -231,6 +250,7 @@ The following services are supported:
 - Hybrid (Tyk RPC)
 - Prometheus
 - Logz.io
+- Kafka
 
 #### Uptime Data
 `dont_purge_uptime_data` - Setting this to `false` will create a pump that pushes uptime data to MongoDB, so the Dashboard can read it.  Disable by setting to `true`
@@ -337,6 +357,18 @@ Add the following section to expose the `/metrics` endpoint:
 `listen_address` - this is the URL that Prometheus can pull data from.
 
 > **NOTE**: When running Prometheus as a Docker image then remove `localhost` from `listen_address`. For example: `"listen_address": ":9090"`.
+
+#### Kafka Config
+
+* broker: The list of brokers used to discover the partitions available on the kafka cluster. E.g. "localhost:9092"
+* ssl: SSL config object to make connection secure. It has the following fields:
+  * enabled: Enables SSL connection.
+  * insecure_skip_verify: Controls whether the pump client verifies the kafka server's certificate chain and host name.
+* client_id: Unique identifier for client connections established with Kafka.
+* topic: The topic that the writer will produce messages to.
+* timeout: Timeout is the maximum amount of time will wait for a connect or write to complete.
+* compressed: Enable "github.com/golang/snappy" codec to be used to compress Kafka messages. By default is false
+* meta_data: Can be used to set custom metadata inside the kafka message
 
 ### Multiple Pumps
 

@@ -41,10 +41,13 @@ To enable Basic Authentication on your API using the Tyk Dashboard:
 
 1. Select your API from the **System Management > APIs** menu
 2. Scroll to the **Authentication** options
-3. Select **Basic Auth** from the drop-down list
+3. Select **Basic Authentication** from the drop-down list
 4. Select **Strip Authorization Data** to strip any authorization data from your API requests.
+5. Tyk will by default assume you are using the `Authorization` header, but you can change this by setting the **Auth Key Header** name value
+6. You can select whether to use a URL query string parameter as well as a header, and what parameter to use. If this is left blank, it will use the **Auth Key Header** name value.
+7. You can select whether to use a **cookie value**. If this is left blank, it will use the Header name value.
 
-![Target Details: Basic Auth](/docs/img/dashboard/system-management/basic_auth_2.5.png)
+![Target Details: Basic Auth](/docs/img/dashboard/system-management/basic_auth2.9.3.png)
 
 ## <a name="with-file-based"></a>Enable Basic Authentication in your API Definition with file-based
 

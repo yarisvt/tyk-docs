@@ -24,3 +24,17 @@ The suggested order would be to install Tyk Dashboard, then Tyk Pump and then Ty
 
 - MongoDB 3.x and 4.0.x
 - Redis 2.8.x to 5.0.x
+
+### Default Ports
+
+| Application             | Port           |
+|-------------------------|----------------|
+|MongoDB                  |      27017     |
+|Redis                    |      6379      |
+|**Tyk Dashboard**        |                |
+|Developer Portal         |      3000      |
+|Admin Dashboard          |      3000      |
+|Admin Dashboard API      |      3000      |
+|**Tyk Gateway**          |                |
+|Management API           |      8080      |
+
