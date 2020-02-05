@@ -117,7 +117,16 @@ TYK_GW_STORAGE_MAXACTIVE=10000
 
  > NOTE: From v2.9.3 Redis Sentinel is now supported.
 
-Previously to v2.9.3, we did not support direct integration with Redis Sentinel. For versions prior to v2.9.3, you will need to implement it in association with a HAProxy. As we do support Amazon ElastiCache, we recommend using this with Redis Sentinel. For more details on Amazon ElastiCache, see [here](https://aws.amazon.com/elasticache/). The following article also details how to setup Redis Sentinel and HAProxy: [Setup Redis Sentinel and HAProxy](https://discuss.pivotal.io/hc/en-us/articles/205309388-How-to-setup-HAProxy-and-Redis-Sentinel-for-automatic-failover-between-Redis-Master-and-Slave-servers).
+To enable a Redis Sentinel setup from v2.9.3 onwards, you need to set the Master Name via the following variables:
+
+* In the Tyk Gateway config file -  `storage.master_name`
+* In the Tyk Dashboard config file - `redis_master_name`
+* In the Tyk Pump config file - `storage.master_name`
+* In a MDCB installation config file - `storage.master_name`
+
+### Redis Sentinel Support prior to v2.9.3
+
+Previously to v2.9.3, we do not support direct integration with Redis Sentinel. For versions prior to v2.9.3, you will need to implement it in association with a HAProxy. As we do support Amazon ElastiCache, we recommend using this with Redis Sentinel. For more details on Amazon ElastiCache, see [here](https://aws.amazon.com/elasticache/). The following article also details how to setup Redis Sentinel and HAProxy: [Setup Redis Sentinel and HAProxy](https://discuss.pivotal.io/hc/en-us/articles/205309388-How-to-setup-HAProxy-and-Redis-Sentinel-for-automatic-failover-between-Redis-Master-and-Slave-servers).
 
 ### Redis Encryption
 
