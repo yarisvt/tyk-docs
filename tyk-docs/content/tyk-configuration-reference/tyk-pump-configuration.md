@@ -357,11 +357,11 @@ Example simplest configuration just needs the token for sending data to your log
 
 More advanced fields:
 
-`url` - If you do not want to use the default Logzio url i.e. when using a proxy. Default is `https://listener.logz.io:8071`
-`queue_dir` - The dir for the queue.
-`drain_duration` - Set drain duration (flush logs on disk). Default value is `3s`
-`disk_threshold` - Set disk queue threshold, once the threshold is crossed the sender will not enqueue the received logs. Default value is `98` (percentage of disk).
-`check_disk_space` - Set the sender to check if it crosses the maximum allowed disk usage. Default value is `true`.
+`meta.url` - If you do not want to use the default Logzio url i.e. when using a proxy. Default is `https://listener.logz.io:8071`
+`meta.queue_dir` - The directory for the queue.
+`meta.drain_duration` - Set drain duration (flush logs on disk). Default value is `3s`
+`meta.disk_threshold` - Set disk queue threshold, once the threshold is crossed the sender will not enqueue the received logs. Default value is `98` (percentage of disk).
+`meta.check_disk_space` - Set the sender to check if it crosses the maximum allowed disk usage. Default value is `true`.
 
 
 ### Multiple Pumps
