@@ -29,7 +29,6 @@ We will assume that the following components are up and running in your master D
 |Developer Portal         |      3000      |
 |Admin Dashboard          |      3000      |
 |Admin Dashboard API      |      3000      |
-|Websockets/Notifications |      5000      |
 |**Tyk Gateway**          |                |
 |Management API           |      8080      |
 |**MDCB**                 |                |

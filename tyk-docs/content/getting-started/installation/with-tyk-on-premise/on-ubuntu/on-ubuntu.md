@@ -19,6 +19,19 @@ Installing Tyk on Ubuntu is very straightforward, follow the guides and tutorial
 
 Before installing the Tyk components in the order below, you need to install firstly MongoDB, then Redis.
 
+### Default Ports
+
+| Application             | Port           |
+|-------------------------|----------------|
+|MongoDB                  |      27017     |
+|Redis                    |      6379      |
+|**Tyk Dashboard**        |                |
+|Developer Portal         |      3000      |
+|Admin Dashboard          |      3000      |
+|Admin Dashboard API      |      3000      |
+|**Tyk Gateway**          |                |
+|Management API           |      8080      |
+
 ### Supported Verions of MongoDB and Redis
 
 - MongoDB 3.x and 4.0.x

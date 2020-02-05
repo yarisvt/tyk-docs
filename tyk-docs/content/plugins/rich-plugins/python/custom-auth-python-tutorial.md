@@ -53,6 +53,8 @@ This file should be named "manifest.json" and needs to have the following conten
 * The `name` field references the name of the function that we implement in our plugin code: `MyAuthMiddleware`.
 * We add an additional file called `middleware.py`, this will contain the main implementation of our middleware.
 
+ > **NOTE**: Your bundle should always contain a file named `middleware.py` as this is the entrypoint file.
+
 ### Contents of middleware.py
 
 We import decorators from the Tyk module this gives us the `Hook` decorator, and we import [Tyk Python API helpers](/docs/plugins/rich-plugins/python/tyk-python-api-methods/)
