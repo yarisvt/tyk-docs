@@ -51,7 +51,7 @@ Select JSON Web Tokens as the Authentication mode:
 
 #### Step 2: Set the JWT Signing Method
 
-Set the cryptographic method to use and enter the key in the secrets text field (PEM Encoded), this can either be an RSA public key or an HMAC shared secret:
+Set the cryptographic method to use and enter the key in the secrets text field (PEM Encoded), this can either be an **RSA public key** or an **HMAC shared secret**. If using a RSA Public Key you can eithe enter this in the **Public Key** field or leave blank to embed in a Key session:
 
 ![JWT signing method dropdown](/docs/img/dashboard/system-management/jwt_sign_2.5.png)
 
@@ -63,7 +63,26 @@ Set the cryptographic method to use and enter the key in the secrets text field 
 
 * **The Policy Field Name**: This is a custom requirement for Tyk. You need to tell Tyk which claim will signal to it the correct policy to use. A policy encapsulates rate limits, quota and security information and Tyk will use this policy to apply the correct access rules to the identity that has been specified in the Identity claim above.
 
-#### Step 4: Generate an API policy
+#### Step 4: Set a Default Policy
+
+![Default Policy](/docs/img/dashboard/system-management/jwt_default_policy2.9.3.png)
+
+If your JWT policy ID is missing, a default policy can be used. Set your default policy from the drop-down list.
+
+#### Step 5: Use Scope Claim
+
+See [Setting JWT Scope Claims](/docs/advanced-configuration/integrate/api-auth-mode/open-id-connect/#setting-jwt-scope-claims-with-the-dashboard) for more details on this option.
+
+#### Step 6: Authentication Configuration
+
+![Auth Configuration](/docs/img/dashboard/system-management/auth_config2.9.3.png)
+
+1. Tyk will by default assume you are using the `Authorization` header, but you can change this by setting the **Auth Key Header** name value
+2. You can select whether to use a URL query string parameter as well as a header, and what parameter to use. If this is left blank, it will use the **Auth Key Header** name value.
+3. You can select whether to use a **cookie value**. If this is left blank, it will use the Header name value.
+
+
+#### Step 7: Generate an API policy
 
 Now that you have created the API and set its parameters for the JWTs, you will also need to generate a policy that has access to your API(s). You can do this in the policies editor.
 

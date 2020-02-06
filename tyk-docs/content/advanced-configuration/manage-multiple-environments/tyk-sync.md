@@ -51,7 +51,7 @@ go install -u github.com/TykTechnologies/tyk-sync
 
 This should make the `tyk-sync` command available to your console.
 
-See our [Tyc-Sync Repo](https://github.com/TykTechnologies/tyk-sync) for more info.
+See our [Tyk-Sync Repo](https://github.com/TykTechnologies/tyk-sync) for more info.
 
 ## Usage
 

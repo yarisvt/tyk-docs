@@ -21,7 +21,6 @@ The file will look like the sample below, the various fields are explained in th
 ``` {.copyWrapper}
 {
   "listen_port": 3000,
-  "notifications_listen_port": 5000,
   "tyk_api_config": {
     "Host": "http://localhost",
     "Port": "8080",
@@ -102,9 +101,7 @@ The file will look like the sample below, the various fields are explained in th
 
 * `listen_port`: Setting this value will change the port that Tyk Dashboard listens on. By default Tyk will try to listen on port `3000`.
 
-* `notifications_listen_port`: port used for WebSocket connections for real-time dashboard notifications. Defaults to `5000`.
-
-> **NOTE**: You may see `net::ERR_CONNECTION_REFUSED` errors in the browser console if you don't have port 5000 open. See [Port 5000 Errors in the Browser Console](/docs/troubleshooting/tyk-dashboard/port-5000-errors/).
+> **NOTE**: You may see `net::ERR_CONNECTION_REFUSED` errors in the browser console if you don't have port 5000 open. See [Port 5000 Errors in the Browser Console](/docs/troubleshooting/tyk-dashboard/port-5000-errors/). Port 5000 is no longer required from v2.9.3.
 
 * `tyk_api_config`: This section contains details for a Tyk Gateway node that the Tyk Dashboard can speak to. The Dashboard controls Tyk using the Gateway API and only requires visibility to one node, so long as all nodes are using the same API Definitions.
     
@@ -119,12 +116,14 @@ The file will look like the sample below, the various fields are explained in th
 *   `tyk_api_config.Secret`: The secret set in your `tyk.conf` file. This is the key that Tyk Dashboard will use to speak to the Tyk node's Gateway API. Note that this value has to match the `secret` value in `tyk.conf`.
 
 
-*   `shared_node_secret`: As of Tyk Gateway **v2.0** and Tyk Dashboard **v1.0** all Tyk API Gateway nodes that are configured to use the Dashboard as a back-end API Definition service (i.e. are managed by a Dashboard) will register with the Dashboard service on load, and claim a node ID that is provided by the license for the Dashboard. Please note that this value should match with [`node_secret`](/docs/tyk-configuration-reference/tyk-gateway-configuration-options/#a-name-node-secret-a-node-secret) Gateway configuration option value.
+*   `shared_node_secret`: As of Tyk Gateway **v2.0** and Tyk Dashboard **v1.0** all Tyk API Gateway nodes that are configured to use the Dashboard as a back-end API Definition service (i.e. are managed by a Dashboard) will register with the Dashboard service on load, and claim a node ID that is provided by the license for the Dashboard.
+
+ > NOTE: This value should match with the [`node_secret`](/docs/tyk-configuration-reference/tyk-gateway-configuration-options/#a-name-node-secret-a-node-secret) Gateway configuration option value.
     
 Each node communicates with the Dashboard via a shared secret (this setting) and a nonce to ensure that out-of-band requests cannot be made. Nodes will send a heartbeat every few seconds to notify the Dashboard that they are running.
 
 *   `admin_secret`: This secret is to be used by a special set of endpoints that we call "Admin APIs". This API is part of the super-admin context and therefore has a separate endpoint prefix `/admin`. It also requires a special auth header called `admin-auth`.
-This purpose of these endpoints is to allow functionality that regular Dashboard users should not have, such as create new organisations, create super users etc. See the [Admin API](https://tyk.io/docs/dashboard-admin-api/) for more information on these endpoints.
+This purpose of these endpoints is to allow functionality that regular Dashboard users should not have, such as create new organisations, create super users etc. See the [Admin API](/docs/dashboard-admin-api/) for more information on these endpoints.
 
 *   `mongo_url`: The full URL to your MongoDB instance, this can be a clustered instance if necessary and should include the database and username / password data.
     
@@ -164,7 +163,7 @@ This purpose of these endpoints is to allow functionality that regular Dashboard
 
 *   `enable_update_key_by_hash`: To update a key by its hash, set this option to `true`.
 
-*  `enable_master_keys`: If this value is set to true, session objects (key definitions) that do not have explicit access rights set will be allowed by Tyk. This means that keys that are created have access to ALL APIs, which in many cases is unwanted behaviour unless you are sure about what you are doing. To use this setting also requires the corresponding Gateway configuration setting [allow_master_keys](/docs/configure/tyk-gateway-configuration-options/#a-name-allow-master-keys-a-allow-master-keys) to be set to `true`.
+*  `enable_master_keys`: If this value is set to true, session objects (key definitions) that do not have explicit access rights set will be allowed by Tyk. This means that keys that are created have access to ALL APIs, which in many cases is unwanted behaviour unless you are sure about what you are doing. To use this setting also requires the corresponding Gateway configuration setting [allow_master_keys](/docs/tyk-configuration-reference/tyk-gateway-configuration-options/#a-name-allow-master-keys-a-allow-master-keys) to be set to `true`.
 
 *   `email_backend`: Tyk supports an interface-based email back-end system.We support `mandrill`, `sendgrid`, `amazonses` and `mailgun`. See [Outbound Email Configuration][4] for more details on configuring these different providers.
 
