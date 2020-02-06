@@ -475,9 +475,39 @@ This section lists the current languages the Dashboard UI supports.
 
 #### <a name="ui.hide_help"></a>ui.hide_help
 
+Set to `true` to hide the help tips.
 
+#### <a name="ui.default_lang"></a>ui.default_lang
 
+This settings sets the default language for the UI. Default setting is `en`. Can be set to any of the other languages listed under `ui.languages`.
 
+### Tyk Internal Cloud Settings
+
+The following settings are used internally by Tyk for our Cloud product, and cannot be configured.
+
+```
+"login_page": {},
+        "nav": {
+            "dont_show_admin_sockets": false,
+            "hide_activity_by_api_section": false,
+            "hide_geo": false,
+            "hide_licenses_section": false,
+            "hide_logs": false,
+            "hide_tib_section": false
+        },
+        "uptime": {},
+        "portal_section": null,
+        "designer": {},
+        "dont_show_admin_sockets": false,
+        "dont_allow_license_management": false,
+        "dont_allow_license_management_view": false,
+        "cloud": false
+```
+Also
+
+```
+"version_check_url": ""
+```
 
 ### <a name="home_dir"></a>home_dir
 
@@ -608,3 +638,4 @@ Audit record fields for `text` format - all fields are in plain text separated w
 Set to `true` to create users in different organisations, using the same email address. Users will then be able to select an organisation when logging in, and can easily switch between organisations via the navigation menu.
 
 > **NOTE**: This is only available for clients with a two node or more Tyk Dashboard licence.
+
