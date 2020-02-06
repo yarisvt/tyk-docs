@@ -483,51 +483,95 @@ This section lists the current languages the Dashboard UI supports.
 
 The path to the home directory of Tyk Dashboard, this must be set in order for Portal templates and other files to be loadable. By default this is `/opt/tyk-dashboard/`.
 
-*   `dashboard_session_lifetime` As of v1.3.6 you can set session timeout for a Dashboard in seconds. Defaults to 1 hour.
+### <a name="dashboard_session_lifetime"></a>dashboard_session_lifetime
 
-*   `portal_session_lifetime`: As of v1.5, you can set portal session life time in seconds.
+As of v1.3.6 you can set session timeout for a Dashboard in seconds. Defaults to 3600 (1 hour).
 
-*   `identity_broker`: Tyk Dashboard 1.0 has some preset Tyk Identity Broker configurations set up, for this integration to work, Tyk Dashboard must be able to see an Identity Broker instance. The settings in this section are to enable this integration.
+### <a name="portal_session_lifetime"></a>portal_session_lifetime
 
-*   `identity_broker.enabled`: Enable the TIB integration (otherwise it will not appear in the UI).
+As of v1.5, you can set portal session life time in seconds.
 
-*   `identity_broker.host`: This section defines the host connection details for TIB.
+### <a name="identity_broker"></a>identity_broker
 
-*   `identity_broker.host.connection_string`: The URL to the host. It must be in the form: `http://domain:port`.
+Tyk Dashboard has some preset Tyk Identity Broker configurations set up, for this integration to work, the Dashboard must be able to see an Identity Broker instance. The settings in this section are to enable this integration.
 
-*   `identity_broker.host.secret`: The shared secret between TIB and the Dashboard. This ensures all API requests between Dashboard and TIB are valid.
+#### <a name="identity_broker.enabled"></a>identity_broker.enabled
 
-*   `allow_explicit_policy_id`: As of v1.1, by default in a Pro installation, Tyk will load Policy IDs and use the internal object-ID as the ID of the policy. This is not portable in cases where the data needs to be moved from installation to installation.
+A boolean setting to enable the TIB integration (otherwise it will not appear in the UI).
+
+#### <a name="identity_broker.host"></a>identity_broker.host
+
+This section defines the host connection details for TIB.
+
+#### <a name="identity_broker.host.connection_string"></a>iidentity_broker.host.connection_string
+
+The URL to the host. It must be in the form: `http://domain:port`.
+
+#### <a name="identity_broker.host.secret"></a>identity_broker.host.secret
+
+The shared secret between TIB and the Dashboard. This ensures all API requests between Dashboard and TIB are valid.
+
+### <a name="allow_explicit_policy_id"></a>allow_explicit_policy_id
+
+By default in a Pro installation, Tyk will load Policy IDs and use the internal object-ID as the ID of the policy. This is not portable in cases where the data needs to be moved from installation to installation.
     
 If you set this value to `true`, then the `id` parameter in a stored policy (or imported policy using the REST API of the Dashboard) will be used instead of the internal ID.
     
 > **Note**: This option should only be used when transporting an installation to a new database.
 
-*   `use_sharded_analytics`: If using the `mongo-pump-selective` pump, where data is written to org-id-specific collections in MongoDB, then enabling this option will switch querying for analytics over to the independent collection entries.
+### <a name="use_sharded_analytics"></a>use_sharded_analytics
 
-*   `enable_aggregate_lookups`: If using the new Aggregate Pump, Tyk Analytics can make use of the newer, faster Analytics lookup, to ensure that this can be made backwards compatible. This option must be set to `true`, in conjunction with the `aggregate_lookup_cutoff` value.
+If using the `mongo-pump-selective` pump, where data is written to org-id-specific collections in MongoDB, then enabling this option will switch querying for analytics over to the independent collection entries.
 
-*   `aggregate_lookup_cutoff`: Set this to a date value of the form `DD/MM/YYYY`. Any analytics queries before this date will fall back to the raw base log data collection (slower). This is to ensure continuity of service and a smooth upgrade process with no loss of data.
+### <a name="enable_aggregate_lookups"></a>enable_aggregate_lookups
 
-*   `disable_parallel_sessions`: If set to `true`, it restricts an account to a single session. When an account logs in, any other open sessions for that account are logged out.
+If using the new Aggregate Pump, Tyk Analytics can make use of the newer, faster Analytics lookup, to ensure that this can be made backwards compatible. This option must be set to `true`, in conjunction with the `aggregate_lookup_cutoff` value.
 
-*   `sso_permission_defaults`: Specify permissions of the user who logged in using Admin SSO API (for example Tyk Identity Broker). See [Dashboard Admin SSO API](/docs/dashboard-admin-api/sso/) for more details.
-*   `sso_custom_login_url`: Specify a custom dashboard login URL if you are using 3rd party authentication like TIB.
-*   `sso_custom_portal_login_url`: Specify custom portal login URL if you are using 3rd party authentication like TIB.
+### <a name="aggregate_lookup_cutoff"></a>aggregate_lookup_cutoff
 
-*   `enable_multi_org_users`: As of 1.8, this enables the ability to share users across multiple organisations in a Tyk Dashboard Installation (Note: requires > 2 node licence). 
+Set this to a date value of the form `DD/MM/YYYY`. Any analytics queries before this date will fall back to the raw base log data collection (slower). This is to ensure continuity of service and a smooth upgrade process with no loss of data.
+
+### <a name="disable_parallel_sessions"></a>disable_parallel_sessions
+
+If set to `true`, it restricts an account to a single session. When an account logs in, any other open sessions for that account are logged out.
+
+### <a name="sso_permission_defaults"></a>sso_permission_defaults
+
+Specify permissions of the user who logged in using Admin SSO API (for example Tyk Identity Broker). See [Dashboard Admin SSO API](/docs/dashboard-admin-api/sso/) for more details.
+
+### <a name="sso_custom_login_url"></a>sso_custom_login_url
+
+Specify a custom dashboard login URL if you are using 3rd party authentication like TIB.
+
+### <a name="sso_custom_portal_login_url"></a>sso_custom_portal_login_url
+
+Specify custom portal login URL if you are using 3rd party authentication like TIB.
+
+### <a name="enable_multi_org_users"></a>enable_multi_org_users
+
+As of v1.8, this setting enables the ability to share users across multiple organisations in a Tyk Dashboard Installation (Note: requires > 2 node licence).
+
+### <a name="audit"></a>audit
+
+This section specifies settings for audit logging. All Dashboard API requests with URI starting with `/api` will be logged in audit log.
 
 > **NOTE:** `audit` is available from v1.8 onwards
 
-*   `audit`: This section specifies settings for audit logging. All Dashboard API requests with URI starting with `/api` will be logged in audit log.
+#### <a name="audit.enabled"></a>audit.enabled
 
-*   `audit.enabled`: Enables audit logging, set to `false` by default. NOTE: setting value `security.audit_log_path` has the same effect as setting `enabled` to `true`
+Enables audit logging, set to `false` by default. NOTE: setting value `security.audit_log_path` has the same effect as setting `enabled` to `true`.
 
-*   `audit.format`: Specifies the format of audit log file, possible values are `json` and `text` (`text` is default value)
+#### <a name="audit.format"></a>audit.format
 
-*   `audit.path`: Specifies path to file with audit log, overwrites value `security.audit_log_path` if it was set
+Specifies the format of audit log file, possible values are `json` and `text` (`text` is default value).
 
-*   `audit.detailed_recording`: Enables detailed records in audit log, by defaultt set to `false`. If set to `true` then audit log records will contain http-request (without body) and full http-response including body
+#### <a name="audit.path"></a>audit.path
+
+Specifies the path to file for the audit log, and overwrites the `security.audit_log_path` value if it was set.
+
+#### <a name="audit.detailed_recording"></a>audit.detailed_recording
+
+Enables detailed records in audit log, by defaultt set to `false`. If set to `true` then audit log records will contain HTTP request (without body) and full HTTP response (including body).
 
 Audit record fields for `json` format:
 
@@ -559,7 +603,8 @@ Audit record fields for `json` format:
 
 Audit record fields for `text` format - all fields are in plain text separated with new line and provided in the same order as fields for `json` format.
 
-*  `enable_multi_org_users`: Set to `true` to create users in different organisations, using the same email address. Users will then be able to select an organisation when logging in, and can easily switch between organisations via the navigation menu.
+### <a name="enable_multi_org_users"></a>enable_multi_org_users
+
+Set to `true` to create users in different organisations, using the same email address. Users will then be able to select an organisation when logging in, and can easily switch between organisations via the navigation menu.
 
 > **NOTE**: This is only available for clients with a two node or more Tyk Dashboard licence.
-
