@@ -11,7 +11,7 @@ Sometimes you may be exposing an older API, or one that uses a legacy structure 
 
 Our body transform middleware uses the Go template language. See [Godoc](https://golang.org/pkg/text/template/) to learn more and a useful [blogpost](https://blog.gopheracademy.com/advent-2017/using-go-templates/) on using Go templates.
 
-As of Tyk 1.5 it is possible to modify inbound JSON requests and as of v2.2, XML requests using a Golang template.
+As of Tyk v1.5 it is possible to modify inbound JSON requests and as of v2.2, XML requests using a Golang template.
 
 ## <a name="with-api"></a> Modification with API Definition
 
@@ -182,9 +182,9 @@ You get this output:
   "Beijing_VPN": "127.0.0.2"
 }
 ```
-## <a name="meta-data"></a> Meta Data
+## <a name="meta-data"></a> Metadata
 
-It is also possible to insert key meta data into a body transform, you can do this by calling the `._tyk_meta.KEYNAME` namespace, e.g.:
+It is also possible to insert key metadata into a body transform, you can do this by calling the `._tyk_meta.KEYNAME` namespace, e.g.:
 
 ```{.copyWrapper}
 {

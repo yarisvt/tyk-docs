@@ -143,7 +143,7 @@ Accessing a path which has **not** been whitelisted:
 
 In some cases you will want to set global settings that happen to all paths that are managed by Tyk. The **Global Version Settings** section will enable you to perform a common API management task of injecting custom headers into request data.
 
-These headers can also include **meta-data that is part of the session object** to better qualify the inbound request.
+These headers can also include **metadata that is part of the session object** to better qualify the inbound request.
 
 ### Versions
 
