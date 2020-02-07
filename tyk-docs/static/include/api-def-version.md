@@ -1,6 +1,6 @@
 Tyk lets you version your API and apply access policies to versions, for example, if you have an API v1 that has a `/widgets` endpoint that is deprecated in v2, you can blacklist that endpoint so that requests to it are stopped before they hit your system.
 
-In the same vein, you can white-list and ignore paths completely.
+In the same vein, you can whitelist and ignore paths completely.
 
 ## API Version Definition
 
@@ -91,7 +91,7 @@ Each version of your API should be defined here with a unique name. This name is
 * `version_data.{version-name}.override_target`: Setting this value will override the target of the API for this version, overriding the target will invalidate (and is not compatible with) Round Robin Load balancing and Service Discovery.
 * `version_data.{version-name}.use_extended_paths`: Set this value to `true` to use the new extended-paths feature. This will eventually become the default mode of operation.
 
-Extended paths allow you to control which upstream paths are to be handled in a specific way (ignored, as part of white list or black list) by both path and method. The extended meta-data set also allows you to provide forced reply data to override or trap inbound requests for specific versions. This is very useful for mocking or slowly exposing a development API to a live upstream back end.
+Extended paths allow you to control which upstream paths are to be handled in a specific way (ignored, as part of white list or black list) by both path and method. The extended metadata set also allows you to provide forced reply data to override or trap inbound requests for specific versions. This is very useful for mocking or slowly exposing a development API to a live upstream back end.
     
 Each entry in the ignored, blacklist and whitelist have the same specification. The path specification has the following format:
 

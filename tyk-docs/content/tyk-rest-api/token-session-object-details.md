@@ -102,7 +102,7 @@ A session object takes the following form:
 
 * `monitor`: Rate monitor trigger settings, defined elsewhere in the documentation.
 
-* `meta_data`: Meta data to be included as part of the session, this is a key/value string map that can be used in other middleware such as transforms and header injection to embed user-specific data into a request, or alternatively to query the providence of a key.
+* `meta_data`: Metadata to be included as part of the session, this is a key/value string map that can be used in other middleware such as transforms and header injection to embed user-specific data into a request, or alternatively to query the providence of a key.
 
 * `tags`: Tags are embedded into analytics data when the request completes. If a policy has tags, those tags will supersede the ones carried by the token (they will be overwritten).
 

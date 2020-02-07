@@ -8,7 +8,7 @@
 
 * `jwt_identity_base_field`: Identifies the user or identity to be used in the Claims of the JWT. This will fallback to `sub` if not found. This field forms the basis of a new "virtual" token that gets used after validation. It means policy attributes are carried forward through Tyk for attribution purposes.
     
-Centralised JWTs add a `TykJWTSessionID` to the session meta data on create to enable upstream hosts to work with the internalised token should things need changing.
+Centralised JWTs add a `TykJWTSessionID` to the session metadata on create to enable upstream hosts to work with the internalised token should things need changing.
 
 * `jwt_policy_field_name`: The policy ID to apply to the virtual token generated for a JWT.
 

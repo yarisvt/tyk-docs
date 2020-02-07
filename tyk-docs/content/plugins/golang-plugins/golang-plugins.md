@@ -51,7 +51,7 @@ We see that the Golang plugin:
 
 ### Building a Golang plugin
 
-A specific of Golang plugins is that they need to be built using exactly the same Tyk binary as the one to be installed. In order to make it work, we provide a special docker image, which we internally use for building our official binaries too.
+A specific of Golang plugins is that they need to be built using exactly the same Tyk binary as the one to be installed. In order to make it work, we provide a special Docker image, which we internally use for building our official binaries too.
 
 Just mount your plugin directory to the `/go/src/plugin-build` image location, and specify your Tyk version via a docker tag. The final argument is the plugin name. For the example command below, if run from the same directory as your plugin code, this will build a plugin named `post.so`, for Tyk Gateway 2.9.3:
 
@@ -386,7 +386,7 @@ curl -v -H "Authorization: abc" http://localhost:8181/my_api_name/get
 
 Here we see that our custom middleware successfully authenticated the request and we received a reply from the upstream target.
 
-### Logging from Golang plugin
+### Logging from a Golang plugin
 
 Your Golang plugin can write log entries as part of Tyk's logging system.
 
@@ -416,7 +416,7 @@ func main() {}
 
 All custom middleware implemented as Golang plugins support Tyk's current  built in instrumentation.
 
-The format for an event name with meta data is: `"GoPluginMiddleware:" + Path + ":" + SymbolName`,  e.g., for our example the event name will be:
+The format for an event name with metadata is: `"GoPluginMiddleware:" + Path + ":" + SymbolName`,  e.g., for our example the event name will be:
 
 ```go
 "GoPluginMiddleware:/tmp/AddFooBarHeader.so:AddFooBarHeader"
