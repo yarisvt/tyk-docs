@@ -4,8 +4,8 @@ date: 2019-09-23T10:28:52+03:00
 weight: 12
 menu:
   main:
-    parent: "Concepts"
-url: "/concepts/grpc-proxy"
+    parent: "Key Concepts"
+url: "/key-concepts/grpc-proxy"
 ---
 
 ### Using Tyk as a gRPC Proxy
