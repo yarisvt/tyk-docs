@@ -22,7 +22,7 @@ Run the following command in your preferred MongoDB tool:
 ```{.copyWrapper}
 db.tyk_analytics.createIndex( { "expireAt": 1 }, { expireAfterSeconds: 0 } )
 ```
-This [command](https://docs.mongodb.com/manual/tutorial/expire-data/#expire-documents-at-a-specific-clock-time) sets the value of `expireAt` to correspond to the time the document should expire. MongoDB will automatically delete documents from the `tyk_analytics` collection 0 seconds after the `expireAt` time in the document. The `expireAt` will be calculated and creeated by Tyk in the following step.
+This [command](https://docs.mongodb.com/manual/tutorial/expire-data/#expire-documents-at-a-specific-clock-time) sets the value of `expireAt` to correspond to the time the document should expire. MongoDB will automatically delete documents from the `tyk_analytics` collection 0 seconds after the `expireAt` time in the document. The `expireAt` will be calculated and created by Tyk in the following step.
 
 ### Step 2. Create an Organisation Quota
 

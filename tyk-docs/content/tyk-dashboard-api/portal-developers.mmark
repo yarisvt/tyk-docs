@@ -64,7 +64,58 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 }
 ```
 
-## Add a Developer Record
+### Retrieve a developer object by ID
+
+| **Property** | **Description**               |
+| ------------ | ----------------------------- |
+| Resource URL | `/api/portal/developers/{id}` |
+| Method       | GET                           |
+| Type         | None                          |
+| Body         | Developer Object              |
+| Param        | None                          |
+
+#### Sample Request
+
+```{.copyWrapper}
+GET /api/portal/developers/5e397e714ea461ef1d474efa HTTP/1.1
+Host: localhost
+authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
+```
+
+#### Sample Response
+
+```
+{
+  "id": "5e397e714ea461ef1d474efa",
+  "email": "blip@blop.com",
+  "date_created": "2020-02-04T16:23:44.936+02:00",
+  "inactive": false,
+  "org_id": "5a79019d4ea461cdd0c77480",
+  "keys": {},
+  "subscriptions": {},
+  "fields": {},
+  "nonce": "",
+  "sso_key": "",
+  "oauth_clients": {
+    "5e397e804ea461ef1d474efb": [
+      {
+        "client_id": "bf27562a806d4ee1976c11b69e154a88",
+        "secret": "NzNiY2M0NWYtNmIwMi00ZjE4LWJhODMtNTc3YzlhMmQyY2I3",
+        "redirect_uri": "http://my_redirect_url",
+        "app_description": "My App",
+        "use_case": "My use case",
+        "date_created": "2020-02-04T16:24:21.939+02:00"
+      }
+    ]
+  },
+  "password_max_days": 0,
+  "password_updated": "2020-02-04T16:23:45.014+02:00",
+  "PWHistory": [],
+  "last_login_date": "2020-02-04T16:23:00Z"
+}
+```
+
+### Add a Developer Record
 
 | **Property** | **Description**               |
 | ------------ | ----------------------------- |

@@ -15,7 +15,7 @@ The code used in this tutorial is also available in [this GitHub repository](htt
 
 ## <a name="requirements"></a>Requirements
 
-* Tyk API Gateway: This can be installed using standard package management tools like Yum or APT, or from source code. See [here](https://tyk.io/docs/get-started/with-tyk-on-premise/installation/) for more installation options.
+* Tyk API Gateway: This can be installed using standard package management tools like Yum or APT, or from source code. See [here](/docs/getting-started/installation/with-tyk-on-premises/) for more installation options.
 
 ### Dependencies
 
@@ -53,6 +53,8 @@ This file should be named "manifest.json" and needs to have the following conten
 * The `name` field references the name of the function that we implement in our plugin code: `MyAuthMiddleware`.
 * We add an additional file called `middleware.py`, this will contain the main implementation of our middleware.
 
+ > **NOTE**: Your bundle should always contain a file named `middleware.py` as this is the entrypoint file.
+
 ### Contents of middleware.py
 
 We import decorators from the Tyk module this gives us the `Hook` decorator, and we import [Tyk Python API helpers](/docs/plugins/rich-plugins/python/tyk-python-api-methods/)
@@ -89,7 +91,7 @@ For Tyk 2.8 use:
 
 `/opt/tyk-gateway/bin/tyk bundle build -y`
 
-A plugin bundle is a packaged version of the plugin, it may also contain a cryptographic signature of its contents. The `-y` flag tells the Tyk CLI tool to skip the signing process in order to simplify the flow of this tutorial. For more information on the Tyk CLI tool, see [here](https://tyk.io/docs/customise-tyk/plugins/rich-plugins/plugin-bundles/#using-the-bundler-tool).
+A plugin bundle is a packaged version of the plugin, it may also contain a cryptographic signature of its contents. The `-y` flag tells the Tyk CLI tool to skip the signing process in order to simplify the flow of this tutorial. For more information on the Tyk CLI tool, see [here](docs/plugins/rich-plugins/plugin-bundles/#using-the-bundler-tool).
 
 You should now have a `bundle.zip` file in the plugin directory.
 

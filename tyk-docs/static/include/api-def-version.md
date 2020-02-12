@@ -1,6 +1,6 @@
 Tyk lets you version your API and apply access policies to versions, for example, if you have an API v1 that has a `/widgets` endpoint that is deprecated in v2, you can blacklist that endpoint so that requests to it are stopped before they hit your system.
 
-In the same vein, you can white-list and ignore paths completely.
+In the same vein, you can whitelist and ignore paths completely.
 
 ## API Version Definition
 
@@ -85,13 +85,13 @@ PATH2: (.*)
 }
 ```
 
-Each version of your API should be defined here with a unique name. This name is what will be matched by `definition.key`. Once Tyk has identified the API to load, and has allowed the access key through, it will check the access token's session data for access permissions. If it finds none, it will let the token through. However, if there are permissions and versions defined, it will be strict in **only** allowing access to that version. For more information about handling access control, see the [Security - Your APIs](https://tyk.io/docs/security/your-apis/) section.
+Each version of your API should be defined here with a unique name. This name is what will be matched by `definition.key`. Once Tyk has identified the API to load, and has allowed the access key through, it will check the access token's session data for access permissions. If it finds none, it will let the token through. However, if there are permissions and versions defined, it will be strict in **only** allowing access to that version. For more information about handling access control, see the [Security - Your APIs](/docs/basic-config-and-security/security/your-apis/) section.
 
 * `version_data.{version-name}.expires`: The expires header, if set, will deprecate access to the API after the time specified. The entry here takes the form of: `"YYYY-MM-DD HH:MM"`. If this is not set the version will never expire.
 * `version_data.{version-name}.override_target`: Setting this value will override the target of the API for this version, overriding the target will invalidate (and is not compatible with) Round Robin Load balancing and Service Discovery.
 * `version_data.{version-name}.use_extended_paths`: Set this value to `true` to use the new extended-paths feature. This will eventually become the default mode of operation.
 
-Extended paths allow you to control which upstream paths are to be handled in a specific way (ignored, as part of white list or black list) by both path and method. The extended meta-data set also allows you to provide forced reply data to override or trap inbound requests for specific versions. This is very useful for mocking or slowly exposing a development API to a live upstream back end.
+Extended paths allow you to control which upstream paths are to be handled in a specific way (ignored, as part of white list or black list) by both path and method. The extended metadata set also allows you to provide forced reply data to override or trap inbound requests for specific versions. This is very useful for mocking or slowly exposing a development API to a live upstream back end.
     
 Each entry in the ignored, blacklist and whitelist have the same specification. The path specification has the following format:
 
@@ -413,4 +413,4 @@ The transform is handled by the other two options, which can use any valid regex
 * `version_data.{version-name}.extended_paths.url_rewrites.rewrite_to`: This is the path structure to rewrite to, use `$1`, `$2`, *`$n`* to specify which group to reference in the new URL.
 
 * `version_data.{version-name}.extended_paths.virtual`: This section specifies the paths that should execute a "virtual" path, for example, execute a blob of JavaScript to perform some kind of function in the API. These can be anything from mock responses to aggregates. See [Virtual Endpoints](https://tyk.io/docs/compose-apis/virtual-endpoints/) for more details.
-See [Versioning](https://tyk.io/docs/concepts/versioning/) for more details on versioning your APIs.
+See [Versioning](/docs/getting-started/key-concepts/versioning/) for more details on versioning your APIs.

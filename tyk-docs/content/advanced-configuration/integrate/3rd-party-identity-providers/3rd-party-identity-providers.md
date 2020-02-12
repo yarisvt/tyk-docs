@@ -9,7 +9,7 @@ url: "/advanced-configuration/integrate/3rd-party-identity-providers"
 ---
 
 ## <a name="dashboard-sso"></a>Dashboard SSO API
-The Dashboard exposes a special API to implement custom authentications for the Dashboard and Portal. See the [Docs](/docs/dashboard-admin-api/sso).
+The Dashboard exposes a special API to implement custom authentications for the Dashboard and Portal. See the [Dashboard Admin API](/docs/dashboard-admin-api/sso) for more details.
 
 You can use the `sso_permission_defaults` dashboard configuration option to configure the permissions of users created via SSO API. See the SSO API docs above.
 
@@ -25,7 +25,7 @@ Internally the TIB uses the  Dashboard SSO API mentioned above.
 
 ### How it works
 
-Tyk Identity Broker provides a simple API, which traffic can be sent *through*to the API and the API will match the request to a *profile* which then exposes two things:
+Tyk Identity Broker provides a simple API, which traffic can be sent *through* to the API and the API will match the request to a *profile* which then exposes two things:
 
 *   An Identity Provider - the thing that will authorize a user and validate their identity
 *   An Identity Handler - the thing that will authenticate a user with a delegated service (in this case, Tyk)

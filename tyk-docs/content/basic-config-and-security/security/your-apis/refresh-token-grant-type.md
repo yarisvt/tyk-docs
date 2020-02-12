@@ -5,7 +5,7 @@ menu:
   main:
     parent: "OAuth 2.0"
 weight: 2
-url: "/security/your-apis/oauth2.0/refresh-token-grant"
+url: "/basic-config-and-security/security/your-apis/oauth2.0/refresh-token-grant"
 ---
 
 The Refresh Token grant type uses the refresh token to generate a new token.

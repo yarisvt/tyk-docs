@@ -21,6 +21,8 @@ Golang plugins are a very flexible and powerful way to extend the functionality 
 
 Every HTTP request (to your API, protected and managed by Tyk) gets passed through a chain of built-in middleware inside Tyk. This middleware performs tasks like authentication, rate limiting, white or black listing and many others - it depends on the particular API specification. In other words the chain of middleware is specific to an API and gets created at API re-load time. Golang plugins allow developers to create custom middleware in Golang and then add them to the chain of middleware. So when Tyk performs an API re-load it also loads the custom middleware and "injects" them into a chain to be called at different stages of the HTTP request life cycle.
 
+It's also possible to access the API definition data structure from within a plugin, this functionality is described in [Accessing API definition from a plugin](#accessing-api-definition-from-a-golang-plugin).
+
 ### Golang Plugin example
 
 Let's create a plugin with very basic functionality:
@@ -51,12 +53,12 @@ We see that the Golang plugin:
 
 ### Building a Golang plugin
 
-A specific of Golang plugins is that they need to be built using exactly the same Tyk binary as the one to be installed. In order to make it work, we provide a special docker image, which we internally use for building our official binaries too.
+A specific of Golang plugins is that they need to be built using exactly the same Tyk binary as the one to be installed. In order to make it work, we provide a special Docker image, which we internally use for building our official binaries too.
 
-Just mount your plugin directory to the `/plugin-source` image location, and specify your Tyk version via a docker tag. The final argument is the plugin name. For the example command below, if run from the same directory as your plugin code, this will build a plugin named `post.so`, for Tyk Gateway 2.9.0:
+Just mount your plugin directory to the `/plugin-source` image location, and specify your Tyk version via a Docker tag. The final argument is the plugin name. For the example command below, if run from the same directory as your plugin code this will build a plugin named `post.so`, for Tyk Gateway 2.9.3:
 
 ```.bash
-docker run --rm -v `pwd`:/plugin-source tyk-plugin-compiler:2.9.0 post.so`
+docker run --rm -v `pwd`:/plugin-source tyk-plugin-compiler:2.9.3 post.so`
 ```
 
 If you are building a plugin for a Gateway version compiled from the source, you can use the following command:
@@ -385,7 +387,7 @@ curl -v -H "Authorization: abc" http://localhost:8181/my_api_name/get
 
 Here we see that our custom middleware successfully authenticated the request and we received a reply from the upstream target.
 
-### Logging from Golang plugin
+### Logging from a Golang plugin
 
 Your Golang plugin can write log entries as part of Tyk's logging system.
 
@@ -415,7 +417,7 @@ func main() {}
 
 All custom middleware implemented as Golang plugins support Tyk's current  built in instrumentation.
 
-The format for an event name with meta data is: `"GoPluginMiddleware:" + Path + ":" + SymbolName`,  e.g., for our example the event name will be:
+The format for an event name with metadata is: `"GoPluginMiddleware:" + Path + ":" + SymbolName`,  e.g., for our example the event name will be:
 
 ```go
 "GoPluginMiddleware:/tmp/AddFooBarHeader.so:AddFooBarHeader"
@@ -517,7 +519,7 @@ func main() {}
 Here we see how the internal state of the Golang plugin is used by the exported function `MyProcessRequest` (the one we set in the API spec in the `"custom_middleware"` section). The map `hitCounter` is used to send internal state and count hits to different endpoints. Then our exported Golang plugin function sends a HTTP reply with endpoint hit statistics.
 
 ### Loading a Tyk Golang plugin from a bundle
-So far we have loaded Golang plugins only directly from file system. You can also use Tyk's bundle instrumentation (see [Plugin Bundles](/docs/customise-tyk/rich-plugins/plugin-bundles.md) for more details). You can deploy your Tyk Golang plugins to special HTTP-server and then your plugins will be fetched and loaded from that HTTP endpoint.
+So far we have loaded Golang plugins only directly from file system. You can also use Tyk's bundle instrumentation (see [Plugin Bundles](/docs/plugins/rich-plugins/plugin-bundles/) for more details). You can deploy your Tyk Golang plugins to special HTTP-server and then your plugins will be fetched and loaded from that HTTP endpoint.
 
 You will need to set in `tyk.conf` these two fields:
 
@@ -564,7 +566,7 @@ Here we see:
 * field `"path"` in section `"post"` now contains just a file name without any path. This field specifies `.so` filename placed in ZIP archive with bundle (remember how we specified `"custom_middleware_bundle": "FooBarBundle.zip"`).
 
 #### How to build bundle with Golang plugin
-You will need to use a special [Bundler tool](/docs/customise-tyk/rich-plugins/plugin-bundles.md#bundler-tool) to create bundles with Golang plugins. 
+You will need to use a special [Bundler tool](/docs/rich-plugins/plugin-bundles.md#bundler-tool) to create bundles with Golang plugins. 
 
 ### Reloading Tyk Golang plugin
 Sometimes you will need to update your Golang plugin with a new version. There are two ways to do this:
@@ -573,3 +575,22 @@ Sometimes you will need to update your Golang plugin with a new version. There a
 * Tyk main process reload. This will force a reload of all Golang plugins for all APIs.
 
 If a plugin is loaded as a bundle and you need to update it you will need to update your API spec with new `.zip` file name in the `"custom_middleware_bundle"` field. Make sure the new `.zip` file is uploaded and available via the bundle HTTP endpoint before you update your API spec.
+
+### Accessing API definition from a Golang plugin
+
+When Tyk passes a request to your plugin, the API definition is made available as part of the request context. This can be accessed as follows:
+
+```go
+package main
+import (
+	"fmt"
+	"net/http"
+	"github.com/TykTechnologies/tyk/ctx"
+)
+func main() {}
+func MyPluginFunction(w http.ResponseWriter, r *http.Request) {
+	apidef := ctx.GetDefinition(r)
+  fmt.Println("API name is", apidef.Name)
+}
+```
+`ctx.GetDefinition` returns an APIDefinition object, the Go data structure can be found [here](https://github.com/TykTechnologies/tyk/blob/master/apidef/api_definitions.go#L351)

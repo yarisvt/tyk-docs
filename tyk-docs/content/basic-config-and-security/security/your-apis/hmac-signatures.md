@@ -91,6 +91,23 @@ You can edit the length of the clock skew in the API Definition by setting the `
 
 HMAC Signing is a good way to secure an API if message reliability is paramount, it goes without saying that all requests should go via TLS/SSL to ensure that MITM attacks can be minimised. There are many ways of managing HMAC, and because of the additional encryption processing overhead requests will be marginally slower than more standard access methods.
 
+## Setting up HMAC using the Dashboard
+
+To enable the use of HMAC Signing in your API from the Dashboard:
+
+1. Select your API from the **System Management > APIs** menu
+2. Scroll to the **Authentication** options
+3. Select **HMAC (Signed Authetication Key)** from the drop-down list
+4. Configure your **HMAC Request Signing** settings.
+5. Select **Strip Authorization Data** to strip any authorization data from your API requests.
+6. Tyk will by default assume you are using the `Authorization` header, but you can change this by setting the **Auth Key Header** name value
+7. You can select whether to use a URL query string parameter as well as a header, and what parameter to use. If this is left blank, it will use the **Auth Key Header** name value.
+8. You can select whether to use a **cookie value**. If this is left blank, it will use the Header name value.
+
+
+![Target Details: HMAC](/docs/img/dashboard/system-management/hmac_auth2.9.3.png)
+
+
 #### Setting up HMAC using an API Definition
 
 To enable HMAC on your API, first you will need to set the API definition up to use the method, this is done in the API Definition file/object:

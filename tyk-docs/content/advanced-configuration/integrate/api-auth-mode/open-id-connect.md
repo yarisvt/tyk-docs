@@ -25,9 +25,9 @@ With this flow, Tyk does not need to be aware of the user or the token in advanc
 
 ### Auth0 example flow
 
-[Worked Example: API with OpenIDC Using Auth0](/docs/integrate/api-auth-mode/oidc-auth0-example/)
+[Worked Example: API with OpenIDC Using Auth0](/docs/advanced-configuration/integrate/api-auth-mode/oidc-auth0-example/)
 
-![Tyk OpenID Connect with Auth0][1]
+![Tyk OpenID Connect with Auth0](/docs/img/diagrams/openid_connect.png)
 
 #### Behaviour - Internal Tokens
 
@@ -94,13 +94,10 @@ You can also map your JWT scope to your policies from the **API Designer**.
 
 1. Create a new API or edit an existing API that has the **Authentication mode** set to **JSON Web Token (JWT)**.
 2. At the bottom of the **Core Settings** tab, select **Use Scope Claim**.
-![Use Scope Claim][2]
+![Use Scope Claim](/docs/img/dashboard/system-management/jwt_scope_claim.png)
 3. Enter a **Scope Name** for your scope. For example "admin" in the above example.
 4. Enter a **Claim Name** for your scope. This is the equivalent to setting `jwt_scope_claim_name` above.
 5. Select an available policy from the **Policies** drop-down list. This is the equivalent to setting `jwt_scope_to_policy_mapping` above.
 6. Click add to save the scope claim.
 7. Repeat this process for all the scope claims you want to add to the API.
 8. Click **Update** to save the new settings for your API.
-
- [1]: /docs/img/diagrams/openid_connect.png
- [2]: /docs/img/dashboard/system-management/jwt_scope_claim.png
