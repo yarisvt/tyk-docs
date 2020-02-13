@@ -17,6 +17,8 @@ To get started make sure you have:
 1. A Tyk Multi-Cloud account. Click [here](/docs/getting-started/installation/with-tyk-multi-cloud/create-an-account/) for details of how to create one
 2. A subscription to the [Tyk Hybrid Gateway AMI from the AWS Marketplace](https://aws.amazon.com/marketplace/pp/B07BVPCL4R)
 
+The steps below outline the Hybrid AMI install, though there is a [docker image](https://github.com/TykTechnologies/tyk-hybrid-docker) for the Hybrid Gateway
+
 ## <a name="quick-setup"></a>Quick setup
 
 This guide assumes the "1-Click" install was selected on the Marketplace and an instance is already running. At the end we also provide several "user data" samples for use through `cloud-init` [automation](#automation), and of course any automation tool of choice can be used with our AMIs.
