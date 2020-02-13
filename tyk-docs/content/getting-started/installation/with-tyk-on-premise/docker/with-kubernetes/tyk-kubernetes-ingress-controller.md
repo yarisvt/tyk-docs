@@ -5,9 +5,6 @@ menu:
     parent: "With Docker"
 weight: 2
 ---
-
-
-
 So, you want to run Tyk on Kubernetes? Well, we have you covered. Tyk has a dedicated Kubernetes controller that enables you to use Tyk in two key ways:
 
 1. As a traditional Ingress controller (yes, even supporting TLS certificates) to manage your north-south traffic
@@ -23,13 +20,11 @@ In this article we will cover:
 
 ## Prerequisites
 
-Either:
-
-* A Tyk [Community Edition (CE) Installation](/docs/getting-started/installation/with-tyk-community-edition/)
-* A Tyk [On-Premises Pro Edition Installation](/docs/getting-started/installation/with-tyk-on-premises/)
+* Either a Tyk [Community Edition (CE) Installation](/docs/getting-started/installation/with-tyk-community-edition/), or a Tyk [On-Premises Pro Edition Installation](/docs/getting-started/installation/with-tyk-on-premises/) with an appropriate [licence](/docs/getting-started/licencing/#on-premises-licencing).
 
 * Redis installed in the cluster or reachable from K8s
 * MongoDB installed in the cluster, or reachable from inside K8s
+* Helm. If you are deploying dependency databases or Tyk components via Helm Charts, you will need to ensure that Helm is installed on your host / bastion machine
 
  > NOTE: Our Community Edition chart currently installs the Tyk Pump configured with a MongoDB sink. So it's not necessary for the CE Gateway to function, but the Pump will fail without it.
 
