@@ -135,7 +135,7 @@ export DASH_HTTPS=""
 kubectl get pods --all-namespaces
 ```
 
-## Step Eleven - Bootstrap the dashboard
+## Step Eleven - Bootstrap the Dashboard
 
 ```{.copyWrapper}
 ./tyk-pro/scripts/bootstrap_k8s.sh $DASH_URL 12345 tyk-ingress $DASH_HTTPS
