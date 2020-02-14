@@ -17,7 +17,7 @@ Good news, Tyk supports this!
 
 ## <a name="how"></a> How it works
 
-The Tyk Identity Broker (TIB) is an open-source project which can be used to integrate Tyk authentication with 3rd party identity providers (IDPs). You can use this to enable your Dashboard to authenticate users with your LDAP-powered identity providers such as Active Directory. TIB has been designed as a glue-code solution, so it can integrate with almost any identity provider (IDP). See [Tyk Identity Broker Configuration](https://tyk.io/docs/configure/tyk-identity-broker-configuration/) for details on configuring the TIB.
+The Tyk Identity Broker (TIB) is an open-source project which can be used to integrate Tyk authentication with 3rd party identity providers (IDPs). You can use this to enable your Dashboard to authenticate users with your LDAP-powered identity providers such as Active Directory. TIB has been designed as a glue-code solution, so it can integrate with almost any identity provider (IDP). See [Tyk Identity Broker Configuration](/docs/tyk-configuration-reference/tyk-identity-broker-configuration/) for details on configuring the TIB.
 
 ### The High Level TIB Flow:
 
@@ -31,7 +31,7 @@ The Tyk Identity Broker (TIB) is an open-source project which can be used to int
 
 ## <a name="implementation"></a>Step-by-step implementation guide
 
-This guide assumes you already have a Tyk environment set up, with a Gateway and Dashboard. If you don't, please follow the [Tyk On-Premises getting started guide](https://tyk.io/docs/get-started/with-tyk-on-premise/).
+This guide assumes you already have a Tyk environment set up, with a Gateway and Dashboard. If you don't, please follow the [Tyk On-Premises getting started guide](/docs/getting-started/installation/with-tyk-on-premises/).
 
 The environment used for this guide is, for simplicity's sake, all contained on a single host running Ubuntu 14.04. The hostname `my-tyk-instance.com` has been set to point at `127.0.0.1`. For production environments it is recommended that each component is hosted separately and appropriate security measures are used such as HTTPS to secure connections.
 
@@ -252,7 +252,7 @@ Now that we have TIB installed and configured, Nginx installed and hosting our c
 
 ## <a name="test"></a> Using the TIB REST API
 
-When TIB is running you can use its REST API. See the [TIB REST API documentation](https://tyk.io/docs/integrate/3rd-party-identity-providers/tib-rest-api/) for a full description of each endpoint.
+When TIB is running you can use its REST API. See the [TIB REST API documentation](/docs/advanced-configuration/integrate/3rd-party-identity-providers/tib-rest-api/) for a full description of each endpoint.
 
 For example, to retrieve the LDAP profile we have used in this example:
 

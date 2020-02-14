@@ -8,7 +8,7 @@
 
 * `jwt_identity_base_field`: Identifies the user or identity to be used in the Claims of the JWT. This will fallback to `sub` if not found. This field forms the basis of a new "virtual" token that gets used after validation. It means policy attributes are carried forward through Tyk for attribution purposes.
     
-Centralised JWTs add a `TykJWTSessionID` to the session meta data on create to enable upstream hosts to work with the internalised token should things need changing.
+Centralised JWTs add a `TykJWTSessionID` to the session metadata on create to enable upstream hosts to work with the internalised token should things need changing.
 
 * `jwt_policy_field_name`: The policy ID to apply to the virtual token generated for a JWT.
 
@@ -27,4 +27,4 @@ You can disable the validation check on 3 claims `IssueAt`, `ExpireAt` and `NotB
   "jwt_disable_not_before_validation": true
 ```
 
-See [JSON Web Tokens](https://tyk.io/docs/security/your-apis/json-web-tokens/) for more details.
+See [JSON Web Tokens](/docs/basic-config-and-security/security/your-apis/json-web-tokens/) for more details.

@@ -13,7 +13,7 @@ Tyk has two methods you can use to enable OAuth 2.0
 
 ### Option 1 - use standard auth tokens
 
-The first is to integrate a standard OAuth 2.0 flow into your application using one of the many OAuth libraries that exist for popular frameworks and languages. And then when your API issues a token, use the Tyk REST API to create a key session for your own generated key.
+The first is to integrate a standard OAuth 2.0 flow into your application using one of the many OAuth libraries that exist for popular frameworks and languages. And then when your API issues a token, use the Tyk Gateway REST API to create a key session for your own generated key.
 
 Set up your API to use Auth Token as the Authentication Mode and set the Authorisation header to be `Authorization`, Tyk will now treat the `auth_token` as any other, respecting it's expiry date and any access control mechanisms that may be in place. It may be the case that you will need to put the OAuth `/access` and `/authorize` endpoints into the `ignored_paths` list of your API version to ensure that those requests reach your API.
 
@@ -25,10 +25,10 @@ Tyk can act as a full blown OAuth 2.0 provider for Authorisation an access token
 
 Tyk supports the following grant types:
 
-- [Authorization Code](/docs/security/your-apis/oauth2.0/auth-code-grant)
-- [Refresh Token](/docs/security/your-apis/oauth2.0/refresh-token-grant)
-- [Username and Password](/docs/security/your-apis/oauth2.0/refresh-token-grant)
-- [Client Credentials](/docs/security/your-apis/oauth2.0/client-credentials-grant)
+- [Authorization Code](/docs/basic-config-and-security/security/your-apis/oauth2.0/auth-code-grant)
+- [Refresh Token](/docs/basic-config-and-security/security/your-apis/oauth2.0/refresh-token-grant)
+- [Username and Password](/docs/basic-config-and-security/security/your-apis/oauth2.0/refresh-token-grant)
+- [Client Credentials](/docs/basic-config-and-security/security/your-apis/oauth2.0/client-credentials-grant)
 
 The Tyk OAuth flow is described in the following sections.
 

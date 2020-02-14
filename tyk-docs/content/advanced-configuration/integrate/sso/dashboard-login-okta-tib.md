@@ -87,7 +87,7 @@ curl http://{TIB-DOMAIN}:{TIB-PORT}/api/profiles/{PROFILE-NAME-IN-TIB} -H "Autho
 
   - POST and DELETE calls apply as normal
   - You can post a few profiles to TIB.
-  - See the full docs for [TIB REST APIs](/docs/advanced-configuration/integrate/3rd-party-identity-providers/tib-rest-api/)
+  - See [TIB REST API](/docs/advanced-configuration/integrate/3rd-party-identity-providers/tib-rest-api/) for more details.
 
 ## <a name="flow"></a>The magic - The flow behind the scenes:
  1. The initial call to the endpoint on TIB was redirected to Okta

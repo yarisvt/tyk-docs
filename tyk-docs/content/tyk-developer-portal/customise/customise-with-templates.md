@@ -79,7 +79,7 @@ The current logged in Developer detailed subscription object can be accessed usi
       * ID - Internal Policy ID
       * Name - Policy Name
       * More fields: https://github.com/TykTechnologies/tyk/blob/master/user/policy.go#L5
-*   KeyMetaData - Key meta-data of map type
+*   KeyMetaData - Key metadata of map type
 
 ## Example
 You have different teams of developers, and for each team we want to show them a different list of APIs. In this case, for each developer, we need to set a custom  `team` field, and assert it in a template like this:
