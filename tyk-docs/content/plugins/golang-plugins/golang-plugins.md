@@ -58,7 +58,7 @@ A specific of Golang plugins is that they need to be built using exactly the sam
 Just mount your plugin directory to the `/plugin-source` image location, and specify your Tyk version via a Docker tag. The final argument is the plugin name. For the example command below, if run from the same directory as your plugin code this will build a plugin named `post.so`, for Tyk Gateway 2.9.3:
 
 ```.bash
-docker run --rm -v `pwd`:/plugin-source tyk-plugin-compiler:2.9.3 post.so`
+docker run --rm -v `pwd`:/plugin-source tyk-plugin-compiler:2.9.3 post.so
 ```
 
 If you are building a plugin for a Gateway version compiled from the source, you can use the following command:
