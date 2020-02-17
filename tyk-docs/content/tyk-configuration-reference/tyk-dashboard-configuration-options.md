@@ -368,7 +368,7 @@ The hostname to bind the Dashboard to. This must be a proper hostname and **not*
 
 #### <a name="host_config.portal_domains"></a>host_config.portal_domains
 
-It is possible to hard-code portal domains (these override settings set by the Dashboard for routing purposes). Set `ORGID:Domainname` here so that Tyk can route domain names for the portals of those organisations.
+It is possible to hard-code portal domains (these override settings set by the Dashboard for routing purposes). Set `Domainname:ORGID` here so that Tyk can route domain names for the portals of those organisations.
 
 #### <a name="host_config.portal_root_path"></a>host_config.portal_root_path
 
