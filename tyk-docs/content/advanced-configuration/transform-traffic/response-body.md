@@ -78,3 +78,7 @@ A middleware called `header_transform`, added in v2.1, ensures headers such as `
 In this configuration, you set the `headers` to target and the `target host` to replace the values with. In the above example, the `Link` and `Location` headers will be modified from the server-generated response, with the protocol, domain and port of the value set in `target_host`.
 
 (This is not supported in the Dashboard yet.)
+
+### Go Template Functions
+
+For increasing the functions available for Go templates, look at the [Sprig Library](http://masterminds.github.io/sprig/) which offers over 70 Go template functions.

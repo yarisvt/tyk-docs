@@ -233,3 +233,7 @@ It is possible to work with inbound form data by making use of the Context Varia
 You do this by using the `._tyk_context.` namespace, unlike the context exposed to the URL rewriter and header injector, the body transform can fully iterate through list indices, so for example calling `{{ index ._tyk_context.request_data.variablename 0 }}` in a template will expose the first entry in the `request_data.variablename` key/value array.
 
 The `request_data` section is populated if the inbound request contained any query data or form data, it will be available in this object as a `key:[]value` map.
+
+### Go Template Functions
+
+For increasing the functions available for Go templates, look at the [Sprig Library](http://masterminds.github.io/sprig/) which offers over 70 Go template functions.
