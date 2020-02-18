@@ -71,7 +71,7 @@ If you are building a plugin for a Gateway version compiled from the source, you
 go build -buildmode=plugin -o my-post-plugin.so
 ```
 
-As a result of this build command we get a shared library with the plugin implementation placed at `pre.so`.
+As a result of this build command we get a shared library with the plugin implementation placed at `my-post-plugin.so`.
 
 If your plugin depends on third party libraries, ensure to vendor them, before building. If you are using [Go modules](https://blog.golang.org/using-go-modules), it should be as simple as running `go mod vendor` command.
 
