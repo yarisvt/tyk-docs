@@ -189,7 +189,7 @@ func main() {}
 
 Let's build the plugin by running this command in the plugin project folder:
 
-```.bash
+```{.copyWrapper}
 go build -buildmode=plugin -o /tmp/SendCurrentTime.so
 ```
 
