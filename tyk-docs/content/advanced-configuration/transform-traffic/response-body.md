@@ -81,4 +81,4 @@ In this configuration, you set the `headers` to target and the `target host` to 
 
 ### Go Template Functions
 
-For increasing the functions available for Go templates, look at the [Sprig Library](http://masterminds.github.io/sprig/) which offers over 70 Go template functions.
+For increasing the functions available to the built in Go templating, we have bundled the [Sprig Library](http://masterminds.github.io/sprig/) which provides over 70 additional functions for transformations.
