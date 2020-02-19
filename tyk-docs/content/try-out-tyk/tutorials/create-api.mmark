@@ -5,7 +5,7 @@ markup: mmark
 menu:
   main:
     parent: "Tutorials"
-weight: 1
+weight: 2
 ---
 <span data-filetype="mmark"></span>
 
