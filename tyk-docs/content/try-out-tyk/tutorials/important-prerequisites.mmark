@@ -13,10 +13,10 @@ These are some common settings that you need before proceeding with other parts 
 
 ## Tyk Config
 
-### Path to Web API configurations directory
+### Path to Tyk API Definitions configurations directory
 
-You may need to explicitly define path to the directory where you will add
-the APIs for Tyk to serve those, in your Tyk config.
+You may need to explicitly define the path in your Tyk config to the directory where you will add
+the API definitions for Tyk to serve.
 
 ```
 ...
@@ -26,7 +26,7 @@ the APIs for Tyk to serve those, in your Tyk config.
 
 ### Path to Policies file
 
-You need to explicitly set the path to Policies JSON file in your Tyk config.
+You need to explicitly set the path to your Policies JSON file in your Tyk config.
 
 ```
 ...
@@ -39,9 +39,9 @@ You need to explicitly set the path to Policies JSON file in your Tyk config.
 
 ### Remove Tyk Dashboard related config options
 
-Some config options for Community Edition are not compatible with the Dashboard
-version, which requires license. So, **remove** any section in Tyk config which
-starts with
+Some config options for the Community Edition are not compatible with the Dashboard
+version, which requires a licence. So, **remove** any section in your Tyk config which
+starts with:
 
 ```
 ...
@@ -54,14 +54,14 @@ starts with
 ## Files vs API
 
 For Community Edition, note that you will need to know when to use the Tyk API
-endpoint and when mere placing files will do. So far
+endpoint and when mere placing files will do. So far:
 
-- Files: Policies, Web APIs
+- Files: Policies, API Definitions
 - Tyk API: API key generation
 
 ## Hot reload is critical
 
-Each time you add an API endpoint to Tyk, you need to request to a Tyk reload
+Each time you add an API definition to Tyk, you need to request a hot reload call to the Tyk reload
 API endpoint.
 
 ```
