@@ -49,7 +49,7 @@ With this release you now can write native Go plugins for Tyk. Which means extre
 
 Your plugin can be as simple as:
 
-```.go
+```{.go}
 package main
 import (
 	"net/http"
@@ -80,7 +80,7 @@ If the request doesn't contain a `Date` header, middleware will add one as it is
 
 A new config option `request_signing` can be added in an API Definition to enable/disable the request signing. It has following format:
 
-```.json
+```{.json}
 "request_signing": {
   "is_enabled": true,
   "secret": "xxxx",
