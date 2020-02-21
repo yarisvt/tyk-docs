@@ -45,8 +45,11 @@ Accessing a path which has been blacklisted:
   "error": "Requested endpoint is forbidden"
 }
 ```
+#### Case Sensitivity
 
-> **NOTE**: The blacklist plugin is case-insensitive when performing the blacklist check.
+By default the Blacklist endpoint plugin is case-sensitive, so for example if `getuser` is blacklisted, `getUser` and `GetUser` will not be blacklisted. If you select the **Ignore Case** option from the Blacklist plugin settings, `getUser`, `GetUser` and `getuser` will all be blacklisted in the above example.
+
+![Blacklist options](/docs/img/dashboard/system-management/blacklist_plugin_case.png)
 
 ### Body Transform
 
@@ -75,6 +78,12 @@ This plugin allows you to ensure that your service always responds within a give
 Adding a path to an ignored list means that the path will not be processed for authentication data. This plugin can be very useful if you have a non-secure endpoint (such as a ping) that you don't need secured.
 
 > **NOTE**: Adding a path to an ignore list will bypass all other configuration settings.
+
+#### Case Sensitivity
+
+By default the Ignore endpoint plugin is case-sensitive, so for example if `getuser` is ignored, `getUser` and `GetUser` will not be ignored. If you select the **Ignore Case** option from the Ignore plugin settings, `getUser`, `GetUser` and `getuser` will all be ignored in the above example.
+
+![Blacklist options](/docs/img/dashboard/system-management/ignore_plugin_case.png)
 
 ### Method Transforms
 
@@ -137,7 +146,11 @@ Accessing a path which has **not** been whitelisted:
 }
 ```
 
-> **NOTE**: The whitelist plugin is case-insensitive when performing the whitelist check.
+#### Case Sensitivity
+
+By default the Whitelist endpoint plugin is case-sensitive, so for example if `getuser` is whitelisted, `getUser` and `GetUser` will not be whitelisted. If you select the **Ignore Case** option from the Whitelist plugin settings, `getUser`, `GetUser` and `getuser` will all be whitelisted in the above example.
+
+![Blacklist options](/docs/img/dashboard/system-management/whitelist_plugin_case.png)
 
 ## <a name="global"></a> Global Settings
 
