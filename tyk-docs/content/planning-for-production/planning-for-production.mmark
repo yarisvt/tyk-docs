@@ -127,7 +127,7 @@ Make sure your host operating system has resource limits set to handle an approp
 
 You can increase the maximum number of files available to the kernel by modifying `/etc/sysctl.conf`.
 
-```text
+```{.copyWrapper}
 fs.file-max=160000
 ```
 
@@ -150,7 +150,7 @@ Override your `systemd` unit files for each of the Tyk services using `systemctl
 
 You may then add `LimitNOFILE=80000` to the `[Service]` directive as follows:
 
-```text
+```{.copyWrapper}
 [Service]
 LimitNOFILE=80000
 ```
