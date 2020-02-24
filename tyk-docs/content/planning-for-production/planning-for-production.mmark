@@ -157,7 +157,7 @@ LimitNOFILE=80000
 
 After making these changes, you will need to restart your service, for example:
 
-```bash
+```{.copyWrapper}
 systemctl restart tyk-gateway.service
 ```
 
@@ -166,7 +166,7 @@ systemctl restart tyk-gateway.service
 You may set ulimits in a container using the `--ulimit` option. See
 <a href="https://docs.docker.com/engine/reference/commandline/run/#set-ulimits-in-container---ulimit" target="_blank">Docker documentation</a> for setting ulimits.
 
-```bash
+```{.copyWrapper}
 docker run --ulimit nofile=80000:80000 \
   -it --name tyk-gateway \
   tykio/tyk-gateway:latest

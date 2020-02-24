@@ -144,7 +144,7 @@ We need to implement two classes: one class will contain the request dispatcher 
 
 From the `~/tyk-plugin/src/main/java/com/testorg/testplugin` directory, create a file named `PluginDispatcher.java` with the following code:
 
-```{java}
+```{.copyWrapper}
 package com.testorg.testplugin;
 
 import coprocess.DispatcherGrpc;
@@ -182,7 +182,7 @@ public class PluginDispatcher extends DispatcherGrpc.DispatcherImplBase {
 
 In the same directory, create a file named `PluginServer.java` with the following code. This is the server implementation:
 
-```{java}
+```{.copyWrapper}
 package com.testorg.testplugin;
 
 import coprocess.DispatcherGrpc;
@@ -235,7 +235,7 @@ The gRPC server will listen on port 5555 (as defined in `Server.java`). In the n
 
 We need to create a manifest file within the `tyk-plugin` directory. This file contains information about our plugin and how we expect it to interact with the API that will load it. This file should be named `manifest.json` and needs to contain the following:
 
-```{json}
+```{.copyWrapper}
 {
   "custom_middleware": {
     "driver": "grpc",
