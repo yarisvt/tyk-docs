@@ -32,7 +32,10 @@ Create a `pump.conf` file:
     "database": 0,
     "optimisation_max_idle": 100,
     "optimisation_max_active": 0,
-    "enable_cluster": false
+    "enable_cluster": false,
+    "redis_key_prefix",
+    "redis_use_ssl",
+    "redis_ssl_insecure_skip_verify"
   },
   "purge_delay": 1,
   "pumps": {
