@@ -89,7 +89,7 @@ The Dashboard and Portal also support a certain level of events that you can use
 
 To configure them, add an `event_options` section to an Organisation when you are creating them. See [Creating an Organisation via the Dashboard Admin API](/docs/dashboard-admin-api/organisations/#create-an-organisation) for more details.
 
-Within this object, you can then register either webhooks or an email address to notify when an event occurs:
+Within this object, you can then register webhooks or/and an email address to notify when an event occurs:
 
 ```{.copyWrapper}
 event_options: {
@@ -116,4 +116,50 @@ The following events are supported:
 
 *   `key_request_event`: When a Portal key request is created or updated.
 
-
+Sample **Webhook** Payload for a **Key Request** Event:
+```{.json}
+{
+    "event": "key_request_event.submitted",
+    "data": {
+        "id": "5e543dd0f56e1a4affdd7acd",
+        "org_id": "5e2743567c1f8800018bdf35",
+        "for_plan": "5e2744897c1f8800018bdf3b",
+        "apply_policies": [
+            "5e2744897c1f8800018bdf3b"
+        ],
+        "by_user": "5e430ef68131890001b83d2e",
+        "approved": false,
+        "date_created": "2020-02-24T16:19:12.175113-05:00",
+        "portal_developer": {
+            "id": "5e430ef68131890001b83d2e",
+            "email": "dev@dev.ca",
+            "date_created": "2020-02-11T15:30:46.003-05:00",
+            "inactive": false,
+            "org_id": "5e2743567c1f8800018bdf35",
+            "keys": {
+                "6dc2dfc0": [
+                    "5e431f938131890001b83d30"
+                ]
+            },
+            "subscriptions": {
+                "5e431f938131890001b83d30": "6dc2dfc0"
+            },
+            "last_login_date": "2020-02-11T16:43:39.858-05:00"
+        },
+        "catalogue_entry": {
+            "name":"frontend APIs",
+            "short_description":"",
+            "long_description":"",
+            "show":true,
+            "api_id":"",
+            "policy_id":"5e2744897c1f8800018bdf3b",
+            "documentation":"5e3b477a7c1f8800013603c6",
+            "version":"v2",
+            "is_keyless":false,
+            "config":{
+                
+            }
+        }
+    }
+}
+```
