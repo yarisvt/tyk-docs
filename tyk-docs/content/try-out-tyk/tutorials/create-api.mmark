@@ -13,7 +13,7 @@ How to create an API within Tyk, depending on your installation type:
 
 {{% tabs %}}
 {{% tab "Cloud" %}}
-{{./static/include/create-api-key-include.md}}
+{{./static/include/create-api-include.md}}
 
 You will see a 200 response with your new key:
 ```
