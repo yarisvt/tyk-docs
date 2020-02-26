@@ -38,7 +38,7 @@ curl -X POST \
 | `client_id`     | The OAuth client id, in this case `ed59158fa2344e94b3e6278e8ab85142`.                                                                                               |
 | `redirect_uri`  | The OAuth client redirect URI, in this case `http://example.com/client-redirect-uri` and must be URL encoded e.g. `http%3A%2F%2Fexample.com%2Fclient-redirect-uri`. |
 
-### Response
+#### Response
 
 Response generates a 307 Temporary Redirect to the Oauth client redirect URI. It is expected that this location will be capable of authenticating the user then using the data forwarded to it as part of the redirect to request an authorization code.
 
@@ -76,7 +76,7 @@ curl -X POST \
 
 Response provides the authorization code as `code` and the redirect URL as `redirect_to`. It is expected the the 3rd party authentication server will redirect the user to the redirect URL.
 
-```json
+```{.copyWrapper}
 {
   "code": "EaG1MK7LS8GbbwCAUwDo6Q",
   "redirect_to": "http://example.com/client-redirect-uri?code=EaG1MK7LS8GbbwCAUwDo6Q"
@@ -87,7 +87,7 @@ Response provides the authorization code as `code` and the redirect URL as `redi
 
 The client application uses this request to exchange the authorization code for an API token. Note that codes are single use only, so cannot be reused.
 
-```shell
+```{.copyWrapper}
 curl -X POST \
   https://tyk.cloud.tyk.io/oauth-api/oauth/token/ \
   -H 'Authorization: Basic ZWQ1OTE1OGZhMjM0NGU5NGIzZTYyNzhlOGFiODUxNDI6TUdRM056RTJNR1F0WVRVeVpDMDBaVFZsTFdKak1USXRNakUyTVRNMU1tRTNOMk0x' \
@@ -116,7 +116,7 @@ curl -X POST \
 
 Response provides the token as `access_token` in the returned JSON which can then be used to access the API:
 
-```json
+```{.copyWrapper}
 {
   "access_token": "580defdbe1d21e0001c67e5c2a0a6c98ba8b4a059dc5825388501573",
   "expires_in": 3600,
@@ -129,7 +129,7 @@ Response provides the token as `access_token` in the returned JSON which can the
 
 This grant will generate a notification, sent from the Gateway to the _OAuth Notifications URL_, which contains the _OAuth Notifications Shared Secret_ as a header for verification purposes.
 
-```json
+```{.copyWrapper}
 {
   "auth_code": "EaG1MK7LS8GbbwCAUwDo6Q",
   "new_oauth_token": "580defdbe1d21e0001c67e5c2a0a6c98ba8b4a059dc5825388501573",
