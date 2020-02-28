@@ -7,7 +7,5 @@ menu:
     identifier: /api-definition-objects
 weight: 8
 ---
-<span data-filetype="mmark"></span>
 
-{{./static/include/api-def-uptime.md}}
-
+{{% include "./static/include/api-def-uptime.md" %}}

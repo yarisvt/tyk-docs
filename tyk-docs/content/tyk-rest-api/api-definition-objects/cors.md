@@ -6,7 +6,6 @@ menu:
     parent: "API Definition Objects"
 weight: 6
 ---
-<span data-filetype="mmark"></span>
 
-{{./static/include/api-def-cors.md}}
 
+{{% include "./static/include/api-def-cors.md" %}}

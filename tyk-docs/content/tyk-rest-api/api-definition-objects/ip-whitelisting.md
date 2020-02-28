@@ -6,7 +6,5 @@ menu:
     parent: "API Definition Objects"
 weight: 5
 ---
-<span data-filetype="mmark"></span>
 
-{{./static/include/api-def-whitelist.md}}
-
+{{% include "./static/include/api-def-whitelist.md" %}}

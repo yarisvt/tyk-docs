@@ -1,13 +1,11 @@
 ---
 date: 2017-03-24T13:28:45Z
 title: Create Custom Authentication Plugin with .NET
-markup: mmark
 menu:
   main:
     parent: "gRPC"
 weight: 2 
 ---
-<span data-filetype="mmark"></span>
 
 ## <a name="introduction"></a>Introduction
 
@@ -310,7 +308,7 @@ You should now have a `bundle.zip` file in the `tyk-plugin` directory.
 
 To publish the plugin, copy or upload `bundle.zip` to a local web server like Nginx, or Apache or storage like Amazon S3. For this tutorial we'll assume you have a web server listening on `localhost` and accessible through `http://localhost`.
 
-{{./static/include/grpc-include.md}}
+{{% include "./static/include/grpc-include.md" %}}
 
 ## <a name="next"></a>What's Next?
 
