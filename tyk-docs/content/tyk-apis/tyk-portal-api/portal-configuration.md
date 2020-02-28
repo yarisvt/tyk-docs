@@ -188,6 +188,33 @@ Host: localhost
 }
 ```
 
+## Pages
+
+### List Portal Pages
+
+| **Property** | **Description**          |
+| ------------ | ------------------------ |
+| Resource URL | `/api/portal/pages`      |
+| Method       | GET                     |
+| Type         | None                     |
+| Body         | None                     |
+| Param        | None                     |
+
+#### Sample Request
+
+```{.copyWrapper}
+GET /api/portal/pages HTTP/1.1
+Host: localhost
+```
+
+#### Sample Response
+
+```
+{
+  Response here
+}
+```
+
 ### Create Portal Pages
 
 | **Property** | **Description**          |
@@ -212,6 +239,7 @@ Host: localhost
   Response here
 }
 ```
+
 ### Get a Portal Page
 
 | **Property** | **Description**          |
@@ -226,6 +254,132 @@ Host: localhost
 
 ```{.copyWrapper}
 GET /api/portal/pages/{id} HTTP/1.1
+Host: localhost
+```
+
+#### Sample Response
+
+```
+{
+  Response here
+}
+```
+
+### Update a Portal Page
+
+| **Property** | **Description**          |
+| ------------ | ------------------------ |
+| Resource URL | `/api/portal/pages/{id}` |
+| Method       | PUT                      |
+| Type         | None                     |
+| Body         | None                     |
+| Param        | None                     |
+
+#### Sample Request
+
+```{.copyWrapper}
+PUT /api/portal/pages/{id} HTTP/1.1
+Host: localhost
+```
+
+#### Sample Response
+
+```
+{
+  Response here
+}
+```
+
+### Delete a Portal Page
+
+| **Property** | **Description**          |
+| ------------ | ------------------------ |
+| Resource URL | `/api/portal/pages/{id}` |
+| Method       | DELETE                   |
+| Type         | None                     |
+| Body         | None                     |
+| Param        | None                     |
+
+#### Sample Request
+
+```{.copyWrapper}
+DELETE /api/portal/pages/{id} HTTP/1.1
+Host: localhost
+```
+
+#### Sample Response
+
+```
+{
+  Response here
+}
+```
+## CSS
+
+### List Portal CSS
+
+| **Property** | **Description**          |
+| ------------ | ------------------------ |
+| Resource URL | `/api/portal/css`        |
+| Method       | GET                      |
+| Type         | None                     |
+| Body         | None                     |
+| Param        | None                     |
+
+#### Sample Request
+
+```{.copyWrapper}
+GET /api/portal/css HTTP/1.1
+Host: localhost
+```
+
+#### Sample Response
+
+```
+{
+  Response here
+}
+```
+
+### Create Portal CSS
+
+| **Property** | **Description**          |
+| ------------ | ------------------------ |
+| Resource URL | `/api/portal/css`      |
+| Method       | POST                      |
+| Type         | None                     |
+| Body         | None                     |
+| Param        | None                     |
+
+#### Sample Request
+
+```{.copyWrapper}
+POST /api/portal/css HTTP/1.1
+Host: localhost
+```
+
+#### Sample Response
+
+```
+{
+  Response here
+}
+```
+
+### Update Portal CSS
+
+| **Property** | **Description**          |
+| ------------ | ------------------------ |
+| Resource URL | `/api/portal/css`      |
+| Method       | PUT                      |
+| Type         | None                     |
+| Body         | None                     |
+| Param        | None                     |
+
+#### Sample Request
+
+```{.copyWrapper}
+PUT /api/portal/css HTTP/1.1
 Host: localhost
 ```
 
