@@ -6,7 +6,5 @@ menu:
     parent: "API Definition Objects"
 weight: 1
 ---
-<span data-filetype="mmark"></span>
 
-{{./static/include/api-def-authentication.md}}
-
+{{% include "./static/include/api-def-authentication.md" %}}

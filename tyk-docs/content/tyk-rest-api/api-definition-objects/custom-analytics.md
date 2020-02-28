@@ -6,7 +6,5 @@ menu:
     parent: "API Definition Objects"
 weight: 9
 ---
-<span data-filetype="mmark"></span>
 
-{{./static/include/api-def-custom-analytics.md}}
-
+{{% include "./static/include/api-def-custom-analytics.md" %}}

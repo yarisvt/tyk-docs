@@ -6,7 +6,5 @@ menu:
     parent: "API Definition Objects"
 weight: 4
 ---
-<span data-filetype="mmark"></span>
 
-{{./static/include/api-def-proxy.md}}
-
+{{% include "./static/include/api-def-common.md" %}}

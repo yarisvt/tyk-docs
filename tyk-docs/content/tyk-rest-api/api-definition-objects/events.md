@@ -6,7 +6,5 @@ menu:
     parent: "API Definition Objects"
 weight: 11
 ---
-<span data-filetype="mmark"></span>
 
-{{./static/include/api-def-events.md}}
-
+{{% include "./static/include/api-def-events.md" %}}
