@@ -2,7 +2,7 @@
 
 It is possible to enable CORS for certain APIs so users can make browser-based requests. The `CORS` section is added to an API definition as follows:
 
-```{.json}
+```{.copyWrapper}
 "CORS": {
   "enable": true,
   "allowed_origins": [
