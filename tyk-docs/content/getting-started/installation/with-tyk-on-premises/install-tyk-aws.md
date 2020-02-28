@@ -30,6 +30,7 @@ This video will walk you through setting up the PoC install.
 
 <iframe width="870" height="480" src="https://www.youtube.com/embed/IiGyB_IHqWw" frameborder="0" gesture="media" allowfullscreen></iframe>
 
+
 ##### Logging Into Dashboard
 Once the stack is running, in order to access the Dashboard, simply set up an Elastic IP to the Dashboard instance and then visit:
 
