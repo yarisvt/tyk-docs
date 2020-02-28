@@ -1,6 +1,6 @@
 ---
 date: 2017-03-27T12:47:13+01:00
-title: Admin API Single Sign On
+title: Dashboard Admin API Single Sign On
 menu:
   main:
     parent: "Tyk Dashboard Admin API"

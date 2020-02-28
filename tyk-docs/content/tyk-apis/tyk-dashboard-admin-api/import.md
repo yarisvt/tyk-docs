@@ -1,6 +1,6 @@
 ---
 date: 2017-03-27T12:47:13+01:00
-title: Admin API Import
+title: Dashboard Admin API Import
 menu:
   main:
     parent: "Tyk Dashboard Admin API"

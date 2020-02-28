@@ -2,7 +2,10 @@
 date: 2017-03-27T12:08:14+01:00
 title: Tyk Dashboard API
 weight: 200
-menu: "main"
+menu:
+  main:
+    parent: "Tyk APIs"
+weight: 2
 url: "/tyk-dashboard-api"
 ---
 
@@ -30,7 +33,7 @@ With the Dashboard API and a database-backed Tyk setup, (and to an extent with f
 
 ### Creating Organisations and Users
 
-The Tyk management API application (`tyk_analytics`), can use a command line flag to create users and organisations (this is used in the initial setup of a node):
+The Tyk Dashboard API application (`tyk_analytics`), can use a command line flag to create users and organisations (this is used in the initial setup of a node):
 
 ``
     #~/> ./tyk_analytics --neworg --newuser 
@@ -40,6 +43,6 @@ The `--neworg` flag creates a new organisation, and the `--newuser` flag creates
 
 ### Special cases
 
-The only special case is when a user is created with an empty OrgID, this can be done via the command line by not selecting an API on user creation, or via the advanced API.
+The only special case is when a user is created with an empty OrgID, this can be done via the command line by not selecting an API on user creation, or via the Dashboard API.
 
 Users that are not assigned to an Organisation gain special privileges in the Dashboard, and can see all APIs, users and all analytics data disregarding organisations. These users will not be able to add new users to other organisations though, only to their own context - so any users they create will also be super-users.

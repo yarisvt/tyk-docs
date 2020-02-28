@@ -1,6 +1,6 @@
 ---
 date: 2017-03-27T12:45:14+01:00
-title: Admin API Export
+title: Dashboard Admin API Export
 menu:
   main:
     parent: "Tyk Dashboard Admin API"

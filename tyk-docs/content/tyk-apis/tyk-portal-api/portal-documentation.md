@@ -1,10 +1,10 @@
 ---
 date: 2017-03-27T12:28:24+01:00
-title: Portal Developers
+title: Portal Documentation
 menu:
   main:
-    parent: "Tyk Dashboard API"
-weight: 8 
+    parent: "Tyk Portal API"
+weight: 6
 ---
 
 ### List Developers

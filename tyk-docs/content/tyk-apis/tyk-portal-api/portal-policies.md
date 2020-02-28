@@ -1,13 +1,13 @@
 ---
-date: 2017-03-27T12:18:28+01:00
-title: Policies
+date: 2017-03-27T12:28:24+01:00
+title: Portal Policies
 menu:
   main:
-    parent: "Tyk Dashboard API"
-weight: 4 
+    parent: "Tyk Portal API"
+weight: 2
 ---
 
-### Get List of policies
+### Get List of Policies
 
 | **Property** | **Description**         |
 | ------------ | ----------------------- |
@@ -75,7 +75,7 @@ authorization: 7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 Notice that `apiid` field, it is different than rest of policy definitions! (See [GitHub issue 192][1])
 
-### Search list of policies
+### Search list of Policies
 
 | **Property** | **Description**         |
 | ------------ | ----------------------- |
@@ -301,4 +301,3 @@ authorization: 7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 ```
 
  [1]: https://github.com/TykTechnologies/tyk/issues/192
-

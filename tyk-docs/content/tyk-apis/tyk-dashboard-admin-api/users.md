@@ -1,6 +1,6 @@
 ---
 date: 2017-03-27T12:43:59+01:00
-title: Admin API Users
+title: Dashboard Admin API Users
 menu:
   main:
     parent: "Tyk Dashboard Admin API"
