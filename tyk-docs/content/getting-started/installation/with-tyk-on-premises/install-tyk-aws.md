@@ -28,7 +28,7 @@ PoC will run with a single GW node, Elasticache, and 3 Mongo nodes: Master, Slav
 
 This video will walk you through setting up the PoC install.
 
-<iframe width="870" height="480" src="https://www.youtube.com/embed/IiGyB_IHqWw" frameborder="0" gesture="media" allowfullscreen></iframe>
+{{< youtube IiGyB_IHqWw >}}
 
 
 ##### Logging Into Dashboard
