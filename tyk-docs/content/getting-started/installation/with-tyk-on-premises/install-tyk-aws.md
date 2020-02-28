@@ -26,6 +26,10 @@ The license for these products is baked into the product as an hourly cost.
 ## PoC
 PoC will run with a single GW node, Elasticache, and 3 Mongo nodes: Master, Slave, Arbiter.
 
+This video will walk you through setting up the PoC install.
+
+<iframe width="870" height="480" src="https://www.youtube.com/embed/IiGyB_IHqWw" frameborder="0" gesture="media" allowfullscreen></iframe>
+
 ##### Logging Into Dashboard
 Once the stack is running, in order to access the Dashboard, simply set up an Elastic IP to the Dashboard instance and then visit:
 
@@ -46,7 +50,7 @@ In order to access GW, simply assign Elastic IP to the instance.  The security g
 
 To test, visit: 
 
-```bash
+```{.copyWrapper}
 $ curl http://<elastic_public_ip>:8080/hello
 Hello Tiki
 ```
@@ -58,7 +62,7 @@ Everything is the same as PoC, except of course we are running two Gateway nodes
 The CloudFormation stack sets up an Elastic Load Balancer for the Gateway cluster.  We simply need to navigate to the Load Balancing section and find the  `TYKElasticLoadBalancerALB`.  The Cloud Formation template sets up a public DNS entry, something like `TYKElasticLoadBalancerALB-2050138050.us-east-1.elb.amazonaws.com`
 
 We can check it is running by visiting
-```bash
+```{.copyWrapper}
 $ curl TYKElasticLoadBalancerALB-2050138050.us-east-1.elb.amazonaws.com/hello
 Hello Tiki
 ```
