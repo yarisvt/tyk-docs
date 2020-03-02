@@ -6,7 +6,5 @@ menu:
     parent: "API Definition Objects"
 weight: 10
 ---
-<span data-filetype="mmark"></span>
 
-{{./static/include/api-def-rate-and-quotas.md}}
-
+{{% include "./static/include/api-def-rate-and-quotas.md" %}}

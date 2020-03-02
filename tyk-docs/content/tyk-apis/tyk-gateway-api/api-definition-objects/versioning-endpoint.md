@@ -6,7 +6,5 @@ menu:
     parent: "API Definition Objects"
 weight: 3
 ---
-<span data-filetype="mmark"></span>
 
-{{./static/include/api-def-version.md}}
-
+{{% include "./static/include/api-def-version.md" %}}

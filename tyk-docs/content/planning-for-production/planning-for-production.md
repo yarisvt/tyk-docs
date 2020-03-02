@@ -1,7 +1,6 @@
 ---
 date: 2017-03-24T17:49:59Z
 title: Planning for Production
-markup: mmark
 weight: 90
 menu: "main"
 url: "/planning-for-production"
