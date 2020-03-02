@@ -73,7 +73,7 @@ authorization: 7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 }
 ```
 
-Notice that `apiid` field, it is different than rest of policy definitions! (See [GitHub issue 192][1])
+Notice that the `apiid` field is different than the rest of the policy definitions! (See [GitHub issue 192][1])
 
 ### Search list of Policies
 

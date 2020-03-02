@@ -13,7 +13,7 @@ url: "/tyk-dashboard-api"
 
 The Tyk Dashboard API offers granular, programmatic access to a centralised database of resources that your Tyk nodes can pull from. This API has a dynamic user administrative structure which means the secret key that is used to communicate with your Tyk nodes can be kept secret and access to the wider management functions can be handled on a user-by-user and organisation-by-organisation basis.
 
-A common question around using a database-backed configuration is how to programatically add API definitions to your Tyk nodes, the Advanced API allows much more fine-grained, secure and multi-user access to your Tyk cluster, and should be used to manage a database-backed Tyk node.
+A common question around using a database-backed configuration is how to programatically add API definitions to your Tyk nodes, the Dashboard API allows much more fine-grained, secure and multi-user access to your Tyk cluster, and should be used to manage a database-backed Tyk node.
 
 The Tyk Dashboard API works seamlessly with the Tyk Dashboard (and the two come bundled together).
 
