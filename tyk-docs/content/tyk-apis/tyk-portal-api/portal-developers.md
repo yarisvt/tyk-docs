@@ -299,8 +299,8 @@ curl https://admin.cloud.tyk.io/api/portal/developers/password/:Id \
 }
 ```
 
-<span data-filetype="mmark"></span>
-{{./static/include/portal-developer-analytics.md}}
+{{% include "./static/include/portal-developer-analytics.md" %}}
+
 
 ### Add Key To Developer
 

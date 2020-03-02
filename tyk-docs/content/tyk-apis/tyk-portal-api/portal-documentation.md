@@ -6,7 +6,7 @@ menu:
     parent: "Tyk Portal API"
 weight: 6
 ---
-This section covers both documentation and catalogue endpoints
+This section covers both [documentation](#documentation) and [catalogue](#catalogue) endpoints
 
 ## Documentation
 
@@ -77,7 +77,7 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 #### Sample Request
 
 ```{.copyWrapper}
-GET /api/portal/documentation HTTP/1.1
+GET /api/portal/catalogue HTTP/1.1
 Host: localhost
 authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 ```
@@ -86,7 +86,139 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 ```
 {
-  Response here
+  "id":"5cc03284d07e7f00019404b4",
+  "org_id":"5cc03283d07e7f00019404b3",
+  "apis":[
+    {
+      "name":"Portal OAuth API",
+      "short_description":"",
+      "long_description":"",
+      "show":true,
+      "api_id":"",
+      "policy_id":"5ce4086ce845260001c1e1f5",
+      "documentation":"",
+      "version":"v2",
+      "is_keyless":false,
+      "config":{
+        "id":"",
+        "org_id":"",
+        "signup_fields":[
+
+        ],
+        "key_request_fields":[
+
+        ],
+        "require_key_approval":false,
+        "redirect_on_key_request":false,
+        "redirect_to":"",
+        "enable_multi_selection":false,
+        "disable_login":false,
+        "disable_signup":false,
+        "disable_auto_login":false,
+        "catalogue_login_only":false,
+        "oauth_usage_limit":-1,
+        "email":"",
+        "mail_options":{
+          "mail_from_name":"",
+          "mail_from_email":"",
+          "email_copy":{
+            "welcome_email":{
+              "enabled":false,
+              "subject":"",
+              "body":"",
+              "sign_off":"",
+              "hide_token_data":false
+            },
+            "key_email":{
+              "enabled":false,
+              "subject":"",
+              "body":"",
+              "sign_off":"",
+              "hide_token_data":false
+            },
+            "reset_password_email":{
+              "enabled":false,
+              "subject":"",
+              "body":"",
+              "sign_off":"",
+              "hide_token_data":false
+            }
+          }
+        },
+        "override":false,
+        "HashKeys":false
+      },
+      "fields":{
+
+      },
+      "auth_type":"oauth"
+    },
+    {
+      "name":"Test API",
+      "short_description":"",
+      "long_description":"",
+      "show":true,
+      "api_id":"",
+      "policy_id":"5ce51721e845260001d0a550",
+      "documentation":"5cf0d65d0313b300010b89ab",
+      "version":"v2",
+      "is_keyless":false,
+      "config":{
+        "id":"",
+        "org_id":"",
+        "signup_fields":[
+
+        ],
+        "key_request_fields":[
+
+        ],
+        "require_key_approval":false,
+        "redirect_on_key_request":false,
+        "redirect_to":"",
+        "enable_multi_selection":false,
+        "disable_login":false,
+        "disable_signup":false,
+        "disable_auto_login":false,
+        "catalogue_login_only":false,
+        "oauth_usage_limit":-1,
+        "email":"",
+        "mail_options":{
+          "mail_from_name":"",
+          "mail_from_email":"",
+          "email_copy":{
+            "welcome_email":{
+              "enabled":false,
+              "subject":"",
+              "body":"",
+              "sign_off":"",
+              "hide_token_data":false
+            },
+            "key_email":{
+              "enabled":false,
+              "subject":"",
+              "body":"",
+              "sign_off":"",
+              "hide_token_data":false
+            },
+            "reset_password_email":{
+              "enabled":false,
+              "subject":"",
+              "body":"",
+              "sign_off":"",
+              "hide_token_data":false
+            }
+          }
+        },
+        "override":false,
+        "HashKeys":false
+      },
+      "fields":{
+
+      },
+      "auth_type":"authToken"
+    }
+  ],
+  "email":""
 }
 ```
 

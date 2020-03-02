@@ -7,7 +7,11 @@ menu:
 weight: 5
 ---
 
-This section will cover the configuration, menus and pages endpoints.
+This section will cover the following endpoints:
+* [Configuration](#configuration)
+* [Menus](#menus)
+* [Pages](pages)
+
 
 ## Configuration
 
@@ -32,49 +36,53 @@ Host: localhost
 
 ```
 {
-  "id": "5cc03284d07e7f00019404b6",
-  "org_id": "5cc03283d07e7f00019404b3",
-  "signup_fields": [],
-  "key_request_fields": [],
-  "require_key_approval": false,
-  "redirect_on_key_request": false,
-  "redirect_to": "",
-  "enable_multi_selection": false,
-  "disable_login": false,
-  "disable_signup": false,
-  "disable_auto_login": false,
-  "catalogue_login_only": false,
-  "oauth_usage_limit": 0,
-  "email": "",
-  "mail_options": {
-      "mail_from_name": "",
-      "mail_from_email": "",
-      "email_copy": {
-          "welcome_email": {
-              "enabled": false,
-              "subject": "",
-              "body": "",
-              "sign_off": "",
-              "hide_token_data": false
-          },
-          "key_email": {
-              "enabled": false,
-              "subject": "",
-              "body": "",
-              "sign_off": "",
-              "hide_token_data": false
-          },
-          "reset_password_email": {
-              "enabled": false,
-              "subject": "",
-              "body": "",
-              "sign_off": "",
-              "hide_token_data": false
-          }
+  "id":"5cc03284d07e7f00019404b6",
+  "org_id":"5cc03283d07e7f00019404b3",
+  "signup_fields":[
+
+  ],
+  "key_request_fields":[
+
+  ],
+  "require_key_approval":false,
+  "redirect_on_key_request":false,
+  "redirect_to":"",
+  "enable_multi_selection":false,
+  "disable_login":false,
+  "disable_signup":false,
+  "disable_auto_login":false,
+  "catalogue_login_only":false,
+  "oauth_usage_limit":0,
+  "email":"",
+  "mail_options":{
+    "mail_from_name":"",
+    "mail_from_email":"",
+    "email_copy":{
+      "welcome_email":{
+        "enabled":false,
+        "subject":"",
+        "body":"",
+        "sign_off":"",
+        "hide_token_data":false
+      },
+      "key_email":{
+        "enabled":false,
+        "subject":"",
+        "body":"",
+        "sign_off":"",
+        "hide_token_data":false
+      },
+      "reset_password_email":{
+        "enabled":false,
+        "subject":"",
+        "body":"",
+        "sign_off":"",
+        "hide_token_data":false
       }
+    }
   },
-  "override": false,
-  "HashKeys": false
+  "override":false,
+  "HashKeys":false
 }
 ```
 
@@ -239,37 +247,39 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 ```
 {
-  "Data": [
+  "Data":[
     {
-      "id": "5cc03284d07e7f00019404b5",
-      "title": "Tyk Developer Portal",
-      "slug": "home",
-      "template_name": "",
-      "fields": {
-          "JumboCTALink": "#cta",
-          "JumboCTALinkTitle": "Your awesome APIs, hosted with Tyk!",
-          "JumboCTATitle": "Tyk Developer Portal",
-          "PanelOneContent": "Panel 1 content.",
-          "PanelOneLink": "#panel1",
-          "PanelOneLinkTitle": "Panel 1 Button",
-          "PanelOneTitle": "Panel 1 Title",
-          "PanelThereeContent": "",
-          "PanelThreeContent": "Panel 3 content.",
-          "PanelThreeLink": "#panel3",
-          "PanelThreeLinkTitle": "Panel 3 Button",
-          "PanelThreeTitle": "Panel 3 Title",
-          "PanelTwoContent": "Panel 2 content.",
-          "PanelTwoLink": "#panel2",
-          "PanelTwoLinkTitle": "Panel 2 Button",
-          "PanelTwoTitle": "Panel 2 Title",
-          "SubHeading": "Sub Header"
+      "id":"5cc03284d07e7f00019404b5",
+      "title":"Tyk Developer Portal",
+      "slug":"home",
+      "template_name":"",
+      "fields":{
+        "JumboCTALink":"#cta",
+        "JumboCTALinkTitle":"Your awesome APIs, hosted with Tyk!",
+        "JumboCTATitle":"Tyk Developer Portal",
+        "PanelOneContent":"Panel 1 content.",
+        "PanelOneLink":"#panel1",
+        "PanelOneLinkTitle":"Panel 1 Button",
+        "PanelOneTitle":"Panel 1 Title",
+        "PanelThereeContent":"",
+        "PanelThreeContent":"Panel 3 content.",
+        "PanelThreeLink":"#panel3",
+        "PanelThreeLinkTitle":"Panel 3 Button",
+        "PanelThreeTitle":"Panel 3 Title",
+        "PanelTwoContent":"Panel 2 content.",
+        "PanelTwoLink":"#panel2",
+        "PanelTwoLinkTitle":"Panel 2 Button",
+        "PanelTwoTitle":"Panel 2 Title",
+        "SubHeading":"Sub Header"
       },
-      "org_id": "5cc03283d07e7f00019404b3",
-      "is_homepage": true,
-      "page_settings": {}
+      "org_id":"5cc03283d07e7f00019404b3",
+      "is_homepage":true,
+      "page_settings":{
+
+      }
     }
   ],
-  "Pages": 1
+  "Pages":1
 }
 ```
 
@@ -321,32 +331,34 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 ```
 {
-  "id": "5cc03284d07e7f00019404b5",
-    "title": "Tyk Developer Portal",
-    "slug": "home",
-    "template_name": "",
-    "fields": {
-        "JumboCTALink": "#cta",
-        "JumboCTALinkTitle": "Your awesome APIs, hosted with Tyk!",
-        "JumboCTATitle": "Tyk Developer Portal",
-        "PanelOneContent": "Panel 1 content.",
-        "PanelOneLink": "#panel1",
-        "PanelOneLinkTitle": "Panel 1 Button",
-        "PanelOneTitle": "Panel 1 Title",
-        "PanelThereeContent": "",
-        "PanelThreeContent": "Panel 3 content.",
-        "PanelThreeLink": "#panel3",
-        "PanelThreeLinkTitle": "Panel 3 Button",
-        "PanelThreeTitle": "Panel 3 Title",
-        "PanelTwoContent": "Panel 2 content.",
-        "PanelTwoLink": "#panel2",
-        "PanelTwoLinkTitle": "Panel 2 Button",
-        "PanelTwoTitle": "Panel 2 Title",
-        "SubHeading": "Sub Header"
-    },
-    "org_id": "5cc03283d07e7f00019404b3",
-    "is_homepage": true,
-    "page_settings": {}
+  "id":"5cc03284d07e7f00019404b5",
+  "title":"Tyk Developer Portal",
+  "slug":"home",
+  "template_name":"",
+  "fields":{
+    "JumboCTALink":"#cta",
+    "JumboCTALinkTitle":"Your awesome APIs, hosted with Tyk!",
+    "JumboCTATitle":"Tyk Developer Portal",
+    "PanelOneContent":"Panel 1 content.",
+    "PanelOneLink":"#panel1",
+    "PanelOneLinkTitle":"Panel 1 Button",
+    "PanelOneTitle":"Panel 1 Title",
+    "PanelThereeContent":"",
+    "PanelThreeContent":"Panel 3 content.",
+    "PanelThreeLink":"#panel3",
+    "PanelThreeLinkTitle":"Panel 3 Button",
+    "PanelThreeTitle":"Panel 3 Title",
+    "PanelTwoContent":"Panel 2 content.",
+    "PanelTwoLink":"#panel2",
+    "PanelTwoLinkTitle":"Panel 2 Button",
+    "PanelTwoTitle":"Panel 2 Title",
+    "SubHeading":"Sub Header"
+  },
+  "org_id":"5cc03283d07e7f00019404b3",
+  "is_homepage":true,
+  "page_settings":{
+
+  }
 }
 ```
 
@@ -425,7 +437,10 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 ```
 {
-  Response here
+  "id": "5ce3b8ffe84526000117899a",
+  "org_id": "5cc03283d07e7f00019404b3",
+  "page_css": "",
+  "email_css": ""
 }
 ```
 
