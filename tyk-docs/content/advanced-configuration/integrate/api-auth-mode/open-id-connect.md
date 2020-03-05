@@ -69,9 +69,15 @@ To set up an API Definition to use OIDC, add the following block to the definiti
 
 
 #### JWT scope to policy mapping support
-> **NOTE**: This feature is available starting from v2.9
+**NOTE**: This feature is available starting from v2.9
 
-You can map JWT scopes to security policies (including OIDC) to be applied to a key. To enable this feature you will need to add the following fields in your API:
+Many times companies define the user's authorisation rules in a central place such as an authorisation server or some central identity provider (IdP). As such you would want to be able to enfoce these rules using your api gateway. 
+This feature enables you to onboard those permissions right defined into Tyk gateway and enforce them on the APIs you expose with Tyk by configuring the gateway itself. The identity provider does not need to know Tyk at all.
+As always, Tyk does it in the standard way, using *scopes*. 
+In the api definition you define a map of a scope (from the JWT claim) to a policy/policies in Tyk and Tyk gateway would know to apply those policies to the key when the api is called.
+This feature works with any generic JWT you would choose to create or with OIDC JWT tokens.
+
+To enable this feature you will need to add the following fields in your API:
 ```{.copyWrapper}
   "jwt_scope_to_policy_mapping": {
     "admin": "59672779fa4387000129507d",
