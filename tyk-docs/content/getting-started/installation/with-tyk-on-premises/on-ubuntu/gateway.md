@@ -64,11 +64,11 @@ sudo apt-get install -y tyk-gateway
 ```
 What we've done here is instructed apt-get to install the Tyk Gateway without prompting, wait for the downloads to complete.
 
-When Tyk is finished installing, it will have installed some init scripts, but it will not be running yet. The next step will be to setup the Gateway - thankfully this can be done with three very simple commands, however it does depend on whether you are configuring Tyk Gateway for use with the Dashboard or without (Community Edition).
+When Tyk has finished installing, it will have installed some init scripts, but will not be running yet. The next step will be to set up the Gateway - thankfully this can be done with three very simple commands, however it does depend on whether you are configuring Tyk Gateway for use with the Dashboard or without (the Community Edition).
 
 #### Verify the origin key (optional)
 
-Debian packages are signed with the repository keys. These keys are verified at the time of fetching the package and is taken care of my the `apt` infrastructure. These keys are controlled by PacakgeCloud, our repository provider. For an additional guarantee, it is possible to verify that the package was indeed created by Tyk by verifying the `origin` certificate that is attached to the package.
+Debian packages are signed with the repository keys. These keys are verified at the time of fetching the package and is taken care of by the `apt` infrastructure. These keys are controlled by PackageCloud, our repository provider. For an additional guarantee, it is possible to verify that the package was indeed created by Tyk by verifying the `origin` certificate that is attached to the package.
 
 First, you have to fetch Tyk's signing key and import it.
 
