@@ -1,6 +1,6 @@
 ---
 date: 2019-12-03T15:46:41Z
-Title: Install Tyk On-Premises on AWS
+Title: AWS Marketplace
 menu:
   main:
     parent: "With Tyk On-Premises"
@@ -8,27 +8,37 @@ weight: 6
 url: "/getting-started/with-tyk-on-premises/installation/on-aws"
 ---
 
+To get started easily, [Tyk offers AWS Marketplace products][6] which bootstrap the entire stack.
 
-# CloudFormation
-To get started easily with deployment on AWS, Tyk offers AWS CloudFormation products which run and bootstrap the entire stack.
+The AWS Marketplace products will use Elasticache in place of Redis, and Mongo running in HA mode in EC2.  CloudFormation templates are used.
 
-It uses Elasticache in place of Redis, and Mongo running in HA mode in EC2.
+## BYOL
 
-There are three CloudFormation products to get you started. 
+These [AWS Marketplace products][5] are delivered as CloudFormation products. You will need to bring your own license.  You can choose from one of 3 fulfillment options:
+
+- PoC (1 gw node)
+- High Availability (2 nodes)
+- Autoscaling (3 - inf nodes)
+
+Please [contact an account manager][7] in order to get a license.
+
+## PAYG
+There are three billed through AWS Marketplace PAYG products to get you started.  The license for these products is baked into the product as an hourly cost.  Please follow this video in order to get started
 
 - [**PoC**][2]
 - [**High Availability (2-node)**][4]
 - [**AutoScaling (3+ node)**][3]
 
-### Pricing / Licensing
-The license for these products is baked into the product as an hourly cost.
+### Installation
 
-## PoC
+There are a few things you will need to set up ahead of launching the stack.  This video will walk you through how to set up a PAYG product beginning to end on AWS.
+
+{{< youtube IiGyB_IHqWw >}}
+
+### PoC
 PoC will run with a single GW node, Elasticache, and 3 Mongo nodes: Master, Slave, Arbiter.
 
 This video will walk you through setting up the PoC install.
-
-{{< youtube IiGyB_IHqWw >}}
 
 
 ##### Logging Into Dashboard
@@ -70,14 +80,9 @@ Hello Tiki
 
 Note that it is already setup to accept traffic on port 80 and forward it to the Gateways to port 8080.
 
-
-
-## CloudFormation BYOL (Bring Your Own License)
-You may already have a license, and simply want help launching a Tyk Stack on AWS.  For you, there is a BYOL CloudFormation product that will get you started with a 2 Gateway node stack:
-
-[Tyk Pro High Availability][1]
-
-[1]: https://aws.amazon.com/marketplace/pp/prodview-nphqjavwaqes6?qid=1575313064731&sr=0-2&ref_=srh_res_product_title
 [2]: https://aws.amazon.com/marketplace/pp/prodview-elvk5mxxlkueu?qid=1575313242174&sr=0-4&ref_=srh_res_product_title
 [3]: https://aws.amazon.com/marketplace/pp/prodview-2bgdxbpeygf5w?qid=1575313242174&sr=0-5&ref_=srh_res_product_title
 [4]: https://aws.amazon.com/marketplace/pp/prodview-nempvlrcr4fq4?qid=1575313242174&sr=0-3&ref_=srh_res_product_title
+[5]: https://aws.amazon.com/marketplace/pp/prodview-nphqjavwaqes6?ref_=aws-mp-console-subscription-detail-payg#pdp-pricing
+[6]: https://aws.amazon.com/marketplace/seller-profile?id=432b7859-4299-4278-8eb2-f7bbe7739ec6&ref=dtl_prodview-nphqjavwaqes6
+[7]: https://pages.tyk.io/get-started-with-tyk
