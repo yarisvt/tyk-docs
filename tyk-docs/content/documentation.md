@@ -1,5 +1,6 @@
 ---
-date: 2017-03-09T11:20:34Z
+publishdate: 2020-03-09
+lastmod: 2020-03-09
 Title: Tyk API Gateway Documentation
 diffTitleName: Tyk Documentation
 menu:

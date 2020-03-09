@@ -120,6 +120,9 @@
 
         <nav class="docs-share-print share-print f-14 bold ucase">
           <a href="#" class="icon-print" data-print><span>Print</span></a>
+          <div id="date">
+            <span class="dateformat">Last modified: {{ .Lastmod.Format "Jan 2, 2006" }}</span>
+          </div>
           <a class="button grey medium suggest-edit icon-github" target="_blank">Edit on GitHub</a>
         </nav>
         <h1>{{ if .Params.diffTitle }}
@@ -132,6 +135,9 @@
           {{ block "content" . }}
           {{ .Content }}
           {{ end }}
+        </div>
+        <div id="date">
+          <span class="dateformat">Published date: {{ .PublishDate.Format "Jan 2, 2006"}}</span>
         </div>
 
         <nav class="docs-navigation clear">
