@@ -1,6 +1,6 @@
 ---
 date: 2018-05-18T15:46:41Z
-Title: Install Tyk On-Premises on Heroku
+Title: Heroku
 menu:
   main:
     parent: "With Tyk On-Premises"

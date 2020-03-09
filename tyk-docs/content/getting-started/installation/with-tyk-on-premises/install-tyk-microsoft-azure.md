@@ -1,5 +1,5 @@
 ---
-title: Install Tyk API Gateway on Microsoft Azure
+title: Microsoft Azure
 menu:
   main:
     parent: "With Tyk On-Premises"
