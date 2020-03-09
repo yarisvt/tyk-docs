@@ -21,3 +21,6 @@ MetaDataFormat = "yaml"
     noClasses = true
     style = "manni"
     tabWidth = 2
+[frontmatter]
+publishDate = ["publishDate", "date"]
+lastmod = ["lastmod", ":git", "date", "publishDate"]
