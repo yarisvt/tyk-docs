@@ -8,9 +8,12 @@ weight: 6
 url: "/getting-started/with-tyk-on-premises/installation/on-aws"
 ---
 
-To get started easily, [Tyk offers AWS Marketplace products][6] which bootstrap the entire stack.
+To get started easily, [Tyk offers AWS Marketplace products][6] which bootstrap the entire stack, via CloudFormation templates.
 
-The AWS Marketplace products will use Elasticache in place of Redis, and Mongo running in HA mode in EC2.  CloudFormation templates are used.
+The AWS Marketplace products:
+
+- use AWS Elasticache in place of Redis
+- Runs Mongo OSS in HA mode in EC2 (Master, Slave, Arbiter)
 
 ## BYOL
 
@@ -18,7 +21,7 @@ These [AWS Marketplace products][5] are delivered as CloudFormation products. Yo
 
 - PoC (1 gw node)
 - High Availability (2 nodes)
-- Autoscaling (3 - inf nodes)
+- Autoscaling (3+ nodes)
 
 Please [contact an account manager][7] in order to get a license.
 
@@ -31,17 +34,31 @@ There are three billed through AWS Marketplace PAYG products to get you started.
 
 ### Installation
 
-There are a few things you will need to set up ahead of launching the stack.  This video will walk you through how to set up a PAYG product beginning to end on AWS.
+You will need to create the following AWS resources in an AWS VPC before you are able to deploy the PAYG products.
+
+#### Prerequisites
+
+- 3 Subnets in 3 different Availability Zones in the AWS Region
+- an Elasticache Cluster in one of the aforementioned subnets
+- An EC2 Keypair for SSH into EC2 instances
+
+Once these 3 are setup, we can deploy the AWS Marketplace PAYG products.
+
+*Example:*
+
+|  Resource            | IPV4 CIDR     |
+|----------------------|---------------|
+| VPC                  | 10.0.0.0 /24  |
+| CF-US Subnet East 1A | 10.0.0.0 /28  |
+| CF-US Subnet East 1B | 10.0.0.32 /28 |
+| CF-US Subnet East 1C | 10.0.0.64 /28 |
+
+#### Video Walkthrough
+This video will walk you through how to set up a PAYG product beginning to end on AWS, including the prerequisites.
 
 {{< youtube IiGyB_IHqWw >}}
 
-### PoC
-PoC will run with a single GW node, Elasticache, and 3 Mongo nodes: Master, Slave, Arbiter.
-
-This video will walk you through setting up the PoC install.
-
-
-##### Logging Into Dashboard
+#### Logging Into Dashboard
 Once the stack is running, in order to access the Dashboard, simply set up an Elastic IP to the Dashboard instance and then visit:
 
 `http://<elastic_public_ip>:3000`
@@ -52,33 +69,40 @@ username: `<TYKDashboardAdminUserName>@<TYKDBAdminOrganization>.com`
 
 Password: `<TYKDashboardAdminUserPassword>`
 
-1. You need to use a password that is at least 8 characters long, or you will not be able to log 
-in.
+1. You need to use a password that is at least 8 characters long, or you will not be able to log in.
 2. The CF Template already creates Security Groups for the Dashboard with port 3000 open
 
-##### Accessing the GW
-In order to access GW, simply assign Elastic IP to the instance.  The security groups are already set up to allow traffic on port 8080.
 
-To test, visit: 
 
+#### cURLing the GW(s)
+
+{{% tabs %}}
+{{% tab "PoC" %}}
+<br>
+In order to access GW, simply assign Elastic IP to the GW instance.  The auto generated GW security group is already set up to allow traffic on port 8080.
+
+To test, cURL the following: 
 ```{.copyWrapper}
 $ curl http://<elastic_public_ip>:8080/hello
 Hello Tiki
 ```
 
-## High Availability
-Everything is the same as PoC, except of course we are running two Gateway nodes instead of one.  
+{{% /tab %}}
+{{% tab "High Availability / Autoscaling" %}}
+<br>
+The CloudFormation stack sets up an Elastic Load Balancer for the Gateway cluster.  
 
-#### Accessing Gateways
-The CloudFormation stack sets up an Elastic Load Balancer for the Gateway cluster.  We simply need to navigate to the Load Balancing section and find the  `TYKElasticLoadBalancerALB`.  The Cloud Formation template sets up a public DNS entry, something like `TYKElasticLoadBalancerALB-2050138050.us-east-1.elb.amazonaws.com`
+Navigate to the AWS Load Balancing section and find the  `TYKElasticLoadBalancerALB`.  The Cloud Formation template sets up a public DNS entry, something like `TYKElasticLoadBalancerALB-2050138050.us-east-1.elb.amazonaws.com`
 
 We can check it is running by visiting
 ```{.copyWrapper}
-$ curl TYKElasticLoadBalancerALB-2050138050.us-east-1.elb.amazonaws.com/hello
+$ curl http://TYKElasticLoadBalancerALB-2050138050.us-east-1.elb.amazonaws.com/hello
 Hello Tiki
 ```
 
-Note that it is already setup to accept traffic on port 80 and forward it to the Gateways to port 8080.
+Note that ALB rules are already setup to accept traffic on port 80 and forward it to the Gateways on port 8080.
+{{% /tab %}}
+
 
 [2]: https://aws.amazon.com/marketplace/pp/prodview-elvk5mxxlkueu?qid=1575313242174&sr=0-4&ref_=srh_res_product_title
 [3]: https://aws.amazon.com/marketplace/pp/prodview-2bgdxbpeygf5w?qid=1575313242174&sr=0-5&ref_=srh_res_product_title
