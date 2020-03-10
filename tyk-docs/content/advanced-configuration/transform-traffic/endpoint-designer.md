@@ -85,6 +85,10 @@ By default the Ignore endpoint plugin is case-sensitive, so for example if `getu
 
 ![Blacklist options](/docs/img/dashboard/system-management/ignore_plugin_case.png)
 
+### Internal
+
+This plugin allows you to set an endpoint to not be listened to by the Tyk Gateway, but can be called by other APIs by using the `tyk://` prefix.
+
 ### Method Transforms
 
 This plugin allows you to change the method of a request. See [Method Transforms](/docs/advanced-configuration/transform-traffic/request-method-transform/) for more details.
