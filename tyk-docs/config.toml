@@ -3,6 +3,7 @@ languageCode = "en-gb"
 title = "Tyk Documentation"
 theme = "tykio"
 MetaDataFormat = "yaml"
+enableGitInfo = true
 [blackfriday]
    plainIDAnchors = true
    hrefTargetBlank = true
