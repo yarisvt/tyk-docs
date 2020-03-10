@@ -70,9 +70,9 @@ username: `<TYKDashboardAdminUserName>@<TYKDBAdminOrganization>.com`
 Password: `<TYKDashboardAdminUserPassword>`
 
 1. You need to use a password that is at least 8 characters long, or you will not be able to log in.
-2. The CF Template already creates Security Groups for the Dashboard with port 3000 open
+2. If accessing the Dashboard from a public space, don't forget to add an Internet Gateway to the AWS VPC.
 
-
+The CF Template already creates Security Groups for the Dashboard with port 3000 open
 
 #### cURLing the GW(s)
 
