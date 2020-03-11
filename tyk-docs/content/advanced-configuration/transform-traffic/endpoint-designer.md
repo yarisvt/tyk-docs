@@ -87,7 +87,7 @@ By default the Ignore endpoint plugin is case-sensitive, so for example if `getu
 
 ### Internal
 
-This plugin allows you to set an endpoint to not be listened to by the Tyk Gateway, but can be called by other APIs by using the `tyk://` prefix.
+This plugin allows an endpoint not be listened to by the Tyk Gateway, but can be called by other APIs using the `tyk://self/` prefix.
 
 ### Method Transforms
 
