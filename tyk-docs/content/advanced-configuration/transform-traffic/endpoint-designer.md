@@ -49,6 +49,8 @@ Accessing a path which has been blacklisted:
 
 By default the Blacklist endpoint plugin is case-sensitive, so for example if `getuser` is blacklisted, `getUser` and `GetUser` will not be blacklisted. If you select the **Ignore Case** option from the Blacklist plugin settings, `getUser`, `GetUser` and `getuser` will all be blacklisted in the above example.
 
+> **NOTE**: You can also use `ignore_endpoint_case` at a ["global" Tyk level](/docs/tyk-configuration-reference/tyk-gateway-configuration-options/#ignore_endpoint_case) in your `tyk.conf` file and at an individual API level. Those settings will ovverride this setting. This is new for v2.9.4.
+
 ![Blacklist options](/docs/img/dashboard/system-management/blacklist_plugin_case.png)
 
 ### Body Transform
@@ -82,6 +84,8 @@ Adding a path to an ignored list means that the path will not be processed for a
 #### Case Sensitivity
 
 By default the Ignore endpoint plugin is case-sensitive, so for example if `getuser` is ignored, `getUser` and `GetUser` will not be ignored. If you select the **Ignore Case** option from the Ignore plugin settings, `getUser`, `GetUser` and `getuser` will all be ignored in the above example.
+
+> **NOTE**: You can also use `ignore_endpoint_case` at a ["global" Tyk level](/docs/tyk-configuration-reference/tyk-gateway-configuration-options/#ignore_endpoint_case) in your `tyk.conf` file and at an individual API level. Those settings will ovverride this setting. This is new for v2.9.4.
 
 ![Blacklist options](/docs/img/dashboard/system-management/ignore_plugin_case.png)
 
@@ -149,6 +153,8 @@ Accessing a path which has **not** been whitelisted:
 #### Case Sensitivity
 
 By default the Whitelist endpoint plugin is case-sensitive, so for example if `getuser` is whitelisted, `getUser` and `GetUser` will not be whitelisted. If you select the **Ignore Case** option from the Whitelist plugin settings, `getUser`, `GetUser` and `getuser` will all be whitelisted in the above example.
+
+> **NOTE**: You can also use `ignore_endpoint_case` at a ["global" Tyk level](/docs/tyk-configuration-reference/tyk-gateway-configuration-options/#ignore_endpoint_case) in your `tyk.conf` file and at an individual API level. Those settings will ovverride this setting. This is new for v2.9.4.
 
 ![Blacklist options](/docs/img/dashboard/system-management/whitelist_plugin_case.png)
 
