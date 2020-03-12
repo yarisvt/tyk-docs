@@ -332,7 +332,7 @@ The Angular application that powers the Dashboard also supports Sentry. To have 
 
 Determines whether the RPC ID will be shown in the Users -> Username detail page. This can be useful for quickly identifying your Org ID.
 
-### <a name="enable_duplicate_slugs"></a>senable_duplicate_slugs
+### <a name="enable_duplicate_slugs"></a>enable_duplicate_slugs
 
 By default Tyk will try to stop you from using duplicate API slugs. However, from v1.9 Tyk supports per-API domain names, it is possible to have two APIs listen to the same path (e.g. root `/`), but on different domains.
 
