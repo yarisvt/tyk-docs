@@ -30,6 +30,8 @@ You can enter multiple certificates, that link to multiple domain names, this en
 
 The `min_version` setting is optional, you can set it to have Tyk only accept connections from TLS V1.0, 1.1, 1.2 or 1.3 respectively.
 
+Finally, set the [host_config.generate_secure_paths](/docs/tyk-configuration-reference/tyk-dashboard-configuration-options/#a-namehost_configgenerate_secure_pathsahost_configgenerate_secure_paths) flag to `true` in your `tyk_analytics.conf`
+
 #### Values for TLS Versions
 
 You need to use the following values for setting the TLS `min_version`:
