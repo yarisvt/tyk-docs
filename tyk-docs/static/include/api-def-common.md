@@ -26,7 +26,7 @@
 
 * `tag_headers`: This specifies a string array of HTTP headers which can be extracted and turned to tags. For example if you include X-Request-ID header to tag_headers, for each incoming request it will include a x-request-id-<header_value> tag to request an analytic record. This functionality can be useful if you need to pass additional information from the request to the analytics, without enabling detailed logging, which records the full request and response objects.
 
-* `ignore_endpoint_case` New for v2.9.4. If set to `true` the case of a call to endpoints for this API will be ignored. So for an endpoint called `getuser` all the following calls will be allowed:
+* `ignore_endpoint_case`: New for v2.9.4. If set to `true` the case of a call to endpoints for this API will be ignored. So for an endpoint called `getuser` all the following calls will be allowed:
  
   * `getuser`
   * `getUser`
