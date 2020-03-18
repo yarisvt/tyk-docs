@@ -54,7 +54,7 @@ Create a `pump.conf` file:
           "bulk_actions": 1000,
           "bulk_size": -1,
           "flush_interval": 60,
-          "wokers": 2
+          "workers": 2
         },
         "version": "6"
       },
@@ -126,7 +126,7 @@ The following services are supported:
 
 #### Elasticsearch Config
 
-`index_name` - The name of the index that all the analytics data will be placed in. Defaults to "tyk_analytics"
+`document_type` - The type of the document that is created in ES. Defaults to "tyk_analytics"
 
 `elasticsearch_url` - If sniffing is disabled, the URL that all data will be sent to. Defaults to `http://localhost:9200`. The HTTP prefix must be included in the URL.
 
@@ -134,11 +134,19 @@ The following services are supported:
 
 `enable_sniffing` - If sniffing is enabled, the `elasticsearch_url` will be used to make a request to get a list of all the nodes in the cluster. The returned addresses will then be used. Defaults to `false`.
 
-`document_type` - The type of the document that is created in ES. Defaults to "tyk_analytics"
+`extended_stats` - If set to true will include the following additional fields: Raw Request, Raw Response and User Agent.
+
+`index_name` - The name of the index that all the analytics data will be placed in. Defaults to "tyk_analytics"
 
 `rolling_index` - Appends the date to the end of the index name, so each days data is split into a different index name. E.g. tyk_analytics-2016.02.28 Defaults to false
 
-`extended_stats` - If set to true will include the following additional fields: Raw Request, Raw Response and User Agent.
+`disable_bulk` - New from v2.9.4. Set to `true` to disable batch operations. Defaults to `false`.
+
+`bulk_config` - New from v2.9.4. You can set the following:
+* `bulk_actions` - Specifies the number of requests needed to flush the data and send it to Elasticsearch. Defaults to 1000 requests. This can be disabled by setting to `-1`.
+* `bulk_size` - Specifies the size (in bytes) needed to flush the data and send it to Elasticsearch. Defaults to 5MB. This can be disabled by setting to `-1`.
+* `flush_interval` - Specifies the time in seconds to flush the data and send it to Elasticsearch. Defaults to `disabled`.
+* `workers` - Specifies the number of workers
 
 `version` - Specifies the ES version. Use "3" for ES 3.x, "5" for ES 5.0 and "6" for ES 6.0. Defaults to "3".
 
