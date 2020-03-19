@@ -51,9 +51,9 @@ Select JSON Web Tokens as the Authentication mode:
 
 #### Step 2: Set the JWT Signing Method
 
-Set the cryptographic method to use and enter the key in the secrets text field (PEM Encoded), this can either be an **RSA public key** or an **HMAC shared secret**. If using a RSA Public Key you can either enter this in the **Public Key** field or leave blank to embed in a Key session:
+Set the cryptographic method to use. this can either be an **RSA public key** or a **HMAC shared secret**. If using a RSA, you can use either a PEM encoded **Public Key**, or a JWKS REST discovery endpoint.  JWKS is covered more in option #3.
 
-You can also use a JWKS discovery endpoint, see option #3.
+Note, if you want to embed this at the Key level, leave this field blank.
 
 ![JWT signing method dropdown](/docs/img/dashboard/system-management/jwt_sign_2.5.png)
 
