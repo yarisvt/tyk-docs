@@ -7,10 +7,10 @@ menu:
 weight: 9 
 ---
 
-Tyk allows you to control password requirements for dashboard users, developers (i.e. users registered to the developer portal) and basic auth keys. 
-Please note: This configuration is enforced by the Tyk-Dashboard and as such is not available in the Tyk Community Edition. Also since it require access to the Tyk-Dashboard installation folder, it is *currently* not available for cloud/multi cloud clients.
+Tyk allows you to control password requirements for Dashboard users, developers (i.e. users registered to the developer portal) and basic auth keys. 
+Please note: This configuration is enforced by the Tyk-Dashboard and as such is not available in the Tyk Community Edition. Also since it require access to the Tyk Dashboard installation folder, it is *currently* not available for cloud/multi-cloud clients.
 
-You can find the configuration files in the `schemas` directory of your Tyk-dashboard installation folder, as follows: 
+You can find the configuration files in the `schemas` directory of your Tyk Dashboard installation folder, as follows: 
 - For Dashboard users you define policy in `schemas/password.json` 
 - For developers you define policy in `schemas/developer_password.json`
 - For basic auth keys you define policy in `./schemas/basic_auth.json`
