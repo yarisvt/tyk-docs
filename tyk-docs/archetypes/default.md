@@ -1,6 +1,6 @@
 ---
 title: "{{ replace .Name "-" " " | title }}"
-lastmod: {{ .Lastmod }}
+date: {{ .Date }}
 weight: 0
 draft: true
 ---
