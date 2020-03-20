@@ -61,6 +61,7 @@ This guide assumes the following:
     {
       "Key": "{Okta-App-Client-ID}",
       "Secret": "{Okta-App-Client-SECRET}",
+      "Scopes": ["openid", "email"],
       "DiscoverURL": "https://{IdP-DOMAIN}.oktapreview.com/oauth2/default/.well-known/openid-configuration",
       "Name": "openid-connect"
     }
