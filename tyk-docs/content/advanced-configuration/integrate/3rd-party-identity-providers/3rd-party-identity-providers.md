@@ -64,7 +64,7 @@ TIB requires:
 *   Tyk Dashboard v0.9.7.1+
 *   Redis
 
-> **Note**: Dashboard/Portal SSO is also supported on Tyk Multi-Cloud accounts, but is an extra feature and is not enabled by default.  TIB must be run locally to support SSO with Tyk Cloud. 
+> **Note**: Dashboard/Portal SSO is also supported on Tyk Multi-Cloud accounts, but is an extra feature and is not enabled by default. Contact your Account Manager to request this feature. TIB must be run locally to support SSO with Tyk Cloud. 
 
 ### Installation
 
