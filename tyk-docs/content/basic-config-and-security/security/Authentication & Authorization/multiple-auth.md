@@ -3,7 +3,7 @@ date: 2017-03-23T15:58:42Z
 title: Multiple Auth
 menu:
   main:
-    parent: "Your APIs"
+    parent: "Authentication & Authorization"
 weight: 5 
 ---
 
