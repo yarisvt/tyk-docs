@@ -3,7 +3,7 @@ date: 2017-03-23T15:47:26Z
 title: HMAC Signatures
 menu:
   main:
-    parent: "Your APIs"
+    parent: "Authentication & Authorization"
 weight: 5 
 ---
 

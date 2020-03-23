@@ -1,25 +1,25 @@
 ---
 date: 2017-03-23T16:06:42Z
-title: Refresh Token Grant Type
+title: Username and Password Grant Type
 menu:
   main:
     parent: "OAuth 2.0"
-weight: 2
-url: "/basic-config-and-security/security/your-apis/oauth2.0/refresh-token-grant"
+weight: 4
+url: "/basic-config-and-security/security/authentication-&-authorization/oauth2.0/username-password-grant"
 ---
 
-The Refresh Token grant type uses the refresh token to generate a new token.
+The Username and Password grant type uses a _basic authentication_ key to generate a token. When you create the _basic authentication_ key in the Dashboard, this stores the `username` and `password` used in the API token request.
 
-> **Note**: Refresh tokens are single use only so cannot be reused, and when they are used they also invalidate the token they are associated with.
+### Token Request
 
-### Request new token
+This request provides the client id and basic user credentials in exchange for an API token.
 
 ```shell
 curl -X POST \
   https://tyk.cloud.tyk.io/oauth-api/oauth/token/ \
   -H 'Authorization: Basic ZWQ1OTE1OGZhMjM0NGU5NGIzZTYyNzhlOGFiODUxNDI6TUdRM056RTJNR1F0WVRVeVpDMDBaVFZsTFdKak1USXRNakUyTVRNMU1tRTNOMk0x' \
   -H 'Content-Type: application/x-www-form-urlencoded' \
-  -d 'grant_type=refresh_token&client_id=ed59158fa2344e94b3e6278e8ab85142&client_secret=MGQ3NzE2MGQtYTUyZC00ZTVlLWJjMTItMjE2MTM1MmE3N2M1&refresh_token=YjdhOWFmZTAtNmExZi00ZTVlLWIwZTUtOGFhNmIwMWI3MzJj'
+  -d 'grant_type=password&client_id=ed59158fa2344e94b3e6278e8ab85142&username=oauthapiusername&password=oauthapipassword'
 ```
 
 | Request | Value                                                                                                                                         |
@@ -32,26 +32,26 @@ curl -X POST \
 | `Authorization` | `Basic` authorization, using the `client id` and `client secret` of the OAuth client base64 encoded with colon separator. E.g. `<oauth-client-id>:<oauth-client-secret>`, in this case `ed59158fa2344e94b3e6278e8ab85142:MGQ3NzE2MGQtYTUyZC00ZTVlLWJjMTItMjE2MTM1MmE3N2M1`, which base64 encoded is `ZWQ1OTE1OGZhMjM0NGU5NGIzZTYyNzhlOGFiODUxNDI6TUdRM056RTJNR1F0WVRVeVpDMDBaVFZsTFdKak1USXRNakUyTVRNMU1tRTNOMk0x`. |
 | `Content-Type`  | `application/x-www-form-urlencoded`                                                                                                                                                                                                                                                                                                                                                                                 |
 
-| Data            | Value                                                                                                                                                    |
-| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `grant_type`    | `refresh_token`                                                                                                                                          |
-| `client_id`     | The OAuth client id, in this case `ed59158fa2344e94b3e6278e8ab85142`.                                                                                    |
-| `client_secret` | The OAuth client secret, in this case `MGQ3NzE2MGQtYTUyZC00ZTVlLWJjMTItMjE2MTM1MmE3N2M1`.                                                                |
-| `refresh_token` | The refresh token (`refresh_token`) provided in response to the original token request, in this case `YjdhOWFmZTAtNmExZi00ZTVlLWIwZTUtOGFhNmIwMWI3MzJj`. |
+| Data         | Value                                                                 |
+| ------------ | --------------------------------------------------------------------- |
+| `grant_type` | `password`                                                            |
+| `client_id`  | The OAuth client id, in this case `ed59158fa2344e94b3e6278e8ab85142`. |
+| `username`   | The basic username, in this case `oauthapiusername`.                  |
+| `password`   | The basic password, in this case `oauthapipassword`.                  |
 
-### Response
+#### Response
 
-Response provides a new token as `access_token` and a new refresh token as `refresh_token` in the returned JSON:
+Response provides the token as `access_token` in the returned JSON which can then be used to access the API:
 
 ```json
 {
-  "access_token": "580defdbe1d21e0001c67e5c2a0a6c98ba8b4a059dc5825388501573",
+  "access_token": "580defdbe1d21e0001c67e5ce3ea17db02be4c62ba15089bbcfd1f80",
   "expires_in": 3600,
-  "refresh_token": "NWQzNGVhMTItMDE4Ny00MDFkLTljOWItNGE4NzI1ZGI1NGU2",
+  "refresh_token": "YjdhOWFmZTAtNmExZi00ZTVlLWIwZTUtOGFhNmIwMWI3MzJj",
   "token_type": "bearer"
 }
 ```
 
 ### Sequence Diagram
 
-![Refresh Token Grant](/docs/img/diagrams/refresh-token-grant.png)
+![Username and Password Grant](/docs/img/diagrams/username-and-password-grant.png)
