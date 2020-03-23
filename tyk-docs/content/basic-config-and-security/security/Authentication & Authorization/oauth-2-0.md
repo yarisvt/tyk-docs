@@ -3,7 +3,7 @@ date: 2017-03-23T16:06:42Z
 title: OAuth 2.0
 menu:
   main:
-    parent: "Your APIs"
+    parent: "Authentication & Authorization"
 weight: 5
 ---
 

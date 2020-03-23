@@ -3,7 +3,7 @@ date: 2017-03-23T16:15:37Z
 title: Go Plugin Authentication
 menu:
   main:
-    parent: "Your APIs"
+    parent: "Authentication & Authorization"
 weight: 6 
 ---
 

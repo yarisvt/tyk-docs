@@ -3,7 +3,7 @@ date: 2017-03-23T15:50:24Z
 title: JSON Web Tokens
 menu:
   main:
-    parent: "Your APIs"
+    parent: "Authentication & Authorization"
 weight: 5 
 ---
 
