@@ -33,9 +33,36 @@ margin:-90px 0 0;
 #main-content h4 > a > img,
 #main-content h5 > a > img {vertical-align: middle; border:none !important; height: 17px; display: inline-block; margin-left: 5px; }
 
+.header {
+  background-color: #36364c;
+}
+
+.header-github {
+  left: 90px;
+}
+
+.search input:placeholder-shown:valid {
+  border-color: #fff;
+}
 /* Footer */
+.footer {
+  background: #505071;
+  max-width: 125rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.footer a {
+  font-family: "Open Sans",sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.125em;
+}
+
+.footer h3:after {
+  content: none;
+}
 .footer-logos {position: absolute; left: 0; right: 0; margin: auto; bottom: 60px; margin: auto; text-align: center;}
-.footer-logos a {display: inline-block; padding: 0 13px; margin: auto;}
+.footer-logos a {color: #000; display: inline-block; padding: 0 13px; margin: auto; opacity: 0.5;}
+.footer h3 { color: #fff; font-size: 1.1rem; margin-bottom: 30px; }
 .footer-menu {margin-bottom: 150px;}
 .footer-copyright {position: absolute; right: 32px; line-height: 50px; bottom: 16px; text-align: right; }
 .footer-copyright small {color: #505071; letter-spacing: 0.1em; font-size: 11px; text-transform: none;}
@@ -58,7 +85,7 @@ margin:-90px 0 0;
   .menu-getstarted { top:15px !important; }
 }
 
-.st-treed {font-size: 16px;}
+.st-treed {font-size: 15px;}
 .st-treed li {background-color:#E1E1E1;}
 
 /* Suggest an Edit */
@@ -145,7 +172,7 @@ body * { visibility: hidden; }
 /* ==========================================================================
   Hero
    ========================================================================== */
-.hero {background: #191e23; color: #FFF; height: 164px; min-height: 0; overflow: visible;}
+.hero {background: #505071; color: #FFF; height: 164px; min-height: 0; overflow: visible;}
 .hero-sidebyside {padding-top: 69px;}
 .hero-sidebyside h1, .hero-sidebyside .hero-text {float: left; width: 50%;}
 .hero .search {margin-top: 10px; max-width: 100%;}
@@ -192,7 +219,8 @@ body * { visibility: hidden; }
   Tree View
    ========================================================================== */
 .st-treed li {padding-left: 30px; list-style-type: none; line-height: 20px; margin-bottom: 20px; position: relative; }
-.st-treed .st-collapsed {height: 20px; overflow: hidden;} 
+.st-treed .st-collapsed {height: 20px; overflow: hidden; display: table;} 
+.st-treed .st-collapsed ul {display:none} 
 .st-treed ul {margin-top: 20px; position: relative; pointer-events:none; }
 .st-treed a {display: block; position: relative; pointer-events:auto;}
 .st-treed a:hover {color: #2f3f9e;}

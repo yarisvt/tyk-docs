@@ -22,7 +22,7 @@ There are two way to get profiles:
     * `--blockprofile` - Blocking profile, generates `tyk.blockprof` file
     * `--mutexprofile` - Mutex profile, generates `tyk.mutexprof` file
 
-2. Running with the `--httpprofile` flag, which will run a special `/debug/pprof/` public web page, containing dynamic information about the running process, and where you can download various profiles:
+2. Running with the `--httpprofile` flag, or set `enable_http_profiler` to `true` in tyk.conf, which will run a special `/debug/pprof/` public web page, containing dynamic information about the running process, and where you can download various profiles:
 
     * goroutine    - stack traces of all current goroutines
     * heap         - a sampling of all heap allocations

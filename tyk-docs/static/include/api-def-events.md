@@ -4,7 +4,7 @@
 
 * `events`: Each event handler that is added to the event_handlers.events section, is mapped by the event type, and then a list of each handler configuration, defined by the handler name and the handler metadata (usually some kind of configurable options for the specific handler)
 
-```{.json}
+```{.copyWrapper}
 "event_handlers": {
   "events": {
     "EVENT_NAME": [
@@ -27,4 +27,4 @@
 }
 ```
 
-See [Report, Monitor and Trigger Events](https://tyk.io/docs/report-monitor-trigger-events/) for more details.
+See [Report, Monitor and Trigger Events](/docs/basic-config-and-security/report-monitor-trigger-events/) for more details.

@@ -1,9 +1,48 @@
-
 <!doctype html>
 
 <html class="no-js" lang="en-GB">
 
 <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NVX4PCL');</script>
+  <!-- End Google Tag Manager -->
+  <!-- Hotjar Tracking Code for https://tyk.io/ -->
+<script>
+  (function(h,o,t,j,a,r){
+      h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+      h._hjSettings={hjid:1216213,hjsv:6};
+      a=o.getElementsByTagName('head')[0];
+      r=o.createElement('script');r.async=1;
+      r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+      a.appendChild(r);
+  })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+<!-- Fullstory script -->
+<script>
+  window['_fs_debug'] = false;
+  window['_fs_host'] = 'fullstory.com';
+  window['_fs_script'] = 'edge.fullstory.com/s/fs.js';
+  window['_fs_org'] = 'RWJAK';
+  window['_fs_namespace'] = 'FS';
+  (function(m,n,e,t,l,o,g,y){
+      if (e in m) {if(m.console && m.console.log) { m.console.log('FullStory namespace conflict. Please set window["_fs_namespace"].');} return;}
+      g=m[e]=function(a,b,s){g.q?g.q.push([a,b,s]):g._api(a,b,s);};g.q=[];
+      o=n.createElement(t);o.async=1;o.crossOrigin='anonymous';o.src='https://'+_fs_script;
+      y=n.getElementsByTagName(t)[0];y.parentNode.insertBefore(o,y);
+      g.identify=function(i,v,s){g(l,{uid:i},s);if(v)g(l,v,s)};g.setUserVars=function(v,s){g(l,v,s)};g.event=function(i,v,s){g('event',{n:i,p:v},s)};
+      g.shutdown=function(){g("rec",!1)};g.restart=function(){g("rec",!0)};
+      g.log = function(a,b){g("log",[a,b])};
+      g.consent=function(a){g("consent",!arguments.length||a)};
+      g.identifyAccount=function(i,v){o='account';v=v||{};v.acctId=i;g(o,v)};
+      g.clearUserCookie=function(){};
+      g._w={};y='XMLHttpRequest';g._w[y]=m[y];y='fetch';g._w[y]=m[y];
+      if(m[y])m[y]=function(){return g._w[y].apply(this,arguments)};
+  })(window,document,window['_fs_namespace'],'script','user');
+  </script>
   <meta charset="UTF-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,28 +62,32 @@
   <link rel="icon" type="image/png" href="/docs/images/favicon/favicon-16x16.png" sizes="16x16" />
   <link rel="shortcut icon" href="/docs/images/favicon/favicon.ico" />
 </head>
-<body class="page-documentation">
-<header class="header f-14">
-<div class="container">
-  <a href="https://tyk.io" class="logo" data-turbolinks="false">
-    <img src="/docs/img/header-logo.svg" alt="Tyk">
-  </a>
-  <a href="https://github.com/TykTechnologies/tyk" target="_blank" class="header-github icon-github"></a>
-</div>
-<button class="m-show burger" data-toggle="show-submenu"></button>
-</header>
 
-<header class="hero" data-turbolinks-permanent>
-  <div class="container">
-    <div class="hero-sidebyside">
-      <h1 id="doc-icon">
-        <img src="/docs/images/icon-documentation.svg" width="0" height="0" alt="Documentation">
-        Documentation
-      </h1>
-      
-      <nav class="hero-text f-16">
-        <form class="search documentation-search f-12 roboto">
-          <input type="text" class="searchBox" id="q" placeholder="Search..." data-turbolinks-permanent>
+<body class="page-documentation">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NVX4PCL"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+  <header class="header f-14">
+    <a href="https://tyk.io" class="logo" data-turbolinks="false">
+      <img src="https://tyk.io/wp-content/themes/tyk/dist/svg/logo.svg" width="88" height="45"
+        alt="Tyk API Gateway and API Management">
+    </a>
+    <a href="https://github.com/TykTechnologies/tyk" target="_blank" class="header-github icon-github"></a>
+    <button class="m-show burger" data-toggle="show-submenu"></button>
+  </header>
+
+  <header class="hero" data-turbolinks-permanent>
+    <div class="container">
+      <div class="hero-sidebyside">
+        <h1 id="doc-icon">
+          <img src="/docs/images/icon-documentation.svg" width="0" height="0" alt="Documentation">
+          Documentation
+        </h1>
+
+        <nav class="hero-text f-16">
+          <form class="search documentation-search f-12 roboto">
+            <input type="text" class="searchBox" id="q" placeholder="Search..." data-turbolinks-permanent>
             <button class="icon-search" disabled></button>
 
             <div class="documentation-search-container">
@@ -54,142 +97,134 @@
                 <img src="/docs/images/algolia-logo.jpg">
                 <span>Search by</span>
               </div>
-            </div>    
-      
-        </form>
-      </nav>
-    </div>   
-  </div>  
-</header>  
+            </div>
 
-<section class="section-page hasSidebar">
-<div class="container clear">
-  <aside class="page-submenu roboto" data-turbolinks-permanent>
-      <nav class="aside-submenu">
-        <div data-tree class="st-treed">
+          </form>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section class="section-page hasSidebar">
+    <div class="container clear">
+      <aside class="page-submenu roboto" data-turbolinks-permanent>
+        <nav class="aside-submenu">
+          <div data-tree class="st-treed">
             {{ partial "menu_include.html" . }}
-        </div>
-      </nav>
-    <button class="submenu-close overlay-close m-show icon-close"  data-toggle="show-submenu"></button>
-  </aside>
+          </div>
+        </nav>
+        <button class="submenu-close overlay-close m-show icon-close" data-toggle="show-submenu"></button>
+      </aside>
 
-  <article class="page-content wysiwyg">
- 
-    <nav class="docs-share-print share-print f-14 bold ucase">
-      <a href="#" class="icon-print" data-print><span>Print</span></a>
-      <a class="button grey medium suggest-edit icon-github" target="_blank" >Edit on GitHub</a>
-    </nav>
-    <h1>{{ if .Params.diffTitle }}
+      <article class="page-content wysiwyg">
+
+        <nav class="docs-share-print share-print f-14 bold ucase">
+          <a href="#" class="icon-print" data-print><span>Print</span></a>
+          <div id="date">
+            <span class="dateformat">Last modified: {{ .Lastmod.Format "Jan 2, 2006" }}</span>
+          </div>
+          <a class="button grey medium suggest-edit icon-github" target="_blank">Edit on GitHub</a>
+        </nav>
+        <h1>{{ if .Params.diffTitle }}
           {{ .Params.diffTitleName }}
-        {{else}}
+          {{else}}
           {{.Title}}
-        {{ end }}
-    </h1>
-    <div id="main-content">
-    {{ block "content" . }}
-      {{ .Content }}
-    {{ end }} 
+          {{ end }}
+        </h1>
+        <div id="main-content">
+          {{ block "content" . }}
+          {{ .Content }}
+          {{ end }}
+        </div>
+        <nav class="docs-navigation clear">
+          <a id="previousArticle" class="button outline blue icon-left"></a>
+          <a id="nextArticle" class="button outline blue icon-right"></a>
+        </nav>
+
+        <div class="return-top">
+          <a href="javascript:" class="button grey medium bottom">Return to Top</a>
+        </div>
+
+        <a href="javascript:" class="icon-right" id="return-to-top"></a>
+      </article>
+
+
     </div>
-      
-    <nav class="docs-navigation clear">
-      <a id="previousArticle" class="button outline blue icon-left"></a>
-      <a id="nextArticle" class="button outline blue icon-right"></a>
-    </nav>
-    
-    <div class="return-top">
-    <a href="javascript:" class="button grey medium bottom">Return to Top</a>
-    </div>
+  </section>
 
-    <a href="javascript:" class="icon-right" id="return-to-top"></a>
-  </article>
+  <nav class="documentation-table-of-contents">
+    <div class="toc-content"></div>
+  </nav>
 
+  <footer class="footer">
 
-</div>
-</section>
+    <div class="container clear">
 
-    <nav class="documentation-table-of-contents">
-      <div class="toc-content"></div>
-    </nav>
-
-<footer class="footer">
-  
-  <div class="container clear">
-    
-    <nav class="footer-menu f-12">
-      <h3 class="f-13">Features</h3>
+      <nav class="footer-menu f-12">
+        <h3 class="f-13">Features</h3>
         <a href="/features/">Out of the box</a>
         <a href="/features/extend-tyk/">Plugins</a>
         <a href="/features/tyk-benchmarks/">Benchmarks</a>
-    </nav>
+      </nav>
 
-    <nav class="footer-menu f-12">
-      <h3 class="f-13">Products</h3>
+      <nav class="footer-menu f-12">
+        <h3 class="f-13">Products</h3>
         <a href="/api-gateway/cloud/">Cloud</a>
         <a href="/api-gateway/on-premise/">On-Premises</a>
         <a href="/api-gateway/hybrid/">Hybrid</a>
         <a href="/api-gateway/enterprise/">Enterprise</a>
-    </nav>
+      </nav>
 
-    <nav class="footer-menu f-12">
-      <h3 class="f-13">Help</h3>
+      <nav class="footer-menu f-12">
+        <h3 class="f-13">Help</h3>
         <a href="https://community.tyk.io/" target="_blank">Ask a Question</a>
         <a href="/helpdesk/">Helpdesk</a>
         <a href="https://github.com/TykTechnologies/tyk/issues" target="_blank">Raise a Bug</a>
-        <a href="https://trello.com/b/59d5kAZ5/tyk-api-gateway-roadmap" target="_blank">Open Roadmap</a>
-    </nav>
+        <a href="https://github.com/TykTechnologies/tyk-roadmap" target="_blank">Open Roadmap</a>
+      </nav>
 
-    <nav class="footer-menu f-12">
-      <h3 class="f-13">About</h3>
+      <nav class="footer-menu f-12">
+        <h3 class="f-13">About</h3>
         <a href="/about/team/">Team</a>
         <a href="/about/contact/#contact-us">Contact</a>
         <a href="/blog/">Blog</a>
-    </nav>
+      </nav>
 
-    <nav class="footer-menu f-12">
-      <h3 class="f-13">Legal</h3>
+      <nav class="footer-menu f-12">
+        <h3 class="f-13">Legal</h3>
         <a href="/terms-and-conditions/">Terms &amp; Conditions</a>
         <a href="/privacy-policy/">Privacy Policy</a>
-    </nav>
-
-    <nav class="footer-logos">
-      <a href="https://www.pcisecuritystandards.org/pci_security/" target="_blank">
-        <img src="/docs/img/pci-footer.svg" width="197" height="77" alt="PCI Compliant">
-      </a>
-      <a href="https://www.iso.org/iso-9001-quality-management.html" target="_blank">
-        <img src="/docs/img/iso9001-footer.svg" width="132" height="77" alt="ISO 9001">
-      </a>
-      <a href="https://www.hhs.gov/hipaa/index.html" target="_blank">
-        <img src="/docs/img/hipaa-footer.svg" width="127" height="77" alt="HIPPA Compliant">
-      </a>
-    </nav>
-
-    <div class="footer-copyright f-12">
-      <nav class="footer-social">
-        <a href="https://github.com/TykTechnologies" target="_blank" class="icon-github"></a>
-        <a href="https://twitter.com/tyk_io" target="_blank" class="icon-twitter"></a>
       </nav>
+
+      <nav class="footer-logos">
+        <a href="https://aws.amazon.com/partners/" target="_blank">
+          <img src="/docs/img/APN_Advanced-Technology-Partner1 white.png" width="197" height="77" alt="PCI Compliant">
+        </a>
+        <a href="https://www.pcisecuritystandards.org/pci_security/" target="_blank">
+          <img src="/docs/img/pci-footer.svg" width="197" height="77" alt="PCI Compliant">
+        </a>
+        <a href="https://www.iso.org/iso-9001-quality-management.html" target="_blank">
+          <img src="/docs/img/iso9001-footer.svg" width="132" height="77" alt="ISO 9001">
+        </a>
+        <a href="https://www.iso.org/isoiec-27001-information-security.html" target="_blank">
+          <img src="/docs/img/iso27001-web.svg" width="132" height="77" alt="ISO 27001">
+        </a>
+        <a href="https://www.hhs.gov/hipaa/index.html" target="_blank">
+          <img src="/docs/img/hipaa-footer.svg" width="127" height="77" alt="HIPPA Compliant">
+        </a>
+      </nav>
+
+      <div class="footer-copyright f-12">
+        <nav class="footer-social">
+          <a href="https://github.com/TykTechnologies" target="_blank" class="icon-github"></a>
+          <a href="https://twitter.com/tyk_io" target="_blank" class="icon-twitter"></a>
+        </nav>
+      </div>
+
+      <small class="f-12" id="copyright-year"></small>
     </div>
-    
-    <small class="f-12" id="copyright-year"></small>
-  </div>
-  
-</footer>
-  <script>
-      (function(b, o, i, l, e, r) {
-          b.GoogleAnalyticsObject = l;
-          b[l] || (b[l] =
-              function() {
-                  (b[l].q = b[l].q || []).push(arguments)
-              });
-          b[l].l = +new Date;
-          e = o.createElement(i);
-          r = o.getElementsByTagName(i)[0];
-          e.src = 'https://www.google-analytics.com/analytics.js';
-          r.parentNode.insertBefore(e, r)
-      }(window, document, 'script', 'ga'));
-      ga('create', 'UA-53782596-1', 'auto');
-      ga('send', 'pageview');
-  </script>
+
+  </footer>
 
   <script src="/docs/js/simpletree.min.js"></script>
   <script type='text/javascript' src='/docs/js/docs.js'></script>
@@ -198,38 +233,41 @@
   <script src="https://cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.js"></script>
   <script type='text/javascript' src="/docs/js/docs-search.js"></script>
   <script type='text/javascript'>
-    setTimeout(function(){
-        if (!window.LiveReload) {
-            var head= document.getElementsByTagName('head')[0];
-            var script= document.createElement('script');
-            script.type= 'text/javascript';
-            script.src= '/docs/js/turbolinks.js';
-            head.appendChild(script);
-            
-            $(document).on('turbolinks:load', function() {
-                $(window).scrollTop(0);
+    setTimeout(function () {
+      if (!window.LiveReload) {
+        var head = document.getElementsByTagName('head')[0];
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = '/docs/js/turbolinks.js';
+        head.appendChild(script);
 
-                setTimeout(function(){
-                    $(window).scrollTop(0);
-                }, 0)
-            })
-          
-            $(document).on('turbolinks:load',  function() {
-                $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
-            });
+        $(document).on('turbolinks:load', function () {
+          $(window).scrollTop(0);
 
-            $(document).on('turbolinks:click', function (event) {
-                if (event.target.getAttribute('href').charAt(0) === '#') {
-                    return event.preventDefault()
-                }
-            })
-        }
+          setTimeout(function () {
+            $(window).scrollTop(0);
+          }, 0)
+        })
+
+        $(document).on('turbolinks:load', function () {
+          $('pre code').each(function (i, e) {
+            hljs.highlightBlock(e)
+          });
+        });
+
+        $(document).on('turbolinks:click', function (event) {
+          if (event.target.getAttribute('href').charAt(0) === '#') {
+            return event.preventDefault()
+          }
+        })
+      }
     }, 500)
-      
   </script>
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
   <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
 </body>
-</html>
 
+</html>
