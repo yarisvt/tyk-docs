@@ -3,7 +3,7 @@ date: 2017-03-23T15:28:35Z
 title: Basic Authentication
 menu:
   main:
-    parent: "Your APIs"
+    parent: "Authentication & Authorization"
     identifier: security-basic-authentication
 weight: 5 
 ---

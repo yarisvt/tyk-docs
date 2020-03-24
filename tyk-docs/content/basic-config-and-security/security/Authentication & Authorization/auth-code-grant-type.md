@@ -4,8 +4,8 @@ title: Authorization Code Grant Type
 menu:
   main:
     parent: "OAuth 2.0"
-weight: 2
-url: "/basic-config-and-security/security/your-apis/oauth2.0/auth-code-grant"
+weight: 1
+url: "/basic-config-and-security/security/authentication-&-authorization/oauth2.0/auth-code-grant"
 ---
 
 This process requires three steps:

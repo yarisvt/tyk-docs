@@ -1,25 +1,25 @@
 ---
 date: 2017-03-23T16:06:42Z
-title: Client Credentials Grant Type
+title: Refresh Token Grant Type
 menu:
   main:
     parent: "OAuth 2.0"
-weight: 5
-url: "/basic-config-and-security/security/your-apis/oauth2.0/client-credentials-grant"
+weight: 2
+url: "/basic-config-and-security/security/authentication-&-authorization/oauth2.0/refresh-token-grant"
 ---
 
-The Client Credentials grant type uses the OAuth client credentials to generate a token.
+The Refresh Token grant type uses the refresh token to generate a new token.
 
-### Token Request
+> **Note**: Refresh tokens are single use only so cannot be reused, and when they are used they also invalidate the token they are associated with.
 
-This request provides the client credentials in exchange for an API token.
+### Request new token
 
 ```shell
 curl -X POST \
   https://tyk.cloud.tyk.io/oauth-api/oauth/token/ \
   -H 'Authorization: Basic ZWQ1OTE1OGZhMjM0NGU5NGIzZTYyNzhlOGFiODUxNDI6TUdRM056RTJNR1F0WVRVeVpDMDBaVFZsTFdKak1USXRNakUyTVRNMU1tRTNOMk0x' \
   -H 'Content-Type: application/x-www-form-urlencoded' \
-  -d 'grant_type=client_credentials&client_id=ed59158fa2344e94b3e6278e8ab85142&client_secret=MGQ3NzE2MGQtYTUyZC00ZTVlLWJjMTItMjE2MTM1MmE3N2M1'
+  -d 'grant_type=refresh_token&client_id=ed59158fa2344e94b3e6278e8ab85142&client_secret=MGQ3NzE2MGQtYTUyZC00ZTVlLWJjMTItMjE2MTM1MmE3N2M1&refresh_token=YjdhOWFmZTAtNmExZi00ZTVlLWIwZTUtOGFhNmIwMWI3MzJj'
 ```
 
 | Request | Value                                                                                                                                         |
@@ -32,26 +32,26 @@ curl -X POST \
 | `Authorization` | `Basic` authorization, using the `client id` and `client secret` of the OAuth client base64 encoded with colon separator. E.g. `<oauth-client-id>:<oauth-client-secret>`, in this case `ed59158fa2344e94b3e6278e8ab85142:MGQ3NzE2MGQtYTUyZC00ZTVlLWJjMTItMjE2MTM1MmE3N2M1`, which base64 encoded is `ZWQ1OTE1OGZhMjM0NGU5NGIzZTYyNzhlOGFiODUxNDI6TUdRM056RTJNR1F0WVRVeVpDMDBaVFZsTFdKak1USXRNakUyTVRNMU1tRTNOMk0x`. |
 | `Content-Type`  | `application/x-www-form-urlencoded`                                                                                                                                                                                                                                                                                                                                                                                 |
 
-| Data            | Value                                                                                     |
-| --------------- | ----------------------------------------------------------------------------------------- |
-| `grant_type`    | `client_credentials`                                                                      |
-| `client_id`     | The OAuth client id, in this case `ed59158fa2344e94b3e6278e8ab85142`.                     |
-| `client_secret` | The OAuth client secret, in this case `MGQ3NzE2MGQtYTUyZC00ZTVlLWJjMTItMjE2MTM1MmE3N2M1`. |
+| Data            | Value                                                                                                                                                    |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `grant_type`    | `refresh_token`                                                                                                                                          |
+| `client_id`     | The OAuth client id, in this case `ed59158fa2344e94b3e6278e8ab85142`.                                                                                    |
+| `client_secret` | The OAuth client secret, in this case `MGQ3NzE2MGQtYTUyZC00ZTVlLWJjMTItMjE2MTM1MmE3N2M1`.                                                                |
+| `refresh_token` | The refresh token (`refresh_token`) provided in response to the original token request, in this case `YjdhOWFmZTAtNmExZi00ZTVlLWIwZTUtOGFhNmIwMWI3MzJj`. |
 
-#### Response
+### Response
 
-Response provides the token as `access_token` in the returned JSON which can then be used to access the API:
+Response provides a new token as `access_token` and a new refresh token as `refresh_token` in the returned JSON:
 
 ```json
 {
-  "access_token": "580defdbe1d21e0001c67e5c40e93eac3d23494697470b90d7c81593",
+  "access_token": "580defdbe1d21e0001c67e5c2a0a6c98ba8b4a059dc5825388501573",
   "expires_in": 3600,
+  "refresh_token": "NWQzNGVhMTItMDE4Ny00MDFkLTljOWItNGE4NzI1ZGI1NGU2",
   "token_type": "bearer"
 }
 ```
 
-> **Note**: It does not provide a refresh token.
-
 ### Sequence Diagram
 
-![Client Credentials Grant](/docs/img/diagrams/client-grant.png)
+![Refresh Token Grant](/docs/img/diagrams/refresh-token-grant.png)
