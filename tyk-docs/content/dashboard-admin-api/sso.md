@@ -7,10 +7,10 @@ menu:
 weight: 5
 ---
 
-Our SSO API allows you to implement custom authentication schemes for the Dashboard and Portal. 
+The Dashboard Admin SSO API allows you to implement custom authentication schemes for the Dashboard and Portal. 
 Our Tyk Identity Broker (TIB) internally also uses this API.
 
-In a production environment, you need to change the default `admin_secret` value that is called by the `admin-auth` header in your`tyk_analytics.conf` file. This is located in `/opt/tyk-dashboard`.
+In a production environment, you need to change the default `admin_secret` value that is called by the `admin-auth` header in your `tyk_analytics.conf` file. This is located in `/opt/tyk-dashboard`.
 
 ### Generate authentication token
 
@@ -50,35 +50,4 @@ admin-auth: 12345
 {"Status":"OK","Message":"SSO Nonce created","Meta":"YTNiOGUzZjctYWZkYi00OTNhLTYwODItZTAzMDI3MjM0OTEw"}
 ```
 
-### Using the Token
-
-Once you have issued a token you can login to the dashboard using the `/tap` url, or to the portal using the `<portal-url>/sso` URL, and provide an authentication token via the `nonce` query param.
-If `nonce` is valid, Tyk will create a temporary user and log them in. 
-
-If you want to re-use existing dashboard users, instead of creating temporary ones, you can set `"sso_enable_user_lookup": true` variable in Tyk Analytics configuration file. This way you can set individual permissions for users logged via SSO.
-
-#### Set up default permissions for the dashboard
-If you use the token with `dashboard` scope, and would like to avoid login in as admin user (which is the default permissions), you can add the `sso_permission_defaults` configuration option to the Dashboard config file (`tyk_analytics.conf`) to specify SSO user permissions in the following format:
-
-```
-"sso_permission_defaults": {
-  "analytics": "read",
-  "apis": "write",
-  "hooks": "write",
-  "idm": "write",
-  "keys": "write",
-  "policy": "write",
-  "portal": "write",
-  "system": "write",
-  "users": "write",
-  "user_groups": "write"
-}
-```
-
-#### Sample Login Request
-
-```{.copyWrapper}
-GET /tap?nonce=YTNiOGUzZjctYWZkYi00OTNhLTYwODItZTAzMDI3MjM0OTEw HTTP/1.1
-Host: localhost:3000    
-```
-
+See [Single Sign On](/docs/advanced-configuration/integrate/sso/) documentation for how to use this token and more details.

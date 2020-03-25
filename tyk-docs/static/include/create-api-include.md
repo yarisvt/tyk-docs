@@ -1,9 +1,10 @@
 <!-- START OMIT -->
+
 ## <a name="with-dashboard"></a>Tutorial: Create an API with the Dashboard
 
 We have a video walkthrough for creating an API
 
-<iframe width="870" height="480" src="https://www.youtube.com/embed/gGM69M9_m1w" frameborder="0" gesture="media" allowfullscreen></iframe>
+<iframe width="870" height="480" src="https://www.youtube.com/embed/astwEwzhL-s" frameborder="0" frameborder="0" gesture="media" allowfullscreen></iframe>
 
 We will use the Tyk Dashboard to create a very simple API that has no special elements set up.
 
@@ -17,16 +18,10 @@ We will use the Tyk Dashboard to create a very simple API that has no special el
 
 ### Step 3: Set up the Base Configuration for your API
 
-![API Designer][3]
+- From the **API Settings** section, add your **API Name**. This will also act as the slug for your **API URL**.
+- From the **Targets** section, add your **Target URL**. This will set the upstream origin that hosts the service you want to proxy to. For this tutorial you can use [http://httpbin.org](http://httpbin.org). If you wish to use more than one target URL you can select **Enable round-robin load balancing**. For this tutorial, we will just use a single upstream target. See [Load Balancing](/docs/ensure-high-availability/load-balancing/) for more details.
 
-In this section:
-
-*   **API Name**: The name you want to give this group of endpoints. This will represent the API.
-*   **API Slug**: The URL segment that will map to this API, e.g. if set to `widgets` then the full API URL will be `https://your-organisation.cloud.tyk.io/widgets`.
-*   **Target URL**: The upstream origin that hosts the service you want to proxy to.
-*   **Enable round-robin load balancing**: This allows you to enter more than one target URL. We will ignore this for now.
-
-#### Step 4: Set up the Authentication for your API
+### Step 4: Set up the Authentication for your API
 
 From the **Authentication** section:
 
@@ -34,12 +29,12 @@ From the **Authentication** section:
 
 You have the following options:
 
-*   **Authentication mode**: This is the security method to use with your API. There can be only one per API. In this case, set it to `Auth Token`, as this is the simplest security mechanism to use.
-*   **Strip Authorization Data**: Select this option to strip any authorization data from your API requests.
-*   **Auth Key Header Name**: The header name that will hold the token on inbound requests. The default for this is `Authorization`.
-*   **Allow Query Parameter As Well As Header**: Set this option to enable checking the query parameter as well as the header for an auth token. For this tutorial, leave this `unchecked`.
-*   **Use Cookie Value**: It is possible to use a cookie value as well as the other two token locations. Set this as `unchecked`.
-*   **Enable client certificate**: Select this to use the Mutual TLS functionality introduced in v1.4. See [Mutual TLS](/docs/security/tls-and-ssl/mutual-tls/) for details on implementing Mutual TLS.
+- **Authentication mode**: This is the security method to use with your API. There can be only one per API. In this case, set it to `Auth Token`, as this is the simplest security mechanism to use.
+- **Strip Authorization Data**: Select this option to strip any authorization data from your API requests.
+- **Auth Key Header Name**: The header name that will hold the token on inbound requests. The default for this is `Authorization`.
+- **Allow Query Parameter As Well As Header**: Set this option to enable checking the query parameter as well as the header for an auth token. For this tutorial, leave this `unchecked`.
+- **Use Cookie Value**: It is possible to use a cookie value as well as the other two token locations. Set this as `unchecked`.
+- **Enable client certificate**: Select this to use the Mutual TLS functionality introduced in v1.4. See [Mutual TLS](/docs/security/tls-and-ssl/mutual-tls/) for details on implementing Mutual TLS.
 
 ### Step 5: Save the API
 
@@ -53,89 +48,139 @@ To see the URL given to your API, select the API from the list to open it again.
 
 ![API URL location][6]
 
-## <a name="with-api"></a>Tutorial: Create an API with the API
+## <a name="with-api"></a>Tutorial: Create an API with the Dashboard API
 
-It is possible to create APIs using Tyk's Gateway REST API. You will need an API key for your organisation and one command to create the API and make it live.
+It is possible to create APIs using Tyk Dashboard's REST API.
+You will need an API key for your organisation and one command to create the API and make it live.
 
-### Step 1: Get an API Key
+### Obtain your Dashboard API key & Dashboard URL
 
-From the Tyk Dashboard, select "Users" from the "System Management" section. Click **Edit** for your user, then scroll to the bottom of the page. Your API Key is the first entry:
+From the Tyk Dashboard, select "Users" from the "System Management" section.
+Click **Edit** for your user, then scroll to the bottom of the page. Your API Key is the first entry:
 
 ![API key location][7]
 
+Store your Dashboard Key, Dashboard URL & Gateway URL as environment variables so you don't need to keep typing them in:
 
-### Step 2: Create an API
-
-To create the API, let's send a definition to the `/apis` endpoint replacing the `Authorization` header with your own:
-```{.copyWrapper}
-curl -H "Authorization: 1238b7e0e2ff4c2957321724409ee2eb" \
-  -s \
-  -H "Content-Type: application/json" \
-  -X POST \
-  -d '{
-    "api_definition": {
-      "name": "Test API",
-      "slug": "test-api",
-      "auth": {
-        "auth_header_name": "Authorization"
-      },
-      "definition": {
-        "location": "header",
-        "key": "x-api-version"
-      },
-      "version_data": {
-        "not_versioned": true,
-        "versions": {
-          "Default": {
-            "name": "Default",
-            "use_extended_paths": true
-          }
-        }
-      },
-      "proxy": {
-        "listen_path": "/test-api/",
-        "target_url": "http://httpbin.org/",
-        "strip_listen_path": true
-      },
-      "active": true
-    }
-  }' https://admin.cloud.tyk.io/api/apis/ | python -mjson.tool
 ```
+export DASH_KEY=db8adec7615d40db6419a2e4688678e0
+
+# Locally installed dashboard
+export DASH_URL=http://localhost:3000/api
+
+# Tyk's Cloud Dashboard
+export DASH_URL=https://admin.cloud.tyk.io/api
+
+# Locally installed gateway
+export GATEWAY_URL=http://localhost:8080
+
+# Your Cloud Gateway
+export GATEWAY_URL=https://YOUR_SUBDOMAIN.cloud.tyk.io
+```
+
+### Query the `/api/apis` endpoint to see what APIs are loaded
+
+```
+curl -H "Authorization: ${DASH_KEY}" ${DASH_URL}/apis
+{"apis":[],"pages":1}
+```
+
+For a fresh install, you will see that no APIs currently exist
+
+### Create your first API
+
+This example API definition configures the Tyk Gateway to reverse proxy to the http://httpbin.org
+request/response service.
+
+To view the raw API definition object, you may visit: https://bit.ly/2PdEHuv
+
+```{.copyWrapper}
+curl -H "Authorization: ${DASH_KEY}" -H "Content-Type: application/json" ${DASH_URL}/apis \
+  -d "$(wget -qO- https://bit.ly/2PdEHuv)"
+{"Status":"OK","Message":"API created","Meta":"5de83a40767e0271d024661a"}
+```
+
+Take note of the API ID returned in the meta above - you will need it later.
+
+```
+export API_ID=5de83a40767e0271d024661a
+```
+
+### Test your new API
+
+```
+curl ${GATEWAY_URL}/httpbin/get
+{
+  "args": {},
+  "headers": {
+    "Accept": "*/*",
+    "Accept-Encoding": "gzip",
+    "Host": "httpbin.org",
+    "User-Agent": "curl/7.54.0"
+  },
+  "origin": "127.0.0.1, 188.220.131.154, 127.0.0.1",
+  "url": "https://httpbin.org/get"
+}
+```
+
+We sent a request to the gateway on the listen path `/httpbin`. Using this path-based-routing, the gateway was able
+to identify the API the client intended to target.
+
+The gateway stripped the listen path, and reverse proxied the request to http://httpbin.org/get
+
+### Protect your API
+
+Let's grab the API definition we created before and store the output to a file locally.
+
+```
+curl -s -H "Authorization: ${DASH_KEY}" -H "Content-Type: application/json" ${DASH_URL}/apis/${API_ID} | python -mjson.tool > api.httpbin.json
+```
+
+We can now edit the `api.httpbin.json` file we just created, and modify a couple of fields to enable authentication.
+
+Change `use_keyless` from `true` to `false`.
+
+Change `auth.auth_header_name` to `apikey`.
+
+Then send a `PUT` request back to Tyk Dashboard to update it's configurations.
+
+```
+curl -H "Authorization: ${DASH_KEY}" -H "Content-Type: application/json" ${DASH_URL}/apis/${API_ID} -X PUT -d "@api.httpbin.json"
+{"Status":"OK","Message":"Api updated","Meta":null}
+```
+
+### Test protected API
+
+Send request without any credentials
+
+```
+curl -I ${GATEWAY_URL}/httpbin/get
+HTTP/1.1 401 Unauthorized
+Content-Type: application/json
+X-Generator: tyk.io
+Date: Wed, 04 Dec 2019 23:35:34 GMT
+Content-Length: 46
+```
+
+Send request with incorrect credentials
+
+```
+curl -I ${GATEWAY_URL}/httpbin/get -H 'apikey: somejunk'
+HTTP/1.1 403 Forbidden
+Content-Type: application/json
+X-Generator: tyk.io
+Date: Wed, 04 Dec 2019 23:36:16 GMT
+Content-Length: 57
+```
+
+Congratulations - You have just created your first keyless API, then protected it using Tyk!
 
 [1]: /docs/img/dashboard/system-management/apis2.7.png
 [2]: /docs/img/dashboard/system-management/add_API_button_new_2.5.png
-[3]: /docs/img/dashboard/system-management/api_settings_2.5.png
 [4]: /docs/img/dashboard/system-management/authentication_2.5.png
 [5]: /docs/img/dashboard/system-management/api_save_2.5.png
 [6]: /docs/img/dashboard/system-management/api_url_2.5.png
 [7]: /docs/img/dashboard/system-management/api_access_cred_2.5.png
 [8]: /docs/tyk-rest-api/api-definition-object-details/
+
 <!-- END OMIT -->
-
-If the command succeeds, you will see:
-```
-{
-  "Status": "OK",
-  "Message": "API created",
-  "Meta": "59c8cdfd4913111112b0b5ec"
-}
-```
-
-**What did we just do?**
-
-We just sent an API Definition to the Tyk `/apis` endpoint. API Definitions are described further [here][8]. These objects encapsulate all of the settings for an API.
-
-## <a name="test-new-api"></a>Test your new API
-
-To access the proxied API via the gateway on Tyk Cloud:
-```
-curl -H "Authorization: null" https://your-organization.cloud.tyk.io/test-api/get
-    
-Output:
--------
-{
-  "error": "Key not authorised"
-}
-```
-
-If you see the above output, then the API is loaded and is being protected by Tyk. You can now generate a token and try the same command in place of `null` to see if the request proxies.

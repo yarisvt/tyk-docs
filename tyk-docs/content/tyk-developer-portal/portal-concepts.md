@@ -4,7 +4,7 @@ title: Portal Concepts
 menu:
   main:
     parent: "Tyk Developer Portal"
-weight: 1 
+weight: 1
 ---
 
 ## <a name="api-catalogue"></a> API Catalogue
@@ -15,8 +15,8 @@ The API Catalogue entry is not a one-to-one map between an API you manage in Tyk
 
 From the API Catalogue, a user can either:
 
-*   View the documentation for the API
-*   Request for a token to the API
+- View the documentation for the API
+- Request for a token to the API
 
 When a developer requests a token, a new Auth token is generated on the linked policy, instead of the actual API, since you may wish to publish multi-tier access to the same API (E.g. Bronze / Silver / Gold).
 
@@ -24,25 +24,35 @@ When a developer requests a token, a new Auth token is generated on the linked p
 
 A key request is a record that is generated when a developer requests an access token for an API published in the API Catalogue. The Key request encompasses the following information:
 
-*   The policy of which access is being requested
-*   The developer doing the requesting
-*   The catalogue entry in question
-*   The reasoning of why the developer should have access (these are dynamic fields and can be configured)
+- The policy of which access is being requested
+- The developer doing the requesting
+- The catalogue entry in question
+- The reasoning of why the developer should have access (these are dynamic fields and can be configured)
 
 When a developer requests access to an API Catalogue entry, this key request represents that request for access. The key request can then be acted on, either by the portal itself, or by an administrator. The key request does not grant a token yet, it simply marks the fact that a token has been requested and why.
 
 Once a key request is created, one of two things can be done to it:
 
-*   It can be approved: This creates a new token and notifies the developer.
-*   It can be declined: In which case the request is deleted.
+- It can be approved: This creates a new token and notifies the developer.
+- It can be declined: In which case the request is deleted.
 
 Tyk enables you to manage this flow in a few ways:
 
-*   Auto-approve the key request.
-*   Have an admin approve the key-request.
-*   Hand off to a third-party system to manage the key-request (e.g. for billing or additional user validation).
+- Auto-approve the key request.
+- Have an admin approve the key-request.
+- Hand off to a third-party system to manage the key-request (e.g. for billing or additional user validation).
 
 A key request can be created using the Dashboard API too, in fact, the Key-Request mechanism is a great way to create a mapping between an identity (a developer) and a token, and managing that process.
+
+### Multiple APIs for a single Key Requests
+
+New for v1.9, a developer can now request access to multiple APIs with a single key request. The APIs you group together via a single key should all be of the same authentication type.
+
+![Multiple APIs per Key Request][2]
+
+To enable this functionality, select **Enable subscribing to multiple APIs with a single key** from the Portal Management Settings.
+
+![Multiple APIs][1]
 
 ## <a name="policies"></a> Policies
 
@@ -54,7 +64,7 @@ Security policies are used instead of a one-to-one mapping because they encapsul
 2.  Quota
 3.  Access Lists (What APIs and which versions are permitted)
 4.  Granular access (Which methods and paths are allowed, e.g. you may want to only expose read-only access to the portal, so only GET requests are allowed)
-5.  Multi-key-management (With a policy, you can manage thousands of tokens, instead of one by one)
+5.  Multi-policy-management (With a Key, you can assign more than one policy to an APIs and each policy will have it's own counter).
 
 Within the developer portal admin area, under a developer record, you will see their subscriptions. Those subscriptions represent the tokens they have and their policy level access. It is possible to then "upgrade" or "downgrade" a developers access without actually managing their token, but just assigning a new policy to that token.
 
@@ -65,7 +75,7 @@ Within the portal, documentation is what a developer can use to learn how to acc
 The developer portal supports two types of documentation, and will render them differently:
 
 1.  API Blueprint - this is rendered to HTML templates using Jade and Aglio.
-2.  Swagger (OpenAPI) - either by pasting your Swagger JSON content into the code editor, or by linking to any public facing Swagger JSON URL. The URL version can be rendered using [Swagger UI](https://swagger.io/tools/swagger-ui/) which offers a sandbox environment where developers can interact with your API from the browser.
+2.  Swagger (OpenAPI 2.0 and 3.0 are supported) - either by pasting your Swagger JSON content into the code editor, or by linking to any public facing Swagger JSON URL. The URL version can be rendered using [Swagger UI](https://swagger.io/tools/swagger-ui/) which offers a sandbox environment where developers can interact with your API from the browser.
 
 Within an API Catalogue entry, documentation must be attached to the catalogue entry for it to be published.
 
@@ -77,8 +87,5 @@ A developer record consists of some basic sign-up information and a set of admin
 
 Within the developer view of the Tyk Dashboard, it is possible to manage all access of a developer, including the access levels of their tokens.
 
-
-
-
-
-
+[1]: /docs/img/dashboard/portal-management/multi-api-setting.png
+[2]: /docs/img/dashboard/portal-management/multi-api-per-request.png

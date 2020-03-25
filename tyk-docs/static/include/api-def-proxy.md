@@ -92,7 +92,7 @@ In the above example, the `port_data_path` would be `port`.
 
 * `proxy.disable_strip_slash`: This boolean option allows you to add a way to disable the stripping of the slash suffix from a URL.
 
-***Internal proxy setup***
+#### Internal proxy setup
 
 The transport section allows you to specify a custom proxy and set the minimum TLS versions and any SSL ciphers.
 
@@ -106,10 +106,11 @@ This is an example of `proxy.transport` definition followed by explanations for 
       "TLS_RSA_WITH_AES_128_GCM_SHA256", 
       "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"
     ],
-    "ssl_insecure_skip_verify": true
+    "ssl_insecure_skip_verify": true,
+    "ssl_force_common_name_check": false
 }
 ```
-* `proxy.transport.proxy_url`: Use this setting to specify your custom proxy and port.
+* `proxy.transport.proxy_url`: Use this setting to specify your custom forward proxy and port.
 
 * `proxy.transport.ssl_min_version`: Use this setting to specify your minimum TLS version:
 
@@ -120,7 +121,10 @@ This is an example of `proxy.transport` definition followed by explanations for 
 |      1.0      |      769       |
 |      1.1      |      770       |
 |      1.2      |      771       |
+|      1.3      |      772       |
 
 * `proxy.transport.ssl_ciphers`: You can add `ssl_ciphers` which takes an array of strings as its value. Each string must be one of the allowed cipher suites as defined at https://golang.org/pkg/crypto/tls/#pkg-constants
 
 * `proxy.transport.ssl_insecure_skip_verify`: Boolean flag to control at the API definition whether it is possible to use self-signed certs for some APIs, and actual certs for others. This also works for `TykMakeHttpRequest` & `TykMakeBatchRequest` in virtual endpoints.
+
+* `proxy.transport.ssl_force_common_name_check`: Use this setting to force the validation of a hostname against the certificate Common Name.

@@ -105,7 +105,7 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 > **Note:** You can add a user via the API without a password by leaving out the `password` field. You then use **Set User Password** request to add a password.
 
-You need to have the `users` [Permission object](https://tyk.io/docs/security/dashboard/user-roles/#the-permissions-object) set to write to use **Add User**.
+You need to have the `users` [Permission object](/docs/basic-config-and-security/security/dashboard/user-roles/#the-permissions-object) set to write to use **Add User**.
 
 If you do set a password, you need to keep a record of it, to enable the password to be reset in the future.
 
@@ -140,8 +140,7 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 {
   "Status": "OK",
   "Message": "User created",
-  "Meta": "",
-  "access_key": "f81ee6f0c8f2467d539c132c8a422346"
+  "Meta": ""
 }
 ```
 
@@ -149,7 +148,7 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 If a user is created with a blank password, you will need to add a password in a second API call to set a password. In this scenario, the `current_password` field is not required. To change an current password, you need to know the existing password set in **Add User**.
 
-You need to have the `users` [Permission object](https://tyk.io/docs/security/dashboard/user-roles/#the-permissions-object) set to **read** to use **Set User Password**.
+You need to have the `users` [Permission object](/docs/basic-config-and-security/security/dashboard/user-roles/#the-permissions-object) set to **read** to use **Set User Password**.
 
 | **Property** | **Description**                      |
 | ------------ | -------------------------------------|
@@ -236,7 +235,7 @@ PUT -H "admin-auth: <your secret>" http://<dashboard>/admin/users/{USER_ID}/acti
 
 ### Update User
 
-You need to have the `users` [Permission object](https://tyk.io/docs/security/dashboard/user-roles/#the-permissions-object) set to write to use **Update User**.
+You need to have the `users` [Permission object](/docs/basic-config-and-security/security/dashboard/user-roles/#the-permissions-object) set to write to use **Update User**.
 
 | **Property** | **Description**        |
 | ------------ | -----------------------|
@@ -269,6 +268,43 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
   "Status": "OK",
   "Message": "User updated",
   "Meta": null
+}
+```
+
+#### Reset User Session
+
+This call allows you to reset a user's current Dashboard session.
+
+You need to have the `users` [Permission object](/docs/basic-config-and-security/security/dashboard/user-roles/#the-permissions-object) set to write to use this call.
+
+> **NOTE**: This also resets the user's Dashboard API credentials. 
+
+| **Property** | **Description**                            |
+| ------------ | ------------------------------------------ |
+| Resource URL | `/api/users/{USER_ID}/actions/key/reset`   |
+| Method       | PUT                                        |
+| Type         | None                                       |
+| Body         | {"userId":"{USER_ID}"}                     |
+| Param        | None                                       |
+
+#### Sample Request
+
+```{.copyWrapper}
+PUT /api/users/54c25e845d932847067402e2/actions/key/reset HTTP/1.1
+Host: localhost:3000
+authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
+{
+  "userId":"{USER_ID}"
+}
+```
+
+#### Sample Response
+
+```{.copyWrapper}
+{
+  "Status":"OK",
+  "Message":"User session renewed",
+  "Meta":null
 }
 ```
 

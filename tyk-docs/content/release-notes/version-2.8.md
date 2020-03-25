@@ -3,7 +3,7 @@ title: Tyk Gateway v2.8
 menu:
   main:
     parent: "Release Notes"
-weight: 1
+weight: 2
 ---
 
 ## Looping
@@ -42,6 +42,8 @@ We have added a new `Debugging` tab in the API designer which provides a "Postma
 
 You can even debug your virtual endpoints by dynamically modifying the code, sending the request via `Debugger` and watching the virtual endpoint plugin logs.
 
+See [Debugging Tab](/docs/advanced-configuration/transform-traffic/endpoint-designer/#debugging) for more information.
+
 ---
 
 ## Separate rate limits and quotas per API within the same Policy
@@ -49,7 +51,7 @@ You can even debug your virtual endpoints by dynamically modifying the code, sen
 If you set the `Limits and Quotas per API` flag while configuring a policy, you will be able to configure separate rate limits and quotas per API.  
 
 Note that you can’t mix this functionality with 
-[partitioned policies](/docs/security/security-policies/partitioned-policies/).
+[partitioned policies](/docs/basic-config-and-security/security/security-policies/partitioned-policies/).
 
 ---
 
@@ -112,7 +114,7 @@ You can now add open (keyless) APIs to the developer portal. You have the same f
 
 ## Dynamic Portal Customisation
 
-Portal templates now have access to the Developer object, its subscriptions, and issued key meta-data, providing the ability to conditionally show or hide content inside the Portal based on the attributes below:
+Portal templates now have access to the Developer object, its subscriptions, and issued key metadata, providing the ability to conditionally show or hide content inside the Portal based on the attributes below:
 
 The Current logged in Developer can be accessed using the `.Profile` variable with the following fields:
 
@@ -134,12 +136,12 @@ The Current logged in Developer detailed subscription object can be accessed usi
     * `ID` - Internal Policy ID
     * `Name` - Policy Name
     * More fields: https://github.com/TykTechnologies/tyk/blob/master/user/policy.go#L5
-* `KeyMetaData` - Key meta data of the specified map type
+* `KeyMetaData` - Key metadata of the specified map type
 
 ### Example
 
 You have different teams of developers, and for each team we want to show them a different list of APIs. 
-In this case, for each developer, we need to set a custom  `Team` field, and add it to a template like this:
+In this case, for each developer, we need to set a custom `Team` field, and add it to a template like this:
 
 ```
 {{if eq .Profile.Fields.Team `internal`}}
@@ -150,7 +152,7 @@ In this case, for each developer, we need to set a custom  `Team` field, and add
 {{end}}
 ```
 
-Similar functionality based on Key meta data can look like this:
+Similar functionality based on Key metadata can look like this:
 
 ```
 {{range $pol, $subscription := .Data.APIS}}}}

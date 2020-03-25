@@ -2,13 +2,13 @@
 
 You can use the Tyk Dashboard to create a portal that allows developers to access the APIs you create.
 
-<iframe width="870" height="480" src="https://www.youtube.com/embed/FkgwREyztWU" frameborder="0" gesture="media" allowfullscreen></iframe>
+<iframe width="870" height="480" src="https://www.youtube.com/embed/cywF9Dvg6lI" frameborder="0" gesture="media" allowfullscreen></iframe>
 
 ### Prerequisites for a portal catalogue entry:
 
-*   An API configured and live on your Tyk Gateway
-*   The API must be **Closed** (i.e. it must use either Auth Token or Basic Auth security mechanisms)
-*   A security policy configured to grant access to the API
+- An API configured and live on your Tyk Gateway
+- The API must be **Closed** (i.e. it must use either Auth Token or Basic Auth security mechanisms)
+- A security policy configured to grant access to the API
 
 > **NOTE**: If you intend to use the developer portal, you need to configure it with a different hostname to your dashboard. The developer portal cannot be accessed via an IP address.
 
@@ -50,10 +50,12 @@ An API will not be published until you select **Show API**:
 ![API active checkbox][5]
 
 ### Step 6: Attach Documentation
+
 You can add import documentation in the following formats:
-* From a Swagger file
-* From a Swagger URL
-* From API Blueprint
+
+- From a Swagger JSON file (OpenAPI 2.0 and 3.0 are supported)
+- From a Swagger URL
+- From API Blueprint
 
 From v1.4, you can add your documentation before or after saving your API.
 
