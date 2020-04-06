@@ -76,6 +76,7 @@ An API Definition has many switches that change the way an incoming request is h
           "extended_paths": {},
           "global_headers": {},
           "global_headers_remove": [],
+          "ignore_endpoint_case": false,
           "global_size_limit": 0,
           "override_target": ""
       }

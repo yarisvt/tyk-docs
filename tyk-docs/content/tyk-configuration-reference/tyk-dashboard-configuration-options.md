@@ -248,11 +248,17 @@ Set a custom Redis network timeout. Default value is 5 seconds.
 
 ### <a name="enable_cluster"></a>enable_cluster
 
-Set this to `true` if you are using a Redis cluster, then fill in the `redis_hosts` field.
+Set this to `true` if you are using a Redis cluster.
 
 ### <a name="redis_hosts"></a>redis_hosts
 
+> **Note**: From v1.9.3 `redis_hosts` has been deprecated and replaced by `redis_addrs`
+
 You can also specify multiple Redis hosts here. Tyk will use this array if it is not empty, or it will use the individual legacy parameters above. You can specify multiple `host:port` combinations here.
+
+### redis_addrs
+
+This is new from v1.9.3 and replaces `redis_hosts` for configuring Redis clusters. See [Redis Cluster and Tyk Dashboard](/docs/tyk-configuration-reference/redis-cluster/#a-nameredis-cluster-dashboarda-redis-cluster--tyk-dashboard) for more info.
 
 ### <a name="force_api_defaults"></a>force_api_defaults
 
@@ -332,7 +338,7 @@ The Angular application that powers the Dashboard also supports Sentry. To have 
 
 Determines whether the RPC ID will be shown in the Users -> Username detail page. This can be useful for quickly identifying your Org ID.
 
-### <a name="enable_duplicate_slugs"></a>senable_duplicate_slugs
+### <a name="enable_duplicate_slugs"></a>enable_duplicate_slugs
 
 By default Tyk will try to stop you from using duplicate API slugs. However, from v1.9 Tyk supports per-API domain names, it is possible to have two APIs listen to the same path (e.g. root `/`), but on different domains.
 

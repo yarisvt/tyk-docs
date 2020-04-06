@@ -3,7 +3,7 @@ date: 2017-03-23T16:13:12Z
 title: OpenID Connect
 menu:
   main:
-    parent: "Your APIs"
+    parent: "Authentication & Authorization"
 weight: 5 
 ---
 

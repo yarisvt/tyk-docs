@@ -141,6 +141,10 @@ Example:
 
 ## <a name="xml-data"></a> XML Data
 
+We have a video that demonstrates how the XML to JSON transform works, using the sample Input and template below.
+
+{{< youtube kLh_qAI3meE >}}
+
 With an XML document it is a little different from JSON as XML cannot be as easily decoded into strict structures as JSON, so the syntax is a little different. Here is an example to illustrate.
 
 ### Input

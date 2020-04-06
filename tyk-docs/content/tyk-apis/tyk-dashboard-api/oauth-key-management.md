@@ -218,3 +218,67 @@ Cache-Control: no-cache
 ```
 
 You can control how long you want to store expired tokens in this list using `oauth_token_expired_retain_period` which specifies retain period for expired tokens stored in Redis. By default expired token not get removed. See [here](https://tyk.io/docs/configure/tyk-gateway-configuration-options/#a-name-oauth-token-expired-retain-period-a-oauth-token-expired-retain-period) for more details.
+
+### Revoke a Single OAuth Client Token
+
+| **Property** | **Description**                                |
+| ------------ | ---------------------------------------------- |
+| Resource URL | `/api/apis/oauth/{oauthClientId}/revoke`       |
+| Method       | POST                                           |
+| Type         | JSON                                           |
+| Body         | Client Object                             |
+| Param        | None                                           |
+
+
+#### Sample Request
+
+```{.json}
+POST /api/apis/oauth/411f0800957c4a3e81fe181141dbc22a/revoke 
+Host: localhost
+Authorization 64c8e662f6924c4f55e94a873d75e44d
+Body: {
+  "token":"eyJvcmciOiI1ZTIwOTFjNGQ0YWVmY2U2MGMwNGZiOTIiLCJpZCI6IjIyODQ1NmFjNmJlMjRiMzI5MTIyOTdlODQ5NTc4NjJhIiwiaCI6Im11cm11cjY0In0=",
+  "token_type_hint":"access_token"
+}
+```
+#### Sample Response
+
+```{.json}
+{
+  "Status": "OK",
+  "Message": "token revoked successfully",
+  "Meta": null
+}
+```
+### Revoke all OAuth Client Tokens
+
+| **Property** | **Description**                                |
+| ------------ | ---------------------------------------------- |
+| Resource URL | `/api/apis/oauth/{oauthClientId}/revoke_all`   |
+| Method       | POST                                           |
+| Type         | JSON                                           |
+| Body         | Client Object                                  |
+| Param        | None                                           |
+
+#### Sample Request
+
+```{.json}
+POST /api/apis/oauth/411f0800957c4a3e81fe181141dbc22a/revoke_all
+Host: localhost
+Authorization: 64c8e662f6924c4f55e94a873d75e44d
+Body: {
+  "client_secret":"MzUyNDliNzItMDhlNy00MzM3LTk1NWUtMWQyODMyMjkwZTc0"
+}
+```
+
+#### Sample Response
+
+```{.json}
+{
+  "Status": "OK",
+  "Message": "tokens revoked successfully",
+  "Meta": null
+}
+```
+
+

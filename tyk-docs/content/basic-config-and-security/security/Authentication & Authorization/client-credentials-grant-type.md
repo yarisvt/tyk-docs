@@ -1,25 +1,25 @@
 ---
 date: 2017-03-23T16:06:42Z
-title: Username and Password Grant Type
+title: Client Credentials Grant Type
 menu:
   main:
     parent: "OAuth 2.0"
-weight: 4
-url: "/basic-config-and-security/security/your-apis/oauth2.0/username-password-grant"
+weight: 5
+url: "/basic-config-and-security/security/authentication-&-authorization/oauth2.0/client-credentials-grant"
 ---
 
-The Username and Password grant type uses a _basic authentication_ key to generate a token. When you create the _basic authentication_ key in the Dashboard, this stores the `username` and `password` used in the API token request.
+The Client Credentials grant type uses the OAuth client credentials to generate a token.
 
 ### Token Request
 
-This request provides the client id and basic user credentials in exchange for an API token.
+This request provides the client credentials in exchange for an API token.
 
 ```shell
 curl -X POST \
   https://tyk.cloud.tyk.io/oauth-api/oauth/token/ \
   -H 'Authorization: Basic ZWQ1OTE1OGZhMjM0NGU5NGIzZTYyNzhlOGFiODUxNDI6TUdRM056RTJNR1F0WVRVeVpDMDBaVFZsTFdKak1USXRNakUyTVRNMU1tRTNOMk0x' \
   -H 'Content-Type: application/x-www-form-urlencoded' \
-  -d 'grant_type=password&client_id=ed59158fa2344e94b3e6278e8ab85142&username=oauthapiusername&password=oauthapipassword'
+  -d 'grant_type=client_credentials&client_id=ed59158fa2344e94b3e6278e8ab85142&client_secret=MGQ3NzE2MGQtYTUyZC00ZTVlLWJjMTItMjE2MTM1MmE3N2M1'
 ```
 
 | Request | Value                                                                                                                                         |
@@ -32,12 +32,11 @@ curl -X POST \
 | `Authorization` | `Basic` authorization, using the `client id` and `client secret` of the OAuth client base64 encoded with colon separator. E.g. `<oauth-client-id>:<oauth-client-secret>`, in this case `ed59158fa2344e94b3e6278e8ab85142:MGQ3NzE2MGQtYTUyZC00ZTVlLWJjMTItMjE2MTM1MmE3N2M1`, which base64 encoded is `ZWQ1OTE1OGZhMjM0NGU5NGIzZTYyNzhlOGFiODUxNDI6TUdRM056RTJNR1F0WVRVeVpDMDBaVFZsTFdKak1USXRNakUyTVRNMU1tRTNOMk0x`. |
 | `Content-Type`  | `application/x-www-form-urlencoded`                                                                                                                                                                                                                                                                                                                                                                                 |
 
-| Data         | Value                                                                 |
-| ------------ | --------------------------------------------------------------------- |
-| `grant_type` | `password`                                                            |
-| `client_id`  | The OAuth client id, in this case `ed59158fa2344e94b3e6278e8ab85142`. |
-| `username`   | The basic username, in this case `oauthapiusername`.                  |
-| `password`   | The basic password, in this case `oauthapipassword`.                  |
+| Data            | Value                                                                                     |
+| --------------- | ----------------------------------------------------------------------------------------- |
+| `grant_type`    | `client_credentials`                                                                      |
+| `client_id`     | The OAuth client id, in this case `ed59158fa2344e94b3e6278e8ab85142`.                     |
+| `client_secret` | The OAuth client secret, in this case `MGQ3NzE2MGQtYTUyZC00ZTVlLWJjMTItMjE2MTM1MmE3N2M1`. |
 
 #### Response
 
@@ -45,13 +44,14 @@ Response provides the token as `access_token` in the returned JSON which can the
 
 ```json
 {
-  "access_token": "580defdbe1d21e0001c67e5ce3ea17db02be4c62ba15089bbcfd1f80",
+  "access_token": "580defdbe1d21e0001c67e5c40e93eac3d23494697470b90d7c81593",
   "expires_in": 3600,
-  "refresh_token": "YjdhOWFmZTAtNmExZi00ZTVlLWIwZTUtOGFhNmIwMWI3MzJj",
   "token_type": "bearer"
 }
 ```
 
+> **Note**: It does not provide a refresh token.
+
 ### Sequence Diagram
 
-![Username and Password Grant](/docs/img/diagrams/username-and-password-grant.png)
+![Client Credentials Grant](/docs/img/diagrams/client-grant.png)

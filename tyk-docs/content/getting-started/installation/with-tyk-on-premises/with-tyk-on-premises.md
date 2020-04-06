@@ -26,8 +26,8 @@ The full Tyk On-Premises system consists of:
 
 Tyk can be installed on almost any Linux environment, we've also created Docker containers that can be deployed and configured easily. Supported by the Tyk team, you can get Tyk for:
 
-* [Ubuntu](/docs/getting-started/with-tyk-on-premises/installation/on-ubuntu/) (x86, ARM and AMD64)
-* [Red Hat](/docs/getting-started/with-tyk-on-premises/installation/redhat-rhel-centos/) / CentOS (x86, ARM and AMD64)
+* [Ubuntu](/docs/getting-started/installation/with-tyk-on-premises/on-ubuntu/) (x86, ARM and AMD64)
+* [Red Hat](/docs/getting-started/installation/with-tyk-on-premises/redhat-rhel-centos/) / CentOS (x86, ARM and AMD64)
 * [Tarballs](https://github.com/TykTechnologies/tyk/releases) for any other Linux variant (x86, ARM and AMD64)
 * [Docker images](https://hub.docker.com/u/tykio/)
 * [Heroku](/docs/getting-started/with-tyk-on-premises/installation/on-heroku/)

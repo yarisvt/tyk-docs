@@ -3,7 +3,7 @@ date: 2017-03-23T16:15:37Z
 title: Python CoProcess and JSVM Plugin Authentication
 menu:
   main:
-    parent: "Your APIs"
+    parent: "Authentication & Authorization"
 weight: 7 
 ---
 

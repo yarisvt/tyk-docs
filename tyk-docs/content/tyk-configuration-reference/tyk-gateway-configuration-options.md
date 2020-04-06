@@ -569,13 +569,12 @@ This can specify a default timeout in seconds for upstream API requests.
 > **NOTE:** This option is available from v2.3.8 onwards.
 
 ### <a name="log-level"></a>log_level
+You can now set a logging level (`log_level`). The following levels can be set:
 
-You can now set a logging level via `log_level`. The following levels can be set:
-
-- debug
-- info
-- warn
-- error
+* debug
+* info
+* warn
+* error
 
 If unset or left empty, it will default to `info`.
 
@@ -671,3 +670,7 @@ By default, we set the `X-Generator` header to `tyk.io` when returning errors. Y
 ### <a name="oauth_error_status_code"></a> oauth_error_status_code
 
 New in v2.9.2, you can now configure the OAuth error status code returned. If not set, it defaults to a 403 error.
+
+### ignore_endpoint_case
+
+New in v 2.9.4 you can now configure Tyk to ignore the case of any endpoints for APIs managed by Tyk. Setting this to `true` will override any [individual API](/docs/tyk-rest-api/api-definition-objects/other-root-objects/) and [Ignore](/docs/advanced-configuration/transform-traffic/endpoint-designer/#ignore), [Blacklist](/docs/advanced-configuration/transform-traffic/endpoint-designer/#blacklist) and [Whitelist](/docs/advanced-configuration/transform-traffic/endpoint-designer/#whitelist) plugin endpoint settings. 

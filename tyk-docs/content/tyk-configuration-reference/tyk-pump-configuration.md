@@ -21,209 +21,75 @@ Create a `pump.conf` file:
 
 ```{.json}
 {
-  "analytics_storage_type": "redis",
   "analytics_storage_config": {
-    "type": "redis",
-    "host": "localhost",
-    "port": 6379,
-    "hosts": null,
-    "username": "",
-    "password": "",
+    "addrs": [],
     "database": 0,
-    "optimisation_max_idle": 100,
-    "optimisation_max_active": 0,
     "enable_cluster": false,
-    "redis_key_prefix",
-    "redis_use_ssl",
-    "redis_ssl_insecure_skip_verify"
+    "host": "localhost",
+    "master_name": "",
+    "optimisation_max_active": 0,
+    "optimisation_max_idle": 100,
+    "password": "",
+    "port": 6379,
+    "redis_ssl_insecure_skip_verify": true,
+    "redis_use_ssl": false,
+    "type": "redis",
+    "username": ""
   },
-  "purge_delay": 1,
+  "analytics_storage_type": "redis",
+  "dont_purge_uptime_data": false,
+  "health_check_endpoint_name": "hello",
+  "health_check_endpoint_port": 8083,
   "pumps": {
-    "dummy": {
-      "type": "dummy",
+    "elasticsearch": {
       "meta": {
-        
-      }
+        "document_type": "tyk_analytics",
+        "elasticsearch_url": "http://elasticsearch:9200",
+        "enable_sniffing": false,
+        "extended_stats": false,
+        "index_name": "tyk_analytics",
+        "rolling_index": false,
+        "disable_bulk": false,
+        "bulk_config": {
+          "bulk_actions": 1000,
+          "bulk_size": -1,
+          "flush_interval": 60,
+          "workers": 2
+        },
+        "version": "6"
+      },
+      "type": "elasticsearch"
     },
     "mongo": {
-      "type": "mongo",
       "meta": {
+        "collection_cap_enable": true,
         "collection_name": "tyk_analytics",
-        "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/{db_name}"
-      }
+        "mongo_url": "mongodb://tyk-mongo:27017/tyk_analytics"
+      },
+      "name": "mongo"
     },
     "mongo-pump-aggregate": {
-      "type": "mongo-pump-aggregate",
       "meta": {
-	"mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/{db_name}",
-	"use_mixed_collection": true
-      }
+        "collection_cap_enable": true,
+        "mongo_url": "mongodb://tyk-mongo:27017/tyk_analytics",
+        "use_mixed_collection": true
+      },
+      "name": "mongo-pump-aggregate"
     },
-    "csv": {
-      "type": "csv",
+    "mongo-pump-selective": {
       "meta": {
-        "csv_dir": "./"
-      }
-    },
-    "elasticsearch": {
-      "type": "elasticsearch",
-      "meta": {
-        "index_name": "tyk_analytics",
-        "elasticsearch_url": "http://localhost:9200",
-        "enable_sniffing": false,
-        "document_type": "tyk_analytics",
-        "rolling_index": false,
-        "extended_stats": false,
-        "version": "5"
-      }
-    },
-    "influx": {
-      "type": "influx",
-      "meta": {
-        "database_name": "tyk_analytics",
-        "address": "http//localhost:8086",
-        "username": "root",
-        "password": "root",
-        "fields": [
-          "request_time"
-        ],
-        "tags": [
-          "path",
-          "response_code",
-          "api_key",
-          "api_version",
-          "api_name",
-          "api_id",
-          "raw_request",
-          "ip_address",
-          "org_id",
-          "oauth_id"
-        ]
-      }
-    },
-    "moesif": {
-      "type": "moesif",
-      "meta": {
-        "application_id": ""
-      }
-    },
-    "splunk": {
-      "type": "splunk",
-      "meta": {
-        "collector_token": "<token>",
-        "collector_url": "<url>",
-        "ssl_insecure_skip_verify": false,
-        "ssl_cert_file": "<cert-path>",
-        "ssl_key_file": "<key-path>",
-        "ssl_server_name": "<server-name>"
-      }
-    },
-    "statsd": {
-      "type": "statsd",
-      "meta": {
-        "address": "localhost:8125",
-        "fields": [
-          "request_time"
-        ],
-        "tags": [
-          "path",
-          "response_code",
-          "api_key",
-          "api_version",
-          "api_name",
-          "api_id",
-          "raw_request",
-          "ip_address",
-          "org_id",
-          "oauth_id"
-        ]
-      }
-    },
-    "dogstatsd": {
-      "type": "dogstatsd",
-      "meta": {
-        "address": "localhost:8125",
-        "namespace": "pump",
-        "async_uds": true,
-        "async_uds_write_timeout_seconds": 2,
-        "buffered": true,
-        "buffered_max_messages": 32
-      }
-    },
-    "prometheus": {
-      "type": "prometheus",
-      "meta": {
-        "listen_address": "localhost:9090",
-        "path": "/metrics"
-      }
-    },
-    "graylog": {
-      "type": "graylog",
-      "meta": {
-        "host": "10.60.6.15",
-        "port": 12216,
-        "tags": [
-          "method",
-          "path",
-          "response_code",
-          "api_key",
-          "api_version",
-          "api_name",
-          "api_id",
-          "org_id",
-          "oauth_id",
-          "raw_request",
-          "request_time",
-          "raw_response"
-        ]
-      }
-    },
-    "hybrid": {
-      "type": "hybrid",
-      "meta": {
-        "rpc_key": "5b5fd341e6355b5eb194765e",
-        "api_key": "008d6d1525104ae77240f687bb866974",
-        "connection_string": "localhost:9090",
-	"aggregated": false,
-        "use_ssl": false,
-        "ssl_insecure_skip_verify": false,
-        "group_id": "",
-        "call_timeout": 30,
-        "ping_timeout": 60,
-        "rpc_pool_size": 30
-      }
-    },
-    "logzio": {
-      "type": "logzio",
-      "meta": {
-        "token": "<YOUR-LOGZ.IO-TOKEN>"
-      }
-    },
-    "kafka": {
-      "type": "kafka",
-      "meta": {
-        "broker": [
-            "localhost:9092"
-        ],
-        "ssl": {
-            "enabled": false,
-            "insecure_skip_verify": false
-        },
-        "client_id": "tyk-pump",
-        "topic": "tyk-pump",
-        "timeout": 60,
-        "compressed": true,
-        "meta_data": {
-            "key": "value"
-        }
-      }
+        "collection_cap_enable": true,
+        "mongo_url": "mongodb://tyk-mongo:27017/tyk_analytics",
+        "use_mixed_collection": true
+      },
+      "name": "mongo-pump-selective"
     }
   },
+  "purge_delay": 5,
   "uptime_pump_config": {
     "collection_name": "tyk_uptime_analytics",
-    "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/{db_name}"
-  },
-  "dont_purge_uptime_data": false
+    "mongo_url": "mongodb://tyk-mongo:27017/tyk_analytics"
+  }
 }
 ```
 
@@ -260,7 +126,7 @@ The following services are supported:
 
 #### Elasticsearch Config
 
-`index_name` - The name of the index that all the analytics data will be placed in. Defaults to "tyk_analytics"
+`document_type` - The type of the document that is created in ES. Defaults to "tyk_analytics"
 
 `elasticsearch_url` - If sniffing is disabled, the URL that all data will be sent to. Defaults to `http://localhost:9200`. The HTTP prefix must be included in the URL.
 
@@ -268,11 +134,19 @@ The following services are supported:
 
 `enable_sniffing` - If sniffing is enabled, the `elasticsearch_url` will be used to make a request to get a list of all the nodes in the cluster. The returned addresses will then be used. Defaults to `false`.
 
-`document_type` - The type of the document that is created in ES. Defaults to "tyk_analytics"
+`extended_stats` - If set to true will include the following additional fields: Raw Request, Raw Response and User Agent.
+
+`index_name` - The name of the index that all the analytics data will be placed in. Defaults to "tyk_analytics"
 
 `rolling_index` - Appends the date to the end of the index name, so each days data is split into a different index name. E.g. tyk_analytics-2016.02.28 Defaults to false
 
-`extended_stats` - If set to true will include the following additional fields: Raw Request, Raw Response and User Agent.
+`disable_bulk` - New from v2.9.4. Set to `true` to disable batch operations. Defaults to `false`.
+
+`bulk_config` - New from v2.9.4. You can set the following:
+* `bulk_actions` - Specifies the number of requests needed to flush the data and send it to Elasticsearch. Defaults to 1000 requests. This can be disabled by setting to `-1`.
+* `bulk_size` - Specifies the size (in bytes) needed to flush the data and send it to Elasticsearch. Defaults to 5MB. This can be disabled by setting to `-1`.
+* `flush_interval` - Specifies the time in seconds to flush the data and send it to Elasticsearch. Defaults to `disabled`.
+* `workers` - Specifies the number of workers
 
 `version` - Specifies the ES version. Use "3" for ES 3.x, "5" for ES 5.0 and "6" for ES 6.0. Defaults to "3".
 

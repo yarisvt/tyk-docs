@@ -3,7 +3,7 @@ date: 2017-03-23T15:41:34Z
 title: Bearer Tokens
 menu:
   main:
-    parent: "Your APIs"
+    parent: "Authentication & Authorization"
 weight: 5 
 ---
 

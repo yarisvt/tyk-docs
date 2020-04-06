@@ -3,6 +3,7 @@ languageCode = "en-gb"
 title = "Tyk Documentation"
 theme = "tykio"
 MetaDataFormat = "yaml"
+enableGitInfo = true
 [blackfriday]
    plainIDAnchors = true
    hrefTargetBlank = true
@@ -21,3 +22,5 @@ MetaDataFormat = "yaml"
     noClasses = true
     style = "manni"
     tabWidth = 2
+[frontmatter]
+lastmod = ["lastmod", ":git", "date", "publishDate"]
