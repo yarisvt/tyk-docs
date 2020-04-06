@@ -4,7 +4,7 @@ title: Pagination
 menu:
   main:
     parent: "Tyk Dashboard API"
-weight: 1
+weight: 4
 ---
 
 Some Dashboard APIs are paginated.  You can define what page of the results to return by adding a parameter `p` which starts at 0, indicating which page you'd like to retrieve.

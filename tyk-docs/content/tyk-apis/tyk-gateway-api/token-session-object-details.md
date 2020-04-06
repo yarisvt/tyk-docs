@@ -3,7 +3,7 @@ date: 2017-03-27T11:20:43+01:00
 title: Token Session Object Details
 menu:
   main:
-    parent: "Tyk Rest API"
+    parent: "Tyk Gateway API"
 weight: 2 
 ---
 

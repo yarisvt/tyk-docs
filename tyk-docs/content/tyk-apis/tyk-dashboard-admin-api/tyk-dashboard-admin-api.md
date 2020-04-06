@@ -1,8 +1,10 @@
 ---
 date: 2017-03-27T12:39:31+01:00
 title: Tyk Dashboard Admin API
-weight: 210
-menu: "main"
+menu:
+  main:
+    parent: "Tyk APIs"
+weight: 3
 url: "/dashboard-admin-api"
 ---
 

@@ -2,7 +2,7 @@
 title: API Definition Objects
 menu:
   main:
-    parent: "Tyk Rest API"
+    parent: "Tyk Gateway API"
 weight: 1
 url: "/tyk-rest-api/api-definition-objects"
 ---
