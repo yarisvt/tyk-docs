@@ -3,7 +3,7 @@ date: 2017-03-27T12:28:24+01:00
 title: Portal Policies
 menu:
   main:
-    parent: "Tyk Portal API"
+    parent: "Tyk Dashboard API"
 weight: 2
 ---
 

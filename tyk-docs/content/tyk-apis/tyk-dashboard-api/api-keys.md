@@ -4,7 +4,7 @@ title: API Key Management
 menu:
   main:
     parent: "Tyk Dashboard API"
-weight: 2
+weight: 3
 ---
 
 > Please note that `{api-id}` can either be the internal or external API id.
