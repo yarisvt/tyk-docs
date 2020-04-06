@@ -103,8 +103,10 @@ Hello Tiki
 Note that ALB rules are already setup to accept traffic on port 80 and forward it to the Gateways on port 8080.
 {{% /tab %}}
 
+
 ### Tyk Component Updates
 Updates to the PAYG products can be done manually or automatically.  The manual method requires SSHing into the EC2 instances and doing the updates through the CLI.  To do this automatically, there is a mechanism to upgrade CloudFormation stack. The idea is to apply a new version of CloudFormation to your existing stack. We are releasing new versions of the product from time to time. When this happens, you will get a notification from AWS.
+
 
 [2]: https://aws.amazon.com/marketplace/pp/prodview-elvk5mxxlkueu?qid=1575313242174&sr=0-4&ref_=srh_res_product_title
 [3]: https://aws.amazon.com/marketplace/pp/prodview-2bgdxbpeygf5w?qid=1575313242174&sr=0-5&ref_=srh_res_product_title

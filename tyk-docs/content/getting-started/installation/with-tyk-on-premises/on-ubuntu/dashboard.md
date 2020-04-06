@@ -65,6 +65,30 @@ What we've done here is instructed `apt-get` to install the Tyk Dashboard withou
 
 When the the Tyk Dashboard has finished installing, it will have installed some `init` scripts, but it will not be running yet. The next step will be to setup each application - thankfully this can be done with three very simple commands.
 
+#### Verify the origin key (optional)
+
+Debian packages are signed with the repository keys. These keys are verified at the time of fetching the package and is taken care of by the `apt` infrastructure. These keys are controlled by PackageCloud, our repository provider. For an additional guarantee, it is possible to verify that the package was indeed created by Tyk by verifying the `origin` certificate that is attached to the package.
+
+First, you have to fetch Tyk's signing key and import it.
+
+```{.copyWrapper}
+wget https://keyserver.tyk.io/tyk.io.deb.signing.key
+gpg --import tyk.io.deb.signing.key
+```
+
+Then, you have to either,
+- sign the key with your ultimately trusted key
+- trust this key ultimately
+
+The downloaded package will be available in `/var/cache/apt/archives`. Assuming you found the file `tyk-gateway-2.9.3_amd64.deb` there, you can verify the origin signature.
+
+```{.copyWrapper}
+gpg --verify d.deb
+gpg: Signature made Wed 04 Mar 2020 03:05:00 IST
+gpg:                using RSA key F3781522A858A2C43D3BC997CA041CD1466FA2F8
+gpg: Good signature from "Team Tyk (package signing) <team@tyk.io>" [ultimate]
+```
+
 ## <a name="configure-tyk-dashboard"></a> Configure Tyk Dashboard
 
 ### Prerequisites

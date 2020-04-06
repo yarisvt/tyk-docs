@@ -32,6 +32,8 @@ The `min_version` setting is optional, you can set it to have Tyk only accept co
 
 Finally, set the [host_config.generate_secure_paths](/docs/tyk-configuration-reference/tyk-dashboard-configuration-options/#a-namehost_configgenerate_secure_pathsahost_configgenerate_secure_paths) flag to `true` in your `tyk_analytics.conf`
 
+Finally, set the [host_config.generate_secure_paths](/docs/tyk-configuration-reference/tyk-dashboard-configuration-options/#a-namehost_configgenerate_secure_pathsahost_configgenerate_secure_paths) flag to `true` in your `tyk_analytics.conf`
+
 #### Values for TLS Versions
 
 You need to use the following values for setting the TLS `min_version`:
