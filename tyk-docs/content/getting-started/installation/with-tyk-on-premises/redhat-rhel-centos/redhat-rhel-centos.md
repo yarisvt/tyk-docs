@@ -20,6 +20,13 @@ The suggested order would be to install Tyk Dashboard, then Tyk Pump and then Ty
 
 > **NOTE**: For a production environment, we recommend that the Gateway, Dashboard and Pump are installed on separate machines. If installing multiple Gateways, you should install each on a separate machine. For more information on deploying to a production environment, see [here](/docs/planning-for-production/).
 
+## Database Support
+
+By default Tyk uses MongoDB. You can also use the following:
+
+* [DocumentDB](https://aws.amazon.com/documentdb/)
+* [Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/introduction)
+
 ### Supported Verions of MongoDB and Redis
 
 - MongoDB 3.x and 4.0.x

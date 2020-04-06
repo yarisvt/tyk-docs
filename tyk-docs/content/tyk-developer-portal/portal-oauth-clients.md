@@ -34,3 +34,16 @@ From Tyk Dashboard v1.8, you can now create and manage OAuth clients from the De
     ![Create](/docs/img/dashboard/portal-management/create_portal_oauth_client.png)
 10. You need to copy and save the displayed Client Secret, as you will not be able to view it from the Portal again. The secret is stored on the Dashboard and are listed for each developer under the **Portal Management > Developers** menu.
     ![secret](/docs/img/dashboard/portal-management/oauth_client_secrets.png)
+
+
+## Revoke OAuth Client Tokens
+
+From Tyk Dashboard v1.9.4, you can now revoke OAuth client tokens associated with your developer account. You can do this from either your developer portal or the Tyk Dashboard.
+
+### From your Developer Portal
+
+1. From your OAuth Client list, select **Revoke Tokens** for the
+
+![revoke](/docs/img/dashboard/portal-management/revoke_oauth_clients_portal.png)
+
+2. 

@@ -28,7 +28,9 @@ Tyk supports TLS connections, and as of version 2.0 all TLS connections will als
 
 You can enter multiple certificates, that link to multiple domain names, this enables you to have multiple SSL certs for your Gateways or Dashboard domains if they are providing access to different domains via the same IP.
 
-The `min_version` setting is optional, you can set it to have Tyk only accept connections from TLS V1.0, 1.1 and 1.2 respectively.
+The `min_version` setting is optional, you can set it to have Tyk only accept connections from TLS V1.0, 1.1, 1.2 or 1.3 respectively.
+
+Finally, set the [host_config.generate_secure_paths](/docs/tyk-configuration-reference/tyk-dashboard-configuration-options/#a-namehost_configgenerate_secure_pathsahost_configgenerate_secure_paths) flag to `true` in your `tyk_analytics.conf`
 
 Finally, set the [host_config.generate_secure_paths](/docs/tyk-configuration-reference/tyk-dashboard-configuration-options/#a-namehost_configgenerate_secure_pathsahost_configgenerate_secure_paths) flag to `true` in your `tyk_analytics.conf`
 

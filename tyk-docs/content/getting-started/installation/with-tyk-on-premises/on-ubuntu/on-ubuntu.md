@@ -32,6 +32,13 @@ Before installing the Tyk components in the order below, you need to install fir
 |**Tyk Gateway**          |                |
 |Management API           |      8080      |
 
+## Database Support
+
+By default Tyk uses MongoDB. You can also use the following:
+
+* [DocumentDB](https://aws.amazon.com/documentdb/)
+* [Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/introduction)
+
 ### Supported Verions of MongoDB and Redis
 
 - MongoDB 3.x and 4.0.x
