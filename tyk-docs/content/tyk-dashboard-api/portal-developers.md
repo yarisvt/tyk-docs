@@ -299,8 +299,7 @@ curl https://admin.cloud.tyk.io/api/portal/developers/password/:Id \
 }
 ```
 
-<span data-filetype="mmark"></span>
-{{./static/include/portal-developer-analytics.md}}
+{{% include "./static/include/portal-developer-analytics.md" %}}
 
 ### Add Key To Developer
 
@@ -338,7 +337,7 @@ curl https://admin.cloud.tyk.io/api/portal/developers/:Id/keys \
 | Resource URL | `/portal/developers/:developerId/keys/:keyId` |
 | Method       | PUT                           |
 | Type         | None                          |
-| Body         | Policy change Object                           |
+| Body         | Policy change Object          |
 | Param        | None                          |
 
 
@@ -385,6 +384,66 @@ curl https://admin.cloud.tyk.io/api/portal/developers/:developerId/keys/:keyId \
 | Param        | None                          |
 
 
+### Revoke a Single OAuth Client Token
+
+| **Property** | **Description**                                |
+| ------------ | ---------------------------------------------- |
+| Resource URL | `/oauth-clients/{oauthClientId}/revoke`       |
+| Method       | POST                                           |
+| Type         | JSON                                           |
+| Body         | Client Object                                  |
+| Param        | None                                           |
+
+#### Sample Request
+
+```{.json}
+POST /oauth-clients/411f0800957c4a3e81fe181141dbc22a/revoke
+Host: tyk-portal:3000
+Authorization: CSRF token
+Body: {
+  "token":"eyJvcmciOiI1ZTIwOTFjNGQ0YWVmY2U2MGMwNGZiOTIiLCJpZCI6ImZiMGFmNWQ4ZGY1MzQ3MjY4YmYxNTE5MmJjN2YzN2QyIiwiaCI6Im11cm11cjY0In0=",
+  "token_type_hint":"access_token"
+}
+```
+#### Sample Response
+
+```{.json}
+{
+  "Status": "OK",
+  "Message": "token revoked successfully",
+  "Meta": null
+}
+```
+
+### Revoke all OAuth Client Tokens
+
+| **Property** | **Description**                                |
+| ------------ | ---------------------------------------------- |
+| Resource URL | `/oauth-clients/{oauthClientId}/revoke_all`    |
+| Method       | POST                                           |
+| Type         | JSON                                           |
+| Body         | Client Object                                  |
+| Param        | None                                           |
+
+#### Sample Request
+
+```{.json}
+POST /oauth-clients/411f0800957c4a3e81fe181141dbc22a/revoke_all
+Host: tyk-portal:3000
+Authorization: CSRF token
+Body: {
+  "client_secret":"MzUyNDliNzItMDhlNy00MzM3LTk1NWUtMWQyODMyMjkwZTc0"
+  }
+```
+#### Sample Response
+
+```{.json}
+{
+  "Status": "OK",
+  "Message": "tokens revoked successfully",
+  "Meta": null
+}
+```
 
 ## Deprecated APIS
 
