@@ -671,6 +671,28 @@ By default, we set the `X-Generator` header to `tyk.io` when returning errors. Y
 
 New in v2.9.2, you can now configure the OAuth error status code returned. If not set, it defaults to a 403 error.
 
+### override_messages
+
+New in 2.9.4, you can now override the default error code and or message returned by middleware. The following settings can be overridden:
+
+`auth.auth_field_missing`
+`auth.key_not_found`
+`oauth.auth_field_missing`
+`oauth.auth_field_malformed`
+`oauth.key_not_found`
+`oauth.client_deleted`
+
+#### Sample Override Message Setting
+
+```{.json}
+"override_messages": {
+  "oauth.auth_field_missing" : {
+    "code": 401,
+    "message": "Token is not authorised"
+  }
+}
+```
+
 ### ignore_endpoint_case
 
 New in v 2.9.4 you can now configure Tyk to ignore the case of any endpoints for APIs managed by Tyk. Setting this to `true` will override any [individual API](/docs/tyk-rest-api/api-definition-objects/other-root-objects/) and [Ignore](/docs/advanced-configuration/transform-traffic/endpoint-designer/#ignore), [Blacklist](/docs/advanced-configuration/transform-traffic/endpoint-designer/#blacklist) and [Whitelist](/docs/advanced-configuration/transform-traffic/endpoint-designer/#whitelist) plugin endpoint settings. 
