@@ -677,15 +677,15 @@ New in 2.9.4, you can now override the default error code and or message returne
 
 #### `AuthToken` message IDs
 
-`auth.auth_field_missing`
-`auth.key_not_found`
+* `auth.auth_field_missing`
+* `auth.key_not_found`
 
 #### `OIDC` message IDs
 
-`oauth.auth_field_missing`
-`oauth.auth_field_malformed`
-`oauth.key_not_found`
-`oauth.client_deleted`
+* `oauth.auth_field_missing`
+* `oauth.auth_field_malformed`
+* `oauth.key_not_found`
+* `oauth.client_deleted`
 
 #### Sample Override Message Setting
 
