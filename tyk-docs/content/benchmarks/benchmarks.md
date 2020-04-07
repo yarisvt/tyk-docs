@@ -14,7 +14,7 @@ This is with Tyk performing authentication, rate limiting, and gathering analyti
 
 *There is a 0.4 ms delay between upstream and load generator.*
 
-|     Hardware specs      |   Throughput (RPS)  |  99% Latency  |    EC2 Cost    |
+|     Hardware specs      |   Throughput (RPS)  |  P99 Latency  |    EC2 Cost    |
 |-------------------------|---------------------|---------------|----------------|
 | Amazon EC2 (t2.micro)   | 2,954 req / sec     | 32.9 ms       | $ 0.0116 / hour|
 | Amazon EC2 (t2.medium)  | 4,903 req / sec     | 22.2 ms       | $ 0.0464 / hour|
@@ -27,6 +27,8 @@ More information on how to recreate these results yourself:
 
 > **Note:** EC2 instance cost is variable and documented as of April 6, 2020 
 https://aws.amazon.com/ec2/pricing/on-demand/
+
+> **NOTE:** For these tests, Tyk was deployed in Docker, so add & subtract 10% from throughput and P99 latency, respectively, to account for the decreased overhead if you plan to run from host
 
 > **Note:** The 99% percentile is a metric which means that 99% of all API requests experience a lower latency than the given figure.
 
