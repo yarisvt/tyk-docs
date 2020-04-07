@@ -673,7 +673,7 @@ New in v2.9.2, you can now configure the OAuth error status code returned. If no
 
 ### override_messages
 
-New in 2.9.4, you can now override the default error code and or message returned by middleware. The following settings can be overridden:
+New in 2.9.4, you can now override the default error code and or message returned by middleware. The following message IDs can be used use to override the message and error codes:
 
 `auth.auth_field_missing`
 `auth.key_not_found`
