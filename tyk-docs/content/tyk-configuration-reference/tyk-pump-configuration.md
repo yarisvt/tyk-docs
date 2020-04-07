@@ -124,6 +124,16 @@ The following services are supported:
 #### Uptime Data
 `dont_purge_uptime_data` - Setting this to `false` will create a pump that pushes uptime data to MongoDB, so the Dashboard can read it.  Disable by setting to `true`
 
+#### Health Check
+
+From v2.9.4 we have introduced a `/health` endpoint to confirm the Pump is running. You need to configure the following settings:
+
+`health_check_endpoint_name` - The default is `"hello"`
+`health_check_endpoint_port` - The default port is `8083`
+
+This returns a `HTTP 200 OK` response if the Pump is running.
+
+
 #### Elasticsearch Config
 
 `document_type` - The type of the document that is created in ES. Defaults to "tyk_analytics"
