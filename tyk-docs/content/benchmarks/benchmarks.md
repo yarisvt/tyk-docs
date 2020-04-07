@@ -30,7 +30,7 @@ https://aws.amazon.com/ec2/pricing/on-demand/
 
 > **NOTE:** For these tests, Tyk was deployed in Docker, so add & subtract 10% from throughput and P99 latency, respectively, to account for the decreased overhead if you plan to run from host
 
-> **Note:** The 99% percentile is a metric which means that 99% of all API requests experience a lower latency than the given figure.
+> **Note:** The P99 Latency is a metric which means that 99% of all API requests experience a lower latency than the given figure.
 
 
 ## Performance Tuning
