@@ -11,7 +11,7 @@ weight: 6
 
 | **Property** | **Description** |
 | ------------ | --------------- |
-| Resource URL | `/api/user_groups`    |
+| Resource URL | `/api/usergroups`    |
 | Method       | GET             |
 | Type         | None            |
 | Body         | None            |
@@ -53,7 +53,7 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 | **Property** | **Description**         |
 | ------------ | ----------------------- |
-| Resource URL | `/api/user_groups/{user_group-id}`  |
+| Resource URL | `/api/usergroups/{user_group-id}`  |
 | Method       | GET                     |
 | Type         | None                    |
 | Body         | None                    |
@@ -85,7 +85,7 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 | **Property** | **Description** |
 | ------------ | --------------- |
-| Resource URL | `/api/user_groups`    |
+| Resource URL | `/api/usergroups`    |
 | Method       | POST            |
 | Type         | None            |
 | Body         | User Object     |
@@ -121,7 +121,7 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 | **Property** | **Description**        |
 | ------------ | -----------------------|
-| Resource URL | `/api/user_groups/{user_group-id}` |
+| Resource URL | `/api/usergroups/{user_group-id}` |
 | Method       | PUT                    |
 | Type         | None                   |
 | Body         | User Group Object            |
