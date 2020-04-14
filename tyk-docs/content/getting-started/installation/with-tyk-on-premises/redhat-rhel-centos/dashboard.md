@@ -49,7 +49,7 @@ baseurl=https://packagecloud.io/tyk/tyk-dashboard/el/7/$basearch
 repo_gpgcheck=1
 gpgcheck=1
 enabled=1
-gpgkey=http://keyserver.tyk.io/tyk.io.rpm.signing.key.2020
+gpgkey=https://keyserver.tyk.io/tyk.io.rpm.signing.key.2020
        https://packagecloud.io/tyk/tyk-dashboard/gpgkey
 sslverify=1
 sslcacert=/etc/pki/tls/certs/ca-bundle.crt
