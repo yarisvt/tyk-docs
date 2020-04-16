@@ -47,6 +47,14 @@ You will also need your own API Key, to get these values:
 ![API ID location][7]
 
 Once you have these values, you can use them to access the dashboard API, the below `curl` command will generate a token for one of your APIs:
+
+Note:
+  1. Replace the `authorization` header value with your Tyk Dashboard API Access Credentials
+  2. Replace the API ID (`ad5004d961a147d4649fd3216694ebe2`) with your API ID
+  3. It's recommended to validate the JSON using JSON validator to avoid any `malformed input` error
+  
+
+
 ```{.copyWrapper}
 curl -X POST -H "authorization: 1238b7e0e2ff4c2957321724409ee2eb" \
   -s \
@@ -69,7 +77,7 @@ curl -X POST -H "authorization: 1238b7e0e2ff4c2957321724409ee2eb" \
       }
     },
     "meta_data": {}
-  }' http://admin.cloud.tyk.io/api/keys | python -mjson.tool
+  }' https://admin.cloud.tyk.io/api/keys | python -mjson.tool
 ```
 
 
