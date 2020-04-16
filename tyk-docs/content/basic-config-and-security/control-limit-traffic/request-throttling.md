@@ -21,9 +21,9 @@ Yes, you can. If you set `throttle_interval` and `throttle_retry_limit` values t
 
 ## Set Request Throttling with the Dashboard
 
-1.  In the key level: From **System Management** > **Keys** > **Add Key** or open an existing key.
+1.  At the key level: From **System Management** > **Keys** > **Add Key** or open an existing key.
     Or
-    In the policy level: From **System Management** > **Policies** > **Add Policy** or open an existing policy.
+    At the policy level: From **System Management** > **Policies** > **Add Policy** or open an existing policy.
     
 2.  Ensure the new key or policy has access to the APIs you wish it work with by selecting the API from **Access Rights** > **Add Access Rule** and click **Add**.
 
