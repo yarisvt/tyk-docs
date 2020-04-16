@@ -4,7 +4,7 @@ menu:
   main:
     parent: "Tyk Gateway API"
 weight: 1
-url: "/tyk-rest-api/api-definition-objects"
+url: "/tyk-gateway-api/api-definition-objects"
 ---
 
 Tyk stores API configurations as JSON objects called API Definitions. If you are using the Dashboard to manage Tyk then these are stored in MongoDB, otherwise they are stored as files in the `/apps` directory of the Gateway (default `/opt/tyk-gateway`).
