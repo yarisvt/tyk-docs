@@ -46,7 +46,7 @@ You will also need your own API Key, to get these values:
 
 ![API ID location][7]
 
-Once you have these values, you can use them to access the dashboard API, the below `curl` command will generate a token for one of your APIs:
+Once you have these values, you can use them to access the Dashboard API, the below `curl` command will generate a key for one of your APIs:
 
 Note:
   1. Replace the `authorization` header value with your Tyk Dashboard API Access Credentials
