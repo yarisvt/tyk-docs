@@ -36,7 +36,7 @@ In order to enable API Ownership for On-Premises installations, you need to set 
 
 API Ownership is enabled for all Tyk SaaS users.
 
-## API Ownership setup example
+### API Ownership setup example
 
 Our goal is to have three teams:
  
