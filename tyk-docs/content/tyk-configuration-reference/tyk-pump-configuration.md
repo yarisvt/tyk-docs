@@ -39,7 +39,7 @@ Create a `pump.conf` file:
   "analytics_storage_type": "redis",
   "dont_purge_uptime_data": false,
   "health_check_endpoint_name": "hello",
-  "health_check_endpoint_port": 8083,
+  "health_check_endpoint_port": 8080,
   "pumps": {
     "elasticsearch": {
       "meta": {
@@ -129,7 +129,7 @@ The following services are supported:
 From v2.9.4 we have introduced a `/health` endpoint to confirm the Pump is running. You need to configure the following settings:
 
 `health_check_endpoint_name` - The default is `"hello"`
-`health_check_endpoint_port` - The default port is `8083`
+`health_check_endpoint_port` - The default port is `8080`
 
 This returns a `HTTP 200 OK` response if the Pump is running.
 
