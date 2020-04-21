@@ -1,6 +1,6 @@
 <!-- START OMIT -->
 
-## <a name="with-dashboard"></a>Tutorial: Create an API with the Dashboard
+## Tutorial: Create an API with the Dashboard
 
 We have a video walkthrough for creating an API
 
@@ -48,7 +48,7 @@ To see the URL given to your API, select the API from the list to open it again.
 
 ![API URL location][6]
 
-## <a name="with-api"></a>Tutorial: Create an API with the Dashboard API
+## Tutorial: Create an API with the Dashboard API
 
 It is possible to create APIs using Tyk Dashboard's REST API.
 You will need an API key for your organisation and one command to create the API and make it live.
@@ -140,7 +140,7 @@ We can now edit the `api.httpbin.json` file we just created, and modify a couple
 
 Change `use_keyless` from `true` to `false`.
 
-Change `auth.auth_header_name` to `apikey`.
+Change `auth.auth_header_name` to `apikey`. **Note** from **v2.9.2** `auth.auth_header_name` has been deprecated and you should use `auth_configs.authToken.auth_header_name` instead.
 
 Then send a `PUT` request back to Tyk Dashboard to update it's configurations.
 
