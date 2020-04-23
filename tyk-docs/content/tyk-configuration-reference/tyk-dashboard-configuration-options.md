@@ -380,7 +380,7 @@ It is possible to hard-code portal domains (these override settings set by the D
 
 The root path for the portal.
 
-#### <a name="host_config.generate_secure_paths"></a>host_config.generate_secure_paths
+#### host_config.generate_secure_paths
 
 If you prefer to have your URLs start with `https`, set this option to `true`.
 
