@@ -14,13 +14,13 @@ This is with Tyk performing authentication, rate limiting, and gathering analyti
 
 *There is a 0.4 ms delay between upstream and load generator.*
 
-|     Hardware specs      |   Throughput (RPS)  |  P99 Latency  |    EC2 Cost    |
-|-------------------------|---------------------|---------------|----------------|
-| Amazon EC2 (t2.micro)   | 2,954 req / sec     | 32.9 ms       | $ 0.0116 / hour|
-| Amazon EC2 (t2.medium)  | 4,903 req / sec     | 22.2 ms       | $ 0.0464 / hour|
-| Amazon EC2 (m4.large)   | 4,190 req / sec     | 25.2 ms       | $ 0.10 / hour  |
-| Amazon EC2 (c5.2xlarge) | 23,667 req / sec    | 4.93 ms       | $ 0.34 / hour  |
-| Amazon EC2 (c5.9xlarge) | 69,133 req / sec    | 1.2 ms        | $ 1.53 / hour  |
+|     Hardware specs      |   Max Throughput (RPS)  |  P99 Latency *  |    EC2 Cost *   |
+|-------------------------|-------------------------|-----------------|-------------------|
+| Amazon EC2 (t2.micro)   | 2,954 req / sec         | 32.9 ms         | $ 0.0116 / hour   |
+| Amazon EC2 (t2.medium)  | 4,903 req / sec         | 22.2 ms         | $ 0.0464 / hour   |
+| Amazon EC2 (m4.large)   | 4,190 req / sec         | 25.2 ms         | $ 0.10 / hour     |
+| Amazon EC2 (c5.2xlarge) | 23,667 req / sec        | 4.93 ms         | $ 0.34 / hour     |
+| Amazon EC2 (c5.9xlarge) | 69,133 req / sec        | 1.2 ms          | $ 1.53 / hour     |
 
 More information on how to recreate these results yourself:
 *** link to AWS testing blog
