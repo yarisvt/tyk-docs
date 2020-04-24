@@ -8,7 +8,82 @@ weight: 2
 url: "/basic-config-and-security/security/tls-and-ssl"
 ---
 
-Tyk supports TLS connections, and as of version 2.0 all TLS connections will also support HTTP/2. To enable SSL in your Tyk Gateway and Dashboard, you will need to modify the `tyk.conf` and `tyk_analytics.conf` files to include a server options section like so:
+TLS connections are supported for all Tyk components. 
+
+We enable SSL in Tyk Gateway and Dashboard by modifying the `tyk.conf` and `tyk_analytics.conf` files.
+
+If you need to, [generate self-signed certs](/docs/basic-config-and-security/security/tls-and-ssl/mutual-tls/#a-name-tips-tricks-a-tips-and-tricks) first and come back.
+
+#### Add/Replace these sections in the conf files
+
+**Note**, don't copy and paste these entire objects as there are sibling values we don't want to override.
+
+##### tyk.conf
+
+```{.json}
+Replace these individually
+"listen_port: 8080",
+"policies.policy_connection_string": "https://tyk-dashboard:3000"
+"db_app_conf_options.connection_string": "https://tyk-dashboard:3000"
+
+Use this whole object
+"http_server_options": {
+  "use_ssl": true,
+  "certificates": [
+    {
+      "domain_name": "*.yoursite.com",
+      "cert_file": "./new.cert.cert",
+      "key_file": "./new.cert.key"
+    }
+  ]
+}
+```
+
+Take note of the ports you setup are listening on and what your containers are expecting if you are using Containers.
+
+##### tyk_analytics.conf
+
+```{.json}
+Replace these individually
+"listen_port": 3000,
+"tyk_api_config.Host": "https://tyk-gateway"
+
+Use this whole object
+"http_server_options": {
+  "use_ssl": true,
+  "certificates": [
+    {
+      "domain_name": "*.yoursite.com",
+      "cert_file": "./new.cert.cert",
+      "key_file": "./new.cert.key"
+    }
+  ]
+}
+```
+
+If you are using self-signed certs or are in a test environment, [you can tell Tyk to ignore validation on certs Mutual TLS support](#self-signed-certs)
+
+
+That's it!  Restart the servers/containers and they should now be using SSL:
+```{.copyWrapper}
+$ docker-compose up tyk-gateway tyk-dashboard
+...
+tyk-gateway_1     | time="Apr 24 18:30:47" level=info msg="--> Using TLS (https)" prefix=main
+tyk-gateway_1     | time="Apr 24 18:30:47" level=warning msg="Starting HTTP server on:[::]:443" prefix=main
+...
+```
+
+And then we can curl both servers:
+```{.copyWrapper}
+$ curl -k https://localhost:8080/hello
+Hello Tiki
+
+$ curl -k https://localhost:3000
+<html response>
+```
+
+
+## More Configuration
 
 ```{.copyWrapper}
 "http_server_options": {
