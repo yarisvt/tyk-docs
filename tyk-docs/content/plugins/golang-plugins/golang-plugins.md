@@ -100,12 +100,12 @@ Now we need to instruct Tyk to load this shared library for an API so it will st
 
 Here we have:
 
-* The `"driver"` field has a new value of `goplugin` which says to Tyk that this custom middleware is a Golang native plugin.
-* We use middleware with the type of `post` because we want this custom middleware to process the request right before it gets passed to the upstream target (we will look at other types later).
-* In the `post` section - the field `mame` contains your function name from the plugin project.
-* In the `post` section - the field `path` is the full or relative (to the Tyk binary) path to `.so` file with plugin implementation (make sure Tyk has read access to this file)
+* `"driver"` - Set this to `goplugin` (no value created for this plugin) which says to Tyk that this custom middleware is a Golang native plugin.
+* `"post"` - This is the hook name. We use middleware with hook type `post` because we want this custom middleware to process the request right before it is passed to the upstream target (we will look at other types later).
+* `post.name` - is your function name from the go plugin project.
+* `post.path` - is the full or relative (to the Tyk binary) path to `.so` file with plugin implementation (make sure Tyk has read access to this file)
 
-Also, let's set fields `"use_keyless": true` and `"target_url": "http://httpbin.org/"` - for testing purposes (we need to see what request arrives to our upstream target and `httpbin.org` is a perfect fit for that.
+Also, let's set fields `"use_keyless": true` and `"target_url": "http://httpbin.org/"` - for testing purposes (we need to see what request arrives to our upstream target and `httpbin.org` is a perfect fit for that).
 
 The API needs to be reloaded after that change (this happens automatically when you save the updated API in the Dashboard).
 
@@ -129,7 +129,7 @@ curl http://localhost:8181/my_api_name/get
 
 We see that the upstream target has received the header `"Foo": "Bar"` which was added by our custom middleware implemented as a native Golang plugin in Tyk.
 
-### Types of custom middleware supported by Tyk Golang plugins
+### Types of custom middleware hooks supported by Tyk Golang plugins
 All four types of custom middleware are supported by Tyk Golang plugins. They represent different request stages where Golang plugins can be added as part of the middleware chain. Let's recap the meaning of all four types:
 
 * `"pre"` - contains array of middle-wares to be run before any others (i.e. before authentication).
@@ -137,15 +137,15 @@ All four types of custom middleware are supported by Tyk Golang plugins. They re
 * `"post_auth_check"` - contains array of middle-wares to be run after authentication, at this point we have authenticated session API key for the given key (in request context) so we can perform any extra checks.
 * `"post"` - contains array of middle-wares to be run at the very end of middle-ware chain, at this point Tyk is about to request a round-trip to the upstream target.
 
-The Golang plugin custom middleware `"auth_check"` can be used only if:
+#### Custom Auth Hook
+`"auth_check"` can be used only if both fields in the Tyk API definition are set:
+1.`"use_keyless": false`
+2.`"use_go_plugin_auth": true`
 
-* The API is protected, with the API spec has the `"use_keyless"` field set to `false`
-* The API spec has the `"use_go_plugin_auth"` field set to `true`.
-
-Then `"post_auth_check"` can be used when:
-
-* When the API is protected, the API spec has field set as `"use_keyless": false`
-* With any auth method specified in API spec
+#### Post Authentication Hook
+`"post_auth_check"` hook can only be use when:
+1. When the API is protected, the API spec has field set as `"use_keyless": false`
+2. With any auth method specified in API spec
 
 > **NOTE**: These fields are populated automatically with the correct values when you change the authentication method for the API in the Tyk Dashboard
 
@@ -264,10 +264,7 @@ Here we see that:
 
 ### Authentication with a Golang plugin
 
-You can implement your own authentication method, using a Golang plugin and custom `"auth_check"` middleware. Please make sure that:
-
-* The API is protected with `"use_keyless` set to `false`
-* The API spec has  `"use_go_plugin_auth"` set to `true`
+You can implement your own authentication method, using a Golang plugin and custom `"auth_check"` middleware. Please make sure to set the two fields as explained[above](#Post Authentication Hook):
 
 Let's have a look at the code example. Imagine we need to implement a very trivial authentication method when only one key is supported (in the real world you would want to store your keys in some storage or have some more complex logic).
 
