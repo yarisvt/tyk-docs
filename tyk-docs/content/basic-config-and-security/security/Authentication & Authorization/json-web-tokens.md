@@ -37,13 +37,9 @@ We are telling Tyk to extract this unique ID from the `sub` Header, which is the
 
 #### Step 4: Set a Default Policy
 
-If Tyk cannot find a `pol` claim or it wasn't set in step 3, It will apply this Default Policy. Select a policy that gives access to this API we are protecting, or [go create one first](/docs/try-out-tyk/tutorials/create-security-policy/) if it doesn't exist.
+If Tyk cannot find a `pol` claim, it will apply this Default Policy. Select a policy that gives access to this API we are protecting, or [go create one first](/docs/try-out-tyk/tutorials/create-security-policy/) if it doesn't exist.
 
 ![Default Policy](/docs/img/dashboard/system-management/jwt_default_policy2.9.3.png)
-
-#### Step 6: Authentication Configuration
-
-![Auth Configuration](/docs/img/dashboard/system-management/auth_config2.9.3.png)
 
 Make sure to save the changes to the API Definition.
 
@@ -52,6 +48,7 @@ Make sure to save the changes to the API Definition.
 Let's generate a JWT so we can test our new protected API.
 
 Head on over to [https://www.jwt.io](https://www.jwt.io).  Sign the default JWT with our HMAC Shared Secret `tyk123` in the VERIFY SIGNATURE section.  Your screen should look similar to this:
+
 ![Auth Configuration](/docs/img/dashboard/system-management/jwt_jwtio_example.png)
 
 Copy the Encoded JWT and let's make a cURL against the Tyk API Definition:
@@ -62,8 +59,6 @@ $ curl http://localhost:8080/my-jwt-api/get \
 ```
 
 You should receive response from your Upstream API.
-
-
 
 ## About JWTs
 A [JSON Web Token](http://jwt.io/introduction/) (JWT) is a JSON-based open standard (RFC 7519) for passing claims between parties in a web application environment. The tokens are designed to be compact, URL-safe and usable especially in web browser single sign-on (SSO) context.
