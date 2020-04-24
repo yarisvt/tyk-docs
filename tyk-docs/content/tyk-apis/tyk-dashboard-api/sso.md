@@ -7,6 +7,8 @@ menu:
 weight: 12
 ---
 
+> **Note**: This functionality is available from [v2.9.0](https://tyk.io/docs/release-notes/version-2.9/#single-sign-on-for-the-tyk-saas). If you have an older version please using the [admin api](https://tyk.io/docs/tyk-apis/tyk-dashboard-admin-api/sso/)
+
 The Dashboard SSO API allows you to implement custom authentication schemes for the Dashboard and Portal. 
 Our Tyk Identity Broker (TIB) internally also uses this API.
 
