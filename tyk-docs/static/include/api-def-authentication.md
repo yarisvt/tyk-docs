@@ -21,7 +21,7 @@ However Tyk supports many more methods, and these can be set by enabling these f
 
 - `use_oauth2`: Tyk attempts to implement a semi-seamless OAuth2 flow. Given the nature of OAuth2's three-party system, it is difficult to implement as a proxy without significantly compromising security or usability.  
   Enabling this option will cause Tyk to add OAuth2-standard endpoints to the API for `/authorize` and `/token`, these will supersede any other requests to your proxied system in order to enable the flow.  
-  Please see the [OAuth2 Flow](/docs/basic-config-and-security/security/your-apis/oauth-2-0/) section for a comprehensive discussion of how to integrate with Tyk.
+  Please see the [OAuth2 Flow](/docs/basic-config-and-security/security/authentication-authorization/oauth-2-0/) section for a comprehensive discussion of how to integrate with Tyk.
 
 - `oauth_meta.allowed_access_types`: Should be a string array of OAuth access options, types can be:
 - `authorization_code` - client has an authorisation code to request a new access token.
