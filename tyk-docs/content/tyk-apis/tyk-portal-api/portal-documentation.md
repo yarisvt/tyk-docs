@@ -32,7 +32,9 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 ```
 {
-  Response here
+  "Status": "OK",
+  "Message": "5ea6b2bd971eed0001009ddc",
+  "Meta": null
 }
 ```
 
@@ -40,7 +42,7 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 | **Property** | **Description**          |
 | ------------ | ------------------------ |
-| Resource URL | `/api/portal/documentation` |
+| Resource URL | `/api/portal/documentation/{id}` |
 | Method       | DELETE                   |
 | Type         | None                     |
 | Body         | None                     |
@@ -58,7 +60,9 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 ```
 {
-  Response here
+  "Status": "OK",
+  "Message": "Data deleted",
+  "Meta": null
 }
 ```
 
