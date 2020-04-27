@@ -10,7 +10,7 @@ weight: 5
 
 Tyk supports using basic authentication as an access key in the same way as any other access method.
 
-[What is basic authentication?](#a-name-what-is-basic-auth-a-what-is-basic-authentication)
+[What is Basic Authentication?](#what-is-basic-authentication)
 
 ### Protect your API with Basic Authentication
 To enable Basic Authentication on your API using the Tyk Dashboard:
@@ -155,7 +155,7 @@ In some cases, like dealing with SOAP, user credentials can be passed via reques
 
 Note that regexp should contain only one match group, which points to the actual value.
 
-## <a name="what-is-basic-auth"></a>What is Basic Authentication?
+## What is Basic Authentication?
 
 > In the context of an HTTP transaction, basic access authentication is a method for an HTTP user agent to provide a user name and password when making a request. HTTP Basic authentication (BA) implementation is the simplest technique for enforcing access controls to web resources because it doesn’t require cookies, session identifiers, or login pages; rather, HTTP Basic authentication uses standard fields in the HTTP header, obviating the need for handshakes. (Source: wikipedia)
 
