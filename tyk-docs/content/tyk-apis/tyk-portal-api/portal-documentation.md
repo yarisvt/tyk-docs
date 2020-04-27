@@ -17,8 +17,10 @@ This section covers both [Documentation](#documentation) and [Catalogue](#catalo
 | Resource URL | `/api/portal/documentation` |
 | Method       | POST                     |
 | Type         | None                     |
-| Body         | None                     |
+| Body         | Documentation Object     |
 | Param        | None                     |
+
+The Swagger or Blueprint should be base64 encoded and included in the `documentation` field of the Request Body, as per the example below. 
 
 #### Sample Request
 
@@ -26,13 +28,21 @@ This section covers both [Documentation](#documentation) and [Catalogue](#catalo
 POST /api/portal/documentation HTTP/1.1
 Host: localhost
 authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
+
+{
+  "api_id": "",
+  "doc_type": "swagger",
+  "documentation": "<base64-encoded-swagger>"
+}
 ```
 
 #### Sample Response
 
 ```
 {
-  Response here
+  "Status": "OK",
+  "Message": "5ea6b2bd971eed0001009ddc",
+  "Meta": null
 }
 ```
 
@@ -40,7 +50,7 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 | **Property** | **Description**          |
 | ------------ | ------------------------ |
-| Resource URL | `/api/portal/documentation` |
+| Resource URL | `/api/portal/documentation/{id}` |
 | Method       | DELETE                   |
 | Type         | None                     |
 | Body         | None                     |
@@ -58,7 +68,9 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 ```
 {
-  Response here
+  "Status": "OK",
+  "Message": "Data deleted",
+  "Meta": null
 }
 ```
 
