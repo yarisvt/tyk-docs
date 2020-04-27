@@ -40,7 +40,7 @@ This guide assumes the following:
 5. This is how it should look like after step #4
 ![okta-create-app](/docs/img/okta-sso/Okta-create-app.png)
 ## <a name="tib"></a>TIB's Side
-6. Set the profile in `profile.json` as follows:
+6. Set the profile in `profiles.json` as follows:
    - Copy from your Okta client the `cliend ID`     to `ProviderConfig.UseProviders[].key`
    - Copy from your Okta client the `Client secret` to `ProviderConfig.UseProviders[].secret`
    - Add Okta's discovery url `"https://dev-XXXXX.oktapreview.com/oauth2/default/.well-known/openid-configuration"` to `ProviderConfig.UseProviders[].DiscoverURL`
