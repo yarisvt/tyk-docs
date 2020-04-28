@@ -91,7 +91,7 @@ For Tyk 2.8 use:
 
 `/opt/tyk-gateway/bin/tyk bundle build -y`
 
-A plugin bundle is a packaged version of the plugin, it may also contain a cryptographic signature of its contents. The `-y` flag tells the Tyk CLI tool to skip the signing process in order to simplify the flow of this tutorial. For more information on the Tyk CLI tool, see [here](docs/plugins/rich-plugins/plugin-bundles/#using-the-bundler-tool).
+A plugin bundle is a packaged version of the plugin, it may also contain a cryptographic signature of its contents. The `-y` flag tells the Tyk CLI tool to skip the signing process in order to simplify the flow of this tutorial. For more information on the Tyk CLI tool, see [here](/docs/plugins/rich-plugins/plugin-bundles/#bundler-tool).
 
 You should now have a `bundle.zip` file in the plugin directory.
 
