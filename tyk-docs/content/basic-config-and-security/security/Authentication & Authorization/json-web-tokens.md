@@ -7,39 +7,11 @@ menu:
 weight: 5 
 ---
 
-A [JSON Web Token](http://jwt.io/introduction/) (JWT) is a JSON-based open standard (RFC 7519) for passing claims between parties in a web application environment. The tokens are designed to be compact, URL-safe and usable especially in web browser single sign-on (SSO) context.
 
-One of the best things about a JWT is that it is cryptographically signed, and can be signed in a number of ways such as using HMAC shared secret and RSA public/private key pairs.
 
-What is useful is when a token is issued by a third-party (e.g. an OAuth provider, or an SSO interface), that third party can use a private key to sign the claims of the token, and then any third-party can verify that the claims were issued by a safe third-party by validating the signature using a public key.
+### Protecting an API with JWT
 
-## Option 1: JWTs with Tyk
-
-![Tyk JWT Flow Diagram](/docs/img/diagrams/jwt2.png)
-
-Tyk supports storing a shared secret in your API definition (either an RSA public key or a HMAC shared secret) that will be used to validate any inbound JSON Web Token for the given API.
-
-For example, if you are using a third-party identity provider (IdP) that can issue JWTs, you can embed their public key in your API Definition, and then use this public key to validate the claims on the inbound token.
-
-With Tyk, you can set up some specific claims that will then enforce a token policy on this identity, and the token policy quotas and rate limits will be maintained for the given JWT holder identity even if a new JWT is issued, so long as the Tyk-specific claims remain unchanged.
-
-Currently HMAC Signing and RSA Public/Private key signing is supported. To enable centralised JWT on an API, add the following to the root of your API Definition:
-
-```{.copyWrapper}
-"enable_jwt": true,
-"jwt_source": "BASE64-Encoded secret",
-"jwt_identity_base_field": "sub",
-"jwt_policy_field_name": "pol",
-"jwt_signing_method": "rsa"
-```
-
-`jwt_identity_base_field` - The `sub` claim will be the base for this token's identity. It could represent a user id and as such, needs to be unique as it will form the basis of the token tyk will use internally to enforce rate limits & quotas.
-
-`jwt_policy_field_name` - The `pol` claim (e.g `72ab02b3be743101c6132342`) is the policy id to apply to this token, the policy will be applied the first time the token is seen and then modified if the policy changes in the claim.
-
----
-
-### Configure JWT Support in the Dashboard
+This assumes you've already [setup an API](/docs/try-out-tyk/tutorials/create-api/) and are ready to protect it with JWT.
 
 Getting JWT support set up in the Dashboard only requires a few fields to be set up in the Core settings tab:
 
@@ -51,67 +23,65 @@ Select JSON Web Tokens as the Authentication mode:
 
 #### Step 2: Set the JWT Signing Method
 
-Set the cryptographic method to use so Tyk knows how to verify the JWT. this can either be an **RSA public key** or a **HMAC shared secret**. If using a RSA, you can use either a PEM encoded **Public Key**, or a JWKS REST discovery endpoint.  JWKS is covered more in option #3.
-
-Note, if you want this to be configured at the key level, leave this field blank.
+[Set the cryptographic signing method](#jwt-signing-method) to `HMAC (shared)` and the public secret as `tyk123`
 
 ![JWT signing method dropdown](/docs/img/dashboard/system-management/jwt_sign_2.5.png)
 
 #### Step 3: Set the Identity Source and Policy Field Name
 
+The "sub" is unique to our end user or client.  The policy rate limiting, authorization, will apply to this unique bearer.
+
 ![Policy and identity claim form](/docs/img/dashboard/system-management/jwt_claim_2.7.png)
 
-* **The Identity Source**: This is the identity that will be affected by the underlying policy (e.g. if you set this to use the `sub` claim, and this is traditionally a user ID of some sort, then Tyk will begin a rate limiter and quota counter for this specific identity). If you wanted to instead limit a client, e.g. all the users of a specific application, then you can use a different identity claim that identifies the group (i.e. one that is shared by all JWTs issued).
-
-* **The Policy Field Name**: This is a custom requirement for Tyk. You need to tell Tyk which claim will signal to it the correct policy to use. A policy encapsulates rate limits, quota and security information and Tyk will use this policy to apply the correct access rules to the identity that has been specified in the Identity claim above.
+We are telling Tyk to extract this unique ID from the `sub` Header, which is the JWT standard.  [Read more here](#identity-source-and-policy-field-name)
 
 #### Step 4: Set a Default Policy
 
+If Tyk cannot find a `pol` claim, it will apply this Default Policy. Select a policy that gives access to this API we are protecting, or [go create one first](/docs/try-out-tyk/tutorials/create-security-policy/) if it doesn't exist.
+
 ![Default Policy](/docs/img/dashboard/system-management/jwt_default_policy2.9.3.png)
 
-If your JWT policy ID is missing, a default policy can be used. Set your default policy from the drop-down list.
+Make sure to save the changes to the API Definition.
 
-#### Step 5: Use Scope Claim
+#### Generate a JWT
 
-See [Setting JWT Scope Claims](/docs/advanced-configuration/integrate/api-auth-mode/open-id-connect/#setting-jwt-scope-claims-with-the-dashboard) for more details on this option.
+Let's generate a JWT so we can test our new protected API.
 
-#### Step 6: Authentication Configuration
+Head on over to [https://www.jwt.io](https://www.jwt.io).  Sign the default JWT with our HMAC Shared Secret `tyk123` in the VERIFY SIGNATURE section.  Your screen should look similar to this:
 
-![Auth Configuration](/docs/img/dashboard/system-management/auth_config2.9.3.png)
+![Auth Configuration](/docs/img/dashboard/system-management/jwt_jwtio_example.png)
 
-1. Tyk will by default assume you are using the `Authorization` header, but you can change this by setting the **Auth Key Header** name value
-2. You can select whether to use a URL query string parameter as well as a header, and what parameter to use. If this is left blank, it will use the **Auth Key Header** name value.
-3. You can select whether to use a **cookie value**. If this is left blank, it will use the Header name value.
+Copy the Encoded JWT and let's make a cURL against the Tyk API Definition:
 
+```
+$ curl http://localhost:8080/my-jwt-api/get \
+--header "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.7u0ls1snw4tPEzd0JTFaf19oXoOvQYtowiHEAZnan74"
+```
 
-#### Step 7: Generate an API policy
-
-Now that you have created the API and set its parameters for the JWTs, you will also need to generate a policy that has access to your API(s). You can do this in the policies editor.
-
-Once the API is saved and you have a policy created for this API, generate a JWT using your identity provider, a library or one of the many test JWT generators available on the web, and make sure that they have the identity and policy claims added to their claim set. Once the token is generated, use it as an `Authorization: Bearer {token}` header in your requests to Tyk.
-
-Tyk will now handle inbound traffic transparently so long as the policy ID being used is valid.
+You should receive response from your Upstream API.
 
 ---
 
-## Option 2: Individual JWT secrets
+## About JWTs
+A [JSON Web Token](http://jwt.io/introduction/) (JWT) is a JSON-based open standard (RFC 7519) for passing claims between parties in a web application environment. The tokens are designed to be compact, URL-safe and usable especially in web browser single sign-on (SSO) context.
 
-Tyk supports validating an inbound token against a stored key. Tyk will not issue JWTs, but can issue a token ID that is bound to a JWT key so that inbound tokens that bear this id (key) can be validated.
+One of the best things about a JWT is that it is cryptographically signed, and can be signed in a number of ways such as using HMAC shared secret and RSA public/private key pairs.
 
-Currently HMAC Signing and RSA Public/Private key signing is supported. To enable JWT on an API, add this to your API Definition:
+What is useful is when a token is issued by a third-party (e.g. an OAuth provider, or an SSO interface), that third party can use a private key to sign the claims of the token, and then any third-party can verify that the claims were issued by a safe third-party by validating the signature using a public key.
 
-```{.copyWrapper}
-"enable_jwt": true,
-"jwt_signing_method": "rsa"
-```
+---
 
-Then set your tokens up with these new fields when you create them:
+### JWT Signing Method
 
-```{.copyWrapper}
-"jwt_data": {
-  "secret": "Secret"
-}
-```
+Tyk allows you to select which cryptographic method to verify the JWT signature with with from:
+
+- RSA public key
+- HMAC shared secret
+- [Public JWKS Url](#dynamic-public-key-rotation-using-public-jwks-url)
+
+For example, if you are using a third-party identity provider (IdP) that can issue JWTs, you can embed their public key in your API Definition, and Tyk will use this public key to validate the claims on the inbound token.
+
+Note, if you want this to be configured at the key level, leave this field blank.
 
 HMAC JWT secrets can be any string, but the secret is shared and therefore less secure since the same key is used for signing and validation.
 
@@ -122,7 +92,20 @@ openssl genrsa -out key.rsa
 openssl rsa -in key.rsa -pubout > key.rsa.pub
 ```
 
-When a JWT is passed to Tyk for validation, it *must* use the `kid` header field, as this is the internal access token (when creating a key) that is used to track the rate limits, policies and quotas for the token owner.
+---
+
+### Individual JWT secrets
+Tyk supports validating an inbound token against a stored key. Tyk will not issue JWTs, but can issue a token ID that is bound to a JWT key so that inbound tokens that bear this id (key) can be validated.
+
+Then set your tokens up with these new fields when you create them:
+
+```{.copyWrapper}
+"jwt_data": {
+  "secret": "Secret"
+}
+```
+
+Using this approach, when a JWT is passed to Tyk for validation, it *must* use the `kid` header field, as this is the internal access token (when creating a key) that is used to track the rate limits, policies and quotas for the token owner.
 
 If Tyk cannot find a `kid` header, it will try to find an ID in the `sub` field of the claims section. This is not recommended, but is supported as many JWT libraries do not necessarily set the `kid` header claim (especially publicly available test generators).
 
@@ -130,7 +113,20 @@ The benefit here is that if RSA is used, then all that is stored in a Tyk instal
 
 ---
 
-## Option 3: Dynamic public key rotation using JWKs
+### Identity Source and Policy Field Name
+
+* **The Identity Source**: This is the identity that will be affected by the underlying policy (e.g. if you set this to use the `sub` claim, and this is traditionally a user ID of some sort, then Tyk will begin a rate limiter and quota counter for this specific identity). If you wanted to instead limit a client, e.g. all the users of a specific application, then you can use a different identity claim that identifies the group (i.e. one that is shared by all JWTs issued).
+
+* **The Policy Field Name**: This is a required input, but your JWT doesn't need to include it. Tyk will check this claim in the JWT for a [policy ID](/docs/getting-started/key-concepts/what-is-a-security-policy/) (e.g `72ab02b3be743101c6132342`) to apply to this session.
+
+---
+
+### Scope Claims
+
+See [Setting JWT Scope Claims](/docs/advanced-configuration/integrate/api-auth-mode/open-id-connect/#setting-jwt-scope-claims-with-the-dashboard) for more details on this option.
+
+---
+### Dynamic public key rotation using public JWKs url
 
 Instead of specifying static public key in API definition, it is possible to specify URL pointing to JSON Web Key Set (JWKs). At the most basic level, the JWKs is a set of keys containing the public keys that should be used to verify any JWT issued by the authorization server. You can read more about JWKs here: https://auth0.com/docs/jwks
 
@@ -140,9 +136,10 @@ So, instead of using a static public key, we would use the REST url for the JWKS
 
 ![JWKS Public Key Rotation](/docs/img/dashboard/system-management/JWKS_Key_Rotation_3_1.png)
 
-The URL above returns the following payload:
+cURLing the URL in the "Public Key" field in the screenshot above returns the following payload:
 
-```{.json}
+```{.copyWrapper}
+$ curl http://keycloak_host:8081/auth/realms/master/protocol/openid-connect/certs
 {
   "keys": [
       {
@@ -178,7 +175,9 @@ The Bearer tokens will be signed by the private key of the issuer, which in this
 
 All of this happens automatically.  You just need to specify to Tyk what the JWKs url is, and then apply a "sub" and default policy in order for everything to work.  See Step #3, 4, and 5 under option #1 for explanations and examples.
 
-## JWT Clock Skew Configuration
+---
+
+### JWT Clock Skew Configuration
 
 > **NOTE**: Available from v2.7.2 onwards
 
@@ -194,7 +193,9 @@ You can now configure JWT clock skew using the following variables. All values a
 "jwt_not_before_validation_skew": 0
 ```
 
-#### JWT scope to policy mapping support
+---
+
+### JWT scope to policy mapping support
 
 > **NOTE**: This feature is available starting from v2.9
 
@@ -216,3 +217,8 @@ Here we have set:
 
 
 > **NOTE**: several scopes in JWT claim will lead to have several policies applied to a key. In this case all policies should have `"per_api"` set to `true` and shouldn't have the same `API ID` in access rights. I.e. if claim with scopes contains value `"admin developer"` then two policies `"59672779fa4387000129507d"` and `"53222349fa4387004324324e"` will be applied to a key (with using our example config above).
+
+---
+
+### JWT Diagram in Tyk API Gateway
+![Tyk JWT Flow Diagram](/docs/img/diagrams/jwt2.png)
