@@ -7,14 +7,15 @@ menu:
 weight: 4 
 ---
 
-Let's walk through setting up analytics in the Dashboard via the Pump.  
-There are 3 steps we need to do.  Following these will give us analytics in the following Dashboard locations:
+Following these steps will give us analytics in the following Dashboard locations:
 
 * Activity by API
 * Activity by Key
 * Errors
 * Log Browser
 * Developer Portal - API Usage
+
+There are 3 steps we need to do.  
 
 1.  Set "enable_analytics" to true in "tyk.conf"
 2.  Set "use_sharded_analytics" to true in "tyk_analytics.conf"
@@ -60,6 +61,12 @@ There are 3 steps we need to do.  Following these will give us analytics in the 
   },
   "dont_purge_uptime_data": false
 }
+```
+
+That's it, now we just have to restart the tyk-pump
+
+```
+$ docker restart tyk-pump
 ```
 
 ### More
