@@ -67,7 +67,7 @@ dotnet add package Google.Protobuf --version 3.4.0
 
 We need to install the gRPC tools to generate the bindings. We recommended you follow the official guide here: https://grpc.io/docs/quickstart/csharp.html#generate-grpc-code.
 
-### Run the following Commands (both Mac OS and Linux)
+### Run the following Commands (both MacOS and Linux)
 
 ```{.copyWrapper}
 cd ~/tyk-plugin
@@ -79,7 +79,7 @@ chmod -Rf +x packages/Grpc.Tools.1.6.x/tools/
 
 Then run the following, depending on your OS:
 
-**Mac OS (x64)**
+**MacOS (x64)**
 
 ```{.copyWrapper}
 export GRPC_TOOLS=packages/Grpc.Tools.1.6.x/tools/macosx_x64
@@ -98,7 +98,7 @@ The `GRPC_TOOLS` environment variable will point to the appropriate GrpcTools pa
 export GRPC_PROTOC=$GRPC_TOOLS/protoc
 ```
 
-Now that we can safely run `protoc`, we can download the Tyk Protocol Buffers definition files. These files contain the data structures used by Tyk. See [Data Structures](/docs/customise-tyk/plugins/rich-plugins/rich-plugins-data-structures/) for more information:
+Now that we can safely run `protoc`, we can download the Tyk Protocol Buffers definition files. These files contain the data structures used by Tyk. See [Data Structures](/docs/plugins/rich-plugins/rich-plugins-data-structures/) for more information:
 
 ```{.copyWrapper}
 cd ~/tyk-plugin
@@ -292,7 +292,7 @@ To bundle our plugin run the following command in the `tyk-plugin` directory. Ch
 /opt/tyk-gateway/utils/tyk-cli bundle build -y
 ```
 
-From Tyk v2.8 you can use:
+From Tyk v2.8 upwards you can use:
 ```{.copyWrapper}
 /opt/tyk-gateway/bin/tyk bundle build -y
 ```

@@ -119,7 +119,7 @@ mkdir -p src/main/java/com/testorg/testplugin
 
 ### gRPC tools and bindings generation
 
-We need to download the Tyk Protocol Buffers definition files, these files contains the data structures used by Tyk. See [Data Structures](/docs/customise-tyk/plugins/rich-plugins/rich-plugins-data-structures/) for more information:
+We need to download the Tyk Protocol Buffers definition files, these files contains the data structures used by Tyk. See [Data Structures](/docs/plugins/rich-plugins/rich-plugins-data-structures/) for more information:
 
 ```{.copyWrapper}
 cd ~/tyk-plugin

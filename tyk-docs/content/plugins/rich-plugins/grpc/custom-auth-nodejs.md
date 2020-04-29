@@ -15,10 +15,10 @@ For additional information about gRPC, check the official documentation [here](h
 
 ## <a name="Requirements"></a>Requirements
 
-* Tyk Gateway: This can be installed using standard package management tools like Yum or APT, or from source code. See [here][1] for more installation options.
-* The Tyk CLI utility, which is bundled with our RPM and DEB packages, and can be installed separately from [https://github.com/TykTechnologies/tyk-cli][2]
-* In Tyk 2.8 the Tyk CLI is part of the gateway binary, you can find more information by running "tyk help bundle".
-* * NodeJS v6.x.x https://nodejs.org/en/download/ 
+* Tyk Gateway: This can be installed using standard package management tools like Yum or APT, or from source code. See [here](https://tyk.io/docs/get-started/with-tyk-on-premise/installation/) for more installation options.
+* The Tyk CLI utility, which is bundled with our RPM and DEB packages, and can be installed separately from [https://github.com/TykTechnologies/tyk-cli](https://github.com/TykTechnologies/tyk-cli)
+* In Tyk 2.8 and upwards the Tyk CLI is part of the gateway binary, you can find more information by running "tyk help bundle".
+* * NodeJS v6.x.x [https://nodejs.org/en/download/](https://nodejs.org/en/download/) 
 
 
 ## <a name="what-is-grpc"></a>What is gRPC?
@@ -180,7 +180,7 @@ We need to create a manifest file within the `tyk-plugin` directory. This file c
 }
 ```
 
-* The `custom_middleware` block contains the middleware settings like the plugin driver we want to use (`driver`) and the hooks that our plugin will expose. We use the `auth_check` hook for this tutorial. For other hooks see [here](https://tyk.io/docs/customise-tyk/plugins/rich-plugins/rich-plugins-work/#coprocess-dispatcher-hooks).
+* The `custom_middleware` block contains the middleware settings like the plugin driver we want to use (`driver`) and the hooks that our plugin will expose. We use the `auth_check` hook for this tutorial. For other hooks see [here](/docs/plugins/rich-plugins/rich-plugins-work/#coprocess-dispatcher---hooks).
 * The `name` field references the name of the function that we implement in our plugin code - `MyAuthMiddleware`. The implemented dispatcher uses a switch statement to handle this hook, and calls the `authMiddleware` function in `main.js`.
 * The `path` field is the path to the middleware component.
 * The `raw_body_only` field 
@@ -199,7 +199,7 @@ For Tyk 2.8 use:
 
 A plugin bundle is a packaged version of the plugin. It may also contain a cryptographic signature of its contents. The `-y` flag tells the Tyk CLI tool to skip the signing process in order to simplify the flow of this tutorial. 
 
-For more information on the Tyk CLI tool, see [here](https://tyk.io/docs/customise-tyk/plugins/rich-plugins/plugin-bundles/#using-the-bundler-tool).
+For more information on the Tyk CLI tool, see [here](/docs/plugins/rich-plugins/plugin-bundles/#using-the-bundler-tool).
 
 You should now have a `bundle.zip` file in the `tyk-plugin` directory.
 
