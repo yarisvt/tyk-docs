@@ -2529,7 +2529,7 @@ body {
 .search button,
 .search input {
   background: transparent;
-  text-transform: capitalize;
+  text-transform: none;
   font-size: 16px;
 }
 
