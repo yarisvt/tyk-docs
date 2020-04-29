@@ -255,4 +255,4 @@ As of v2.1, an Alias offers a way to identify a token in a more human-readable m
 See [Auth Plugins](/docs/plugins/auth-plugins/) for additional information.
 
 `session_lifetime`
-Overrides the global session lifetime, see [Physical Token Expiry](/docs/basic-config-and-security/security/your-apis/physical-token-expiry/) for additional information.
+Overrides the global session lifetime, see [Physical Token Expiry](/docs/basic-config-and-security/security/authentication-authorization/physical-token-expiry/) for additional information.
