@@ -32,7 +32,9 @@ Create a `pump.conf` file:
     "database": 0,
     "optimisation_max_idle": 100,
     "optimisation_max_active": 0,
-    "enable_cluster": false
+    "enable_cluster": false,
+    "redis_use_ssl": false,
+    "redis_ssl_insecure_skip_verify": false
   },
   "purge_delay": 1,
   "health_check_endpoint_name": "hello",
@@ -256,6 +258,27 @@ The following services are supported:
 - Prometheus
 - Logz.io
 - Kafka
+
+#### analytics_storage_config
+```json
+  "analytics_storage_config": {
+    "type": "redis",
+    "host": "localhost",
+    "port": 6379,
+    "hosts": null,
+    "username": "",
+    "password": "",
+    "database": 0,
+    "optimisation_max_idle": 100,
+    "optimisation_max_active": 0,
+    "enable_cluster": false,
+    "redis_use_ssl": false,
+    "redis_ssl_insecure_skip_verify": false
+  },
+```
+`redis_use_ssl` - Setting this to true to use SSL when connecting to Redis
+
+`redis_ssl_insecure_skip_verify` - Set this to true to tell Pump to ignore Redis' cert validation
 
 #### Uptime Data
 `dont_purge_uptime_data` - Setting this to `false` will create a pump that pushes uptime data to MongoDB, so the Dashboard can read it.  Disable by setting to `true`
