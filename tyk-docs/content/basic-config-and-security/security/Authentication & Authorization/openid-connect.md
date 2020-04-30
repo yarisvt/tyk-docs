@@ -31,4 +31,4 @@ With this flow, Tyk does not need to be aware of the user or the token in advanc
 
 For more details about our OpenID Connect support see [OpenID Integration](/docs/advanced-configuration/integrate/api-auth-mode/open-id-connect/).
 
-See a [worked example of using OpenID Connect with Auth0](docs/advanced-configuration/integrate/api-auth-mode/oidc-auth0-example/).
+See a [worked example of using OpenID Connect with Auth0](/docs/advanced-configuration/integrate/api-auth-mode/oidc-auth0-example/).
