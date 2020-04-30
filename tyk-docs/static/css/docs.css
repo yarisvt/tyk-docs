@@ -196,7 +196,7 @@ body * { visibility: hidden; }
 .documentation-search-pagination .pagination a {width: 40px; height: 40px; line-height: 38px;}
 .documentation-search input {max-width: 142px; -webkit-transition: all 0.3s ease-in; transition: all 0.3s ease-in;}
 .documentation-search input:focus {max-width: 100%; background-color: #4f5071; color: #ffffff;}
-.documentation-search input:focus + button {color: #010017;}
+.documentation-search input:focus + button {color: #ffffff;}
 .icon-search {cursor: auto;}
 #algolia-logo {float:right; background-color: #FFF; width:100%;}
 #algolia-logo img {float:right;}
