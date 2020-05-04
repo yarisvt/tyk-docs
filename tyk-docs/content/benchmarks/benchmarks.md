@@ -22,8 +22,10 @@ This is with Tyk performing authentication, rate limiting, and gathering analyti
 | Amazon EC2 (c5.2xlarge) | 23,667 req / sec        | 4.93 ms         | $ 0.34 / hour     |
 | Amazon EC2 (c5.9xlarge) | 69,133 req / sec        | 1.2 ms          | $ 1.53 / hour     |
 
+
 More information on how to recreate these results yourself:
-*** link to AWS testing blog
+
+https://tyk.io/a-manual-for-simple-performance-testing-with-tyk-on-aws/
 
 > **Note:** EC2 instance cost is variable and documented as of April 6, 2020 
 https://aws.amazon.com/ec2/pricing/on-demand/
