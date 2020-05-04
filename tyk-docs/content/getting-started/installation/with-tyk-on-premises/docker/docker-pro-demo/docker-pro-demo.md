@@ -9,16 +9,14 @@ weight: 1
 
 ## Get Started with Docker & Tyk API Gateway
 
-> **Warning!** This demo is **NOT** designed for production use or performance testing. The Tyk Pro Docker demo is our
-> full [On-Premises](https://tyk.io/api-gateway/on-premise/) solution, which includes our Gateway, Dashboard, and
-> analytics processing pipeline. This demo will run Tyk On-Premises on your machine, which contains 5 containers: Tyk
-> Gateway, Tyk Dashboard, Tyk Pump, Redis and MongoDB. This demo is great for proof of concept and demo purposes, but
-> if you want to test performance, you will need to move each component to a separate machine.
+> **Warning!** This demo is **NOT** designed for production use or performance testing. 
+
+The Tyk Pro Docker demo is our full [On-Premises](https://tyk.io/api-gateway/on-premise/) solution, which includes our Gateway, Dashboard, and analytics processing pipeline. This demo will run Tyk On-Premises on your machine, which contains 5 containers: Tyk Gateway, Tyk Dashboard, Tyk Pump, Redis and MongoDB. This demo is great for proof of concept and demo purposes, but if you want to test performance, you will need to move each component to a separate machine.
 
 ## Prerequisites
 
 * Our [Tyk Pro Docker demo on GitHub](https://github.com/TykTechnologies/tyk-pro-docker-demo)
-* A free Tyk On-Premises [Developer licence](https://tyk.io/get-started/)
+* A Tyk Pro [trial license](https://pages.tyk.io/get-started-with-tyk)
 
 ### Step One - Clone the GitHub repo
 
@@ -34,9 +32,6 @@ You need to add the following to your hosts file:
 ```
 
 ### Step Three - Add your developer licence
-
-You should have received an e-mail with your free developer licence after going through
-[the signup process](https://signup.tyk.io/product/tyk-on-premises-free-edition/).
 
 Copy the license key to the following location in your `/confs/tyk_analytics.conf` file:
 
