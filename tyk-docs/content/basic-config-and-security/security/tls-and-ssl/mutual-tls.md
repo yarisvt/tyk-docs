@@ -58,7 +58,16 @@ The Tyk Gateway and Dashboard Admin APIs provide endpoints to create, remove, li
 
 * Create: `POST /tyk/certs` with PEM body. Returns `{"id": "<cert-id>", ... }`
 * Delete: `DELETE /tyk/certs/<cert-id>`
-* Get info: `GET /tyk/certs/<cert-id>`. Return meta info about certificate, something similar to: `{ "id": "<cert-id>", "has_private_key": false, "subject": "common_name": "<cn>", ... }`
+* Get info: `GET /tyk/certs/<cert-id>`. Return meta info about certificate, something similar to: 
+```json
+{ 
+  "id": "<cert-id>",
+  "fingerprint": <fingerprint>
+  "has_private_key": false, 
+  "issuer": <issuer>
+  "subject": "<cn>", ... 
+}
+```
 * Get info about multiple certificates: `GET /tyk/certs/<cert-id1>,<cert-id2>,<cert-id3>`. 
 Returns array of meta info objects, similar to above.
 * List all certificate IDs: `GET /tyk/certs. Returns: { "certs": "<cert-id1>", "<cert-id2>", ...  }`
