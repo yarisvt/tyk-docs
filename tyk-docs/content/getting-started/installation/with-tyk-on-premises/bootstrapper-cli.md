@@ -4,7 +4,7 @@ title: Bootstrapper CLI
 menu:
   main:
     parent: "With Tyk On-Premises"
-weight: 7
+weight: 8
 ---
 
 ## bootstrap

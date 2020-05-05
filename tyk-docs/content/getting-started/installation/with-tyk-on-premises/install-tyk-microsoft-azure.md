@@ -3,7 +3,7 @@ title: Microsoft Azure
 menu:
   main:
     parent: "With Tyk On-Premises"
-weight: 4 
+weight: 6 
 ---
 
 ## <a name="intro"></a>Introduction

@@ -4,7 +4,7 @@ lastmod: 2020-03-09
 title: Kubernetes Docker Pro Demo on Windows
 menu:
   main:
-    parent: "With Docker"
+    parent: "With Kubernetes"
 weight: 3
 ---
 

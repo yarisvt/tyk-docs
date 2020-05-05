@@ -4,7 +4,7 @@ title: Vagrant
 menu:
   main:
     parent: "With Tyk On-Premises"
-weight: 5 
+weight: 7 
 ---
 
 ## Install Tyk on Vagrant
