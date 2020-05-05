@@ -2,7 +2,7 @@
 title: Tyk Kubernetes Ingress and Service Mesh Controller 
 menu:
   main:
-    parent: "With Docker"
+    parent: "With Kubernetes"
 weight: 2
 ---
 

@@ -4,7 +4,7 @@ Title: AWS Marketplace
 menu:
   main:
     parent: "With Tyk On-Premises"
-weight: 6
+weight: 5
 url: "/getting-started/with-tyk-on-premises/installation/on-aws"
 ---
 
