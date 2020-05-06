@@ -13,37 +13,9 @@ Tyk enables you to actively monitor both user and organisation quotas. These act
 
 Monitors are disabled by default in Tyk Cloud. Portal events are enabled and can be defined by raising a support ticket.
 
-### Enable Monitors in your `tyk.conf`
+### How to Enable Monitors
 
-Enabling monitors in your Tyk node means adding a new configuration section to your `tyk.conf`:
-
-```{.copyWrapper}
-"monitor": {
-  "enable_trigger_monitors": true,
-  "configuration": {
-    "method": "POST",
-    "target_path": "http://posttestserver.com/post.php?dir=tyk-monitor-drop",
-    "template_path": "templates/monitor_template.json",
-    "header_map": {"x-tyk-monitor-secret": "12345"},
-    "event_timeout": 10
-  },
-  "global_trigger_limit": 80.0,
-  "monitor_user_keys": false,
-  "monitor_org_keys": true
-}
-```
-
-*   `enable_trigger_monitors`: Set to `true` to have the monitors start to measure quota thresholds.
-
-*   `configuration`: A webhook configuration object. See the [Webhooks documentation](/docs/basic-config-and-security/report-monitor-trigger-events/webhooks/) for details.
-
-*   `global_trigger_limit`: This is the global trigger threshold and will be applied to all keys being monitored. This value is the percentage of the quota that the user must reach before the notification is triggered.
-
-> NOTE: From Dashboard v1.8.2, if you are using our Developer Portal, registered developers will also receive emails about quota threshold limits being reached.
-
-*   `monitor_user_keys`: Set to `true` to monitor individual tokens, this may result in a large amount of webhooks.
-
-*   `monitor_org_keys`: Set to `true` to have global organisation quotas monitored.
+See [Monitors](/docs/basic-config-and-security/report-monitor-trigger-events/monitors/) for details of configuring monitors in your `tyk.conf`.
 
 #### Setting Custom Triggers on a Per Key or a Per-Organisation Basis
 
