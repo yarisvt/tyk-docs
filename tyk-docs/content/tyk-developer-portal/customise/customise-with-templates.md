@@ -93,4 +93,10 @@ You have different teams of developers, and for each team we want to show them a
 {{end}}
 ```
 
+### Add Files for Downloading
+
+If you want to have files available for download from your portal you can add them to your `/tyk-dashboard/portal/portal-assets` directory. 
+
+You can then refer to them by using a `/opt/tyk-dashboard/...` link.
+
 [1]: /docs/img/dashboard/portal-management/page_settings_2.5.png
