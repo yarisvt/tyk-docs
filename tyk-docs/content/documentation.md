@@ -1,5 +1,6 @@
 ---
-date: 2017-03-09T11:20:34Z
+publishdate: 2020-03-09
+lastmod: 2020-04-09
 Title: Tyk API Gateway Documentation
 diffTitleName: Tyk Documentation
 menu:
@@ -49,7 +50,7 @@ How to [personalise](/docs/tyk-developer-portal/customise/) your Developer Porta
 
 How to use our APIs.
 
-- [Gateway REST API](/docs/tyk-rest-api/)
+- [Gateway REST API](/docs/tyk-gateway-api/)
 - [Dashboard API](/docs/tyk-dashboard-api/)
 - [Dashboard Admin API](/docs/dashboard-admin-api/)
 

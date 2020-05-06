@@ -19,7 +19,7 @@ This feature implements an in-process message passing mechanism, based on [Proto
 
 The main interoperability task is achieved by using [cgo](https://golang.org/cmd/cgo/) as a bridge between a supported language -like Python- and the Go codebase.
 
-Your C bridge function must accept and return a `CoProcessMessage` data structure like the one described in [`api.h`][3], where `p_data` is a pointer to the serialized data and `length` indicates the length of it.
+Your C bridge function must accept and return a `CoProcessMessage` data structure like the one described in [`api.h`][https://github.com/TykTechnologies/tyk/blob/master/coprocess/api.h], where `p_data` is a pointer to the serialized data and `length` indicates the length of it.
 
 ```{.copyWrapper}
 struct CoProcessMessage {
@@ -31,7 +31,7 @@ struct CoProcessMessage {
 The unpacked data will hold the actual `CoProcessObject` data structure.
 `HookType` - the hook type (see below) 
 `Request`  - the HTTP request
-`Session`  - the [Tyk session object](/docs/tyk-rest-api/token-session-object-details/).
+`Session`  - the [Tyk session object](/docs/tyk-apis/tyk-gateway-api/token-session-object-details/).
 `Metadata`  - the metadata from the session data above (key/value string map).
 `Spec`     - the API specification data. Currently organization ID, API ID and config_data.
 
@@ -67,7 +67,7 @@ This component is in charge of dispatching your HTTP requests to the custom midd
 
 ### Coprocess Gateway API
 
-[`coprocess_api.go`](https://github.com/TykTechnologies/tyk/blob/master/coprocess.go) provides a bridge between the gateway API and C, any function that needs to be exported should have the `export` keyword:
+[`coprocess_api.go`](https://github.com/TykTechnologies/tyk/blob/master/coprocess.go) provides a bridge between the Gateway API and C. Any function that needs to be exported should have the `export` keyword:
 
 ```{.copyWrapper}
 //export TykTriggerEvent

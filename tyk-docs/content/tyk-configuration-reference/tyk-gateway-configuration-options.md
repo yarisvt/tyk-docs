@@ -488,7 +488,7 @@ This defaults to `true` for HTTP/2 upstream connections.
 
 ### <a name="enable_jsvm"></a> enable_jsvm
 
-By default we have now disabled the JavaScript middleware system to ensure higher performance on nodes. If you are using the JSVM (custom middleware, or virtual endpoints), then enable this setting.
+This defaults to `false`. Set to `true` if you are using JSVM custom middleware or virtual endpoints.
 
 ### <a name="disable_virtual_path_blobs"></a> disable_virtual_path_blobs
 
@@ -569,13 +569,12 @@ This can specify a default timeout in seconds for upstream API requests.
 > **NOTE:** This option is available from v2.3.8 onwards.
 
 ### <a name="log-level"></a>log_level
+You can now set a logging level (`log_level`). The following levels can be set:
 
-You can now set a logging level via `log_level`. The following levels can be set:
-
-- debug
-- info
-- warn
-- error
+* debug
+* info
+* warn
+* error
 
 If unset or left empty, it will default to `info`.
 
@@ -671,3 +670,34 @@ By default, we set the `X-Generator` header to `tyk.io` when returning errors. Y
 ### <a name="oauth_error_status_code"></a> oauth_error_status_code
 
 New in v2.9.2, you can now configure the OAuth error status code returned. If not set, it defaults to a 403 error.
+
+### override_messages
+
+New in 2.9.4, you can now override the default error code and or message returned by middleware. The following message IDs can be used to override the message and error codes:
+
+#### `AuthToken` message IDs
+
+* `auth.auth_field_missing`
+* `auth.key_not_found`
+
+#### `OIDC` message IDs
+
+* `oauth.auth_field_missing`
+* `oauth.auth_field_malformed`
+* `oauth.key_not_found`
+* `oauth.client_deleted`
+
+#### Sample Override Message Setting
+
+```{.json}
+"override_messages": {
+  "oauth.auth_field_missing" : {
+    "code": 401,
+    "message": "Token is not authorised"
+  }
+}
+```
+
+### ignore_endpoint_case
+
+New in v 2.9.4 you can now configure Tyk to ignore the case of any endpoints for APIs managed by Tyk. Setting this to `true` will override any [individual API](/docs/tyk-rest-api/api-definition-objects/other-root-objects/) and [Ignore](/docs/advanced-configuration/transform-traffic/endpoint-designer/#ignore), [Blacklist](/docs/advanced-configuration/transform-traffic/endpoint-designer/#blacklist) and [Whitelist](/docs/advanced-configuration/transform-traffic/endpoint-designer/#whitelist) plugin endpoint settings. 

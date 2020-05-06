@@ -1,13 +1,75 @@
 ---
 date: 2017-03-27T15:47:05+01:00
-title: Pump Dashboard Analytics Configuration
+title: How To Setup Dashboard Analytics
 menu:
     main:
         parent: "Tyk Pump Configuration"
 weight: 4 
 ---
 
-Let's walk through setting up analytics in the Dashboard via the Pump.
+Following these steps will give us analytics in the following Dashboard locations:
+
+* Activity by API
+* Activity by Key
+* Errors
+* Log Browser
+* Developer Portal - API Usage
+
+There are 3 steps we need to do.  
+
+1.  Set "enable_analytics" to true in "tyk.conf"
+2.  Set "use_sharded_analytics" to true in "tyk_analytics.conf"
+3.  Use the following pump.conf:
+
+```{.json}
+{
+  "analytics_storage_type": "redis",
+  "analytics_storage_config": {
+    "type": "redis",
+    "host": "tyk-redis",
+    "port": 6379,
+    "hosts": null,
+    "username": "",
+    "password": "",
+    "database": 0,
+    "optimisation_max_idle": 100,
+    "optimisation_max_active": 100,
+    "enable_cluster": false
+  },
+  "purge_delay": 2,
+  "pumps": {
+    "mongo-pump-aggregate": {
+      "name": "mongo-pump-aggregate",
+      "meta": {
+        "mongo_url": "mongodb://tyk-mongo:27017/tyk_analytics",
+        "use_mixed_collection": true
+      }
+    },
+    "mongo-pump-selective": {
+      "name": "mongo-pump-selective",
+      "meta": {
+        "mongo_url": "mongodb://tyk-mongo:27017/tyk_analytics",
+        "use_mixed_collection": true
+      }
+    }
+  },
+  "uptime_pump_config": {
+    "collection_name": "tyk_uptime_analytics",
+    "mongo_url": "mongodb://tyk-mongo:27017/tyk_analytics",
+    "max_insert_batch_size_bytes": 500000,
+    "max_document_size_bytes": 200000
+  },
+  "dont_purge_uptime_data": false
+}
+```
+
+That's it, now we just have to restart the tyk-pump
+
+```
+$ docker restart tyk-pump
+```
+
+### More
 
 There are 3 different pumps we want to look at:
 
@@ -86,49 +148,5 @@ This collection [should be capped](/docs/tyk-configuration-reference/tyk-pump-co
       }
     }
   }
-}
-```
-
-## Example pump config
-
-With the Dashboard config value `use_sharded_analytics` set to true, this will show analytics in your Dashboard
-
-* Activity by API
-* Activity by Key
-* Errors
-* Log Browser
-
-```{.json}
-{
-  "analytics_storage_type": "redis",
-  "analytics_storage_config": {
-    "type": "redis",
-    "host": "localhost",
-    "port": 6379,
-    "hosts": null,
-    "username": "",
-    "password": "",
-    "database": 0,
-    "optimisation_max_idle": 100,
-    "optimisation_max_active": 100,
-    "enable_cluster": false
-  },
-  "purge_delay": 2,
-  "pumps": {
-    "mongo-pump-aggregate": {
-      "name": "mongo-pump-aggregate",
-      "meta": {
-        "mongo_url": "mongodb://localhost:27017/tyk_analytics"
-      },
-      "use_mixed_collection": false
-    },
-    "mongo-pump-selective": {
-      "name": "mongo-pump-selective",
-      "meta": {
-        "mongo_url": "mongodb://localhost:27017/tyk_analytics"
-      }
-    }
-  },
-  "dont_purge_uptime_data": true
 }
 ```

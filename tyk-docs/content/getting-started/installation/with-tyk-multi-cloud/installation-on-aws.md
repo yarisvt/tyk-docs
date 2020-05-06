@@ -17,6 +17,8 @@ To get started make sure you have:
 1. A Tyk Multi-Cloud account. Click [here](/docs/getting-started/installation/with-tyk-multi-cloud/create-an-account/) for details of how to create one
 2. A subscription to the [Tyk Hybrid Gateway AMI from the AWS Marketplace](https://aws.amazon.com/marketplace/pp/B07BVPCL4R)
 
+The steps below outline the Hybrid AMI install, though for a PoC there is a [docker image](https://github.com/TykTechnologies/tyk-hybrid-docker) for the Hybrid Gateway
+
 ## <a name="quick-setup"></a>Quick setup
 
 This guide assumes the "1-Click" install was selected on the Marketplace and an instance is already running. At the end we also provide several "user data" samples for use through `cloud-init` [automation](#automation), and of course any automation tool of choice can be used with our AMIs.
@@ -89,15 +91,15 @@ write_files:
   path: /etc/default/tyk-gateway
 
 runcmd:
-  - [ mv, /etc/init/tyk-gateway.disabled, /etc/init/tyk-gateway.conf ]
+  - [ systemctl, enable, tyk-gateway ]
   - [ mv, /opt/tyk-gateway/tyk_hybrid.conf, /opt/tyk-gateway/tyk.conf ]
-  - [ service, redis, start ]
-  - [ chkconfig, --level, "2345", redis, "on" ]
-  - [ start, tyk-gateway ]
+  - [ systemctl, start, redis]
+  - [ systemctl, enable, redis ]
+  - [ systemctl, start, tyk-gateway ]
 ```
 
 ## <a name="ami-notes"></a>Notes on AMI
 
-The Tyk Hybrid Gateway AMI is based on the latest (at the moment of creation) Amazon Linux AMI (**not** Amazon Linux 2), which itself is based on CentOS 6. Please refer to [Amazon Linux documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/amazon-linux-ami-basics.html) for details as well as [our notes on init systems](/docs/getting-started/with-tyk-on-premises/#a-name-init-systems-a-init-systems) used in Linux distributions for details on how to manage the process and extract service logs.
+The Tyk Hybrid Gateway AMI is based on the latest (at the moment of creation) Amazon Linux AMI, which itself is based on CentOS 7. Please refer to [Amazon Linux documentation](https://aws.amazon.com/amazon-linux-2/) for details as well as [our notes on init systems](/docs/getting-started/with-tyk-on-premises/#a-name-init-systems-a-init-systems) used in Linux distributions for details on how to manage the process and extract service logs.
 
 Attributes for [ENA/SR-IOV](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking.html) are set on this AMI and since Amazon Linux comes pre-packaged with related drivers it's eligible for use with EC2 instance types supporting these types of networking (such as "c5" class).

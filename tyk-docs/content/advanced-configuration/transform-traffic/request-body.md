@@ -141,6 +141,10 @@ Example:
 
 ## <a name="xml-data"></a> XML Data
 
+We have a video that demonstrates how the XML to JSON transform works, using the sample Input and template below.
+
+{{< youtube kLh_qAI3meE >}}
+
 With an XML document it is a little different from JSON as XML cannot be as easily decoded into strict structures as JSON, so the syntax is a little different. Here is an example to illustrate.
 
 ### Input
@@ -233,3 +237,7 @@ It is possible to work with inbound form data by making use of the Context Varia
 You do this by using the `._tyk_context.` namespace, unlike the context exposed to the URL rewriter and header injector, the body transform can fully iterate through list indices, so for example calling `{{ index ._tyk_context.request_data.variablename 0 }}` in a template will expose the first entry in the `request_data.variablename` key/value array.
 
 The `request_data` section is populated if the inbound request contained any query data or form data, it will be available in this object as a `key:[]value` map.
+
+### Go Template Functions
+
+For increasing the functions available to the built in Go templating, we have bundled the [Sprig Library](http://masterminds.github.io/sprig/) which provides over 70 additional functions for transformations.

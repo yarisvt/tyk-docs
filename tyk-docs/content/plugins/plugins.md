@@ -37,7 +37,7 @@ All plugins (except [Golang native plugins](/plugins/golang-plugins/golang-plugi
 `public_key_path` sets a public key, this is used for verifying signed bundles. You may omit this if unsigned bundles are used.
 
 
-For a [gRPC](/plugins/rich-plugins/grpc/) rich plugin a further `coprocess_grpc_server` parameter is required within `coprocess_options`:
+For a [gRPC](/docs/plugins/rich-plugins/grpc/) rich plugin a further `coprocess_grpc_server` parameter is required within `coprocess_options`:
 
 ```{.copyWrapper}
 "coprocess_grpc_server": "tcp://127.0.0.1:5555"

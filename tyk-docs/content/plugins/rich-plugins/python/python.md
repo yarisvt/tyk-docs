@@ -32,4 +32,4 @@ pip3 install protobuf grpcio
 We have created [a demo Python plugin repository](https://github.com/TykTechnologies/tyk-plugin-demo-python).
 
 
-The project implements a simple middleware for header injection, using a Pre hook (see [Tyk custom middleware hooks](/docs/plugins/rich-plugins/rich-plugins-work/#coprocess-dispatcher-hooks). A single Python script contains the code for it, see [middleware.py](https://github.com/TykTechnologies/tyk-plugin-demo-python/blob/master/middleware.py).
+The project implements a simple middleware for header injection, using a Pre hook (see [Tyk custom middleware hooks](/docs/plugins/rich-plugins/rich-plugins-work/#coprocess-dispatcher---hooks). A single Python script contains the code for it, see [middleware.py](https://github.com/TykTechnologies/tyk-plugin-demo-python/blob/master/middleware.py).
