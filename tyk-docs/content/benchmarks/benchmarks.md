@@ -1,9 +1,11 @@
 ---
 date: 2020-04-06T17:49:59Z
 title: Benchmarks
-weight: 90
-menu: "main"
-url: "/benchmarks"
+menu:
+  main:
+    parent: "Planning for Production"
+weight: 3
+url: "/planning-for-production/benchmarks"
 ---
 
 As an API Gateway introduces an extra hop and is also the single point of entry into the ecosystem, it needs to be super performant.  Tyk was designed to be performant from day one, which is also why it is written in GO.
