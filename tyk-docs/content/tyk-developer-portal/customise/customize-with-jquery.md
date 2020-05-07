@@ -1,5 +1,5 @@
 ---
-date: 2017-03-24T17:18:28Z
+date: 2020-05-07T17:18:28Z
 title: Customizing using jQuery
 linktitle: Customizing using jQuery
 menu:
