@@ -6,6 +6,8 @@ menu:
     parent: "Installation"
 weight: 1
 url: "/getting-started/installation/with-tyk-cloud"
+type: "default"
+keywords: ["cloud"]
 ---
 
 ### What is Tyk Cloud?
