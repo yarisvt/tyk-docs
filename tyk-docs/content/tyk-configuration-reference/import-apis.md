@@ -1,7 +1,6 @@
 ---
 date: 2017-03-27T15:52:45+01:00
 title: Import APIs
-markup: mmark
 menu:
   main:
     parent: "Tyk Configuration Reference"
@@ -10,7 +9,7 @@ weight: 11
 
 Tyk supports importing both API Blueprint and Swagger JSON definitions from either the Gateway or the Dashboard. Tyk will output the converted file to to `stdout`. Below are the commands you can use to get Tyk to switch to command mode and generate the respective API definitions for both API Blueprint and Swagger files.
 
-## <a name="import-gateway"></a> Import APIs via the Gateway
+## Import APIs via the Gateway
 
 ### Using API Blueprint
 
@@ -88,9 +87,9 @@ Tyk supports API mocking using our versioning `use_extended_paths` setup, adding
 
 See [Versioning](/docs/getting-started/key-concepts/versioning/) for more details.
 
-## <a name="import-dashboard"></a> Import APIs via the Dashboard API
+## Import APIs via the Dashboard API
 
-{{./static/include/import-api-include.md}}
+{{% include "./static/include/import-api-include.md" %}}
 
 ## Import APIs via the Dashboard
 
@@ -134,8 +133,4 @@ You need to enter the following information:
 
 ### Step 4: Click "Generate API"
 
-Your API will appear in your APIs list. If you select **EDIT** from the **ACTIONS** drop-down list, you can see the endpoints (from the [ENDPOINT DESIGNER](https://tyk.io/docs/transform-traffic/endpoint-designer/)) that have been created as part of the import process.
-
-
-
-
+Your API will appear in your APIs list. If you select **EDIT** from the **ACTIONS** drop-down list, you can see the endpoints (from the [Endpoint Designer](https://tyk.io/docs/transform-traffic/endpoint-designer/)) that have been created as part of the import process.
