@@ -7,7 +7,7 @@ menu:
     parent: "Customise"
 ---
 
-Tyk Portal comes prepackaged with jQuery.  This opens up a whole world of customization, by extending our Portal using Javascript and HTML to create dynamic content.
+Tyk Portal comes prepackaged with jQuery.  This opens up a whole world of customisation, by extending our Portal using JavaScript and HTML to create dynamic content.
 
 
 ## Dynamic Content Rendering & Filtering
