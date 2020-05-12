@@ -5,7 +5,6 @@ menu:
   main:
     parent: "With Tyk Multi-Cloud"
 weight: 2
-type: "default"
 ---
 
 > **NOTE**: Tyk Multi-Cloud has superseded our Hybrid offering. See [Tyk Multi-Cloud](https://tyk.io/api-gateway/cloud/#multi-cloud) for more details. You can get a free 30 day trial of Tyk Multi-Cloud.

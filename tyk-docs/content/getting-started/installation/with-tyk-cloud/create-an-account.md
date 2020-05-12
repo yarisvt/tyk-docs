@@ -5,8 +5,6 @@ menu:
   main:
     parent: "With Tyk Cloud"
 weight: 1
-type: "default"
-keywords: ["cloud"]
 ---
 
 To create a free Tyk Cloud account:
