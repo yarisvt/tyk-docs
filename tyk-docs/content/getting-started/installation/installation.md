@@ -6,6 +6,7 @@ menu:
     parent: "Getting Started"
 weight: 4
 url: "/getting-started/installation"
+type: getting-started
 ---
 
 
