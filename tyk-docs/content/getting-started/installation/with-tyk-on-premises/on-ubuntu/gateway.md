@@ -41,8 +41,8 @@ sudo apt-get install -y apt-transport-https
 
 Create a file `/etc/apt/sources.list.d/tyk_tyk-gateway.list` with the following contents:
 ```{.copyWrapper}
-deb https://packagecloud.io/tyk/tyk-gateway/ubuntu/ bionic main
-deb-src https://packagecloud.io/tyk/tyk-gateway/ubuntu/ bionic main
+deb https://packagecloud.io/tyk/tyk-gateway/ubuntu/ bionic
+deb-src https://packagecloud.io/tyk/tyk-gateway/ubuntu/ bionic
 ```
 
 Now you can refresh the list of packages with:

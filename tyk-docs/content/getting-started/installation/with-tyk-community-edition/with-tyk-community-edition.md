@@ -6,7 +6,6 @@ menu:
     parent: "Installation"
 weight: 6
 url: "/getting-started/installation/with-tyk-community-edition"
-type: "default"
 ---
 
 ## <a name="what-is-tyk-community-edition"></a>What is the Tyk Community Edition?
