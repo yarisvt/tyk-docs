@@ -54,10 +54,10 @@ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
 
 Then create a MongoDB source list file
 
-**On Ubuntu Xenial 16.04**
+**On Ubuntu Bionic 18.04**
 
 ```{.copyWrapper}
-echo "deb http://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
+echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
 ```
 
 Reload the package database
