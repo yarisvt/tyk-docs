@@ -44,7 +44,7 @@ By default Tyk uses MongoDB. You can also use the following:
 - MongoDB 3.x and 4.0.x
 - Redis 2.8.x to 5.0.x
 
-### Install MongoDB 3.2
+### Install MongoDB 4.0
 
 First import the public key as required by Ubuntu APT
 
@@ -57,7 +57,7 @@ Then create a MongoDB source list file
 **On Ubuntu Xenial 16.04**
 
 ```{.copyWrapper}
-echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
+echo "deb http://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
 ```
 
 Reload the package database
@@ -74,7 +74,7 @@ sudo apt-get install -y mongodb-org
 
 Finally, start the mongod service - then ensure all is running.
 
-**On Ubuntu Xenial 16.04**
+**On Ubuntu Bionic 18.04**
 
 ```
 # sudo service mongod start
