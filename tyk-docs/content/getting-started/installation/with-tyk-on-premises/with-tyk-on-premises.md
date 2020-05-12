@@ -8,7 +8,7 @@ weight: 5
 url: "/getting-started/installation/with-tyk-on-premises"
 ---
 
-## <a name="what-is-tyk-on-premises"></a>What is Tyk On-Premises?
+## What is Tyk On-Premises?
 
 Tyk On-Premises is the way to install an entire Tyk solution in your own infrastructure, it enables you to have full control over every element of the Tyk stack as well as no external dependency on our cloud solution or infrastructure.
 
@@ -22,7 +22,7 @@ The full Tyk On-Premises system consists of:
 
 > **NOTE**: For a production environment, we recommend that the Gateway, Dashboard and Pump are installed on separate machines. If installing multiple Gateways, you should install each on a separate machine. For more information on deploying to a production environment, see [here](/docs/planning-for-production/).
 
-## <a name="package-options"></a>Installing Tyk On-Premises: Managed releases and package options
+## Installing Tyk On-Premises: Managed releases and package options
 
 Tyk can be installed on almost any Linux environment, we've also created Docker containers that can be deployed and configured easily. Supported by the Tyk team, you can get Tyk for:
 
@@ -38,21 +38,21 @@ We distribute Tyk via Packagecloud.io APT and Yum repositories, as well as via o
 
 To get started with Tyk On-Premises, visit our [licensing page](/docs/getting-started/licencing/).
 
-## <a name="dependencies"></a>Dependencies
+## Dependencies
 
 A full Tyk On-Premises installation has the following requirements:
 
 *   Redis: The primary key store for the Tyk Gateway, also synchronises data across gateways in a horizontally scaling installation.
 *   MongoDB: The primary configuration store and analytics data store, required by the dashboard and portal, not required by the gateway.
 
-### <a name="supported-mongodb-and-redis"></a>Supported Redis and MongoDB versions
+### Supported Redis and MongoDB versions
 
 Tyk has been tested on the following versions:
 
 - MongoDB 3.x and 4.0.x
 - Redis 2.8.x to 5.0.x
 
-## <a name="init-systems"></a>Init Systems
+## Init Systems
 
 Tyk packages support [systemd](https://www.freedesktop.org/wiki/Software/systemd/), [Upstart](http://upstart.ubuntu.com/cookbook/) (both 0.6.x and 1.x) and SysVinit Linux init systems. During package installation only one is chosen depending on the operating system support, e.g.:
 

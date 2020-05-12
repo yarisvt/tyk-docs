@@ -22,7 +22,7 @@ Warning! This demo is **NOT** designed for production use or performance testing
 - MS Windows 10 Pro
 - [Tyk Helm Chart](https://github.com/TykTechnologies/tyk-helm-chart)
 - [Docker Desktop for Windows](https://docs.docker.com/docker-for-windows/install/) running with a signed in [Docker ID](https://docs.docker.com/docker-id/)
-- [minikube](https://minikube.sigs.k8s.io/docs/start/windows/)
+- [minikube](https://minikube.sigs.k8s.io/docs/start/)
 - [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 - [Helm](https://github.com/helm/helm/releases)
 - Git for Windows

@@ -44,7 +44,7 @@ Tyk enables you to manage this flow in a few ways:
 
 A key request can be created using the Dashboard API too, in fact, the Key Request mechanism is a great way to create a mapping between an identity (a developer) and a token, and managing that process.
 
-### Multiple APIs for a single Key Requests
+### Multiple APIs for a single Key Request
 
 New for v1.9, a developer can now request access to multiple APIs with a single key request. The APIs you group together via a single key should all be of the same authentication type.
 
@@ -54,7 +54,7 @@ To enable this functionality, select **Enable subscribing to multiple APIs with 
 
 ![Multiple APIs](/docs/img/dashboard/portal-management/multi-api-setting.png)
 
-### Edit APIs associated with a  single Key Request
+### Edit APIs associated with a single Key Request
 
 New for v1.9.4, if you have **Enable subscribing to multiple APIs with a single key** selected you can edit the APIs associated with the Key. You can perform the following:
 

@@ -47,7 +47,7 @@ Make sure to save the changes to the API Definition.
 
 Let's generate a JWT so we can test our new protected API.
 
-Head on over to [https://www.jwt.io](https://www.jwt.io).  Sign the default JWT with our HMAC Shared Secret `tyk123` in the VERIFY SIGNATURE section.  Your screen should look similar to this:
+Head on over to [https://jwt.io/](https://jwt.io/).  Sign the default JWT with our HMAC Shared Secret `tyk123` in the VERIFY SIGNATURE section.  Your screen should look similar to this:
 
 ![Auth Configuration](/docs/img/dashboard/system-management/jwt_jwtio_example.png)
 
@@ -63,7 +63,7 @@ You should receive response from your Upstream API.
 ---
 
 ## About JWTs
-A [JSON Web Token](http://jwt.io/introduction/) (JWT) is a JSON-based open standard (RFC 7519) for passing claims between parties in a web application environment. The tokens are designed to be compact, URL-safe and usable especially in web browser single sign-on (SSO) context.
+A [JSON Web Token](https://jwt.io/introduction/) (JWT) is a JSON-based open standard (RFC 7519) for passing claims between parties in a web application environment. The tokens are designed to be compact, URL-safe and usable especially in web browser single sign-on (SSO) context.
 
 One of the best things about a JWT is that it is cryptographically signed, and can be signed in a number of ways such as using HMAC shared secret and RSA public/private key pairs.
 
