@@ -41,8 +41,8 @@ sudo apt-get install -y apt-transport-https
 
 Create a file `/etc/apt/sources.list.d/tyk_tyk-gateway.list` with the following contents:
 ```{.copyWrapper}
-deb https://packagecloud.io/tyk/tyk-gateway/ubuntu/ bionic
-deb-src https://packagecloud.io/tyk/tyk-gateway/ubuntu/ bionic
+deb https://packagecloud.io/tyk/tyk-gateway/ubuntu/ bionic main
+deb-src https://packagecloud.io/tyk/tyk-gateway/ubuntu/ bionic main
 ```
 
 Now you can refresh the list of packages with:
@@ -81,7 +81,7 @@ Then, you have to either,
 - sign the key with your ultimately trusted key
 - trust this key ultimately
 
-The downloaded package will be available in `/var/cache/apt/archives`. Assuming you found the file `tyk-gateway-2.9.3_amd64.deb` there, you can verify the origin signature.
+The downloaded package will be available in `/var/cache/apt/archives`. Assuming you found the file `tyk-gateway-2.9.4_amd64.deb` there, you can verify the origin signature.
 
 ```{.copyWrapper}
 gpg --verify d.deb
