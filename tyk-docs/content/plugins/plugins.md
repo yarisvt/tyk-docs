@@ -16,7 +16,7 @@ Tyk supports the use of the following plugins to extend Tyk functionality:
 > **Note**: Plugins are only available for Multi-Cloud and On-Premises installations.
 
 ## <a name="plugin-requirements"></a>Requirements
-All plugins (except [Golang native plugins](/plugins/golang-plugins/golang-plugins/)) require the following addition to be made to your `tyk.conf` file:
+All plugins (except [Golang native plugins](/docs/plugins/golang-plugins/golang-plugins/)) require the following addition to be made to your `tyk.conf` file:
 
 ```{.copyWrapper}
 "coprocess_options": {
