@@ -46,52 +46,14 @@ By default Tyk uses MongoDB. You can also use the following:
 
 ### Install MongoDB 4.0
 
-First import the public key as required by Ubuntu APT
+You should follow the [online tutorial for installing MongoDb](https://docs.mongodb.com/v4.0/tutorial/install-mongodb-on-ubuntu/). We will be using version 4.0. As part of the Mongo installation you need to perform the following:
 
-```{.copyWrapper}
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
-```
-
-Then create a MongoDB source list file
-
-**On Ubuntu Bionic 18.04**
-
-```{.copyWrapper}
-echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
-```
-
-Reload the package database
-
-```{.copyWrapper}
-sudo apt-get update
-```
-
-Then run the install script.
-
-```{.copyWrapper}
-sudo apt-get install -y mongodb-org
-```
-
-Finally, start the mongod service - then ensure all is running.
-
-**On Ubuntu Bionic 18.04**
-
-```
-# sudo service mongod start
-# sudo service mongod status
-● mongod.service - High-performance, schema-free document-oriented database
-   Loaded: loaded (/lib/systemd/system/mongod.service; disabled; vendor preset: enabled)
-   Active: active (running) since Fri 2018-04-27 17:47:45 UTC; 5s ago
-     Docs: https://docs.mongodb.org/manual
- Main PID: 1751 (mongod)
-    Tasks: 23
-   Memory: 168.7M
-      CPU: 1.416s
-   CGroup: /system.slice/mongod.service
-           └─1751 /usr/bin/mongod --config /etc/mongod.conf
-
-Apr 27 17:47:45 ubuntu-s-1vcpu-2gb-lon1-01 systemd[1]: Started High-performance, schema-free document-o
-```
+1. Import the public key
+2. Create a list file
+3. Reload the package database
+4. Install the MongoDB packages
+5. Start MongoDB
+6. Check the `mongod` service is running
 
 ### Install Redis
 
