@@ -77,6 +77,7 @@ Tyk allows you to select which cryptographic method to verify the JWT signature 
 
 - RSA public key
 - HMAC shared secret
+- ECDSA
 - [Public JWKS Url](#dynamic-public-key-rotation-using-public-jwks-url)
 
 For example, if you are using a third-party identity provider (IdP) that can issue JWTs, you can embed their public key in your API Definition, and Tyk will use this public key to validate the claims on the inbound token.
