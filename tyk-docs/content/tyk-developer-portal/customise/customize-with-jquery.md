@@ -14,6 +14,8 @@ Tyk Portal comes prepackaged with jQuery.  This opens up a whole world of custom
 
 let's walk through an example where we use jQuery to fetch data from a REST endpoint, then display it in a table where we can filter our results.
 
+{{< youtube njRgYUpL5vs >}}
+
 
 **First of all, create a custom page in the portal.**
 
