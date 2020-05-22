@@ -209,12 +209,10 @@ Create a `pump.conf` file:
         "broker": [
             "localhost:9092"
         ],
-        "ssl": {
-            "enabled": false,
-            "insecure_skip_verify": false
-        },
-        "client_id": "tyk-pump",
         "topic": "tyk-pump",
+        "use_ssl": true,
+        "ssl_insecure_skip_verify": false
+        "client_id": "tyk-pump",
         "timeout": 60,
         "compressed": true,
         "meta_data": {
