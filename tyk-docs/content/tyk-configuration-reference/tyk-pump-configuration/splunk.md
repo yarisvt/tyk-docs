@@ -9,7 +9,7 @@ weight: 4
 
 This is a step by step guide to setting Splunk to recieve logs from the Tyk Pump.
 
-The assumptions are that you have Docker installed and Tyk Pro on-prem already running.
+The assumptions are that you have Docker installed and Tyk Pro On-premises already running.
 
 ## 1.   Run Splunk using Docker
 Assuming you have Docker installed locally, run the following from a terminal:
@@ -60,12 +60,12 @@ Make sure to add your token from the previous step into the `collector_token` fi
     }
 }
 ```
-> **NOTE:** Make sure that the `localhost` value matches with your setup.  Head on over to our  community forum to ask for help if you are stuck  here.
+> **NOTE:** Make sure that the `localhost` value matches with your setup. Head on over to our community forum to ask for help if you are stuck  here.
 
 
 ### 4. Restart Tyk Pump to pickup the Splunk config
 
-If you are running Tyk Pump in docker:
+If you are running Tyk Pump in Docker:
 
 `$ docker restart tyk-pump`
 
