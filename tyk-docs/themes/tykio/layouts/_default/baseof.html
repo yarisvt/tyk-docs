@@ -85,8 +85,8 @@
           Documentation
         </h1>
 
-        <nav class="hero-text f-16">
-          <form class="search documentation-search f-12 roboto">
+         <nav class="hero-text f-16">
+          <!--<form class="search documentation-search f-12 roboto">
             <input type="text" class="searchBox" id="q" placeholder="Search..." data-turbolinks-permanent>
             <button class="icon-search" disabled></button>
 
@@ -99,7 +99,10 @@
               </div>
             </div>
 
-          </form>
+          </form> -->
+
+          <div id="searchbox" class="ais-SearchBox"></div>
+          <div id="hits" class="documentation-search-results f-16 roboto"></div>
         </nav>
       </div>
     </div>
@@ -230,7 +233,11 @@
   <script type='text/javascript' src='/docs/js/docs.js'></script>
   <script type='text/javascript' src='/docs/js/docs-navigation.js'></script>
   <script type='text/javascript' src='/docs/js/docs-table-of-contents.js'></script>
-  <script src="https://cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.0.0/dist/algoliasearch-lite.umd.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.0.0/dist/instantsearch.production.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/algoliasearch-helper@3.1.1/dist/algoliasearch.helper.min.js"></script>
+
   <script type='text/javascript' src="/docs/js/docs-search.js"></script>
   <script type='text/javascript'>
     setTimeout(function () {
