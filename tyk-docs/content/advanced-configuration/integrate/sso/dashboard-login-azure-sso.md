@@ -4,7 +4,7 @@ title: Login into the Dashboard using Azure AD - Guide
 menu:
    main:
       parent: "Single Sign On"
-weight: 0
+weight: 1
 ---
 
 
@@ -17,7 +17,7 @@ This guide assumes the following:
 * You are able to edit TIB's configuration file.
 
 
-## <a name="Azure"></a>Azures's side
+## Azures's side
 1. Access your Azure Portal and navigate to the Azure Active Directory page.
 2. Go to app registrations and create or access an application you want to use for Dashboard access.
 
@@ -28,7 +28,7 @@ This guide assumes the following:
 4. Configure the users and groups for the app in the relevant sections of the Azure menus. See their documentation for more detail: https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app
 
 
-## <a name="tib"></a>TIB's Side
+## TIB's Side
 6. Set the profile in `profiles.json` as follows:
    - Copy from your Azure AD client the `client ID`     to `ProviderConfig.UseProviders[].key`
    - Create a new client secret for you app and copy from your Azure AD client the `Client secret` to `ProviderConfig.UseProviders[].secret`
@@ -79,7 +79,7 @@ curl http://{TIB-DOMAIN}:{TIB-PORT}/api/profiles/{PROFILE-NAME-IN-TIB} -H "Autho
   - You can post a few profiles to TIB.
   - See [TIB REST API](/docs/advanced-configuration/integrate/3rd-party-identity-providers/tib-rest-api/) for more details.
 
-## <a name="flow"></a>The magic - The flow behind the scenes:
+## The magic - The flow behind the scenes:
  1. The initial call to the endpoint on TIB was redirected to Azure
  2. Azure AD identified the user
  3. Azure redirected the call back to TIB endpoint (according to the callback you set up on the client earlier in step 3) and from TIB
@@ -88,17 +88,17 @@ curl http://{TIB-DOMAIN}:{TIB-PORT}/api/profiles/{PROFILE-NAME-IN-TIB} -H "Autho
  6. The Dashboard on the `/tap` endpoint finds the session that is attached to the `nonce`, login the user and redirect to the dashboard first page
 
 
-##  <a name="enhancements"></a>Enhancements
+## Enhancements
 
 Once it's working you can also add two more enhancements - SSO login page for the dashboard and automatic user group mapping from your AzureAD security groups or users groups to Tyk Dashboards RBAC groups
 
-### <a name="sso"></a>SSO login into the dashboard via a login page
+### SSO login into the dashboard via a login page
    You will need to:
 	- set up a web server with a login page and a form for `user` and `password`
 	- Update `tyk_analytics.conf` to redirect logins to that url
     Explicit details are in [steps 6-7](/docs/advanced-configuration/integrate/3rd-party-identity-providers/dashboard-login-ldap-tib/#6-create-a-login-page)
 
-### <a name="usergroups"></a>User group mapping
+### User group mapping
 You can specify User Groups within a TIB Profile. This can either be a static or dynamic setting.
 
 {
