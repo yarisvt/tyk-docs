@@ -101,6 +101,7 @@ Once it's working you can also add two more enhancements - SSO login page for th
 ### User group mapping
 You can specify User Groups within a TIB Profile. This can either be a static or dynamic setting.
 
+```
 {
   "DefaultUserGroupID": "{DEFAULT-TYK-USER-GROUP-ID}",
   "CustomUserGroupField": "{SCOPE}",
@@ -109,6 +110,7 @@ You can specify User Groups within a TIB Profile. This can either be a static or
     "{AZURE-GROUP-ID-READ-ONLY}": "{TYK-USER-GROUP-ID-READ-ONLY}",
   }
 }
+```
 For a static setting, use DefaultUserGroupID
 For a dynamic setting based on claims configured in Azure AD, use CustomUserGroupField with UserGroupMapping listing your User Groups and ID.
 
