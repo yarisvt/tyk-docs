@@ -101,7 +101,7 @@ Once it's working you can also add two more enhancements - SSO login page for th
 ### User group mapping
 You can specify User Groups within a TIB Profile. This can either be a static or dynamic setting.
 
-```
+```.json
 {
   "DefaultUserGroupID": "{DEFAULT-TYK-USER-GROUP-ID}",
   "CustomUserGroupField": "{SCOPE}",
