@@ -3379,7 +3379,6 @@ body {
   position: relative;
   color: #FFF;
   min-height: 640px;
-  overflow: hidden;
 }
 
 .hero:before {
