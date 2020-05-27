@@ -1,6 +1,6 @@
 var search = instantsearch({
-  appId: '',
-  apiKey: '',
+  appId: 'ALGOLIA_APP_ID',
+  apiKey: 'ALGOLIA_API_KEY',
   indexName: 'tyk-docs',
   query: 'query',
   advancedSyntax: true,
