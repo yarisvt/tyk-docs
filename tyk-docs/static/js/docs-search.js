@@ -2,9 +2,14 @@
  * INIT INSTAN SEARCH
  */
 
+// const searchClient = algoliasearch(
+// 	"ALGOLIA_APP_ID",
+// 	"ALGOLIA_API_KEY"
+// );
+
 const searchClient = algoliasearch(
-	"ALGOLIA_APP_ID",
-	"ALGOLIA_API_KEY"
+	"EIXQM46UN9",
+	"2fe33796b7f332e9a8ecc25de3d5e0be"
 );
 
 const search = instantsearch({
@@ -96,7 +101,8 @@ search.addWidgets([
 		container: document.querySelector('#hits')
 	}),
 	instantsearch.widgets.configure({
-		hitsPerPage: 8
+		hitsPerPage: 8,
+		typoTolerance: 'min'
 	})
 ]);
 
