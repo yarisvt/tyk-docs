@@ -1,109 +1,73 @@
-/**
- * INIT INSTAN SEARCH
- */
+var search = instantsearch({
+  appId: 'EIXQM46UN9',
+  apiKey: '2fe33796b7f332e9a8ecc25de3d5e0be',
+  indexName: 'tyk-docs',
+  query: 'query',
+  advancedSyntax: true,
+  searchFunction(helper) {
+    let hits = document.getElementById('hits'),
+      pagination = document.getElementById('pagination'),
+      algLogo = document.getElementById('algolia-logo');
 
-const searchClient = algoliasearch(
-	"EIXQM46UN9",
-	"2fe33796b7f332e9a8ecc25de3d5e0be"
-);
-
-const search = instantsearch({
-	indexName: "tyk-docs",
-	searchClient,
-	advancedSyntax: true,
-	searchFunction: function(helper) {
-		const searchResults = document.getElementById('hits');
-		const searchbox = document.getElementById('searchbox');
-
-		if (helper.state.query === '') {
-		  searchResults.style.display = 'none';
-		  searchbox.classList.remove('js-active');
-		  return;
-		}
-		helper.search();
-		searchResults.style.display = 'block';
-		searchbox.classList.add('js-active');
-	}
-});
-
-
-/**
- * TEMPLATE VARIABLES
- */
-
-const noResultsTemplate = query => `<div class="text-center">No results found matching <strong>${query}</strong>.</div>`;
-	  
-const hitTemplate = hit => {
-	return `<li class="hit media">
-				<div class="media-body">
-					<div class="media-body-title"><a href="/docs${hit.path}" <h4 class="media-heading">${hit.section} - ${instantsearch.highlight({ attribute: 'title', hit })}.</h4></p> </a></div>
-					<div class="media-body-body"><a href="/docs${hit.path}" <h4 class="media-heading em">..${instantsearch.snippet({ attribute: 'article', hit })}..</h4></p> </a></div>
-				</div>
-			</li>`;
-}
-
-/**
- * INFINITE SCROLL
- */
-
-const infiniteHits = instantsearch.connectors.connectInfiniteHits(
-  (renderArgs, isFirstRender) => {
-    const { hits, showMore, widgetParams } = renderArgs;
-    const { container } = widgetParams;
-
-	lastRenderArgs = renderArgs;
-	
-    if (isFirstRender) {
-		const sentinel = document.createElement('div');
-		container.appendChild(document.createElement('ul'));
-		container.appendChild(sentinel);
-
-		const observer = new IntersectionObserver(entries => {
-			entries.forEach(entry => {
-				if (entry.isIntersecting && !lastRenderArgs.isLastPage) {
-				showMore();
-				}
-			});
-		});
-
-		observer.observe(sentinel);
-
-		return;
+    if (helper.state.query.length < 3) {
+      hits.style.display = 'none';
+      pagination.style.display = 'none';
+      algLogo.style.display = 'none';
+      return;
     }
 
+    helper.setQueryParameter('attributesToSnippet', ['article:10']);
+    helper.setQueryParameter('advancedSyntax', true).search();
 
-	if (hits.length > 0) {
-		container.querySelector('ul').innerHTML = hits
-			.map(hit => hitTemplate(hit))
-			.join('');
-	} else {
-		container.innerHTML = noResultsTemplate(renderArgs.results.query);
-	}
+    hits.style.display = 'block';
+    pagination.style.display = 'block';
+    algLogo.style.display = 'block';
+
+    helper.search();
+
   }
+});
+
+search.addWidget(
+  instantsearch.widgets.searchBox({
+    container: '#q',
+    autofocus: false
+  })
+); 
+
+
+var hitTemplate =
+  '<div class="hit media">' +
+    '<div class="media-body">' +
+      '<div class="media-body-title"><a href="/docs{{path}}" <h4 class="media-heading">{{section}} - {{{_highlightResult.title.value}}}.</h4></p> </a></div>' +
+      '<div class="media-body-body"><a href="/docs{{path}}" <h4 class="media-heading em">..{{{_snippetResult.article.value}}}..</h4></p> </a></div>' +
+    '</div>' +
+  '</div>';
+
+var noResultsTemplate =
+  '<div class="text-center">No results found matching <strong>{{query}}</strong>.</div>';
+
+search.addWidget(
+  instantsearch.widgets.hits({
+    container: '#hits',
+    autofocus: false,
+    hitsPerPage: 5,
+    templates: {
+      empty: noResultsTemplate,
+      item: hitTemplate,
+    }
+  })
 );
 
+search.addWidget(
+  instantsearch.widgets.pagination({
+    container: '#pagination',
+    cssClasses: {
+      root: 'pagination',
+      active: 'active'
+    }
+  })
+);
 
-/**
- * ADDING WIDGETS TO INITIAL INSTANTSEARCH
- */
-
-search.addWidgets([
-	instantsearch.widgets.searchBox({
-			container: '#searchbox',
-			autofocus: false,
-			placeholder: 'Search...'
-	}),
-	infiniteHits({
-		container: document.querySelector('#hits')
-	}),
-	instantsearch.widgets.configure({
-		hitsPerPage: 8
-	})
-]);
-
-
-/**
- * Start the search
- */
 
 search.start();
