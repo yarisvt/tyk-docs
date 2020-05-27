@@ -18,11 +18,11 @@ The Log Browser will isolate individual log lines in your analytics data set and
 
 You will be presented with a list of requests, and their metadata:
 
-![Log Viewer](/docs/img/dashboard/usage-data/log_browser_new.png)
+![Log Viewer](/docs/img/2.10/log_browser.png)
 
 Click a request to view its details. 
 
-![Log Viewer Details](/docs/img/dashboard/usage-data/log_details_2.5.png)
+![Log Viewer Details](/docs/img/2.10/log_browser_selected.png)
 
 ### On-Premises Installations Option
 
