@@ -35,6 +35,8 @@ margin:-90px 0 0;
 
 .header {
   background-color: #36364c;
+  z-index: 20;
+  width: 100%;
 }
 
 .header-github {
@@ -172,7 +174,7 @@ body * { visibility: hidden; }
 /* ==========================================================================
   Hero
    ========================================================================== */
-.hero {background: #505071; color: #FFF; height: 164px; min-height: 0; overflow: visible;}
+.hero {background: #505071; color: #FFF; height: 164px; min-height: 0; overflow: visible; z-index: 10;}
 .hero-sidebyside {padding-top: 69px;}
 .hero-sidebyside h1, .hero-sidebyside .hero-text {float: left; width: 50%;}
 .hero .search {margin-top: 10px; max-width: 100%;}
@@ -208,11 +210,6 @@ body * { visibility: hidden; }
 .ais-hits--item .media-heading.em { font-weight: normal; font-style: normal; }
 .ais-hits--item .media-heading.em em {color: #2f3f9e;}
 
-/* Search Result : Pagination */
-/* .ais-pagination--item {padding: 0;}
-.ais-pagination--item__disabled, .ais-pagination--item__first, .ais-pagination--item__last, .ais-pagination--item__next, .ais-pagination--item__previous {display: none;}
-.ais-pagination--item__active a {color: #2f3f9e; border-color: #2f3f9e;} */
-
 /* NEW SEARCH CONTAINER */
 
 .ais-SearchBox {
@@ -220,15 +217,17 @@ body * { visibility: hidden; }
 	margin-top: 10px;
 }
 
-.ais-SearchBox .ais-SearchBox-input {
+.ais-SearchBox .ais-SearchBox-input,
+.hero input {
+  -webkit-appearance: none;
 	height: 48px;
 	max-width: 100%; 
 	border: 1px solid #fff;
 	border-radius: 24px;
 	background-color: #4f5071;
-    text-align: center;
-    letter-spacing: 0.15em;
-	color: #fff; 
+  text-align: center;
+  letter-spacing: 0.15em;
+  color: #fff; 
 }
 
 .ais-SearchBox-input::-webkit-input-placeholder {
@@ -270,6 +269,14 @@ body * { visibility: hidden; }
     height: 100%;
 }
 
+.ais-SearchBox-reset svg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 3px;
+    left: 0;
+}
+
 .ais-SearchBox-submit svg path,
 .ais-SearchBox-reset svg path {
 	fill: #fff;
@@ -282,7 +289,8 @@ body * { visibility: hidden; }
 	border-bottom: 2px solid #4f4f71;
 	color: #000;
 	max-height: 400px;
-	overflow-y: scroll;
+  overflow-y: scroll;
+  display: none;
 }
 
 .documentation-search-results ul li {
@@ -299,19 +307,23 @@ body * { visibility: hidden; }
 	background-color: unset;
 }
 
-.ais-SearchBox:after {
+#searchbox {
+  position: relative;
+}
+
+#searchbox:after {
     content: "";
     position: absolute;
     top: 50%;
     left: 0;
     width: 100%;
-    height: 50%;
+    height: 60%;
     background-color: white;
 	z-index: -1;
 	display: none;
 }
 
-.ais-SearchBox.js-active:after {
+#searchbox.js-active:after {
 	display: block;
 }
 

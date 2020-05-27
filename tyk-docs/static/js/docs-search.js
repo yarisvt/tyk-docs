@@ -10,7 +10,6 @@ const searchClient = algoliasearch(
 const search = instantsearch({
 	indexName: "tyk-docs",
 	searchClient,
-	advancedSyntax: true,
 	searchFunction: function(helper) {
 		const searchResults = document.getElementById('hits');
 		const searchbox = document.getElementById('searchbox');
@@ -31,7 +30,7 @@ const search = instantsearch({
  * TEMPLATE VARIABLES
  */
 
-const noResultsTemplate = query => `<div class="text-center">No results found matching <strong>${query}</strong>.</div>`;
+const noResultsTemplate = query => `<li class="hit media">No results found matching <strong>${query}</strong>.</li>`;
 	  
 const hitTemplate = hit => {
 	return `<li class="hit media">
@@ -72,12 +71,12 @@ const infiniteHits = instantsearch.connectors.connectInfiniteHits(
     }
 
 
-	if (hits.length > 0) {
+	if (hits.length > 0 && hits != null) {
 		container.querySelector('ul').innerHTML = hits
 			.map(hit => hitTemplate(hit))
 			.join('');
 	} else {
-		container.innerHTML = noResultsTemplate(renderArgs.results.query);
+		container.querySelector('ul').innerHTML = noResultsTemplate(renderArgs.results.query);
 	}
   }
 );
