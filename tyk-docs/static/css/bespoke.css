@@ -868,6 +868,10 @@ body {
   height: 100%;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 .container {
   max-width: 1300px;
   padding: 0 32px;
