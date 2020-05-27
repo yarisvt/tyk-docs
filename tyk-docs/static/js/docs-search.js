@@ -1,6 +1,6 @@
 var search = instantsearch({
-  appId: 'EIXQM46UN9',
-  apiKey: '2fe33796b7f332e9a8ecc25de3d5e0be',
+  appId: '',
+  apiKey: '',
   indexName: 'tyk-docs',
   query: 'query',
   advancedSyntax: true,
