@@ -10,11 +10,11 @@ We will use the Tyk Dashboard to create a very simple API that has no special el
 
 ### Step 1: Select "APIs" from the "System Management" section
 
-![API listing page link location][1]
+![API Menu](/docs/img/2.10/apis_menu.png)
 
 ### Step 2: Click "ADD NEW API"
 
-![Add API button location][2]
+![Add API button location](/docs/img/2.10/add_api.png)
 
 ### Step 3: Set up the Base Configuration for your API
 
@@ -25,28 +25,28 @@ We will use the Tyk Dashboard to create a very simple API that has no special el
 
 From the **Authentication** section:
 
-![Target details form][4]
+![Authentication](/docs/img/2.10/authentication.png)
 
 You have the following options:
 
-- **Authentication mode**: This is the security method to use with your API. There can be only one per API. In this case, set it to `Auth Token`, as this is the simplest security mechanism to use.
+- **Authentication mode**: This is the security method to use with your API.  For this tutorial, set it to `Auth Token`, as this is the simplest security mechanism to use.
 - **Strip Authorization Data**: Select this option to strip any authorization data from your API requests.
 - **Auth Key Header Name**: The header name that will hold the token on inbound requests. The default for this is `Authorization`.
 - **Allow Query Parameter As Well As Header**: Set this option to enable checking the query parameter as well as the header for an auth token. For this tutorial, leave this `unchecked`.
 - **Use Cookie Value**: It is possible to use a cookie value as well as the other two token locations. Set this as `unchecked`.
-- **Enable client certificate**: Select this to use the Mutual TLS functionality introduced in v1.4. See [Mutual TLS](/docs/security/tls-and-ssl/mutual-tls/) for details on implementing Mutual TLS.
+- **Enable client certificate**: Select this to use Mutual TLS. See [Mutual TLS](/docs/security/tls-and-ssl/mutual-tls/) for details on implementing Mutual TLS.
 
 ### Step 5: Save the API
 
 Click **SAVE**
 
-![Save button location][5]
+![Save button](/docs/img/2.10/save.png)
 
 Once saved, you will be taken back to the API list, where the new API will be displayed.
 
 To see the URL given to your API, select the API from the list to open it again. The API URL will be displayed in the top of the editor:
 
-![API URL location][6]
+![API URL location](/docs/img/2.10/api_url.png)
 
 ## Tutorial: Create an API with the Dashboard API
 

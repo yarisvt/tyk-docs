@@ -1,11 +1,11 @@
-## <a name="introduction"></a> Introduction
+## Introduction
 
 A security policy encapsulates several options that can be applied to a key. It acts as a template that can override individual sections of an API key (or identity) in Tyk.
 
 See [What is a Security Policy?][8]
 
 
-## <a name="with-dashboard"></a>Tutorial: Create a security policy with the Dashboard
+## Tutorial: Create a security policy with the Dashboard
 
 We have a video walkthrough for creating an security policy with the Dashboard.
 
@@ -15,17 +15,24 @@ To create a security policy with the Dashboard, follow these steps:
 
 ### Step 1: Select "Policies" from the "System Management" section
 
-![Policies menu link location][1]
+![Policies menu link location](/docs/img/2.10/policies_menu.png)
 
 ### Step 2: Click ADD POLICY
 
-![Add policy button location][2]
+![Add policy button](/docs/img/2.10/add_policy.png)
 
 This page displays all the policies that you have created.
 
-### Step 3: Give your policy a name
+### Step 3: Add an API to apply the policy Access Rates to
 
-![Policy name form][3]
+![Policy name form](/docs/img/2.10/select_api_policy.png)
+
+To select an API, you can either:
+
+* Scroll through your API Name list
+* Use the Search field
+* You can also Group by Authentication Type to filter your APIs
+* You can also Group by Category 
 
 All policies require a descriptive name, this helps you to reference it later, and it will appear in drop-down options where you can attach policies to objects such as Keys or OAuth client IDs.
 
@@ -78,7 +85,7 @@ This is available from v1.8.0 of the Tyk Dashboard.
 
 To make the policy active, click **CREATE** . Once the policy is saved, you will be able to use it when creating keys, OAuth clients and custom JWT tokens.
 
-## <a name="with-api"></a>Tutorial: Create a security policy with the API
+## Tutorial: Create a security policy with the API
 
 Security Policies can be created with a single call to the API. It is very similar to the token creation process. To generate a simple security policy using the Tyk Cloud API you can use the following curl command:
 ```{.copyWrapper}

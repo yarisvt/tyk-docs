@@ -8,11 +8,11 @@ We have a video walkthrough for creating an API Key.
 
 ### Step 1: Select "Keys" from the "System Management" section
 
-![Keys menu link location][1]
+![Keys menu](/docs/img/2.10/keys_menu.png)
 
 ### Step 2: Click CREATE
 
-![Add key button location][2]
+![Add key](/docs/img/2.10/add_key.png)
 
 ### Step 3: Set Access Rights
 
