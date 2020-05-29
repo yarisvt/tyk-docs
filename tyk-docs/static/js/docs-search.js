@@ -3,12 +3,12 @@
  */
 
 const searchClient = algoliasearch(
-	"ALGOLIA_APP_ID",
-	"ALGOLIA_API_KEY"
+	'ALGOLIA_APP_ID',
+	'ALGOLIA_API_KEY'
 );
 
 const search = instantsearch({
-	indexName: "tyk-docs",
+	indexName: 'tyk-docs',
 	searchClient,
 	searchFunction: function(helper) {
 		const searchResults = document.getElementById('hits');
