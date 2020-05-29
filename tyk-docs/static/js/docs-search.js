@@ -2,14 +2,11 @@
  * INIT INSTAN SEARCH
  */
 
-// var searchClient = algoliasearch(
-// 	'ALGOLIA_APP_ID',
-// 	'ALGOLIA_API_KEY'
-// );
 var searchClient = algoliasearch(
-	"EIXQM46UN9",
-	"2fe33796b7f332e9a8ecc25de3d5e0be"
+	'ALGOLIA_APP_ID',
+	'ALGOLIA_API_KEY'
 );
+
 
 var search = instantsearch({
 	indexName: 'tyk-docs',
