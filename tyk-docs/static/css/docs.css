@@ -301,6 +301,10 @@ body * { visibility: hidden; }
 	border-top: 1px solid #E1E1E1;
 }
 
+.documentation-search-results .media-body-title {
+  border-top: none;
+}
+
 .documentation-search-results mark {
 	font-weight: bold;
     color: #2f3f9e;

@@ -2,17 +2,18 @@
  * INIT INSTAN SEARCH
  */
 
-const searchClient = algoliasearch(
+var searchClient = algoliasearch(
 	'ALGOLIA_APP_ID',
 	'ALGOLIA_API_KEY'
 );
 
-const search = instantsearch({
+
+var search = instantsearch({
 	indexName: 'tyk-docs',
 	searchClient,
 	searchFunction: function(helper) {
-		const searchResults = document.getElementById('hits');
-		const searchbox = document.getElementById('searchbox');
+		var searchResults = document.getElementById('hits');
+		var searchbox = document.getElementById('searchbox');
 
 		if (helper.state.query === '') {
 		  searchResults.style.display = 'none';
@@ -30,9 +31,11 @@ const search = instantsearch({
  * TEMPLATE VARIABLES
  */
 
-const noResultsTemplate = query => `<li class="hit media">No results found matching <strong>${query}</strong>.</li>`;
+var noResultsTemplate = function(query) {
+  return `<li class="hit media">No results found matching <strong>${query}</strong>.</li>`;
+} 
 	  
-const hitTemplate = hit => {
+var hitTemplate = function(hit) {
 	return `<li class="hit media">
 				<div class="media-body">
 					<div class="media-body-title"><a href="/docs${hit.path}" <h4 class="media-heading">${hit.section} - ${instantsearch.highlight({ attribute: 'title', hit })}.</h4></p> </a></div>
@@ -45,20 +48,20 @@ const hitTemplate = hit => {
  * INFINITE SCROLL
  */
 
-const infiniteHits = instantsearch.connectors.connectInfiniteHits(
-  (renderArgs, isFirstRender) => {
-    const { hits, showMore, widgetParams } = renderArgs;
-    const { container } = widgetParams;
+var infiniteHits = instantsearch.connectors.connectInfiniteHits(
+  function(renderArgs, isFirstRender) {
+    var { hits, showMore, widgetParams } = renderArgs;
+    var { container } = widgetParams;
 
 	lastRenderArgs = renderArgs;
 	
     if (isFirstRender) {
-		const sentinel = document.createElement('div');
+		var sentinel = document.createElement('div');
 		container.appendChild(document.createElement('ul'));
 		container.appendChild(sentinel);
 
-		const observer = new IntersectionObserver(entries => {
-			entries.forEach(entry => {
+		var observer = new IntersectionObserver(function(entries) {
+			entries.forEach(function(entry) {
 				if (entry.isIntersecting && !lastRenderArgs.isLastPage) {
 				showMore();
 				}
@@ -73,7 +76,9 @@ const infiniteHits = instantsearch.connectors.connectInfiniteHits(
 
 	if (hits.length > 0 && hits != null) {
 		container.querySelector('ul').innerHTML = hits
-			.map(hit => hitTemplate(hit))
+			.map(function(hit) {
+        return hitTemplate(hit)
+      })
 			.join('');
 	} else {
 		container.querySelector('ul').innerHTML = noResultsTemplate(renderArgs.results.query);
