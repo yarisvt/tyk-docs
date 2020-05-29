@@ -1,73 +1,109 @@
-var search = instantsearch({
-  appId: 'ALGOLIA_APP_ID',
-  apiKey: 'ALGOLIA_API_KEY',
-  indexName: 'tyk-docs',
-  query: 'query',
-  advancedSyntax: true,
-  searchFunction(helper) {
-    let hits = document.getElementById('hits'),
-      pagination = document.getElementById('pagination'),
-      algLogo = document.getElementById('algolia-logo');
+/**
+ * INIT INSTAN SEARCH
+ */
 
-    if (helper.state.query.length < 3) {
-      hits.style.display = 'none';
-      pagination.style.display = 'none';
-      algLogo.style.display = 'none';
-      return;
-    }
+const searchClient = algoliasearch(
+	'ALGOLIA_APP_ID',
+	'ALGOLIA_API_KEY'
+);
 
-    helper.setQueryParameter('attributesToSnippet', ['article:10']);
-    helper.setQueryParameter('advancedSyntax', true).search();
+const search = instantsearch({
+	indexName: 'tyk-docs',
+	searchClient,
+	searchFunction: function(helper) {
+		const searchResults = document.getElementById('hits');
+		const searchbox = document.getElementById('searchbox');
 
-    hits.style.display = 'block';
-    pagination.style.display = 'block';
-    algLogo.style.display = 'block';
-
-    helper.search();
-
-  }
+		if (helper.state.query === '') {
+		  searchResults.style.display = 'none';
+		  searchbox.classList.remove('js-active');
+		  return;
+		}
+		helper.search();
+		searchResults.style.display = 'block';
+		searchbox.classList.add('js-active');
+	}
 });
 
-search.addWidget(
-  instantsearch.widgets.searchBox({
-    container: '#q',
-    autofocus: false
-  })
-); 
 
+/**
+ * TEMPLATE VARIABLES
+ */
 
-var hitTemplate =
-  '<div class="hit media">' +
-    '<div class="media-body">' +
-      '<div class="media-body-title"><a href="/docs{{path}}" <h4 class="media-heading">{{section}} - {{{_highlightResult.title.value}}}.</h4></p> </a></div>' +
-      '<div class="media-body-body"><a href="/docs{{path}}" <h4 class="media-heading em">..{{{_snippetResult.article.value}}}..</h4></p> </a></div>' +
-    '</div>' +
-  '</div>';
+const noResultsTemplate = query => `<li class="hit media">No results found matching <strong>${query}</strong>.</li>`;
+	  
+const hitTemplate = hit => {
+	return `<li class="hit media">
+				<div class="media-body">
+					<div class="media-body-title"><a href="/docs${hit.path}" <h4 class="media-heading">${hit.section} - ${instantsearch.highlight({ attribute: 'title', hit })}.</h4></p> </a></div>
+					<div class="media-body-body"><a href="/docs${hit.path}" <h4 class="media-heading em">..${instantsearch.snippet({ attribute: 'article', hit })}..</h4></p> </a></div>
+				</div>
+			</li>`;
+}
 
-var noResultsTemplate =
-  '<div class="text-center">No results found matching <strong>{{query}}</strong>.</div>';
+/**
+ * INFINITE SCROLL
+ */
 
-search.addWidget(
-  instantsearch.widgets.hits({
-    container: '#hits',
-    autofocus: false,
-    hitsPerPage: 5,
-    templates: {
-      empty: noResultsTemplate,
-      item: hitTemplate,
+const infiniteHits = instantsearch.connectors.connectInfiniteHits(
+  (renderArgs, isFirstRender) => {
+    const { hits, showMore, widgetParams } = renderArgs;
+    const { container } = widgetParams;
+
+	lastRenderArgs = renderArgs;
+	
+    if (isFirstRender) {
+		const sentinel = document.createElement('div');
+		container.appendChild(document.createElement('ul'));
+		container.appendChild(sentinel);
+
+		const observer = new IntersectionObserver(entries => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting && !lastRenderArgs.isLastPage) {
+				showMore();
+				}
+			});
+		});
+
+		observer.observe(sentinel);
+
+		return;
     }
-  })
+
+
+	if (hits.length > 0 && hits != null) {
+		container.querySelector('ul').innerHTML = hits
+			.map(hit => hitTemplate(hit))
+			.join('');
+	} else {
+		container.querySelector('ul').innerHTML = noResultsTemplate(renderArgs.results.query);
+	}
+  }
 );
 
-search.addWidget(
-  instantsearch.widgets.pagination({
-    container: '#pagination',
-    cssClasses: {
-      root: 'pagination',
-      active: 'active'
-    }
-  })
-);
 
+/**
+ * ADDING WIDGETS TO INITIAL INSTANTSEARCH
+ */
+
+search.addWidgets([
+	instantsearch.widgets.searchBox({
+			container: '#searchbox',
+			autofocus: false,
+			placeholder: 'Search...'
+	}),
+	infiniteHits({
+		container: document.querySelector('#hits')
+	}),
+	instantsearch.widgets.configure({
+		hitsPerPage: 8,
+		typoTolerance: 'min'
+	})
+]);
+
+
+/**
+ * Start the search
+ */
 
 search.start();

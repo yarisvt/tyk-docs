@@ -868,6 +868,10 @@ body {
   height: 100%;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 .container {
   max-width: 1300px;
   padding: 0 32px;
@@ -3375,7 +3379,6 @@ body {
   position: relative;
   color: #FFF;
   min-height: 640px;
-  overflow: hidden;
 }
 
 .hero:before {
