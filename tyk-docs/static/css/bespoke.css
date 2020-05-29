@@ -3381,12 +3381,6 @@ body {
   min-height: 640px;
 }
 
-.hero:before {
-  content: '';
-  padding-top: 25%;
-  display: block;
-}
-
 .hero .container {
   position: absolute;
   left: 0;
