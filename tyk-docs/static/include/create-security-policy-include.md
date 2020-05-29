@@ -17,13 +17,16 @@ To create a security policy with the Dashboard, follow these steps:
 
 ![Policies menu link location](/docs/img/2.10/policies_menu.png)
 
+Your current policies will be displayed
+
+![Current Policies](/docs/img/2.10/policy_list.png)
+
 ### Step 2: Click ADD POLICY
 
 ![Add policy button](/docs/img/2.10/add_policy.png)
 
-This page displays all the policies that you have created.
 
-### Step 3: Add an API to apply the policy Access Rates to
+### Step 3: Select an API to apply the policy Access Rights to
 
 ![Policy name form](/docs/img/2.10/select_api_policy.png)
 
@@ -35,6 +38,19 @@ To select an API, you can either:
 * You can also Group by Category 
 
 All policies require a descriptive name, this helps you to reference it later, and it will appear in drop-down options where you can attach policies to objects such as Keys or OAuth client IDs.
+
+### Step 4: Setting Global Rate Limits and Quota
+
+![Global Rates](/docs/img/2.10/global_limits_policies.png)
+
+These settings will be applied to all APIs that the policy is applied to. You can override these settings by turning Set per API Rate Limits and Quota on for the API you selected in Step 3.
+
+#### Path Based Permissions
+
+You can also use a security policy to apply restrictions on a particular path and method. Granular path control allows you to define which methods and paths a key is allowed to access on a per API-version basis. See [Secure your APIs by Method and Path](/docs/basic-config-and-security/security/security-policies/secure-apis-method-path/) for more details
+
+![Path and Method](/docs/img/2.10/path_and_method.png)
+
 
 ### Step 4: Set Rate limits
 
