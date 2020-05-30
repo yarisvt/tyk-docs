@@ -58,7 +58,7 @@ You will need an API key for your organisation and one command to create the API
 From the Tyk Dashboard, select "Users" from the "System Management" section.
 Click **Edit** for your user, then scroll to the bottom of the page. Your API Key is the first entry:
 
-![API key location][7]
+![API key location](/docs/img/2.10/user_api_id.png)
 
 Store your Dashboard Key, Dashboard URL & Gateway URL as environment variables so you don't need to keep typing them in:
 
@@ -175,12 +175,5 @@ Content-Length: 57
 
 Congratulations - You have just created your first keyless API, then protected it using Tyk!
 
-[1]: /docs/img/dashboard/system-management/apis2.7.png
-[2]: /docs/img/dashboard/system-management/add_API_button_new_2.5.png
-[4]: /docs/img/dashboard/system-management/authentication_2.5.png
-[5]: /docs/img/dashboard/system-management/api_save_2.5.png
-[6]: /docs/img/dashboard/system-management/api_url_2.5.png
-[7]: /docs/img/dashboard/system-management/api_access_cred_2.5.png
-[8]: /docs/tyk-rest-api/api-definition-object-details/
 
 <!-- END OMIT -->

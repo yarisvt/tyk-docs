@@ -47,7 +47,7 @@ These settings will be applied to all APIs that the policy is applied to. You ca
 
 #### Rate Limiting
 
-A rate limit is enforced on all keys, set the number of requests per second that a user of a key with this policy is allowed to use.
+A rate limit is enforced on all keys, set the number of requests per second that a user of a key with this policy is allowed to use. See [Rate Limiting](/docs/basic-config-and-security/control-limit-traffic/rate-limiting/) for more details.
 
 > **NOTE:** The Rate Limit set by a policy will override the limits applied to an individual key.
 
@@ -57,7 +57,7 @@ When hitting quota or rate limits, you can automatically queue and auto-retry cl
 
 #### Usage Quotas
 
-Usage quotas limit the number of total requests a user is allowed to have over a longer period of time. So while a rate limit is a rolling window, a quota is an absolute maximum that a user is allowed to have over a week, a day or a month.
+Usage quotas limit the number of total requests a user is allowed to have over a longer period of time. So while a rate limit is a rolling window, a quota is an absolute maximum that a user is allowed to have over a week, a day or a month. See [Request Quotas](/docs/basic-config-and-security/control-limit-traffic/request-quotas/) for more details.
 
 Usage quotas can only be a positive number, or -1 (unlimited).
 
@@ -75,7 +75,7 @@ You can also use a security policy to apply restrictions on a particular path an
 ![Path and Method](/docs/img/2.10/path_and_method.png)
 
 
-## Step 5: Policy Configuration
+## Step 5: Add Configuration Details
 
 You use the Configuration section to set the following:
 
@@ -84,7 +84,7 @@ You use the Configuration section to set the following:
    * Active (the default)
    * Draft
    * Access Denied 
-3. Set a time after which any Keys subscribed to your policy expire. Select a value from the drop-down list. This is a required setting.
+3. Set a time after which any Keys subscribed to your policy expire. Select a value from the drop-down list. This is a required setting. See [Key Expiry](/docs/basic-config-and-security/security/key-level-security/#key-expiry) for more details.
 4. Add Tags to your policy. Any tags you add can be used when filtering Analytics Data. Tags are case sensitive.
 5. Add Metadata to your policy. Adding metadata such as User IDs can be used by middleware components. See [Session Metadata](/docs/getting-started/key-concepts/session-meta-data/) for more details.
 
@@ -148,13 +148,3 @@ You can then use this policy ID in the `apply_policy_id` field of an API token. 
 > **NOTE**: `apply_policy_id` is supported, but has now been deprecated. `apply_policies` is now used to list your policy IDs as an array. This supports the **Multiple Policy** feature introduced in the  **v2.4/1.4** release.
 
 For more information on how policies are constructed and a detailed explanation of their properties, please see the [Security Policies](/docs/security/security-policies/) section.
-
- [1]: /docs/img/dashboard/system-management/policies2.7.png
- [2]: /docs/img/dashboard/system-management/add_policy_new_2.5.png
- [3]: /docs/img/dashboard/system-management/policy_name_2.5.png
- [4]: /docs/img/dashboard/system-management/rate_limit_2.5.png
- [5]: /docs/img/dashboard/system-management/usage_quotas_2.5.png
- [6]: /docs/img/dashboard/system-management/access_rights_2.5.png
- [7]: /docs/img/dashboard/system-management/keys_create_2.5.png
- [8]: /docs/concepts/what-is-a-security-policy/
- [9]: /docs/img/dashboard/system-management/limits-quotas_per-api.png
