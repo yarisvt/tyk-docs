@@ -43,7 +43,30 @@ All policies require a descriptive name, this helps you to reference it later, a
 
 ![Global Rates](/docs/img/2.10/global_limits_policies.png)
 
-These settings will be applied to all APIs that the policy is applied to. You can override these settings by turning Set per API Rate Limits and Quota on for the API you selected in Step 3.
+These settings will be applied to all APIs that the policy is applied to. You can override these settings by turning **Set per API Rate Limits and Quota** on for the API you selected in Step 3. We will leave these settings at their default for this tutorial.
+
+#### Rate Limiting
+
+A rate limit is enforced on all keys, set the number of requests per second that a user of a key with this policy is allowed to use.
+
+> **NOTE:** The Rate Limit set by a policy will override the limits applied to an individual key.
+
+#### Throttling
+
+When hitting quota or rate limits, you can automatically queue and auto-retry client requests. Throttling can be configured at a key or policy level. See [Request Throttling](/docs/basic-config-and-security/control-limit-traffic/request-throttling/) for more details.
+
+#### Usage Quotas
+
+Usage quotas limit the number of total requests a user is allowed to have over a longer period of time. So while a rate limit is a rolling window, a quota is an absolute maximum that a user is allowed to have over a week, a day or a month.
+
+Usage quotas can only be a positive number, or -1 (unlimited).
+
+> **NOTE:** The Usage Quota set by a policy will override a quota applied to an individual key.
+
+### Policy Partitioning
+
+In some cases, the all-or-nothing approach of policies, where all the components of access control, quota and rate limit are set together isn’t ideal, and instead you may wish to have only one or two segments of a token managed at a policy level and other segments in another policy or on the key itself. We call this [Policy Partitioning](/docs/basic-config-and-security/security/security-policies/partitioned-policies/).
+
 
 #### Path Based Permissions
 
@@ -52,54 +75,22 @@ You can also use a security policy to apply restrictions on a particular path an
 ![Path and Method](/docs/img/2.10/path_and_method.png)
 
 
-### Step 4: Set Rate limits
+## Step 5: Policy Configuration
 
-![Rate limit form][4]
+You use the Configuration section to set the following:
 
-A rate limit is enforced on all keys, set the number of requests per second that a user of a key with this policy is allowed to use.
+1. Give your policy a name. This is a required setting
+2. Set the policy state. You can set your policy to one of the following states:
+   * Active (the default)
+   * Draft
+   * Access Denied 
+3. Set a time after which any Keys subscribed to your policy expire. Select a value from the drop-down list. This is a required setting.
+4. Add Tags to your policy. Any tags you add can be used when filtering Analytics Data. Tags are case sensitive.
+5. Add Metadata to your policy. Adding metadata such as User IDs can be used by middleware components. See [Session Metadata](/docs/getting-started/key-concepts/session-meta-data/) for more details.
 
-> **NOTE:** The Rate Limit set by a policy will override the limits applied to an individual key.
+### Step 6: Save the policy
 
-### Step 5: Set Usage Quotas
-
-![Quota form][5]
-
-Usage quotas limit the number of total requests a user is allowed to have over a longer period of time. So while a rate limit is a rolling window, a quota is an absolute maximum that a user is allowed to have over a week, a day or a month.
-
-Usage quotas can only be a positive number, or -1 (unlimited).
-
-> **NOTE:** The Usage Quota set by a policy will override a quota applied to an individual key.
-
-#### Limits and Quotas per API
-
-![Quotes Per API][9]
-
-Select **Enable Limits** in this section, if you want to set different Rate Limits and Quotas for each individual API added in the Access Rights section.
-
-Click **Add Limits** for each API and set the limits and quotas in the pop-up that is displayed.
-
-This is available from v1.8.0 of the Tyk Dashboard.
-
-
-### Step 6: Add a security entry
-
-![Add an access rule][6]
-
-**Required** - A security entry is required for all policies (even partitioned ones) as we need to ensure access is always explicit for APIs managed by Tyk. Click **Add** to apply an API to the Access Rule.
-
-### Step 7: Add Tags and Metadata
-
-![Tags and Metadata](/docs/img/dashboard/system-management/tags_meta2.9.3.png)
-
-* Tags that you add can be used in the Analytics for the policy. Tag descriptions are case sensitive.
-* Metadata such as User IDs can be used by middleware components. See [Session Metadata](/docs/getting-started/key-concepts/session-meta-data/) for more details.  
-
-
-### Step 8: Save the policy
-
-![Save a Policy][7]
-
-To make the policy active, click **CREATE** . Once the policy is saved, you will be able to use it when creating keys, OAuth clients and custom JWT tokens.
+Click **CREATE** . Once the policy is saved, you will be able to use it when creating keys, OAuth clients and custom JWT tokens.
 
 ## Tutorial: Create a security policy with the API
 
