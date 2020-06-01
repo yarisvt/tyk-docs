@@ -7,11 +7,13 @@ menu:
 weight: 5 
 ---
 
-## <a name="multi-chained-authentication"></a> Multiple (Chained) Authentication
+## Multiple (Chained) Authentication
 
-As of Tyk v2.3 it is possible to have multiple authentication middleware chained together, so for example, it would be possible to use an Access Token in combination with Basic Auth, or with a JSON Web Token.
+As of Tyk v2.3 it is possible to have multiple authentication middleware chained together, so for example, it would be possible to use an Access Token in combination with Basic Auth, or with a JSON Web Token. We have put together a short video that demonstrates this functionality:
 
-## <a name="enable-multi-chanied-authentication-with-dashboard"></a> Enable Multi (Chained) Authentication with the Dashboard
+{{< youtube vYGYYXcJ6Wc >}}
+
+## Enable Multi (Chained) Authentication with the Dashboard
 
 To enable multi chained auth in your GUI, first browse to the Endpoint Designer and view the "Core Settings" tab.
 
@@ -35,7 +37,7 @@ The baseline provider will be the one that provides the current request context 
 
 Once these have been set up, you will see the traditional configuration screens for each one of the auth methods that were selected in the check boxes. Configure them as you would regular authentication modes.
 
-## <a name="enable-multi-chanied-authentication-in-your-api-definition"></a> Enable Multi (Chained) Authentication in your API Definition
+## Enable Multi (Chained) Authentication in your API Definition
 
 To enable this mode you must set the `base_identity_provided_by` field in your API Definitions to one of the supported chained enums below:
 
