@@ -9,7 +9,7 @@ weight: 1
 
 The first screen (and main view) of the Tyk Dashboard will show you an overview of the aggregate usage of your APIs, this view includes the number of hits, the number of errors and the average latency over time for all of your APIs as an average:
 
-![API Activity Dashboard](/docs/img/2.10/analytics_overview.png)
+![API Activity Dashboard](/docs/img/2.10/analytics_overview2.png)
 
 
 You can toggle the graphs by clicking the circular toggles above the graph to isolate only the stats you want to see.
