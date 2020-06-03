@@ -95,11 +95,11 @@ See [Versioning](/docs/getting-started/key-concepts/versioning/) for more detail
 
 ### Step 1: Select "APIs" from the "System Management" section
 
-![API listing page link location](/docs/img/dashboard/system-management/apis2.7.png)
+![API listing](/docs/img/2.10/apis_menu.png)
 
 ### Step 2: Click "IMPORT API"
 
-![Add API button location](/docs/img/dashboard/system-management/add_API_button_new_2.5.png)
+![Add API button location](/docs/img/2.10/import_api_button.png)
 
 Tyk supports the following import options:
 
@@ -110,17 +110,15 @@ Tyk supports the following import options:
 
 To import a Tyk Definition, just copy and paste the definition into the code editor.
 
-![Import Tyk Definition](/docs/img/dashboard/system-management/import_tyk_def.png)
-
 For Apiary Blueprint and Swagger, the process is the same. For example:
 
 Click the "From Swagger (JSON)" option from the pop-up
 
-![Import popup](/docs/img/dashboard/system-management/import_json.png)
+![Import popup](/docs/img/2.10/import_api_json.png)
 
 For WSDL:
 
-![Import WSDL](/docs/img/dashboard/system-management/import_wsdl.png)
+![Import WSDL](/docs/img/2.10/import_api_wsdl.png)
 
 ### Step 3: Enter API Information
 
