@@ -7,15 +7,15 @@ assignees:
 
 ---
 
-# Important:
+<!-- # Important:
 This is a public repository and as such we welcome users to contribute to it by submitting us [PR](https://github.com/TykTechnologies/tyk-docs/pulls) with the actual fix. 
 We also welcome any form of contribution and appreciate time taken to open error and request reports.
-Please use this template to assist you in filling in all the required information.
+Please use this template to assist you in filling in all the required information. -->
 
 
 ## Branch/Environment/Version
-1. If applicable, please state the environment/architecture [e.g. On-prem/Multi cloud/MDCB]
-2. If applicable, please state version you are referring to [e.g. Master/Release/Stable/Feature branch]
+<!-- 1. If applicable, please state the environment/architecture [e.g. On-prem/Multi cloud/MDCB]
+     2. If applicable, please state version you are referring to [e.g. Master/Release/Stable/Feature branch] -->
 
 
 ## Relevant Document
