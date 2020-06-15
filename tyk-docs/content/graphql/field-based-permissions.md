@@ -24,7 +24,7 @@ type Account {
 
 For one type of consumers it will be fine to query all data the schema exposes while for another type of consumer it should not be allowed to retrieve the `balance` for example.
 
-Field access can be restricted by setting up *field based permissions*.
+Field access can be restricted by setting up *field based permissions* in a policy or directly on a key.
 
 When a field is restricted and used in a GraphQL operation, the consumer will receive an error response (*400 Bad Request*):
 ```

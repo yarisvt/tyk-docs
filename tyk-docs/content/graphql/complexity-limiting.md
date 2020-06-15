@@ -9,7 +9,8 @@ aliases:
     - /graphql/complexity-limiting/
 ---
 
-Depending on the GraphQL schema an operation can cause heavy loads on the upstream by using deeply nested or expensive operations.
+Depending on the GraphQL schema an operation can cause heavy loads on the upstream by using deeply nested or expensive operations. Tyk offers solutions for this cases which can be applied
+in a policy or directly on a key.
 
 Here is an example for a deeply nested query:
 ```
