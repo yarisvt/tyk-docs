@@ -77,7 +77,7 @@ When a GraphQL operation exceeds the query depth limit the consumer will receive
 }
 ```
 
-### Enable from dashboard
+### Enable from the Dashboard
 
 1. *Optional:* Configure a Policy from **System Management > Policies > Add Policy**.
 2. From **System Management > Keys > Add Key** select a policy or configure directly for the key.
