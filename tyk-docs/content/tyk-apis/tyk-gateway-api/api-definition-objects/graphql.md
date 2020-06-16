@@ -1,6 +1,6 @@
 ---
 date: 2020-06-15T12:08:55Z
-Title: GraphQL
+Title: "API Definition GraphQL"
 menu:
   main:
     parent: "API Definition Objects"
