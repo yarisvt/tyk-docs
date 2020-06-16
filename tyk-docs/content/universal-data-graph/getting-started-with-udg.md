@@ -82,6 +82,6 @@ If you hit the play button you should get the following response:
 }
 ```
 
-The tyk GraphQL engine resolved the GraphQL query, translated it into a REST API call to httpbin.org and returned the response according to the GraphQL schema.
+The Tyk GraphQL engine resolved the GraphQL query, translated it into a REST API call to httpbin.org and returned the response according to the GraphQL schema.
 
 For in depth information on how DataSources work, how you nest them etc. have a look at the DataSources section.
