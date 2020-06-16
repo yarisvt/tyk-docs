@@ -9,10 +9,9 @@ aliases:
     - /universal-data-graph/datasources/
 ---
 
-## DataSources
+The Universal Data Graph (UDG) introduces a few concepts you should fully understand in order to make full use of it.
 
-Internal vs. External
+UDG comes with a fully spec compliant GraphQL engine that you don't have to code, you just have to configure it. 
 
-## Field Mappings
-
-## Arguments
+For that you have to define your "DataSources" and might want to add "Field Mappings" as well as "Arguments" to your configuration.
+Read on in the sub sections to understand the full picture to use UDG to its full potential.
