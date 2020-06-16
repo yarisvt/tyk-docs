@@ -7,11 +7,11 @@ aliases:
     - /graphql/graphql/
 ---
 
-Tyk supports GraphQL **natively**. This means tyk doesn't have to use any external service or process for any GraphQL middleware. 
+Tyk supports GraphQL **natively**. This means Tyk doesn't have to use any external service or process for any GraphQL middleware. 
 
 You can securely expose existing GraphQL APIs using our GraphQL core functionality.
 
-In addition to this you can also use tyk's integrated GraphQL engine to build a [Universal Data Graph]({{< ref "/content/universal-data-graph/universal-data-graph.md" >}}). The Universal Data Graph (UDG) lets you expose existing services as one single combined GraphQL API.  
+In addition to this you can also use Tyk's integrated GraphQL engine to build a [Universal Data Graph]({{< ref "/content/universal-data-graph/universal-data-graph.md" >}}). The Universal Data Graph (UDG) lets you expose existing services as one single combined GraphQL API.  
 
 ## What is GraphQL?
 
@@ -26,7 +26,7 @@ When you have many services with different protocols, response types and specifi
 REST APIs "can" have a schema, e.g. Swagger/Open Api Specification. A GraphQL server "must" have a schema.
 This schema makes it very easy to communicate across stakeholders how they can use the API.
 
-You can easily find lots of false arguments on the internet in favor of either REST or GraphQL APIs.
+You can easily find lots of false arguments on the internet in favour of either REST or GraphQL APIs.
 The reality is that you can usually achieve the same goals with a well designed REST API as you can with a GraphQL API.
 The difference is that users often report that for some use cases the developer experience of GraphQL is simply better.
 
@@ -59,8 +59,8 @@ To add to that, it should be well known that REST APIs can easily use query para
 
 Then again there's a lot of powerful tooling to use GraphQL in front end development.
 GraphiQL and the GraphQL Playground makes it very easy to explore a GraphQL API.
-There are very strong integrations, e.g. for the React Framework, which is often reportet to help developers being more productive.
+There are very strong integrations, e.g. for the React Framework, which is often reported to help developers being more productive.
 
 All in all, as with every technology you should always evaluate your specific **use case** and decide based on this if you really benefit from adding a new tool to the stack.
 
-At tyk we believe that GraphQL can be a very powerful too for many use cases. That's why we decided to support it **natively** with our API management platform. 
+At Tyk we believe that GraphQL can be a very powerful too for many use cases. That's why we decided to support it **natively** with our API management platform. 
