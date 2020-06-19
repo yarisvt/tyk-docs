@@ -74,6 +74,8 @@ Let's consider the JSON response looked a bit different:
 If this was the JSON response you get from the REST API you have to modify the path for the field "name".
 You'd have to un-check the "Disable field name" checkbox and set the Path to "user_name".
 
+> **Note**: Tyk currently does not support field name mappings with hyphens (e.g. `"user-name"`).
+
 Nested path's are also OK using dots to seperate each segment of the JSON path, e.g.: "name.full_name" 
 
 See below how to configure the field mapping for each individual field.  
