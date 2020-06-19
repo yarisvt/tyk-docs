@@ -2,7 +2,7 @@
 
 ## Tutorial: Create an API with the Dashboard
 
-We have a video walkthrough for creating an API
+We have a video walkthrough for creating an API and testing an endpoint via Postman.
 
 <iframe width="870" height="480" src="https://www.youtube.com/embed/astwEwzhL-s" frameborder="0" frameborder="0" gesture="media" allowfullscreen></iframe>
 
@@ -29,7 +29,7 @@ From the **Authentication** section:
 
 You have the following options:
 
-- **Authentication mode**: This is the security method to use with your API.  For this tutorial, set it to `Auth Token`, as this is the simplest security mechanism to use.
+- **Authentication mode**: This is the security method to use with your API.  For this tutorial, set it to `Open (Keyless)`. See [Authentication and Authorization](/docs/basic-config-and-security/security/authentication-authorization/) for more details on securing your API.
 - **Strip Authorization Data**: Select this option to strip any authorization data from your API requests.
 - **Auth Key Header Name**: The header name that will hold the token on inbound requests. The default for this is `Authorization`.
 - **Allow Query Parameter As Well As Header**: Set this option to enable checking the query parameter as well as the header for an auth token. For this tutorial, leave this `unchecked`.
