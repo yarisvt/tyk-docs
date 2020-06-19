@@ -14,6 +14,8 @@ For field on your GraphQL schema you can define or disable field mappings.
 The default behaviour of field mappings is that a field named "foo" expects a JSON value in the response with the same field name of "foo".
 Field mappings are enabled by default for every field except for fields where a HTTP JSON DataSource is attached.
 
+> **Note**: GraphQL does not support field names with hyphens (e.g. `"user-name"`). This can be resolved by using field mappings as described below. 
+
 Consider the following GraphQL schema:
 
 ```graphql
@@ -73,8 +75,6 @@ Let's consider the JSON response looked a bit different:
 
 If this was the JSON response you get from the REST API you have to modify the path for the field "name".
 You'd have to un-check the "Disable field name" checkbox and set the Path to "user_name".
-
-> **Note**: Tyk currently does not support field name mappings with hyphens (e.g. `"user-name"`).
 
 Nested path's are also OK using dots to seperate each segment of the JSON path, e.g.: "name.full_name" 
 
