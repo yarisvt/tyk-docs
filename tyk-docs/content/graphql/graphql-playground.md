@@ -23,17 +23,17 @@ The GraphiQL try-out playground comes with a series of features by default, whic
   10. Supports full GraphQL Language Specification:
   11. Queries, Mutations, Subscriptions, Fragments, Unions, directives, multiple operations per query, etc
 
-  ***ADD SCREENSHOT***
+![Playground](/docs/img/dashboard/udg/getting-started/playground.png)
 
   **Headers**
 
   Debugging a GraphQL API might require additional headers to be passed to the requests while playing with the GraphiQL interface. (i.e. `Authorization` header in case of Authentication Token protection over the API);
 
-  ***ADD SCREENSHOT***
+![Headers](/docs/img/dashboard/udg/getting-started/headers.png)
 
   **Logs**
 
   Beside the results displayed in the GraphiQL playground, we are displaying as well a full list of logs of the triggered request, which helps a lot when debugging the API functionality.
 
-  ***ADD SCREENSHOT***
+![Logs](/docs/img/dashboard/udg/getting-started/logs.png)
 
