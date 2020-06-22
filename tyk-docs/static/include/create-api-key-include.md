@@ -4,7 +4,7 @@ The Tyk Dashboard is the simplest way to generate a new Key.
 
 We have a video walkthrough for creating an API Key.
 
-<iframe width="870" height="480" src="https://www.youtube.com/embed/NOjHsV2gExQ" frameborder="0" gesture="media" allowfullscreen></iframe>
+<iframe width="870" height="480" src="https://www.youtube.com/embed/sydrO2qv88Y" frameborder="0" gesture="media" allowfullscreen></iframe>
 
 ### Step 1: Select "Keys" from the "System Management" section
 

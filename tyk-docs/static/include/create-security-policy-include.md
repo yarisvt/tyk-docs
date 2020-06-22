@@ -9,7 +9,7 @@ See [What is a Security Policy?][8]
 
 We have a video walkthrough for creating an security policy with the Dashboard.
 
-<iframe width="870" height="480" src="https://www.youtube.com/embed/aqWujsdoU-s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="870" height="480" src="https://www.youtube.com/embed/y4xVUvUvFRE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 To create a security policy with the Dashboard, follow these steps:
 
