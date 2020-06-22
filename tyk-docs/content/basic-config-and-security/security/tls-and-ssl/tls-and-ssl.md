@@ -244,11 +244,11 @@ If you include certificateID or certificate path to an API definition `certifica
 
 From v2.9.3 you can force the validation of the hostname against the common name, both at the Gateway level via your `tyk.conf` and at the API level.
 
-#### In an API definition
+#### At the Gateway level
 
 Set `ssl_force_common_name_check` to `true` in your `tyk.conf` file.
 
-#### At the Global Level
+#### At the API level
 
 Use `proxy.transport.ssl_force_common_name_check` in your API definition.
 
