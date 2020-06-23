@@ -7,7 +7,7 @@ menu:
 weight: 11 
 ---
 
-Tyk supports importing both API Blueprint and Swagger JSON definitions from either the Gateway or the Dashboard. Tyk will output the converted file to to `stdout`. Below are the commands you can use to get Tyk to switch to command mode and generate the respective API definitions for both API Blueprint and Swagger files.
+Tyk supports importing both API Blueprint and Swagger (OpenAPI) JSON definitions from either the Gateway or the Dashboard. Tyk will output the converted file to to `stdout`. Below are the commands you can use to get Tyk to switch to command mode and generate the respective API definitions for both API Blueprint and Swagger files.
 
 ## Import APIs via the Gateway
 
@@ -43,7 +43,7 @@ Add a version to a definition:
 
 As the API Blueprint definition allows for example responses to be embedded, these examples can be imported as forced replies, in effect mocking out the API. To enable this mode, when generating a new API or importing as a version, simply add the `--as-mock` parameter.
 
-### Using Swagger
+### Using Swagger (OpenAPI)
 
 Tyk supports importing Swagger documents to create API definitions and API versions. Swagger imports do not support mocking though, so sample data and replies will need to be added manually later.
 
@@ -95,32 +95,30 @@ See [Versioning](/docs/getting-started/key-concepts/versioning/) for more detail
 
 ### Step 1: Select "APIs" from the "System Management" section
 
-![API listing page link location](/docs/img/dashboard/system-management/apis2.7.png)
+![API listing](/docs/img/2.10/apis_menu.png)
 
 ### Step 2: Click "IMPORT API"
 
-![Add API button location](/docs/img/dashboard/system-management/add_API_button_new_2.5.png)
+![Add API button location](/docs/img/2.10/import_api_button.png)
 
 Tyk supports the following import options:
 
 1. From an Existing Tyk API definition
 2. From a Apiary Blueprint (JSON) file
-3. From a Swagger (JSON) file
+3. From a Swagger/OpenAPI (JSON only) file
 4. From a SOAP WSDL definition file (new from v1.9)
 
 To import a Tyk Definition, just copy and paste the definition into the code editor.
 
-![Import Tyk Definition](/docs/img/dashboard/system-management/import_tyk_def.png)
-
-For Apiary Blueprint and Swagger, the process is the same. For example:
+For Apiary Blueprint and Swagger/OpenAPI, the process is the same. For example:
 
 Click the "From Swagger (JSON)" option from the pop-up
 
-![Import popup](/docs/img/dashboard/system-management/import_json.png)
+![Import popup](/docs/img/2.10/import_api_json.png)
 
 For WSDL:
 
-![Import WSDL](/docs/img/dashboard/system-management/import_wsdl.png)
+![Import WSDL](/docs/img/2.10/import_api_wsdl.png)
 
 ### Step 3: Enter API Information
 

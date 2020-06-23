@@ -14,7 +14,7 @@ Mutual TLS is a common security practice that uses client TLS certificates to pr
 
 In most cases when you try to access a secured HTTPS/TLS endpoint, you experience only the client-side check of the server certificate. The purpose of this check is to ensure that no fraud is involved and the data transfer between the client and server is encrypted. In fact, the TLS standard allows specifying the client certificate as well, so the server can accept connections only for clients with certificates registered with the server certificate authority, or provide additional security checks based on the information stored in the client certificate. This is what we call "Mutual TLS" - when both sides of the connection verify certificates. See the video below that gives you an introduction to mutual TLS and how it can be used to secure your APIs.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/UzEzjon3IAo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+{{< youtube UzEzjon3IAo >}}
 
 ## How Tyk Supports mutual TLS 
 
@@ -101,7 +101,7 @@ definition:
 
 From the Tyk Dashboard, to do the same from the **API Designer Core settings** section you need to select **Mutual TLS** authentication mode from the **Authentication** section, and whitelist the certificates using the built-in widget, as below:
 
-![mutual_tls_auth](/docs/img/dashboard/system-management/mutual_tls_auth_2.5.png)
+![mutual_tls_auth](/docs/img/2.10/mtls_auth_cert.png)
 
 If all your APIs have a common set of certificates, you can define them in your Gateway configuration file via the `security.certificates.apis` key - string array of certificate IDs or paths.
 
@@ -161,9 +161,9 @@ the only wildcard value accepted would be `*.production.myupstream.com`.  The va
 
 To do the same via the Tyk Dashboard, go to the **API Designer** > **Advanced Options** panel > **Upstream certificates** section.
 
-![upstream_cert](/docs/img/dashboard/system-management/upstream_cert_2.5.png)
+![upstream_cert](/docs/img/2.10/attach_upstream_cert.png)
 
-![add_upstream_cert](/docs/img/dashboard/system-management/add_upstream_cert_2.5.png)
+![add_upstream_cert](/docs/img/2.10/add_upstream_cert.png)
 
 
 ## Tips and Tricks 
@@ -174,7 +174,7 @@ openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -node
 
 For the server in `common name` specify a domain, or just pass `-subj "/CN=localhost"` to OpenSSL command. Then follow our [TLS and SSL Guide](/docs/basic-config-and-security/security/tls-and-ssl/).
 
-To get certificate SHA256 fingerprint use the following command: 
+To get certificate SHA256 fingerprint use the following command:
 ```{.copyWrapper}
 openssl x509 -noout -fingerprint -sha256 -inform pem -in <cert>
 ```
