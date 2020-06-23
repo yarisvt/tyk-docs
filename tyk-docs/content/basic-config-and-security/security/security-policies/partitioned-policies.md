@@ -28,6 +28,7 @@ A partitioned policy can enforce any of these elements individually or together 
 *   The Access Control Limit (ACL)
 *   The Rate limit
 *   The Quota limit
+*   The GraphQL complexity (currently only query-depth limit is supported)
 
 ### Set up a partition in an API
 
@@ -37,13 +38,15 @@ You can partition your policy by adding a `partitions` section to your policy ob
 "partitions": {
   "quota": false,
   "rate_limit": false,
-  "acl": false
+  "acl": false,
+  "complexity": false
 }
 ```
 
 *   `quota`: If set to `true`, enforce the quota element of this policy
 *   `rate_limit`: If set to `true`, enforce the rate limit of this policy
 *   `acl`: If set to `true`, enforce the access control rules of this policy
+*   `complexity`: If set to `true`, enforce the GraphQL complexity rules of this policy
 
 Partitions can be applied together, if you select all of them then essentially the whole policy will be enforced.
 
