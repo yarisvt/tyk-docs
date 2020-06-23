@@ -10,7 +10,7 @@ url: "/key-concepts/grpc-proxy"
 
 ### Using Tyk as a gRPC Proxy
 
-Tyk supports gRPC pass though proxying when using HTTP/2 as a transport (the most common way to deploy gRPC services). The only requirement is enabling HTTP/2 support on the Gateway side, for both incoming and upstream connections, by setting `http_server_options.enable_http2` and `proxy_enable_http2` to true in your Gateway config file.
+Tyk supports gRPC passthrough proxying when using HTTP/2 as a transport (the most common way to deploy gRPC services). The only requirement is enabling HTTP/2 support on the Gateway side, for both incoming and upstream connections, by setting `http_server_options.enable_http2` and `proxy_enable_http2` to true in your Gateway config file.
 
 You also need to set your `listen_path` in your API definitions.
 
