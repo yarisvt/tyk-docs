@@ -94,6 +94,9 @@ You can also map your JWT scope to your policies from the **API Designer**.
 
 1. Create a new API or edit an existing API that has the **Authentication mode** set to **JSON Web Token (JWT)**.
 2. In the **Core Settings** tab, under **Default Policy** choose a default policy for your JWT as explained in [step 4](https://tyk.io/docs/basic-config-and-security/security/authentication-authorization/json-web-tokens/#step-4-set-a-default-policy) above. This is required when using scopes to enforce a policy.
+
+![Default JWT Policy](/docs/img/dashboard/system-management/jwt_default_policy.png)
+
 3. At the bottom of the **Core Settings** tab, select **Use Scope Claim**.
 ![Use Scope Claim](/docs/img/2.10/jwt_scope_claim.png)
 1. Enter a **Scope Name** for your scope. For example "admin" in the above example.
