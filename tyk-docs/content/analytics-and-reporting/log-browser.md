@@ -4,7 +4,7 @@ title: Log Browser
 menu:
   main:
     parent: "Analytics and Reporting"
-weight: 5 
+weight: 5
 ---
 
 When you look through your Dashboard and your error breakdown statistics, you'll find that you will want to drill down to the root cause of the errors. This is what the Log Browser is for.
@@ -20,16 +20,15 @@ You will be presented with a list of requests, and their metadata:
 
 ![Log Viewer](/docs/img/2.10/log_browser.png)
 
-Click a request to view its details. 
+Click a request to view its details.
 
 ![Log Viewer Details](/docs/img/2.10/log_browser_selected.png)
 
 ### On-Premises Installations Option
 
 In an On-Premises installation, if you have request and response logging enabled, then you can also view the request payload and the response if it is available.
-To enable request and response logging, set both `enable_analytics` and
-`enable_detailed_recording` to `true` in your `tyk.conf` file. You then need to restart your Tyk Gateway(s).
+To enable request and response logging, please take a look at [useful debug modes](/docs/analytics-and-reporting/useful-debug-modes/) .
 
 **A warning on detailed logging:** This mode generates a very large amount of data, and that data exponentially increases the size of your log data set, and may cause problems with delivering analytics in bulk to your MongoDB instances. This mode should only be used to debug your APIs for short periods of time.
 
-> **NOTE**: As of v3.0, detailed logging is not available for Tyk Cloud customers.
+> **NOTE**: Detailed logging is not available for Tyk SaaS customers.
