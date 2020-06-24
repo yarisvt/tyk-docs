@@ -29,7 +29,7 @@ To enable Basic Authentication on your API using the Tyk Dashboard:
 
 We have tutorials for [creating an API Key](/docs/try-out-tyk/tutorials/create-api-key/) via the Dashboard. To use with Basic Authentication, select your API that you selected Basic Authentication for. From the Authentication tab, you can see that Basic Authentication settings are automatically displayed.
 
-![Basic Auth tab](/Users/marksouthee/tyk-docs/tyk-docs/static/img/2.10/add_key_basic_auth.png)
+![Basic Auth tab](/docs/img/2.10/add_key_basic_auth.png)
 
 And then add a username & password:
 
