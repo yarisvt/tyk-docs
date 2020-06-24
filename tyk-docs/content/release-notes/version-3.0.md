@@ -8,7 +8,7 @@ weight: 1
 
 ### Version change and LTS releases
 
-We have bumped our major Tyk Gateway version from 2 to 3, a long overdue change as we’ve been on version 2 for 3 years. We have also changed our Tyk Dashboard major version from 1 to 3, and from now on it will always be aligned with the Tyk Gateway major and minor releases. Tyk Pump also updated to 1.0, so we can better indicate major changes in future. 
+We have bumped our major Tyk Gateway version from 2 to 3, a long overdue change as we’ve been on version 2 for 3 years. We have also changed our Tyk Dashboard major version from 1 to 3, and from now on it will always be aligned with the Tyk Gateway major and minor releases. The Tyk Pump also updated to 1.0, so we can better indicate major changes in future. 
 
 Such a big change does not mean that we going to break backward compatibility. More-over we are changing our internal release strategy to guarantee more stability and to allow us to deliver our product at a faster pace. We aim to bring more clarity to our users on the stability criteria they can expect, based on the version number.
 Additionally we are introducing Long Term Releases (also known as LTS).
@@ -19,7 +19,7 @@ Read more about this changes in our blogpost: https://tyk.io/introducing-long-te
 
 We have a brand new look to our Tyk Dashboard. About half a year ago, we made some changes to our visual branding to better express our love for creativity and UX. Those changes started with our website and now we are also incorporating these visual changes into the UI of our products. We do this to keep our brand consistent across the whole Tyk experience and to enhance your experience using our products. 
 
-See our updated [Tutorias](/docs/try-out-tyk/tutorials/tutorials/) section.
+See our updated [Tutorials](/docs/try-out-tyk/tutorials/tutorials/) section.
 
 ### Universal Data Graph and GraphQL
 
