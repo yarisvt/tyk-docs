@@ -31,7 +31,7 @@ It’s important to note that you don’t even have to build your own GraphQL se
 
 With the Universal Data Graph Tyk becomes your central integration point for all your internal as well as external APIs. In addition to this, the UDG benefits from all existing solutions that already come with your tyk installation. That is, your Data Graph will be secure from the start and there’s a large array of middlewares you can build on to power your Graph.
 
-Read more about the [GraphQL](/docs/graphql/) and [Universal Data Graph](/docs/universal-data-graph/)
+Read more about the [GraphQL](https://tyk.io/docs/graphql/graphql/) and [Universal Data Graph](https://tyk.io/docs/universal-data-graph/universal-data-graph/)
 
 
 ### Policies and Keys UX changes 
