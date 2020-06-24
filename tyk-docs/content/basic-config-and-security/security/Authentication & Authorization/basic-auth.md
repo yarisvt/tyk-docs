@@ -23,21 +23,16 @@ To enable Basic Authentication on your API using the Tyk Dashboard:
 6. You can select whether to use a URL query string parameter as well as a header, and what parameter to use. If this is left blank, it will use the **Auth Key Header** name value.
 7. You can select whether to use a **cookie value**. If this is left blank, it will use the Header name value.
 
-![Target Details: Basic Auth](/docs/img/dashboard/system-management/basic_auth2.9.3.png)
+![Target Details: Basic Auth](/docs/img/2.10/basic_auth_settings.png)
 
 ### Create a Basic Auth Key For the API
 
-We have tutorials for [creating an API Key](/docs/get-started/with-tyk-on-premise/tutorials/tyk-on-premises-pro/create-api-token/) via the Dashboard. To use with Basic Authentication, select the **Basic Authentication** option.
+We have tutorials for [creating an API Key](/docs/try-out-tyk/tutorials/create-api-key/) via the Dashboard. To use with Basic Authentication, select your API that you selected Basic Authentication for. From the Authentication tab, you can see that Basic Authentication settings are automatically displayed.
 
-![Keys Basic Auth](/docs/img/dashboard/system-management/keys_basic_auth.png)
+![Basic Auth tab](/Users/marksouthee/tyk-docs/tyk-docs/static/img/2.10/add_key_basic_auth.png)
 
 And then add a username & password:
 
-![Keys Basic Auth 2](/docs/img/dashboard/system-management/keys_basic_auth_2.png)
-
-And be sure to add the API to the access rights.
-
-![Keys Basic Auth 3](/docs/img/dashboard/system-management/keys_basic_auth_3.png)
 
 Then save!  Now we can curl the API in two different ways:
 
@@ -50,7 +45,7 @@ $ curl http://myusername:mypassword@localhost:8080/basicauth/get
 <200 response from upstream>
 ```
 
-## <a name="with-file-based"></a>Enable Basic Authentication in your API Definition with file-based
+## Enable Basic Authentication in your API Definition with file-based
 
 To enable Basic Authentication, the API Definition file needs to be set up to allow basic authentication and not a standard access token:
 
