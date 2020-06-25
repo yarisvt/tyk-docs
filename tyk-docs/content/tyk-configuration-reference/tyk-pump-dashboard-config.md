@@ -83,7 +83,7 @@ This Pump simply saves all individual requests across every organisation to a co
 
 The Dashboard will use this collection to show requests from the **API Usage Data > Log Browser** menu, unless [use_sharded_analytics](/docs/tyk-configuration-reference/tyk-dashboard-configuration-options/) are set to true, in which case, `Log Browser` will be populated using the `mongo-pump-selective` pump below.
 
-This collection [should be capped](/docs/tyk-configuration-reference/tyk-pump-configuration/#capping-analytics-data) due to the number of individual documents.
+This collection [should be capped](/docs/tyk-configuration-reference/tyk-pump-configuration/tyk-pump-configuration/#capping-analytics-data) due to the number of individual documents.
 
 ```{.json}
 {
