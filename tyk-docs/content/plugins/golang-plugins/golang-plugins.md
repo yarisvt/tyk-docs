@@ -141,10 +141,10 @@ We see that the upstream target has received the header `"Foo": "Bar"` which was
 ### Types of custom middleware hooks supported by Tyk Golang plugins
 All four types of custom middleware are supported by Tyk Golang plugins. They represent different request stages where Golang plugins can be added as part of the middleware chain. Let's recap the meaning of all four types:
 
-* `"pre"` - contains array of middle-wares to be run before any others (i.e. before authentication).
+* `"pre"` - contains array of middlewares to be run before any others (i.e. before authentication).
 * `"auth_check"` - contains only one middleware info, his middleware performs custom authentication and adds API key session info into request context.
-* `"post_auth_check"` - contains array of middle-wares to be run after authentication, at this point we have authenticated session API key for the given key (in request context) so we can perform any extra checks.
-* `"post"` - contains array of middle-wares to be run at the very end of middle-ware chain, at this point Tyk is about to request a round-trip to the upstream target.
+* `"post_auth_check"` - contains array of middlewares to be run after authentication, at this point we have authenticated session API key for the given key (in request context) so we can perform any extra checks.
+* `"post"` - contains array of middlewares to be run at the very end of middleware chain, at this point Tyk is about to request a round-trip to the upstream target.
 
 #### Custom Auth Hook
 `"auth_check"` can be used only if both fields in the Tyk API definition are set:
@@ -313,7 +313,7 @@ func MyPluginAuthCheck(rw http.ResponseWriter, r *http.Request) {
     return
   }
 
-  // auth was successful, add session and key to request's context so other middle-wares can use it
+  // auth was successful, add session and key to request's context so other middlewares can use it
   ctx.SetSession(r, session, key, true)
 }
 
