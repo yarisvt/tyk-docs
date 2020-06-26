@@ -3,7 +3,7 @@ date: 2017-03-24T13:07:00Z
 title: Plugin Bundles
 menu:
   main:
-    parent: "Rich Plugins"
+    parent: "How To Serve Plugins"
 weight: 3 
 aliases:
   - /plugins/rich-plugins/plugin-bundles
