@@ -1,6 +1,6 @@
 ---
 date: 2017-03-24T12:59:42Z
-title: Plugins
+title: Custom Plugins
 menu: "main"
 weight: 80
 url: "/plugins"
