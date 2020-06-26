@@ -7,10 +7,10 @@ menu:
 weight: 20
 ---
 
-Since Tyk 3.0 we have incorporated response hooks, this type of hook allows you to modify the response object before its being sent to the client. The flow is follows:
+Since Tyk 3.0 we have incorporated response hooks, this type of hook allows you to modify the response object returned by the upstream. The flow is follows:
 
 - Tyk receives the request.
-- Tyk runs the full middleware chain, including any other rich plugins hooks like Pre, Post, Custom Authentication, etc.
+- Tyk runs the full middleware chain, including any other plugins hooks like Pre, Post, Custom Authentication, etc.
 - Tyk sends the request to your upstream API.
 - The request is received by Tyk and the response hook is triggered.
 - Your plugin modifies the response and sends it back to Tyk.

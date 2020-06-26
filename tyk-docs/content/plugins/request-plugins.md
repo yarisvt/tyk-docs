@@ -7,7 +7,7 @@ menu:
 weight: 10
 ---
 
-There are 3 different phases in the [request lifecycle](/docs/getting-started/key-concepts/middleware-execution-order/) you can inject custom plugins, 4 if you include [Authentication plugins](/docs/plugins/auth-plugins/).  There are performance advantages to picking the correct phase, and of course that depends on your use case and what functionality you need.
+There are 4 different phases in the [request lifecycle](/docs/getting-started/key-concepts/middleware-execution-order/) you can inject custom plugins, including [Authentication plugins](/docs/plugins/auth-plugins/).  There are performance advantages to picking the correct phase, and of course that depends on your use case and what functionality you need.
 
 ### Hook Capabilities
 | Functionality           |   Pre    |  Auth       | Post-Auth |    Post   |
@@ -15,12 +15,16 @@ There are 3 different phases in the [request lifecycle](/docs/getting-started/ke
 | Can modify the Header   | ✅       | ✅          | ✅       | ✅  
 | Can modify the Body     | ✅       | ✅          | ✅       |✅
 | Can modify Query Params | ✅       | ✅          | ✅       |✅
-| Can view Token Details  |          | ✅          |✅          |✅
-| Can modify Token (metadata, quota, context-vars, tags, etc)|          | ✅          |          |
+| Can view Session<sup>1</sup> Details (metadata, quota, context-vars, tags, etc)  |   ❌       | ✅          |✅          |✅
+| Can modify Session<sup>1</sup> |    ❌      | ✅          |    ❌      |❌
+| Can Add More Than One<sup>2</sup> |    ✅      |        ❌   |✅          | ✅
 
+[1] A [Session object](/docs/getting-started/key-concepts/what-is-a-session-object/) contains allowances and identity information that is unique to each requestor
+
+[2] For select hook locations, you can add more than one plugin.  For example, in the same API request, you can have 3 Pre, 1 auth, 5 post-auth, and 2 post plugins.
 
 ### Return Overrides / ReturnOverrides  
-You can have your plugin finish the request lifecycle and return a response to the requestor.
+You can have your plugin finish the request lifecycle and return a response with custom  payload & headers to the requestor.
 
 [Read more here](/docs/plugins/supported-languages/rich-plugins/rich-plugins-data-structures/#returnoverrides-coprocess_return_overridesproto)
 
