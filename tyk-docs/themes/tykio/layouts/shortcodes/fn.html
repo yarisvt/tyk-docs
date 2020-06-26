@@ -1,0 +1,10 @@
+{{ $term := (or (.Get 0) .Inner) | string | lower }}
+{{ $term_counter := (.Page.Scratch.Get (print "footnote-count-" $term) )}}
+{{ if $term_counter }}
+{{ else }}
+	{{ .Page.Scratch.Add "footnote-count" 1 }}
+	{{ $term_counter = (.Page.Scratch.Get "footnote-count") }}
+	{{ .Page.Scratch.Set (print "footnote-count-" $term) $term_counter}}
+{{end}}
+{{ .Page.Scratch.SetInMap "footnote-content" $term $term }}
+{{.Inner}}<sup id="fnref:{{$term_counter}}"><a href="#fn:{{$term_counter}}" class="footnote-ref" role="doc-noteref">{{$term_counter}}</a></sup> 

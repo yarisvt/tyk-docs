@@ -21,7 +21,7 @@ Set up your API to use Auth Token as the Authentication Mode and set the Authori
 
 Tyk can act as a full blown OAuth 2.0 provider for Authorisation an access tokens, and all your application would need to integrate with is Tyk's API and notification endpoints.
 
-<iframe width="870" height="480" src="https://www.youtube.com/embed/C4CUDTIHynk" frameborder="0" gesture="media" allowfullscreen></iframe>
+{{< youtube C4CUDTIHynk >}}
 
 Tyk supports the following grant types:
 

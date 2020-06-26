@@ -9,7 +9,7 @@ weight: 1
 
 To create a free Tyk Cloud account:
 
-Visit our Tyk [Cloud Signup Page](https://cloud.tyk.io) and enter your details:
+Visit our Tyk [Cloud Signup Page](https://signup.tyk.io/api-gateway/cloud/) and enter your details:
 
 ![Tyk Cloud signup form][2]
 
