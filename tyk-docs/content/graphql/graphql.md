@@ -3,8 +3,7 @@ title: "GraphQL"
 date: 2020-06-03
 weight: 200
 menu: "main"
-aliases:
-    - /graphql/graphql/
+url: "/graphql"
 ---
 
 Tyk supports GraphQL **natively**. This means Tyk doesn't have to use any external service or process for any GraphQL middleware. 
