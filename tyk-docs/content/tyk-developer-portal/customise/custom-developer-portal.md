@@ -9,7 +9,7 @@ weight: 5
 ---
 > **Note**: This functionality is available from v2.3.8
 
-## <a name="why"></a> Why Build a Custom Developer Portal?
+## Why Build a Custom Developer Portal?
 
 The Tyk Dashboard includes portal functionality by default, but in some cases it is required to use custom logic or, for example, embed the portal into an existing platform. Thankfully Tyk is flexible enough to provide an easy way of integrating the portal to any platform and language using a few API calls.
 
@@ -19,7 +19,7 @@ A video covering the process of building a custom portal is available to view he
 
 {{< youtube elrAEp1EZ_s >}}
 
-## <a name="building-blocks"></a> Building Blocks
+## Building Blocks
 
 Before starting work on implementing a custom developer portal, let's understand the basic building blocks.
 

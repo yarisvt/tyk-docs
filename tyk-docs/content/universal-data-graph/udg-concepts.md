@@ -15,3 +15,7 @@ UDG comes with a fully spec compliant GraphQL engine that you don't have to code
 
 For that you have to define your "DataSources" and might want to add "Field Mappings" as well as "Arguments" to your configuration.
 Read on in the sub sections to understand the full picture to use UDG to its full potential.
+
+To help you, we have put together the following video.
+
+{{< youtube Z2kTqpxcv-E >}}
