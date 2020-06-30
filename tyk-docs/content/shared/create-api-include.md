@@ -1,10 +1,13 @@
+---
+---
+
 <!-- START OMIT -->
 
 ## Tutorial: Create an API with the Dashboard
 
 We have a video walkthrough for creating an API and testing an endpoint via Postman.
 
-<iframe width="870" height="480" src="https://www.youtube.com/embed/qJOHn8BuMpw" frameborder="0" frameborder="0" gesture="media" allowfullscreen></iframe>
+{{< youtube qJOHn8BuMpw >}}
 
 We will use the Tyk Dashboard to create a very simple API that has no special elements set up.
 
