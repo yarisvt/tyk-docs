@@ -135,3 +135,13 @@ $ curl 'localhost:8080/waf/ip?param="><script>alert(1);</script>
     "error": "Bad request!"
 }
 ```
+
+#### Disclaimer
+
+This is NOT a production ready plugin because 
+
+* The JS plugin creates a new connection with the WAF for every request
+* The request is not sent over SSL
+* The WAF is only sent the query params for inspection.
+
+For higher performance, the plugin could be written in GoLang, and a connection pool would be opened and maintained over SSL
