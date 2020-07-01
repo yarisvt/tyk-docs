@@ -9,13 +9,13 @@ weight: 10
 
 ### Use Case
 
-Traditionally, a WAF would be the first layer requests would hit, before reaching the API  gateway.  This is not possible if the Gateway has to terminate SSL, for things such as mTLS.
+Traditionally, a Web Application Firewall (WAF) would be the first layer requests would hit, before reaching the API  gateway.  This is not possible if the Gateway has to terminate SSL, for things such as mTLS.
 
 So what do you do if you still want to run your requests through a WAF to automatically scan for malicious action?  We incorporate a WAF as part of the request lifecycle by using Tyk's plugin architecture.
 
 ### Prerequisites
 
-* Already running Tyk, CE or Pro
+* Already running Tyk -  Community Edition or Pro
 * Docker, to run the WAF
 
 ### 1. Turn JSVM on your `tyk.conf` at the root level:
@@ -140,8 +140,8 @@ $ curl 'localhost:8080/waf/ip?param="><script>alert(1);</script>
 
 This is NOT a production ready plugin because 
 
-* The JS plugin creates a new connection with the WAF for every request
+* The JavaScript plugin creates a new connection with the WAF for every request
 * The request is not sent over SSL
 * The WAF is only sent the query params for inspection.
 
-For higher performance, the plugin could be written in GoLang, and a connection pool would be opened and maintained over SSL
+For higher performance, the plugin could be written in Golang, and a connection pool would be opened and maintained over SSL
