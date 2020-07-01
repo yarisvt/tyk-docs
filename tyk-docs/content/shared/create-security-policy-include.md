@@ -12,7 +12,8 @@ See [What is a Security Policy?](/docs/getting-started/key-concepts/what-is-a-se
 
 We have a video walkthrough for creating an security policy with the Dashboard.
 
-<iframe width="870" height="480" src="https://www.youtube.com/embed/y4xVUvUvFRE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+{{< youtube y4xVUvUvFRE >}}
+
 
 To create a security policy with the Dashboard, follow these steps:
 
