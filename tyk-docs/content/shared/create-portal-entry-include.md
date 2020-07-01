@@ -5,7 +5,8 @@
 
 You can use the Tyk Dashboard to create a portal that allows developers to access the APIs you create.
 
-<iframe width="870" height="480" src="https://www.youtube.com/embed/cywF9Dvg6lI" frameborder="0" gesture="media" allowfullscreen></iframe>
+{{< youtube cywF9Dvg6lI >}}
+
 
 ### Prerequisites for a portal catalogue entry:
 
