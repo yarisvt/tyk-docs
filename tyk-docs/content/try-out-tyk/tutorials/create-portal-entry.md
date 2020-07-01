@@ -11,16 +11,15 @@ weight: 4
 
 
 
-{{% tabs_start %}}
-{{% tab_start "Cloud" %}}
+{{< tabs_start >}}
+{{< tab_start "Cloud" >}}
+{{< include "create-portal-entry-include" >}}
 
-
-{{./static/include/create-portal-entry-include.md}}
-{{% tab_end %}}
-{{% tab_start "Multi-Cloud" %}}
-{{./static/include/create-portal-entry-include.md}}
-{{% tab_end %}}
-{{% tab_start "On-Premises" %}}
+{{< tab_end >}}
+{{< tab_start "Multi-Cloud" >}}
+{{< include "create-portal-entry-include" >}}
+{{< tab_end >}}
+{{< tab_start "On-Premises" >}}
 
 ## Add an API and Swagger based Docs to your Portal Catalogue
 
@@ -90,6 +89,6 @@ Select **Open Your Portal** from the **Your Developer Portal** menu drop-down, a
 > **A note for Docker users**: If you are using Docker, do not use the drop-down, instead, use the domain name you defined when you set up the forward proxy for your domains - if you followed the Docker setup guide, your Dashboard will be on: `www.tyk-portal-test.com`.
 
 
-{{% tab_end %}}
-{{% tabs_end %}}
+{{< tab_end >}}
+{{< tabs_end >}}
 
