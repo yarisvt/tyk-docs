@@ -1194,6 +1194,190 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 }
 ```
 
+### Create a Key Request
+
+| **Property** | **Description**               |
+| ------------ | ----------------------------- |
+| Resource URL | `/api/portal/requests`        |
+| Method       | POST                          |
+| Type         | None                          |
+| Body         | Developer Object              |
+| Param        | None                          |
+
+#### Sample Request
+
+```{.copyWrapper}
+POST /api/portal/requests HTTP/1.1
+Host: localhost
+authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
+
+{
+  "key": "",
+  "org_id": "5e9d9544a1dcd60001d0ed20",
+  "for_api": "",
+  "for_plan": "5ead7120575961000181867e",
+  "apply_policies": [
+    "5ead7120575961000181867e"
+  ],
+  "remove_policies": [],
+  "by_user": "5efdbdb749960c000137f589",
+  "fields": {},
+  "approved": true,
+  "date_created": "2020-07-02T12:47:35.953Z",
+  "version": "v2",
+  "jwt_secret": "",
+  "certificate": "",
+  "portal_developer": {
+    "id": "5efdbdb749960c000137f589",
+    "email": "portal-developer@example.org",
+    "date_created": "2020-07-02T10:57:59.878Z",
+    "inactive": false,
+    "org_id": "5e9d9544a1dcd60001d0ed20",
+    "keys": {
+      "2ac7b253c36e210d": [
+        "5ead7120575961000181867e"
+      ]
+    },
+    "subscriptions": {
+      "5ead7120575961000181867e": "2ac7b253c36e210d"
+    },
+    "fields": {},
+    "nonce": "",
+    "sso_key": "",
+    "password_max_days": 0,
+    "password_updated": "2020-07-02T10:57:59.951Z",
+    "PWHistory": [],
+    "last_login_date": "2020-07-02T12:47:31.837Z"
+  },
+  "catalogue_entry": {
+    "name": "Swagger Petstore",
+    "short_description": "",
+    "long_description": "",
+    "show": true,
+    "api_id": "",
+    "policy_id": "5ead7120575961000181867e",
+    "documentation": "5efdbdb849960c000137f58a",
+    "version": "v2",
+    "is_keyless": false,
+    "config": {
+      "id": "",
+      "org_id": "",
+      "signup_fields": [],
+      "key_request_fields": [],
+      "require_key_approval": false,
+      "redirect_on_key_request": false,
+      "redirect_to": "",
+      "enable_multi_selection": false,
+      "disable_login": false,
+      "disable_signup": false,
+      "disable_auto_login": false,
+      "catalogue_login_only": false,
+      "oauth_usage_limit": -1,
+      "email": "",
+      "mail_options": {
+        "mail_from_name": "",
+        "mail_from_email": "",
+        "email_copy": {
+          "welcome_email": {
+            "enabled": false,
+            "subject": "",
+            "body": "",
+            "sign_off": "",
+            "hide_token_data": false
+          },
+          "key_email": {
+            "enabled": false,
+            "subject": "",
+            "body": "",
+            "sign_off": "",
+            "hide_token_data": false
+          },
+          "reset_password_email": {
+            "enabled": false,
+            "subject": "",
+            "body": "",
+            "sign_off": "",
+            "hide_token_data": false
+          }
+        }
+      },
+      "override": false,
+      "HashKeys": false
+    },
+    "fields": {},
+    "auth_type": "authToken"
+  },
+  "catalogues": [{
+    "name": "Swagger Petstore",
+    "short_description": "",
+    "long_description": "",
+    "show": true,
+    "api_id": "",
+    "policy_id": "5ead7120575961000181867e",
+    "documentation": "5efdbdb849960c000137f58a",
+    "version": "v2",
+    "is_keyless": false,
+    "config": {
+      "id": "",
+      "org_id": "",
+      "signup_fields": [],
+      "key_request_fields": [],
+      "require_key_approval": false,
+      "redirect_on_key_request": false,
+      "redirect_to": "",
+      "enable_multi_selection": false,
+      "disable_login": false,
+      "disable_signup": false,
+      "disable_auto_login": false,
+      "catalogue_login_only": false,
+      "oauth_usage_limit": -1,
+      "email": "",
+      "mail_options": {
+        "mail_from_name": "",
+        "mail_from_email": "",
+        "email_copy": {
+          "welcome_email": {
+            "enabled": false,
+            "subject": "",
+            "body": "",
+            "sign_off": "",
+            "hide_token_data": false
+          },
+          "key_email": {
+            "enabled": false,
+            "subject": "",
+            "body": "",
+            "sign_off": "",
+            "hide_token_data": false
+          },
+          "reset_password_email": {
+            "enabled": false,
+            "subject": "",
+            "body": "",
+            "sign_off": "",
+            "hide_token_data": false
+          }
+        }
+      },
+      "override": false,
+      "HashKeys": false
+    },
+    "fields": {},
+    "auth_type": "authToken"
+  }]
+}
+```
+
+#### Sample Response
+
+```
+{
+  "Status": "OK",
+  "Message": "5efde61749960c000137f590",
+  "Meta": null
+}
+```
+
 ### Update a Key Request
 
 | **Property** | **Description**            |
@@ -1207,16 +1391,174 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 #### Sample Request
 
 ```{.copyWrapper}
-UPDATE /api/portal/requests/KEYID HTTP/1.1
+UPDATE /api/portal/requests/5efde61749960c000137f590 HTTP/1.1
 Host: localhost
 authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
+
+{
+  "key": "",
+  "org_id": "5e9d9544a1dcd60001d0ed20",
+  "for_api": "",
+  "for_plan": "5ead7120575961000181867e",
+  "apply_policies": [
+    "5ead7120575961000181867e"
+  ],
+  "remove_policies": [],
+  "by_user": "5efdbdb749960c000137f589",
+  "fields": {},
+  "approved": true,
+  "date_created": "2020-07-02T12:47:35.953Z",
+  "version": "v2",
+  "jwt_secret": "",
+  "certificate": "",
+  "portal_developer": {
+    "id": "5efdbdb749960c000137f589",
+    "email": "portal-developer@example.org",
+    "date_created": "2020-07-02T10:57:59.878Z",
+    "inactive": false,
+    "org_id": "5e9d9544a1dcd60001d0ed20",
+    "keys": {
+      "2ac7b253c36e210d": [
+        "5ead7120575961000181867e"
+      ]
+    },
+    "subscriptions": {
+      "5ead7120575961000181867e": "2ac7b253c36e210d"
+    },
+    "fields": {},
+    "nonce": "",
+    "sso_key": "",
+    "password_max_days": 0,
+    "password_updated": "2020-07-02T10:57:59.951Z",
+    "PWHistory": [],
+    "last_login_date": "2020-07-02T12:47:31.837Z"
+  },
+  "catalogue_entry": {
+    "name": "Swagger Petstore",
+    "short_description": "",
+    "long_description": "",
+    "show": true,
+    "api_id": "",
+    "policy_id": "5ead7120575961000181867e",
+    "documentation": "5efdbdb849960c000137f58a",
+    "version": "v2",
+    "is_keyless": false,
+    "config": {
+      "id": "",
+      "org_id": "",
+      "signup_fields": [],
+      "key_request_fields": [],
+      "require_key_approval": false,
+      "redirect_on_key_request": false,
+      "redirect_to": "",
+      "enable_multi_selection": false,
+      "disable_login": false,
+      "disable_signup": false,
+      "disable_auto_login": false,
+      "catalogue_login_only": false,
+      "oauth_usage_limit": -1,
+      "email": "",
+      "mail_options": {
+        "mail_from_name": "",
+        "mail_from_email": "",
+        "email_copy": {
+          "welcome_email": {
+            "enabled": false,
+            "subject": "",
+            "body": "",
+            "sign_off": "",
+            "hide_token_data": false
+          },
+          "key_email": {
+            "enabled": false,
+            "subject": "",
+            "body": "",
+            "sign_off": "",
+            "hide_token_data": false
+          },
+          "reset_password_email": {
+            "enabled": false,
+            "subject": "",
+            "body": "",
+            "sign_off": "",
+            "hide_token_data": false
+          }
+        }
+      },
+      "override": false,
+      "HashKeys": false
+    },
+    "fields": {},
+    "auth_type": "authToken"
+  },
+  "catalogues": [{
+    "name": "Swagger Petstore",
+    "short_description": "",
+    "long_description": "",
+    "show": true,
+    "api_id": "",
+    "policy_id": "5ead7120575961000181867e",
+    "documentation": "5efdbdb849960c000137f58a",
+    "version": "v2",
+    "is_keyless": false,
+    "config": {
+      "id": "",
+      "org_id": "",
+      "signup_fields": [],
+      "key_request_fields": [],
+      "require_key_approval": false,
+      "redirect_on_key_request": false,
+      "redirect_to": "",
+      "enable_multi_selection": false,
+      "disable_login": false,
+      "disable_signup": false,
+      "disable_auto_login": false,
+      "catalogue_login_only": false,
+      "oauth_usage_limit": -1,
+      "email": "",
+      "mail_options": {
+        "mail_from_name": "",
+        "mail_from_email": "",
+        "email_copy": {
+          "welcome_email": {
+            "enabled": false,
+            "subject": "",
+            "body": "",
+            "sign_off": "",
+            "hide_token_data": false
+          },
+          "key_email": {
+            "enabled": false,
+            "subject": "",
+            "body": "",
+            "sign_off": "",
+            "hide_token_data": false
+          },
+          "reset_password_email": {
+            "enabled": false,
+            "subject": "",
+            "body": "",
+            "sign_off": "",
+            "hide_token_data": false
+          }
+        }
+      },
+      "override": false,
+      "HashKeys": false
+    },
+    "fields": {},
+    "auth_type": "authToken"
+  }]
+}
 ```
 
 #### Sample Response
 
 ```
 {
-Response here
+  "Status": "OK",
+  "Message": "5efde61749960c000137f590",
+  "Meta": null
 }
 ```
 
@@ -1233,7 +1575,7 @@ Response here
 #### Sample Request
 
 ```{.copyWrapper}
-DELETE /api/portal/requests/KEYID HTTP/1.1
+DELETE /api/portal/requests/5efde61749960c000137f590 HTTP/1.1
 Host: localhost
 authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 ```
@@ -1242,33 +1584,9 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 ```
 {
-Response here
-}
-```
-
-### Create Key Requests
-
-| **Property** | **Description**               |
-| ------------ | ----------------------------- |
-| Resource URL | `/api/portal/requests`        |
-| Method       | POST                          |
-| Type         | None                          |
-| Body         | Developer Object              |
-| Param        | None                          |
-
-#### Sample Request
-
-```{.copyWrapper}
-POST /api/portal/requests HTTP/1.1
-Host: localhost
-authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
-```
-
-#### Sample Response
-
-```
-{
- Response here
+  "Status": "OK",
+  "Message": "Data deleted",
+  "Meta": null
 }
 ```
 
