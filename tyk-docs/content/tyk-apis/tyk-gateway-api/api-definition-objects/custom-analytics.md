@@ -7,4 +7,4 @@ menu:
 weight: 9
 ---
 
-{{% include "api-def-custom-analytics" %}}
+{{< include "api-def-custom-analytics" >}}

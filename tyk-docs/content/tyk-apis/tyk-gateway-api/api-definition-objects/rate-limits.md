@@ -7,4 +7,4 @@ menu:
 weight: 10
 ---
 
-{{% include "api-def-rate-and-quotas" %}}
+{{< include "api-def-rate-and-quotas" >}}

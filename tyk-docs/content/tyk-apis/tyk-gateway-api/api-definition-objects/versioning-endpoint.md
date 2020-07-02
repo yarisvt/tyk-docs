@@ -7,4 +7,4 @@ menu:
 weight: 3
 ---
 
-{{% include "api-def-version" %}}
+{{< include "api-def-version" >}}

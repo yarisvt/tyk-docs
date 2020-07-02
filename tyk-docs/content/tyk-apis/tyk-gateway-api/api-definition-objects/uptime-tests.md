@@ -8,4 +8,4 @@ menu:
 weight: 8
 ---
 
-{{% include "api-def-uptime" %}}
+{{< include "api-def-uptime" >}}

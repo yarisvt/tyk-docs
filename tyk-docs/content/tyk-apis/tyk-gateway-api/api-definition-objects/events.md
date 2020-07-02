@@ -7,4 +7,4 @@ menu:
 weight: 11
 ---
 
-{{% include "api-def-events" %}}
+{{< include "api-def-events" >}}
