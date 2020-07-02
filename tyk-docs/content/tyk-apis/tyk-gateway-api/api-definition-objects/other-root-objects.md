@@ -7,4 +7,4 @@ menu:
 weight: 13
 ---
 
-{{% include "api-def-common" %}}
+{{< include "api-def-common" >}}

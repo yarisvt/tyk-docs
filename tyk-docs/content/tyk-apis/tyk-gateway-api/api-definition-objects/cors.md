@@ -8,4 +8,4 @@ weight: 6
 ---
 
 
-{{% include "api-def-cors" %}}
+{{< include "api-def-cors" >}}

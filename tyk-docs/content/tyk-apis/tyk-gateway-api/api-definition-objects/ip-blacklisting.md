@@ -7,4 +7,4 @@ menu:
 weight: 5
 ---
 
-{{% include "api-def-blacklist" %}}
+{{< include "api-def-blacklist" >}}

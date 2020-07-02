@@ -7,4 +7,4 @@ menu:
 weight: 12
 ---
 
-{{% include "api-def-graphql" %}}
+{{< include "api-def-graphql" >}}

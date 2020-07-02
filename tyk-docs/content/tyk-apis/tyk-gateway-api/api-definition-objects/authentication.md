@@ -7,4 +7,4 @@ menu:
 weight: 1
 ---
 
-{{% include "api-def-authentication" %}}
+{{< include "api-def-authentication" >}}

@@ -7,4 +7,4 @@ menu:
 weight: 4
 ---
 
-{{% include "api-def-proxy" %}}
+{{< include "api-def-proxy" >}}
