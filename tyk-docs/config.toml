@@ -4,14 +4,15 @@ title = "Tyk Documentation"
 theme = "tykio"
 MetaDataFormat = "yaml"
 enableGitInfo = true
-[blackfriday]
-   plainIDAnchors = true
-   hrefTargetBlank = true
 [sitemap]
   changefreq = "daily"
   priority = 0.5
   filename = "sitemap.xml"
 [markup]
+  defaultMarkdownHandler = "goldmark"
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
   [markup.highlight]
     codeFences = true
     guessSyntax = true
@@ -22,5 +23,8 @@ enableGitInfo = true
     noClasses = true
     style = "manni"
     tabWidth = 2
+  [markup.blackfriday]
+   plainIDAnchors = true
+   hrefTargetBlank = true
 [frontmatter]
 lastmod = ["lastmod", ":git", "date", "publishDate"]
