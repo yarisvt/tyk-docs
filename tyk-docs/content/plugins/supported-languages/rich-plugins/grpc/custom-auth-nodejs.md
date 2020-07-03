@@ -9,13 +9,13 @@ aliases:
   -  "/plugins/rich-plugins/grpc/custom-auth-nodejs"
 ---
 
-## <a name="introduction"></a>Introduction
+## Introduction
 
 This tutorial will guide you through the creation of a custom authentication plugin for Tyk with a gRPC based plugin written in NodeJS.
 
 For additional information about gRPC, check the official documentation [here](https://grpc.io/docs/guides/index.html).
 
-## <a name="Requirements"></a>Requirements
+## Requirements
 
 * Tyk Gateway: This can be installed using standard package management tools like Yum or APT, or from source code. See [here](https://tyk.io/docs/get-started/with-tyk-on-premise/installation/) for more installation options.
 * The Tyk CLI utility, which is bundled with our RPM and DEB packages, and can be installed separately from [https://github.com/TykTechnologies/tyk-cli](https://github.com/TykTechnologies/tyk-cli)
@@ -23,11 +23,11 @@ For additional information about gRPC, check the official documentation [here](h
 * * NodeJS v6.x.x [https://nodejs.org/en/download/](https://nodejs.org/en/download/) 
 
 
-## <a name="what-is-grpc"></a>What is gRPC?
+## What is gRPC?
 
 gRPC is a very powerful framework for RPC communication across different languages. It was created by Google and makes heavy use of HTTP2 capabilities and the Protocol Buffers serialization mechanism.
 
-## <a name="why-use-it"></a>Why Use it for Plugins?
+## Why Use it for Plugins?
 When it comes to built-in plugins, we have been able to integrate several languages like Python, JavaScript & Lua in a native way: this means the middleware you write using any of these languages runs in the same process. For supporting additional languages we have decided to integrate gRPC connections and perform the middleware operations outside of the Tyk process. The flow of this approach is as follows: 
 
 * Tyk receives a HTTP request.
@@ -39,7 +39,7 @@ The sample code that we'll use implements a very simple authentication layer usi
 
 ![gRPC Auth Diagram][5]
 
-## <a name="create"></a>Create the Plugin
+## Create the Plugin
 
 ### Setting up the NodeJS Project
 
@@ -164,7 +164,7 @@ node main.js
 The gRPC server will listen on port `5555` (see the `listenAddr` constant). In the next steps we'll setup the plugin bundle and modify Tyk to connect to our gRPC server.
 
 
-## <a name="bundle"></a>Setting up the Plugin Bundle
+## Setting up the Plugin Bundle
 
 We need to create a manifest file within the `tyk-plugin` directory. This file contains information about our plugin and how we expect it to interact with the API that will load it. This file should be named `manifest.json` and needs to contain the following:
 
@@ -205,14 +205,14 @@ For more information on the Tyk CLI tool, see [here](/docs/plugins/rich-plugins/
 
 You should now have a `bundle.zip` file in the `tyk-plugin` directory.
 
-## <a name="publish"></a>Publish the Plugin
+## Publish the Plugin
 
 To publish the plugin, copy or upload `bundle.zip` to a local web server like Nginx, Apache or storage like Amazon S3. For this tutorial we'll assume you have a web server listening on `localhost` and accessible through `http://localhost`.
 
-{{% include "grpc-include" %}}
+{{< include "grpc-include" >}}
 
 
-## <a name="next"></a>What's Next?
+## What's Next?
 
 In this tutorial we learned how Tyk gRPC plugins work. For a production-level setup we suggest the following:
 
