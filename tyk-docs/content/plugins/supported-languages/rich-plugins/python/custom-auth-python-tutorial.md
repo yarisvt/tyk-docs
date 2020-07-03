@@ -110,7 +110,7 @@ When the server is started our current working directory is used as the web root
 The Tyk Gateway fetches and loads a plugin bundle during startup time and subsequent reloads. For updating plugins using the hot reload feature, you should use different plugin bundle names as we expect them to be used for versioning purposes, e.g. bundle-1, bundle-2, etc.
 If a bundle already exists, Tyk will skip the download process and load the version that's already present.
 
-## Configuring Tyk
+## Configure Tyk
 
 You will need to modify the Tyk global configuration file (`tyk.conf`) to use Python plugins. The following block should be present in this file:
 
@@ -132,7 +132,7 @@ You will need to modify the Tyk global configuration file (`tyk.conf`) to use Py
 * `bundle_base_url`: This is a base URL that will be used to download the bundle. You should replace the `bundle_base_url` with the appropriate URL of the web server that's serving your plugin bundles. For now HTTP and HTTPS are supported but we plan to add more options in the future (like pulling directly from S3 buckets). We use the URL that's exposed by the test HTTP server in the previous step.
 * `public_key_path`: Modify `public_key_path` in case you want to enforce the cryptographic check of the plugin bundle signatures. If the `public_key_path` isn't set, the verification process will be skipped and unsigned plugin bundles will be loaded normally.
 
-## Configuring the API
+## Configure an API Definition
 
 There are two important parameters that we need to add or modify in the API definition.
 The first one is `custom_middleware_bundle` which must match the name of the plugin bundle file. If we keep this with the default name that the Tyk CLI tool uses, it will be `bundle.zip`.
@@ -146,7 +146,7 @@ The second parameter is specific to this tutorial, and should be used in combina
 
 `"enable_coprocess_auth"` will instruct the Tyk gateway to authenticate this API using the associated custom authentication function that's implemented by the plugin.
 
-## Dashboard Configuration Options
+## Configuration via the Tyk Dashboard
 
 To attach the plugin to an API, From the **Advanced Options** tab in the **API Designer** enter **bundle.zip** in the **Plugin Bundle ID** field.
 
@@ -189,7 +189,7 @@ This request will trigger a successful authentication. We are using the token th
 curl http://<IP Address>:8080/my-api/my-path -H 'Authorization: 47a0c79c427728b3df4af62b9228c8ae'
 ```
 
-## <a name="next"></a>What's Next?
+## What's Next?
 
 In this tutorial we learned how Tyk plugins work. For a production-level setup we suggest the following steps:
 
