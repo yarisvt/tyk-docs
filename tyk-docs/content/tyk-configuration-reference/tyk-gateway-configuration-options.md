@@ -222,6 +222,14 @@ This option is required if you desire to use `policies.policy_source` as `servic
 This option is required if you desire to use `policies.policy_source` as `file`.
 Specifies the path of a JSON file containing the available policies.
 
+### policies.allow_explicit_policy_id
+
+As of v2.1, by default, in a Pro installation, Tyk will load Policy IDs and use the internal object-ID as the ID of the policy. This is not portable in cases where the data needs to be moved from installation to installation.
+
+If you set this value to `true`, then the `id` parameter in a stored policy (or imported policy using the REST API of the Dashboard), will be used instead of the internal ID.
+
+This option should only be used when transporting an installation to a new database.
+
 ### health_check
 
 This section enables the configuration of the health-check API endpoint and the size of the sample data cache (in seconds).
@@ -434,14 +442,6 @@ This does not affect rate limiting.
 #### local_session_cache.disable_cached_session_state
 
 By default sessions are set to cache, set this to true to stop Tyk from caching keys locally on the node.
-
-### allow_explicit_policy_id
-
-As of v2.1, by default, in a Pro installation, Tyk will load Policy IDs and use the internal object-ID as the ID of the policy. This is not portable in cases where the data needs to be moved from installation to installation.
-
-If you set this value to `true`, then the `id` parameter in a stored policy (or imported policy using the REST API of the Dashboard), will be used instead of the internal ID.
-
-This option should only be used when transporting an installation to a new database.
 
 ### oauth_token_expire
 
