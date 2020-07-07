@@ -111,6 +111,36 @@ curl -X POST -H "authorization: {API-TOKEN}" \
 
 That's it, Tyk will now load this policy, and you will be able to manage and edit it the same way in your new environment, if you are re-creating tokens in your new environment, then those tokens' ACL does not need to be changed to a new policy ID since the legacy one will always be used as the reference for the policy.
 
+#### Policy IDs in the Dashboard
+
+After migrating a Policy from one environment to another, it is important to note that the **displayed** Policy ID is not going to match.  **That is okay**.  It happens because the Dashboard displays the public `_id`, but the `id` is the important part.
+
+**For example:**
+
+Before
+![Policy ID Before](/docs/img/2.10/policy_id_before.png)
+
+After
+![Policy ID After](/docs/img/2.10/policy_id_after.png)
+
+```
+$ curl dash-host-source/api/portal/policies/
+
+    ....
+    "_id": "5eb1b133e7644400013e54ec",
+    "id": "",
+    "name": "credit score",
+
+$ curl dash-host-target/api/portal/policies/
+
+    ....
+    "_id": "5f03be2ce043fe000177b047",
+    "id": "5eb1b133e7644400013e54ec",
+    "name": "credit score",
+```
+
+As you can see, under the hood, the Policy has been migrated correctly with target Dash saving the proper ID inside `id`.   That is the value that will be referred to inside Key Creation, etc.
+
 ## Use Tyk-Sync
 
 You can also use our new Tyk-Sync tool which allows you to sync your Policies (and APIs) with a Version Control System (VCS). You can then move your Policies between environments. See [Tyk-Sync](/docs/advanced-configuration/manage-multiple-environments/tyk-sync/) for more details.
