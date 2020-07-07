@@ -113,14 +113,14 @@ That's it, Tyk will now load this policy, and you will be able to manage and edi
 
 #### Policy IDs in the Dashboard
 
-After migrating a Policy from one environment to another, it is important to note that the **displayed** Policy ID is not going to match.  **That is okay**.  It happens because the Dashboard displays the [`BSON ObjectId`](https://docs.mongodb.com/manual/reference/glossary/#term-id), which is the `_id` field, but the `id` is the important part.
+After migrating a Policy from one environment to another, it is important to note that the **displayed** Policy ID is not going to match.  **That is okay**.  It happens because Tyk Dashboard displays the [`Mongo ObjectId`](https://docs.mongodb.com/manual/reference/glossary/#term-id), which is the `_id` field, but the `id` is the important part.
 
 **For example:**
 
-Policies in source env
+Policies in source environment
 ![Policy ID Before](/docs/img/2.10/policy_id_before.png)
 
-Policies in target env after migration
+Policies in target environment after migration
 ![Policy ID After](/docs/img/2.10/policy_id_after.png)
 
 Notice that the IDs appear to be different.  These are the BSON IDs and are expected to be different.  But if we look for the underlying GUID `id`, you can see it's been mapped properly in the target environment.
