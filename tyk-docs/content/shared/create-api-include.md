@@ -19,10 +19,14 @@ We will use the Tyk Dashboard to create a very simple API that has no special el
 
 ![Add API button location](/docs/img/2.10/add_api.png)
 
+
 ### Step 3: Set up the Base Configuration for your API
 
-- From the **API Settings** section, add your **API Name**. This will also act as the slug for your **API URL**.
-- From the **Targets** section, add your **Target URL**. This will set the upstream origin that hosts the service you want to proxy to. For this tutorial you can use [http://httpbin.org](http://httpbin.org). If you wish to use more than one target URL you can select **Enable round-robin load balancing**. For this tutorial, we will just use a single upstream target. See [Load Balancing](/docs/ensure-high-availability/load-balancing/) for more details.
+![API Overview](/docs/img/2.10/create-api-type.png)
+
+- From the **Overview** section, add your **API Name** and your API **Type** (We will use REST for this tutorial). 
+- From the **Details** section, add your **Target URL**. This will set the upstream origin that hosts the service you want to proxy to. For this tutorial you can use [http://httpbin.org](http://httpbin.org). If you wish to use more than one target URL you can select **Enable round-robin load balancing**. For this tutorial, we will just use a single upstream target. See [Load Balancing](/docs/ensure-high-availability/load-balancing/) for more details. The API Slug will reflect the name you added in the **Overview** section.
+- Click **Configure API** when you have finished
 
 ### Step 4: Set up the Authentication for your API
 
