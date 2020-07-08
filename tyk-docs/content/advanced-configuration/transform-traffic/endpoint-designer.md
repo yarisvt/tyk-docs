@@ -51,7 +51,7 @@ By default the Blacklist endpoint plugin is case-sensitive, so for example if `g
 
 > **NOTE**: You can also use `ignore_endpoint_case` at a ["global" Tyk level](/docs/tyk-configuration-reference/tyk-gateway-configuration-options/#ignore_endpoint_case) in your `tyk.conf` file and at an individual API level. Those settings will ovverride this setting. This is new for v2.9.4.
 
-![Blacklist options](/docs/static/img/2.10/blacklist.png)
+![Deny ist options](/docs/img/2.10/blacklist.png)
 
 ### Body Transform
 
@@ -87,7 +87,7 @@ By default the Ignore endpoint plugin is case-sensitive, so for example if `getu
 
 > **NOTE**: You can also use `ignore_endpoint_case` at a ["global" Tyk level](/docs/tyk-configuration-reference/tyk-gateway-configuration-options/#ignore_endpoint_case) in your `tyk.conf` file and at an individual API level. Those settings will ovverride this setting. This is new for v2.9.4.
 
-![Blacklist options](/docs/static/img/2.10/ignore.png)
+![Ignore options](/docs/img/2.10/ignore.png)
 
 ### Method Transforms
 
@@ -156,7 +156,7 @@ By default the Whitelist endpoint plugin is case-sensitive, so for example if `g
 
 > **NOTE**: You can also use `ignore_endpoint_case` at a ["global" Tyk level](/docs/tyk-configuration-reference/tyk-gateway-configuration-options/#ignore_endpoint_case) in your `tyk.conf` file and at an individual API level. Those settings will ovverride this setting. This is new for v2.9.4.
 
-![Whitelist options](/docs/img/2.10/whitelist.png)
+![Allow list options](/docs/img/2.10/whitelist.png)
 
 ## Global Settings
 
