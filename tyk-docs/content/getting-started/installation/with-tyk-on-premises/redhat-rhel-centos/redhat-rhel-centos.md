@@ -27,6 +27,8 @@ By default Tyk uses MongoDB. You can also use the following:
 * [DocumentDB](https://aws.amazon.com/documentdb/)
 * [Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/introduction)
 
+> NOTE: If you are using DocumentDB, [capped collections](/docs/analytics-and-reporting/capping-analytics-data-storage/) are not supported. See [here](https://docs.aws.amazon.com/documentdb/latest/developerguide/mongo-apis.html) for more details.
+
 ### Supported Verions of MongoDB and Redis
 
 - MongoDB 3.x and 4.0.x
