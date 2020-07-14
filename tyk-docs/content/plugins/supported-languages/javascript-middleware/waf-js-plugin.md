@@ -1,6 +1,6 @@
 ---
 date: 2017-03-24T15:45:13Z
-title: WAF ModSecurity Plugin using JS
+title: WAF (OSS) ModSecurity Plugin example
 menu:
   main:
     parent: "Javascript Middleware"
@@ -17,6 +17,18 @@ So what do you do if you still want to run your requests through a WAF to automa
 
 * Already running Tyk -  Community Edition or Pro
 * Docker, to run the WAF
+
+### Disclaimer
+
+This is NOT a production ready plugin because 
+
+* The JavaScript plugin creates a new connection with the WAF for every request
+* The request is not sent over SSL
+* The WAF is only sent the query params for inspection.
+
+For higher performance, the plugin could be written in Golang, and a connection pool would be opened and maintained over SSL
+
+## Install Steps
 
 ### 1. Turn JSVM on your `tyk.conf` at the root level:
 
@@ -135,13 +147,3 @@ $ curl 'localhost:8080/waf/ip?param="><script>alert(1);</script>
     "error": "Bad request!"
 }
 ```
-
-#### Disclaimer
-
-This is NOT a production ready plugin because 
-
-* The JavaScript plugin creates a new connection with the WAF for every request
-* The request is not sent over SSL
-* The WAF is only sent the query params for inspection.
-
-For higher performance, the plugin could be written in Golang, and a connection pool would be opened and maintained over SSL
