@@ -43,7 +43,7 @@ Copy the JS Plugin as a local .js file to the Gateway's file system.
 
 From the Gateway root, this will download the plugin called `waf.js` into the `middleware` directory:
 ```
-curl https://gist.githubusercontent.com/sedkis/bae5e39c581d66b87d3ee81086fd95c5/raw/838751553221fddb284d67b027aa16128dda743e/waf.js | cat > middleware/waf.js
+curl https://raw.githubusercontent.com/TykTechnologies/custom-plugins/master/plugins/js-pre-post-waf/waf.js | cat > middleware/waf.js
 ```
 
 (Instructions)
@@ -62,7 +62,7 @@ apps	   entrypoint.sh   install  middleware	templates  tyk-gateway.pid  tyk.conf
 coprocess  event_handlers  js	    policies	tyk	   tyk.conf	    utils
 
 ## Download the plugin
-root@670039a3e0b8:/opt/tyk-gateway# curl https://gist.githubusercontent.com/sedkis/bae5e39c581d66b87d3ee81086fd95c5/raw/838751553221fddb284d67b027aa16128dda743e/waf.js | cat > middleware/waf.js
+root@670039a3e0b8:/opt/tyk-gateway# curl https://raw.githubusercontent.com/TykTechnologies/custom-plugins/master/plugins/js-pre-post-waf/waf.js | cat > middleware/waf.js
 
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -70,12 +70,12 @@ root@670039a3e0b8:/opt/tyk-gateway# curl https://gist.githubusercontent.com/sedk
 
 ```
 
-[waf.js source](https://gist.githubusercontent.com/sedkis/bae5e39c581d66b87d3ee81086fd95c5/raw/838751553221fddb284d67b027aa16128dda743e/waf.js)
+[waf.js source](https://raw.githubusercontent.com/TykTechnologies/custom-plugins/master/plugins/js-pre-post-waf/waf.js)
 
 ### 3. Import API definition into Tyk
 Copy the following Tyk API definition and import it into your environment.
 
-[API Definition JSON](https://gist.githubusercontent.com/sedkis/bae5e39c581d66b87d3ee81086fd95c5/raw/9b72bdbbf962a4906f1e67e8d0a94561a91acaf5/apidef.json)
+[API Definition JSON](https://raw.githubusercontent.com/TykTechnologies/custom-plugins/master/plugins/js-pre-post-waf/apidef.json)
 
 Here's the important section which adds the plugin to the request lifecycle for this API:
 ```{.json}
@@ -89,9 +89,9 @@ Here's the important section which adds the plugin to the request lifecycle for 
 ```
 
 ##### How to Import?
-[Tyk Pro](https://site-dev.tykbeta.com/docs/tyk-configuration-reference/import-apis/#import-apis-via-the-dashboard)
+[Tyk Pro](https://tyk.io/docs/tyk-configuration-reference/import-apis/#import-apis-via-the-dashboard)
 
-[Tyk CE](http://localhost:1313/docs/try-out-tyk/tutorials/create-api/)
+[Tyk CE](https://tyk.io/docs/try-out-tyk/tutorials/create-api/)
 
 ### 4. Run WAF ModSecurity Using Docker
 
