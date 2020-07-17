@@ -41,8 +41,11 @@ What are the limitations to using this programming Language?
 | Built-in SDK                      | ✅	<br>All Gateway Functionality  |[Yes](/docs/plugins/supported-languages/javascript-middleware/javascript-api/)	|❌	|[Yes](/docs/plugins/supported-languages/rich-plugins/python/tyk-python-api-methods/)	|❌
 | TCP Connections<p>(DBs, Redis, etc)</p> | ✅ | ❌<br>Very Limited <sup>5</sup> | ✅ | ✅ | ✅ | 
 
+## Custom Plugin Table
 
-## <a name="plugin-differences"></a>Differences between Rich Plugins and JSVM middleware
+We have put together a [GitHub repo with a table of custom plugins](https://github.com/TykTechnologies/custom-plugins#custom-gateway-plugins) in various languages that you can experiment with. If you would like to submit one that you have developed, feel free to open an issue in the repo.
+
+## Differences between Rich Plugins and JSVM middleware
 The JavaScript Virtual Machine provides pluggable middleware that can modify a request on the fly and are designed to augment a running Tyk process, are easy to implement and run inside the Tyk process in a sandboxed ECMAScript interpreter. This is good, but there are some drawbacks with the JSVM:
 
 *   **Performance**: JSVM is performant, but is not easy to optimise and is dependent on the [otto interpreter](https://github.com/robertkrimen/otto) - this is not ideal. The JSVM also requires a copy of the interpreter object for each request to be made, which can increase memory footprint.
