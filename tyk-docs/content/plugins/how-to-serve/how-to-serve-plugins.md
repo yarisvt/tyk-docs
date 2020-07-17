@@ -4,7 +4,9 @@ title: How To Serve Plugins
 menu:
   main:
     parent: "Custom Plugins"
-url: "plugins/how-to-serve/"
+url: "plugins/how-to-serve-plugins/"
+aliases: 
+  -  "/plugins/how-to-serve"
 ---
 
 If you are using gRPC, [please visit the gRPC section](/docs/plugins/supported-languages/rich-plugins/grpc/) as you don't add plugin files to the Tyk Gateway for it to read, it will simply make a connection to your gRPC server.
