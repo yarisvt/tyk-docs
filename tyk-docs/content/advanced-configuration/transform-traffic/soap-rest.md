@@ -1,5 +1,5 @@
 ---
-title: "Soap to Rest"
+title: "Soap to REST"
 date: 2020-07-10
 menu:
   main:
@@ -10,6 +10,10 @@ weight: 9
 ## Introduction
 
 You can transform an existing SOAP service to a JSON REST service. This can be done from the Tyk Dashboard with no coding involved, and should take around 10 minutes to perform the transform.
+
+We also have a video which walks you through the SOAP to REST transform.
+
+{{< youtube PEwG8F8PxUs >}}
 
 ## Prerequisites
 
@@ -157,4 +161,4 @@ You now need to test the endpoint. We are going to use Postman.
 ```
 Your Postman request should look similar to below (apart from the URL used)
 
-![Postman](/docs/img/2.10/postman_number_conversion.png)
+![Postman](/docs/img/2.10/postman_soap_rest.png)
