@@ -29,7 +29,7 @@ What Language do I want to write my middleware in and can I use it in this phase
 | Python (Rich) <sup>1</sup>| ✅		 |✅	        |✅	      |✅	  |✅
 | Lua (Rich) <sup>1</sup>   | ✅	   |✅	        |✅	      |✅	  |❌
 
-[More reading on the hook locations](/docs/plugins/supported-languages/rich-plugins/rich-plugins-work/#coprocess-dispatcher-hooks)
+[More reading on the hook locations](/docs/plugins/supported-languages/rich-plugins/rich-plugins-work/#coprocess-dispatcher---hooks)
 
 ## Limitations
 
