@@ -43,12 +43,9 @@ An existing SOAP service and the WSDL definition. For this example we will use:
 
 ![Endpoints](/docs/img/2.10/numberservice_endpoints.png)
 
-3. Expand the `NumberToDolllars` endpoint. The following plugins should have been added as part of the import process.
+3. Expand the `NumberToWords` endpoint. The following plugins should have been added as part of the import process.
   - URL rewrite
   - Track endpoint
-
-![NumberToDollars Endpoint](/docs/img/2.10/numbertodollars_plugins.png)
-
 4. Add the following plugins from the **Plugins** drop-down list:
   - Body transform
   - Modify headers
@@ -149,7 +146,7 @@ You now need to test the endpoint. We are going to use Postman.
 
 > NOTE: We have not setup any Authentication for this API, it has defaulted to `Open (Keyless)`.
 
-1. Copy the URL for your NumberConversion API
+1. Copy the URL for your NumberConversion API with the NumberToWords endpoint - `https://tyk-url/numberconversion/NumberToWords/`
 2. Paste it as a POST URL in the Postman URL Request field
 3. Enter the following as a raw Body request
 
