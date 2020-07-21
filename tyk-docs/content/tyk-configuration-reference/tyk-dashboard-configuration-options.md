@@ -573,7 +573,7 @@ If set to `true`, it restricts an account to a single session. When an account l
 
 ### sso_permission_defaults
 
-Specify permissions of the user who logged in using Admin SSO API (for example Tyk Identity Broker). See [Dashboard Admin SSO API](/docs/tyk-apis/tyk-dashboard-api/sso/) for more details.
+Specify permissions of the user who logged in using Admin SSO API (for example Tyk Identity Broker). See [Dashboard Admin SSO API](/docs/tyk-apis/tyk-dashboard-admin-api/sso/) for more details.
 
 ### sso_custom_login_url
 
