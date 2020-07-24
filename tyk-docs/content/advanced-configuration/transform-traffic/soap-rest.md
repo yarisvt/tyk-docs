@@ -1,5 +1,5 @@
 ---
-title: "Soap to REST"
+title: "SOAP to REST"
 date: 2020-07-10
 menu:
   main:
@@ -58,7 +58,7 @@ An existing SOAP service and the WSDL definition. For this example we will use:
 
 ### Set up the Request
 
-We use the `{{.FieldName}}` syntax to access the JSON request. For this template we will use `{{.numberToConvert}}`.
+We use the `{{.FieldName}}` Golang template syntax to access the JSON request. For this template we will use `{{.numberToConvert}}`.
 
 1. Expand the Body transform plugin. From the Request tab, copy the following into the Template section:
 
