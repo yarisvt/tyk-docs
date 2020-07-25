@@ -4,7 +4,7 @@ Title: Endpoint Designer
 menu:
   main:
     parent: "Transform Traffic"
-weight: 9
+weight: 10
 ---
 
 The Endpoint Designer is a powerful and versatile way for you to add specific behaviours to your API. By Default, Tyk will proxy all traffic through the listen path that you have defined.
