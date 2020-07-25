@@ -36,13 +36,13 @@ An existing SOAP service and the WSDL definition. For this example we will use:
 3. Select **From WSDL** from the Import an API Definition window
 4. In the **Upstream Target** field, enter `https://www.dataaccess.com/webservicesserver/numberconversion.wso` as listed in the Prerequisites.
 5. Paste the WSDL definition from the link in Prerequisites (you should remove the `<script>` code from line 2)
-6. Click **Generate API**. You should now have an API named `NumberService` in your API list
+6. Click **Generate API**. You should now have an API named `NumberConversion` in your API list
 
 ![NumberService API](/docs/img/2.10/numberservice_api.png)
 
 ## Step2: Add the transforms to an Endpoint
 
-1. From the API list, select Edit from the Actions menu for the `NumberService` API
+1. From the API list, select Edit from the Actions menu for the `NumberConversion` API
 2. Select the **Endpoint Designer** tab. You should see 2 POST endpoints that were imported. We will apply the transforms to one of the endpoints
 
 ![Endpoints](/docs/img/2.10/numberservice_endpoints.png)
@@ -133,14 +133,21 @@ Again, for the response we will be using the `{{.FieldName}}` syntax as the foll
 We now need to change the `content-type` header to allow the SOAP service to receive the payload in XML. We do this by using the **Modify header** plugin
 
 1. Expand the Modify Header plugin
-2. From the Request tab enter the following in the **Add this header** section
+2. From the **Request** tab enter the following in the **Add this header** section
   - Header Name: `content-type`
-  - Header Value: `text/xlm`
+  - Header Value: `text/xml`
+3. Click Add 
 
-![Modify Header](/docs/img/2.10/add_header_type.png)
+![Modify Header Request](/docs/img/2.10/add_header_type.png)
 
-3. Click **Add**
-4. Click **Update**
+4. From the **Response** tab enter thefollowing in the **Add this header** section
+  - Header Name: `content-type`
+  - Header Value: `application/json`
+
+![Modify Header Response](/docs/img/2.10/modify-header-response.png)
+
+1. Click **Add**
+2. Click **Update**
 
 ![Update API](/docs/img/2.10/update_number_conversion.png)
 
