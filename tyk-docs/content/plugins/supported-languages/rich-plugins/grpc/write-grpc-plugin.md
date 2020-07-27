@@ -9,9 +9,51 @@ aliases:
   -  "/plugins/rich-plugins/grpc/write-grpc-plugin"
 ---
 
-A gRPC plugin uses the standard bundling mechanism that we use for the rest of our rich plugins. The essential difference with a standard rich plugin bundle is that the the bundle contains the actual code, which will be executed by Tyk, whereas a gRPC plugin bundle contains just a custom middleware definition, and you handle the execution of your code independently, e.g. a gRPC server, listening on port 8080.
+## <a name="server"></a> The gRPC server
+
+A gRPC server must be implemented in the language of your choice, we have prepared different tutorials for some of them:
+
+*   [Ruby](https://github.com/TykTechnologies/tyk-plugin-demo-ruby)
+*   [C#/.NET](https://github.com/TykTechnologies/tyk-plugin-demo-dotnet)
+
+## Serving
+You can serve gRPC plugins by simply adding hooks to the `custom_middleware` in the API Definition, or by bundling.  Read more about bundles below.
+
+API Definition example:
+```{.copyWrapper}
+"custom_middleware": {
+    "pre": [
+      {
+        "name": "MyPreMiddleware"
+      }
+    ],
+    "post": [
+      {
+        "name": "MyPostMiddleware"
+      }
+    ],
+    "auth_check": {
+      "name": "MyAuthCheck"
+    },
+    "driver": "grpc"
+  },
+  ```
+
+  and in the root of your tyk.conf:
+  ```
+  "coprocess_options" : {
+    "enable_coprocess":   true,
+    "coprocess_grpc_server": "tcp://localhost:5555"
+  },
+  ```
+
+  Now Tyk will fire 3 different hooks to your gRPC server hosted on `localhost:5555` in the same API request.
 
 ## <a name="bundle"></a> Bundle
+
+[Bundle reading](/docs/plugins/how-to-serve/plugin-bundles/)
+
+A gRPC plugin can use the standard bundling mechanism that we use for the rest of our rich plugins. The essential difference with a standard rich plugin bundle is that the the bundle contains the actual code, which will be executed by Tyk, whereas a gRPC plugin bundle contains just a custom middleware definition, and you handle the execution of your code independently, e.g. a gRPC server, listening on port 8080.
 
 This is what a manifest could look like:
 
@@ -50,10 +92,3 @@ For Tyk 2.8 and upwards use the bundle functionaliy integrated as part of the Ty
 ```{.copyWrapper}
 tyk bundle build -output mybundle.zip -key mykey.pem
 ```
-
-## <a name="server"></a> The gRPC server
-
-A gRPC server must be implemented in the language of your choice, we have prepared different tutorials for some of them:
-
-*   [Ruby](https://github.com/TykTechnologies/tyk-plugin-demo-ruby)
-*   [C#/.NET](https://github.com/TykTechnologies/tyk-plugin-demo-dotnet)

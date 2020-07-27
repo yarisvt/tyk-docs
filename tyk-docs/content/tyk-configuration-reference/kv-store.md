@@ -70,7 +70,7 @@ The KV system can be used in the following places:
 
 - Configuration file - `tyk.conf`
 - API Definition: currently, only the listen path and target URL
-- Body and URL rewrite.
+- Body transforms and URL rewrites
 
 
 For using inside the Tyk configuration file, target URL and listen path, pls use the following notation:
@@ -82,7 +82,7 @@ For using inside the Tyk configuration file, target URL and listen path, pls use
 | Configuration file              | `secrets://value`                                  |
 
 
-For body and URL rewrites, the prefixes are `$secret_vault.`, `$secret_consul.` and `$secret_conf.`
+For body transforms and URL rewrites, the prefixes are `$secret_vault.`, `$secret_consul.` and `$secret_conf.`
 
 
 > For Vault, you need to specify like

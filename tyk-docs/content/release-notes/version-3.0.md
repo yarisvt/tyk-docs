@@ -42,6 +42,8 @@ When you create, view or edit a key the steps are in a more logical order. We’
 
 See updated tutorials on how to [create a policy](/docs/try-out-tyk/tutorials/create-security-policy) and [keys](/docs/try-out-tyk/tutorials/create-api-key/)
 
+We also have a [blog post](https://tyk.io/the-transformation-of-policies-and-keys/) that explains what we've done, and why we did it.
+
 
 ### Tyk Identity broker now built-in to the Dashboard
 

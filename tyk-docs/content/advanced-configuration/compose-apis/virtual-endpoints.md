@@ -111,3 +111,6 @@ function myVirtualHandler (request, session, config) {
   return TykJsResponse(responseObject, session.meta_data)
 }
 ```
+## Custom Virtual Endpoints Table
+
+We have put together a [GitHub repo with a table of custom virtual endpoints](https://github.com/TykTechnologies/custom-plugins#virtual-endpoints) that you can experiment with. If you would like to submit one that you have developed, feel free to open an issue in the repo.
