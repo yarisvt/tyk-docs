@@ -11,7 +11,7 @@ Moving policies between two (Dashboard) environments is not as easy as moving AP
 
 ### Preparation
 
-First you must set up your new environment to respect explicit policy IDs. To do so, edit the `tyk.conf` and `tyk_analytics.conf` files in your new environment and set the `policies. allow_explicit_policy_id` setting to `true` (the setting is just `allow_explicit_policy_id` at the root level of the Dashboard configuration).
+First you must set up your new environment to respect explicit policy IDs. To do so, edit the `tyk.conf` and `tyk_analytics.conf` files in your new environment and set the `policies. allow_explicit_policy_id` setting to `false` (the setting is just `allow_explicit_policy_id` at the root level of the Dashboard configuration). Also, if you want to retain your `api_id` you are going to need setting `enable_duplicate_slugs` to `true` in your `tyk_analytics.conf`.
 
 ### Step 1: Get your Policy
 
