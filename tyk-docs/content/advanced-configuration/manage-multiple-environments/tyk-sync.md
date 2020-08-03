@@ -43,7 +43,7 @@ dependent tokens continue to have access to your services.
 
 ## Installation
 
-Currently the application is available via Go, Docker and in packagecloud.  To install via Go you must have Go installed and run:
+Currently the application is available via Go, [Docker](https://hub.docker.com/r/tykio/tyk-sync) and [Packagecloud](https://packagecloud.io/tyk/tyk-sync).  To install via Go you must have Go installed and run:
 
 ```
 go get -u github.com/TykTechnologies/tyk-sync
@@ -56,15 +56,15 @@ See our [Tyk-Sync Repo](https://github.com/TykTechnologies/tyk-sync) for more in
 ### Docker:
 
 To install a particular version of `tyk-sync` via docker image please run the command bellow with the appropriate version you want to use. All available versions could be found on the Tyk Sync Docker Hub page here: https://hub.docker.com/r/tykio/tyk-sync/tags
-```
+```{.copyWrapper}
 docker pull tykio/tyk-sync:{version_id}
 ```
 To run `tyk-sync` as a one-off command and display usage options please do:
-```
+```{.copyWrapper}
 docker run -it --rm tykio/tyk-sync:{version_id} help
 ```
 Then the docker image `tyk-sync` can be used in the following way:
-```
+```{.copyWrapper}
 docker run -it --rm tykio/tyk-sync:{version_id} [flags]
 docker run -it --rm tykio/tyk-sync:{version_id} [command]
 ```
@@ -167,7 +167,7 @@ Flags:
 First, we need to extract the data from our Tyk Dashboard, here we `dump` into ./tmp, let's assume this is a git-enabled
 directory
 
-```
+```{.copyWrapper}
 tyk-sync dump -d="http://localhost:3000" -s="b2d420ca5302442b6f20100f76de7d83" -t="./tmp"
 Extracting APIs and Policies from http://localhost:3000
 > Fetching policies
@@ -181,7 +181,7 @@ Done.
 
 If running `tyk-sync` in docker the command above would read
 
-```
+```{.copyWrapper}
 docker run --rm --mount type=bind,source="$(pwd)",target=/opt/tyk-sync/tmp \
  tykio/tyk-sync:v1.1.0-27-gbf4dd2f-3-g04f7740-1-gff89e43 \
  dump \
@@ -192,7 +192,7 @@ docker run --rm --mount type=bind,source="$(pwd)",target=/opt/tyk-sync/tmp \
 
 Next, let's push those changes back to the Git repo on the branch `my-test-branch`:
 
-```
+```{.copyWrapper}
 cd tmp
 git add .
 git commit -m "My dashboard dump"
@@ -201,7 +201,7 @@ git push -u origin my-test-branch
 
 Now to restore this data directly from GitHub:
 
-```
+```{.copyWrapper}
 tyk-sync sync -d="http://localhost:3010" -s="b2d420ca5302442b6f20100f76de7d83" -b="refs/heads/my-test-branch" https://github.com/myname/my-test.git
 Using publisher: Dashboard Publisher
 Fetched 3 definitions
@@ -223,7 +223,7 @@ SYNC Updating Policy: Test policy 1
 
 If running `tyk-sync` in docker the command above would read
 
-```
+```{.copyWrapper}
 docker run --rm \
   --mount type=bind,source="$(pwd)",target=/opt/tyk-sync/tmp \
  tykio/tyk-sync:v1.1.0-27-gbf4dd2f-3-g04f7740-1-gff89e43 \
