@@ -21,7 +21,7 @@ It is possible to enable CORS for certain APIs so users can make browser-based r
     
 The CORS middleware has the following options:
 
-* `CORS.allowed_origins`: A list of origin domains to allow access from....
+* `CORS.allowed_origins`: A list of origin domains to allow access from.
 
 * `CORS.allowed_methods`: A list of methods to allow access via.
 
@@ -38,12 +38,12 @@ the Tyk Portal documentation system will be able to test the API using trial key
 
 * `debug`: If set to `true`, this option produces log files for the CORS middleware.
 
-## Default values
+## Fallback values
 
 Always keep in mind that empty arrays will fallback to some sensible defaults. If you want to avoid this, you will have to provide explicit values.
- * Default values for `CORS.allowed_origins`: 
+ * Fallback values for `CORS.allowed_origins`: 
    * `["*"]`
- * Default values for `CORS.allowed_methods`: 
+ * Fallback values for `CORS.allowed_methods`: 
    * `["GET", "POST", "HEAD"]`
- * Default values for `CORS.allowed_headers`: 
+ * Fallback values for `CORS.allowed_headers`: 
    * `["Origin", "Accept", "Content-Type", "X-Requested-With"]`

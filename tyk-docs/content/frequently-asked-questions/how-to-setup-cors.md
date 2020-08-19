@@ -34,4 +34,4 @@ To allow all headers, you will need to provide `*` (although this is not recomme
 The same can happen with Allowed Origins and Allowed Methods. Read more about it [here](/docs/tyk-apis/tyk-gateway-api/api-definition-objects/cors/).
 
 ### CORS middleware is blocking my authenticated request
-Please make sure that you did allow the `Authorization` header. If you're having trouble on the developer portal with authenticated requests make sure to also allow the `Content-Type` header.
+Please make sure that you did allow the authorization header name (e.g. `Authorization`) or else the request will be blocked by the CORS middleware. If you're having trouble on the developer portal with authenticated requests make sure to also allow the `Content-Type` header.
