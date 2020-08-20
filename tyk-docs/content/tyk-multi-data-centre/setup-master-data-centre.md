@@ -271,7 +271,7 @@ New fields are between the `...` .
 
 `hybrid_enabled:` Allows a worker to login as an organisation member into MDCB
 
-`event_options:` Enables key events such as updates and deletes, to be propagated to the various instance zones. API Definitions and Policies will be propagated by default, as well as the redis key events, meaning that hashed and not hashed keys events will be propagated by default in redis and any config related to `hashed_key_event.redis` or `key_event.redis` will not be taken into consideration.
+`event_options:` Enables key events such as updates and deletes, to be propagated to the various instance zones. API Definitions and Policies will be propagated by default, as well as the Redis key events, meaning that hashed and not hashed key events will be propagated by default in Redis and any config related to `hashed_key_event.redis` or `key_event.redis` will not be taken into consideration.
 
 
 6.Update your organisation with a PUT request to the same endpoint, but this time, passing in your modified `myorg.json` file.
