@@ -64,6 +64,8 @@ Lastly, we add the sections that enforce the RPC Slave mechanism:
 }
 ```
 
+As an optional configuration you can use `key_space_sync_interval` to set the period's length in which the gateway will check for changes in the key space, if this value is not set then by default it will be 10 seconds.
+
 > **NOTE**: if you set `analytics_config.type` to `rpc` - make sure you don't have tyk-pump configured to send analytics via `hybrid` pump type.
 
 The most important elements here are:
