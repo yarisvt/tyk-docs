@@ -7,7 +7,7 @@ menu:
 weight: 0 
 ---
 
-## <a name="mesosphere"></a> Mesosphere Example
+## Mesosphere Example
 
 For integrating service discovery with Mesosphere, you can use the following configuration parameters:
 
@@ -21,7 +21,7 @@ For integrating service discovery with Mesosphere, you can use the following con
   portPath = "ports"
 ```
 
-## <a name="eureka"></a> Eureka Example
+## Eureka Example
 
 For integrating service discovery with Eureka, you can use the following configuration parameters (this assumes that the endpoint will return JSON and not XML, this is achieved by creating an API Definition that injects the header that requests the data type and using this API Definition as the endpoint):
 
@@ -35,7 +35,7 @@ For integrating service discovery with Eureka, you can use the following configu
   portPath = "port.$"
 ```
 
-## <a name="etcd"></a> Etcd Example
+## Etcd Example
 
 For integrating with etcd, you can use the following configurations:
 
@@ -49,7 +49,7 @@ For integrating with etcd, you can use the following configurations:
   portPath = ""
 ```
 
-## <a name="etcd"></a> Zookeeper Example
+## Zookeeper Example
 
 For this, you need to spin up a REST server that communicates with the Zookeeper instance.
 Here is one open source project, ZooREST, that does just that: https://github.com/Difrex/zoorest
@@ -79,7 +79,7 @@ Then, you can use the following Tyk SD configurations:
   portPath = ""
 ```
 
-## <a name="consul"></a> Consul Example
+## Consul Example
 
 For integrating service discovery with Consul, you can use the following configuration parameters:
 
@@ -93,9 +93,13 @@ For integrating service discovery with Consul, you can use the following configu
   portPath = "ServicePort"
 ```
 
-## <a name="linkerd"></a> Linkerd Example
+## Linkerd Example
 
-> **Note**: This configuration is a Tyk Community Contribution.
+{{< note success >}}
+**Note**  
+
+This configuration is a Tyk Community Contribution.
+{{< /note >}}
 
 To integrate Tyk with Linkerd perform the following:
 

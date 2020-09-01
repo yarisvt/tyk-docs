@@ -7,9 +7,14 @@ menu:
 weight: 3 
 ---
 
-## <a name="batch_example"></a>Batch using the /tyk/batch endpoint
+## Batch using the /tyk/batch endpoint
 
-> **NOTE**: Virtual endpoints are not available in the Tyk Cloud Edition.
+{{< note success >}}
+**Note**  
+
+Virtual endpoints are not available in the Tyk Cloud Classic Edition.
+{{< /note >}}
+
 
 ### An Aggregate JS Function
 

@@ -49,7 +49,7 @@ Permissions are set and enforced when they are set on this page. They can either
 
 The user will automatically be created, as will their API Access token, which you will be able to retrieve by opening the user listing page again and selecting the user's username.
 
-## <a name="with-api"></a>Create a Dashboard User with the API
+## Create a Dashboard User with the API
 
 To create a dashboard user with the API, we will first need some Dashboard API Credentials, these can be found in your user detail page, near the bottom of the page:
 
@@ -89,8 +89,8 @@ You will see the following response if the user has been created:
 ```
 
 The user is now active.
-## <a name="reset-password"></a>Resetting a User Password
-> **Note:** This functionality is available from v1.3.6
+## Resetting a User Password
+
 
 You can change your password in these circumstances:
  
@@ -104,14 +104,23 @@ If you have forgotten your password, you can request a password reset email from
 
 Enter your login email address, and you will receive an email with a link that enables you to create a new password.
 
-> **Note:** This link will only be valid for 1000 seconds
+{{< note success >}}
+**Note**  
 
-> **Note:** You will need to configure your [outbound email settings](/docs/configure/outbound-email-configuration/) to enable this feature.
+This link will only be valid for 1000 seconds
+
+You will need to configure your [outbound email settings](/docs/configure/outbound-email-configuration/) to enable this feature.
+{{< /note >}}
+
 
 ### Change Your Password
 If you wish to change your current password, from the **System Management > Users** screen, select **Edit** for your Username.
 
-> **Note:** You will not be able to change the password for other Dashboard users.
+{{< note success >}}
+**Note**  
+
+You will not be able to change the password for other Dashboard users.
+{{< /note >}}
 
 From your user details, click **Reset Password**:
 

@@ -10,7 +10,7 @@ url: "/advanced-configuration/manage-multiple-environments"
 
 It is possible with the Multi-Cloud and the On-Premises version of Tyk to manage multiple environments across data centers. This can be very useful if you have QA, UAT and Production environments that are physically or geographically separate and you want to move API configurations between environments seamlessly.
 
-## <a name="what-is-api-sharding"></a> What is API Sharding ?
+## What is API Sharding ?
 
 It is possible to use tags in various Tyk objects to change the behaviour of a Tyk cluster or to modify the data that is sent to the analytics engine. Tags are free-form strings that can be embedded in Gateway configurations, API definitions, Policies and Individual Keys.
 
@@ -28,9 +28,9 @@ Alternatively, you could use segmentation to have separate API definitions for m
 
 You can use sharding to very quickly publish an API from a `development` system to `staging` or `live`, simply by changing the tags that are applied to an API definition.
 
-With Tyk Community and Tyk Pro, these clusters must all share the same Redis DB.
+With Tyk Community Edition and Tyk Pro, these clusters must all share the same Redis DB.
 
-If you are an Enterprise user, then you can go a step further and use the Tyk Multi Data Center Bridge to have full multi-DC, multi-zone cluster segmentation, and manage APIs in different segments across different database back-ends.
+If you are an Enterprise user, then you can go a step further and use the [Tyk Multi Data Center Bridge](/docs/tyk-multi-data-centre/) to have full multi-DC, multi-zone cluster segmentation, and manage APIs in different segments across different database back-ends.
 
 ### Analytics and Reporting
 
@@ -42,7 +42,12 @@ Policy tags completely replace key tags, these tags are then fed into the analyt
 
 If your API is segmented, node tags will be appended to the analytics data, this will allow you to filter out all traffic going through a specific node or node cluster.
 
-> **Note**: If you set `use_db_app_options.node_is_segmented` to `true` for multiple gateway nodes, you should ensure that `management_node` is set to `false`. This is to ensure visibility for the management node across all APIs. 
+{{< note success >}}
+**Note**  
+
+If you set `use_db_app_options.node_is_segmented` to `true` for multiple gateway nodes, you should ensure that `management_node` is set to `false`. This is to ensure visibility for the management node across all APIs. 
+{{< /note >}}
+
 
 `management_node` is available from v2.3.4 and onwards.
 

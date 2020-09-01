@@ -55,48 +55,63 @@
   <script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js?ver=1.12.0'></script>
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
   <link rel="stylesheet" href="/docs/css/bespoke.css" type="text/css" />
   <link rel="stylesheet" href="/docs/css/docs.css" type="text/css" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <link rel="icon" type="image/png" href="/docs/images/favicon/favicon-32x32.png" sizes="32x32" />
   <link rel="icon" type="image/png" href="/docs/images/favicon/favicon-16x16.png" sizes="16x16" />
   <link rel="shortcut icon" href="/docs/images/favicon/favicon.ico" />
 </head>
 
-<body class="page-documentation">
+<body class="page-documentation {{if not .Params.hideSidebar}}hasSidebar{{end}}">
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NVX4PCL"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
   <header class="header f-14">
-    <a href="https://tyk.io" class="logo" data-turbolinks="false">
-      <img src="https://tyk.io/wp-content/themes/tyk/dist/svg/logo.svg" width="88" height="45"
+    <a href="https://tyk.io" class="logo m-show" data-turbolinks="false">
+      <img src="/docs/img/logo.svg" width="165" height="59"
         alt="Tyk API Gateway and API Management">
     </a>
-    <a href="https://github.com/TykTechnologies/tyk" target="_blank" class="header-github icon-github"></a>
+    <a href="https://github.com/TykTechnologies/tyk" target="_blank" class="header-github m-show">
+      <img src="/docs/img/github.svg" width="59" height="59"
+        alt="Tyk API Gateway and API Management">
+    </a>
+
+    <div class="links-container">
+      <a href="/docs/getting-started/">Quickstart guides</a>
+      <a href="/docs/getting-started/tutorials/">Feature setups</a>
+      <a href="/docs/getting-started/key-concepts/">Concepts/learning</a>
+      <a href="/docs/tyk-apis/">API References</a>
+    </div>
+
+
+    <a href="https://tyk.io/get-started/" target="_blank" class="header-right button button-green">
+      Login
+    </a>
+    <a href="https://support.tyk.io/" target="_blank" class="header-right button button-red">
+      24/7 Support
+    </a>
+    <a href="https://community.tyk.io/" target="_blank" class="header-right" style="padding-top: 0.4em">Community</a>
+
     <button class="m-show burger" data-toggle="show-submenu"></button>
   </header>
 
   <header class="hero" data-turbolinks-permanent>
     <div class="container">
       <div class="hero-sidebyside">
-        <h1 id="doc-icon">
-          <img src="/docs/images/icon-documentation.svg" width="0" height="0" alt="Documentation">
-          Documentation
-        </h1>
-
-         <nav class="hero-text f-16">
+        <nav class="hero-text f-16">
           <div id="searchbox"></div>
           <div id="hits" class="documentation-search-results f-16 roboto"></div>
         </nav>
-        
       </div>
     </div>
   </header>
 
-  <section class="section-page hasSidebar">
+  <section class="section-page {{if not .Params.hideSidebar}}hasSidebar{{end}}">
     <div class="container clear">
+      {{if not .Params.hideSidebar}}
       <aside class="page-submenu roboto" data-turbolinks-permanent>
         <nav class="aside-submenu">
           <div data-tree class="st-treed">
@@ -105,6 +120,24 @@
         </nav>
         <button class="submenu-close overlay-close m-show icon-close" data-toggle="show-submenu"></button>
       </aside>
+      {{else}}
+      <aside class="page-submenu roboto" data-turbolinks-permanent>
+        <nav class="aside-submenu">
+          <div data-tree class="st-treed">
+            <ul>
+              <li><a href="/docs/getting-started/">Quickstart guides</a></li>
+              <li><a href="/docs/getting-started/installation/tutorials/tutorials/">Feature setups</a></li>
+              <li><a href="/docs/getting-started/key-concepts/">Concepts/learning</a></li>
+              <li><a href="/docs/tyk-apis/">API References</a></li>
+              <li><a href="https://community.tyk.io/" target="_blank">Community</a></li>
+              <li><a href="https://tyk.io/get-started/" target="_blank" class="button button-green">Login</a></li>
+              <li><a href="https://support.tyk.io/" target="_blank" class="button button-red">24/7 Support</a></li>
+            </ul>
+          </div>
+        </nav>
+        <button class="submenu-close overlay-close m-show icon-close" data-toggle="show-submenu"></button>
+      </aside>
+      {{end}}
 
       <article class="page-content wysiwyg">
 
@@ -115,20 +148,23 @@
           </div>
           <a class="button grey medium suggest-edit icon-github" target="_blank">Edit on GitHub</a>
         </nav>
-        <h1>{{ if .Params.diffTitle }}
-          {{ .Params.diffTitleName }}
-          {{else}}
-          {{.Title}}
+        {{ if .Params.diffTitle }}
+          {{if .Params.diffTitleName}}
+          <h1>{{ .Params.diffTitleName }}</h1>
           {{ end }}
+        {{else}}
+          <h1>{{.Title}}</h1>
+        {{ end }}
         </h1>
         <div id="main-content">
           {{ block "content" . }}
           {{ .Content }}
           {{ end }}
         </div>
-        <nav class="docs-navigation clear">
-          <a id="previousArticle" class="button outline blue icon-left"></a>
-          <a id="nextArticle" class="button outline blue icon-right"></a>
+        <nav class="docs-navigation clear" {{if .Params.hideSidebar}}style="display: none !important"{{end}}>
+          <a id="previousArticle"></a>
+          <img src="/docs/img/nav-center.png" /> 
+          <a id="nextArticle"></a>
         </nav>
 
         <div class="return-top">
@@ -137,8 +173,6 @@
 
         <a href="javascript:" class="icon-right" id="return-to-top"></a>
       </article>
-
-
     </div>
   </section>
 
@@ -168,9 +202,8 @@
       <nav class="footer-menu f-12">
         <h3 class="f-13">Help</h3>
         <a href="https://community.tyk.io/" target="_blank">Ask a Question</a>
-        <a href="/helpdesk/">Helpdesk</a>
+        <a href="https://support.tyk.io/">24/7 Support</a>
         <a href="https://github.com/TykTechnologies/tyk/issues" target="_blank">Raise a Bug</a>
-        <a href="https://github.com/TykTechnologies/tyk-roadmap" target="_blank">Open Roadmap</a>
       </nav>
 
       <nav class="footer-menu f-12">
@@ -255,6 +288,18 @@
         })
       }
     }, 500)
+  </script>
+
+  <script type="text/javascript">
+    var onResizing = function(event) {
+      if (window.innerWidth < 1000) {
+        $(document.body).addClass("hasSidebar");
+      }
+    };
+
+    $(document).ready(onResizing)
+    $(document).on('load', onResizing)
+    $(document).on('resize', onResizing)
   </script>
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
   <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>

@@ -72,10 +72,14 @@ If you're using Tyk 2.8, you will find the Tyk CLI functionality integrated as p
 ```
 /opt/tyk-gateway/bin/tyk help bundle
 ```
+{{< note success >}}
+**Note**  
 
-> **Note for Go developers**: If you happen to have a working Go environment setup, you can also fetch the bundler tool using `go get`:
-> 
-> `$ go get github.com/TykTechnologies/tyk-cli`
+For Go developers, If you happen to have a working Go environment setup, you can also fetch the bundler tool using `go get`:
+
+`$ go get github.com/TykTechnologies/tyk-cli`
+{{< /note >}}
+
 
 ### Using the bundler tool
 
@@ -93,7 +97,13 @@ $ tyk bundle build
 
 The resulting file will contain all your specified files and a modified `manifest.json` with the right checksum and signature (if required), in ZIP format.
 
-> **Note**: By default, the bundles are signed, if no private key is specified, the program will prompt for a confirmation. Use `-y` to override this (see options below).
+{{< note success >}}
+**Note**  
+
+By default, the bundles are signed, if no private key is specified, the program will prompt for a confirmation. Use `-y` to override this (see options below).
+{{< /note >}}
+
+
 
 The following options are supported:
 
@@ -172,6 +182,10 @@ As a suggestion, you may organize this using a Git commit reference or version n
 Alternatively, you may delete the cached bundle from Tyk manually and then trigger a hot reload to tell Tyk to fetch a new one.  By default, Tyk will store downloaded bundles in this path:
 ` { TYK ROOT } / { CONFIG_MIDDLEWARE_PATH } / bundles `
 
-> **Note**: Remember to set `"enable_coprocess": true` in your `tyk.conf` when using rich plugins!
+{{< note success >}}
+**Note**  
+
+Remember to set `"enable_coprocess": true` in your `tyk.conf` when using rich plugins!
+{{< /note >}}
 
 The bundler tool is an open-source project which you can find on [GitHub](https://github.com/TykTechnologies/tyk-cli).

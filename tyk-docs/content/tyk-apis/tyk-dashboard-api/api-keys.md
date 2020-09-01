@@ -6,8 +6,11 @@ menu:
     parent: "Tyk Dashboard API"
 weight: 3
 ---
+{{< note success >}}
+**Note**  
 
-> Please note that `{api-id}` can either be the internal or external API id.
+`{api-id}` can either be the internal or external API id.
+{{< /note >}}
 
 ### Get a list of Keys
 

@@ -140,8 +140,6 @@ What Tyk does with this data is as follows:
 
 #### Using bound policies with OAuth Client IDs
 
-[As of v2.2]
-
 Instead of passing a `key_rules` parameter when authorizing a client, Tyk can now have an API policy that manages access rules bound to the Client ID doing the accessing, if a bound policy ID is used when generating the OAuth client, when a token is generated for the client then Tyk will generate a token based on the policy data. This is especially useful in generative contexts such as the `client_credentials` grant.
 
 #### Notifications

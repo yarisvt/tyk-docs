@@ -10,7 +10,11 @@ url: "/getting-started/installation/with-tyk-on-premises/with-kubernetes"
 
 There are two main ways to install Tyk on Kubernetes: Via our Helm chart, or manually.
 
-> **NOTE**: Installing Tyk on Kubernetes requires a multi-node Tyk licence. If you are evaluating Tyk on Kubernetes, [contact us](https://tyk.io/about/contact/) to obtain an temporary licence.
+{{< note success >}}
+**Note**
+  
+Installing Tyk on Kubernetes requires a multi-node Tyk licence. If you are evaluating Tyk on Kubernetes, [contact us](https://tyk.io/about/contact/) to obtain an temporary licence.
+{{< /note >}}
 
 ## Prerequisites
 
@@ -76,10 +80,17 @@ This is the preferred (and easiest) way to install Tyk Pro on Kubernetes, it wil
 
 The full instructions on how to [install Tyk via the Helm chart are in the Github Respository](https://github.com/TykTechnologies/tyk-helm-chart)
 
-> The helm chart installs Tyk as a "sharded" deployment, this means that all APIs that get exposed to the outside of the cluster are tagged with the `ingress` tag. If an API is not tagged, it does not get loaded and you may experience `404s`.
-> You can set a tag for your exposed services in the API Designer, under the "Advanced Options" tab, the section called `Segment Tags (Node Segmentation)`, this allows you to add new tags. To make an API public, simply add `ingress` to this section, click the "Add" button, and save the API.
->
-> If you are using an Ingress spec, then the Tyk K8s controller will do this for you.
+{{< note success >}}
+**Note**  
+
+The helm chart installs Tyk as a "sharded" deployment, this means that all APIs that get exposed to the outside of the cluster are tagged with the `ingress` tag. If an API is not tagged, it does not get loaded and you may experience `404s`.
+You can set a tag for your exposed services in the API Designer, under the "Advanced Options" tab, the section called `Segment Tags (Node Segmentation)`, this allows you to add new tags. To make an API public, simply add `ingress` to this section, click the "Add" button, and save the API.
+
+If you are using an Ingress spec, then the Tyk K8s controller will do this for you.
+
+{{< /note >}}
+
+
 
 ## Installing Tyk on Kubernetes Manually
 

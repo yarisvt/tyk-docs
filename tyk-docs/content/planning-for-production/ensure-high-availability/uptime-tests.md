@@ -92,7 +92,12 @@ Or a long form, which allows for a full request to be checked or mocked:
 
 The `body` is Base64 encoded.
 
-> **Note**: using the quick form will not enforce a timeout, while the long form will fail with a 500ms timeout.
+{{< note success >}}
+**Note**  
+
+Using the quick form will not enforce a timeout, while the long form will fail with a 500ms timeout.
+{{< /note >}}
+
 
 ## Configure with the Dashboard
 

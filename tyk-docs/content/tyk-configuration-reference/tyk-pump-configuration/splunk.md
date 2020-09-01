@@ -60,7 +60,11 @@ Make sure to add your token from the previous step into the `collector_token` fi
     }
 }
 ```
-> **NOTE:** Make sure that the `localhost` value matches with your setup. Head on over to our community forum to ask for help if you are stuck  here.
+{{< note success >}}
+**Note**  
+
+Make sure that the `localhost` value matches with your setup. Head on over to our [community forum](https://community.tyk.io/) to ask for help if you are stuck here.
+{{< /note >}}
 
 
 ### 4. Restart Tyk Pump to pickup the Splunk config

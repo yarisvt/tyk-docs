@@ -211,7 +211,12 @@ In order to add new server certificates:
   
 The Domain in this case will be extracted from standard certificate fields: `Subject.CommonName` or `DNSNames`.
 
-> **Note**: this approach only works with the Tyk Gateway at present. Dashboard support has not been implemented yet.
+{{< note success >}}
+**Note**  
+
+This approach only works with the Tyk Gateway at present. Dashboard support has not been implemented yet.
+{{< /note >}}
+
 
 ## Self Signed Certs
 

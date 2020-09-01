@@ -24,25 +24,7 @@ When a developer requests a token, a new Auth token is generated on the linked p
 
 A key request is a record that is generated when a developer requests an access token for an API published in the API Catalogue. The Key request encompasses the following information:
 
-- The policy of which access is being requested
-- The developer doing the requesting
-- The catalogue entry in question
-- The reasoning of why the developer should have access (these are dynamic fields and can be configured)
-
-When a developer requests access to an API Catalogue entry, this key request represents that request for access. The key request can then be acted on, either by the portal itself, or by an administrator. The key request does not grant a token yet, it simply marks the fact that a token has been requested and why.
-
-Once a key request is created, one of two things can be done to it:
-
-- It can be approved: This creates a new token and notifies the developer.
-- It can be declined: In which case the request is deleted.
-
-Tyk enables you to manage this flow in a few ways:
-
-- Auto-approve the key request.
-- Have an admin approve the key-request.
-- Hand off to a third-party system to manage the key-request (e.g. for billing or additional user validation).
-
-A key request can be created using the Dashboard API too, in fact, the Key Request mechanism is a great way to create a mapping between an identity (a developer) and a token, and managing that process.
+Read more about them in the [Key Request section](/docs/tyk-developer-portal/key-requests)
 
 ### Multiple APIs for a single Key Request
 

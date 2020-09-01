@@ -26,7 +26,11 @@ You can define them globally, from the Tyk Gateway configuration file - `tyk.con
 
 For `key-id` you should set the ID returned after you upload the public key using the Certificate API. Additionally, you can just set path to the public key located on your server. You can specify multiple public keys by separating their IDs by a comma.
 
-> **NOTE**: Only public keys in PEM format are supported.
+{{< note success >}}
+**Note**  
+
+Only public keys in PEM format are supported.
+{{< /note >}}
 
 If public keys are not provided by your upstream, you can extract them
 by yourself using the following command:
@@ -38,7 +42,11 @@ If you already have a certificate, and just need to get its public key, you can 
 openssl x509 -pubkey -noout -in cert.pem
 ```
 
-> **NOTE**: Upstream certificates now also have wildcard domain support.
+{{< note success >}}
+**Note**  
+
+Upstream certificates now also have wildcard domain support.
+{{< /note >}}
 
 
 ## Define with the Dashboard

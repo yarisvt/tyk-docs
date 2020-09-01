@@ -23,7 +23,12 @@ The versions fields define the value that Tyk expects to find either in the vers
 
 The target override field will replace the target path that was set in the base configuration for the version. This is not compatible with Service Discovery or Load Balanced settings.
 
-> **Note**: You can also use the target override field to redirect to a different hostname or domain if required.
+{{< note success >}}
+**Note**  
+
+You can also use the target override field to redirect to a different hostname or domain if required.
+{{< /note >}}
+
 
 ## Versioning Mechanisms
 
@@ -211,14 +216,3 @@ By default, Tyk require version information in a header key, a query parameter o
 In many cases a versioned API will have different upstream back-end servers. In order to make it possible to target those servers when a new version flag is detected, you can use the `override_target` option in the version definition to set it to the host you would like to target for the specified version.
 
 See  [API Definition Object Details](/docs/tyk-gateway-api/api-definition-objects/) for details of the the available keys in the API Definition.
-
- 
-
-
- [1]: /docs/img/dashboard/system-management/no_versioning_2.5.png
-
-
-
-
-
-

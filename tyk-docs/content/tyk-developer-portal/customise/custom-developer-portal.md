@@ -7,7 +7,12 @@ menu:
     parent: "Customise"
 weight: 5 
 ---
-> **Note**: This functionality is available from v2.3.8
+{{< note success >}}
+**Note**  
+
+This functionality is available from v2.3.8
+{{< /note >}}
+
 
 ## Why Build a Custom Developer Portal?
 
@@ -34,7 +39,12 @@ To run queries against the Tyk Dashboard API you need to obtain credentials from
 ### API Key Location
 Let's save it to the environment variable to simplify code examples in this guide. All the commands should be run in your terminal.
 
->  **NOTE**: Don't forget to replace TYK_API_KEY=1efdefd6c93046bc4102f7bf77f17f4e with your own value
+{{< note success >}}
+**Note**  
+
+Don't forget to replace TYK_API_KEY=1efdefd6c93046bc4102f7bf77f17f4e with your own value
+{{< /note >}}
+
 
 ### Creating a Developer
 
@@ -82,7 +92,11 @@ curl https://admin.cloud.tyk.io/api/portal/developers/email/apidev%40example.com
 
 By default, the Tyk Developer portal automatically accepts all developer registrations, if they are not completely disabled in the portal configuration.
 
-> **NOTE**: Do not confuse developer registration with key access, if they are registered to the portal, it does not mean they automatically have access to your APIs.
+{{< note success >}}
+**Note**  
+
+Do not confuse developer registration with key access, if they are registered to the portal, it does not mean they automatically have access to your APIs.
+{{< /note >}}
 
 If you want to allow developer registration but add an additional layer of verification, you can use the developer `inactive` attribute to handle it. By default, it is `false`, and you can set it to `true` if additional verification is needed. To make this work, you need to add additional logic to your custom portal code.
 
@@ -120,7 +134,7 @@ curl https://admin.cloud.tyk.io/api/portal/developers/598d4a33ac42130001c1257c \
 {"Status":"OK","Message":"Data updated","Meta":null}
 ```
 
-Note that all non-empty custom fields are shown in the Tyk Dashboard Developer view. Besides, all the keys created for this developer inherit his custom fields, if they are specified in the Portal settings **Signup fields** list.
+Note that all non-empty custom fields are shown in the Tyk Dashboard Developer view. All the keys created for this developer inherit his custom fields, if they are specified in the Portal settings **Signup fields** list.
 
 
 ### Login Workflow: Checking User Credentials

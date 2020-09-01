@@ -54,7 +54,12 @@ curl -X POST \
   -d 'response_type=code&client_id=ed59158fa2344e94b3e6278e8ab85142&redirect_uri=http%3A%2F%2Fexample.com%2Fclient-redirect-uri'
 ```
 
-> **Note**: Because this example uses Tyk Cloud it uses the API id in the URL. For all other scenarios (e.g. On-Premises) you should use the API listen path instead e.g. https:/<your-tyk-dashboard-host>/api/apis/oauth/<your-api-listen-path>/authorize-client/. For the API used in this example it would be https://admin.cloud.tyk.io/api/apis/oauth/oauth-api/authorize-client/.
+{{< note success >}}
+**Note**  
+
+Because this example uses Tyk Cloud it uses the API id in the URL. For all other scenarios (e.g. On-Premises) you should use the API listen path instead e.g. https:/<your-tyk-dashboard-host>/api/apis/oauth/<your-api-listen-path>/authorize-client/. For the API used in this example it would be https://admin.cloud.tyk.io/api/apis/oauth/oauth-api/authorize-client/.
+{{< /note >}}
+
 
 | Request | Value                                                                                                                                                                                                                          |
 | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |

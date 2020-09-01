@@ -34,7 +34,6 @@ The benefit of this approach is scalability and speed - the DRL is much more per
 The DRL can work accurately only if your rate limit is a few times higher then number of your servers. DRL has a built in mechanism to automatically switch to a hard-synchronised rate limiter (a bit slower but more accurate) on a per user basis, if the rate limit is too low. You can control this behaviour using the `drl_threshold` option, which specifies the minimum number of requests PER server, in order to enable the DRL algorithm. By default `drl_threshold`  is set to 5, which means that if you have 3 servers, users with rate limit of > 15 (5 * 3) will use the DRL algorithm, and other users will fallback to the hard-synchronised rate limiter.
 
 ### Global Rate Limiter
-> Supported since Gateway v2.4 and Dashboard v1.4
 
 Using `global_rate_limit` API definition field you can specifies a global API rate limit in the following format: `{"rate": 10, "per": 1}` similar to policies or keys. 
  
@@ -56,7 +55,11 @@ Yes, the rate limiter can be disabled for an API Definition by checking **Disabl
 
 Alternatively, you could also set the values of `Rate` and `Per (Seconds)` to be 0 in the API Designer.
 
-> **Note**: Disabling the rate limiter at the global level does not disable the rate limiting at the key level.  Tyk will enforce the rate limit at the key level regardless of this setting.
+{{< note success >}}
+**Note**  
+
+Disabling the rate limiter at the global level does not disable the rate limiting at the key level.  Tyk will enforce the rate limit at the key level regardless of this setting.
+{{< /note >}}
 
 ### Can I rate limit by IP address?
 

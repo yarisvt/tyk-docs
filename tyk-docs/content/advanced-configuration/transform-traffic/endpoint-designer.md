@@ -11,7 +11,12 @@ The Endpoint Designer is a powerful and versatile way for you to add specific be
 
 If you want to have specific behaviours applied to a path (for example, a header injection), then you can enable the middleware on a path-by-path basis by using matching patterns in the Endpoint Designer.
 
-> **Note**: you do not need to define your whole API in the editor, only those paths you want to manage. The exception to this is if you are using a whitelist, in which case you will need to specify every endpoint as all others will be blocked.
+{{< note success >}}
+**Note**  
+
+You do not need to define your whole API in the editor, only those paths you want to manage. The exception to this is if you are using a whitelist, in which case you will need to specify every endpoint as all others will be blocked.
+{{< /note >}}
+
 
 By default, importing an API using Swagger/OpenAPI or API Blueprint JSON definitions will generate a whitelist.
 
@@ -25,7 +30,12 @@ Your options are:
 - **Relative Path**: The relative path to the target. For example, if your API is listening on an `/api` listen path, and you want to match the `/api/get` URL, in the Endpoint Designer you should match for the `/get` endpoint. It is important to exclude aberrant slashes (`/`) from your path matching, as otherwise the gateway may not match the path correctly. A path can contain wild cards, such as `{id}`, the actual value in the wildcard is not used (it is translated into a regex), however it is useful to make the path more human readable when editing.
 - **Plugin**: A path can belong to multiple plug-ins, these plug-ins define the behaviour you want to impose on the matched request.
 
-> **NOTE**: When using Regular Expressions with the following plugins (Mock Response, Blacklist and Whitelist) you need to add `$` to the end of your URL. This prevents anything following the endpoint being mocked as well. For example, adding `/mock` also means `/mock/somepath` can also be mocked. Using `/mock$` prevents `/somepath` being added and mocked to your endpoint.
+{{< note success >}}
+**Note**  
+
+When using Regular Expressions with the following plugins (Mock Response, Blacklist and Whitelist) you need to add `$` to the end of your URL. This prevents anything following the endpoint being mocked as well. For example, adding `/mock` also means `/mock/somepath` can also be mocked. Using `/mock$` prevents `/somepath` being added and mocked to your endpoint.
+{{< /note >}}
+
 
 ## Available Plugins
 
@@ -49,7 +59,12 @@ Accessing a path which has been blacklisted:
 
 By default the Blacklist endpoint plugin is case-sensitive, so for example if `getuser` is blacklisted, `getUser` and `GetUser` will not be blacklisted. If you select the **Ignore Case** option from the Blacklist plugin settings, `getUser`, `GetUser` and `getuser` will all be blacklisted in the above example.
 
-> **NOTE**: You can also use `ignore_endpoint_case` at a ["global" Tyk level](/docs/tyk-configuration-reference/tyk-gateway-configuration-options/#ignore_endpoint_case) in your `tyk.conf` file and at an individual API level. Those settings will ovverride this setting. This is new for v2.9.4.
+{{< note success >}}
+**Note**  
+
+You can also use `ignore_endpoint_case` at a ["global" Tyk level](/docs/tyk-configuration-reference/tyk-gateway-configuration-options/#ignore_endpoint_case) in your `tyk.conf` file and at an individual API level. Those settings will ovverride this setting. This is new for v2.9.4.
+{{< /note >}}
+
 
 ![Deny ist options](/docs/img/2.10/blacklist.png)
 
@@ -79,13 +94,22 @@ This plugin allows you to ensure that your service always responds within a give
 
 Adding a path to an ignored list means that the path will not be processed for authentication data. This plugin can be very useful if you have a non-secure endpoint (such as a ping) that you don't need secured.
 
-> **NOTE**: Adding a path to an ignore list will bypass all other configuration settings.
+{{< note success >}}
+**Note**  
+
+Adding a path to an ignore list will bypass all other configuration settings.
+{{< /note >}}
+
 
 #### Case Sensitivity
 
 By default the Ignore endpoint plugin is case-sensitive, so for example if `getuser` is ignored, `getUser` and `GetUser` will not be ignored. If you select the **Ignore Case** option from the Ignore plugin settings, `getUser`, `GetUser` and `getuser` will all be ignored in the above example.
 
-> **NOTE**: You can also use `ignore_endpoint_case` at a ["global" Tyk level](/docs/tyk-configuration-reference/tyk-gateway-configuration-options/#ignore_endpoint_case) in your `tyk.conf` file and at an individual API level. Those settings will ovverride this setting. This is new for v2.9.4.
+{{< note success >}}
+**Note**  
+
+You can also use `ignore_endpoint_case` at a ["global" Tyk level](/docs/tyk-configuration-reference/tyk-gateway-configuration-options/#ignore_endpoint_case) in your `tyk.conf` file and at an individual API level. Those settings will ovverride this setting. This is new for v2.9.4.
+{{< /note >}}
 
 ![Ignore options](/docs/img/2.10/ignore.png)
 
@@ -97,7 +121,12 @@ This plugin allows you to change the method of a request. See [Method Transforms
 
 This plugin allows you to mock responses for an API endpoint. This can be useful when creating a new API, or when making a development API available to an external team.
 
-> **Note**: In order for mocks to be enabled, the path must also be in a list. We recommend adding the path to a whitelist. If this isn't done, then the mock will not be saved on an update.
+{{< note success >}}
+**Note**  
+
+In order for mocks to be enabled, the path must also be in a list. We recommend adding the path to a whitelist. If this isn't done, then the mock will not be saved on an update.
+{{< /note >}}
+
 
 **API Blueprint**: If you have imported an API Blueprint definition, and selected the mocks option in the importer, then your whole API will be a white list.
 
@@ -154,7 +183,11 @@ Accessing a path which has **not** been whitelisted:
 
 By default the Whitelist endpoint plugin is case-sensitive, so for example if `getuser` is whitelisted, `getUser` and `GetUser` will not be whitelisted. If you select the **Ignore Case** option from the Whitelist plugin settings, `getUser`, `GetUser` and `getuser` will all be whitelisted in the above example.
 
-> **NOTE**: You can also use `ignore_endpoint_case` at a ["global" Tyk level](/docs/tyk-configuration-reference/tyk-gateway-configuration-options/#ignore_endpoint_case) in your `tyk.conf` file and at an individual API level. Those settings will ovverride this setting. This is new for v2.9.4.
+{{< note success >}}
+**Note**  
+
+You can also use `ignore_endpoint_case` at a ["global" Tyk level](/docs/tyk-configuration-reference/tyk-gateway-configuration-options/#ignore_endpoint_case) in your `tyk.conf` file and at an individual API level. Those settings will ovverride this setting. This is new for v2.9.4.
+{{< /note >}}
 
 ![Allow list options](/docs/img/2.10/whitelist.png)
 
@@ -170,7 +203,7 @@ At the top of the Endpoint Designer you can see which version you are currently 
 
 ## Debugging
 
-The Endpoint Designer has a Debugging tab that allows you to test your endpoints before you publish or update them. You can also use it for testing any middleware plugins you have implemented. Any debugging you create will persist while still in the Endpoint Designer for the current API, enabling you to make changes in the rest of the API settings without losing the debugging scenario.
+The API screen has a Debugging tab that allows you to test your endpoints before you publish or update them. You can also use it for testing any middleware plugins you have implemented. Any debugging you create will persist while still in the current API, enabling you to make changes in the rest of the API settings without losing the debugging scenario.
 
 The Debugging tab consists of the following sections:
 

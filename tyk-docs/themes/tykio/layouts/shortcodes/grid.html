@@ -1,0 +1,11 @@
+<div class="grid {{.Get "type"}}">
+	{{.Inner}}
+
+	{{if .Get "next"}}
+		<a class="badge next" href="{{.Get "next"}}">
+			View more resources&nbsp;<object data="/docs/img/arrows.png" style="display: inline; vertical-align: middle; margin-top: -3px;"></object>
+		</a>
+	{{end}}
+
+	<div style="clear: both"></div>	
+</div>

@@ -15,6 +15,14 @@ What methods are available to enable me to manage my MongoDB analytics storage?
 
 [Size Based Caps](/docs/analytics-and-reporting/capping-analytics-data-storage/#a-name-size-based-cap-a-size-based-cap)
 
-> **NOTE**: Time based caps (TTL indexes) are incompatible with already configured size based caps.
+{{< note success >}}
+**Note**  
 
-> **NOTE**: IF you are using DocumentDB, capped collections are not supported. See [here](https://docs.aws.amazon.com/documentdb/latest/developerguide/mongo-apis.html) for more details.
+Time based caps (TTL indexes) are incompatible with already configured size based caps.
+{{< /note >}}
+
+{{< note success >}}
+**Note**  
+
+If you are using DocumentDB, capped collections are not supported. See [here](https://docs.aws.amazon.com/documentdb/latest/developerguide/mongo-apis.html) for more details.
+{{< /note >}}

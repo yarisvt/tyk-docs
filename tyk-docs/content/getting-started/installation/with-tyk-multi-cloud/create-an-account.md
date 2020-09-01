@@ -7,9 +7,13 @@ menu:
 weight: 1
 ---
 
-> **NOTE**: Tyk Multi-Cloud has superseded our Hybrid offering. See [Tyk Multi-Cloud](https://tyk.io/api-gateway/cloud/#multi-cloud) for more details. You can get a free 30 day trial of Tyk Multi-Cloud.
+{{< note success >}}
+**Note**  
 
-## <a name="create-an-account"></a>Create a Multi-Cloud account
+Tyk Multi-Cloud has superseded our Hybrid offering. See [Tyk Multi-Cloud](https://tyk.io/api-gateway/cloud/#multi-cloud) for more details. You can get a free 1 month trial of Tyk Multi-Cloud.
+{{< /note >}}
+
+## Create a Multi-Cloud account
 
 To create an account with Tyk Multi-Cloud is very quick and free (for 30 days):
 
@@ -19,9 +23,13 @@ Visit our Tyk [Multi-Cloud Signup Page](https://cloud.tyk.io) and enter your det
 
 Your company name will be used to generate your cloud endpoint, this is where your API Developer Portal will be hosted, and also your Tyk Cloud API endpoints for any APIs that you create.
 
-> **Note**: If you change the password in your cloud account page it will not change the password in your dashboard.
+{{< note success >}}
+**Note**  
 
-## <a name="log-into-your-cloud-dashboard"></a>Log into your Cloud Dashboard 
+If you change the password in your cloud account page it will not change the password in your Cloud Dashboard.
+{{< /note >}}
+
+## Log into your Cloud Dashboard 
 
 From your cloud account page click **Login to your dashboard**:
 

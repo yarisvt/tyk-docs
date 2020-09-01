@@ -84,14 +84,19 @@ For using inside the Tyk configuration file, target URL and listen path, pls use
 
 For body transforms and URL rewrites, the prefixes are `$secret_vault.`, `$secret_consul.` and `$secret_conf.`
 
+{{< note success >}}
+**Note**  
 
-> For Vault, you need to specify like
+For Vault, you need to specify like
 ``vault://engine/path/to/secret.actual_secret_name``.
-> 
-> Vault is a little different as per how it keeps secrets, multiple secrets can be under
+
+Vault is a little different as per how it keeps secrets, multiple secrets can be under
 one key.
-> So we use the dot notation for retrieving the exact one we need such as
+
+So we use the dot notation for retrieving the exact one we need such as
 below:
+{{< /note >}}
+
 
 If you want to set local "secrets" section as environment variable, you should use the following notation:
 `TYK_GW_KV_SECRETS=key:value,key2:value2`

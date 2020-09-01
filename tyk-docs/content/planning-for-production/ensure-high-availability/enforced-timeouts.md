@@ -9,7 +9,12 @@ weight: 4
 
 Enforced timeouts are a good way to ensure that your service always responds within a given amount of time, even if a long-running process hangs. This is important in high-availability systems where response performance is crucial so errors can be dealt with cleanly.
 
-> **Note**: If you are using the service discovery option, hard timeouts will force the service discovery module to refresh the host / host list.
+{{< note success >}}
+**Note**  
+
+If you are using the service discovery option, hard timeouts will force the service discovery module to refresh the host / host list.
+{{< /note >}}
+
 
 ### Enabling enforced timeouts in API Definitons
 

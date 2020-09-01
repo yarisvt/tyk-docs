@@ -53,9 +53,13 @@ Tyk will look in the First part of the URL Path for the version information. For
   }
 }
 ```
+{{< note success >}}
+**Note**  
 
-> **NOTE**: Similar to other routers, matching is performed on a first-come-first-served basis.
-> Ensure that specific paths are higher up the list than generic ones.
+Similar to other routers, matching is performed on a first-come-first-served basis.
+
+Ensure that specific paths are higher up the list than generic ones.
+{{< /note >}}
     
 ```
 // In this example, PATH1 will always match, and /do-something will never match
@@ -118,7 +122,12 @@ You can set up the path to handle, and the action type. By default this should b
     
 If you set `action` to `reply` Tyk will override the path and reply with settings defined in the remaining fields. This configuration can be used across all of the different path lists, and can be very useful when used in conjunction with the `white_list` access control list as if it is used exclusively it can be used to mock out an entire API.
     
-> **Note**: Any data that is placed in the 'data' section must be a string, not a JSON object (this could be a JSON string, for example).
+{{< note success >}}
+**Note**  
+
+Any data that is placed in the 'data' section must be a string, not a JSON object (this could be a JSON string, for example).
+{{< /note >}}
+
 
 * `global_headers`: Set global headers to inject using a `key:value` map:
 

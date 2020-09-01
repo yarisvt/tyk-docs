@@ -148,8 +148,11 @@ Similar to API list response
 | Body         | None             |
 | Param        | None             |
 
-> `{id}` can either be the internal or public ID ( see `api_id` in the [sample
-> response](#sample-response-1) )
+{{< note success >}}
+**Note**  
+
+`{id}` can either be the internal or public ID ( see `api_id` in the [sample response](#sample-response-1) )
+{{< /note >}}
 
 #### Sample request
 

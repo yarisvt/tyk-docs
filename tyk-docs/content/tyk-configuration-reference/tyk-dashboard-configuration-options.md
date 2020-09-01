@@ -176,10 +176,19 @@ Setting this value will change the port that Tyk Dashboard listens on. By defaul
 ### tyk_api_config
 
 This section contains details for a Tyk Gateway node that the Tyk Dashboard can speak to. The Dashboard controls Tyk using the Gateway API and only requires visibility to one node, so long as all nodes are using the same API Definitions.
-    
-> **Important**: If the Dashboard cannot see a Tyk node, key management functions will not work properly.
 
-> **Warning**: In a sharded environment, the Gateway node specified in `tyk_api_config` must not be sharded.
+{{< note success >}}
+**Note**  
+
+If the Dashboard cannot see a Tyk node, key management functions will not work properly.
+{{< /note >}}
+
+{{< warning success >}}
+**Warning**  
+
+In a sharded environment, the Gateway node specified in `tyk_api_config` must not be sharded.
+{{< /warning >}}
+
 
 #### tyk_api_config.Host
 
@@ -197,7 +206,12 @@ The secret set in your `tyk.conf` file. This is the key that Tyk Dashboard will 
 
 As of Tyk Gateway **v2.0** and Tyk Dashboard **v1.0** all Tyk API Gateway nodes that are configured to use the Dashboard as a back-end API Definition service (i.e. are managed by a Dashboard) will register with the Dashboard service on load, and claim a node ID that is provided by the license for the Dashboard.
 
- > NOTE: This value should match with the [`node_secret`](/docs/tyk-configuration-reference/tyk-gateway-configuration-options/#a-name-node-secret-a-node-secret) Gateway configuration option value.
+{{< note success >}}
+**Note**  
+
+This value should match with the [`node_secret`](/docs/tyk-configuration-reference/tyk-gateway-configuration-options/#a-name-node-secret-a-node-secret) Gateway configuration option value.
+{{< /note >}}
+
     
 Each node communicates with the Dashboard via a shared secret (this setting) and a nonce to ensure that out-of-band requests cannot be made. Nodes will send a heartbeat every few seconds to notify the Dashboard that they are running.
 
@@ -209,8 +223,13 @@ This purpose of these endpoints is to allow functionality that regular Dashboard
 ### mongo_url
 
 The full URL to your MongoDB instance, this can be a clustered instance if necessary and should include the database and username / password data.
-    
-> **Important**: This should be the same as the credentials that your Tyk installation uses.
+
+{{< note success >}}
+**Note**  
+
+This should be the same as the credentials that your Tyk installation uses.
+{{< /note >}}
+
 
 ### mongo_ssl_insecure_skip_verify
 
@@ -227,8 +246,13 @@ The page size that the dashboard should use. Defaults to `10`. This setting shou
 ### redis_port
 
 The port that your Redis installation listens on.
-    
-> **Important**: The Tyk Dashboard uses Redis to store its session data and to communicate with your Tyk Gateway nodes occasionally. The Redis details used by the dashboard must be the same as those set for your Tyk installation.
+
+{{< note success >}}
+**Note**  
+
+The Tyk Dashboard uses Redis to store its session data and to communicate with your Tyk Gateway nodes occasionally. The Redis details used by the dashboard must be the same as those set for your Tyk installation.
+{{< /note >}}
+
 
 ### redis_host
 
@@ -252,7 +276,11 @@ Set this to `true` if you are using a Redis cluster.
 
 ### redis_hosts
 
-> **Note**: From v1.9.3 `redis_hosts` has been deprecated and replaced by `redis_addrs`
+{{< note success >}}
+**Note**  
+
+From v1.9.3 `redis_hosts` has been deprecated and replaced by `redis_addrs`
+{{< /note >}}
 
 You can also specify multiple Redis hosts here. Tyk will use this array if it is not empty, or it will use the individual legacy parameters above. You can specify multiple `host:port` combinations here.
 
@@ -316,7 +344,12 @@ The name to use when sending emails.
 
 Your public dashboard hostname.
 
-> **Note**: `dashboard_domain` is available from v1.3.6 onwards.
+{{< note success >}}
+**Note**  
+
+`dashboard_domain` is available from v1.3.6 onwards.
+{{< /note >}}
+
 
 ### hide_listen_path
 
@@ -388,8 +421,6 @@ If you prefer to have your URLs start with `https`, set this option to `true`.
 
 This enables HTTPS "secure" cookies.
 
-> **NOTE:** This option is available from v1.3.5 onwards.
-
 ### http_server_options
 
 This section is reserved for settings relating to the HTTP server that powers the Dashboard.
@@ -423,8 +454,6 @@ For more information see [TLS and SSL](/docs/basic-config-and-security/security/
 
 This section controls login limits for both the Dashboard and the Developer Portal. The path for you audit log is also set here.
 
-> **NOTE:** This section is available from v1.3.5 onwards
-
 #### security.login_failure_username_limit
 
 Controls how many time a user can attempt to log in before being denied access. The default is 0.
@@ -457,7 +486,6 @@ Enable browser Content-Security-Policy, e.g. CSP. The default is false.
 
 If CSP enabled, specify space separated string, with list of allowed resources.
 
-> **NOTE** From v1.8 we have included enhancements to password management in the Dashboard
 
 #### security.user_password_max_days
 
@@ -521,8 +549,6 @@ The path to the home directory of Tyk Dashboard, this must be set in order for P
 
 ### dashboard_session_lifetime
 
-As of v1.3.6 you can set session timeout for a Dashboard in seconds. Defaults to 3600 (1 hour).
-
 ### portal_session_lifetime
 
 As of v1.5, you can set portal session life time in seconds.
@@ -552,8 +578,13 @@ The shared secret between TIB and the Dashboard. This ensures all API requests b
 By default in a Pro installation, Tyk will load Policy IDs and use the internal object-ID as the ID of the policy. This is not portable in cases where the data needs to be moved from installation to installation.
     
 If you set this value to `true`, then the `id` parameter in a stored policy (or imported policy using the REST API of the Dashboard) will be used instead of the internal ID.
-    
-> **Note**: This option should only be used when transporting an installation to a new database.
+
+{{< note success >}}
+**Note**  
+
+This option should only be used when transporting an installation to a new database.
+{{< /note >}}
+
 
 ### use_sharded_analytics
 
@@ -590,8 +621,6 @@ As of v1.8, this setting enables the ability to share users across multiple orga
 ### audit
 
 This section specifies settings for audit logging. All Dashboard API requests with URI starting with `/api` will be logged in audit log.
-
-> **NOTE:** `audit` is available from v1.8 onwards
 
 #### audit.enabled
 
@@ -643,4 +672,8 @@ Audit record fields for `text` format - all fields are in plain text separated w
 
 Set to `true` to create users in different organisations, using the same email address. Users will then be able to select an organisation when logging in, and can easily switch between organisations via the navigation menu.
 
-> **NOTE**: This is only available for clients with a two node or more Tyk Dashboard licence.
+{{< note success >}}
+**Note**  
+
+This is only available for clients with a two node or more Tyk Dashboard licence.
+{{< /note >}}

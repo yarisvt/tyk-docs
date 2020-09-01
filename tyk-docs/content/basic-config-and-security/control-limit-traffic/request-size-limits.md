@@ -11,7 +11,12 @@ weight: 4
 
 Tyk supports forcing request size limits at the API and individual endpoint level. Tyk will reject any request that is too big.
 
-> **Note for Tyk Cloud Users**: Tyk Cloud enforces a strict request size limit of 1MB an all inbound requests via our cloud architecture. This does not affect Multi-Cloud users.
+{{< note success >}}
+**Note**  
+
+Tyk Cloud Classic enforces a strict request size limit of 1MB an all inbound requests via our cloud architecture. This does not affect Multi-Cloud users.
+{{< /note >}}
+
 
 ## Max Request Size with the Dashboard
 

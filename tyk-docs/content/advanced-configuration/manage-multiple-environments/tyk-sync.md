@@ -9,7 +9,12 @@ weight: 7
 
 Tyk-Sync is a command line tool and library to manage and synchronise a Tyk installation with your version control system (VCS).
 
-> NOTE: Tyk-Sync works with APIs and Policies. It does not work with Keys. See [Move Keys between environments](/docs/advanced-configuration/manage-multiple-environments/move-keys-between-environments/) for details.
+{{< note success >}}
+**Note**  
+
+Tyk-Sync works with APIs and Policies. It does not work with Keys. See [Move Keys between environments](/docs/advanced-configuration/manage-multiple-environments/move-keys-between-environments/) for details.
+{{< /note >}}
+
 
 ## Features
 

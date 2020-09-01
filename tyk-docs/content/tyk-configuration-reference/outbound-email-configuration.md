@@ -136,7 +136,11 @@ You can customise the welcome email that a developer recieves when they signup t
 
 ![Email-Image](/docs/img/2.10/key_approval_image_link.png)
 
-> **NOTE**: The `LINK TO IMAGE` must be a publicly hosted resource.
+{{< note success >}}
+**Note**  
+
+The `LINK TO IMAGE` must be a publicly hosted resource.
+{{< /note >}}
 
 In an On-Premises installation you have full access to the HTML template, allowing you further customisation.
 

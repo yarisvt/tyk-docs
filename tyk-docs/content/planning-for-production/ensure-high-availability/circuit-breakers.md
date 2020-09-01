@@ -51,8 +51,13 @@ BreakerTripped = 0
 // BreakerReset is sent when a breaker resets
 BreakerReset = 1
 ```
+{{< note success >}}
+**Note**  
 
-> **NOTE**: If you are using the service discovery module, every time the breaker trips, Tyk will attempt to refresh the node list.
+If you are using the service discovery module, every time the breaker trips, Tyk will attempt to refresh the node list.
+{{< /note >}}
+
+
 
 ## Configure with the API Definition
 

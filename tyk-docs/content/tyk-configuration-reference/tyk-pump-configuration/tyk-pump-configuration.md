@@ -23,6 +23,7 @@ The Tyk Pump is our Open Source analytics purger that moves the data generated b
 - Prometheus
 - Logz.io
 - Kafka
+- Syslog (FluentD)
 
 ### Configuration
 

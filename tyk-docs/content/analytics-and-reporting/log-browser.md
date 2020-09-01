@@ -31,4 +31,9 @@ To enable request and response logging, please take a look at [useful debug mode
 
 **A warning on detailed logging:** This mode generates a very large amount of data, and that data exponentially increases the size of your log data set, and may cause problems with delivering analytics in bulk to your MongoDB instances. This mode should only be used to debug your APIs for short periods of time.
 
-> **NOTE**: Detailed logging is not available for Tyk SaaS customers.
+{{< note success >}}
+**Note**  
+
+Detailed logging is not available for Tyk Cloud Classic customers.
+{{< /note >}}
+

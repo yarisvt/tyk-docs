@@ -11,19 +11,19 @@ url: "/getting-started/installation"
 
 This section covers how to install Tyk for PoC purposes:
 
-### [Tyk Cloud](/docs/getting-started/installation/with-tyk-cloud/)
+## [Tyk Cloud Classic](/docs/getting-started/installation/with-tyk-cloud-classic/)
 
 Our no install SaaS product. The quickest way to start using Tyk.
 
-### [Tyk Multi-Cloud](/docs/getting-started/installation/with-tyk-multi-cloud/)
+## [Tyk Multi-Cloud](/docs/getting-started/installation/with-tyk-multi-cloud/)
 
 We manage the Dashboard, you deploy the Gateways within your environment.
 
-### [Tyk On-Premises](/docs/getting-started/installation/with-tyk-on-premises/)
+## [Tyk On-Premises](/docs/getting-started/installation/with-tyk-on-premises/)
 
 You have total control over installing Tyk. You can install on Ubuntu or RedHat/CentOS or use container based installations via Docker, Heroku, Microsoft Azure and Vagrant.
 
-### [Tyk Community Edition](/docs/getting-started/installation/with-tyk-community-edition/)
+## [Tyk Community Edition](/docs/getting-started/installation/with-tyk-community-edition/)
 
 Our open-source, Gateway only edition. It can be installed on Ubuntu and RedHat/CentOS, or via Docker.
 

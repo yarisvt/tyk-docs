@@ -178,7 +178,12 @@ http://{{dashboard-hostname}}/api/apis/oauth/{{api_id}}/authorize-client
 
 This endpoint allows you to retrieve a list of all current tokens and their expiry date for a provided API ID and OAuth-client ID in the following format. This endpoint will work only for newly created tokens.
 
-> **NOTE:** This option is available from v2.6.0 onwards.
+{{< note success >}}
+**Note**  
+
+This option is available from v2.6.0 onwards.
+{{< /note >}}
+
 
 | **Property** | **Description**                                      |
 | ------------ | ---------------------------------------------------- |

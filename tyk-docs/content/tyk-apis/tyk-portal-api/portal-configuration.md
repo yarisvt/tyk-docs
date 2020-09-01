@@ -10,7 +10,7 @@ weight: 5
 This section will cover the following endpoints:
 * [Configuration](#configuration)
 * [Menus](#menus)
-* [Pages](pages)
+* [Pages](#pages)
 
 
 ## Configuration

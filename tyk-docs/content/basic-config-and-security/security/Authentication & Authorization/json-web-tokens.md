@@ -180,8 +180,6 @@ All of this happens automatically.  You just need to specify to Tyk what the JWK
 
 ### JWT Clock Skew Configuration
 
-> **NOTE**: Available from v2.7.2 onwards
-
 Due to the nature of distributed systems it is expected that despite best efforts you can end up in a situation with clock skew between the issuing party (An OpenID/OAuth provider) and the validating party (Tyk).
 
 This means that in certain circumstances Tyk would reject requests to an API endpoint secured with JWT with the `Token is not valid yet` error . This occurs due to the clock on the Tyk server being behind the clock on the Identity Provider server even with all servers ntp sync'd from the same ntp server.
@@ -198,7 +196,11 @@ You can now configure JWT clock skew using the following variables. All values a
 
 ### JWT scope to policy mapping support
 
-> **NOTE**: This feature is available starting from v2.9
+{{< note success >}}
+**Note**  
+
+This feature is available starting from v2.9
+{{< /note >}}
 
 You can map JWT scopes to security policies to be applied to a key. To enable this feature you will need to specify the following fields in your API spec:
 
@@ -216,8 +218,12 @@ Here we have set:
 - `"jwt_scope_to_policy_mapping"` provides mapping of scopes (read from claim) to actual policy ID. I.e. in this example we specify that scope "admin" will apply policy `"59672779fa4387000129507d"` to a key
 - `"jwt_scope_claim_name"` identifies the JWT claim name which contains scopes. This API Spec field is optional with default value `"scope"`. This claim value is a string with space delimited list of values (by standard)
 
+{{< note success >}}
+**Note**  
 
-> **NOTE**: several scopes in JWT claim will lead to have several policies applied to a key. In this case all policies should have `"per_api"` set to `true` and shouldn't have the same `API ID` in access rights. I.e. if claim with scopes contains value `"admin developer"` then two policies `"59672779fa4387000129507d"` and `"53222349fa4387004324324e"` will be applied to a key (with using our example config above).
+Several scopes in JWT claim will lead to have several policies applied to a key. In this case all policies should have `"per_api"` set to `true` and shouldn't have the same `API ID` in access rights. I.e. if claim with scopes contains value `"admin developer"` then two policies `"59672779fa4387000129507d"` and `"53222349fa4387004324324e"` will be applied to a key (with using our example config above).
+{{< /note >}}
+
 
 ---
 

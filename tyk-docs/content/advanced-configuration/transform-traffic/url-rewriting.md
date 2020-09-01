@@ -88,7 +88,12 @@ To make it work you should set the **triggers** field, defining rules. If there 
 
 Additionally, each trigger also sets a context variable for each match it finds. These context vars can then be used in the rewrites. Trigger contexts take the format: `$tyk_context.trigger-{n}-{name}-{i}` where `n` is the trigger index in the array, `name` is the regexp matcher name and `i` is the index of that match (since query strings and headers can be arrays of values).
 
- > **NOTE**: When using `header_ matches` in the trigger, the name is the normalised form of the header name.
+{{< note success >}}
+**Note**  
+
+When using `header_ matches` in the trigger, the name is the normalised form of the header name.
+{{< /note >}}
+
 
 
 ```{.copyWrapper}

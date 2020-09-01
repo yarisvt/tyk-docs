@@ -112,7 +112,10 @@ If both policies were applied to a key, Policy B would automatically inherit Pol
 
 A developer already has a key that gives access to Policy A and now requires access to another API product. The developer is already paying for a specific rate and limit and just needs access to the additional API. Instead of editing Policy A to allow for the additional API access (which would then affect all keys with this policy applied), we can instead create Policy B and combine the two, allowing the additional API in Policy B to inherit the same rate and limit the developer requires.
 
+{{< note success >}}
+**Note**  
 
-> **NOTE**: For v2.4 and 1.4 multiple policies are only supported only via the Add Key section and via the API. 
+For v2.4 and 1.4 multiple policies are only supported only via the Add Key section and via the API.
 Support oAuth, and Portal API Catalogues are planned for subsequent releases.
 Support of multiple policies for JWT and OIDC is done through the API definition when using scopes.
+{{< /note >}}

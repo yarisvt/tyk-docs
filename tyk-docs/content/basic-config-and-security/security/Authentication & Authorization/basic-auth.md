@@ -132,9 +132,14 @@ curl -X POST -H "Authorization: 907aed9f88514f175f1dccf8a921f741"
  }' http://{your-tyk-dashboard-host}:{port}/api/apis/keys/basic/mysupertestuser2 | python -mjson.tool
 ```
 
-[More reading here](/docs/tyk-apis/tyk-dashboard-api/basic-authentication/)
+[See Basic Authentication via the Dashboard API](/docs/tyk-apis/tyk-dashboard-api/basic-authentication/)
 
-> **Note**: The most important thing to ensure with both of these commands is that the ORG ID is set correctly and consistently.
+{{< note success >}}
+**Note**  
+
+The most important thing to ensure with both of these commands is that the ORG ID is set correctly and consistently.
+{{< /note >}}
+
 
 ## Extracting credentials from the body
 
