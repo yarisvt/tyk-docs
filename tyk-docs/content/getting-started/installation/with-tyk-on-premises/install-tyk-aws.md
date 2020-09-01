@@ -1,37 +1,64 @@
 ---
 date: 2019-12-03T15:46:41Z
-Title: Install Tyk On-Premises on AWS
+Title: AWS Marketplace
 menu:
   main:
     parent: "With Tyk On-Premises"
-weight: 6
+weight: 5
 url: "/getting-started/with-tyk-on-premises/installation/on-aws"
 ---
 
+To get started easily, [Tyk offers AWS Marketplace products][6] which bootstrap the entire stack, via CloudFormation templates.
 
-# CloudFormation
-To get started easily with deployment on AWS, Tyk offers AWS CloudFormation products which run and bootstrap the entire stack.
+The AWS Marketplace products:
 
-It uses Elasticache in place of Redis, and Mongo running in HA mode in EC2.
+- use AWS Elasticache in place of Redis
+- Runs Mongo OSS in HA mode in EC2 (Master, Slave, Arbiter)
 
-There are three CloudFormation products to get you started. 
+## BYOL
+
+These [AWS Marketplace products][5] are delivered as CloudFormation products. You will need to bring your own license.  You can choose from one of 3 fulfillment options:
+
+- PoC (1 gw node)
+- High Availability (2 nodes)
+- Autoscaling (3+ nodes)
+
+Please [contact an account manager][7] in order to get a license.
+
+## PAYG
+There are three billed through AWS Marketplace PAYG products to get you started.  The license for these products is baked into the product as an hourly cost.  Please follow this video in order to get started
 
 - [**PoC**][2]
 - [**High Availability (2-node)**][4]
 - [**AutoScaling (3+ node)**][3]
 
-### Pricing / Licensing
-The license for these products is baked into the product as an hourly cost.
+### Installation
 
-## PoC
-PoC will run with a single GW node, Elasticache, and 3 Mongo nodes: Master, Slave, Arbiter.
+You will need to create the following AWS resources in an AWS VPC before you are able to deploy the PAYG products.
 
-This video will walk you through setting up the PoC install.
+#### Prerequisites
+
+- 3 Subnets in 3 different Availability Zones in the AWS Region
+- an Elasticache Cluster in one of the aforementioned subnets
+- An EC2 Keypair for SSH into EC2 instances
+
+Once these 3 are setup, we can deploy the AWS Marketplace PAYG products.
+
+*Example:*
+
+|  Resource            | IPV4 CIDR     |
+|----------------------|---------------|
+| VPC                  | 10.0.0.0 /24  |
+| CF-US Subnet East 1A | 10.0.0.0 /28  |
+| CF-US Subnet East 1B | 10.0.0.32 /28 |
+| CF-US Subnet East 1C | 10.0.0.64 /28 |
+
+#### Video Walkthrough
+This video will walk you through how to set up a PAYG product beginning to end on AWS, including the prerequisites.
 
 {{< youtube IiGyB_IHqWw >}}
 
-
-##### Logging Into Dashboard
+#### Logging Into Dashboard
 Once the stack is running, in order to access the Dashboard, simply set up an Elastic IP to the Dashboard instance and then visit:
 
 `http://<elastic_public_ip>:3000`
@@ -42,42 +69,50 @@ username: `<TYKDashboardAdminUserName>@<TYKDBAdminOrganization>.com`
 
 Password: `<TYKDashboardAdminUserPassword>`
 
-1. You need to use a password that is at least 8 characters long, or you will not be able to log 
-in.
-2. The CF Template already creates Security Groups for the Dashboard with port 3000 open
+1. You need to use a password that is at least 8 characters long, or you will not be able to log in.
+2. If accessing the Dashboard from a public space, don't forget to add an Internet Gateway to the AWS VPC.
 
-##### Accessing the GW
-In order to access GW, simply assign Elastic IP to the instance.  The security groups are already set up to allow traffic on port 8080.
+The CF Template already creates Security Groups for the Dashboard with port 3000 open
 
-To test, visit: 
+#### cURLing the GW(s)
 
+{{% tabs_start %}}
+{{% tab_start "PoC" %}}
+<br>
+In order to access GW, simply assign Elastic IP to the GW instance.  The auto generated GW security group is already set up to allow traffic on port 8080.
+
+To test, cURL the following: 
 ```{.copyWrapper}
 $ curl http://<elastic_public_ip>:8080/hello
 Hello Tiki
 ```
 
-## High Availability
-Everything is the same as PoC, except of course we are running two Gateway nodes instead of one.  
+{{% tab_end %}}
+{{% tab_start "High Availability / Autoscaling" %}}
+<br>
+The CloudFormation stack sets up an Elastic Load Balancer for the Gateway cluster.  
 
-#### Accessing Gateways
-The CloudFormation stack sets up an Elastic Load Balancer for the Gateway cluster.  We simply need to navigate to the Load Balancing section and find the  `TYKElasticLoadBalancerALB`.  The Cloud Formation template sets up a public DNS entry, something like `TYKElasticLoadBalancerALB-2050138050.us-east-1.elb.amazonaws.com`
+Navigate to the AWS Load Balancing section and find the  `TYKElasticLoadBalancerALB`.  The Cloud Formation template sets up a public DNS entry, something like `TYKElasticLoadBalancerALB-2050138050.us-east-1.elb.amazonaws.com`
 
 We can check it is running by visiting
 ```{.copyWrapper}
-$ curl TYKElasticLoadBalancerALB-2050138050.us-east-1.elb.amazonaws.com/hello
+$ curl http://TYKElasticLoadBalancerALB-2050138050.us-east-1.elb.amazonaws.com/hello
 Hello Tiki
 ```
 
-Note that it is already setup to accept traffic on port 80 and forward it to the Gateways to port 8080.
+Note that ALB rules are already setup to accept traffic on port 80 and forward it to the Gateways on port 8080.
+{{% tab_end %}}
+
+{{% tabs_end %}}
 
 
+### Tyk Component Updates
+Updates to the PAYG products can be done manually or automatically.  The manual method requires SSHing into the EC2 instances and doing the updates through the CLI.  To do this automatically, there is a mechanism to upgrade CloudFormation stack. The idea is to apply a new version of CloudFormation to your existing stack. We are releasing new versions of the product from time to time. When this happens, you will get a notification from AWS.
 
-## CloudFormation BYOL (Bring Your Own License)
-You may already have a license, and simply want help launching a Tyk Stack on AWS.  For you, there is a BYOL CloudFormation product that will get you started with a 2 Gateway node stack:
 
-[Tyk Pro High Availability][1]
-
-[1]: https://aws.amazon.com/marketplace/pp/prodview-nphqjavwaqes6?qid=1575313064731&sr=0-2&ref_=srh_res_product_title
 [2]: https://aws.amazon.com/marketplace/pp/prodview-elvk5mxxlkueu?qid=1575313242174&sr=0-4&ref_=srh_res_product_title
 [3]: https://aws.amazon.com/marketplace/pp/prodview-2bgdxbpeygf5w?qid=1575313242174&sr=0-5&ref_=srh_res_product_title
 [4]: https://aws.amazon.com/marketplace/pp/prodview-nempvlrcr4fq4?qid=1575313242174&sr=0-3&ref_=srh_res_product_title
+[5]: https://aws.amazon.com/marketplace/pp/prodview-nphqjavwaqes6?ref_=aws-mp-console-subscription-detail-payg#pdp-pricing
+[6]: https://aws.amazon.com/marketplace/seller-profile?id=432b7859-4299-4278-8eb2-f7bbe7739ec6&ref=dtl_prodview-nphqjavwaqes6
+[7]: https://pages.tyk.io/get-started-with-tyk

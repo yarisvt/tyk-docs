@@ -6,9 +6,14 @@ menu:
 weight: 8 
 ---
 
-## <a name="introduction"></a>Introduction
+## Introduction
 
-> This feature is experimental and can be used only if you compile Tyk yourself own using `jq` tag: `go build --tags 'jq'`
+{{< note success >}}
+**Note**  
+
+This feature is experimental and can be used only if you compile Tyk yourself own using `jq` tag: `go build --tags 'jq'`
+{{< /note >}}
+
 
 If you work with JSON you are probably aware of the popular `jq` command line JSON processor. For more details, see https://stedolan.github.io/jq/.
 
@@ -22,7 +27,7 @@ We have added two new plugins:
 Both have the same structure, similar to the rest of our plugins: 
 `{ "path": "<path>", "method": "<method>", "filter": "<content>" }`
 
-## <a name="request-transformations"></a> Request Transforms
+## Request Transforms
 Inside a request transform you can use following variables:
 
 * `.body` - your current request body
@@ -33,7 +38,7 @@ Your JQ request transform should return an object in the following format:
 
 `body` is required, while `rewrite_headers` and `tyk_context` are optional.
 
-## <a name="response-transformations"></a> Response Transforms
+## Response Transforms
 Inside a response transform you can use following variables:
 
 * `.body` - your current response body
@@ -45,7 +50,7 @@ Your JQ response transform should return an object in the following format:
 
 `body` is required, while `rewrite_headers` is optional.
 
-## <a name="jq-example"></a> Example
+## Example
 ```{.json}
 "extended_paths": {
   "transform_jq": [{

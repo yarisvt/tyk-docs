@@ -9,7 +9,12 @@ weight: 7
 
 Tyk-Sync is a command line tool and library to manage and synchronise a Tyk installation with your version control system (VCS).
 
-> NOTE: Tyk-Sync works with APIs and Policies. It does not work with Keys. See [Move Keys between environments](/docs/advanced-configuration/manage-multiple-environments/move-keys-between-environments/) for details.
+{{< note success >}}
+**Note**  
+
+Tyk-Sync works with APIs and Policies. It does not work with Keys. See [Move Keys between environments](/docs/advanced-configuration/manage-multiple-environments/move-keys-between-environments/) for details.
+{{< /note >}}
+
 
 ## Features
 
@@ -20,7 +25,7 @@ Tyk-Sync is a command line tool and library to manage and synchronise a Tyk inst
 - Synchronise a Tyk Dashboard's APIs and Policies with your VCS (one-way, definitions are written to the Dashboard)
 - Synchronise a Tyk Community Edition Gateway APIs with those stored in a VCS (one-way, definitions are written to the Gateway)
 - Dump Policies and APIs in a transportable format from a Dashboard to a directory
-- Support for importing, converting and publishing Swagger JSON files (OpenAPI 2.0 and 3.0 are supported) to Tyk.
+- Support for importing, converting and publishing Swagger/OpenAPI JSON files (OpenAPI 2.0 and 3.0 are supported) to Tyk.
 - Specialized support for Git. But since API and policy definitions can be read directly from
   the file system, it will integrate with any VCS.
 
@@ -46,7 +51,7 @@ dependent tokens continue to have access to your services.
 Currently the application is only available via Go, so to install you must have Go installed and run:
 
 ```
-go install -u github.com/TykTechnologies/tyk-sync
+go get -u github.com/TykTechnologies/tyk-sync
 ```
 
 This should make the `tyk-sync` command available to your console.
@@ -80,7 +85,7 @@ Dump will extract policies and APIs from a target (your Dashboard) and place the
 ```
 
 Usage:
-  tyk-git dump [flags]
+  tyk-sync dump [flags]
 Flags:
   -b, --branch string      Branch to use (defaults to refs/heads/master) (default "refs/heads/master")
   -d, --dashboard string   Fully qualified dashboard target URL
@@ -96,7 +101,7 @@ Publish API definitions from a Git repo to a Gateway or Dashboard. This will not
 
 ```
 Usage:
-  tyk-git publish [flags]
+  tyk-sync publish [flags]
 Flags:
   -b, --branch string      Branch to use (defaults to refs/heads/master) (default "refs/heads/master")
   -d, --dashboard string   Fully qualified dashboard target URL
@@ -114,7 +119,7 @@ Sync will synchronise an API Gateway with the contents of a Github repository. T
 
 ```
 Usage:
-tyk-git sync [flags]
+tyk-sync sync [flags]
 Flags:
 -b, --branch string      Branch to use (defaults to refs/heads/master) (default "refs/heads/master")
 -d, --dashboard string   Fully qualified dashboard target URL
@@ -133,7 +138,7 @@ Update will attempt to identify matching APIs or Policies in the target, and upd
 
 ```
 Usage:
-tyk-git update [flags]
+tyk-sync update [flags]
 Flags:
 -b, --branch string      Branch to use (defaults to refs/heads/master) (default "refs/heads/master")
 -d, --dashboard string   Fully qualified dashboard target URL

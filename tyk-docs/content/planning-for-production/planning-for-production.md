@@ -10,9 +10,9 @@ So you want to deploy Tyk to production?
 
 There's a few things worth noting that can ensure your the performance of your Tyk Gateway nodes. Here's some of the basic things we do for load testing to make sure machines don't run out of resources.
 
-### What to expect
+### Performance Expectations
 
-Our performance testing plan focused on replicating setup of our customers, and try not to optimize for "benchmarks": so no supercomputers and no sub-millisecond inner DC latency. Instead, we were testing on average performance 2 CPU Linode machine, with 50ms latency between Tyk and upstream. For testing, we used Tyk Gateway in Multi-Cloud mode, with default config. Test runner was using [Locust][2] framework and [Boomer][3] for load generation.
+Our performance testing plan focused on replicating setup of our customers, and try not to optimize for "benchmarks": so no supercomputers and no sub-millisecond inner DC latency. Instead, we were testing on super-low performance 2 CPU Linode machine, with 50ms latency between Tyk and upstream. For testing, we used Tyk Gateway in Multi-Cloud mode, with default config. Test runner was using [Locust][2] framework and [Boomer][3] for load generation.
 
 With the optimisations outlined below, and using our distributed rate limiter, we can easily handle ~3,000 requests per second with analytics, key authentication, and quota checks enabled.
 
@@ -38,19 +38,23 @@ This configuration has analytics recording disabled, but we are still authentica
 
 ### Change all the shared secrets
 
-Tyk uses many shared secrets between services, and some of these have defaults in the configuration files. **Ensure that these are changed before deploying to production**. The main secrets to consider are:
+Ensure that these are changed before deploying to production. The main secrets to consider are:
 
 #### `tyk.conf`:
 
 *   `secret`
 *   `node_secret`
 
- > **NOTE**: These values must be the same, and the same value must also be used for `tyk_api_config.secret`.
-
 #### `tyk_analytics.conf`:
 
 *   `admin_secret`
-*   `node_secret`
+*   `shared_node_secret`
+*   `typ_api_config.secret`
+
+GW `secret` and DB `tyk_api_config.secret` must match
+
+GW `node_secret` and DB `shared_node_secret` must match
+
 
 #### Use the public/private key message security!
 
@@ -58,7 +62,7 @@ Tyk makes use of public-key message verification when it comes to messages that 
 
 *   Zeroconfig Dashboard auto-discovery details
 *   Cluster reload messages
-*   Cluster configuration getters/setters for individual Gateways in a cluster 
+*   Cluster configuration getters/setters for individual Gateways in a cluster
 
 These keys are also used for plugin security, so it is important to use them if you are deploying code to your Gateway. The public key that ships with your Gateways is used to verify the manifest and files that come with any plugin bundle that gets downloaded by the bundle downloader.
 
@@ -70,7 +74,7 @@ To secure your Tyk installation, you can configure the following settings in you
 
 `control_api_port` - This allows you to run the Gateway Control API on a separate port, and protect it behind a firewall if needed.
 
-If you change this values, you need to update the two fields in the dashboard conf file `tyk_analytics.conf`, `tyk_api_config.Host`  and `tyk_api_config.Port` 
+If you change this values, you need to update the two fields in the dashboard conf file `tyk_analytics.conf`, `tyk_api_config.Host`  and `tyk_api_config.Port`
 
 
 ### Connecting multiple gateways to a single dashboard
@@ -108,13 +112,16 @@ Most of the changed below should be already in your `tyk.conf` by default:
 
 In v2.7 we optimized the connection pool between Tyk and your Upstream. In previous releases `max_idle_connections_per_host` option, was capped by 100. For v2.7 you can set it to any value.
 
-`max_idle_connections_per_host` by itself controls an amount of keep-alive connections between clients and Tyk. If you set this value too low, then Tyk will not re-use connections and you will have to open a lot of new connections to your upstream. 
+`max_idle_connections_per_host` by itself controls an amount of keep-alive connections between clients and Tyk. If you set this value too low, then Tyk will not re-use connections and you will have to open a lot of new connections to your upstream.
 
-If you set this value too high, you may encounter issues when slow clients occupy your connection and you may reach OS limits. 
+If you set this value too high, you may encounter issues when slow clients occupy your connection and you may reach OS limits.
 
-You can calculate the right value using a straightforward formula: 
+You can calculate the right value using a straightforward formula:
 
 if the latency between Tyk and your Upstream is around 50ms, then a single connection can handle 1s / 50s = 20 requests. So if you plan to handle 2000 requests per second using Tyk, the size of your connection pool should be at least 2000 / 20 = 100. For example, on low-latency environments (like 5ms), a connection pool of 100 connections will be enough for 20k RPS.
+
+### Protect Redis from overgrowing
+Please read carefully through this [doc](/docs/basic-config-and-security/security/authentication-authorization/physical-token-expiry/) to make an *aware decision* about the expiration of your keys in Redis, after which they will be removed from Redis. If you don't set the lifetime, a zero default means that keys will stay in Redis till you manually delete them, which is no issue if you have a process outside Tyk Gateway to handle it. If you don't and especially in scenarios that your flow creates many keys or access tokens for every user or even per call you Redis can quickly get cluttered with obsolete tokens and eventually affect the performences of the Tyk Gateway.
 
 ### Use the right hardware
 

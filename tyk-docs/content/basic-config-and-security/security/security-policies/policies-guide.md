@@ -7,9 +7,9 @@ menu:
 weight: 1
 ---
 
-## <a name="security-policy-example"></a>Security Policy Example
+## Security Policy Example
 
-A Tyk policy looks just like the session object that is used when you create a new access token:
+A Tyk policy looks just like the session object that is used when you create a new key:
 
 ```{.copyWrapper}
 {
@@ -43,7 +43,7 @@ A Tyk policy looks just like the session object that is used when you create a n
 }
 ```
 
-Here you can see the various fields as they are applied to Tyk access tokens, these are all described in the access tokens section of the Gateway REST API guide.
+Here you can see the various fields as they are applied to Tyk keys, these are all described in the Keys section of the [Gateway API](/docs/tyk-gateway-api/).
 
 The important differences here are two new additions:
 
@@ -71,7 +71,7 @@ Tyk Pro (The Dashboard) has policies enabled by default.
 
 ### Configuring Community Edition to use a policy list
 
-If your Tyk configuration is standalone and configuration is being managed via the REST API without the support of the dashboard, then you will need to set the `policies section` in your configuration file as follows:
+If your Tyk configuration is standalone and configuration is being managed via the Gateway API without the support of the dashboard, then you will need to set the `policies section` in your configuration file as follows:
 
 ```{.copyWrapper}
 "policies": {
@@ -110,7 +110,12 @@ The record is a single JSON object, with each named key representing the policy 
 
 To apply the above policy to a key, we simply need to call the `/create` (or `/add`) endpoint in the Tyk REST API with a session object that has the `apply_policy_id` flag set to the name `default` (or whatever you named your policy).
 
-> **NOTE**: Although `apply_policy_id` is still supported, it is now deprecated. `apply_policies` is now used to list your policy IDs as an array. This supports the **Multiple Policy** feature introduced in the **v2.4** release.
+{{< note success >}}
+**Note**  
+
+Although `apply_policy_id` is still supported, it is now deprecated. `apply_policies` is now used to list your policy IDs as an array. This supports the **Multiple Policy** feature introduced in the **v2.4** release.
+{{< /note >}}
+
 
 ```{.copyWrapper}
 {
@@ -141,8 +146,8 @@ Although we have set the main factors of the key, they will be overridden by the
 
 ## How You Can Create Policies
 
-[Create a Policy with the Dashboard API](https://tyk.io/docs/get-started/with-tyk-on-premise/tutorials/tyk-on-premises-pro/create-security-policy/#a-namewithapiatutorial-create-a-security-policy-with-the-api)
+[Create a Policy with the Dashboard API](/docs/getting-started/installation/tutorials/create-security-policy/#tutorial-create-a-security-policy-with-the-api)
 
-[Create a Policy with the Gateway API](https://tyk.io/docs/with-tyk-community-edition/tutorials/create-security-policy/#a-name-create-a-file-based-policy-a-tutorial-create-a-policy-with-the-gateway-api)
+[Create a Policy with the Gateway API](/docs/getting-started/installation/tutorials/create-security-policy/#tutorial-create-a-policy-with-the-gateway-api)
 
-[Create a Policy with the Dashboard](https://tyk.io/docs/get-started/with-tyk-on-premise/tutorials/tyk-on-premises-pro/create-security-policy/#a-namewithdashboardatutorial-create-a-security-policy-with-the-dashboard)
+[Create a Policy with the Dashboard](/docs/getting-started/installation/tutorials/create-security-policy/#tutorial-create-a-security-policy-with-the-dashboard)

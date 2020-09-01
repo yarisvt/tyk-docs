@@ -8,11 +8,11 @@ weight: 0
 url: "/advanced-configuration/integrate/3rd-party-identity-providers/ldap"
 ---
 
-## <a name="integration"></a>Integration Tutorials: LDAP
+## Integration Tutorials: LDAP
 
 The LDAP Identity Provider gives you functionality to bind a user to an LDAP server based on a username and password configuration. The LDAP provider currently does not extract user data from the server to populate a user object, but will provide enough defaults to work with all handlers.
 
-## <a name="login"></a> Log into the Dashboard using LDAP
+## Log into the Dashboard using LDAP
 
 Below is a sample TIB profile that can be used to log a user into the Dashboard using an LDAP pass-through provider:
 
@@ -51,10 +51,14 @@ The request should be a `POST`.
 
 If you make this request with a valid user that can bind to the LDAP server, Tyk will redirect the user to the dashboard with a valid session. There's no more to it, this mechanism is pass-through and is transparent to the user, with TIB acting as a direct client to the LDAP provider.
 
-> **Note**: The `LDAPUserDN` field MUST contain the special `*USERNAME*` marker in order to construct the users DN properly.
+{{< note success >}}
+**Note**  
+
+The `LDAPUserDN` field MUST contain the special `*USERNAME*` marker in order to construct the users DN properly.
+{{< /note >}}
 
 
-## <a name="generate"></a> Generate an OAuth token using LDAP
+## Generate an OAuth token using LDAP
 
 The configuration below will take a request that is posted to TIB, authenticate it against LDAP, if the request is valid, it will redirect to the Tyk Gateway OAuth clients' `Redirect URI` with the token as a URL fragment:
 
@@ -91,7 +95,7 @@ The configuration below will take a request that is posted to TIB, authenticate 
 
 This configuration is useful for internal APIs that require valid OAuth tokens (e.g.a webapp or mobile app) but needs validation by an LDAP provider.
 
-## <a name="developer"></a>Log into the Developer Portal using LDAP
+## Log into the Developer Portal using LDAP
 
 LDAP requires little configuration, we can use the same provider configuration that we used to log into the Dashboard to target the Portal instead - notice the change in the handler configuration and the return URL:
 
@@ -122,7 +126,7 @@ LDAP requires little configuration, we can use the same provider configuration t
 
 Once again, a simple `POST` request is all that is needed to validate a user via an LDAP provider.
 
-## <a name="ldap-search"></a>Using advanced LDAP search
+## Using advanced LDAP search
 In some cases validation of a user CN is not enough, and it requires verifying if a user match some specific rules, like internal team ID. In this case TIB provides support for doing additional LDAP search check, and if result of this search returns only 1 record, it will pass the user.
 
 To make it work you need to specify 3 additional attributes in profile configuration file:

@@ -42,6 +42,7 @@ var searchContainerFn = function() {
 	$body.on('click','a[data-toggle], button[data-toggle]', function(e){
 		e.preventDefault();
 		$body.toggleClass($(this).data('toggle'));
+		console.log("Asdsd")
 	});	 
 
 	// Scroll Class

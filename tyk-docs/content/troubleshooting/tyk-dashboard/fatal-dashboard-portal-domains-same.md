@@ -9,7 +9,7 @@ weight: 5
 
 ### Description
 
-The dashboard service will not start and displays a fatal error as follows:
+The Tyk Dashboard service will not start and displays a fatal error as follows:
 
 ```
 FATAL Dashboard and portal domains cannot be the same. 
@@ -20,15 +20,15 @@ FATAL Dashboard and portal domains cannot be the same.
 
 Tyk's developer portal UI needs to run on either a different subdomain or different domain name to the dashboard UI.
 
-Tyk's dashboard service may be run in a multi-tenant configuration, and each tenant may have their own developer portals.
+Tyk's Dashboard service may be run in a multi-tenant configuration, and each tenant may have their own developer portals.
 
-The dashboard service determines which portal to load based on the `Host` header in the request by the browser. If this
+The Dashboard service determines which portal to load based on the `Host` header in the request by the browser. If this
 conflicts with the hostname of the dashboard UI the dashboard service will not know whether to serve the dashboard or
 developer portal.
 
 ### Solution
 
-Firstly, we will need to disable hostnames from within the dashboard configuration file in order to get the dashboard
+Firstly, we will need to disable hostnames from within the Dashboard configuration file in order to get the dashboard
 service started again.
 
 Change `host_config.enable_host_names` from `true` to `false`
@@ -40,12 +40,12 @@ Change `host_config.enable_host_names` from `true` to `false`
 },
 ```
 
-You should now be able to start the dashboard service.
+You should now be able to start the Dashboard service.
 
-Navigate to the dashboard via it's public IP address and log-in.
+Navigate to the Dashboard via it's public IP address and log-in.
 
 Change your portal domain to something different - e.g. `portal.tyk-dashboard.com`
 
-Edit the dashboard configuration file to re-enable host names.
+Edit the Dashboard configuration file to re-enable host names.
 
-Restart the dashboard service.
+Restart the Dashboard service.

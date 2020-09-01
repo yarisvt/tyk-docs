@@ -1,17 +1,17 @@
 ---
 date: 2017-03-22T17:04:48Z
-title: Install Tyk Pro On-Premises on Vagrant
+title: Vagrant
 menu:
   main:
     parent: "With Tyk On-Premises"
-weight: 5 
+weight: 7 
 ---
 
 ## Install Tyk on Vagrant
 
 Tyk has a streamlined quickstart setup for Vagrant. This demo works with Ubuntu Xenial (16.04) and makes use of direct-pipes to Bash from a web script. This is a quick way to demo Tyk - **this installation method is not suitable for production**.
 
-Full, detailed instructions on how to [install Tyk on Ubuntu Server (LTS)](/docs/getting-started/with-tyk-on-premises/installation/on-ubuntu/) or how to [install Tyk on Red Hat Enterprise Linux (RHEL)](/docs/getting-started/with-tyk-on-premises/installation/redhat-rhel-centos/) are also available and go through the entire process manually.
+Full, detailed instructions on how to [install Tyk on Ubuntu Server (LTS)](/docs/getting-started/installation/with-tyk-on-premises/on-ubuntu/) or how to [install Tyk on Red Hat Enterprise Linux (RHEL)](/docs/getting-started/installation/with-tyk-on-premises/redhat-rhel-centos/) are also available and go through the entire process manually.
 
 Given this caveat, lets get you up and running.
 

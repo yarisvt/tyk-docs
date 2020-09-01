@@ -8,20 +8,25 @@ weight: 0
 url: "/advanced-configuration/integrate/3rd-party-identity-providers"
 ---
 
-## <a name="dashboard-sso"></a>Dashboard SSO API
-The Dashboard exposes a special API to implement custom authentications for the Dashboard and Portal. See the [Dashboard Admin API](/docs/dashboard-admin-api/sso) for more details.
+## Dashboard SSO API
+The Dashboard exposes a special API to implement custom authentications for the Dashboard and Portal. See the [Dashboard Admin API](/docs/tyk-apis/tyk-dashboard-admin-api/sso/) for more details.
 
 You can use the `sso_permission_defaults` dashboard configuration option to configure the permissions of users created via SSO API. See the SSO API docs above.
 
 In addition you can set custom login pages for the dashboard and portal using `sso_custom_login_url` and `sso_custom_portal_login_url` dashboard configuration options.
 
-## <a name="tib"></a>Tyk Identity Broker (TIB) Overview 
+## Tyk Identity Broker (TIB) Overview 
 
 ### What is the Tyk Identity Broker?
 
 The Tyk Identity Broker (TIB) provides a service-level component that enables delegated identities to be authorized and provide authenticated access to various Tyk-powered components such as the Tyk Dashboard, the Tyk Developer Portal and Tyk Gateway API flows such as OAuth access tokens, and regular API tokens.
 
 Internally the TIB uses the  Dashboard SSO API mentioned above.
+
+Starting from Tyk 3.0 Identity Broker added as a built-in feature of dashboard, users not longer will need to setup a separated instance of the service to make it work with dashboard, however this is not mandatory and users still can set the configs to connect to an external TIB. Internal TIB doesn't require any configuration and is quite easy to have it available. The internal identity broker exposed at the same port as dashboard and does not require a separate port to work as intended.
+
+Additionally dashboard adds user interface to manage the profiles. 
+![Identity Broker User Interface](https://user-images.githubusercontent.com/35005482/82677001-f20fb600-9c64-11ea-8ed3-2973b1d51463.gif)
 
 ### How it works
 
@@ -32,10 +37,11 @@ Tyk Identity Broker provides a simple API, which traffic can be sent *through* t
 
 ##### Identity Providers
 
-Identity providers can be anything, so long as they implement the `tap.TAProvider` interface. Bundled with TIB at the moment you have three providers:
+Identity providers can be anything, so long as they implement the `tap.TAProvider` interface. Bundled with TIB at the moment you have four providers:
 
 1.  Social - Provides OAuth handlers for many popular social logins (such as Google, Github and Bitbucket)
 2.  LDAP - A simple LDAP protocol binder that can validate a username and password against an LDAP server (tested against OpenLDAP)
+3.  SAML - Provides SAML login flows with any IDP i.e. Azure AD, Auth0, Okta, Ping or Keycloak
 3.  Proxy - A generic proxy handler that will forward a request to a third party and provides multiple "validators" to identify whether a response is successful or not (e.g. status code, content match and regex)
 
 #### Identity Handlers
@@ -58,34 +64,29 @@ Handlers are not limited to Tyk, a handler can be added quite easily by implemen
 
 ### Requirements and dependencies
 
-TIB requires:
+{{< note success >}}
+**Note**  
 
-*   Tyk Gateway v1.9.1+
-*   Tyk Dashboard v0.9.7.1+
-*   Redis
+Dashboard/Portal SSO is also supported on Tyk Multi-Cloud accounts, but is an extra feature and is not enabled by default. Contact your Account Manager to request this feature. TIB must be run locally to support SSO with Tyk Cloud Classic. 
+{{< /note >}}
 
-### Installation
+Starting from Tyk Dashboard v3.0, TIB is built-in to the dashboard. 
+You don't have to do anything, only ensure that in the dashboard's config file the config `identity_broker` is not pointing to an external service, and `identity_broker.enabled` set to `true`. Example:
 
-Extract the tarball and run the binary:
-
-- `tar -xvzf tyk-identity-broker-0.4.0.tar.gz`
-- `cd tyk-identity-broker-0.4.0/`
-- `go build`
-- `cp ./tib_sample.conf ./tib.conf`
-- `vim tib.conf and update hostnames, passwords and certificates`
-- `./tyk-identity-broker-0.4.0`
-
-### Usage
-
-No command line arguments are needed, but if you are running TIB from another directory or during startup, you will need to set the absolute paths to the profile and config files:
-
-```{.copyWrapper}
-Usage of ./tyk-identity-broker-0.4.0:
-  -c=string
-    Path to the config file (default "tib.conf")
-  -p=string
-    Path to the profiles file (default "profiles.json")
+```
+"identity_broker": {
+    "enabled": true,
+    "host": {
+        "connection_string": "",
+        "secret": ""
+    }
+},
 ```
 
+The settings will behave as next:
 
+* If `enabled` = false then neither external or internal TIB will be loaded
+* If `enabled` = true and tib host is set, then external TIB will be loaded
+* If `enabled` = true and tib host is not present the internal TIB will be loaded
 
+If you want install it as a separate component see [installing TIB](/docs/getting-started/tyk-components/identity-broker/#installing-tib).

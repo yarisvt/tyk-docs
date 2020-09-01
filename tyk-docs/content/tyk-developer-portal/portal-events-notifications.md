@@ -13,37 +13,9 @@ Tyk enables you to actively monitor both user and organisation quotas. These act
 
 Monitors are disabled by default in Tyk Cloud. Portal events are enabled and can be defined by raising a support ticket.
 
-### Enable Monitors in your `tyk.conf`
+### How to Enable Monitors
 
-Enabling monitors in your Tyk node means adding a new configuration section to your `tyk.conf`:
-
-```{.copyWrapper}
-"monitor": {
-  "enable_trigger_monitors": true,
-  "configuration": {
-    "method": "POST",
-    "target_path": "http://posttestserver.com/post.php?dir=tyk-monitor-drop",
-    "template_path": "templates/monitor_template.json",
-    "header_map": {"x-tyk-monitor-secret": "12345"},
-    "event_timeout": 10
-  },
-  "global_trigger_limit": 80.0,
-  "monitor_user_keys": false,
-  "monitor_org_keys": true
-}
-```
-
-*   `enable_trigger_monitors`: Set to `true` to have the monitors start to measure quota thresholds.
-
-*   `configuration`: A webhook configuration object. See the [Webhooks documentation](/docs/basic-config-and-security/report-monitor-trigger-events/webhooks/) for details.
-
-*   `global_trigger_limit`: This is the global trigger threshold and will be applied to all keys being monitored. This value is the percentage of the quota that the user must reach before the notification is triggered.
-
-> NOTE: From Dashboard v1.8.2, if you are using our Developer Portal, registered developers will also receive emails about quota threshold limits being reached.
-
-*   `monitor_user_keys`: Set to `true` to monitor individual tokens, this may result in a large amount of webhooks.
-
-*   `monitor_org_keys`: Set to `true` to have global organisation quotas monitored.
+See [Monitors](/docs/basic-config-and-security/report-monitor-trigger-events/monitors/) for details of configuring monitors in your `tyk.conf`.
 
 #### Setting Custom Triggers on a Per Key or a Per-Organisation Basis
 
@@ -87,7 +59,7 @@ The templates are available as text based or HTML. See the standard included one
 
 The Dashboard and Portal also support a certain level of events that you can use to notify your system of various things that have happened in the Portal.
 
-To configure them, add an `event_options` section to an Organisation when you are creating them. See [Creating an Organisation via the Dashboard Admin API](/docs/dashboard-admin-api/organisations/#create-an-organisation) for more details.
+To configure them, add an `event_options` section to an Organisation when you are creating them. See [Creating an Organisation via the Dashboard Admin API](/docs/tyk-apis/tyk-dashboard-admin-api/organisations/#create-an-organisation) for more details.
 
 Within this object, you can then register webhooks or/and an email address to notify when an event occurs:
 

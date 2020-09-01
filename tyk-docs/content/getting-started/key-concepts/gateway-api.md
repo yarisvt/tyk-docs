@@ -12,7 +12,11 @@ The Tyk Gateway REST API is the primary means for integrating your application w
 API is very small, and has no granular permissions system. It is intended to be used *purely* for internal automation
 and integration.
 
-> **Warning**: Under no circumstances should outside parties be granted access to this API.
+{{< warning success >}}
+**Warning**  
+
+Under no circumstances should outside parties be granted access to this API.
+{{< /warning >}} 
 
 The Tyk Gateway API is capable of:
 

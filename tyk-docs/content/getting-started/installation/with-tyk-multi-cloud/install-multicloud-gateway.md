@@ -7,27 +7,36 @@ menu:
 weight: 2
 ---
 
-> **NOTE**: Tyk Multi-Cloud has superseded our Hybrid offering. See [Tyk Multi-Cloud](https://tyk.io/api-gateway/cloud/#multi-cloud) for more details. You can get a free 30 day trial of Tyk Multi-Cloud.
+{{< note success >}}
+**Note**  
 
-## <a name="requirements"></a>Requirements
+Tyk Multi-Cloud has superseded our Hybrid offering. See [Tyk Multi-Cloud](https://tyk.io/api-gateway/cloud/#multi-cloud) for more details. You can get a free 1 month trial of Tyk Multi-Cloud.
+{{< /note >}}
 
-> **Warning**: Our Tyk Multi-Cloud Gateway Docker container includes Redis Server. This only works in a single node, Proof of Concept type installation. For two or more nodes, you need to have a separate Redis, shared across all Multi-Cloud instances, and set it using `start.sh` script arguments: `./start.sh PORT SECRET ORGID APIKEY (REDIS HOST) (REDIS PORT) (REDIS PW)`. See the official [Redis Docker Repository](https://hub.docker.com/_/redis/) to install Redis.
+## Requirements
+
+{{< warning success >}}
+**Warning**  
+
+Our Tyk Multi-Cloud Gateway Docker container includes Redis Server. This only works in a single node, Proof of Concept type installation. For two or more nodes, you need to have a separate Redis, shared across all Multi-Cloud instances, and set it using `start.sh` script arguments: `./start.sh PORT SECRET ORGID APIKEY (REDIS HOST) (REDIS PORT) (REDIS PW)`. See the official [Redis Docker Repository](https://hub.docker.com/_/redis/) to install Redis.
+{{< /warning >}}
+
 
 To install the Tyk Multi-Cloud Gateway, you need:
 
 1.  A Docker-enabled host
 2.  Access to the shell of this host
 3.  Port 8080 and 9091 open
-4.  A Tyk Multi-Cloud account. Click [here][2] for details of how to create one.
+4.  A Tyk Multi-Cloud account. Click [here](/docs/getting-started/installation/with-tyk-multi-cloud/create-an-account/) for details of how to create one.
 
-## <a name="installation"></a>Install the Multi-Cloud Gateway
+## Install the Multi-Cloud Gateway
 
 ### Step 1: Get your credentials
 
 1.  Go to <https://admin.cloud.tyk.io> and login with your new details.
 2.  Click "Users" and select your name, you will see your Organisation ID, take note of this:
     
-    ![RPC credentials][1]
+    ![RPC credentials](/docs/img/dashboard/system-management/api_access_cred_2.5.png)
 
 ### Step 2: Installation
 
@@ -83,9 +92,8 @@ time="Jul  7 08:15:03" level=info msg="--> Listening on port: 8080"
   
 Then the gateway has successfully started.
 
-## <a name="upgrade-Multi-Cloud"></a>Upgrading the Multi-Cloud Gateway
+## Upgrading the Multi-Cloud Gateway
 
 To upgrade your Multi-Cloud Gateway, see [Upgrading Tyk](https://tyk.io/docs/upgrading-tyk/#hybrid).
 
  [1]: /docs/img/dashboard/system-management/api_access_cred_2.5.png
- [2]: /docs/get-started/with-tyk-hybrid/create-an-account/

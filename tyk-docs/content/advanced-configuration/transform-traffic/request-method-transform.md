@@ -18,15 +18,19 @@ method_transforms: [
   }
 ],
 ```
+{{< note success >}}
+**Note**  
 
-> **Note**: This feature is very simple at the moment, and only changes the type of method, it does not handle the message data of the request body. However, a combination of method transform, context variables and body transformations can be used to achieve a similar effect.
+This feature is very simple at the moment, and only changes the type of method, it does not handle the message data of the request body. However, a combination of method transform, context variables and body transformations can be used to achieve a similar effect.
+{{< /note >}}
+
 
 ### Using the Dashboard
 
 To do this from the Dashboard, from the **API Endpoint Designer** select **method transform** from the plugins drop-down list on the endpoint you want to transform from.
 
-![Method Transform](/docs/img/dashboard/system-management/body-transform-plugin.png)
+![Method Transform](/docs/img/2.10/method_transform.png)
 
 Then select the path you wish to change to.
 
-![Method Path](/docs/img/dashboard/system-management/method_to_path_2.5.png)
+![Method Path](/docs/img/2.10/method_transform2.png)

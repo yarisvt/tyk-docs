@@ -98,6 +98,27 @@ If `SMTPUsername` or `SMTPPassword` is omitted, Tyk assumes that authentication 
   "SecretAccessKey": "KEY"
 },
 ```
+### Customise your Welcome Emails
+
+You can customise the welcome email that a developer recieves when they signup to your portal. You can use images and other HTML formatted content. The following video walks you through the process.
+
+{{< youtube XNyKRAlTDVs >}}
+
+
+1. Select **Settings** from your **Dashboard** > **Portal Management**
+2. You can change the from email address and the from email name for your welcome emails.
+3. To use customised email content, select **Enable custom welcome email**.
+4. You can then add the following custom content:
+  * Email Subject
+  * Email Body content
+  * Welcome email body copy
+  * Welcome email sign-off
+
+![Welcome-Email](/docs/img/2.10/welcome_email_config.png)
+
+5. Enter your plain text or HTML formatted content. If including an image, the `LINK TO IMAGE` in an image `<img src="[LINK TO IMAGE]"/>` link must be a publicly hosted resource.
+6. Click **Save** at the top of the Portal Settings screen.
+
 
 ### Customise your Key Approval Emails
 
@@ -106,22 +127,26 @@ If `SMTPUsername` or `SMTPPassword` is omitted, Tyk assumes that authentication 
 1. Select **Settings** from your **Dashboard** > **Portal Management**
 2. From the "API Key approval email" section, select "Enable custom approval email", and edit the API Key email body.
 
-![Email-Customisation](/docs/img/dashboard/portal-management/email_key_approval.png)
+![Email-Customisation](/docs/img/2.10/key_approval_email_config.png)
 
 #### Add an image or logo to the Key Approval Email
 
 1. Select "Enable custom approval email" as above.
 2. In the "API Key email body copy" field, enter `<img src="[LINK TO IMAGE]"/>`
 
-![Email-Image](/docs/img/dashboard/portal-management/email_image.png)
+![Email-Image](/docs/img/2.10/key_approval_image_link.png)
 
-> **NOTE**: The `LINK TO IMAGE` must be a publicly hosted resource.
+{{< note success >}}
+**Note**  
+
+The `LINK TO IMAGE` must be a publicly hosted resource.
+{{< /note >}}
 
 In an On-Premises installation you have full access to the HTML template, allowing you further customisation.
 
 #### Portal Manager Email Settings
 
-![Portal-Manager-Email](/docs/img/dashboard/portal-management/portal-email-address.png)
+![Portal-Manager-Email](/docs/img/2.10/portal_manager_email_config.png)
 
 1. Select **Settings** from your **Dashboard** > **Portal Management**
 2. From the **Portal manager email address** section, enter the email address of the person responsible for approving your developer API subscription requests. See [Portal Key Requests](/docs/tyk-developer-portal/portal-concepts/#a-name-key-requests-a-key-requests) for more details.

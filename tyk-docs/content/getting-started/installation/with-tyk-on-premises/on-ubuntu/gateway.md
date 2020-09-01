@@ -39,12 +39,14 @@ Since our repositories are installed via HTTPS, you will need to make sure APT s
 sudo apt-get install -y apt-transport-https 
 ```
 
-Now lets add the required repos and update again (notice the `-a` flag in the second Tyk commands - this is important!):
+Create a file `/etc/apt/sources.list.d/tyk_tyk-gateway.list` with the following contents:
 ```{.copyWrapper}
-echo "deb https://packagecloud.io/tyk/tyk-gateway/ubuntu/ trusty main" | sudo tee /etc/apt/sources.list.d/tyk_tyk-gateway.list
+deb https://packagecloud.io/tyk/tyk-gateway/ubuntu/ bionic main
+deb-src https://packagecloud.io/tyk/tyk-gateway/ubuntu/ bionic main
+```
 
-echo "deb-src https://packagecloud.io/tyk/tyk-gateway/ubuntu/ trusty main" | sudo tee -a /etc/apt/sources.list.d/tyk_tyk-gateway.list
-
+Now you can refresh the list of packages with:
+```{.copyWrapper}
 sudo apt-get update
 ```
 
@@ -62,9 +64,33 @@ sudo apt-get install -y tyk-gateway
 ```
 What we've done here is instructed apt-get to install the Tyk Gateway without prompting, wait for the downloads to complete.
 
-When Tyk is finished installing, it will have installed some init scripts, but it will not be running yet. The next step will be to setup the Gateway - thankfully this can be done with three very simple commands, however it does depend on whether you are configuring Tyk Gateway for use with the Dashboard or without (Community Edition).
+When Tyk has finished installing, it will have installed some init scripts, but will not be running yet. The next step will be to set up the Gateway - thankfully this can be done with three very simple commands, however it does depend on whether you are configuring Tyk Gateway for use with the Dashboard or without (the Community Edition).
 
-## <a name="configure-tyk-gateway-with-dashboard"></a> Configure Tyk Gateway with Dashboard
+#### Verify the origin key (optional)
+
+Debian packages are signed with the repository keys. These keys are verified at the time of fetching the package and is taken care of by the `apt` infrastructure. These keys are controlled by PackageCloud, our repository provider. For an additional guarantee, it is possible to verify that the package was indeed created by Tyk by verifying the `origin` certificate that is attached to the package.
+
+First, you have to fetch Tyk's signing key and import it.
+
+```{.copyWrapper}
+wget https://keyserver.tyk.io/tyk.io.deb.signing.key
+gpg --import tyk.io.deb.signing.key
+```
+
+Then, you have to either,
+- sign the key with your ultimately trusted key
+- trust this key ultimately
+
+The downloaded package will be available in `/var/cache/apt/archives`. Assuming you found the file `tyk-gateway-2.9.4_amd64.deb` there, you can verify the origin signature.
+
+```{.copyWrapper}
+gpg --verify d.deb
+gpg: Signature made Wed 04 Mar 2020 03:05:00 IST
+gpg:                using RSA key F3781522A858A2C43D3BC997CA041CD1466FA2F8
+gpg: Good signature from "Team Tyk (package signing) <team@tyk.io>" [ultimate]
+```
+
+## Configure Tyk Gateway with Dashboard
 
 ### Prerequisites
 
@@ -72,9 +98,14 @@ This configuration assumes that you have already installed the Tyk Dashboard, an
 
 ### Set up Tyk
 
-You can set up the core settings for Tyk Gateway with a single setup script, however for more involved deployments, you will want to provide your own configuration file. 
+You can set up the core settings for Tyk Gateway with a single setup script, however for more involved deployments, you will want to provide your own configuration file.
 
-> **NOTE**: You need to replace `<hostname>` for `--redishost=<hostname>`with your own value to run this script.
+{{< note success >}}
+**Note**  
+
+You need to replace `<hostname>` for `--redishost=<hostname>`with your own value to run this script.
+{{< /note >}}
+
 
 ```{.copyWrapper}
 sudo /opt/tyk-gateway/install/setup.sh --dashboard=1 --listenport=8080 --redishost=<hostname> --redisport=6379
