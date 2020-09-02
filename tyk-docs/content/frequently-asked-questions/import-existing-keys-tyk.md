@@ -12,7 +12,7 @@ This doc explains how to do that with the Gateway's APIs directly and as such th
 
 This example uses standard `authorization` header authentication, and assumes that the Dashboard is located at `127.0.0.1:8080` and the Tyk secret is `352d20ee67be67f6340b4c0605b044b7` - update these as necessary to match your environment.
 
-To import a key called `abc`, save the JSON contents as `token.json` (see example below), then run the following Curl command:
+To import a key called `mycustomkey`, save the JSON contents as `token.json` (see example below), then run the following Curl command:
 
 The Example `token.json` file
 
@@ -61,7 +61,7 @@ curl http://127.0.0.1:8080/tyk/keys/abc -H 'x-tyk-authorization: 352d20ee67be67f
 Test the key after the import:
 
 ```
-curl http://127.0.0.1:8080/quickstart/headers -H 'Authorization: abc'
+curl http://127.0.0.1:8080/quickstart/headers -H 'Authorization: mycustomkey'
 ```
 
 See also the Keys section of the [Gateway API Swagger doc](https://tyk.io/docs/tyk-rest-api/).
