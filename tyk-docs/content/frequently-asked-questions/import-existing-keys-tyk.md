@@ -8,9 +8,9 @@ weight: 0
 ---
 
 You can use an API to import existing keys that were not created in Tyk into Tyk's Gateway.
-This doc explains how to do that with the Gateway's APIs directly and as such the Dashboard 
+This doc explains how to do that with the Gateway's APIs directly.
 
-This example uses standard `authorization` header authentication, and assumes that the Dashboard is located at `127.0.0.1:8080` and the Tyk secret is `352d20ee67be67f6340b4c0605b044b7` - update these as necessary to match your environment.
+This example uses standard `authorization` header authentication, and assumes that the Gateway is located at `127.0.0.1:8080` and the Tyk secret is `352d20ee67be67f6340b4c0605b044b7` - update these as necessary to match your environment.
 
 To import a key called `mycustomkey`, save the JSON contents as `token.json` (see example below), then run the following Curl command:
 
