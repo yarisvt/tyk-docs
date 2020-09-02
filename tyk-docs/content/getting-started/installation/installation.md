@@ -11,7 +11,7 @@ url: "/getting-started/installation"
 
 This section covers how to install Tyk for PoC purposes:
 
-## [Tyk Cloud Classic](/docs/getting-started/installation/with-tyk-cloud-classic/)
+## [Tyk Cloud](/docs/tyk-cloud/getting-started/)
 
 Our no install SaaS product. The quickest way to start using Tyk.
 
