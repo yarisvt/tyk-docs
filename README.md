@@ -143,7 +143,7 @@ Install our **On-Premises** product with Kubernetes.
 
 {{< /grid >}}
 ```
-[Example](/docs/img/readme/quickstart.png)
+![image](https://user-images.githubusercontent.com/1983518/92095700-e4261100-edcd-11ea-904d-e7ba6efa62c8.png)
 
 #### Tyk Stack Badge
 
@@ -193,7 +193,7 @@ The Tyk Identity Broker (TIB) is a microservice portal that provides a bridge be
 {{< /grid >}}
 ```
 
-[Example](tyk-docs/static/img/readme/stack.png)
+![image](https://user-images.githubusercontent.com/1983518/92095894-28b1ac80-edce-11ea-9f48-27ce0ba7d75c.png)
 
 #### Features Badge
 
@@ -229,7 +229,7 @@ Log into dashboard and portal with your existing IDP.
 {{< /grid >}}
 ```
 
-[Example](tyk-docs/static/img/readme/features.png)
+![image](https://user-images.githubusercontent.com/1983518/92095959-3f580380-edce-11ea-885d-0861e2274641.png)
 
 #### Resources Badge
 
@@ -270,7 +270,7 @@ Lorem ipsum Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 {{< /grid >}}
 ```
-[Example](tyk-docs/static/img/readme/big_grid_example.png)
+![image](https://user-images.githubusercontent.com/1983518/92096033-57c81e00-edce-11ea-8d15-193f89a7f6da.png)
 
 ### Buttons
 
@@ -283,9 +283,9 @@ We have 3 button types that can be used in conjuction with the Grid layout short
 
 {{< button href="/docs/getting-started/installation/" color="green" content="All installation options" >}}
 ```
-[Black](tyk-docs/static/img/readme/button_black.png)
-[Red](tyk-docs/static/img/readme/button_red.png)
-[Green](tyk-docs/static/img/readme/button_green.png)
+![image](https://user-images.githubusercontent.com/1983518/92096160-775f4680-edce-11ea-8d67-3106e482ad4a.png)
+![image](https://user-images.githubusercontent.com/1983518/92096210-8645f900-edce-11ea-9ccd-b0a013e6f582.png)
+![image](https://user-images.githubusercontent.com/1983518/92096267-98279c00-edce-11ea-9a50-b20aa016e189.png)
 
 ### Note and Warning shortcodes
 
@@ -300,7 +300,7 @@ Use these instead of the usual markdown blockquote style.
 For this release of Tyk Cloud, you need to enter your AWS Region manually.
 {{< /note >}}
 ```
-[Example](tyk-docs/static/img/readme/note.png)
+![image](https://user-images.githubusercontent.com/1983518/92096344-ad042f80-edce-11ea-98ca-b9afac235a19.png)
 
 #### Warning
 
@@ -311,7 +311,7 @@ For this release of Tyk Cloud, you need to enter your AWS Region manually.
 We recommend you restrict your IAM user as much as possible before sharing the credentials with any 3rd party, including Tyk Cloud. See [IAM User Permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html) for more details.
 {{< /warning >}}
 ```
-[Example](tyk-docs/static/img/readme/warning.png)
+![image](https://user-images.githubusercontent.com/1983518/92096400-c016ff80-edce-11ea-8136-b60150299659.png)
 
 ## License
 
