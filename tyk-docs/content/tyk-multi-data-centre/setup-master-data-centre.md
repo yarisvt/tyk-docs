@@ -135,7 +135,7 @@ Once installed, modify your `/opt/tyk-sink/tyk_sink.conf` file as follows:
 |`hash_keys` |   bool  |Set to true if you are using a hashed configuration installation of Tyk, otherwise set to false.|
 |`session_timeout` |   int  |Number of seconds before the gateways are forced to re-login. Default is 86400 (24 hours).|
 |`forward_analytics_to_pump` |   bool  |Instead of sending analytics directly to MongoDB, MDCB can send analytics to Redis. This will allow [tyk-pump] (https://github.com/TykTechnologies/tyk-pump) to pull analytics from Redis and send to your own data sinks.|
-|`aggregates_ignore_tags` |   String Array  |If custom analytics tags are used. You may disable generating aggregate analytics for these tags. E.g.<br>`[`<br>`"Request-Id",`<br>`"Secret-Key"`<br>`]`|
+|`ignore_tag_prefix_list` |   String Array  |If custom analytics tags are used (`tag_header`), you may disable generating aggregate analytics for these tags. E.g.<br>`[`<br>`"Request-Id",`<br>`"Secret-Key"`<br>`]` will stop aggregating data for headers that *starts* with `Request-Id*` and `Secret-Key*`|
 |`analytics` |   object  ||
 |`analytics.mongo_url` |   string  |Connection string for MongoDB.|
 |`license` | string    |Enter your license in this section so MDCB can start.|
