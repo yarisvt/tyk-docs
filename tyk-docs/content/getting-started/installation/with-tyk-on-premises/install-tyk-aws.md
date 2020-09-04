@@ -84,7 +84,7 @@ In order to access GW, simply assign Elastic IP to the GW instance.  The auto ge
 To test, cURL the following: 
 ```{.copyWrapper}
 $ curl http://<elastic_public_ip>:8080/hello
-Hello Tiki
+{"status":"pass","version":"v3.0.0","description":"Tyk GW","details":{"dashboard":{"status":"pass","componentType":"system","time":"2020-08-28T17:19:49+02:00"},"redis":{"status":"pass","componentType":"datastore","time":"2020-08-28T17:19:49+02:00"}}}
 ```
 
 {{% tab_end %}}
