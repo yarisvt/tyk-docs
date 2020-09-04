@@ -76,7 +76,7 @@ tyk-gateway_1     | time="Apr 24 18:30:47" level=warning msg="Starting HTTP serv
 And then we can curl both servers:
 ```{.copyWrapper}
 $ curl -k https://localhost:8080/hello
-Hello Tiki
+{"status":"pass","version":"v3.0.0","description":"Tyk GW","details":{"dashboard":{"status":"pass","componentType":"system","time":"2020-08-28T17:19:49+02:00"},"redis":{"status":"pass","componentType":"datastore","time":"2020-08-28T17:19:49+02:00"}}}
 
 $ curl -k https://localhost:3000
 <html response>
