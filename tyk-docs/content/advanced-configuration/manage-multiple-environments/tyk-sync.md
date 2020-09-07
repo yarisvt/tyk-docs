@@ -80,7 +80,7 @@ Use "tyk-sync [command] --help" for more information about a command.
 
 ### Dump Command
 
-Dump will extract policies and APIs from a target (your Dashboard) and place them in a directory of your choosing. It will also generate a spec filethat can be used for syncing.
+Dump will extract policies and APIs from a target (your Dashboard) and place them in a directory of your choosing. It will also generate a spec file that can be used for syncing.
 
 ```
 
