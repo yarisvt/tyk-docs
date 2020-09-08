@@ -64,7 +64,7 @@ Because this example uses Tyk Cloud it uses the API id in the URL. For all other
 | Request | Value                                                                                                                                                                                                                          |
 | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Method  | `POST`                                                                                                                                                                                                                         |
-| URL     | Uses the Dashboard Admin API client authorization endpoint `/authorize-client/`. Uses the special OAuth endpoint `/oauth/token` appended to the API URI e.g. `https://<your-gateway-host>/<your-api-listen-path>/oauth/token`. |
+| URL     | Uses the Dashboard API client authorization endpoint `/authorize-client/`. |
 
 | Header          | Value                                                                            |
 | --------------- | -------------------------------------------------------------------------------- |
