@@ -38,6 +38,9 @@ You need to have at least one Edge Gateway with a **Deployed** status connected 
 
 ## Step Four
 
-Click [Deploy Control Plane and Create an Edge Gateway](/docs/tyk-cloud/troubleshooting-support/glossary/#deploy). You can watch your Control Plane being deployed and your Edge Gateway being created. You will then be taken to the Control Plane overview screen within the Tyk Cloud dashboard.
+1. Click [Deploy Control Plane and Create an Edge Gateway](/docs/tyk-cloud/troubleshooting-support/glossary/#deploy). You can watch your Control Plane being deployed and your Edge Gateway being created. You will then be taken to the Control Plane overview screen within the Tyk Cloud dashboard.
+2. From your Control Plane overview you will see the Edge Gateway is in a **Not Deployed** state. Click on your Edge Gateway to open its overview.
+3. In the top right of your Edge Gateway overview, click **Not Deployed** and choose **Deploy** from the drop-down.
+4. With your Edge Gateway successfully deployed, make a note of the tags assigned to your Edge Gateway. One tag is "edge" and the other is the location of your Edge Gateway. You'll add a tag when creating your API.
 
-Next you'll deploy your Edge Gateway and set up your first API from the Tyk Dashboard.
+Next you'll set up your first API from the Tyk Dashboard.
