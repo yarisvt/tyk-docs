@@ -36,7 +36,7 @@ You need to have at least one Edge Gateway with a **Deployed** status connected 
 1. Select the region you want to locate your [Edge Gateway](/docs/tyk-cloud/troubleshooting-support/glossary/#edge) in from the drop-down list. Your Edge Gateway is not confined to the same region as your Organisation and Control Plane but the amount of regions you have to choose from can be limited depending on your subscription plan.
 2. Give your Edge Gateway a name. 
 
-## Step Five
+## Step Four
 
 Click [Deploy Control Plane and Create an Edge Gateway](/docs/tyk-cloud/troubleshooting-support/glossary/#deploy). You can watch your Control Plane being deployed and your Edge Gateway being created. You will then be taken to the Control Plane overview screen within the Tyk Cloud dashboard.
 
