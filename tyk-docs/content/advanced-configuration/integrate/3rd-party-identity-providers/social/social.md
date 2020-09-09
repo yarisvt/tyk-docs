@@ -17,7 +17,6 @@ The social provider for the Tyk Identity Broker is a thin wrapper around the exc
 *   Dropbox
 *   GitHub
 *   Google+
-*   Lastfm
 *   Linkedin
 *   Twitter
 *   Salesforce
