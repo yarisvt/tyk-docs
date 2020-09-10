@@ -12,7 +12,7 @@ In v2.2 the error handler allowed the use a single JSON template to communicate 
 
 As of v2.3 it is possible to use different templates for specific HTTP error codes. The `content-type` header of the request is also checked, enabling the usage of different template formats, e.g. an XML template.
 
-## <a name="use-cases"></a> Use Cases
+## Use Cases
 
 ### JSON Request
 
@@ -28,3 +28,7 @@ When a HTTP 500 error occurs, and the request is a XML request, Tyk will follow 
 *   If `templates/error_500.xml` exists, this template will be used.
 *   If no specific template exists for this HTTP code, `templates/error.xml` will be used.
 *   If `error.xml` doesn't exist, `templates/error.json` will be used.
+
+### Removing the X-Generator Header
+
+If you don't want to return our default X-Generator header (set to tyk.io) in your templates, set `hide_generator_header` to `true` in your `tyk.conf` file
