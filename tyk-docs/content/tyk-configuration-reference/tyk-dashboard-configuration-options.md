@@ -242,7 +242,7 @@ A Boolean setting for Mongo SSL support. Set to `true` to enable SSL.
 
 ### mongo_batch_size
 
-Sets the batch size for mongo results. Defaults to `2000`. Increasing this number can decrease dashboard performance.
+Sets the batch size for mongo results. Defaults to `2000`. Increasing this number can decrease dashboard performance. This value cannot be lower than `100` and will be fallback to `100` if a lower value has been set.
 
 ### page_size
 
