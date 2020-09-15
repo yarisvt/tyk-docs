@@ -51,7 +51,7 @@ The PoC plan gives you the following:
 * 1 Edge Gateway
 * 1Gb of Daily Bandwidth Quota
 * 50Mb of Storage
-* Rate per Second (RPS) of 10
+* Requests per Second (RPS) of 10
 
 You can create 1 team with 1 user.
 
@@ -66,7 +66,7 @@ The Production plan gives you the following:
 * 3 Edge Gateways
 * 10Gb of Daily Bandwidth Quota
 * 500Mb of Storage
-* Rate per Second (RPS) of 100
+* Requests per Second (RPS) of 100
 * Custom domains
 
 You can create 1 team with 5 users
@@ -83,7 +83,7 @@ The Enterprise plan gives you the following:
 * 1 Gateway region
 * 50Gb of Daily Bandwidth Quota
 * 1Gb of Storage
-* Rate per Second (RPS) of 500
+* Requests per Second (RPS) of 500
 * Custom domains
 * Burstable capacity
 
