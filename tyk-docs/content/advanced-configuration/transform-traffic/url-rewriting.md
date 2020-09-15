@@ -91,7 +91,7 @@ Additionally, each trigger also sets a context variable for each match it finds.
 {{< note success >}}
 **Note**  
 
-When using `header_ matches` in the trigger, the name is the normalised form of the header name.
+When using `header_matches` in the trigger, the name is the normalised form of the header name.
 {{< /note >}}
 
 
