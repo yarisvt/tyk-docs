@@ -107,7 +107,7 @@ Click **CREATE** . Once the policy is saved, you will be able to use it when cre
 
 ## Tutorial: Create a security policy with the API
 
-Security Policies can be created with a single call to the API. It is very similar to the token creation process. To generate a simple security policy using the Tyk Cloud API you can use the following curl command:
+Security Policies can be created with a single call to the API. It is very similar to the token creation process. To generate a simple security policy using the Tyk Dashboard API you can use the following curl command:
 ```{.copyWrapper}
 curl -X POST -H "authorization: {API-TOKEN}" \
   -s \
@@ -162,7 +162,7 @@ You can then use this policy ID in the `apply_policy_id` field of an API token. 
 {{< note success >}}
 **Note**  
 
-`apply_policy_id` is supported, but has now been deprecated. `apply_policies` is now used to list your policy IDs as an array. This supports the **Multiple Policy** feature introduced in the  **v2.4/1.4** release.
+`apply_policy_id` is supported, but has now been deprecated. `apply_policies` is now used to list your policy IDs as an array. This supports the **Multiple Policy** feature introduced in the **v2.4/1.4** release.
 {{< /note >}}
 
 
