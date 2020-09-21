@@ -146,8 +146,8 @@ Although we have set the main factors of the key, they will be overridden by the
 
 ## How You Can Create Policies
 
-[Create a Policy with the Dashboard API](/docs/getting-started/installation/tutorials/create-security-policy/#tutorial-create-a-security-policy-with-the-api)
+[With the Dashboard API](/docs/getting-started/tutorials/create-security-policy/#tutorial-create-a-security-policy-with-the-api)
 
-[Create a Policy with the Gateway API](/docs/getting-started/installation/tutorials/create-security-policy/#tutorial-create-a-policy-with-the-gateway-api)
+[With the Gateway API - Community Edition tab](/docs/getting-started/tutorials/create-security-policy)
 
-[Create a Policy with the Dashboard](/docs/getting-started/installation/tutorials/create-security-policy/#tutorial-create-a-security-policy-with-the-dashboard)
+[With the Dashboard](/docs/getting-started/tutorials/create-security-policy/#tutorial-create-a-security-policy-with-the-dashboard)
