@@ -7,6 +7,12 @@ menu:
 weight: 1
 ---
 
+{{< note success >}}
+**Note**  
+
+See [API Definition Objects](/docs/tyk-gateway-api/api-definition-objects/) section for a description of each object type.
+{{< /note >}}
+
 ### Get List of APIs
 
 | **Property** | **Description** |
