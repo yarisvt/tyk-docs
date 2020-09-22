@@ -20,7 +20,7 @@ This means, no invalid request will be forwarded to your upstream.
 The Gateway will already catch the error and return it to the client.
 
 ## Schema Validation
-A broken schema can lead to undesired behaviors of the API including queries never be able to be processed by the GraphQL middleware. As the search for the root cause for 
+A broken schema can lead to undesired behaviors of the API including queries not being processed by the GraphQL middleware. As the search for the root cause for 
 such a malfunction can be tedious, Tyk provides schema validation.
 
 > **Note:** Schema validation is only available when using the Dashboard or Dashboard API.
