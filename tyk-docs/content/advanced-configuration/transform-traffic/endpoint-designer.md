@@ -78,7 +78,7 @@ If you specify a a path to be in the cache list, then the path will be cached by
 
 ### Circuit Breaker
 
-Our circuit breaker is threshold-based, so if x% of requests are failing then the circuit is tripped. When the circuit is tripped, the gateway stops all inbound requests to that service for a pre-defined period of time (a recovery time-period).
+Our circuit breaker is rate-based, so if x% of requests are failing then the circuit is tripped. When the circuit is tripped, the gateway stops all inbound requests to that service for a pre-defined period of time (a recovery time-period).
 
 The circuit breaker will also emit an event which you can hook into to perform some corrective or logging action. See [Circuit Breaker](/docs/planning-for-production/ensure-high-availability/circuit-breakers/) for more details.
 
