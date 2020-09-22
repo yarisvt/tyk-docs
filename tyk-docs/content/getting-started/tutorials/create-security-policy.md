@@ -56,12 +56,28 @@ Adding a policy to a Community Edition Tyk Gateway is very easy. Polices are loa
   "per": 1,
   "quota_max": 10000,
   "quota_renewal_rate": 3600,
+  "state": "active",
   "tags": ["Startup Users"]
   }
 }
 ```
 
 The above creates a new policy with a policy ID that you can define, with the rate limits, and security profile that grants access to the APIs listed in the `access_rights` section.
+
+*   `{API-ID}`: The API ID you wish this policy to grant access to, there can be more than one of these entries.
+*   `{API-NAME}`: The name of the API that is being granted access to (this is not required, but helps when debugging or auditing).
+*   `POLICY NAME`: The name of this security policy.
+
+The important elements:
+
+*   `access_rights`: A list of objects representing which APIs that you have configured to grant access to.
+*   `rate` and `per`: The number of requests to allow per period.
+*   `quota_max`: The maximum number of allowed requests over a quota period.
+*   `quota_renewal_rate`: how often the quota resets, in seconds. In this case we have set it to renew every hour.
+*   `state`: New from **v3.0**, this can be used instead of `active` and `is_inactive`. You can use the following values:
+    *   `active` - all keys connected to the policy are active and new keys can be created
+    *   `draft` - all keys connected to the policy are active but new keys cannot be created
+    *   `deny` - all keys are deactivated and no keys can be created.
 {{< tab_end >}}
 {{< tabs_end >}}
 
