@@ -1,9 +1,9 @@
 ---
 date: 2017-03-24T14:54:24Z
-title: Javascript API
+title: JavaScript API
 menu:
   main:
-    parent: "Javascript Middleware"
+    parent: "JavaScript Middleware"
 weight: 1 
 aliases:
   - /plugins/javascript-middleware/javascript-api
@@ -34,8 +34,11 @@ newRequest = {
   "FormData": {"field": "value"}
 };
 ```
-    
-> **Note**: If you want to include querystring values, add them as part of the `Domain` property.
+{{< note success >}}
+**Note**  
+
+If you want to include querystring values, add them as part of the `Domain` property.
+{{< /note >}}
     
 Tyk passes a simplified response back which looks like this:
 

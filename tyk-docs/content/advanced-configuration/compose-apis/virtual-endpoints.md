@@ -9,13 +9,21 @@ weight: 1
 
 Virtual endpoints are unique to Tyk. With a virtual endpoint, you can plug short JavaScript functions at the end of a Tyk route and have them run when the endpoint is called. Virtual endpoints are not available in the Tyk Cloud Edition.
 
-> **NOTE**: Virtual endpoints and the JSVM middleware share the same API. See [JavaScript API](/docs/plugins/javascript-middleware/javascript-api/) for more details. 
+{{< note success >}}
+**Note**  
+
+Virtual endpoints and the JSVM middleware share the same API. See [JavaScript API](/docs/plugins/supported-languages/javascript-middleware/javascript-api/) for more details.
+{{< /note >}}
 
 A sample use case for this might be aggregate functions that bring together related data from multiple services in your stack into a single object.
 
 Alternatively, you could produce a dynamic response object that transforms or computes data in some way from upstream services.
 
-> **Note**: The JavaScript engine in which these methods run in is a traditional ECMAScript 5 compatible environment and does not offer the more expressive power of something like Node.js. These methods are meant to provide a functional interpreter before complex interactions with your underlying service that cannot be handled by one of the other middleware components.
+{{< note success >}}
+**Note**  
+
+The JavaScript engine in which these methods run in is a traditional ECMAScript 5 compatible environment and does not offer the more expressive power of something like Node.js. These methods are meant to provide a functional interpreter before complex interactions with your underlying service that cannot be handled by one of the other middleware components.
+{{< /note >}}
 
 As with Javascript Middleware you will need to enable the JSVM. You do this by setting `enable_jsvm` to `true` in your `tyk.conf` file.
 

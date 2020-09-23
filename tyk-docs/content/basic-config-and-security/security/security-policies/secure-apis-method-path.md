@@ -15,7 +15,12 @@ With this feature it is possible to set up tiered access policies for your users
 
 Or, alternatively, you could just upgrade a single key to have more access, both methods use the same, or similar areas of the configuration to make this possible.
 
-> **Note**: Granular permissions are applied *after* version-based (global) whitelist/blacklist rules.
+{{< note success >}}
+**Note**  
+
+Granular permissions are applied *after* version-based (global) whitelist/blacklist rules.
+{{< /note >}}
+
 
 ### Setting granular paths on a per-key basis
 

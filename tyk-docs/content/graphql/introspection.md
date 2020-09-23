@@ -18,7 +18,12 @@ send a introspection query to the GraphQL server and use the response for provid
 When **creating a GraphQL proxy** in the Tyk Dashboard an introspection query is used to fetch the schema from the GraphQL upstream and display it in the 
 schema tab.
 
- > **Note:** When using a **GraphQL proxy** the introspection query is always sent to the GraphQL upstream. This means that changes in the Tyk schema won't be reflected
+{{< note success >}}
+**Note**  
+
+When using a **GraphQL proxy** the introspection query is always sent to the GraphQL upstream. This means that changes in the Tyk schema won't be reflected
  in the introspection response. You should keep the schemas synchronized to avoid confusion.
+{{< /note >}}
+
 
 Introspection also works for the **[Universal Data Graph]({{< ref "/content/universal-data-graph/universal-data-graph.md" >}})**.

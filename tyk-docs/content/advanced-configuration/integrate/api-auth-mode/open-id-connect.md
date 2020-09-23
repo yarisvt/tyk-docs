@@ -69,7 +69,12 @@ To set up an API Definition to use OIDC, add the following block to the definiti
 
 
 #### JWT scope to policy mapping support
-> **NOTE**: This feature is available starting from v2.9
+
+{{< note success >}}
+**Note**  
+
+This feature is available starting from v2.9
+{{< /note >}}
 
 You can map JWT scopes to security policies (including OIDC) to be applied to a key. To enable this feature you will need to add the following fields in your API:
 ```{.copyWrapper}
@@ -85,8 +90,13 @@ Here we have set:
 * `jwt_scope_to_policy_mapping` provides a mapping of scopes (read from claim) to an actual policy ID. In this example we specify that scope "admin" will apply policy `"59672779fa4387000129507d"` to a key.
 * `jwt_scope_claim_name` identifies the JWT claim name which contains scopes. This API Spec field is optional with default value `"scope"`. This claim value is a string with space delimited list of values (by standard)
 
+{{< note success >}}
+**Note**  
 
-> **NOTE**: several scopes in JWT claim will lead to have several policies applied to a key. In this case all policies should have `"per_api"` set to `true` and shouldn't have the same `API ID` in access rights. I.e. if claim with scopes contains value `"admin developer"` then two policies `"59672779fa4387000129507d"` and `"53222349fa4387004324324e"` will be applied to a key (with using our example config above).
+Several scopes in JWT claim will lead to have several policies applied to a key. In this case all policies should have `"per_api"` set to `true` and shouldn't have the same `API ID` in access rights. I.e. if claim with scopes contains value `"admin developer"` then two policies `"59672779fa4387000129507d"` and `"53222349fa4387004324324e"` will be applied to a key (with using our example config above).
+{{< /note >}}
+
+
 
 #### Setting JWT Scope Claims with the Dashboard
 

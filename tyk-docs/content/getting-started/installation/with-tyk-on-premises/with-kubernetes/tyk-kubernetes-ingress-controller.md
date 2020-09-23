@@ -26,7 +26,13 @@ In this article we will cover:
 * MongoDB installed in the cluster, or reachable from inside K8s
 * Helm. If you are deploying dependency databases or Tyk components via Helm Charts, you will need to ensure that Helm is installed on your host / bastion machine
 
- > NOTE: Our Community Edition chart currently installs the Tyk Pump configured with a MongoDB sink. So it's not necessary for the CE Gateway to function, but the Pump will fail without it.
+{{< note success >}}
+**Note**  
+
+Our Community Edition chart currently installs the Tyk Pump configured with a MongoDB sink. So it's not necessary for the CE Gateway to function, but the Pump will fail without it.
+{{< /note >}}
+
+
 
 ## Installation: Redis and MongoDB Helm Charts
 
@@ -50,7 +56,12 @@ Then run the chart:
 helm install -f ./values_community_edition.yaml ./tyk-headless
 ```
 
-> *Important Note regarding TLS:* This helm chart assumes TLS is being used by default, so the Gateways will listen on port 443 and load up a dummy certificate. You can set your own default certificate by replacing the files in the certs/ folder.
+{{< note success >}}
+**Note**  
+
+Regarding TLS: This helm chart assumes TLS is being used by default, so the Gateways will listen on port 443 and load up a dummy certificate. You can set your own default certificate by replacing the files in the certs/ folder.
+{{< /note >}}
+
 
 ### Overview of the Community Edition configuration
 

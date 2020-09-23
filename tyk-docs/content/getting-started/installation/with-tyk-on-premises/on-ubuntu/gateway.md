@@ -90,7 +90,7 @@ gpg:                using RSA key F3781522A858A2C43D3BC997CA041CD1466FA2F8
 gpg: Good signature from "Team Tyk (package signing) <team@tyk.io>" [ultimate]
 ```
 
-## <a name="configure-tyk-gateway-with-dashboard"></a> Configure Tyk Gateway with Dashboard
+## Configure Tyk Gateway with Dashboard
 
 ### Prerequisites
 
@@ -98,9 +98,14 @@ This configuration assumes that you have already installed the Tyk Dashboard, an
 
 ### Set up Tyk
 
-You can set up the core settings for Tyk Gateway with a single setup script, however for more involved deployments, you will want to provide your own configuration file. 
+You can set up the core settings for Tyk Gateway with a single setup script, however for more involved deployments, you will want to provide your own configuration file.
 
-> **NOTE**: You need to replace `<hostname>` for `--redishost=<hostname>`with your own value to run this script.
+{{< note success >}}
+**Note**  
+
+You need to replace `<hostname>` for `--redishost=<hostname>`with your own value to run this script.
+{{< /note >}}
+
 
 ```{.copyWrapper}
 sudo /opt/tyk-gateway/install/setup.sh --dashboard=1 --listenport=8080 --redishost=<hostname> --redisport=6379

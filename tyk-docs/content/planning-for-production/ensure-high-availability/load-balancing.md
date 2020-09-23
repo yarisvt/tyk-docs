@@ -23,8 +23,12 @@ Setting up load balancing is done on a per API basis, and is defined in the API 
   "http://10.0.0.4"
 ]
 ```
+{{< note success >}}
+**Note**  
 
-> **Important**: You must fill in the `target_list` section.
+You must fill in the `target_list` section.
+{{< /note >}}
+
 
 See [Service Discovery](/docs/planning-for-production/ensure-high-availability/service-discovery/) to see how you can integrate a service discovery system such as Consul or etcd with Tyk and enable dynamic load balancing support.
 
@@ -36,4 +40,8 @@ To set up load balancing via the Dashboard, from the **Core Settings** tab in th
 
 You can now add your Load Balancing **Upstream targets** and apply weighting to it. For example, for testing purposes, you can send 10% (set weighting to `1`) of traffic to a beta environment, and 90% (set weighting to `9`)to the production environment.
 
-> **NOTE**: Weighting is new from v1.10 of the Dashboard
+{{< note success >}}
+**Note**  
+
+Weighting is new from v1.10 of the Dashboard
+{{< /note >}}

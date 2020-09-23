@@ -8,7 +8,12 @@ weight: 2
 
 ## What is Mutual TLS?
 
-> **NOTE**: Mutual TLS is supported from Tyk Gateway 2.4, Tyk Dashboard 1.4 and MDCB 1.4
+{{< note success >}}
+**Note**  
+
+Mutual TLS is supported from Tyk Gateway 2.4, Tyk Dashboard 1.4 and MDCB 1.4
+{{< /note >}}
+
 
 Mutual TLS is a common security practice that uses client TLS certificates to provide an additional layer of protection, allowing to cryptographically verify the client information. 
 
@@ -138,7 +143,11 @@ Inside your API definition you should set the `upsteam_certificates` field to th
 
 #### HTTP/HTTPS Protocol
 
-> **NOTE**: Do NOT include the protocol or Tyk will not match your certificates to the correct domain.
+{{< warning success >}}
+**Note**  
+
+Do NOT include the protocol or Tyk will not match your certificates to the correct domain.
+{{< /warning >}}
 
  For example: 
  

@@ -10,7 +10,11 @@ url: "/basic-config-and-security/security/authentication-&-authorization/oauth2.
 
 The Refresh Token grant type uses the refresh token to generate a new token.
 
-> **Note**: Refresh tokens are single use only so cannot be reused, and when they are used they also invalidate the token they are associated with.
+{{< note success >}}
+**Note**  
+
+Refresh tokens are single use only so cannot be reused, and when they are used they also invalidate the token they are associated with.
+{{< /note >}}
 
 ### Request new token
 

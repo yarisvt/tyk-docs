@@ -53,7 +53,11 @@ These settings will be applied to all APIs that the policy is applied to. You ca
 
 A rate limit is enforced on all keys, set the number of requests per second that a user of a key with this policy is allowed to use. See [Rate Limiting](/docs/basic-config-and-security/control-limit-traffic/rate-limiting/) for more details.
 
-> **NOTE:** The Rate Limit set by a policy will override the limits applied to an individual key.
+{{< note success >}}
+**Note**  
+
+The Rate Limit set by a policy will override the limits applied to an individual key.
+{{< /note >}}
 
 #### Throttling
 
@@ -65,7 +69,12 @@ Usage quotas limit the number of total requests a user is allowed to have over a
 
 Usage quotas can only be a positive number, or -1 (unlimited).
 
-> **NOTE:** The Usage Quota set by a policy will override a quota applied to an individual key.
+{{< note success >}}
+**Note**  
+
+The Usage Quota set by a policy will override a quota applied to an individual key.
+{{< /note >}}
+
 
 ### Policy Partitioning
 
@@ -98,7 +107,7 @@ Click **CREATE** . Once the policy is saved, you will be able to use it when cre
 
 ## Tutorial: Create a security policy with the API
 
-Security Policies can be created with a single call to the API. It is very similar to the token creation process. To generate a simple security policy using the Tyk Cloud API you can use the following curl command:
+Security Policies can be created with a single call to the API. It is very similar to the token creation process. To generate a simple security policy using the Tyk Dashboard API you can use the following curl command:
 ```{.copyWrapper}
 curl -X POST -H "authorization: {API-TOKEN}" \
   -s \
@@ -149,6 +158,13 @@ When you send this request, you should see the following reply with your Policy 
 ```
 
 You can then use this policy ID in the `apply_policy_id` field of an API token. Please see the relevant documentation on session objects for more information about how tokens are attached to policies.
-> **NOTE**: `apply_policy_id` is supported, but has now been deprecated. `apply_policies` is now used to list your policy IDs as an array. This supports the **Multiple Policy** feature introduced in the  **v2.4/1.4** release.
+
+{{< note success >}}
+**Note**  
+
+`apply_policy_id` is supported, but has now been deprecated. `apply_policies` is now used to list your policy IDs as an array. This supports the **Multiple Policy** feature introduced in the **v2.4/1.4** release.
+{{< /note >}}
+
+
 
 For more information on how policies are constructed and a detailed explanation of their properties, please see the [Security Policies](/docs/security/security-policies/) section.

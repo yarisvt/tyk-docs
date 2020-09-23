@@ -60,13 +60,24 @@ Set to `false` by default, set this to `true` to enable the retrieval all (or pe
 
 Available from **v2.8**, this setting allows you to update keys with just its hash value. Set to `false` by default.
 
-> **NOTE**: This setting applies to On-Premises and MDCB installations only.
+{{< note success >}}
+**Note**  
+
+This setting applies to On-Premises and MDCB installations only.
+{{< /note >}}
+
 
 ### enable_delete_key_by_hash
 
 Available from **v2.8**, this setting allows you to delete keys with just its hash value. Set to `false` by default.
 
-> **NOTE**: This setting applies to On-Premises and MDCB installations only.
+{{< note success >}}
+**Note**  
+
+This setting applies to On-Premises and MDCB installations only.
+{{< /note >}}
+
+
 
 ### allow_master_keys
 
@@ -88,13 +99,24 @@ This section defines API loading and shard options, enable these settings to onl
 
 Set the URL to your Dashboard instance (or a load balanced instance), the URL should take the form of: `http://dashboard_host:port`
 
-> **Note**: the same will need to be done for Policy loading, see the policies section below.
+{{< note success >}}
+**Note**  
+
+The same will need to be done for Policy loading, see the policies section below.
+{{< /note >}}
+
+
 
 #### db_app_conf_options.node_is_segmented
 
 Set to `true` to enable filtering (sharding) of APIs.
 
-> **Note**: If you set to `true` for multiple gateway nodes, you should ensure that `management_node` is set to `false`. This is to ensure visibility for the management node across all APIs.
+{{< note success >}}
+**Note**  
+
+If you set to `true` for multiple gateway nodes, you should ensure that `management_node` is set to `false`. This is to ensure visibility for the management node across all APIs.
+{{< /note >}}
+
 
 #### db_app_conf_options.tags
 
@@ -136,7 +158,12 @@ Enable SSL/TLS connection between Tyk Gateway &amp; Redis.
 
 Tyk is capable of recording every hit to your API into a database with various filtering parameters, set this value to `true` and fill in the sub-section below to enable logging.
 
-> **Note**: For performance reasons, Tyk will store traffic data to Redis initially and then purge the data from Redis to MongoDB or other, [data stores](/docs/analytics-and-reporting/other-data-stores/), on a regular basis as determined by the `purge_delay` setting in your Tyk Pump configuration.
+{{< note success >}}
+**Note**  
+
+For performance reasons, Tyk will store traffic data to Redis initially and then purge the data from Redis to MongoDB or other, [data stores](/docs/analytics-and-reporting/other-data-stores/), on a regular basis as determined by the `purge_delay` setting in your Tyk Pump configuration.
+{{< /note >}}
+
 
 ### analytics_config
 
@@ -199,7 +226,12 @@ This is a list of custom patterns you can add, these must be valid regex strings
 
 You can set a time (in seconds) to configure how long analytics are kept if they are not processed. The default is 60 seconds. This is used to prevent the potential infinite growth of Redis analytics storage.
 
-> **NOTE:** This option is available from v2.5.2 onwards.
+{{< note success >}}
+**Note**  
+
+This option is available from v2.5.2 onwards.
+{{< /note >}}
+
 
 ### policies
 
@@ -224,7 +256,7 @@ Specifies the path of a JSON file containing the available policies.
 
 ### policies.allow_explicit_policy_id
 
-As of v2.1, by default, in a Pro installation, Tyk will load Policy IDs and use the internal object-ID as the ID of the policy. This is not portable in cases where the data needs to be moved from installation to installation.
+In a Pro installation, Tyk will load Policy IDs and use the internal object-ID as the ID of the policy. This is not portable in cases where the data needs to be moved from installation to installation.
 
 If you set this value to `true`, then the `id` parameter in a stored policy (or imported policy using the REST API of the Dashboard), will be used instead of the internal ID.
 
@@ -287,7 +319,7 @@ A list of certificates and domains to match against. Please see the SSL section 
 
 #### http_server_options.ssl_certificates
 
-Added in 2.4, as altertnative to `http_server_options.certificates`, which supports our [Certificate API](/docs/basic-config-and-security/security/tls-and-ssl/mutual-tls/#a-name-certificates-management-a-certificate-management) format. It should be a list of certificate IDs returned by Certificate API, or paths to certificate in PEM format (including private key).
+Added in v2.4, as altertnative to `http_server_options.certificates`, which supports our [Certificate API](/docs/basic-config-and-security/security/tls-and-ssl/mutual-tls/#a-name-certificates-management-a-certificate-management) format. It should be a list of certificate IDs returned by Certificate API, or paths to certificate in PEM format (including private key).
 
 #### http_server_options.skip_url_cleaning
 
@@ -329,7 +361,12 @@ For `key-id` you should set the ID returned after you upload the public key usin
 
 Note that only public keys in PEM format are supported.
 
-> **NOTE:** This option is available from v2.6.0 onwards.
+{{< note success >}}
+**Note**  
+
+This option is available from v2.6.0 onwards.
+{{< /note >}}
+
 
 #### close_connections
 
@@ -337,7 +374,11 @@ Set this value to `true` to force Tyk to close the connection with the client, o
 
 Prior to v2.6 this setting controlled the behaviour of both the client/Tyk connection and Tyk/server connection. Since v2.6 it is just for the client/Tyk connection, with Tyk/server being controlled by <a href='#proxy_close_connections'>proxy_close_connections</a>
 
-> **NOTE:** This option is available from v2.3.5 onwards.
+{{< note success >}}
+**Note**  
+
+This option is available from v2.3.5 onwards.
+{{< /note >}}
 
 #### proxy_close_connections
 
@@ -455,7 +496,11 @@ Change the expiry time of refresh token, by default 14 days (in seconds).
 
 Specifies how long expired tokens are stored in Redis. The value is in seconds and the default is `0`. Using the default means expired tokens are never removed from Redis.
 
-> **NOTE:** This option is available from v2.6.0 onwards.
+{{< note success >}}
+**Note**  
+
+This option is available from v2.6 onwards.
+{{< /note >}}
 
 ### control_api_hostname
 
@@ -466,13 +511,23 @@ The hostname to bind the REST API to.
 This allows you to run the Gateway Control API on separate port, and protect it behind a firewall if needed.
 Please make sure you follow these [instructions](/docs/planning-for-production/#change-your-control-port) when setting the control port.
 
-> **Note:** This option is available from v2.4 onwards.
+{{< note success >}}
+**Note**  
+
+This option is available from v2.4 onwards.
+{{< /note >}}
+
 
 ### enable_api_segregation
 
 For additional security it is possible to have Tyk put its REST API on a separate hostname, this means that all calls to the `/api` functions must go via this hostname for this node otherwise they will 404. This is useful if you do not wish to expose the Tyk API to proxy API users.
 
-> **NOTE**: This has been deprecated. Enter a value for `control_api_hostname` instead.
+{{< note success >}}
+**Note**  
+
+This has been deprecated. Enter a value for `control_api_hostname` instead.
+{{< /note >}}
+
 
 ### hostname
 
@@ -530,7 +585,7 @@ The Sentry-assigned DSN (a kind of URL endpoint) that Tyk can send log data to.
 
 ### suppress_redis_signal_reload
 
-Tyk v1.6 will auto-reload when a change is detected when using the Dashboard, this used to be done by the host-manager but is now directly integrated into the Gateway. For backwards compatibility, this behaviour can be suppressed by setting this value to `true`.
+Tyk will auto-reload when a change is detected when using the Dashboard, this used to be done by the host-manager but is now directly integrated into the Gateway. For backwards compatibility, this behaviour can be suppressed by setting this value to `true`.
 
 ### optimisations_use_async_session_write
 
@@ -552,21 +607,32 @@ Enables the real-time Gateway log view in the Dashboard.
 
 If set to `true`, distributed rate limiter will be disabled for this node, and it will be excluded from rate limit calculation.
 
-> **Note**: If you set `db_app_conf_options.node_is_segmented` to `true` for multiple gateway nodes, you should ensure that `management_node` is set to `false`. This is to ensure visibility for the management node across all APIs.
+{{< note success >}}
+**Note**  
 
-> This option is available from v2.3.4 and onwards.
+If you set `db_app_conf_options.node_is_segmented` to `true` for multiple gateway nodes, you should ensure that `management_node` is set to `false`. This is to ensure visibility for the management node across all APIs.
+{{< /note >}}
 
 ### proxy_ssl_insecure_skip_verify
 
 This boolean option allows you to skip SSL checking for upstream APIs with self-signed certificates. The default setting is false.
 
-> **NOTE:** This option is available from v2.3.5 onwards.
+{{< note success >}}
+**Note**  
+
+This option is available from v2.3.5 onwards.
+{{< /note >}}
 
 ### proxy_default_timeout
 
 This can specify a default timeout in seconds for upstream API requests.
 
-> **NOTE:** This option is available from v2.3.8 onwards.
+{{< note success >}}
+**Note**  
+
+This option is available from v2.3.8 onwards.
+{{< /note >}}
+
 
 ### log_level
 You can now set a logging level (`log_level`). The following levels can be set:
@@ -578,19 +644,34 @@ You can now set a logging level (`log_level`). The following levels can be set:
 
 If unset or left empty, it will default to `info`.
 
-> **NOTE:** This option is available from v2.4 onwards.
+{{< note success >}}
+**Note**  
+
+This option is available from v2.4 onwards.
+{{< /note >}}
+
 
 ### enable_key_logging
 
 By default all key ids in logs are hidden. Turn it on if you want to see them for debugging reasons.
 
-> **NOTE:** This option is available from v2.5 onwards.
+{{< note success >}}
+**Note**  
+
+This option is available from v2.5 onwards.
+{{< /note >}}
+
 
 ### max_conn_time
 
 This setting forces a DNS cache flush (in seconds). The default setting is `0`.
 
-> **NOTE:** This option is available from v2.5.2 onwards.
+{{< note success >}}
+**Note**  
+
+This option is available from v2.5.2 onwards.
+{{< /note >}}
+
 
 ### proxy_ssl_min_version
 
@@ -619,15 +700,25 @@ From v2.7.2, TLS renegotiation is now enabled by default. You can disable it by 
 
 If set to `true` this allows you to disable the regular expression cache. The default setting is `false`.
 
-> **NOTE:** This option is available from v2.7.0 onwards.
+{{< note success >}}
+**Note**  
+
+This option is available from v2.7.0 onwards.
+{{< /note >}}
+
 
 ### regexp_cache_expire
 
 If you set `disable_regexp_cache` to false, you can use this setting to limit how long the regular expression cache is kept for in seconds. The default is `60` seconds. This must be a positive value. If you set to `0` this sets it uses the default value.
 
-> **NOTE:** This option is available from v2.7.0 onwards.
+{{< note success >}}
+**Note**  
 
-### <a name="kv"></a> Key Value store
+This option is available from v2.7.0 onwards.
+{{< /note >}}
+
+
+### Key Value store
 
 This section enables the usage of the KV capabilites to subsitute configuration
 values.
@@ -667,109 +758,109 @@ values.
 }
 ```
 
-#### <a name="kv.consul"></a> Consul
+#### Consul
 
-#### <a name="kv.consul.address"></a> kv.consul.address
+#### kv.consul.address
 
 The address of the consul server
 
-#### <a name="kv.consul.scheme"></a> kv.consul.scheme
+#### kv.consul.scheme
 
 The URI scheme of the Consul server.
 
 Valid values: `http`, `https`
 
-#### <a name="kv.consul.datacenter"></a> kv.consul.datacenter
+#### kv.consul.datacenter
 
 The datacenter the consul agent is running in.
 
 Default : `dc1`
 
-#### <a name="kv.consul.wait_time"></a> kv.consul.wait_time
+#### kv.consul.wait_time
 
 This limits how long a Watch will block
 
 Default: `0`
 
-#### <a name="kv.consul.http_auth"></a> kv.consul.http.auth
+#### kv.consul.http.auth
 
 HTTP Basic authentication to the Consul server.
 
-##### <a name="kv.consul.http_auth.username"></a> kv.consul.http_auth.username
+##### kv.consul.http_auth.username
 
 This is the username that is needed to perform the authentication to the server.
 
-##### <a name="kv.consul.http_auth.password"></a> kv.consul.http_auth.password
+##### kv.consul.http_auth.password
 
 This is the password that is needed to perform the authentication to the server.
 
-#### <a name="kv.consul.token"></a> kv.consul.token
+#### kv.consul.token
 
 Per request ACL token which will override the default agent's token
 
-#### <a name="kv.consul.tls_config"></a> kv.consul.tls_config
+#### kv.consul.tls_config
 
-##### <a name="kv.consul.tls_config.address"></a> kv.consul.tls_config.address
+##### kv.consul.tls_config.address
 
 Optional. This is the adress of the consul server.
 
-##### <a name="kv.consul.tls_config.ca_path"></a> kv.consul.tls_config.ca_path
+##### kv.consul.tls_config.ca_path
 
 Optional. This is the path to the CA certificates used by the Consul server. It
 defaults to the system certificates' path.
 
-##### <a name="kv.consul.tls_config.cert_file"></a> kv.consul.tls_config.cert_file
+##### kv.consul.tls_config.cert_file
 
 The path to the certificate file used by the Consul server.
 
-##### <a name="kv.consul.tls_config.key_file"></a> kv.consul.tls_config.key_file
+##### kv.consul.tls_config.key_file
 
 Path to the private cert file. If this is provided, then `kv.consul.tls_config.cert_file` must be set too.
 
-##### <a name="kv.consul.tls_config.insecure_skip_verify"></a> kv.consul.tls_config.insecure_skip_verify
+##### kv.consul.tls_config.insecure_skip_verify
 
 Disable TLS verification
 
-#### <a name="kv.vault"></a> Vault
+#### Vault
 
-#### <a name="kv.vault.address"></a> kv.vault.address
+#### kv.vault.address
 
 Address of the vault server.
 
 Defaults : `https://127.0.0.1:8200`. It can be overriden with `VAULT_ADDR` though
 
-#### <a name="kv.vault.agent_address"></a> kv.vault.agent_address
+#### kv.vault.agent_address
 
 Address of the local Vault agent
 
-#### <a name="kv.vault.max_retries"></a> kv.vault.max_retries
+#### kv.vault.max_retries
 
 Controls the maximum number of times to retry when an internal error occurs
 
 Defaults: `2`.
 
-#### <a name="kv.vault.max_retries"></a> kv.vault.max_retries
+#### kv.vault.max_retries
 
 Controls the maximum number of times to retry when an internal error occurs
 
 Defaults: `2`.
 
-#### <a name="kv.vault.timeout"></a> kv.vault.timeout
+#### kv.vault.timeout
 
 Timeout for HTTP client
 
-#### <a name="kv.vault.token"></a> kv.vault.token
+#### kv.vault.token
 
 Token to authenticate requests to the Vault server.
 
-#### <a name="kv.vault.kv_version"></a> kv.vault.kv_version
+#### kv.vault.kv_version
 
 KV version of Vault.
 
 Defaults: `2`.
 
 
-#### <a name="kv.secrets"></a> Secrets map
+#### Secrets map
 
 Values that are set in this map will be available for use to your app.
 Please take a look at [KV store reference for usage](/docs/tyk-configuration-reference/kv-store/)
@@ -780,20 +871,27 @@ Please take a look at [KV store reference for usage](/docs/tyk-configuration-ref
 }
 ```
 
+{{< note success >}}
+**Note**  
 
-> Please use Consul/Vault to store more sensitive data
+Please use Consul/Vault to store more sensitive data
+{{< /note >}}
 
 
-#### <a name="kv.env"></a> Environment store
+#### Environment store
 
 Environment variables can also be used as a KV store. A value in the environment
 as `SOME_VALUE` will be accessible as `env://SOME_VALUE`.
 
 Please take a look at [KV store reference for usage](/docs/tyk-configuration-reference/kv-store/)
 
-> Please use Consul/Vault to store more sensitive data
+{{< note success >}}
+**Note**  
 
-### <a name="dns-caching"></a> DNS caching
+Please use Consul/Vault to store more sensitive data
+{{< /note >}}
+
+### DNS caching
 
 ### DNS caching
 

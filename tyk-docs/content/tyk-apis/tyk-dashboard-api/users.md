@@ -6,8 +6,12 @@ menu:
     parent: "Tyk Dashboard API"
 weight: 5 
 ---
+{{< note success >}}
+**Note**  
 
-> **NOTE**: `USER_ID` is a placeholder for your User ID value.
+`USER_ID` is a placeholder for your User ID value.
+{{< /note >}}
+
 
 ### List Users
 
@@ -103,7 +107,11 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 ### Add User
 
-> **Note:** You can add a user via the API without a password by leaving out the `password` field. You then use **Set User Password** request to add a password.
+{{< note success >}}
+**Note**  
+
+You can add a user via the API without a password by leaving out the `password` field. You then use **Set User Password** request to add a password.
+{{< /note >}}
 
 You need to have the `users` [Permission object](/docs/basic-config-and-security/security/dashboard/user-roles/#the-permissions-object) set to write to use **Add User**.
 
@@ -277,7 +285,11 @@ This call allows you to reset a user's current Dashboard session.
 
 You need to have the `users` [Permission object](/docs/basic-config-and-security/security/dashboard/user-roles/#the-permissions-object) set to write to use this call.
 
-> **NOTE**: This also resets the user's Dashboard API credentials. 
+{{< note success >}}
+**Note**  
+
+This also resets the user's Dashboard API credentials. 
+{{< /note >}}
 
 | **Property** | **Description**                            |
 | ------------ | ------------------------------------------ |

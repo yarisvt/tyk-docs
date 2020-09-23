@@ -104,3 +104,15 @@ Scroll down to the Webhooks panel:
 Here you will be able to select the event to fire on and what webhook to use for the event. Since you can re-use webhooks, simply select it from the **Webhook to use** drop-down list, and set the cooldown period (in seconds) that sets the period between webhook notifications.
 
 Click **Add** to save your webhook to the API definition.
+
+### Example Webhook Payload
+
+```.json
+{
+    "event": "AuthFailure",
+    "message": "Auth Failure",
+    "path": "/my-auth-api/",
+    "origin": "99.242.139.220",
+    "key": "123"
+}
+```

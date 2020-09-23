@@ -9,4 +9,3 @@ This functionality can be useful if you need to pass additional information from
 
 See [Log Browser](/docs/analytics-and-reporting/log-browser/) for more details on setting via the Dashboard.
 
-> **NOTE**: This functionality is available from Gateway v2.4 and Dashboard v1.4.

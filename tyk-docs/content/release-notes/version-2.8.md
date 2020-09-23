@@ -217,7 +217,7 @@ There is a new section in the Tyk Dashboard config file where you can specify pa
 - `enabled` - enables audit logging, set to `false` by default. NOTE: setting `security.audit_log_path` has the same effect as setting `enabled` to `true`
 - `format` - specifies the format of audit log file. Possible values are `json` and `text` (`text` is default value)
 - `path` - specifies path to the audit log and overwrites `security.audit_log_path` if it was set
-- `detailed_recording` - enables detailed records in the audit log. Set to `false`. y default. If set to `true` then audit log records will contain the http-request (without body) and full http-response including the body`
+- `detailed_recording` - enables detailed records in the audit log. Set to `false` by default. If set to `true` then audit log records will contain the http-request (without body) and full http-response including the body`
 
 Audit records the following fields for `json` format:
 

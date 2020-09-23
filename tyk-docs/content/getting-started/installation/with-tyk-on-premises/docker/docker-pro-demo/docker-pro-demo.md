@@ -9,7 +9,12 @@ weight: 1
 
 ## Get Started with Docker & Tyk API Gateway
 
-> **Warning!** This demo is **NOT** designed for production use or performance testing. 
+{{< warning success >}}
+**Warning**  
+
+This demo is **NOT** designed for production use or performance testing.
+{{< /warning >}}
+
 
 The Tyk Pro Docker demo is our full [On-Premises](https://tyk.io/api-gateway/on-premise/) solution, which includes our Gateway, Dashboard, and analytics processing pipeline. This demo will run Tyk On-Premises on your machine, which contains 5 containers: Tyk Gateway, Tyk Dashboard, Tyk Pump, Redis and MongoDB. This demo is great for proof of concept and demo purposes, but if you want to test performance, you will need to move each component to a separate machine.
 
@@ -72,8 +77,13 @@ You need to enter the following:
 * A **Password** for your User
 * **Re-enter** your user **Password**
 
-> **NOTE**: For a password, we recommend a combination of alphanumeric characters, with both upper and lower case
+{{< note success >}}
+**Note**  
+
+For a password, we recommend a combination of alphanumeric characters, with both upper and lower case
 letters.
+{{< /note >}}
+
 
 Click **Bootstrap** to save the details.
 

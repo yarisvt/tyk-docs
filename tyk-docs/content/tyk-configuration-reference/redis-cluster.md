@@ -11,13 +11,22 @@ weight: 7
 
 Our Gateway, Dashboard and Pump all support integration with Redis Cluster. Redis Cluster allows data to be automatically sharded across multiple Redis Nodes. To setup Redis Cluster correctly, we recommend you read the [Redis Cluster Tutorial](https://redis.io/topics/cluster-tutorial). You must use the same settings across the Gateway, Dashboard and Pump.
 
-> **NOTE**: Redis Cluster is different to a Redis Master/Slave setup.
+{{< note success >}}
+**Note**  
+
+Redis Cluster is different to a Redis Master/Slave setup.
+{{< /note >}}
+
 
 ## Redis Cluster & Tyk Gateway 
 
 To configure the Tyk Gateway to work with your Redis Cluster, set `enable_cluster` to `true` and list your servers under `addrs` in your `tyk.conf` file.
 
- > NOTE: `addrs` is new in v2.9.3, and replaces `hosts` which is now deprecated. 
+{{< note success >}}
+**Note**  
+
+`addrs` is new in v2.9.3, and replaces `hosts` which is now deprecated. 
+{{< /note >}}
 
 If you are using TLS for Redis connections, set `use_ssl` to `true`.
 
@@ -42,7 +51,12 @@ If you are using TLS for Redis connections, set `use_ssl` to `true`.
 
 ## Redis Cluster & Tyk Dashboard
 
-> NOTE: `redis_addrs` is new in v1.9.3 for the Dashboard, and replaces `hosts` which is now deprecated. 
+{{< note success >}}
+**Note**  
+
+`redis_addrs` is new in v1.9.3 for the Dashboard, and replaces `hosts` which is now deprecated. 
+{{< /note >}}
+
 
 ```{json}
 "redis_addrs": [
@@ -60,7 +74,12 @@ To configure the Tyk Dashboard to work with your Redis Cluster, add the Redis ad
 
 To configure the Tyk Pump to work with your Redis Cluster, set `enable_cluster` to `true` and list your servers under `addrs` in your `pump.conf` file.
 
- > NOTE: `addrs` is new in v2.9.3, and replaces `hosts` which is now deprecated. 
+{{< note success >}}
+**Note**  
+
+`addrs` is new in v2.9.3, and replaces `hosts` which is now deprecated. 
+{{< /note >}}
+
 
 ```{json}
 "analytics_storage_config": {
@@ -110,12 +129,20 @@ It is recommended to ensure that the connection pool is big enough. To do so, se
 TYK_GW_STORAGE_MAXIDLE=6000
 TYK_GW_STORAGE_MAXACTIVE=10000
 ```
+{{< note success >}}
+**Note**  
 
-> **Note**: These are suggested settings, please verify them by load testing.
+These are suggested settings, please verify them by load testing.
+{{< /note >}}
+
 
 ## Tyk and Redis Sentinel
 
- > NOTE: From v2.9.3 Redis Sentinel is now supported.
+{{< note success >}}
+**Note**  
+
+From v2.9.3 Redis Sentinel is now supported.
+{{< /note >}}
 
 To enable a Redis Sentinel setup from v2.9.3 onwards, you need to set the Master Name via the following variables:
 

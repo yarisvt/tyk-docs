@@ -27,6 +27,7 @@ If your upstream does not handle CORS, you should let Tyk manage all CORS relate
 
 To learn more, look for `CORS.options_passthrough` [here](/docs/tyk-apis/tyk-gateway-api/api-definition-objects/cors/).
 
+
 ### CORS middleware is allowing headers which I did not allow
 This may be the case when you enable CORS but don't provide any headers explicitly (basically providing an empty array). In this case the CORS middleware will use some sensible defaults. 
 To allow all headers, you will need to provide `*` (although this is not recommended).
@@ -35,3 +36,4 @@ The same can happen with Allowed Origins and Allowed Methods. Read more about it
 
 ### CORS middleware is blocking my authenticated request
 Please make sure that you did allow the authorization header name (e.g. `Authorization`) or else the request will be blocked by the CORS middleware. If you're having trouble on the developer portal with authenticated requests make sure to also allow the `Content-Type` header.
+

@@ -14,7 +14,13 @@ If you've seen the documentation for the log viewer, then you'll also be wonderi
 When this mode is enabled, Tyk will record the request and response in wire-format in the analytics DB. This can be very useful when trying to debug API requests to see what went wrong for a user or client.
 
 ### Enabling Detailed Logging
-> **NOTE**: Detailed logging is not available for Tyk SaaS customers.
+
+{{< note success >}}
+**Note**  
+
+Detailed logging is not available for Tyk Cloud Classic customers.
+{{< /note >}}
+
 
 Enabling detailed logging is very simple and it can be done with either of the following methods:
 
@@ -27,7 +33,7 @@ Enabling detailed logging is very simple and it can be done with either of the f
 }
 ```
 
-> Note that this will enable detailed recording for all APIs and it also requires the gateway to be restarted.
+> This will enable detailed recording for all APIs and it also requires the gateway to be restarted.
 
 - Enable detailed analytics at the API level. This involves updating your [API definition](/docs/tyk-gateway-api/api-definition-objects) to include this at the root level:
 

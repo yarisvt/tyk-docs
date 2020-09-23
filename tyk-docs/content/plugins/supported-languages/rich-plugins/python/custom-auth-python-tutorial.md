@@ -55,7 +55,11 @@ This file should be named "manifest.json" and needs to have the following conten
 * The `name` field references the name of the function that we implement in our plugin code: `MyAuthMiddleware`.
 * We add an additional file called `middleware.py`, this will contain the main implementation of our middleware.
 
- > **NOTE**: Your bundle should always contain a file named `middleware.py` as this is the entrypoint file.
+{{< note success >}}
+**Note**  
+
+Your bundle should always contain a file named `middleware.py` as this is the entrypoint file.
+{{< /note >}}
 
 ### Contents of middleware.py
 

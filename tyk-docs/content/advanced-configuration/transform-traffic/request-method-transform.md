@@ -18,8 +18,12 @@ method_transforms: [
   }
 ],
 ```
+{{< note success >}}
+**Note**  
 
-> **Note**: This feature is very simple at the moment, and only changes the type of method, it does not handle the message data of the request body. However, a combination of method transform, context variables and body transformations can be used to achieve a similar effect.
+This feature is very simple at the moment, and only changes the type of method, it does not handle the message data of the request body. However, a combination of method transform, context variables and body transformations can be used to achieve a similar effect.
+{{< /note >}}
+
 
 ### Using the Dashboard
 

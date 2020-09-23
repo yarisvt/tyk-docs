@@ -53,7 +53,11 @@ Select the **From Tyk Definition** tab and paste the contents of the JSON file i
 
 This will now import the API Definition into your new environment, if you have kept the API ID in the JSON document as is, the ID will remain the same.
 
-> **Important**: The ID you use in with any Dashboard API integrations will change as the documents physical ID will have changed with the import.
+{{< note success >}}
+**Note**  
+
+The ID you use in with any Dashboard API integrations will change as the documents physical ID will have changed with the import.
+{{< /note >}}
 
 ## Use Tyk-Sync
 

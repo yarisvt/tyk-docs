@@ -41,7 +41,11 @@ The next panel will show you their apI usage as an aggregate for all the tokens 
 
 In this panel, you will be able to see the various Keys the developer has access to, and the policies that are connected to the individual Key.
 
-> **NOTE**: From version 1.9, you can now apply multiple policies to an individual Key.
+{{< note success >}}
+**Note**  
+
+From version 1.9, you can now apply multiple policies to an individual Key.
+{{< /note >}}
 
 To drill down into the specific usage patterns for each Key, click **ANALYTICS** for the Key.
 
@@ -126,7 +130,11 @@ If a developer has forgotten their password, they can request a password reset e
 
 You will be sent an email with a link to reset your Developer password. Enter your new password and click **Update**. You can then login with your new details.
 
-> **NOTE**: Your password must be a minimum of 6 characters.
+{{< note success >}}
+**Note**  
+
+Your password must be a minimum of 6 characters.
+{{< /note >}}
 
 ![Confirm password][12]
 
