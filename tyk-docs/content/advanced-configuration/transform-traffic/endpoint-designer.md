@@ -113,6 +113,10 @@ You can also use `ignore_endpoint_case` at a ["global" Tyk level](/docs/tyk-conf
 
 ![Ignore options](/docs/img/2.10/ignore.png)
 
+### Internal
+
+This plugin allows an endpoint not be listened to by the Tyk Gateway, but can be called by other APIs using the `tyk://self/` prefix.
+
 ### Method Transforms
 
 This plugin allows you to change the method of a request. See [Method Transforms](/docs/advanced-configuration/transform-traffic/request-method-transform/) for more details.
