@@ -31,6 +31,7 @@ The file will look like the sample below, the various fields are explained in th
     "mongo_use_ssl": false,
     "mongo_ssl_insecure_skip_verify": false,
     "mongo_session_consistency": "",
+    "mongo_batch_size": 2000,
     "page_size": 10,
     "admin_secret": "12345",
     "shared_node_secret": "352d20ee67be67f6340b4c0605b044b7",
@@ -238,6 +239,10 @@ This setting allows the use of self-signed certificates when connecting to an en
 ### mongo_use_ssl
 
 A Boolean setting for Mongo SSL support. Set to `true` to enable SSL.
+
+### mongo_batch_size
+
+Sets the batch size for mongo results. Defaults to `2000`. Increasing this number can decrease dashboard performance. This value cannot be lower than `100` and will fallback to `100` if a lower value has been set.
 
 ### page_size
 
