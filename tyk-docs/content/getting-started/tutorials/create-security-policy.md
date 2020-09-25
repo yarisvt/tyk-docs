@@ -78,6 +78,11 @@ The important elements:
     *   `active` - all keys connected to the policy are active and new keys can be created
     *   `draft` - all keys connected to the policy are active but new keys cannot be created
     *   `deny` - all keys are deactivated and no keys can be created.
+{{< note success >}}
+**Note**  
+
+Setting a `state` value will automatically override the `active` or `is_inactive` setting.
+{{< /note >}}
 {{< tab_end >}}
 {{< tabs_end >}}
 
