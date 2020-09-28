@@ -65,8 +65,5 @@ curl -X PUT http://tyk-dashboard.com/api/portal/css \
   }' 
 ```
 
-
-Once you have finished making your changes, click the "Update" button, the new CSS should be available almost immediately on your site.
-
  [1]: /docs/img/dashboard/portal-management/portal_man_css.png
  [2]: /docs/img/dashboard/portal-management/portal_site_css.png
