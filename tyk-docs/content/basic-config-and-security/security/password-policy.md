@@ -38,5 +38,3 @@ Below is an example of `password.json` file, with all options turned on:
   "disableSequential": true
 }
 ```
-
-> **NOTE**: This option is only available from Dashboard v1.3.2 and onwards.

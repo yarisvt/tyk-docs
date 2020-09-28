@@ -18,7 +18,6 @@ weight: 9
 | Param        | `p={page-num}` (optional, set to `-1` for no paging) |
 | Param        | `approved={true or false}` (optional, returns `false` for Pending Key Requests, or `true` for Approved Key Requests) |
 
-> **NOTE**: The `approved` parameter is new in Dashboard v1.6.0
 
 
 ### Sample Request

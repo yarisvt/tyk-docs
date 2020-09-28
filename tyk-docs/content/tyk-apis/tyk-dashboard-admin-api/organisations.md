@@ -7,7 +7,11 @@ menu:
 weight: 1 
 ---
 
-> **Warning**: In a production environment, you will need to change the default `admin_Secret` value that is called by the `admin-auth` header in your `tyk_analytics.conf` file. This is located in `/opt/tyk-dashboard`.
+{{< warning success >}}
+**Warning**  
+
+In a production environment, you will need to change the default `admin_Secret` value that is called by the `admin-auth` header in your `tyk_analytics.conf` file. This is located in `/opt/tyk-dashboard`.
+{{< /warning >}}
 
 ### Retrieve a single Organisation
 

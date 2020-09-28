@@ -58,8 +58,8 @@ To enable gRPC plugins you need to add the following block to `tyk.conf`:
 "coprocess_options": {
   "enable_coprocess": true,
   "coprocess_grpc_server": "tcp://127.0.0.1:5555",
-  "coprocess_options.grpc_recv_max_size": 100000000,
-  "coprocess_options.grpc_send_max_size": 100000000
+  "grpc_recv_max_size": 100000000,
+  "grpc_send_max_size": 100000000
 },
 "enable_bundle_downloader": true,
 "bundle_base_url": "http://my-bundle-server.com/bundles/",

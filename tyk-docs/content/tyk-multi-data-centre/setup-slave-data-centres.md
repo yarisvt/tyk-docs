@@ -7,19 +7,19 @@ menu:
 
 ---
 
-## <a name="overview"></a>Overview
+## Overview
 
 You may configure an unlimited number of Slave Data Centres (DC) for ultimate High Availablity (HA). We recommend that you deploy your slave data centres as close to your upstream services as possible in order to reduce latency.
 
 It is a requirement that all your Tyk Gateway nodes in the Slave DC share the same Redis DB in order to take advantage of Tyk's DRL and quota features.
 Your Slave DC can be in the same physical DC as the master DC with just a logical network separation. If you have many Slave DCs, they can be deployed in a private-cloud, public-cloud, or even on bare-metal.
 
-## <a name="prequisites"></a>Prerequisites
+## Prerequisites
 
 * Redis
 * A working headless/open source Tyk Gateway deployed
 
-## <a name="slave dc configuration"></a>Slave DC Configuration
+## Slave DC Configuration
 
 Modify the Tyk Gateway configuration (`tyk.conf`) as follows:
 
@@ -63,10 +63,15 @@ Lastly, we add the sections that enforce the RPC Slave mechanism:
   }
 }
 ```
+{{< note success >}}
+**Note**  
+
+if you set `analytics_config.type` to `rpc` - make sure you don't have your Tyk Pump configured to send analytics via the `hybrid` Pump type.
+{{< /note >}}
+
 
 As an optional configuration you can use `key_space_sync_interval` to set the period's length in which the gateway will check for changes in the key space, if this value is not set then by default it will be 10 seconds.
 
-> **NOTE**: if you set `analytics_config.type` to `rpc` - make sure you don't have tyk-pump configured to send analytics via `hybrid` pump type.
 
 The most important elements here are:
 

@@ -37,3 +37,13 @@ The CORS middleware has the following options:
 the Tyk Portal documentation system will be able to test the API using trial keys. If your service handles CORS natively, then enable this option.
 
 * `debug`: If set to `true`, this option produces log files for the CORS middleware.
+
+## Fallback values
+
+Always keep in mind that empty arrays will fallback to some sensible defaults. If you want to avoid this, you will have to provide explicit values.
+ * Fallback values for `CORS.allowed_origins`: 
+   * `["*"]`
+ * Fallback values for `CORS.allowed_methods`: 
+   * `["GET", "POST", "HEAD"]`
+ * Fallback values for `CORS.allowed_headers`: 
+   * `["Origin", "Accept", "Content-Type", "X-Requested-With"]`

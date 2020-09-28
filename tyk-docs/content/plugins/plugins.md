@@ -8,9 +8,9 @@ url: "/plugins"
 
 Tyk supports the use of the following plugins to extend Tyk functionality:
 
-*   [Python, Lua, gRPC (Rich Plugins)](/docs/plugins/rich-plugins/)
-*   [JavaScript Plugins](/docs/plugins/javascript-middleware/) (JSVM Middleware)
-*   [Golang native plugins](/docs/plugins/golang-plugins/golang-plugins/)
+*   [Python, Lua, gRPC (Rich Plugins)](/docs/plugins/supported-languages/rich-plugins/)
+*   [JavaScript Plugins](/docs/plugins/supported-languages/javascript-middleware/) (JSVM Middleware)
+*   [Golang native plugins](/docs/plugins/supported-languages/golang/)
 
 inside the following areas of the API Request Lifecycle
 
@@ -18,7 +18,12 @@ inside the following areas of the API Request Lifecycle
 *   [Request Plugins](/docs/plugins/request-plugins/)
 *   [Response Plugins](/docs/plugins/response-plugins/)
 
-> **Note**: Plugins are only available for Multi-Cloud and On-Premises installations.
+{{< note success >}}
+**Note**  
+
+Plugins are only available for Multi-Cloud and On-Premises installations.
+{{< /note >}}
+
 
 ### Plugin Caveats
 

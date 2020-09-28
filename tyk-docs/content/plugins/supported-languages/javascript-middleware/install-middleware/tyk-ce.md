@@ -10,7 +10,15 @@ aliases:
 ---
 
 In order to activate middleware in a Tyk Community Edition edition or when using a file-based setup, the middleware needs to be registered as part of your API Definition. Registration of middleware components is relatively simple.
-> **Note**: it is important that your object names are unique.
+{{< note success >}}
+**Note**  
+
+It is important that your object names are unique.
+{{< /note >}}{{< note success >}}
+**Note**  
+
+This functionality may change in subsequent releases.
+{{< /note >}}
 
 ### Enable the JSVM
 

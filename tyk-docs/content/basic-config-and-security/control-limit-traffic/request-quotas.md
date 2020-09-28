@@ -7,7 +7,7 @@ menu:
 weight: 3 
 ---
 
-## <a name="quotas-overview"></a> Quotas Overview
+## Quotas Overview
 
 A quota is similar to a rate limit, as it allows a certain number of requests through in a time period. However traditionally these periods are much longer, For example, if you would like to have a user only have 10,000 requests to the API per month, you can create a key that has no rate limiting but will disallow access once the quota is empty. Tyk will automatically reset the quota if the time limit on reset has been exceeded.
 
@@ -45,7 +45,7 @@ Yes you can - to disable the quota middleware in an API definition, select the *
 
 1.  Save the token, it will be created instantly.
 
-## <a name="with-session-object"></a> Set a Quota with the Session Object
+## Set a Quota with the Session Object
 
 In order to set a quota for a token:
 
@@ -53,7 +53,11 @@ In order to set a quota for a token:
 2. Ensure `quota_remaining` is set to the same value as `quota_max`, this is the value that will decrement on each request (failed or successful).
 3. Set the `quota_renewal_rate` to the value, in seconds, of when the quota should renew. For example, if you would like it to renew every 30 days, you would have `2592000` seconds `(((60*60) * 24) * 30 = 2592000)`.
 
-> **Note**: To set an unlimited quota, set `quota_max` to `-1`.
+{{< note success >}}
+**Note**  
+
+To set an unlimited quota, set `quota_max` to `-1`.
+{{< /note >}}
 
 [1]: /docs/img/dashboard/system-management/usage_quotas_2.5.png
 

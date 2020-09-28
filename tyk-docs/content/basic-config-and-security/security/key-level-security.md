@@ -74,7 +74,11 @@ In order to set a quota for a user:
 
 To set an unlimited quota, set `quota_max` to `-1`.
 
-> **Note:** `quota_max` can only be a positive number, or -1 (unlimited).
+{{< note success >}}
+**Note**  
+
+`quota_max` can only be a positive number, or -1 (unlimited).
+{{< /note >}}
 
 #### Key Expiry
 

@@ -13,7 +13,7 @@ You can transform an existing SOAP service to a JSON REST service. This can be d
 
 We also have a video which walks you through the SOAP to REST transform.
 
-{{< youtube PEwG8F8PxUs >}}
+{{< youtube jeNXLzpKCaA >}}
 
 ## Prerequisites
 
@@ -40,7 +40,7 @@ An existing SOAP service and the WSDL definition. For this example we will use:
 
 ![NumberService API](/docs/img/2.10/numberservice_api.png)
 
-## Step2: Add the transforms to an Endpoint
+## Step 2: Add the transforms to an Endpoint
 
 1. From the API list, select Edit from the Actions menu for the `NumberConversion` API
 2. Select the **Endpoint Designer** tab. You should see 2 POST endpoints that were imported. We will apply the transforms to one of the endpoints
@@ -54,7 +54,7 @@ An existing SOAP service and the WSDL definition. For this example we will use:
   - Body transform
   - Modify headers
 
-## Step 4: Modify the Body Transform Plugin
+## Step 3: Modify the Body Transform Plugin
 
 ### Set up the Request
 
@@ -80,9 +80,14 @@ We use the `{{.FieldName}}` Golang template syntax to access the JSON request. F
     "numberToConvert": 35
 }
 ```
-> **NOTE**: the '35' integer can be any number you want to convert
+{{< note success >}}
+**Note**  
 
-3. Click **Test**. You should get the following in the Output field:
+The '35' integer can be any number you want to convert
+{{< /note >}}
+
+
+1. Click **Test**. You should get the following in the Output field:
 
 ```
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.dataaccess.com/webservicesserver/">
@@ -155,7 +160,12 @@ We now need to change the `content-type` header to allow the SOAP service to rec
 
 You now need to test the endpoint. We are going to use Postman.
 
-> NOTE: We have not setup any Authentication for this API, it has defaulted to `Open (Keyless)`.
+{{< note success >}}
+**Note**  
+
+We have not setup any Authentication for this API, it has defaulted to `Open (Keyless)`.
+{{< /note >}}
+
 
 1. Copy the URL for your NumberConversion API with the NumberToWords endpoint - `https://tyk-url/numberconversion/NumberToWords/`
 2. Paste it as a POST URL in the Postman URL Request field

@@ -54,9 +54,14 @@ Create a new definition from Swagger:
 ```{.copyWrapper}
 ./tyk --import-swagger=petstore.json --create-api --org-id=<id> --upstream-target="http://widgets.com/api/"
 ```
-> **NOTE**: When creating a new definition from an OAS 3.0 spec, you will have to manually add the listen path after the API is created.
+{{< note success >}}
+**Note**  
 
-#### Importing a swagger document as a version into an existing API
+When creating a new definition from an OAS 3.0 spec, you will have to manually add the listen path after the API is created.
+{{< /note >}}
+
+
+#### Importing a Swagger document as a version into an existing API
 
 Add a version to a definition:
 

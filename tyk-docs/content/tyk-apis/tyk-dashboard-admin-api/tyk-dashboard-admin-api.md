@@ -10,7 +10,12 @@ url: "/dashboard-admin-api"
 
 For Tyk On-Premises installations only, the Dashboard Admin API has two endpoints and is used to set up and provision a Tyk Dashboard instance without the command line.
 
-> **Warning**: In a production environment, you will need to change the default `admin_Secret` value that is called by the `admin-auth` header in your `tyk_analytics.conf` file. This is located in `/opt/tyk-dashboard`.
+{{< warning success >}}
+**Warning**  
+
+In a production environment, you will need to change the default `admin_Secret` value that is called by the `admin-auth` header in your `tyk_analytics.conf` file. This is located in `/opt/tyk-dashboard`.
+{{< /warning >}}
+
 
 ### Organisations Endpoint
 

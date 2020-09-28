@@ -14,7 +14,11 @@ For field on your GraphQL schema you can define or disable field mappings.
 The default behaviour of field mappings is that a field named "foo" expects a JSON value in the response with the same field name of "foo".
 Field mappings are enabled by default for every field except for fields where a HTTP JSON DataSource is attached.
 
-> **Note**: GraphQL does not support field names with hyphens (e.g. `"user-name"`). This can be resolved by using field mappings as described below. 
+{{< note success >}}
+**Note**  
+
+GraphQL does not support field names with hyphens (e.g. `"user-name"`). This can be resolved by using field mappings as described below. 
+{{< /note >}}
 
 Consider the following GraphQL schema:
 

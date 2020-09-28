@@ -9,9 +9,18 @@ weight: 3
 
 To make Tyk installations more portable, the Export API enables you to export key configuration objects required to back-up and re-deploy a basic Tyk Pro installation.
 
-> **Note**: To enable this feature, the minimum required versions for the Gateway and Dashboard are v2.3 and v1.3.1.2, respectively.
+{{< note success >}}
+**Note**  
 
-> **Warning**: In a production environment, you will need to change the default `admin_Secret` value that is called by the `admin-auth` header in your `tyk_analytics.conf` file. This is located in `/opt/tyk-dashboard`.
+To enable this feature, the minimum required versions for the Gateway and Dashboard are v2.3 and v1.3.1.2, respectively.
+{{< /note >}}
+
+
+{{< warning success >}}
+**Warning**  
+
+In a production environment, you will need to change the default `admin_Secret` value that is called by the `admin-auth` header in your `tyk_analytics.conf` file. This is located in `/opt/tyk-dashboard`.
+{{< /warning >}}
 
 
 #### Export Organisations

@@ -3,7 +3,7 @@ date: 2017-03-24T14:51:42Z
 title: Middleware Scripting Guide
 menu:
   main:
-    parent: "Javascript Middleware"
+    parent: "JavaScript Middleware"
 weight: 3
 aliases:
   - /plugins/javascript-middleware/middleware-scripting-guide
@@ -19,7 +19,13 @@ The difference between the middleware types are:
 
 2.  **Post**: These middleware components have access to the session object (the user quota, allowances and auth data), but have the option to disable it, as deserialising it into the JSVM is computationally expensive and can add latency.
 
-> **NOTE**: A new JSVM instance is created for _each_ API that is managed, this means that inter-API communication is not possible via shared methods (they have different bounds), however it _is_ possible using the session object if a key is shared across APIs.
+{{< note success >}}
+**Note**  
+
+A new JSVM instance is created for _each_ API that is managed, this means that inter-API communication is not possible via shared methods (they have different bounds), however it _is_ possible using the session object if a key is shared across APIs.
+{{< /note >}}
+
+
 
 ### Declared Plugin Functions
 
@@ -35,7 +41,13 @@ You can do this by setting `enable_jsvm` to `true` in your `tyk.conf` file.
 
 Tyk injects a `TykJS` namespace into the JSVM, this namespace can be used to initialise a new middleware component. Each middleware component should be in its own `*.js` file.
 
-> **Note**: The middleware variable name should match the name of the file it's in.
+{{< note success >}}
+**Note**  
+
+The middleware variable name should match the name of the file it's in.
+{{< /note >}}
+
+
 
 Creating a middleware object is done my calling the `TykJS.TykMiddleware.NewMiddleware({})` constructor with an empty object and then initialising it with your function using the `NewProcessRequest()` closure syntax.
 
@@ -95,7 +107,11 @@ The `request` object provides a set of arrays that can be manipulated, that when
   Scheme        string
 }
 ```
- > NOTE: From v2.9.3, ResponseError has been deprecated. You should use ResponseBody instead.
+{{< note success >}}
+**Note**  
+
+From v2.9.3, `ResponseError` has been deprecated. You should use `ResponseBody` instead.
+{{< /note >}}
 
 - `Headers`: This is an object of string arrays, and represents the current state of the request header. This object cannot be modified directly, but can be used to read header data.
 - `SetHeaders`: This is a key-value map that will be set in the header when the middleware returns the object, existing headers will be overwritten and new headers will be added.
@@ -126,7 +142,13 @@ testJSVMData.NewProcessRequest(function(request, session, config) {
 	return testJSVMData.ReturnData(request, {});
 });
 ```
- > NOTE: Fom v2.9.3 you should use `ResponseBody`. `ResponseError` has been deprecated.
+
+{{< note success >}}
+**Note**  
+
+Fom v2.9.3 you should use `ResponseBody`. `ResponseError` has been deprecated.
+{{< /note >}}
+
 
 Using the methods outlined above, alongside the API functions that are made available to the VM, allows for a powerful set of tools for shaping and structuring inbound traffic to your API, as well as processing, validating or re-structuring the data as it is inbound.
 

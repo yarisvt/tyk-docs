@@ -1,6 +1,6 @@
 ---
 date: 2017-03-24T14:45:20Z
-title: Javascript Middleware
+title: JavaScript Middleware
 menu:
   main:
     parent: "Supported Languages"
@@ -22,7 +22,7 @@ All customisations have access to a limited system API (for access to resources 
 
 Middleware components receive extra data (depending on their context), but all have the capability to modify the request and the session object if it has been made available to the plugin. Usage of the Session object in a middleware component is expensive as the object needs to be retrieved, and de/re-encoded multiple times as it passes through the system.
 
-## <a name="underscore.js"></a>Underscore.js Library
+## Underscore.js Library
 
 In addition to our Tyk JavaScript API functions, you also have access to all the functions from the http://underscorejs.org/ library.
 

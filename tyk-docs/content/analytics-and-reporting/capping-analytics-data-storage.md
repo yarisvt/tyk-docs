@@ -11,7 +11,11 @@ Tyk Gateways can generate a lot of analytics data. A guideline is that for every
 
 If you have Tyk Pump set up with the aggregate pump as well as the regular MongoDB pump, then you can make the `tyk_analytics` collection a [capped collection](https://docs.mongodb.com/manual/core/capped-collections/). Capping a collection guarantees that analytics data is rolling within a size limit, acting like a FIFO buffer which means that when it reaches a specific size, instead of continuing to grow, it will replace old records with new ones.
 
-> **NOTE**: IF you are using DocumentDB, capped collections are not supported. See [here](https://docs.aws.amazon.com/documentdb/latest/developerguide/mongo-apis.html) for more details.
+{{< note success >}}
+**Note**  
+
+If you are using DocumentDB, capped collections are not supported. See [here](https://docs.aws.amazon.com/documentdb/latest/developerguide/mongo-apis.html) for more details.
+{{< /note >}}
 
 The `tyk_analytics` collection contains granular log data, which is why it can grow rapidly. The aggregate pump will convert this data into a aggregate format and store it in a separate collection. The aggregate collection is used for processing reporting requests as it is much more efficient.
 
@@ -31,16 +35,25 @@ configurations to your `uptime_pump_config` and / or `mongo.meta` objects in `pu
 If capped collections are enabled and a max size is not set, a default cap size of `5Gib` is applied. 
 Existing collections will never be modified.
 
-> **NOTE**: An alternative to capped collections is MongoDB's **Time To Live** indexing (TTL). TTL indexes are incompatible with capped collections. If you have set a capped collection, a TTL index will not get created, and you will see error messages in the MongoDB logs. See [MongoDB TTL Docs](https://docs.mongodb.com/manual/tutorial/expire-data/) for more details on TTL indexes.
+{{< note success >}}
+**Note**  
+
+An alternative to capped collections is MongoDB's **Time To Live** indexing (TTL). TTL indexes are incompatible with capped collections. If you have set a capped collection, a TTL index will not get created, and you will see error messages in the MongoDB logs. See [MongoDB TTL Docs](https://docs.mongodb.com/manual/tutorial/expire-data/) for more details on TTL indexes.
+{{< /note >}}
 
 
-## <a name="time-based-cap"></a>Time Based Cap
+## Time Based Cap
 
 If you wish to reduce or manage the amount of data in your MongoDB, you can  add an expire index to the collection and have Tyk enforce organisation quotas.
 
 To add an expiry index to your analytics log data simply follow these three steps.
 
-> **NOTE**: Time based caps (TTL indexes) are incompatible with already configured size based caps.
+{{< note success >}}
+**Note**  
+
+Time based caps (TTL indexes) are incompatible with already configured size based caps.
+{{< /note >}}
+
 
 ### Step 1: Add the Index to MongoDB
 
@@ -85,11 +98,16 @@ curl --header "x-tyk-authorization: {tyk-gateway-secret}" --header "content-type
 
 > **Note**: This will only work for v2.2.0.23 or above, if you are running an earlier patch, you will need to `enforce_org_quotas` set to `true`.
 
-## <a name="size-based-cap"></a> Size Based Cap
+## Size Based Cap
 
 ### Add the Size Cap
 
->  **Note**: The size value should be in bytes, and we recommend using a value just under the amount of RAM on your machine.
+{{< note success >}}
+**Note**  
+
+The size value should be in bytes, and we recommend using a value just under the amount of RAM on your machine.
+{{< /note >}}
+
 
 
 Run this [command](https://docs.mongodb.com/manual/reference/command/convertToCapped/) in your MongoDB shell:

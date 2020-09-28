@@ -7,7 +7,7 @@ menu:
 weight: 2 
 ---
 
-## <a name="install-tyk-redhat"></a>Install Tyk Pump on Red Hat (RHEL) / CentOS
+## Install Tyk Pump on Red Hat (RHEL) / CentOS
 
 Tyk has it's own signed RPMs in a YUM repository hosted by the kind folks at [packagecloud.io][1], which makes it easy, safe and secure to install a trusted distribution of the Tyk Gateway stack.
 
@@ -59,13 +59,18 @@ We're ready to go, you can now install the relevant packages using yum:
 sudo yum install -y tyk-pump
 ```
 
-*(You may be asked to accept the GPG key for our repos and when the package installs, hit yes to continue.)*
+**(You may be asked to accept the GPG key for our repos and when the package installs, hit yes to continue.)**
 
 ### Step 3: Configure Tyk Pump
 
 If you don't complete this step, you won't see any analytics in your Dashboard, so to enable the analytics service, we need to ensure Tyk Pump is running and configured properly.
 
-> **NOTE**: You need to replace `<hostname>` for `--redishost=<hostname>`, and `<IP Address>` for `--mongo=mongodb://<IP Address>/` with your own values to run this script.
+
+{{< note success >}}
+**Note**  
+
+You need to replace `<hostname>` for `--redishost=<hostname>`, and `<IP Address>` for `--mongo=mongodb://<IP Address>/` with your own values to run this script.
+{{< /note >}}
 
 
 ```{.copyWrapper}

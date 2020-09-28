@@ -30,7 +30,12 @@ However Tyk supports many more methods, and these can be set by enabling these f
 - `authorization_code` - client has an authorisation code to request a new access token.
 - `refresh_token` - client can use a refresh token to refresh expired bearer access token.
 
-> **Note**: If using auth codes and refresh tokens, Tyk needs to notify your webapp of newly issued keys - it does this via web hook. See the section on `notifications`.
+{{< note success >}}
+**Note**  
+
+If using auth codes and refresh tokens, Tyk needs to notify your webapp of newly issued keys - it does this via web hook. See the section on `notifications`.
+{{< /note >}}
+
 
 - `oauth_meta.allowed_authorize_types`: Should be a string array of OAuth authorisation types - options that are supported are:
 
@@ -40,7 +45,12 @@ However Tyk supports many more methods, and these can be set by enabling these f
 - `oauth_meta.auth_login_redirect`: The Tyk OAuth flow has a dummy (intercept) `/authorize` endpoint which basically redirects the user to your login and authentication page, it will also send along all OAuth data as part of the request (so as to mimic a regular app flow).  
   This is the URL that the user will be sent to (via POST).
 
-> **Note**: This interface method is only supported by modern browsers that respect a 307 redirect (retaining method and data), and varies between browsers.
+{{< note success >}}
+**Note**  
+
+This interface method is only supported by modern browsers that respect a 307 redirect (retaining method and data), and varies between browsers.
+{{< /note >}}
+
 
 - `notifications`: When Tyk implements an OAuth2 flow, because it will handle access requests on your behalf once authorisation codes have been issued, it will need to notify your system that these have occurred.  
   It will POST key data to the URL set in these options to ensure that your system is synchronised with Tyk.
@@ -51,7 +61,12 @@ However Tyk supports many more methods, and these can be set by enabling these f
 
 - `auth`: The auth section handles the standard Tyk authentication method, and if none of the above are set, will be the method used to authenticate requests.
 
-> **Note**: From v2.9.2 `auth` has been deprecated in favour of `auth_configs`.
+{{< note success >}}
+**Note**  
+
+From v2.9.2 `auth` has been deprecated in favour of `auth_configs`.
+{{< /note >}}
+
 
 - `auth.auth_header_name`: The header carrying the authentication token.
 

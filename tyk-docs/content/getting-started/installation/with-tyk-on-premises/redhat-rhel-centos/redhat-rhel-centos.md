@@ -18,7 +18,11 @@ The suggested order would be to install Tyk Dashboard, then Tyk Pump and then Ty
 - [Pump](/docs/getting-started/installation/with-tyk-on-premises/redhat-rhel-centos/analytics-pump/)
 - [Gateway](/docs/getting-started/installation/with-tyk-on-premises/redhat-rhel-centos/gateway/)
 
-> **NOTE**: For a production environment, we recommend that the Gateway, Dashboard and Pump are installed on separate machines. If installing multiple Gateways, you should install each on a separate machine. For more information on deploying to a production environment, see [here](/docs/planning-for-production/).
+{{< note success >}}
+**Note**  
+
+For a production environment, we recommend that the Gateway, Dashboard and Pump are installed on separate machines. If installing multiple Gateways, you should install each on a separate machine. See [Planning for Production](/docs/planning-for-production/) For more details.
+{{< /note >}}
 
 ## Database Support
 
@@ -27,7 +31,11 @@ By default Tyk uses MongoDB. You can also use the following:
 * [DocumentDB](https://aws.amazon.com/documentdb/)
 * [Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/introduction)
 
-> NOTE: If you are using DocumentDB, [capped collections](/docs/analytics-and-reporting/capping-analytics-data-storage/) are not supported. See [here](https://docs.aws.amazon.com/documentdb/latest/developerguide/mongo-apis.html) for more details.
+{{< note success >}}
+**Note**  
+
+If you are using DocumentDB, [capped collections](/docs/analytics-and-reporting/capping-analytics-data-storage/) are not supported. See [here](https://docs.aws.amazon.com/documentdb/latest/developerguide/mongo-apis.html) for more details.
+{{< /note >}}
 
 ### Supported Verions of MongoDB and Redis
 

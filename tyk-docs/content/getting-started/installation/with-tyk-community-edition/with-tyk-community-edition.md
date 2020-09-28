@@ -8,12 +8,12 @@ weight: 6
 url: "/getting-started/installation/with-tyk-community-edition"
 ---
 
-## <a name="what-is-tyk-community-edition"></a>What is the Tyk Community Edition?
+## What is the Tyk Community Edition?
 
 The Tyk Community Edition is the open-source API Gateway that is developed by our community and supported by our community members and advocates (with some help from the Tyk Technologies team). The Tyk Community Edition is a [Tyk Gateway](/docs/getting-started/tyk-components/gateway/) only edition:
 
 
-## <a name="prerequisites"></a>Prerequisites
+## Prerequisites
 
 *   Ensure port `8080` is open: this is used in this guide for Gateway traffic (the API traffic to be proxied).
 *   You have Redis installed and running
@@ -22,7 +22,7 @@ The Tyk Community Edition is the open-source API Gateway that is developed by ou
 sudo apt-get install -y redis-server
 ```
 
-## <a name="install-on-ubuntu"></a>Installing on Ubuntu
+## Installing on Ubuntu
 
 First import the public key as required by Ubuntu APT
 
@@ -47,11 +47,16 @@ From [https://packagecloud.io/tyk/tyk-gateway](https://packagecloud.io/tyk/tyk-g
  * [Puppet](https://packagecloud.io/tyk/tyk-gateway/install#puppet)
  * [CI and Build Tools](https://packagecloud.io/tyk/tyk-gateway/ci)
 
-### <a name="configure-tyk-community-edition"></a>Configuring The Gateway 
+### Configuring The Gateway 
 
 You can set up the core settings for the Tyk Gateway with a single setup script, however for more involved deployments, you will want to provide your own configuration file.
 
-> **NOTE**: You need to replace `<hostname>` for `--redishost=<hostname>` with your own value to run this script.
+{{< note success >}}
+**Note**  
+
+You need to replace `<hostname>` for `--redishost=<hostname>` with your own value to run this script.
+{{< /note >}}
+
 
 ```{.copyWrapper}
 sudo /opt/tyk-gateway/install/setup.sh --listenport=8080 --redishost=<hostname> --redisport=6379 --domain=""
@@ -73,7 +78,7 @@ The Tyk Gateway can be started now that it is configured. Use this commannd to s
 sudo service tyk-gateway start
 ```
 
-## <a name="installing-on-redhat-centos"></a>Installing on RedHat (RHEL) / Centos
+## Installing on RedHat (RHEL) / Centos
 
 ### Prerequisites
 
@@ -85,7 +90,12 @@ sudo service tyk-gateway start
 sudo yum install -y redis
 ```
 
-> **NOTE**: You may be asked to accept the GPG key for our repos and when the package installs, click yes to continue.
+{{< note success >}}
+**Note**  
+
+You may be asked to accept the GPG key for our repos and when the package installs, click yes to continue.
+{{< /note >}}
+
 
 *   Tyk requires Python 3.4. Install via the following command:
 
@@ -116,11 +126,16 @@ From [https://packagecloud.io/tyk/tyk-gateway](https://packagecloud.io/tyk/tyk-g
  * [Puppet](https://packagecloud.io/tyk/tyk-gateway/install#puppet)
  * [CI and Build Tools](https://packagecloud.io/tyk/tyk-gateway/ci)
 
-### <a name="configure-tyk-community-edition"></a>Configuring The Gateway 
+### Configuring The Gateway 
 
 You can set up the core settings for the Tyk Gateway with a single setup script, however for more involved deployments, you will want to provide your own configuration file.
 
-> **NOTE**: You need to replace `<hostname>` for `--redishost=<hostname>` with your own value to run this script.
+{{< note success >}}
+**Note**  
+
+You need to replace `<hostname>` for `--redishost=<hostname>` with your own value to run this script.
+{{< /note >}}
+
 
 ```{.copyWrapper}
 sudo /opt/tyk-gateway/install/setup.sh --listenport=8080 --redishost=<hostname> --redisport=6379 --domain=""

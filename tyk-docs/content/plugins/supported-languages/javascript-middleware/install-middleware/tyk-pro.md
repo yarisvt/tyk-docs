@@ -28,7 +28,11 @@ middleware
 
 Tyk will check for a folder that matches the `API Id` being loaded, and then load the `pre` and `post` middleware from the respective directories.
 
-> **NOTE**:The filename **must** match the object to be loaded exactly.
+{{< note success >}}
+**Note**  
+
+The filename **must** match the object to be loaded exactly.
+{{< /note >}}
 
 If your middleware requires session injection, then append `_with_session` to the filename.
 

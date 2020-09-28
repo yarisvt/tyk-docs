@@ -11,7 +11,11 @@ The Tyk Dashboard API is a superset of the Tyk Gateway API, enabling (almost) al
 
 With the Dashboard API it is possible to set Read / Write / ReadWrite / Deny access to sections of the API on a client by client basis, and also segregate User / Key / API Ownership by organisation.
 
-> NOTE: For On-Premises installations, API Ownership is available for customers with at least a 5-node or Cloud Native Unlimited-node license.
+{{< note success >}}
+**Note**  
+
+For On-Premises installations, API Ownership is available for customers with at least a 5-node or Cloud Native Unlimited-node license.
+{{< /note >}}
 
 It is recommended to integrate with the Dashboard API in a Pro Edition installation.
 

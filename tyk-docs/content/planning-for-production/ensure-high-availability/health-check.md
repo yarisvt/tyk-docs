@@ -7,7 +7,7 @@ menu:
 weight: 6
 ---
 
-## <a name="overview"></a>Overview
+## Overview
 
 Health checks are extremely important in determining the status of an
 application - in this instance, the Tyk Gateway. Without them, it can be hard to
@@ -24,7 +24,11 @@ understand if the Gateway is currently usable or not. A good usage of the health
 check endpoint is for the configuration of a load balancer to multiple instances of the Gateway or
 as a Kubernetes liveness probe.
 
-> Health check is implemented as per the [Health Check Response Format for HTTP APIs](https://tools.ietf.org/id/draft-inadarei-api-health-check-01.html) RFC
+{{< note success >}}
+**Note**  
+
+Health check is implemented as per the [Health Check Response Format for HTTP APIs](https://tools.ietf.org/id/draft-inadarei-api-health-check-01.html) RFC
+{{< /note >}}
 
 An example of the response from this API is as follows:
 
@@ -46,7 +50,7 @@ An example of the response from this API is as follows:
 
 
 
-## <a name="configuration"></a> Configure health check
+## Configure health check
 
 By default, the liveness health check is going to run on the `/hello` path. But
 it can be updated to any value by:
@@ -55,7 +59,10 @@ it can be updated to any value by:
 ```{.copyWrapper}
 health_check_endpoint_name: "status"
 ```
+{{< note success >}}
+**Note**  
 
+This will make the health check available on `/status` instead
+{{< /note >}}
 
-> This will make the health check available on `/status` instead
 

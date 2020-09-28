@@ -19,8 +19,13 @@ Tyk events carry some additional metadata (especially important for the webhook 
 
 These metadata elements are exposed so that they can be used in templates - again, this only applies to the webhook handler in this version, however it is a generic feature available to all handlers, for an example of how they are used, see the `templates/default_webhook.json` file, this is a golang template that directly accesses these values and exposes them as a webhook JSON payload.
 
-> **Note**: Circuit breaker events carry different data, see [Circuit Breakers](https://tyk.io/docs/ensure-high-availability/circuit-breakers/) see what is exposed
+{{< note success >}}
+**Note**  
 
-### Raw Request Data (v1.5+)
+Circuit breaker events carry different data, see [Circuit Breakers](/docs/planning-for-production/ensure-high-availability/circuit-breakers/) to see what is exposed.
+{{< /note >}}
 
-Tyk will now supply a Base64 encoded representation of the original request to the event handler, if you are running a service bus or queue that stores failed, throttled or other types of requests, you can decode this object and parse it in order to re-create the original intent of the request (e.g. for post-processing).
+
+### Raw Request Data
+
+Tyk will supply a Base64 encoded representation of the original request to the event handler, if you are running a service bus or queue that stores failed, throttled or other types of requests, you can decode this object and parse it in order to re-create the original intent of the request (e.g. for post-processing).

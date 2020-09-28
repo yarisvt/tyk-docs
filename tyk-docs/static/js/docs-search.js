@@ -95,7 +95,7 @@ search.addWidgets([
 	instantsearch.widgets.searchBox({
 			container: '#searchbox',
 			autofocus: false,
-			placeholder: 'Search...'
+			placeholder: 'Search Docs...'
 	}),
 	infiniteHits({
 		container: document.querySelector('#hits')
