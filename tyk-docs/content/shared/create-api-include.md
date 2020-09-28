@@ -41,7 +41,7 @@ You have the following options:
 - **Auth Key Header Name**: The header name that will hold the token on inbound requests. The default for this is `Authorization`.
 - **Allow Query Parameter As Well As Header**: Set this option to enable checking the query parameter as well as the header for an auth token. For this tutorial, leave this `unchecked`.
 - **Use Cookie Value**: It is possible to use a cookie value as well as the other two token locations. Set this as `unchecked`.
-- **Enable client certificate**: Select this to use Mutual TLS. See [Mutual TLS](/docs/security/tls-and-ssl/mutual-tls/) for details on implementing Mutual TLS.
+- **Enable client certificate**: Select this to use Mutual TLS. See [Mutual TLS](/docs/basic-config-and-security/security/tls-and-ssl/mutual-tls/) for details on implementing mutual TLS.
 
 ### Step 5: Save the API
 
