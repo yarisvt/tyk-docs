@@ -22,7 +22,7 @@ The highest level container for one or more Organisations.
 
 ### Organisation
 
-The main entity of data, can only view one Organisation at a time, all data is contained.
+The main entity for all your data (Environments, APIs, Users, etc). An Organisation is connected to a single region and once connected, cannot be changed.
 
 ### Team 
 
