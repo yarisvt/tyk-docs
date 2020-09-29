@@ -16,12 +16,14 @@ There are 4 different phases in the [request lifecycle](/docs/getting-started/ke
 | Can modify the Body     | ✅       | ✅          | ✅       |✅
 | Can modify Query Params | ✅       | ✅          | ✅       |✅
 | Can view Session<sup>1</sup> Details (metadata, quota, context-vars, tags, etc)  |   ❌       | ✅          |✅          |✅
-| Can modify Session<sup>1</sup> |    ❌      | ✅          |    ❌      |❌
-| Can Add More Than One<sup>2</sup> |    ✅      |        ❌   |✅          | ✅
+| Can modify Session<sup>1</sup> <sup>2</sup> |    ❌      | ✅          |    ❌      |❌
+| Can Add More Than One<sup>3</sup> |    ✅      |        ❌   |✅          | ✅
 
 [1] A [Session object](/docs/getting-started/key-concepts/what-is-a-session-object/) contains allowances and identity information that is unique to each requestor
 
-[2] For select hook locations, you can add more than one plugin.  For example, in the same API request, you can have 3 Pre, 1 auth, 5 post-auth, and 2 post plugins.
+[2] You can modify the session by using your programming language's SDK for Redis. [Here's an example of doing that in Golang](https://github.com/TykTechnologies/custom-plugins/blob/master/plugins/go-auth-multiple_hook_example/main.go#L135).
+
+[3] For select hook locations, you can add more than one plugin.  For example, in the same API request, you can have 3 Pre, 1 auth, 5 post-auth, and 2 post plugins.
 
 ### Return Overrides / ReturnOverrides  
 You can have your plugin finish the request lifecycle and return a response with custom  payload & headers to the requestor.
