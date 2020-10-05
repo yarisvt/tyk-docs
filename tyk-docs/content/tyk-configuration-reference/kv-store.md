@@ -57,6 +57,9 @@ Example configuration inside `tyk.conf`
     "secrets": {
       "gateway": "secret"
     }
+  },
+  "secrets": {
+  "gateway": "secret"
   }
 }
 ```
