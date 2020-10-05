@@ -53,9 +53,6 @@ Example configuration inside `tyk.conf`
       "timeout": 30,
       "token": "token if available",
       "kv_version": 2
-    },
-    "secrets": {
-      "gateway": "secret"
     }
   },
   "secrets": {
