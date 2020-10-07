@@ -22,7 +22,7 @@ SSO is sometimes complicated to understand or set up but once you get the basics
 Using our Tyk-Identity-Broker (TIB), you can do both - use your existing users directory to login to the **Dashboard** or **Developer Portal** and have a SSO. TIB, among other options, supports four methods for login to Tyk's UI:
 
 1. Login with 3rd party social providers
-2. Login with any IdP that supports ODIC
+2. Login with any IdP that supports OIDC
 3. Login with any IdP that supports SAML
 3. Login with LDAP (not using OIDC)
 
