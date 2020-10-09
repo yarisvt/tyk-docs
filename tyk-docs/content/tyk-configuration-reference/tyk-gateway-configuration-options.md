@@ -456,6 +456,10 @@ Tyk can also notify you when a service goes down.
 
 To disable uptime tests on this node, switch this value to `true`.
 
+#### uptime_tests.poller_group
+
+Change the default poller group of the uptime tests. 
+
 #### uptime_tests.config
 
 The configuration section for the uptime tests on this node.
