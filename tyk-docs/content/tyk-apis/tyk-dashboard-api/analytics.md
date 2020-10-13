@@ -24,6 +24,8 @@ Below APIs returns data only if you have Pump 7.0+
 It returns analytics of the endpoints of all APIs called using KEY between start and end date.
 
 #### Sample Request
+To get analytics of all endpoints called using the key `7f3c3ca87376cabe` between October 13th 2020 and October 14th 2020, make the following call:
+
 ```{.copyWrapper}
 GET api/activity/keys/endpoint/7f3c3ca87376cabe/13/10/2020/14/10/2020 HTTP/1.1
 Host: localhost:3000
@@ -102,9 +104,11 @@ authorization: 7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 | Body         | None            |
 | Param        | None            |
 
-It returns analytics of the endpoints called using give OAuth Client ID.
+It returns analytics of the all endpoints called using the given OAuth Client ID.
 
 #### Sample Request
+To get activity of all endpoints which used OAuth client `27b35a9ed46e429eb2361e440cc4005c` between October 13th 2020 and October 14th 2020, make the following call:
+
 ```{.copyWrapper}
 GET /api/activity/oauthid/endpoint/27b35a9ed46e429eb2361e440cc4005c/13/10/2020/14/10/2020 HTTP/1.1
 Host: localhost:3000
