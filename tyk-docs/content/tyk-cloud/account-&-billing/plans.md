@@ -89,11 +89,11 @@ The Enterprise plan gives you the following:
 
 You can create 5 teams with ten users and Single Sign On (SSO) capability.
 
-### Enterprise HA Plan
+### Enterprise Flex Plan
 
-Maintain High Availability failovers by running multiple environments (not something Tyk Cloud does automatically, it just provides the capacity to do it), bigger infrastructure and spread your architecture over up to 2 regions. 
+Maintain high availability failovers by running multiple environments (not something Tyk Cloud does automatically, it just provides the capacity to do it), bigger infrastructure and spread your architecture over up to 2 regions. 
 
-Our Enterprise HA plan gives you the following:
+Our Enterprise Flex plan gives you the following:
 
 * 3 Environments
 * 3 Control Planes
@@ -108,7 +108,7 @@ You can create 10 teams with 15 users and Single Sign On (SSO) capability.
 
 ### Enterprise Global Plan
 
-Maintain HA failovers, spread your architecture across 3 regions, adding further regions as required. More powerful infrastructure, bigger storage, handle enterprise level traffic. 
+Maintain high availability failovers, spread your architecture across 3 regions, adding further regions as required. More powerful infrastructure, bigger storage, handle enterprise level traffic. 
 
 * 3 Environments
 * 3 Control Planes
