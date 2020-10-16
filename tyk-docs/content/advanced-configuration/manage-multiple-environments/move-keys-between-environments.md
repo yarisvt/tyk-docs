@@ -17,4 +17,4 @@ In order to use a legacy key in a new environment, simply extract the key from t
 
 ### Creating Custom Keys
 
-To create a key with a custom identifier, ie Token, simply create a new key by making a `PUT` to the `/tyk/keys/{keyId}`, where `keyId` is your custom value.
+To create a key with a custom identifier, ie Token, simply create a new key by making a `POST` to the `/tyk/keys/{keyId}`, where `keyId` is your custom value.

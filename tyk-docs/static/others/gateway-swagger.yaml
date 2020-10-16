@@ -46,7 +46,7 @@ tags:
       
 
 
-      You can use the `PUT /tyk/keys/{KEY_ID}` endpoint as defined below to import existing keys into Tyk.
+      You can use the `POST /tyk/keys/{KEY_ID}` endpoint as defined below to import existing keys into Tyk.
       
       This example uses standard `authorization` header authentication, and assumes that the Dashboard is located at `127.0.0.1:8080` and the Tyk secret is `352d20ee67be67f6340b4c0605b044b7` - update these as necessary to match your environment.
       
