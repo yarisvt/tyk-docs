@@ -34,7 +34,7 @@ tags:
       
       <h3>Hashed Keys Environment</h3>
       
-      Listing tokens is only possible if you set `enable_hashed_keys_listing` to `true`. See [Using Hashed Keys Environment Endpoints](/docs/basic-config-and-security/security/#a-name-key-hashing-a-key-hashing) section for more details.
+      Listing keys is only possible if you set `enable_hashed_keys_listing` to `true`. See [Using Hashed Keys Environment Endpoints](/docs/basic-config-and-security/security/#a-name-key-hashing-a-key-hashing) section for more details.
       
       - endpoints `POST /tyk/keys/create`, `POST /tyk/keys` and `POST /tyk/keys/{keyName}` return `"key_hash"` for future use.
       - endpoint `GET /tyk/keys` retrieves all (or per API) key hashes. You can disable this endpoint by using the `tyk.conf` setting `enable_hashed_keys_listing` (set to false by default).
@@ -596,7 +596,7 @@ paths:
                 items:
                   type: string
     post:
-      summary: Create a key
+      summary: Create a key or add custom Key
       description: |-
         Tyk will generate the access token based on the OrgID specified in the API Definition and a random UUID. This ensures that keys can be "owned" by different API Owners should segmentation be needed at an organisational level.
         <br/><br/>
@@ -667,7 +667,7 @@ paths:
                 per: 5
                 org_id: 53ac07777cbb8c2d53000002
     put:
-      summary: Update Key or Add custom Key
+      summary: Update Key
       description: |-
         You can also manually add keys to Tyk using your own key-generation algorithm. It is recommended if using this approach to ensure that the OrgID being used in the API Definition and the key data is blank so that Tyk does not try to prepend or manage the key in any way.
       tags:
