@@ -475,7 +475,7 @@ margin:-90px 0 0;
 .wysiwyg p {margin-bottom: 16px; margin-top: 16px;}
 
 /* Code Blocks */
-.wysiwyg pre {padding: 20px;}
+.wysiwyg pre {padding: 20px; border-radius: 25px;}
 .wysiwyg code {overflow-wrap: break-word;}
 .hljs { overflow-x: initial !important; }
 .button.copy {background: #dfdfed; color: #000; height: 20px; width: 150px; border-radius: 18px; line-height: 1px; padding: 0 16px; text-transform: none; font-size: 11px; letter-spacing: 0.025em; }
