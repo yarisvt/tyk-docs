@@ -13,8 +13,8 @@ However, it is possible to temporarily allow access to existing keys in a new en
 
 ### Moving Keys Between Environments
 
-In order to use a legacy key in a new environment, simply extract the key from the old environment using a `GET /tyk/keys/{keyID}` request and then `PUT` that key to the Gateway REST API (not create) under `/tyk/keys/{keyId}`. This will insert the key into Tyk, and Tyk will respect that key. However, it may not be visible in the Dashboard. This is called a custom key.
+In order to use a legacy key in a new environment, simply extract the key from the old environment using a `GET /tyk/keys/{keyID}` request and then `POST` that key to the Gateway REST API (not create) under `/tyk/keys/{keyId}`. This will insert the key into Tyk, and Tyk will respect that key. However, it may not be visible in the Dashboard. This is called a custom key.
 
 ### Creating Custom Keys
 
-To create a key with a custom identifier, ie Token, simply create a new key by making a `PUT` to the `/tyk/keys/{keyId}`, where `keyId` is your custom value.
+To create a key with a custom identifier, ie Token, simply create a new key by making a `POST` to the `/tyk/keys/{keyId}`, where `keyId` is your custom value.
