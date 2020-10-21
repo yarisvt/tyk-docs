@@ -9,6 +9,14 @@ weight: 0
 
 Use the REST API to clear the cache
 
+## OSS
+
 ```
 DELETE /tyk/cache/{api-id}
+```
+
+## Tyk Dashboard
+
+```
+DELETE /api/cache/{api-id}
 ```
