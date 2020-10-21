@@ -1,6 +1,6 @@
 ---
 date: 2017-03-27T16:45:06+01:00
-title: How to clear API cache
+title: How to clear / invalidate API cache
 menu:
   main:
     parent: "Frequently Asked Questions"
