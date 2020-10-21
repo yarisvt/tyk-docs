@@ -2077,7 +2077,8 @@ body {
   width: 100%;
   text-align: left;
   margin-bottom: 32px;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0px;
 }
 
 .wysiwyg table thead th {
@@ -2094,10 +2095,12 @@ body {
 
 .wysiwyg table thead th:first-of-type {
   border-left: 2px solid #01D9BA;
+  border-top-left-radius: 25px;
 }
 
 .wysiwyg table thead th:last-of-type {
   border-right: 2px solid #01D9BA;
+  border-top-right-radius: 25px;
 }
 
 .wysiwyg table tbody td {
@@ -2117,8 +2120,25 @@ body {
   word-break: break-word;
 }
 
-.wysiwyg table tbody tr {
+.wysiwyg table tbody tr:{
   border-bottom: 2px solid #01D9BA;
+}
+
+.wysiwyg table tbody tr:last-of-type{
+  border-bottom: 2px solid #01D9BA;
+  border-bottom-left-radius: 25px;
+}
+
+.wysiwyg table tbody tr:last-child > td{
+  border-bottom: 2px solid #01D9BA;
+}
+
+.wysiwyg table tbody tr:last-child td:first-child{
+  border-bottom-left-radius: 25px;
+}
+
+.wysiwyg table tbody tr:last-child td:last-child{
+  border-bottom-right-radius: 25px;
 }
 
 .aside-submenu {
