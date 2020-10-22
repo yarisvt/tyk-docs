@@ -2074,6 +2074,10 @@ body {
   border-radius: 2px;
 }
 
+.wysiwyg a:hover {
+  text-decoration: underline;
+}
+
 .wysiwyg table {
   width: 100%;
   text-align: left;
