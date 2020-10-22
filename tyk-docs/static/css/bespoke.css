@@ -2056,9 +2056,10 @@ body {
   background: #dfdfed;
   padding: 36px;
   margin-bottom: 36px;
-  overflow: scroll;
+  overflow: auto;
   -webkit-overflow-scrolling: touch;
   font-family: inherit;
+
 }
 
 .wysiwyg pre code {
