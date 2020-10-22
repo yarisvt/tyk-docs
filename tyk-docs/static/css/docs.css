@@ -129,11 +129,6 @@
   padding-top: 60px;
 }
 
-/* TODO */
-.docs-share-print {
-  display: none !important;
-}
-
 .hasSidebar .header {
   background: #EDEDF9;
 }
@@ -165,7 +160,7 @@
 }
 
 .badge p {
-  font-size: 11px;
+  font-size: 12px;
 }
 
 .badge p strong {
@@ -460,7 +455,7 @@ margin:-90px 0 0;
 .st-treed {font-size: 15px;}
 
 /* Suggest an Edit */
-.suggest-edit {float: right; width: auto; padding: 0 30px; cursor: pointer; } 
+.suggest-edit {width: auto; cursor: pointer; } 
 .suggest-edit:before {padding-right: 10px;}
 
 
@@ -475,7 +470,7 @@ margin:-90px 0 0;
 .wysiwyg p {margin-bottom: 16px; margin-top: 16px;}
 
 /* Code Blocks */
-.wysiwyg pre {padding: 20px;}
+.wysiwyg pre {padding: 20px; border-radius: 25px; border-top-right-radius: 25px; border-bottom-left-radius: 25px; border-bottom-right-radius: 25px;}
 .wysiwyg code {overflow-wrap: break-word;}
 .hljs { overflow-x: initial !important; }
 .button.copy {background: #dfdfed; color: #000; height: 20px; width: 150px; border-radius: 18px; line-height: 1px; padding: 0 16px; text-transform: none; font-size: 11px; letter-spacing: 0.025em; }
@@ -495,7 +490,7 @@ margin:-90px 0 0;
 /* Documentation : Navigation */
 .docs-navigation {
   padding: 80px 0;
-  margin-top: 80px;
+  margin-top: 10px;
   border-top: 1px solid rgba(122, 121, 161, 0.4);
   display: none;
 }
@@ -578,7 +573,7 @@ margin:-90px 0 0;
 .toc-label { position: fixed; top: 220px; }
 
 /* Documentation : Share - Print*/
-.docs-share-print { padding: 10px 0; margin-top: 0; clear:both; /*overflow: auto;*/  margin-bottom: 30px;}
+.docs-share-print { padding: 10px 0; margin-top: 50px; clear:both; /*overflow: auto;*/  margin-bottom: 30px;}
 .docs-share-print a {display: inline-block; margin-right: 50px;}
 .share-print a:before { padding-right: 12px; }
 
@@ -588,7 +583,6 @@ body * { visibility: hidden; }
 .hasSidebar .page-content * { visibility: visible; }
 .button.medium {visibility: hidden;}
 .docs-navigation {display: none;}
-.docs-share-print {display: none;}
 .documentation-table-of-contents {display: none;}
 .hasSidebar .page-content { position: absolute; top:-300px; left: 30px; }
 }

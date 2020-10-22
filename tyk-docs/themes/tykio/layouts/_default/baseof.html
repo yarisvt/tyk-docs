@@ -140,14 +140,6 @@
       {{end}}
 
       <article class="page-content wysiwyg">
-
-        <nav class="docs-share-print share-print f-14 bold ucase">
-          <a href="#" class="icon-print" data-print><span>Print</span></a>
-          <div id="date">
-            <span class="dateformat">Last modified: {{ .Lastmod.Format "Jan 2, 2006" }}</span>
-          </div>
-          <a class="button grey medium suggest-edit icon-github" target="_blank">Edit on GitHub</a>
-        </nav>
         {{ if .Params.diffTitle }}
           {{if .Params.diffTitleName}}
           <h1>{{ .Params.diffTitleName }}</h1>
@@ -161,6 +153,16 @@
           {{ .Content }}
           {{ end }}
         </div>
+
+        <nav class="docs-share-print share-print f-14 bold ucase">
+          <!-- <a href="#" class="icon-print" data-print><span>Print</span></a> -->
+<!--           <div id="date">
+            <span class="dateformat">Last modified: {{ .Lastmod.Format "Jan 2, 2006" }}</span>
+          </div>
+ -->      
+          <a class="suggest-edit" target="_blank">Improve this page</a>
+        </nav>
+
         <nav class="docs-navigation clear" {{if .Params.hideSidebar}}style="display: none !important"{{end}}>
           <a id="previousArticle"></a>
           <img src="/docs/img/nav-center.png" /> 
