@@ -11,10 +11,11 @@ cookieButton1.addEventListener("click", () => {
 cookieButton2.addEventListener("click", () => {
   cookieContainer.classList.remove("active");
   localStorage.setItem("cookieBannerDisplayed", "true");
+  localStorage.setItem("cookieDisabled", "true");
 });
 
 setTimeout(() => {
   if (!localStorage.getItem("cookieBannerDisplayed")) {
     cookieContainer.classList.add("active");
   }
-}, 2000);
+}, 200);
