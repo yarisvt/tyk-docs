@@ -31,7 +31,7 @@ Once a key request is created, one of two things can be done to it:
 
 A key request can be created using the Dashboard API too, in fact, the Key Request mechanism is a great way to create a mapping between an identity (a developer) and a token, and managing that process.
 
-### Key Approval Types
+### Secure Key Approval
 
 By default, the Key Approval flow is straight forward.  Once a Key Request is approved, the Developer will be notified via an email which contains the API Key.
 
