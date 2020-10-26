@@ -593,9 +593,13 @@ Tyk will auto-reload when a change is detected when using the Dashboard, this us
 
 ### optimisations_use_async_session_write
 
-> *DEPRECATED and no longer should be used*
-
 Set this value to `true` to have Tyk manage session data using a goroutine, this is quite safe and can significantly boost performance in HA environments where Tyk is installed on a machine with multiple cores.
+
+{{< note success >}}
+**Note**  
+
+This has been deprecated. Removed from v3.0.3+ and 3.1.1+ onwards.
+{{< /note >}}
 
 ### disable_dashboard_zeroconf
 
