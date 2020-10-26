@@ -23,13 +23,13 @@ The full instructions on how to [install Tyk via the Helm chart are in the Githu
 {{< note success >}}
 **Note**  
 
-The newer Tyk Kubernetes Operator succeeds our Ingress controller and is going to be the preferred way to use Tyk with Kubernetes going forward. It is currently in BETA and we welcome users to try it out and feedback on the GitHub repository or via normal support channels for existing Tyk Customers.
+The new Tyk Kubernetes Operator succeeds our Ingress controller and is going to be the preferred way to use Tyk with Kubernetes going forward. It is currently in BETA and we welcome users to try it out and feedback on the GitHub repository or via normal support channels for existing Tyk Customers.
 
 {{< /note >}}
 
 We provide a Kubernetes operator that enables Tyk to be used for managing Api Definitions (including k8s Ingress), security policies and other Tyk features. The operator code and get started guide can be found in our Github repository:
 
-https://github.com/TykTechnologies/tyk-helm-chart#using-the-ingress-controller
+https://github.com/TykTechnologies/tyk-operator
 
 ## Installing Tyk on Kubernetes Manually
 
