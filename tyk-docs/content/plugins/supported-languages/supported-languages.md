@@ -40,7 +40,7 @@ We use the following Plugin drivers:
 | GoLang                   | goplugin  |
 | JavaScript               | otto      |
 | gRPC                     | grpc      |
-| Python|             		 | python    |
+| Python              		 | python    |
 | Lua                      | lua	     |
 
 
