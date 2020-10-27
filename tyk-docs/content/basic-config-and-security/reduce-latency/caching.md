@@ -114,6 +114,8 @@ Now you will also need to set on which paths to act, add thses paths as shown in
           }
  ```          
 
+## Tyk Response Headers
+
 Tyk will evaluate the response headers sent from your application for these paths and based on the data in the response, activate and set the cache values.
 
 The two response headers that Tyk looks for are:
@@ -159,7 +161,5 @@ To enable a separate cache server, update your `tyk.conf` with the following sec
 {{< /note >}}
 
 If you set `enable_cluster` to `false`, you only need to set one entry in `addrs`:
-
-`
 
 The configuration is the same (and uses the same underlying driver) as the regular configuration, so Redis Cluster is fully supported.
