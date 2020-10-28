@@ -6,7 +6,7 @@ menu:
     parent: "API Definition Objects"
 weight: 9
 aliases:
-    - /tyk-rest-api/api-definition-objects/custom-analytics/
+    - /docs/tyk-rest-api/api-definition-objects/custom-analytics/
 ---
 
 {{< include "api-def-custom-analytics" >}}
