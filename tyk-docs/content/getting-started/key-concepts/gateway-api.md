@@ -35,5 +35,9 @@ successful:
 x-tyk-authorization: 352d20ee67be67f6340b4c0605b044bc4
 ```
 
-**Note that the Tyk Gateway API is subsumed by the [Tyk Dashboard API]({{< ref "dashboard-api" >}}) in all
-non-Community Edition installations.**
+{{< note success >}}
+**Note**  
+
+The Tyk Gateway API is subsumed by the [Tyk Dashboard API]({{< ref "dashboard-api" >}}) in all
+non-Community Edition installations.
+{{< /note >}}
