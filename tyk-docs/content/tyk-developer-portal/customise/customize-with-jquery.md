@@ -22,7 +22,10 @@ let's walk through an example where we use jQuery to fetch data from a REST endp
 
 ![custom_page_setup](/docs/img/dashboard/portal-management/new_custom_page.png)
 
-In the MainBody, we can paste this code:
+In the MainBody, we can paste the code below (click the text to display):
+
+<details>
+<summary>Click to display the code</summary>
 
 ```.html
 
@@ -100,6 +103,7 @@ tr:nth-child(even) {
 <div id=results>
 </results>
 ```
+</details>
 
 And save.
 
