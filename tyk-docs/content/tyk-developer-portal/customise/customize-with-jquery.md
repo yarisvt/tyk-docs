@@ -22,7 +22,7 @@ let's walk through an example where we use jQuery to fetch data from a REST endp
 
 ![custom_page_setup](/docs/img/dashboard/portal-management/new_custom_page.png)
 
-In the MainBody, we can paste this code from the gist here:
+In the MainBody, we can paste this code:
 
 ```.html
 
@@ -100,9 +100,6 @@ tr:nth-child(even) {
 <div id=results>
 </results>
 ```
-
-
-https://gist.github.com/sedkis/371e77e3484263a159a9d2d93407bf2e#file-filtered-dev-portal
 
 And save.
 
