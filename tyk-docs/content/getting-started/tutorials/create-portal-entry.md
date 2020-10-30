@@ -6,7 +6,7 @@ menu:
     parent: "Tutorials"
 weight: 4
 aliases:
-    - /tyk-dashboard-v1-0/tutorials/set-up-your-portal/
+    - /docs/tyk-dashboard-v1-0/tutorials/set-up-your-portal/
 ---
 
 
