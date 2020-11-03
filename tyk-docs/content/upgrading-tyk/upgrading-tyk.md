@@ -90,13 +90,17 @@ sudo yum update
 
 Our recommended sequence for upgrading a MDCB installation is as follows:
 
-Master DC:
+Master DC first in the following order:
 
-1. Dashboard
+1. MDCB
+2. Pump
+3. Dashboard
+4. Gateway
+
+Then your Slave DC Gateways in the following order:
+
+1. Pump
 2. Gateway
-3. MDCB
-
-Then your Slave DC Gateways
 
 Tyk is compatible with a blue-green or rolling update strategy.
 
