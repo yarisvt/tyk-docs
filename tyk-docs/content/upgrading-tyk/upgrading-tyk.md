@@ -93,18 +93,18 @@ Our recommended sequence for upgrading a MDCB installation is as follows:
 Master DC first in the following order:
 
 1. MDCB
-2. Pump
+2. Pump (if in use)
 3. Dashboard
 4. Gateway
 
-Then your slave DC Gateways in the following order:
+Then your worker DC Gateways in the following order:
 
-1. Pump
+1. Pump (if in use)
 2. Gateway
 
-We do this to be backwards compatible and upgrading MDCB first followed by the master DC then slave DC Gateways ensures that:
+We do this to be backwards compatible and upgrading MDCB first followed by the master DC then worker DC Gateways ensures that:
 
-1. It's extremely fast to see if there are connectivity issues, but the way Gateways in slave mode work means they keep working even if disconnected
+1. It's extremely fast to see if there are connectivity issues, but the way Gateways in worker mode work means they keep working even if disconnected
 2. It ensures that we don't have forward compatibility issues (new Gateway -> old MDCB)
 
 Tyk is compatible with a blue-green or rolling update strategy.
