@@ -12,8 +12,12 @@ weight: 1
 {{< warning success >}}
 **Warning**  
 
-This demo is **NOT** designed for production use or performance testing.
+This demo is NOT designed for production use or performance testing.
 {{< /warning >}}
+
+We have a video which goes through installing our Docker Pro demo on your local machine, setting up a basic API and considerations for moving from POC to Production.
+
+{{< youtube tMrjEa5VRLg >}}
 
 
 The Tyk Pro Docker demo is our full [On-Premises](https://tyk.io/api-gateway/on-premise/) solution, which includes our Gateway, Dashboard, and analytics processing pipeline. This demo will run Tyk On-Premises on your machine, which contains 5 containers: Tyk Gateway, Tyk Dashboard, Tyk Pump, Redis and MongoDB. This demo is great for proof of concept and demo purposes, but if you want to test performance, you will need to move each component to a separate machine.
