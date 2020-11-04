@@ -5,19 +5,20 @@ menu: "main"
 url: "/upgrading-tyk"
 ---
 
-## <a name="intro"></a>Introduction
+## Introduction
 Follow the instructions relevant to your Tyk setup to upgrade your Tyk components.
 Note: Upgrading Tyk will not overwrite your configuration files.  However, it is especially good practice to routinely back these files up, especially right before upgrading your software.
 
-## <a name="cloud"></a>Tyk Cloud
-Tyk Cloud users are automatically upgraded to the latest version as soon as it's released.
-## <a name="Multi-Cloud"></a>Tyk Multi-Cloud Gateway
+## Tyk Cloud Classic
+Tyk Cloud Classic users are automatically upgraded to the latest version as soon as it's released.
+
+## Tyk Multi-Cloud Gateway
 We recommend you upgrade your Tyk Multi-Cloud Gateway in the following way:
 
  1. Take a backup of your `tyk.conf` and `start.sh` files. This is important if you have modified your Docker Container in your current version.
  2. Re-run the start.sh script:
 
-### For Mac OS Users
+### For MacOS Users
 From a Terminal:
 
 ```{.copyWrapper}
@@ -56,7 +57,7 @@ time="Jul  7 08:15:03" level=info msg="--> Listening on port: 8080"
 
 Then the Gateway has successfully re-started.
 
-## <a name="on-premises"></a>Tyk On-Premises
+## Tyk On-Premises
 
 In a production environment, where we recommend installing the Dashboard, Gateway and Pump on separate machines, you should upgrade components in the following sequence:
 
@@ -89,21 +90,30 @@ sudo yum update
 
 Our recommended sequence for upgrading a MDCB installation is as follows:
 
-Master DC:
+Master DC first in the following order:
 
-1. Dashboard
+1. MDCB
+2. Pump (if in use)
+3. Dashboard
+4. Gateway
+
+Then your worker DC Gateways in the following order:
+
+1. Pump (if in use)
 2. Gateway
-3. MDCB
 
-Then your Slave DC Gateways
+We do this to be backwards compatible and upgrading MDCB first followed by the master DC then worker DC Gateways ensures that:
+
+1. It's extremely fast to see if there are connectivity issues, but the way Gateways in worker mode work means they keep working even if disconnected
+2. It ensures that we don't have forward compatibility issues (new Gateway -> old MDCB)
 
 Tyk is compatible with a blue-green or rolling update strategy.
 
 ## Tyk Go Plugins
 
-We release a new version of our Tyk Go plugin compiler bianry with each release. You will need to rebuild your Go plugins when updating to a new release. See [Rebuilding Go Plugins](/docs/plugins/golang-plugins/golang-plugins/#when-upgrading-your-tyk-installation) for more details.
+We release a new version of our Tyk Go plugin compiler binary with each release. You will need to rebuild your Go plugins when updating to a new release. See [Rebuilding Go Plugins](/docs/plugins/golang-plugins/golang-plugins/#when-upgrading-your-tyk-installation) for more details.
 
-## <a name="new"></a>Don't Have Tyk Yet?
+## Don't Have Tyk Yet?
 
 Get started now, for free, or contact us with any questions.
 

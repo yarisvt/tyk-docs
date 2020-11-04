@@ -96,7 +96,7 @@ Once installed, modify your `/opt/tyk-sink/tyk_sink.conf` file as follows:
   },
   "hash_keys": true,
   "forward_analytics_to_pump": true,
-  "aggregates_ignore_tags": [
+  "ignore_tag_prefix_list": [
     
   ],
   "analytics": {
@@ -135,7 +135,7 @@ Once installed, modify your `/opt/tyk-sink/tyk_sink.conf` file as follows:
 |`hash_keys` |   bool  |Set to true if you are using a hashed configuration installation of Tyk, otherwise set to false.|
 |`session_timeout` |   int  |Number of seconds before the gateways are forced to re-login. Default is 86400 (24 hours).|
 |`forward_analytics_to_pump` |   bool  |Instead of sending analytics directly to MongoDB, MDCB can send analytics to Redis. This will allow [tyk-pump] (https://github.com/TykTechnologies/tyk-pump) to pull analytics from Redis and send to your own data sinks.|
-|`aggregates_ignore_tags` |   String Array  |If custom analytics tags are used. You may disable generating aggregate analytics for these tags. E.g.<br>`[`<br>`"Request-Id",`<br>`"Secret-Key"`<br>`]`|
+|`ignore_tag_prefix_list` |   String Array  |If custom analytics tags are used (`tag_header`), you may disable generating aggregate analytics for these tags. E.g.<br>`["Request-Id", "Secret-Key"]` will stop aggregating data for headers that *starts* with `Request-Id*` and `Secret-Key*`. <br> This field is replacing  `aggregates_ignore_tags` which is now deprecated|
 |`analytics` |   object  ||
 |`analytics.mongo_url` |   string  |Connection string for MongoDB.|
 |`license` | string    |Enter your license in this section so MDCB can start.|
@@ -251,10 +251,10 @@ New fields are between the `...` .
   "hybrid_enabled": true,
   "event_options": {
     "key_event": {
-      "redis": true
+      "email": "test@test.com"
     },
     "hashed_key_event": {
-      "redis": true
+      "email": "test@test.com"
     }
   },
   ...
@@ -271,7 +271,7 @@ New fields are between the `...` .
 
 `hybrid_enabled:` Allows a worker to login as an organisation member into MDCB
 
-`event_options:` Enables key events such as updates and deletes, to be propagated to the various instance zones. API Definitions and Policies will be propagated by default.
+`event_options:` Enables key events such as updates and deletes, to be propagated to the various instance zones. API Definitions and Policies will be propagated by default, as well as the Redis key events, meaning that hashed and not hashed key events will be propagated by default in Redis and any config related to `hashed_key_event.redis` or `key_event.redis` will not be taken into consideration.
 
 
 6.Update your organisation with a PUT request to the same endpoint, but this time, passing in your modified `myorg.json` file.

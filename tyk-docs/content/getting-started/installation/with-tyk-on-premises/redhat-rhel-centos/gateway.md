@@ -7,7 +7,7 @@ menu:
 weight: 3 
 ---
 
-## <a name="install-tyk-redhat-gateway"></a>Install Tyk API Gateway on Red Hat
+## Install Tyk API Gateway on Red Hat
 
 Tyk has it's own signed RPMs in a YUM repository hosted by the kind folks at [packagecloud.io][1], which makes it easy, safe and secure to install a trusted distribution of the Tyk Gateway stack.
 
@@ -78,7 +78,7 @@ sudo service redis start
 
 When Tyk is finished installing, it will have installed some init scripts, but it will not be running yet. The next step will be to setup the Gateway – thankfully this can be done with three very simple commands.
 
-## <a name="configure-with-dashboard"></a>Configure Tyk Gateway with the Dashboard
+## Configure Tyk Gateway with the Dashboard
 
 ### Prerequisites
 
@@ -88,7 +88,11 @@ This configuration assumes that you have already installed Tyk Dashboard, and ha
 
 You can set up the core settings for Tyk Gateway with a single setup script, however for more involved deployments, you will want to provide your own configuration file.
 
-> **NOTE**: You need to replace `<hostname>` for `--redishost=<hostname>` with your own value to run this script.
+{{< note success >}}
+**Note**  
+
+You need to replace `<hostname>` for `--redishost=<hostname>`with your own value to run this script.
+{{< /note >}}
 
 ```{.copyWrapper}
 sudo /opt/tyk-gateway/install/setup.sh --dashboard=1 --listenport=8080 --redishost=<hostname> --redisport=6379

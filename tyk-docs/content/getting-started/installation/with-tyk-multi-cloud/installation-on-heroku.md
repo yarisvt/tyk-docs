@@ -6,8 +6,11 @@ menu:
     parent: "With Tyk Multi-Cloud"
 weight: 4
 ---
+{{< note success >}}
+**Note**  
 
-> **Note:** This is a Tyk Community Contribution.
+This is a Tyk Community Contribution.
+{{< /note >}}
 
 ## Prerequisite
 
@@ -29,4 +32,8 @@ weight: 4
     *   RPORT
     *   SECRET 
 
-> **NOTE:** This will only work with port 80 deployments and other ports will be ignored.
+{{< note success >}}
+**Note**  
+
+This will only work with port 80 deployments, all other ports will be ignored.
+{{< /note >}}

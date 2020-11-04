@@ -28,7 +28,12 @@ cache_options: {
 }
 ```
 
-> **Note**: If you set `cache_all_safe_requests` to true, then the cache will be global and *all* inbound requests will be evaluated by the caching middleware. This is great for simple APIs, but for most a finer-grained control is required.
+{{< note success >}}
+**Note**  
+
+If you set `cache_all_safe_requests` to true, then the cache will be global and *all* inbound requests will be evaluated by the caching middleware. This is great for simple APIs, but for most a finer-grained control is required.
+{{< /note >}}
+
 
 ### Enabling Caching via the Dashboard
 
@@ -52,7 +57,7 @@ Here you must set:
 4.  **Global cache**: Enable the global cache.
 
 
-## <a name="per-path"></a> Per-Path
+## Per-Path
 
 To cache only specific endpoints, within the version data under the `extended_paths` section, you will need to define the paths to cache in the `cache` list:
 
@@ -109,6 +114,8 @@ Now you will also need to set on which paths to act, add thses paths as shown in
           }
  ```          
 
+## Tyk Response Headers
+
 Tyk will evaluate the response headers sent from your application for these paths and based on the data in the response, activate and set the cache values.
 
 The two response headers that Tyk looks for are:
@@ -146,10 +153,13 @@ To enable a separate cache server, update your `tyk.conf` with the following sec
   "enable_cluster": false
 },
 ```
- > NOTE: `addrs` is new in v2.9.3, and replaces `hosts` which is now deprecated.
+
+{{< note success >}}
+**Note**  
+
+`addrs` is new in v2.9.3, and replaces `hosts` which is now deprecated.
+{{< /note >}}
 
 If you set `enable_cluster` to `false`, you only need to set one entry in `addrs`:
-
-`
 
 The configuration is the same (and uses the same underlying driver) as the regular configuration, so Redis Cluster is fully supported.

@@ -40,8 +40,11 @@ heroku create
 Creating app... done, ⬢ infinite-plains-14949
 https://infinite-plains-14949.herokuapp.com/ | https://git.heroku.com/infinite-plains-14949.git
 ```
+{{< note success >}}
+**Note**  
 
-> Note: `--space` flag must be added to the command if the app is being created in a private space, see more details in the [section on Heroku private spaces](#private-spaces).
+`--space` flag must be added to the command if the app is being created in a private space, see more details in the [section on Heroku private spaces](#private-spaces).
+{{< /note >}}
 
 Provision a Redis add-on (we'll use a `hobby-dev` plan for demonstration purposes but that's not suitable for production), replacing the app name with your own:
 ```{.copyWrapper}
@@ -109,7 +112,12 @@ bootstrap.sh  Dockerfile.web  entrypoint.sh  tyk_analytics.conf
 
 You will find it contains a `Dockerfile.web` for the web dyno, a config file for the Dashboard, entrypoint script for the Docker container and a bootstrap script for seeding the dashboard instance with sample data. All these files are editable for your purposes but have sane defaults for a PoC.
 
-> Note that you can use the `FROM` statement in `Dockerfile.web` to use specific dashboard version and upgrade when needed instead of relying on the `latest` tag.
+{{< note success >}}
+**Note**  
+
+You can use the `FROM` statement in `Dockerfile.web` to use specific dashboard version and upgrade when needed instead of relying on the `latest` tag.
+{{< /note >}}
+
 
 The [Dashboard configuration](/docs/tyk-configuration-reference/tyk-dashboard-configuration-options/) can be changed by either editing the `tyk_analytics.conf` file or injecting them as [environment variables](/docs/tyk-configuration-reference/environment-variables/) via `heroku config`. In this guide we'll use the latter for simplicity of demonstration but there is merit to both methods.
 
@@ -351,8 +359,11 @@ Inspect the logs (`heroku logs -a infinite-plains-14949`) to check that deployme
 
 You're ready to follow the guide on [creating and managing your APIs](/docs/try-out-tyk/tutorials/create-api/) with this Heroku deployment.
 
+{{< note success >}}
+**Note**  
 
-> Note: to use the [geographic log distribution](/docs/analytics-and-reporting/geographic-distribution/) feature in the Dashboard please supply the GeoLite2 DB in the `gateway` directory, uncomment the marked line in `Dockerfile.web` and set the `analytics_config.enable_geo_ip` setting (or `TYK_GW_ANALYTICSCONFIG_ENABLEGEOIP` env var) to `true`.
+To use the [geographic log distribution](/docs/analytics-and-reporting/geographic-distribution/) feature in the Dashboard please supply the GeoLite2 DB in the `gateway` directory, uncomment the marked line in `Dockerfile.web` and set the `analytics_config.enable_geo_ip` setting (or `TYK_GW_ANALYTICSCONFIG_ENABLEGEOIP` env var) to `true`.
+{{< /note >}}
 
 ## Heroku Private Spaces
 

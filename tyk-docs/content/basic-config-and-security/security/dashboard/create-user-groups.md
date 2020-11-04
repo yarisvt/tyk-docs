@@ -19,7 +19,11 @@ This Role Based Access Control (RBAC) feature is available to all our SaaS users
 
 In order to manage user groups, ensure that you have either "admin" or "user groups" permission for your user, which can be enabled by your admin.
 
-> **NOTE:** A user can only belong to one group.
+{{< note success >}}
+**Note**  
+
+A user can only belong to one group.
+{{< /note >}}
 
 ## Create a User Group with the Dashboard
 

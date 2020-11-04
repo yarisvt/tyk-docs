@@ -8,10 +8,14 @@ weight: 5
 url: "/getting-started/installation/with-tyk-multi-cloud"
 ---
 
-> **NOTE**: Tyk Multi-Cloud has superseded our Hybrid offering. See [Tyk Multi-Cloud](https://tyk.io/api-gateway/cloud/#multi-cloud) for more details. You can get a free 1 month trial of Tyk Multi-Cloud.
+{{< note success >}}
+**Note**  
+
+Tyk Multi-Cloud has superseded our Hybrid offering. See [Tyk Multi-Cloud](https://tyk.io/api-gateway/cloud/#multi-cloud) for more details. You can get a free 1 month trial of Tyk Multi-Cloud.
+{{< /note >}}
 
 
-## <a name="what-is-tyk-Multi-Cloud"></a>What is Tyk Multi-Cloud?
+## What is Tyk Multi-Cloud?
 
 Multi-Cloud deployment is a feature unique to Tyk and Tyk Cloud, it enables you to run one or more Tyk API Gateways locally, within your own infrastructure, behind your own load balancers and alongside your existing application stack without having to expose your systems to the wider Internet.
 
@@ -25,7 +29,7 @@ In order to do this, Tyk Multi-Cloud Gateways use a compressed RPC channel back 
 
 To get started with Tyk Multi-Cloud, [create an account](/docs/getting-started/installation/with-tyk-multi-cloud/create-an-account/).
 
-## <a name="what-are-the-benefits-of-Multi-Cloud"></a>What are the benefits of Multi-Cloud ?
+## What are the benefits of Multi-Cloud ?
 
 A Tyk Multi-Cloud deployment is the best trade-off between running a Tyk node (or even a Tyk cluster) with a much lower infrastructure requirement and total cost of ownership:
 
@@ -40,7 +44,7 @@ A Tyk Multi-Cloud deployment is the best trade-off between running a Tyk node (o
 *   Full dynamic middleware support
 *   Full API Sharding (multi-environments such as QA, UAT, Prod) support and multi-data center zoning
 
-## <a name="how-does-a-Multi-Cloud-gateway-work"></a>How does a Multi-Cloud Gateway work ?
+## How does a Multi-Cloud Gateway work?
 
 Tyk Multi-Cloud is installed as a network appliance, it should be run like any other reverse proxy within your application stack. To make this simple, we have developed a custom docker image that can be deployed and configured with a simple script, however you can modify this image, or in fact just re-use the configuration to fit your installation. Please contact your account manager to discuss options around container and gateway customisation for Multi-Cloud accounts.
 

@@ -8,14 +8,14 @@ weight: 0
 url: "/advanced-configuration/integrate/3rd-party-identity-providers"
 ---
 
-## <a name="dashboard-sso"></a>Dashboard SSO API
-The Dashboard exposes a special API to implement custom authentications for the Dashboard and Portal. See the [Dashboard Admin API](/docs/dashboard-admin-api/sso) for more details.
+## Dashboard SSO API
+The Dashboard exposes a special API to implement custom authentications for the Dashboard and Portal. See the [Dashboard Admin API](/docs/tyk-apis/tyk-dashboard-admin-api/sso/) for more details.
 
 You can use the `sso_permission_defaults` dashboard configuration option to configure the permissions of users created via SSO API. See the SSO API docs above.
 
 In addition you can set custom login pages for the dashboard and portal using `sso_custom_login_url` and `sso_custom_portal_login_url` dashboard configuration options.
 
-## <a name="tib"></a>Tyk Identity Broker (TIB) Overview 
+## Tyk Identity Broker (TIB) Overview 
 
 ### What is the Tyk Identity Broker?
 
@@ -37,10 +37,11 @@ Tyk Identity Broker provides a simple API, which traffic can be sent *through* t
 
 ##### Identity Providers
 
-Identity providers can be anything, so long as they implement the `tap.TAProvider` interface. Bundled with TIB at the moment you have three providers:
+Identity providers can be anything, so long as they implement the `tap.TAProvider` interface. Bundled with TIB at the moment you have four providers:
 
 1.  Social - Provides OAuth handlers for many popular social logins (such as Google, Github and Bitbucket)
 2.  LDAP - A simple LDAP protocol binder that can validate a username and password against an LDAP server (tested against OpenLDAP)
+3.  SAML - Provides SAML login flows with any IDP i.e. Azure AD, Auth0, Okta, Ping or Keycloak
 3.  Proxy - A generic proxy handler that will forward a request to a third party and provides multiple "validators" to identify whether a response is successful or not (e.g. status code, content match and regex)
 
 #### Identity Handlers
@@ -63,9 +64,13 @@ Handlers are not limited to Tyk, a handler can be added quite easily by implemen
 
 ### Requirements and dependencies
 
-> **Note**: Dashboard/Portal SSO is also supported on Tyk Multi-Cloud accounts, but is an extra feature and is not enabled by default. Contact your Account Manager to request this feature. TIB must be run locally to support SSO with Tyk Cloud. 
+{{< note success >}}
+**Note**  
 
-Starting from Tyk Dashboard 3, TIB is built-in to the dashboard. 
+Dashboard/Portal SSO is also supported on Tyk Multi-Cloud accounts, but is an extra feature and is not enabled by default. Contact your Account Manager to request this feature. TIB must be run locally to support SSO with Tyk Cloud Classic. 
+{{< /note >}}
+
+Starting from Tyk Dashboard v3.0, TIB is built-in to the dashboard. 
 You don't have to do anything, only ensure that in the dashboard's config file the config `identity_broker` is not pointing to an external service, and `identity_broker.enabled` set to `true`. Example:
 
 ```
@@ -81,7 +86,7 @@ You don't have to do anything, only ensure that in the dashboard's config file t
 The settings will behave as next:
 
 * If `enabled` = false then neither external or internal TIB will be loaded
-* If `enabled` = true and tib host is set, then external tib will be loaded
-* If `enabled` = true and tib host is not present the internal tib will be loaded
+* If `enabled` = true and tib host is set, then external TIB will be loaded
+* If `enabled` = true and tib host is not present the internal TIB will be loaded
 
-If you want install it as a separate component follow [this guide](/docs/getting-started/tyk-components/identity-broker/#installing-tib).
+If you want install it as a separate component see [installing TIB](/docs/getting-started/tyk-components/identity-broker/#installing-tib).

@@ -52,7 +52,12 @@ A hashed installation imposes some constraints on how Tyk is used:
 *   Listing tokens requires setting `enable_hashed_keys_listing` to `true` in your `tyk.conf` file
 *   Tokens appear in Analytics in their hashed form
 
-> **Warning**: Switching from a hashed installation to non-hashed means all existing tokens cannot be used (they will not be correctly validated).
+{{< warning success >}}
+**Warning**  
+
+Switching from a hashed installation to non-hashed means all existing tokens cannot be used (they will not be correctly validated).
+{{< /warning >}}
+
 
 #### Using Hashed Keys Endpoints
 

@@ -1,6 +1,6 @@
 ---
 date: 2017-03-24T13:17:31Z
-title: Tutorial Add a python plugin bundle to your gateway
+title: Tutorial Add a python plugin bundle to your Gateway
 menu:
   main:
     parent: "Python"
@@ -9,7 +9,7 @@ aliases:
   -  "/plugins/rich-plugins/python/tutorial-add-demo-plugin-api/"
 ---
 
-## <a name="api-settings"></a>API settings
+## API settings
 
 To add a Python plugin to your API, you must specify the bundle name using the `custom_middleware_bundle` field:
 
@@ -50,7 +50,7 @@ To add a Python plugin to your API, you must specify the bundle name using the `
 }
 ```
 
-## <a name="global-settings"></a>Global settings
+## Global settings
 
 To enable Python plugins you need to add the following block to `tyk.conf`:
 
@@ -74,7 +74,7 @@ To enable Python plugins you need to add the following block to `tyk.conf`:
 
 `public_key_path`: sets a public key, this is used for verifying signed bundles, you may omit this if unsigned bundles are used. 
 
-## <a name="run-python-gateway"></a> Running the Tyk Python Gateway build
+## Running the Tyk Python Gateway build
 
 To use Tyk with Python support you will need to use an alternative binary, it is provided in the standard Tyk package but it has a different service name.
 

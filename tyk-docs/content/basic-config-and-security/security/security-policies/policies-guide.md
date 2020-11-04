@@ -110,7 +110,12 @@ The record is a single JSON object, with each named key representing the policy 
 
 To apply the above policy to a key, we simply need to call the `/create` (or `/add`) endpoint in the Tyk REST API with a session object that has the `apply_policy_id` flag set to the name `default` (or whatever you named your policy).
 
-> **NOTE**: Although `apply_policy_id` is still supported, it is now deprecated. `apply_policies` is now used to list your policy IDs as an array. This supports the **Multiple Policy** feature introduced in the **v2.4** release.
+{{< note success >}}
+**Note**  
+
+Although `apply_policy_id` is still supported, it is now deprecated. `apply_policies` is now used to list your policy IDs as an array. This supports the **Multiple Policy** feature introduced in the **v2.4** release.
+{{< /note >}}
+
 
 ```{.copyWrapper}
 {
@@ -141,8 +146,8 @@ Although we have set the main factors of the key, they will be overridden by the
 
 ## How You Can Create Policies
 
-[Create a Policy with the Dashboard API](https://tyk.io/docs/get-started/with-tyk-on-premise/tutorials/tyk-on-premises-pro/create-security-policy/#a-namewithapiatutorial-create-a-security-policy-with-the-api)
+[With the Dashboard API](/docs/getting-started/tutorials/create-security-policy/#tutorial-create-a-security-policy-with-the-api)
 
-[Create a Policy with the Gateway API](https://tyk.io/docs/with-tyk-community-edition/tutorials/create-security-policy/#a-name-create-a-file-based-policy-a-tutorial-create-a-policy-with-the-gateway-api)
+[With the Gateway API - Community Edition tab](/docs/getting-started/tutorials/create-security-policy)
 
-[Create a Policy with the Dashboard](https://tyk.io/docs/get-started/with-tyk-on-premise/tutorials/tyk-on-premises-pro/create-security-policy/#a-namewithdashboardatutorial-create-a-security-policy-with-the-dashboard)
+[With the Dashboard](/docs/getting-started/tutorials/create-security-policy/#tutorial-create-a-security-policy-with-the-dashboard)

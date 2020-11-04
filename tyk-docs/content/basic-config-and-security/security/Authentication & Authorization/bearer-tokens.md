@@ -52,7 +52,12 @@ The name of the key can be defined as part of the API definition under the `auth
 
 To use URL query parameters instead of a header, set the `auth.use_param` setting in your API definition to `true`. 
 
-> **Note**: unlike headers, URL query parameters are *case sensitive*.
+{{< note success >}}
+**Note**  
+
+Unlike headers, URL query parameters are *case sensitive*.
+{{< /note >}}
+
 
 To use a cookie name instead of a header or request parameter, set the `use_cookie` parameter to `true`. Cookie names are also case sensitive.
 

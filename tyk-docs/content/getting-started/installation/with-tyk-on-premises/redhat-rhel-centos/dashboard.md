@@ -8,7 +8,7 @@ weight: 1
 ---
 
 
-## <a name="install-dashboard"></a>Install Tyk Dashboard: Red Hat
+## Install Tyk Dashboard: Red Hat
 
 Tyk has its own signed RPMs in a YUM repository hosted by the kind folks at [packagecloud.io][1], which makes it easy, safe and secure to install a trusted distribution of the Tyk Gateway stack.
 
@@ -80,7 +80,7 @@ We're ready to go, you can now install the relevant packages using yum:
 sudo yum install -y mongodb-org tyk-dashboard redis
 ```
 
-*(you may be asked to accept the GPG key for our repos and when the package installs, hit yes to continue)*
+**(you may be asked to accept the GPG key for our repos and when the package installs, hit yes to continue)**
 
 ### Step 5: Start MongoDB and Redis
 
@@ -94,13 +94,23 @@ sudo service redis start
 
 We can set the Dashboard up with a similar setup command, the script below will get the Dashboard set up for the local instance.
 
-> **NOTE**: You need to replace `<hostname>` for `--redishost=<hostname>`, and `<IP Address>` for `--mongo=mongodb://<IP Address>/` with your own values to run this script.
+{{< note success >}}
+**Note**  
+
+You need to replace `<hostname>` for `--redishost=<hostname>`, and `<IP Address>` for `--mongo=mongodb://<IP Address>/` with your own values to run this script.
+{{< /note >}}
+
 
 ```{.copyWrapper}
 sudo /opt/tyk-dashboard/install/setup.sh --listenport=3000 --redishost=<hostname> --redisport=6379 --mongo=mongodb://<IP Address>/tyk_analytics --tyk_api_hostname=$HOSTNAME --tyk_node_hostname=http://localhost --tyk_node_port=8080 --portal_root=/portal --domain="XXX.XXX.XXX.XXX"
 ```
 
-> **Note**: Make sure to use the actual DNS hostname or the public IP of your instance as the last parameter.
+{{< note success >}}
+**Note**  
+
+Make sure to use the actual DNS hostname or the public IP of your instance as the last parameter.
+{{< /note >}}
+
 
 What we have done here is:
 
@@ -158,7 +168,13 @@ You need to enter the following:
 * A **Password** for your User
 * **Re-enter** your user **Password**
 
-> **NOTE**: For a password, we recommend a combination of alphanumeric characters, with both upper and lower case letters.
+
+{{< note success >}}
+**Note**  
+
+For a password, we recommend a combination of alphanumeric characters, with both upper and lower case letters.
+{{< /note >}}
+
 
 Click **Bootstrap** to save the details.
 

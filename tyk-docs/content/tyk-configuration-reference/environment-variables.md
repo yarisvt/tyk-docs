@@ -10,7 +10,12 @@ You can use environment variables to override the config file settings for the G
 
 ## How to configure an Environment Variable
 
-> **NOTE**:The following example uses a section from the Gateway config file `tyk.conf`, but the same applies to the Dashboard and the Pump configs.
+{{< note success >}}
+**Note**  
+
+The following example uses a section from the Gateway config file `tyk.conf`, but the same applies to the Dashboard and the Pump configs.
+{{< /note >}}
+
 
 ### Step One - Convert the JSON to dot notation
 

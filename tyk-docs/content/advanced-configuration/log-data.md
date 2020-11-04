@@ -18,7 +18,12 @@ Tyk will try to output structured logs, and so will include context data around 
 
 Log data is usually of the Error level and higher, though you can enable Debug mode reporting by adding the `--debug` flag to the process run command.
 
-> **Warning**: Debug mode logging generates a lot of output and is not recommended.
+{{< warning success >}}
+**Warning**  
+
+Debug mode logging generates a lot of output and is not recommended.
+{{< /warning >}}
+
 
 ### How do I increase Logging Verbosity?
 

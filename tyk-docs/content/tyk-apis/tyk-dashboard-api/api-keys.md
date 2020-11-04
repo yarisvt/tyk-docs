@@ -6,8 +6,11 @@ menu:
     parent: "Tyk Dashboard API"
 weight: 3
 ---
+{{< note success >}}
+**Note**  
 
-> Please note that `{api-id}` can either be the internal or external API id.
+`{api-id}` can either be the internal or external API id.
+{{< /note >}}
 
 ### Get a list of Keys
 
@@ -97,6 +100,72 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
     "hmac_enabled": true,
     "hmac_string": ""
   }
+}
+```
+
+
+### Create a custom key
+
+| **Property** | **Description** |
+| ------------ | --------------- |
+| Resource URL | `/api/keys/{custom-key-id}`     |
+| Method       | POST            |
+| Type         | None            |
+| Body         | Session Object  |
+| Param        | None            |
+
+##### Sample Request
+
+```{.copyWrapper}
+POST /api/keys/my-custom-key HTTP/1.1
+Host: localhost:3000
+authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
+
+{
+    "apply_policies": ["5ecc0b91081ac40001ed261c"],
+    "org_id" : "5eb06f441fe4c4000147476e",
+    
+    // Below gets overwritten by the Policy, required nonetheless
+    "expires": 0,
+    "allowance": 0,
+    "per": 0,
+    "quota_max": 0,
+    "rate": 0,
+    "access_rights": {
+        "b742100081764ff06b00f75733145614": {
+            "api_name": "",
+            "api_id": "b742100081764ff06b00f75733145614",
+            "versions": [
+                "Default"
+            ]
+        }
+    }
+}
+```
+
+You might be wondering why `access_rights` is necessary, as we are adding a security policy and inheriting the access rights from there.  That's because of legacy functionality.  We need to add any APIs `api_id` to the key of the access_rights map, as well as the `api_id` value of that key.  This will all get overwritten by the policy, but we need to add it.
+
+##### Sample Response:
+
+
+```
+{
+    "api_model": {},
+    "key_id": "eyJvcmciOiI1ZTlkOTU0NGExZGNkNjAwMDFkMGVkMjAiLCJpZCI6ImhlbGxvLXdvcmxkIiwiaCI6Im11cm11cjY0In0=",
+    "data": {
+       ...
+    },
+    "key_hash": "567b9a5419c3a9ef"
+}
+```
+
+You can now use `my-custom-key` as a key to access the API.  Furthermore, you can use it to lookup the key in the Dashboard as well as the generated `key_hash` in the response.
+
+Let's try curling it:
+```
+$ curl localhost:8080/my-api/users/1 --header "Authorization: my-custom-key"
+{
+  "response" : "hello world"
 }
 ```
 

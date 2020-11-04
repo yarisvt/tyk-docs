@@ -7,7 +7,7 @@ menu:
 weight: 2 
 ---
 
-## <a name="set-up-virtual-endpoint"></a>Set up the Virtual Endpoint
+## Set up the Virtual Endpoint
 
 Virtual Endpoints are defined per API on an endpoint level. To set up a Virtual Endpoint:
 
@@ -72,12 +72,16 @@ function myVirtualHandlerGetHeaders (request, session, config) {
   return TykJsResponse(responseObject, session.meta_data)   
 }
 ```
+{{< note success >}}
+**Note**  
 
-> **NOTE**: Another option, instead of the steps above, you can use this link to import the API definition - [API Definition Import](https://gist.github.com/letzya/5b5edb3f9f59ab8e0c3c614219c40747).
+Another option, instead of the steps above, you can use this Gist to import the API definition - [API Definition Import](https://gist.github.com/letzya/5b5edb3f9f59ab8e0c3c614219c40747)
+{{< /note >}}
+
 
 The virtual function is `base64` encoded in the `function_source_uri` field.
 
-## <a name="demonstrate-the-virtual-endpoint"></a>Demonstrating the Virtual Endpoint
+## Demonstrating the Virtual Endpoint
 
 Run the following command:
 `curl http://tyk-gateway:8080/testvirtualendpoint2/headers -H "location: /get" -v`
@@ -110,7 +114,7 @@ Connection #0 to host tyk-gateway left intact
 yo yo
 ```
 
-## <a name="check-logs"></a>Checking the Tyk Gateway Logs
+## Checking the Tyk Gateway Logs
 
 ```
 [Jun 13 14:45:21] DEBUG jsvm: Running: myVirtualHandlerGetHeaders

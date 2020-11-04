@@ -7,6 +7,12 @@ menu:
 weight: 1
 ---
 
+{{< note success >}}
+**Note**  
+
+See [API Definition Objects](/docs/tyk-gateway-api/api-definition-objects/) section for an explanation of each field in the request & response.
+{{< /note >}}
+
 ### Get List of APIs
 
 | **Property** | **Description** |
@@ -148,8 +154,11 @@ Similar to API list response
 | Body         | None             |
 | Param        | None             |
 
-> `{id}` can either be the internal or public ID ( see `api_id` in the [sample
-> response](#sample-response-1) )
+{{< note success >}}
+**Note**  
+
+`{id}` can either be the internal or public ID ( see `api_id` in the [sample response](#sample-response-1) )
+{{< /note >}}
 
 #### Sample request
 

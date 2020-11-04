@@ -3,7 +3,7 @@ date: 2017-03-24T15:45:13Z
 title: WAF (OSS) ModSecurity Plugin example
 menu:
   main:
-    parent: "Javascript Middleware"
+    parent: "JavaScript Middleware"
 weight: 10
 ---
 

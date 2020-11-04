@@ -8,7 +8,11 @@ weight: 2
 ---
 
 
-> **Warning**: In a production environment, you will need to change the default `admin_Secret` value that is called by the `admin-auth` header in your `tyk_analytics.conf` file. This is located in `/opt/tyk-dashboard`.
+{{< warning success >}}
+**Warning**  
+
+In a production environment, you will need to change the default `admin_Secret` value that is called by the `admin-auth` header in your `tyk_analytics.conf` file. This is located in `/opt/tyk-dashboard`.
+{{< /warning >}}
 
 ### Get User
 
@@ -73,7 +77,12 @@ admin-auth: 12345
 }
 ```
 
-> **NOTE**: You can also create a user without an `org_id`. This will create a "Super User", who has global access to all APIs, Policies, etc, for all organisations created within Tyk.
+{{< note success >}}
+**Note**  
+
+You can also create a user without an `org_id`. This will create a "Super User", who has global access to all APIs, Policies, etc, for all organisations created within Tyk.
+{{< /note >}}
+
 
 #### Sample Response
 
