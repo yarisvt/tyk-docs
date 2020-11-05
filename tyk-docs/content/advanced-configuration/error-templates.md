@@ -31,6 +31,6 @@ When a HTTP 500 error occurs, and the request is a XML request, Tyk will follow 
 
 ### Removing the X-Generator Header
 
-In case of an error, Tyk gateway adds the following fixed header and value: `X-Generator: tyk.io`
+In case of an error, the Tyk Gateway adds the following fixed header and value: `X-Generator: tyk.io`
 
 If you don't want to return our default X-Generator header (set to tyk.io) in your templates, set `hide_generator_header` to `true` in your `tyk.conf` file
