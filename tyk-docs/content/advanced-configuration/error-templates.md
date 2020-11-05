@@ -10,7 +10,7 @@ url: "/advanced-configuration/error-templates"
 
 In v2.2 the error handler allowed the use a single JSON template to communicate errors to users (a default one is shipped with Tyk, it's located in `templates/error.json`).
 
-As of v2.3 it is possible to use different templates for specific HTTP error codes. The `content-type` header of the request is also checked, enabling the usage of different template formats, e.g. an XML template.
+As of v2.3 it is possible to use different templates for specific `HTTP error codes`. The `content-type` header of the request is also checked, enabling the usage of different template formats, e.g. an XML template.
 
 ## Use Cases
 
@@ -30,5 +30,7 @@ When a HTTP 500 error occurs, and the request is a XML request, Tyk will follow 
 *   If `error.xml` doesn't exist, `templates/error.json` will be used.
 
 ### Removing the X-Generator Header
+
+In case of an error, Tyk gateway adds the following fixed header and value: `X-Generator: tyk.io`
 
 If you don't want to return our default X-Generator header (set to tyk.io) in your templates, set `hide_generator_header` to `true` in your `tyk.conf` file
