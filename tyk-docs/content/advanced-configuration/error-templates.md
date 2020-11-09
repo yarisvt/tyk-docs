@@ -32,6 +32,6 @@ When a HTTP 500 error occurs, and the request is a XML request, Tyk will follow 
 ### Removing the X-Generator Header
 
 In case of an error, the Tyk Gateway adds the following fixed header and value: `X-Generator: tyk.io`
-Please note that for `404 Not found` Tyk will not return this header from a security perspective. To still mitigate this issue, in case you want to better understand your clients and provide you, the manager of the platform, with information, you can simply turn on `track_404_logs` in `tyk.conf` which will produce error logs showing the resources that were requested and not found.
+Please note that for `404 Not found` errors, Tyk will not return this header from a security perspective. To mitigate this issue, in case you want to better understand your clients and provide you, the manager of the platform, with error information, you can set `track_404_logs` to `true` in your `tyk.conf` which will then produce error logs showing the resources that were requested and not found.
 
 If you don't want to return our default X-Generator header (set to tyk.io) in your templates, set `hide_generator_header` to `true` in your `tyk.conf` file
