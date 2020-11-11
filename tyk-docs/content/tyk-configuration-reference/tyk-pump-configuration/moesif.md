@@ -9,6 +9,8 @@ weight: 4
 
 This is a step by step guide to setting up [Moesif API Analytics](https://www.moesif.com/solutions/track-api-program?language=tyk-api-gateway) to receive logs from the Tyk Pump.
 
+We also have a [blog post](https://tyk.io/tyk-moesif-the-perfect-pairing/) which highlights how Tyk and Moesif work together.
+
 The assumptions are that you have Docker installed and Tyk Pro On-premises already running.
 See the [Tyk Pump Configuration](/docs/tyk-configuration-reference/tyk-pump-configuration/tyk-pump-configuration/) for more details.
 
