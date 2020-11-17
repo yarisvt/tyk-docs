@@ -132,7 +132,7 @@ docker-compose up -d tyk-dashboard tyk-gateway
 6. Download the bootstrap script onto EC2 machine
 
 ```
-wget https://gist.githubusercontent.com/sedkis/6f0510445b984b0b70f88564b244020f/raw/f739181cad0e994d2ea6f9022cab1e0ebc55dfd8/bootstrap.sh
+wget https://raw.githubusercontent.com/sedkis/tyk/master/scripts/bootstrap-ssl.sh
 ```
 
 7. Apply execute permissions to file:
