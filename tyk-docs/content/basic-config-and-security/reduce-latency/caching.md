@@ -19,12 +19,13 @@ Tyk supports various ways of caching requests. At its simplest level, Tyk can ca
 To enable caching in your API, within your API definition you will need to set the `cache_options` flags in the main body of the definition:
 
 ```{.copyWrapper}
-cache_options: {
-  cache_timeout: 10,
-  enable_cache: true,
-  cache_all_safe_requests: false,
-  enable_upstream_cache_control: false,
-  cache_response_codes: [200]
+"cache_options": {
+  "cache_timeout": 10,
+  "enable_cache": true,
+  "cache_all_safe_requests": false,
+  "enable_upstream_cache_control": false,
+  "cache_by_headers": [],
+  "cache_response_codes": [200]
 }
 ```
 
@@ -56,6 +57,34 @@ Here you must set:
 3.  **Cache only these status codes**: To set which response codes to cache (remember to click **Add** after entering a response code).
 4.  **Global cache**: Enable the global cache.
 
+## Dynamic caching based on headers or body content
+
+By default Tyk maintains cache in context of API key (if auth enabled), request method and request path.
+But you can have dynamic cache keys as well, and maintain differnt cache based on header or body content values.
+
+For HTTP headers you can set `cache_option.cache_by_headers` option, for example: 
+```
+"cache_options": {
+   "cache_by_headers": ["Unique-user-Id"]
+   ....
+}
+```
+
+For request body based caching, it should be defined on per endpoint level. Add the following config under the API definition "extended_paths" section:
+```
+"extended_paths": {
+  "advance_cache_config": [
+    {
+      "method":"POST",
+      "path":"addBooks",
+      "cache_key_regex": "pattern"
+    }
+  ]
+  ...
+}
+```
+
+Both header and body dynamic caching is not exposed to the UI, and should be enabled though Raw API editor or Dashboard API. 
 
 ## Per-Path
 
