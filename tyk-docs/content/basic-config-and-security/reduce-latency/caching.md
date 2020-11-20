@@ -14,7 +14,7 @@ Tyk supports various ways of caching requests. At its simplest level, Tyk can ca
 
 ## Global
 
-### Enabling Caching via the API Definition
+### Enabling Caching via an API Definition
 
 To enable caching in your API, within your API definition you will need to set the `cache_options` flags in the main body of the definition:
 
@@ -38,7 +38,7 @@ If you set `cache_all_safe_requests` to true, then the cache will be global and 
 
 ### Enabling Caching via the Dashboard
 
-Follow these steps to enable caching via the dashboard.
+Follow these steps to enable caching via the Dashboard.
 
 #### Step 1: Go to the Advanced Options
 
@@ -59,10 +59,10 @@ Here you must set:
 
 ## Dynamic caching based on headers or body content
 
-By default Tyk maintains cache in context of API key (if auth enabled), request method and request path.
-But you can have dynamic cache keys as well, and maintain differnt cache based on header or body content values.
+By default Tyk maintains a cache of an API key (if auth is enabled), request method and request path.
+But you can have a dynamic cache for keys as well, and maintain a differnt cache based on the header or body content values.
 
-For HTTP headers you can set `cache_option.cache_by_headers` option, for example: 
+For HTTP headers you can set the`cache_option.cache_by_headers` option. For example: 
 ```
 "cache_options": {
    "cache_by_headers": ["Unique-user-Id"]
@@ -70,7 +70,7 @@ For HTTP headers you can set `cache_option.cache_by_headers` option, for example
 }
 ```
 
-For request body based caching, it should be defined on per endpoint level. Add the following config under the API definition "extended_paths" section:
+For request body based caching, it should be defined on a per endpoint level. Add the following config under the API definition `extended_paths` section:
 ```
 "extended_paths": {
   "advance_cache_config": [
@@ -84,7 +84,7 @@ For request body based caching, it should be defined on per endpoint level. Add 
 }
 ```
 
-Both header and body dynamic caching is not exposed to the UI, and should be enabled though Raw API editor or Dashboard API. 
+Both header and body dynamic caching is not exposed in the Dashboard UI, and needs to be enabled though either the raw API editor or via the Dashboard API. 
 
 ## Per-Path
 
@@ -125,16 +125,16 @@ You need to set:
 
 #### Step 2: Select the Cache Plugin
 
-Go to Endpoint Designer tab. From the path you want to cache, select the **Cache** plugin option from the drop-down list.
+Go to the Endpoint Designer tab. From the path you want to cache, select the **Cache** plugin option from the drop-down list.
 
 ![Plugin dropdown list](/docs/img/2.10/cache_plugin.png)
 
  
 ## Upstream Control
 
-Upstream cache control enables you to set whether a response should be cached, and for how long. To enable this, you will need to set `enable_cache` to and `enable_upstream_cache_control` to `true`.
+Upstream cache control enables you to set whether a response should be cached, and for how long. To enable this, you will need to set `enable_cache` and `enable_upstream_cache_control` to `true`.
 
-Now you will also need to set on which paths to act, add thses paths as shown in the screengrab above or manually add these paths to the `cache` list in the `extended_paths` section of your API version as you can see below:
+Now you will also need to set which paths to act upon. Add these paths as shown in the screengrab above or manually add these paths to the `cache` list in the `extended_paths` section of your API version as below:
 ``` json
 "extended_paths": {
             "cache": [
@@ -152,12 +152,12 @@ The two response headers that Tyk looks for are:
 1.  `x-tyk-cache-action-set`: If Tyk finds this header set to `1`, the request will be cached.
 2.  `x-tyk-cache-action-set-ttl`: If Tyk finds this header, it will override the TTL of the cached response, otherwise it will default to `cache_options.cache_timeout`.
 
-Utilising this approach gives the most control as it will also only cache responses based on request method. So if you only want `OPTIONS` requests to be cached, and return cache control headers only for this method, then only that method/URL combination will be cached, ignoring other methods for the same path.
+Utilising this approach gives the most control as it will also only cache responses based on the request method. So if you only want `OPTIONS` requests to be cached, and return cache control headers only for this method, then only that method/URL combination will be cached, ignoring other methods for the same path.
 
 
 ### Configuration via the Dashboard
 
-Under the advanced settings, ensure that **Enable upstream cache control** is selected and **Global cache** is not selected, then follow the steps for per-path caching.
+Under the Advanced settings, ensure that **Enable upstream cache control** is selected and **Global cache** is not selected, then follow the steps for per-path caching.
 
 ## Configuring a Separate Redis Cache
 
