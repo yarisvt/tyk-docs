@@ -84,7 +84,7 @@ The circuit breaker will also emit an event which you can hook into to perform s
 
 ### Do Not Track Endpoint
 
-This plugin allows you to have all traffic including analytics for an endpoint completely ignored.
+This plugin prevents any analytics, including log browser, API activity and endpoint popularity from being tracked.
 
 ### Enforced Timeout
 
