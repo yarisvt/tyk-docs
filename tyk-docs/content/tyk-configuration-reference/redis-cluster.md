@@ -151,6 +151,19 @@ To enable a Redis Sentinel setup from v2.9.3 onwards, you need to set the Master
 * In the Tyk Pump config file - `storage.master_name`
 * In a MDCB installation config file - `storage.master_name`
 
+### Support for Redis Sentinel AUTH
+
+To support the use of Redis Sentinel AUTH (introduced in Redis 5.0.1) we have added the following global config settings in Tyk v3.0.2:
+
+* In the Tyk Gateway config file - `sentinel_password`
+* In the Tyk Dashboard config file - `redis_username` and `redis_sentinel_password`
+* In the Tyk Pump config file - `sentinel_password`
+* In the Tyk Identity Broker config file - `SentinelPassword` and `Username`
+* In the Tyk Synk config file - `sentinel_password`
+
+These settings allow you to support Sentinel password-only authentication in Redis version 5.01 and above.
+
+See the Redis and Sentinel authentication section of the [Redis Sentinel docs](https://redis.io/topics/sentinel) for more details.
 ### Redis Sentinel Support prior to v2.9.3
 
 Previously to v2.9.3, we do not support direct integration with Redis Sentinel. For versions prior to v2.9.3, you will need to implement it in association with a HAProxy. As we do support Amazon ElastiCache, we recommend using this with Redis Sentinel. For more details on Amazon ElastiCache, see [here](https://aws.amazon.com/elasticache/). The following article also details how to setup Redis Sentinel and HAProxy: [Setup Redis Sentinel and HAProxy](https://discuss.pivotal.io/hc/en-us/articles/205309388-How-to-setup-HAProxy-and-Redis-Sentinel-for-automatic-failover-between-Redis-Master-and-Slave-servers).
