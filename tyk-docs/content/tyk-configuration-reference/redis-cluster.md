@@ -161,7 +161,7 @@ To support the use of Redis Sentinel AUTH (introduced in Redis 5.0.1) we have ad
 * In the Tyk Identity Broker config file - `SentinelPassword`
 * In the Tyk Synk config file - `sentinel_password`
 
-These settings allow you to support Sentinel password-only authentication in Redis version 5.01 and above.
+These settings allow you to support Sentinel password-only authentication in Redis version 5.0.1 and above.
 
 See the Redis and Sentinel authentication section of the [Redis Sentinel docs](https://redis.io/topics/sentinel) for more details.
 ### Redis Sentinel Support prior to v2.9.3
