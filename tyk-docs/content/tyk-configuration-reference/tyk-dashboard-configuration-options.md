@@ -37,6 +37,7 @@ The file will look like the sample below, the various fields are explained in th
     "shared_node_secret": "352d20ee67be67f6340b4c0605b044b7",
     "redis_port": 6379,
     "redis_host": "tyk-redis",
+    "redis_username": "",
     "redis_password": "",
     "redis_master_name": "",
     "redis_timeout": 0,
@@ -263,9 +264,13 @@ The Tyk Dashboard uses Redis to store its session data and to communicate with y
 
 The hostname for the Redis collection and can be an IP address.
 
+### redis_username
+
+If you are using Redis AUTH using its `requirepass` setting, enter your username here (recommended). If this is not used, the Dashboard will not attempt to login to Redis.
+
 ### redis_password
 
-If you have a set a password in your Redis configuration using its `requirepass` setting, enter it here. If this is set to empty, The Dashboard will not attempt to login to Redis.
+The password for your Redis Auth username.
 
 ### redis_database
 

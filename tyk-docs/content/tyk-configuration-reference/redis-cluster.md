@@ -156,9 +156,9 @@ To enable a Redis Sentinel setup from v2.9.3 onwards, you need to set the Master
 To support the use of Redis Sentinel AUTH (introduced in Redis 5.0.1) we have added the following global config settings in Tyk v3.0.2:
 
 * In the Tyk Gateway config file - `sentinel_password`
-* In the Tyk Dashboard config file - `redis_username` and `redis_sentinel_password`
+* In the Tyk Dashboard config file - `redis_sentinel_password`
 * In the Tyk Pump config file - `sentinel_password`
-* In the Tyk Identity Broker config file - `SentinelPassword` and `Username`
+* In the Tyk Identity Broker config file - `SentinelPassword`
 * In the Tyk Synk config file - `sentinel_password`
 
 These settings allow you to support Sentinel password-only authentication in Redis version 5.01 and above.
