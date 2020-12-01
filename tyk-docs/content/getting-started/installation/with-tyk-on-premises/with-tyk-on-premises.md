@@ -38,18 +38,30 @@ Tyk can be installed on almost any Linux environment, we've also created Docker 
 
 We distribute Tyk via Packagecloud.io APT and Yum repositories, as well as via our [Github repository for the Tarballs](http://upstart.ubuntu.com/cookbook/).
 
-### Getting Started
+### Licencing
 
-To get started with Tyk On-Premises, visit our [licensing page](/docs/getting-started/licencing/).
+For licence queries please contact your account manager. For free trial licences, please visit our [get started](https://tyk.io/get-started/) page on the web site.
 
-## Dependencies
+## Database Support
 
-A full Tyk On-Premises installation has the following requirements:
+### Tyk Gateway
 
-*   Redis: The primary key store for the Tyk Gateway, also synchronises data across gateways in a horizontally scaling installation.
-*   MongoDB: The primary configuration store and analytics data store, required by the dashboard and portal, not required by the gateway.
+By default the Tyk Gateway uses MongoDB. You can also use the following:
 
-### Supported Redis and MongoDB versions
+* [DocumentDB](https://aws.amazon.com/documentdb/)
+* [Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/introduction)
+
+{{< note success >}}
+**Note**  
+
+If you are using DocumentDB, [capped collections](/docs/analytics-and-reporting/capping-analytics-data-storage/) are not supported. See [here](https://docs.aws.amazon.com/documentdb/latest/developerguide/mongo-apis.html) for more details.
+{{< /note >}}
+
+### Tyk Dashboard
+
+The Tyk Dashboard and Portal use Redis.
+
+### Supported MongoDB and Redis versions
 
 Tyk has been tested on the following versions:
 

@@ -39,7 +39,9 @@ Before installing the Tyk components in the order below, you need to install fir
 
 ## Database Support
 
-By default Tyk uses MongoDB. You can also use the following:
+### Tyk Gateway
+
+By default the Tyk Gateway uses MongoDB. You can also use the following:
 
 * [DocumentDB](https://aws.amazon.com/documentdb/)
 * [Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/introduction)
@@ -49,6 +51,10 @@ By default Tyk uses MongoDB. You can also use the following:
 
 If you are using DocumentDB, [capped collections](/docs/analytics-and-reporting/capping-analytics-data-storage/) are not supported. See [here](https://docs.aws.amazon.com/documentdb/latest/developerguide/mongo-apis.html) for more details.
 {{< /note >}}
+
+### Tyk Dashboard
+
+The Tyk Dashboard and Portal use Redis.
 
 
 ### Supported Verions of MongoDB and Redis
@@ -78,5 +84,3 @@ We then recommend installing Tyk in the following order:
 - [Dashboard](/docs/getting-started/installation/with-tyk-on-premises/on-ubuntu/dashboard/)
 - [Pump](/docs/getting-started/installation/with-tyk-on-premises/on-ubuntu/analytics-pump/)
 - [Gateway](/docs/getting-started/installation/with-tyk-on-premises/on-ubuntu/gateway/)
-
-
