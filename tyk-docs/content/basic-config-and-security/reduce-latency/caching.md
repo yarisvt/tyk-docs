@@ -11,6 +11,12 @@ weight: 0
 
 Tyk supports various ways of caching requests. At its simplest level, Tyk can cache all safe requests, however you can also manually set exactly which endpoint patterns to cache, and if that doesn't suffice, or you require more granular control, then you can enable upstream control and have your application tell Tyk whether to cache a request or not and for how long.
 
+{{< note success >}}
+**Note**  
+
+Invalidate Cache functionality is not currently supported in MDCB Gateways.
+{{< /note >}}
+
 
 ## Global
 
