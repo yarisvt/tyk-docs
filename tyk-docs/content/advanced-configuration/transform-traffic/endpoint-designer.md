@@ -134,6 +134,12 @@ In order for mocks to be enabled, the path must also be in a list. We recommend 
 
 **API Blueprint**: If you have imported an API Blueprint definition, and selected the mocks option in the importer, then your whole API will be a white list.
 
+{{< note success >}}
+**Note**  
+
+Support for API Blueprint is being deprecated. See [Importing APIs](/docs/tyk-configuration-reference/import-apis/#api-blueprint-is-being-deprecated) for more details.
+{{< /note >}}
+
 The options are for a mock:
 
 **Code**: the status code to respond with
