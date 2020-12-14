@@ -43,3 +43,7 @@ In this example we are going to set up a custom domain called `edge.corp.com`
 4. Click Save and Re-deploy.
 
 ![Save and Re-Deploy](/docs/img/2.10/save_redeploy.png)
+
+### How our Custom Domain functionality works
+
+When you point your custom domain to your deployment, we use [Let's Encrypt's](https://letsencrypt.org/docs/challenge-types/#http-01-challenge) HTTP01 ACME challenge type, which verifies ownership by accessing your custom CNAME on your Control Plane or Edge deployment. For example - `something-something.aws-euw2.cloud-ara.tyk.io` above.
