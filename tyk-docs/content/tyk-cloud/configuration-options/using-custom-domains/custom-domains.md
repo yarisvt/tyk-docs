@@ -17,19 +17,23 @@ You can set up Tyk Cloud to use a custom domain. Using custom domains is availab
 - Enterprise HA
 - Enterprise Global
 
-You can use a custom domain for both your Control Planes and Edge Gateways
+You can use a custom domain for both your Control Planes and Edge Gateways.
 
 ### Custom Domains with Control Planes
 
-Currently, you can only use one custom domain per Control Plane deployment
+Currently, you can only use one custom domain per Control Plane deployment.
+
+The custom domain in this case ties to a Tyk Developer Portal. Please set up a CNAME DNS record such that it points to the "Portal" ingress as displayed on your Control Plane deployment page.
 
 ### Custom Domains with Edge Gateways
 
-You can set multiple custom domains on an Edge Gateway
+You can set multiple custom domains on an Edge Gateway.
+
+In this instance please set up your CNAME DNS records such that they point to the only ingress displayed on your Edge deployment page.
 
 ## How to set up a Custom Domain
 
-In this example we are going to set up a custom domain called `edge.corp.com`
+In this example we are going to set up a custom domain called `edge.corp.com` for an Edge deployment.
 
 1. Create a CNAME DNS record `edge.corp.com` that points to your Edge ingress (e.g. `something-something.aws-euw2.cloud-ara.tyk.io`).
 2. From your Edge deployment, select Edit from the Status drop-down.
