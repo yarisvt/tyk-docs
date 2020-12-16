@@ -17,7 +17,7 @@ hideSidebar: true
 {{< grid >}}
 
 {{< badge read="15 mins" href="/docs/tyk-cloud/" image="/docs/img/tyk-cloud.svg" >}}
-Sign up for our new, next level **SaaS** product. 
+Our new, next level **SaaS** product. 
 {{< /badge >}}
 
 {{< badge read="15 mins" href="/docs/getting-started/with-tyk-on-premises/installation/on-aws/" image="/docs/img/aws.png">}}
@@ -30,7 +30,7 @@ Install our **On-Premises** product with Docker.
 {{< /badge >}}
 
 {{< badge read="10 mins" href="/docs/getting-started/installation/with-tyk-on-premises/with-kubernetes/" image="/docs/img/k8s.png">}}
-Install our **On-Premises** product with Kubernetes. 
+Install our **On-Premises** product with K8s. 
 {{< /badge >}}
 
 {{< /grid >}}
