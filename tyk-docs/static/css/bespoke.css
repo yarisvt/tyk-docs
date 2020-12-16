@@ -516,11 +516,11 @@ cite strong {
 }
 
 .f-12 {
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .f-13 {
-  font-size: 13px;
+  font-size: 16px;
 }
 
 .f-14 {
@@ -558,7 +558,7 @@ cite strong {
 }
 
 .ucase {
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .two-column {
@@ -1037,7 +1037,7 @@ body {
    ========================================================================== */
 .footer {
   background: #000018;
-  text-transform: uppercase;
+  text-transform: none;
   letter-spacing: 0.175em;
 }
 
@@ -2075,7 +2075,7 @@ body {
 }
 
 .wysiwyg a:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .wysiwyg table {
