@@ -456,7 +456,7 @@ margin:-90px 0 0;
 .st-treed {font-size: 15px;}
 
 /* Suggest an Edit */
-.suggest-edit {width: auto; cursor: pointer; } 
+.suggest-edit {width: auto; cursor: pointer; font-size: 16px;} 
 .suggest-edit:before {padding-right: 10px;}
 
 
