@@ -19,7 +19,7 @@ This guide assumes the following:
 
 ## <a name="okta"></a>Okta's side
 1. Create a developer account on the [Okta Developer site](https://developer.okta.com/).
-   You'll get a domain such as `https://dev-XXXXX.oktapreview.com/app/UserHome`
+   You'll get a domain such as `https://<okta-org>.okta.com/.well-known/openid-configuration`
 2. Login and create a Web Application as follows:
    - Under `Application`, click `Add Application`
    - Choose `Web`
@@ -43,7 +43,7 @@ This guide assumes the following:
 6. Set the profile in `profiles.json` as follows:
    - Copy from your Okta client the `cliend ID`     to `ProviderConfig.UseProviders[].key`
    - Copy from your Okta client the `Client secret` to `ProviderConfig.UseProviders[].secret`
-   - Add Okta's discovery url `"https://dev-XXXXX.oktapreview.com/oauth2/default/.well-known/openid-configuration"` to `ProviderConfig.UseProviders[].DiscoverURL`
+   - Add Okta's discovery url `"https://<okta-org>.okta.com/.well-known/openid-configuration"` to `ProviderConfig.UseProviders[].DiscoverURL`
 
    Example of a `profiles.json` file:
 ```{.json}
@@ -62,7 +62,7 @@ This guide assumes the following:
       "Key": "{Okta-App-Client-ID}",
       "Secret": "{Okta-App-Client-SECRET}",
       "Scopes": ["openid", "email"],
-      "DiscoverURL": "https://{IdP-DOMAIN}.oktapreview.com/oauth2/default/.well-known/openid-configuration",
+      "DiscoverURL": "https://<okta-org>.okta.com/.well-known/openid-configuration",
       "Name": "openid-connect"
     }
   ]
