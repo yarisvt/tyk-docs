@@ -45,3 +45,7 @@ You can now add your Load Balancing **Upstream targets** and apply weighting to 
 
 Weighting is new from v1.10 of the Dashboard
 {{< /note >}}
+
+## gRPC load balancing
+
+Check the section in [/docs/getting-started/key-concepts/grpc-proxy/].
