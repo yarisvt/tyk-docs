@@ -43,7 +43,7 @@ dependent tokens continue to have access to your services.
 ### Prerequisites:
 
 - Tyk-Sync was built using Go 1.10. The minimum Go version required to install is 1.7.
-- In order for policy ID matching to work correctly, your Gateway must have `policies.allow_explicit_policy_id: true`.
+- In order for policy ID matching to work correctly, your Dashboard must have `allow_explicit_policy_id: true` and `enable_duplicate_slugs: true` and your Gateway must have `policies.allow_explicit_policy_id: true`.
 - It is assumed you have a Tyk CE or Tyk Pro installation.
 
 ## Installation
@@ -110,6 +110,8 @@ Flags:
   -k, --key string         Key file location for auth (optional)
   -s, --secret string      Your API secret
   -t, --target string      Target directory for files
+      --policies           Specific policies ID selection (optional)
+      --apis               Specific api_id's selection (optional)
 ```
 
 ### Publish Command
@@ -241,3 +243,24 @@ docker run --rm \
 The command provides output to identify which actions have been taken. If using a Tyk Gateway, the Gateway will be
 automatically hot-reloaded.
 
+## Example: Dump a specific API from one Tyk Dashboard  
+
+First, we need to identify the `api_id` that we want to dump, in this case `ac35df594b574c9c7a3806286611d211`.
+When we have that, we are going to execute the dump command specifying the `api_id` in the tags.
+```
+tyk-sync dump -d="http://localhost:3000" -s="b2d420ca5302442b6f20100f76de7d83" -t="./tmp" --apis="ac35df594b574c9c7a3806286611d211"
+Extracting APIs and Policies from http://localhost:3000
+> Fetching policies
+--> Identified 0 policies
+--> Fetching and cleaning policy objects
+> Fetching APIs
+--> Fetched 1 APIs
+> Creating spec file in: tmp/.tyk.json
+Done.
+```
+
+Note that if you want to specify more than one API, the values need to be comma-separated.
+For example `--apis="ac35df594b574c9c7a3806286611d211,30e7b4001ea94fb970c324bad1a171c3"`.
+
+The same behaviour applies to policies.
+=======
