@@ -19,6 +19,8 @@ The gRPC over HTTP2 specification defines the rules on how the gRPC protocol map
 - HTTP method is always `POST`.
 gRPC custom request metadata is added as HTTP headers, where metadata key is directly mapped to the HTTP header with the same name. 
 
+For details on gRPC load balancing, please check the section below.
+
 #### Prerequisites
 - Enable  HTTP/2 support on the Gateway side, for both incoming and upstream connections, by setting `http_server_options.enable_http2` to true in your Gateway config file.
 - Set `disable_ports_whitelist` to true, so the gateway can use additional ports to expose the service.
@@ -83,3 +85,16 @@ This is the simplest way to have a working gRPC proxy setup, in order to do so w
     * Now in target URL we will set the location of the service: `https://grpc.test.example.com:10000`
     * Hit save
 * At this point we're ready to test the solution, so, from the command line will type: `grpcurl -proto route_guide.proto -d '{"latitude": 1, "longitude":2}' tyk:4444 routeguide.RouteGuide/GetFeature` and we should get a successful response, note that we are not sending the flag `-plaintext` as our desire is to connect via HTTPS.
+
+### gRPC load balancing
+
+Tyk is able to perform load balancing on gRPC traffic using an approach similar to the [this section](/docs/planning-for-production/ensure-high-availability/load-balancing/)
+
+For both secure and insecure gRPC scenarios, above steps serve as a starting point.
+
+For configuring multiple upstream targets in a secure gRPC scenario, follow these additional steps:
+
+* Check the "Enable round-robin load balancing" flag in the "Core Settings" section of your API.
+* Define each target as `https://grpc.test.example.com:10000`, `https://grpc.test.example.com:10001` and so on.
+
+For insecure scenarios (H2C) use the same approach but use the H2C scheme instead: `h2c://grpc.test.example.com:10000`, `h2c://grpc.test.example.com:10001`, etc. 
