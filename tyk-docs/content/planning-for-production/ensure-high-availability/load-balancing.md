@@ -48,4 +48,4 @@ Weighting is new from v1.10 of the Dashboard
 
 ## gRPC load balancing
 
-Check the section in [/docs/getting-started/key-concepts/grpc-proxy/].
+You can also perform [gRPC Load balancing](/docs/key-concepts/grpc-proxy/#grpc-load-balancing).
