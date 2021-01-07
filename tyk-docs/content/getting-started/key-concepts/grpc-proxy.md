@@ -19,7 +19,7 @@ The gRPC over HTTP2 specification defines the rules on how the gRPC protocol map
 - HTTP method is always `POST`.
 gRPC custom request metadata is added as HTTP headers, where metadata key is directly mapped to the HTTP header with the same name. 
 
-For details on gRPC load balancing, please check the section below.
+You can also perform [gRPC load balancing](#grpc-load-balancing).
 
 #### Prerequisites
 - Enable  HTTP/2 support on the Gateway side, for both incoming and upstream connections, by setting `http_server_options.enable_http2` to true in your Gateway config file.
@@ -88,9 +88,9 @@ This is the simplest way to have a working gRPC proxy setup, in order to do so w
 
 ### gRPC load balancing
 
-Tyk is able to perform load balancing on gRPC traffic using an approach similar to the [this section](/docs/planning-for-production/ensure-high-availability/load-balancing/)
+Tyk is able to perform load balancing on gRPC traffic using an approach similar to our native [Load Balancing](/docs/planning-for-production/ensure-high-availability/load-balancing/) functionality.
 
-For both secure and insecure gRPC scenarios, above steps serve as a starting point.
+For both secure and insecure gRPC scenarios, the above steps serve as a starting point.
 
 For configuring multiple upstream targets in a secure gRPC scenario, follow these additional steps:
 
