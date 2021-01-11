@@ -36,17 +36,29 @@ An example of the response from this API is as follows:
 ```{.copyWrapper}
 {
   "status": "pass",
-  "version": "v2.9.3",
+  "version": "v3.1.1",
   "description": "Tyk GW",
   "details": {
     "redis": {
       "status": "pass",
       "componentType": "datastore",
       "time": "2020-05-19T03:42:55+01:00"
+    },
+    "dashboard": {
+      "status": "pass",
+      "componentType": "system",
+      "time": "2020-05-19T03:42:55+01:00"
+    },
+    "rpc": {
+      "status": "pass",
+      "componentType": "system",
+      "time": "2020-05-19T03:42:55+01:00"
     }
   }
 }
 ```
+
+If one of the components is having issues, status will change to "warn", if all of them having issues status will be "fail".
 
 
 
