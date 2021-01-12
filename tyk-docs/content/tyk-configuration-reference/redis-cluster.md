@@ -65,6 +65,7 @@ If you are using TLS for Redis connections, set `use_ssl` to `true`.
     "server3:6381"
   ],
 },
+"redis_use_ssl": true,
 "enable_cluster": true
 ```
 To configure the Tyk Dashboard to work with your Redis Cluster, add the Redis address information to your `tyk_analytics.conf` file:
@@ -97,7 +98,9 @@ To configure the Tyk Pump to work with your Redis Cluster, set `enable_cluster` 
   "use_ssl": false
 },
 ```
-Then the Cluster driver should be invoked instead of the standard Redis driver. If you are using TLS for Redis connections, set `use_ssl` to `true`.
+
+## Redis Cluster with TLS 
+If you are using TLS for Redis connections, set `use_ssl` to `true` for Gateway and Pump, and `redis_use_ssl` to `true` for the dashboard.
 
 
 ## Redis Cluster with Docker
