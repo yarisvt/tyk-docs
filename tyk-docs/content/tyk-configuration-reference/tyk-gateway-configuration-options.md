@@ -289,6 +289,8 @@ Set these options to hard-code values into the way the HTTP server behaves.
   "use_ssl": false,
   "enable_websockets": false,
   "flush_interval": 1,
+  "read_timeout": 120,
+  "write_timeout": 120,
   "certificates": [
     {
       "domain_name": "ssl.domain.com",
@@ -305,7 +307,7 @@ Set these options to hard-code values into the way the HTTP server behaves.
 },
 ```
 
-#### enable_http2
+#### http_server_options.enable_http2
 
 This defaults to true for HTTP/2 connections.
 
@@ -344,6 +346,12 @@ As of v2.2, Tyk supports transparent websocket connection upgrades, to enable th
 #### http_server_options.ssl_insecure_skip_verify
 
 Allows usage of self-signed certificates when connecting to the Gateway.
+
+#### http_server_options.read_timeout
+Network read timeout for user requests processed by Tyk. Defaults to 120 seconds.
+
+#### http_server_options.read_timeout
+Network write timeout for user requests processed by Tyk. Defaults to 120 seconds.
 
 #### security.pinned_public_keys
 
