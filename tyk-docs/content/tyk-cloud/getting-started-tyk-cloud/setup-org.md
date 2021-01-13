@@ -25,7 +25,7 @@ Select a region from the drop-down list where your [Control Planes](/docs/tyk-cl
 {{< note success >}}
 **Note**
   
-Tyk Cloud can be currently be deployed across 2 AWS regions in the USA plus UK, Germany and Singapore. If you have any concerns about Brexit impacting the way you store data you should read [AWS's regularly updated Brexit statement](https://aws.amazon.com/compliance/gdpr-center/brexit/).
+Tyk Cloud can currently be deployed across 2 AWS regions in the USA plus UK, Germany and Singapore. If you have any concerns about Brexit impacting the way you store data you should read [AWS's regularly updated Brexit statement](https://aws.amazon.com/compliance/gdpr-center/brexit/).
 {{< /note >}}
 
 Next you'll get started by setting up your first team.
