@@ -22,4 +22,10 @@ Give your organisation a name. This is up to you, but most use their company nam
 
 Select a region from the drop-down list where your [Control Planes](/docs/tyk-cloud/troubleshooting-support/glossary/#control-plane) will be deployed and your data stored. The number of regions available will depend on your licence. Further regions can be added as an upgrade option.
 
+{{< note success >}}
+**Note**
+  
+Tyk Cloud can be currently be deployed across 2 AWS regions in the USA plus UK, Germany and Singapore. If you have any concerns about Brexit impacting the way you store data you should read [AWS's regularly updated Brexit statement](https://aws.amazon.com/compliance/gdpr-center/brexit/).
+{{< /note >}}
+
 Next you'll get started by setting up your first team.
