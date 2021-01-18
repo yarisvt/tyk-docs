@@ -71,7 +71,9 @@ To set up an API Definition to use OIDC, add the following block to the definiti
 #### JWT scope to policy mapping support
 
 {{< note success >}}
-**Note**: This feature is available starting from v2.9
+**Note**: 
+
+This feature is available starting from v2.9
 {{< /note >}}
 
 Many times companies define the user's authorisation rules in a central place such as an authorisation server or some central identity provider (IdP). As such you would want to be able to enfoce these rules using your api gateway. 
