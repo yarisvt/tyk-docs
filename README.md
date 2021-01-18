@@ -300,7 +300,7 @@ Use these instead of the usual markdown blockquote style.
 You need to have at least one Edge Gateway with a *Deployed* status connected to your Control Plane.
 {{< /note >}}
 ```
-![image](https://user-images.githubusercontent.com/1983518/104920964-8d8e2d80-5990-11eb-8bc6-7cae78bf54dd.png">)
+![image](https://user-images.githubusercontent.com/1983518/104920964-8d8e2d80-5990-11eb-8bc6-7cae78bf54dd.png>)
 
 #### Warning
 
