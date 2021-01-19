@@ -98,7 +98,8 @@ The file will look like the sample below, the various fields are explained in th
         "enforce_password_history": 0,
         "force_first_login_pw_reset": false,
         "enable_content_security_policy": false,
-        "allowed_content_sources": ""
+        "allowed_content_sources": "",
+        "private_certificate_encoding_secret": "some-secret"
     },
     "ui": {
         "languages": {
@@ -508,6 +509,10 @@ Set a maximum number of previous passwords used by a user that cannot be reused.
 #### security.force_first_login_pw_reset
 
 A newly created user will be forced to reset their password upon first login. Defaults to `false`.
+
+### security.private_certificate_encoding_secret
+
+When using SAML with embeded identity broker, is required to upload a certificate that is encoded by the gateway to store it safely, TIB needs the private key as well, hence it needs the same `encoding secret` so the information is decoded successfully. This value should match with the encoding secret set in the gateway config file, if not set then it will use by default `tyk_api_config.secret` to attempt to decode the certificate.
 
 ### ui
 

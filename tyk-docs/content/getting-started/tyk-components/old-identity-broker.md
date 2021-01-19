@@ -1,6 +1,6 @@
 ---
 date: 2017-03-23T13:19:38Z
-title: Tyk Identity Broker
+title: Old Tyk Identity Broker
 menu:
   main:
     parent: "Tyk Components"
