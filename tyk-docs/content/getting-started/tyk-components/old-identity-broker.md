@@ -32,6 +32,7 @@ Identity providers can be anything, so long as they implement the `tap.TAProvide
 1. **Social** - this provides OAuth handlers for many popular social logins (such as Google, Github and Bitbucket)
 2. **LDAP** - a simple LDAP protocol binder that can validate a username and password against an LDAP server (tested against OpenLDAP)
 3. **Proxy** - a generic proxy handler that will forward a request to a third party and provides multiple "validators" to identify whether a response is successful or not (e.g. status code, content match and regex)
+4. *SAML** - 
 
 #### Identity Handlers
 
