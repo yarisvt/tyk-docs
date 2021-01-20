@@ -5,6 +5,8 @@ menu:
   main:
     parent: "With Docker"
 weight: 1
+aliases:
+  - /getting-started/installation/with-tyk-on-premises/docker/docker-pro-demo/docker-pro-demo/
 ---
 
 ## Get Started with Docker & Tyk API Gateway

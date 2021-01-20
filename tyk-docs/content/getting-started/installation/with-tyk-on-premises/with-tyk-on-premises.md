@@ -1,11 +1,11 @@
 ---
 date: 2017-03-15T15:01:42Z
-title: With Tyk On-Premises
-menu: 
-  main:
-    parent: "Installation"
-weight: 5
-url: "/getting-started/installation/with-tyk-on-premises"
+title: Tyk On-Premises
+weight: 10
+menu: "main" 
+url: "/tyk-on-premises/"
+aliases:
+  - /getting-started/installation/with-tyk-on-premises/
 ---
 
 ## What is Tyk On-Premises?

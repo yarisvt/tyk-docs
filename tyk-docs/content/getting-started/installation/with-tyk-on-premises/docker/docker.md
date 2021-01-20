@@ -3,9 +3,11 @@ date: 2017-03-22T16:47:24Z
 Title: With Docker
 menu:
   main:
-    parent: "With Tyk On-Premises"
+    parent: "Tyk On-Premises"
 weight: 1
-url: "/getting-started/installation/with-tyk-on-premises/docker"
+url: "/tyk-on-premises/docker"
+aliases:
+  - /docs/getting-started/installation/with-tyk-on-premises/docker/
 ---
 
 Tyk has three containers that are available to set up a Docker installation:
