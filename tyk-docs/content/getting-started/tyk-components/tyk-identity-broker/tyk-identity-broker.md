@@ -17,7 +17,7 @@ The TIB can bridge to the Tyk API Gateway, Tyk Portal or even the Tyk Dashboard,
 Starting from Tyk v3.0  the TIB has been added as a built-in feature of the Tyk Dashboard. You no longer have to setup a separated instance of the service to make it work with the Dashboard. However, this is not mandatory and you can still can set the configs to connect to an external TIB. An internal TIB doesn't require any configuration and is quite easy to set up. The internal TIB is exposed on the same port as the Dashboard hence it doesn't require a separate port to work as intended.
 
 
-## What can you do with TIB?
+## What can you do with the Tyk Identity Broker (TIB)?
 
 By using the identity broker in conjunction with an IDP you have the ability to perform actions such as:
 
@@ -45,12 +45,12 @@ Identity providers can be anything, so long as they implement the `tap.TAProvide
 
 An identity handler will perform a predefined set of actions once a provider has validated an identity. These actions are defined as a set of action types:
 
-* `GenerateOrLoginUserProfile` - this will log a user into the Tyk Dashboard (this does not create a user, it only creates a temporary session for the user to have access). This flow is defined as next:
+1. `GenerateOrLoginUserProfile` - this will log a user into the Tyk Dashboard (this does not create a user, it only creates a temporary session for the user to have access). This flow is defined as next:
 
 ![Generate Or Login User Profile flow](/docs/img/diagrams/generate-or-login-user-profile.png)
 
-* `GenerateOrLoginDeveloperProfile` - this will create or login a user to the Tyk Developer Portal. The flow is similar to `GenerateOrLoginUserProfile` but in this case if the developer doesn't exist then it will be created.
+2. `GenerateOrLoginDeveloperProfile` - this will create or login a user to the Tyk Developer Portal. The flow is similar to _GenerateOrLoginUserProfile_ but in this case if the developer doesn't exist then it will be created.
 
-* `GenerateOAuthTokenForClient` - this will act as a client ID delegate and grant an Tyk provided OAuth token for a user using a fragment in the redirect URL (standard flow). The flow is defined as:
+3. `GenerateOAuthTokenForClient` - this will act as a client ID delegate and grant an Tyk provided OAuth token for a user using a fragment in the redirect URL (standard flow). The flow is defined as:
 
 ![Generate Oauth token for client](/docs/img/diagrams/generate-oauth-token-for-client.png)

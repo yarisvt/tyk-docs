@@ -20,4 +20,10 @@ Each profile is outlined by a series of attributes that will describe: action to
 In order to know and understand each of the attributes, implications as well as configure your own profile please refer to the [profiles configuration page](https://github.com/TykTechnologies/tyk-identity-broker/wiki/How-to-configure-Tyk-Identity-Broker#the-profilesconf-file)
 
 ### Examples
-Refer to [Using Identity Providers](https://github.com/TykTechnologies/tyk-identity-broker/wiki/Using-Identity-Providers) to read some working examples of profiles.
+
+Depending on your authentication protocol you might find some working examples in the following links:
+
+- [Social Provider](https://github.com/TykTechnologies/tyk-identity-broker/wiki/Social-Identity-Provider)
+- [LDAP Provider](https://github.com/TykTechnologies/tyk-identity-broker/wiki/LDAP)
+- [Proxy Provider](https://github.com/TykTechnologies/tyk-identity-broker/wiki/Proxy-Identity-Provider)
+- [SAML Provider](https://github.com/TykTechnologies/tyk-identity-broker/wiki/SAML)
