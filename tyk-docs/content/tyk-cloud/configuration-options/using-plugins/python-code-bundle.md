@@ -37,36 +37,20 @@ The manifest file contains information about your plugin file structure and how 
 
 ```.json
 {
-  "checksum": "09fee45261b5a0c7ca94adf8ec3de624",
   "custom_middleware": {
     "auth_check": {
-      "name": "MyAuthMiddleware",
-      "path": "",
-      "raw_body_only": false,
-      "require_session": false
+      "name": "MyAuthMiddleware"
     },
-    "driver": "python",
-    "id_extractor": {
-      "extract_from": "",
-      "extract_with": "",
-      "extractor_config": null
-    },
-    "post": [
+    "pre": [
       {
-        "name": "MyPostMiddleware",
-        "path": "",
-        "raw_body_only": false,
-        "require_session": false
+        "name": "MyAuthMiddleware"
       }
     ],
-    "post_key_auth": null,
-    "pre": null,
-    "response": null
+    "driver": "python"
   },
   "file_list": [
     "middleware.py"
-  ],
-  "signature": ""
+  ]
 }
 ```
 ### File description
