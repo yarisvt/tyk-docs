@@ -3,7 +3,7 @@ title: "Create a Python Code Bundle"
 date: 2020-05-15
 menu:
   main:
-    parent: "Python Custom Authentication"
+    parent: "Python Custom Authentication" 
 weight: 2
 aliases:
     - /python-custom-auth-plugin/python-code-bundle/
