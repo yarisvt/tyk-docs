@@ -8,4 +8,14 @@ weight: 2
 url: "/tyk-oss/ce-kubernetes/"
 ---
 
-**Insert Lead paragraph here.**
+We will cover the installation file using Kubernetes deployment files, but you can also use our Kubernetes [Helm Chart](https://github.com/TykTechnologies/tyk-helm-chart).
+
+### Installation 
+
+Please follow the link below in order to install Tyk on Kubernetes using  
+https://github.com/TykTechnologies/tyk-oss-k8s-deployment
+
+### Tyk Operator
+Don't forget to combine your Tyk Gateway with the [Tyk Operator](https://github.com/TykTechnologies/tyk-operator) in order to get Kubernetes native, GitOps designed workflows using custom CRDs.
+
+
