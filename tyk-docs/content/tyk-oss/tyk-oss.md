@@ -1,5 +1,5 @@
 ---
-title: "Tyk Open Source"
+title: "Tyk Gateway CE"
 date: 2021-01-20
 weight: 15
 menu: "main" 

@@ -1,9 +1,9 @@
 ---
-title: "Community Edition on Red Hat"
+title: "CE on Red Hat"
 date: 2021-01-20
 menu:
   main:
-    parent: "Tyk Open Source"
+    parent: "Tyk Gateway CE"
 weight: 3
 url: "/tyk-oss/ce-redhat/"
 ---

@@ -1,9 +1,9 @@
 ---
-title: "Community Edition on CentOS"
+title: "CE on CentOS"
 date: 2021-01-20
 menu:
   main:
-    parent: "Tyk Open Source"
+    parent: "Tyk Gateway CE"
 weight: 5
 url: "/tyk-oss/ce-centos/"
 ---
