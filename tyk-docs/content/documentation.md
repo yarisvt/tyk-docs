@@ -35,7 +35,7 @@ Install our **On-Premises** product with Kubernetes.
 
 {{< /grid >}}
 
-{{< button href="/docs/getting-started/installation/" color="green" content="All installation options" >}}
+{{< button href="/docs/tyk-on-premises/#installing-tyk-on-premises" color="green" content="All On-Premises installation options" >}}
 
 ## The Tyk Stack
 
