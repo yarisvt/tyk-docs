@@ -74,7 +74,7 @@ What we've done here is told the setup script that:
 *   `--redisport=6379`: Use port `6379` for Redis.
 *   `--domain=""`: Do not filter domains for the Gateway, see the note on domains below for more about this.
 
-In this example, we don't want Tyk to listen on a single domain. It is recommended to leave the Tyk Gateway domain unbounded for flexibility and ease of deployment.
+In this example, you don't want Tyk to listen on a single domain. It is recommended to leave the Tyk Gateway domain unbounded for flexibility and ease of deployment.
 
 ### Starting Tyk
 

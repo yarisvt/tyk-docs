@@ -1,8 +1,9 @@
 ---
-title: "Tyk Gateway CE"
+title: "Tyk Gateway Community Edition (CE)"
 date: 2021-01-20
 weight: 15
-menu: "main" 
+menu: "main"
+linkTitle: "Tyk Gateway CE" 
 url: "/tyk-oss-gateway/"
 ---
 The backbone of all our products is our open source Gateway. You can install our Community Edition (Gateway only) on the following platforms:

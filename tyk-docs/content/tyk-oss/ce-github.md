@@ -1,5 +1,5 @@
 ---
-title: "Via Github"
+title: "Via GitHub"
 date: 2021-01-20
 menu:
   main:
@@ -12,6 +12,6 @@ The Tyk Gateway is fully open-source.  It's all the same Gateway that's used by 
 
 Do you want to contribute to or run the product from source?
 
-Visit here:
-https://github.com/TykTechnologies/tyk
+Visit our [GitHub repo](https://github.com/TykTechnologies/tyk) for more details:
+
 

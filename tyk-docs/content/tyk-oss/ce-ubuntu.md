@@ -55,14 +55,14 @@ You need to replace `<hostname>` for `--redishost=<hostname>` with your own valu
 sudo /opt/tyk-gateway/install/setup.sh --listenport=8080 --redishost=<hostname> --redisport=6379 --domain=""
 ```
 
-What we've done here is told the setup script that:
+What you've done here is told the setup script that:
 
 *   `--listenport=8080`: Listen on port `8080` for API traffic.
 *   `--redishost=<hostname>`: The hostname for Redis.
 *   `--redisport=6379`: Use port `6379` for Redis.
 *   `--domain=""`: Do not filter domains for the Gateway, see the note on domains below for more about this.
 
-In this example, we don't want Tyk to listen on a single domain. It is recommended to leave the Tyk Gateway domain unbounded for flexibility and ease of deployment.
+In this example, you don't want Tyk to listen on a single domain. It is recommended to leave the Tyk Gateway domain unbounded for flexibility and ease of deployment.
 
 ### Starting Tyk
 
