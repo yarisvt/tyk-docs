@@ -1,7 +1,7 @@
 ---
 publishdate: 2020-03-09
 lastmod: 2020-04-09
-Title: Tyk API Gateway Documentation
+Title: Tyk API Gateway Documentation 
 diffTitleName:
 menu:
   main:
@@ -30,12 +30,12 @@ Install our **On-Premises** product with Docker.
 {{< /badge >}}
 
 {{< badge read="10 mins" href="/docs/getting-started/installation/with-tyk-on-premises/with-kubernetes/" image="/docs/img/k8s.png">}}
-Install our **On-Premises** product with K8s. 
+Install our **On-Premises** product with Kubernetes. 
 {{< /badge >}}
 
 {{< /grid >}}
 
-{{< button href="/docs/getting-started/installation/" color="green" content="All installation options" >}}
+{{< button href="/docs/tyk-on-premises/#installing-tyk-on-premises" color="green" content="All On-Premises installation options" >}}
 
 ## The Tyk Stack
 

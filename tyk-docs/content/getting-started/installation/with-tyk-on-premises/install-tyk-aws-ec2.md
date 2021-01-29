@@ -5,7 +5,9 @@ menu:
   main:
     parent: "AWS Marketplace"
 weight: 5
-url: "/getting-started/with-tyk-on-premises/installation/on-aws/ec2"
+url: "/tyk-on-premises/on-aws/ec2"
+aliases:
+  - /getting-started/with-tyk-on-premises/installation/on-aws/ec2/
 ---
 
 1. Spin up an [EC2 instance](https://aws.amazon.com/ec2/instance-types/), AWS Linux2 preferably, T2.Medium is fine

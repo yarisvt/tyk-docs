@@ -1,7 +1,7 @@
 ---
 title: "Tyk Cloud"
 date: 2020-06-24
-weight: 220
+weight: 5
 menu: "main"
 url: "/tyk-cloud/"
 ---
