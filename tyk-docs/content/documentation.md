@@ -25,7 +25,7 @@ Install our **On-Premises** product on AWS.
 {{< /badge >}}
 
 
-{{< badge read="10 mins" href="/docs/getting-started/installation/with-tyk-on-premises/docker/" image="/docs/img/docker.png">}}
+{{< badge read="10 mins" href="/docs/tyk-on-premises/docker/" image="/docs/img/docker.png">}}
 Install our **On-Premises** product with Docker. 
 {{< /badge >}}
 
