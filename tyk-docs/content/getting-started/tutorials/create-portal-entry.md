@@ -1,13 +1,13 @@
 ---
 date: 2017-03-15T16:33:46Z
 title: Create a Portal Entry
-markup: mmark
 menu:
   main:
     parent: "Tutorials"
 weight: 4
+aliases:
+    - /docs/tyk-dashboard-v1-0/tutorials/set-up-your-portal/
 ---
-<span data-filetype="mmark"></span>
 
 
 
@@ -77,17 +77,28 @@ When you set up your Tyk installation, you will have had to, at some point, defi
 
 This process will bind your organisations' Portal to the domain name you've specified.
 
-> **Note**: If you installed [Tyk On-Premises for Vagrant](/docs/getting-started/installation/with-tyk-on-premises/install-tyk-pro-premises-vagrant/), you will have created a `etc/hosts` entry of `portal-instance.com`. You should enter this hostname in the drop-down.
+{{< note success >}}
+**Note**  
 
-> **NOTE**: You need to restart your Dashboard service for the changes to take effect.
+If you installed [Tyk On-Premises for Vagrant](/docs/getting-started/installation/with-tyk-on-premises/install-tyk-pro-premises-vagrant/), you will have created a `etc/hosts` entry of `portal-instance.com`. You should enter this hostname in the drop-down.
+{{< /note >}}
+
+{{< note success >}}
+**Note**  
+
+You need to restart your Dashboard service for the changes to take effect.
+{{< /note >}}
 
 
 ### Step 7: Log into your Portal
 
 Select **Open Your Portal** from the **Your Developer Portal** menu drop-down, a new page will open with your new (most likely empty) Portal home page.
 
-> **A note for Docker users**: If you are using Docker, do not use the drop-down, instead, use the domain name you defined when you set up the forward proxy for your domains - if you followed the Docker setup guide, your Dashboard will be on: `www.tyk-portal-test.com`.
+{{< note success >}}
+**Note**  
 
+If you are using Docker, do not use the drop-down, instead, use the domain name you defined when you set up the forward proxy for your domains - if you followed the Docker setup guide, your Dashboard will be on: `www.tyk-portal-test.com`.
+{{< /note >}}
 
 {{< tab_end >}}
 {{< tabs_end >}}

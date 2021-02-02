@@ -31,7 +31,7 @@ Tyk will check for a folder that matches the `{API Id}` being loaded, and then l
 {{< note success >}}
 **Note**  
 
-The filename **must** match the object to be loaded exactly.
+The filename MUST match the object to be loaded exactly.
 {{< /note >}}
 
 

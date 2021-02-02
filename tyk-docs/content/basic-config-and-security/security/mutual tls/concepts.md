@@ -1,9 +1,9 @@
 ---
-title: Mutual TLS
+title: Concepts
 menu:
   main:
-    parent: "TLS and SSL"
-weight: 2
+    parent: "Mutual TLS"
+weight: 3
 ---
 
 ## What is Mutual TLS?
@@ -20,22 +20,6 @@ Mutual TLS is a common security practice that uses client TLS certificates to pr
 In most cases when you try to access a secured HTTPS/TLS endpoint, you experience only the client-side check of the server certificate. The purpose of this check is to ensure that no fraud is involved and the data transfer between the client and server is encrypted. In fact, the TLS standard allows specifying the client certificate as well, so the server can accept connections only for clients with certificates registered with the server certificate authority, or provide additional security checks based on the information stored in the client certificate. This is what we call "Mutual TLS" - when both sides of the connection verify certificates. See the video below that gives you an introduction to mutual TLS and how it can be used to secure your APIs.
 
 {{< youtube UzEzjon3IAo >}}
-
-## How Tyk Supports mutual TLS 
-
-Tyk has support for mutual TLS in the following areas:
-
-* Authorisation (white-listing certificates on API level)
-* [Authentication - creating keys based on certificates](../client-mtls)
-* Upstream access (including JSVM HTTP calls)
-
-The main requirement to make it work is that SSL traffic should be terminated by Tyk itself. If you are using a load balancer, you should configure it to work in TCP mode.
-
-### mTLS for cloud users:
-- Cloud users can secure their upstream services with mTLS and certificate pinning but mTLS between the client (caller of the API) and Tyk's gateway cannot be done for the time being. 
-- Multi cloud users - since you own and manage the gateways, you can use mTLS for gateway <--> upstream  as well as client <--> gateway connections.
-
-Before going into details about each of these areas, let's describe the basic building blocks used to make it work.
 
 ## Certificates 
 If you have had to configure an SSL server or SSH access, the following information below should be familiar to you. 

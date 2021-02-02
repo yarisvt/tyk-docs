@@ -289,6 +289,8 @@ Set these options to hard-code values into the way the HTTP server behaves.
   "use_ssl": false,
   "enable_websockets": false,
   "flush_interval": 1,
+  "read_timeout": 120,
+  "write_timeout": 120,
   "certificates": [
     {
       "domain_name": "ssl.domain.com",
@@ -305,7 +307,7 @@ Set these options to hard-code values into the way the HTTP server behaves.
 },
 ```
 
-#### enable_http2
+#### http_server_options.enable_http2
 
 This defaults to true for HTTP/2 connections.
 
@@ -344,6 +346,12 @@ As of v2.2, Tyk supports transparent websocket connection upgrades, to enable th
 #### http_server_options.ssl_insecure_skip_verify
 
 Allows usage of self-signed certificates when connecting to the Gateway.
+
+#### http_server_options.read_timeout
+Network read timeout for user requests processed by Tyk. Defaults to 120 seconds.
+
+#### http_server_options.read_timeout
+Network write timeout for user requests processed by Tyk. Defaults to 120 seconds.
 
 #### security.pinned_public_keys
 
@@ -593,9 +601,13 @@ Tyk will auto-reload when a change is detected when using the Dashboard, this us
 
 ### optimisations_use_async_session_write
 
-> *DEPRECATED and no longer should be used*
-
 Set this value to `true` to have Tyk manage session data using a goroutine, this is quite safe and can significantly boost performance in HA environments where Tyk is installed on a machine with multiple cores.
+
+{{< note success >}}
+**Note**  
+
+This has been deprecated. Removed from v3.0.3+ and 3.1.1+ onwards.
+{{< /note >}}
 
 ### disable_dashboard_zeroconf
 
@@ -982,3 +994,14 @@ From v2.9.3 you can force the validation of the hostname against the common name
 
 From v3.0 you can log all the 404 errors happening if user tried to access Gateway with unknown listen path.
 The log level used for these records is Error and the feature can be enabled by setting the `config track_404_logs` to `true` in the gateway's config file.
+
+### ignore_canonical_mime_header_key
+
+Added in v3.0.2. When enabled Tyk ignores the canonical format of the MIME header keys.
+
+For example when a request header with a "my-header" key is injected using "global_headers", the upstream would typically get it as "My-Header", when this flag is enabled it will be sent as "my-header" instead.
+ 
+Current support is limited to [JS plugins](https://tyk.io/docs/plugins/supported-languages/javascript-middleware/), [global header injection](https://tyk.io/docs/advanced-configuration/transform-traffic/request-headers/#injecting-and-removing-headers-globally), [virtual endpoint](https://tyk.io/docs/advanced-configuration/compose-apis/virtual-endpoints/) and [JQ transform header rewrites](https://tyk.io/docs/advanced-configuration/transform-traffic/jq-transformations/). This functionality doesn't affect headers that are sent by the HTTP client and the default formatting will apply for this case.
+
+
+For technical details refer to the [CanonicalMIMEHeaderKey](https://golang.org/src/net/textproto/reader.go?h=CanonicalMIMEHeaderKey#L588) functionality in the Go documentation.

@@ -3,9 +3,11 @@ date: 2017-03-22T16:19:08Z
 Title: On Red Hat (RHEL) / CentOS
 menu:
   main:
-    parent: "With Tyk On-Premises"
+    parent: "Tyk On-Premises"
 weight: 4
-url: "/getting-started/installation/with-tyk-on-premises/redhat-rhel-centos"
+url: "/tyk-on-premises/redhat-rhel-centos"
+aliases:
+  - /getting-started/installation/with-tyk-on-premises/redhat-rhel-centos/
 ---
 
 ## Install Tyk API Gateway on Red Hat (RHEL) / CentOS
@@ -26,7 +28,9 @@ For a production environment, we recommend that the Gateway, Dashboard and Pump 
 
 ## Database Support
 
-By default Tyk uses MongoDB. You can also use the following:
+### Tyk Gateway
+
+By default the Tyk Gateway uses MongoDB. You can also use the following:
 
 * [DocumentDB](https://aws.amazon.com/documentdb/)
 * [Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/introduction)
@@ -36,6 +40,10 @@ By default Tyk uses MongoDB. You can also use the following:
 
 If you are using DocumentDB, [capped collections](/docs/analytics-and-reporting/capping-analytics-data-storage/) are not supported. See [here](https://docs.aws.amazon.com/documentdb/latest/developerguide/mongo-apis.html) for more details.
 {{< /note >}}
+
+### Tyk Dashboard
+
+The Tyk Dashboard and Portal use Redis.
 
 ### Supported Verions of MongoDB and Redis
 

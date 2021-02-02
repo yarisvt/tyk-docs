@@ -31,6 +31,19 @@ What Language do I want to write my middleware in and can I use it in this phase
 
 [More reading on the hook locations](/docs/plugins/supported-languages/rich-plugins/rich-plugins-work/#coprocess-dispatcher---hooks)
 
+## Plugin Driver Names
+
+We use the following Plugin driver names:
+
+| Plugin                   | Name      | 
+|--------------------------|-----------|
+| GoLang                   | goplugin  |
+| JavaScript               | otto      |
+| gRPC                     | grpc      |
+| Python              		 | python    |
+| Lua                      | lua	     |
+
+
 ## Limitations
 
 What are the limitations to using this programming Language?

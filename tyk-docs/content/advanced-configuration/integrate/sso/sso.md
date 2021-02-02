@@ -141,7 +141,7 @@ If you use the token with `dashboard` scope, and would like to avoid login in as
   "hooks": "write",
   "idm": "write",
   "keys": "write",
-  "policy": "write",
+  "policies": "write",
   "portal": "write",
   "system": "write",
   "users": "write",

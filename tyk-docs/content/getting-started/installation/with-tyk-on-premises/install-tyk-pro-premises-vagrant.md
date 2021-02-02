@@ -3,8 +3,11 @@ date: 2017-03-22T17:04:48Z
 title: Vagrant
 menu:
   main:
-    parent: "With Tyk On-Premises"
-weight: 7 
+    parent: "Tyk On-Premises"
+weight: 7
+url: "/tyk-on-premises/vagrant"
+aliases:
+  - /getting-started/installation/with-tyk-on-premises/install-tyk-pro-premises-vagrant/ 
 ---
 
 ## Install Tyk on Vagrant

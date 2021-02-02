@@ -99,4 +99,4 @@ below:
 
 
 If you want to set local "secrets" section as environment variable, you should use the following notation:
-`TYK_GW_KV_SECRETS=key:value,key2:value2`
+`TYK_GW_SECRETS=key:value,key2:value2`

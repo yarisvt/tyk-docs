@@ -74,6 +74,12 @@ You can add import documentation in the following formats:
 - From a Swagger URL
 - From API Blueprint
 
+{{< note success >}}
+**Note**  
+
+Support for API Blueprint is being deprecated. See [Importing APIs](/docs/tyk-configuration-reference/import-apis/#api-blueprint-is-being-deprecated) for more details.
+{{< /note >}}
+
 You can add your documentation before or after saving your API.
 
 ### Settings Options

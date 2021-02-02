@@ -9,9 +9,24 @@ weight: 11
 
 Tyk supports importing both API Blueprint and Swagger (OpenAPI) JSON definitions from either the Gateway or the Dashboard. Tyk will output the converted file to to `stdout`. Below are the commands you can use to get Tyk to switch to command mode and generate the respective API definitions for both API Blueprint and Swagger files.
 
+## API Blueprint is being deprecated
+
+Our support for API Blueprint is being deprecated. We have been packaging [aglio](https://github.com/danielgtaylor/aglio) in our Docker images for the Dashboard which enables rendering API Blueprint Format in the portal. This module is no longer maintained and is not compatible with newer NodeJS. If you wish to continue using this feature, you can do so by installing the module yourself in your Dockerfile. The imapct of this change is that our Docker images will no longer contain this functionality.
+
+As a work around, you can do the following:
+
+* Create API Blueprint in JSON format using the Apiary [Drafter](https://github.com/apiaryio/drafter) tool
+* Convert API Blueprint to OpenAPI (Swagger) using the Apiary [API Elements CLI](https://github.com/apiaryio/api-elements.js/tree/master/packages/cli) tool.
+
 ## Import APIs via the Gateway
 
 ### Using API Blueprint
+
+{{< note success >}}
+**Note**  
+
+See API Blueprint being deprecated section above.
+{{< /note >}}
 
 Tyk supports an easy way to import Apiary API Blueprints in JSON format using the command line.
 

@@ -296,11 +296,11 @@ Use these instead of the usual markdown blockquote style.
 ```
 {{< note success >}}
 **Note**
-
-For this release of Tyk Cloud, you need to enter your AWS Region manually.
+  
+You need to have at least one Edge Gateway with a *Deployed* status connected to your Control Plane.
 {{< /note >}}
 ```
-![image](https://user-images.githubusercontent.com/1983518/92096344-ad042f80-edce-11ea-98ca-b9afac235a19.png)
+![image](https://user-images.githubusercontent.com/1983518/104920964-8d8e2d80-5990-11eb-8bc6-7cae78bf54dd.png)
 
 #### Warning
 
@@ -311,7 +311,7 @@ For this release of Tyk Cloud, you need to enter your AWS Region manually.
 We recommend you restrict your IAM user as much as possible before sharing the credentials with any 3rd party, including Tyk Cloud. See [IAM User Permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html) for more details.
 {{< /warning >}}
 ```
-![image](https://user-images.githubusercontent.com/1983518/92096400-c016ff80-edce-11ea-8136-b60150299659.png)
+![image](https://user-images.githubusercontent.com/1983518/104921245-f70e3c00-5990-11eb-927c-916204d90325.png)
 
 ## License
 

@@ -113,7 +113,7 @@ We just sent an API definition to the Tyk `/apis` endpoint, API definitions are 
 {{< tab_start "Community Edition" >}}
 ## <a name="prerequisites"></a>Prerequisites
 
-In order to complete this tutorial, you need to have the [Tyk On-Premises Community Edition installed](https://tyk.io/docs/get-started/with-tyk-community-edition/).
+In order to complete this tutorial, you need to have the [Tyk Community Edition installed](/docs/tyk-oss-gateway/).
 
 ## Creation Methods
 

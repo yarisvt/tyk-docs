@@ -8,7 +8,7 @@ weight: 11
 ---
 
 
-### Create a new OAuth Client
+### Create a new OAuth2.0 Client
 
 Any OAuth keys must be generated under an API in the Dashboard. Any POST requests made should contain the API's ID in the URL.
 
@@ -79,7 +79,7 @@ curl -vX GET -H "Authorization: {{API Access Credentials}}" \
 }
 ```
 
-### Get an OAuth Client
+### Get an OAuth2.0 Client
 
 | **Property** | **Description**                            |
 | ------------ | ------------------------------------------ |
@@ -138,7 +138,7 @@ curl -vX DELETE -H "Authorization: {{API Access Credentials}}" \
 }
 ```
 
-### OAuth Authorization Token
+### OAuth2.0 Authorization Token
 
 | **Property** | **Description**                                |
 | ------------ | ---------------------------------------------- |
@@ -153,7 +153,7 @@ curl -vX DELETE -H "Authorization: {{API Access Credentials}}" \
 * `redirect_uri`: Should be provided by requesting client as part of authorisation request. Must match with the record stored with Tyk.
 * `key_rules`: A string representation of a Session Object (form-encoded). *This should be provided by your application in order to apply any quotas or rules to the key.*
 
-Note that in the following example, the `policy_id` isn't included in the request as these are optional. OAuth Flow also supports callbacks which can be added to the `key_rules` in the payload in requests that don't include the `policy_id`.
+Note that in the following example, the `policy_id` isn't included in the request as these are optional. OAuth2.0 Flow also supports callbacks which can be added to the `key_rules` in the payload in requests that don't include the `policy_id`.
 
 
 #### Sample Request
@@ -174,7 +174,7 @@ http://{{dashboard-hostname}}/api/apis/oauth/{{api_id}}/authorize-client
 }
 ```
 
-### Retrieve All Current Tokens for Specified OAuth Client
+### Retrieve All Current Tokens for Specified OAuth2.0 Client
 
 This endpoint allows you to retrieve a list of all current tokens and their expiry date for a provided API ID and OAuth-client ID in the following format. This endpoint will work only for newly created tokens.
 
