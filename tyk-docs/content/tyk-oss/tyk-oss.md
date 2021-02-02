@@ -24,11 +24,11 @@ Install our **Community Edition** Gateway on Red Hat.
 
 
 {{< badge read="10 mins" href="/docs/tyk-oss/ce-ubuntu/" image="/docs/img/cof_white-orange_hex2.png">}}
-Install our **Community Edition** Gateway with Ubuntu. 
+Install our **Community Edition** Gateway on Ubuntu. 
 {{< /badge >}}
 
 {{< badge read="10 mins" href="/docs/tyk-oss/ce-centos/" image="/docs/img/centos4.png">}}
-Install our **Community Edition** Gateway with CentOS. 
+Install our **Community Edition** Gateway on CentOS. 
 {{< /badge >}}
 
 {{< badge read="10 mins" href="https://github.com/TykTechnologies/tyk" image="/docs/img/GitHub-Mark-64px.png">}}
