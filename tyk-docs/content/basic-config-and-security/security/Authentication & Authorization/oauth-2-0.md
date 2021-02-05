@@ -40,12 +40,21 @@ The Tyk OAuth flow is described in the following sections.
 2.  Client makes a request on behalf of an end user to `/oauth/authorize/` on your Tyk instance `listen_path`
 3.  Tyk will check the OAuth authorize request for validity (i.e. Does the Client ID exist and is the request properly formed to the OAuth 2.0 standard)
 4.  If the request is valid and the Client ID has not expired, then the request will be passed through to your applications authorisation page - this page will essentially enable your user to log in and authenticate themselves and then give permission to this client ID to access their details (as one would expect from an OAuth integration).
-5.  If the user accepts the Client access and has authenticated successfully, your app calls the Tyk REST API OAuth Authorization endpoint (`/tyk/oauth/authorize-client/`) with the POST parameters that the requesting client sent
+5.  If the user accepts the Client access and has authenticated successfully, your app calls the Tyk Dashboard OAuth API Authorization endpoint (`/authorize-client/`) with the POST parameters that the requesting client sent
+
+{{< note success >}}
+**Note**  
+
+The Tyk Gateway also exposes an equivalent Gateway API authorization endpoint (`/tyk/oauth/authorize-client/`). In some scenarios, for example where access to the Dashboard API from the authentication server may be restricted, the Gateway API can be used instead.
+{{< /note >}}
+
 6.  Tyk will generate an authorisation code and redirect URL to your application
 7.  Your application redirects the user to the URL
 8.  The API Client uses the auth code to request an access token from Tyk (`/oauth/token`)
 9.  If the access token is valid, Tyk will generate an access token an notify your webapp via webhook that a new access token has been granted and also any other keys that are related (e.g. the auth-code mentioned earlier)
 10. Your app should store these details in order to tie the access token to your users identity
+
+
 
 This seems like a complicated process and very verbose - however in actuality, the integration piece is very small. As an API owner, the only steps that require active integration are:
 
@@ -59,7 +68,7 @@ This seems like a complicated process and very verbose - however in actuality, t
 2.  Client makes a request on behalf of an end user to `/oauth/authorize/` on your Tyk instance `listen_path`
 3.  Tyk will check the OAuth authorize request for validity (i.e. Does the Client ID exist and is the request properly formed to the OAuth 2.0 standard
 4.  If the request is valid and the Client ID has not expired, then the request will be passed through to your applications authorisation page - this page will essentially enable your user to log in and authenticate themselves and then give permission to this client ID to access their details (as one would expect from an OAuth integration).
-5.  If the user accepts the Client access and has authenticated successfully, your app calls the Tyk REST API OAuth Authorization endpoint (`/tyk/oauth/authorize-client/`) with the POST parameters that the requesting client sent
+5.  If the user accepts the Client access and has authenticated successfully, your app calls the Tyk Gateway API OAuth Authorization endpoint (`/tyk/oauth/authorize-client/`) with the POST parameters that the requesting client sent
 6.  Tyk will generate an access code and redirect URL for your application
 7.  Your application redirects the user to the URL
 
