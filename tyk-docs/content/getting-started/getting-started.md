@@ -11,6 +11,5 @@ Tyk is an open source API Gateway that is fast, scalable and modern. Out of the 
 If you are new to Tyk, use this section to understand the following:
 
 * What are the individual [Tyk components](/docs/getting-started/tyk-components/)?
-*  What [deployment options](/docs/getting-started/deployment-options/) you have
-*  How to [install Tyk](/docs/getting-started/installation/) in a non-production environment for proof of concept purposes
+*  What [deployment options](/docs/getting-started/deployment-options/) you have for installation
 *  Understand some [key concepts](/docs/getting-started/key-concepts/) to help you get the most out of Tyk

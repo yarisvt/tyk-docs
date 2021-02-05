@@ -11,7 +11,7 @@ weight: 5
 
 ### Protecting an API with JWT
 
-This assumes you've already [setup an API](/docs/try-out-tyk/tutorials/create-api/) and are ready to protect it with JWT.
+This assumes you've already [setup an API](/docs/getting-started/tutorials/create-api/) and are ready to protect it with JWT.
 
 Getting JWT support set up in the Dashboard only requires a few fields to be set up in the Core settings tab:
 

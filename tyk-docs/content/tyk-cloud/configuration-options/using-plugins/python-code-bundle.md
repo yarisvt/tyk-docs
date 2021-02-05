@@ -3,7 +3,7 @@ title: "Create a Python Code Bundle"
 date: 2020-05-15
 menu:
   main:
-    parent: "Python Custom Authentication"
+    parent: "Python Custom Authentication" 
 weight: 2
 aliases:
     - /python-custom-auth-plugin/python-code-bundle/
@@ -37,36 +37,20 @@ The manifest file contains information about your plugin file structure and how 
 
 ```.json
 {
-  "checksum": "09fee45261b5a0c7ca94adf8ec3de624",
   "custom_middleware": {
     "auth_check": {
-      "name": "MyAuthMiddleware",
-      "path": "",
-      "raw_body_only": false,
-      "require_session": false
+      "name": "MyAuthMiddleware"
     },
-    "driver": "python",
-    "id_extractor": {
-      "extract_from": "",
-      "extract_with": "",
-      "extractor_config": null
-    },
-    "post": [
+    "pre": [
       {
-        "name": "MyPostMiddleware",
-        "path": "",
-        "raw_body_only": false,
-        "require_session": false
+        "name": "MyAuthMiddleware"
       }
     ],
-    "post_key_auth": null,
-    "pre": null,
-    "response": null
+    "driver": "python"
   },
   "file_list": [
     "middleware.py"
-  ],
-  "signature": ""
+  ]
 }
 ```
 ### File description
@@ -117,15 +101,18 @@ The `MyPostMiddleware` @hook adds a header to the request. In this tutorial `som
 
 You create a bundle to cater for a number of plugins connected to the one API, and using a bundle makes this more manageable.
 
-To bundle your plugin we run the following command in your working directory. Check your Tyk CLI tool install path first. The default location is:
+To bundle your plugin we run the following command in your working directory where your manifest.json and plugin code is.
 
 ```.bash
-/opt/tyk-gateway/utils/tyk-cli
+docker run \
+  --rm \
+  -v $(pwd):/cloudplugin \
+  --entrypoint "/bin/sh" -it \
+  -w "/cloudplugin" \
+  tykio/tyk-gateway:v3.1.2 \
+  -c '/opt/tyk-gateway/tyk bundle build -y'
 ```
-Then run the following to build your bundle
-```.bash
-/opt/tyk-gateway/bin/tyk bundle build -y
-```
+
 A plugin bundle is a packaged version of the plugin, it may also contain a cryptographic signature of its contents. The -y flag tells the Tyk CLI tool to skip the signing process in order to simplify this tutorial. For more information on the Tyk CLI tool, see [here](/docs/plugins/rich-plugins/plugin-bundles/#bundler-tool).
 
 You should now have a `bundle.zip` file in the plugin working directory.
