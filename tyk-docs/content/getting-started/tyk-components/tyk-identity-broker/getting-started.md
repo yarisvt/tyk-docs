@@ -18,22 +18,7 @@ TIB requires:
 
 ## Installation
 
-The most simplest way to use TIB is the embedded version, starting from Tyk Dashboard v3.0 TIB is built-in to the dashboard, in this case TIB will store the profiles in the same mongo database configured for dashboard (in the standalone TIB the profiles will be stored in file indicated when the app is started). 
-
-**Advanced** If you desire to install TIB as a separate application then you have the next options:
-
-- You can install via Docker https://hub.docker.com/r/tykio/tyk-identity-broker/
-- Or via packages (deb or rpm): https://packagecloud.io/tyk/tyk-identity-broker/install#bash-deb
-
-No command line arguments are needed, but if you are running TIB from another directory or during startup, you will need to set the absolute paths to the profile and config files:
-
-```{.copyWrapper}
-Usage of ./tyk-auth-proxy:
-  -c=string
-        Path to the config file (default "tib.conf")
-  -p#=string
-        Path to the profiles file (default "profiles.json")
-```
+The simplest way to use TIB is the embedded version, starting from Tyk Dashboard v3.0 TIB is built-in to the dashboard, in this case TIB will store the profiles in the same mongo database configured for dashboard (in the standalone TIB the profiles will be stored in file indicated when the app is started). 
 
 
 ### Configuration
@@ -52,5 +37,20 @@ This settings behaves as follows:
 * If `enabled` = `true` and the tib host is not present the internal TIB will be loaded
 * If `enabled` = `true` and the tib host is set, then external TIB will be loaded
 
-For more details on how to configure TIB as a separate component follow [this link](https://github.com/TykTechnologies/tyk-identity-broker#how-to-configure-tib).
 
+**Advanced** If you wish to install TIB as a separate application then you have the next options:
+
+- You can install via Docker https://hub.docker.com/r/tykio/tyk-identity-broker/
+- Or via packages (deb or rpm): https://packagecloud.io/tyk/tyk-identity-broker/install#bash-deb
+
+No command line arguments are needed, but if you are running TIB from another directory or during startup, you will need to set the absolute paths to the profile and config files:
+
+```{.copyWrapper}
+Usage of ./tyk-auth-proxy:
+  -c=string
+        Path to the config file (default "tib.conf")
+  -p#=string
+        Path to the profiles file (default "profiles.json")
+```
+
+For more details on how to configure TIB as a separate component follow [this link](https://github.com/TykTechnologies/tyk-identity-broker#how-to-configure-tib).

@@ -8,13 +8,15 @@ weight: 1
 url: "/getting-started/tyk-components/new-tyk-identity-broker"
 ---
 
-## What is the Tyk Identity Broker (TIB)?
+## What is Tyk Identity Broker (TIB)?
 
-The Tyk Identity Broker (TIB) is a microservice portal that provides a bridge between various Identity Management Systems such as LDAP, Social OAuth (e.g. GPlus, Twitter, GitHub), legacy Basic Authentication providers, to your Tyk installation.
+Tyk Identity Broker (TIB) is a component providing a bridge between various Identity Management Systems such as LDAP, Social OAuth (e.g. GPlus, Twitter, GitHub) or Basic Authentication providers, to your Tyk installation.
 
-The TIB can bridge to the Tyk API Gateway, Tyk Portal or even the Tyk Dashboard, and makes it easy to integrate custom IDMs to your system in a pluggable way.
+TIB can act as a bridge between the API Gateway, Tyk Portal or even the Tyk Dashboard, and makes it easy to integrate custom IDMs to your system.
 
-Starting from Tyk v3.0  the TIB has been added as a built-in feature of the Tyk Dashboard. You no longer have to setup a separated instance of the service to make it work with the Dashboard. However, this is not mandatory and you can still can set the configs to connect to an external TIB. An internal TIB doesn't require any configuration and is quite easy to set up. The internal TIB is exposed on the same port as the Dashboard hence it doesn't require a separate port to work as intended.
+Starting from Tyk v3.0 TIB has been added as a built-in feature of the Tyk Dashboard. You no longer have to setup a separated instance of the service to make it work with the Dashboard. You now have two options: 
+1. Internal TIB: Embedded in dashboard. Easy configuration and set up. Share the same port as the dashboard
+2. External TIB: Installation of TIB as a different component for advanced use cases. Requires changes to the config files and separate port.  
 
 
 ## What can you do with the Tyk Identity Broker (TIB)?
@@ -27,14 +29,14 @@ By using the identity broker in conjunction with an IDP you have the ability to 
 
 ### How it Works
 
-TIB provides a simple API, which traffic can be sent through. The API will match the request to a profile which then exposes two things:
+TIB provides a simple API through which traffic can be sent. The API will match the request to a profile which then exposes two things:
 
 1. An **Identity Provider** that will authorise a user and validate their identity
 2. An **Identity Handler** that will authenticate a user with a delegated service (in this case, Tyk)
 
 #### Identity Providers
 
-Identity providers can be anything, so long as they implement the `tap.TAProvider` interface. Bundled with TIB at the moment you have three providers:
+Identity providers can be anything, as long as they implement the `tap.TAProvider` interface. Bundled with TIB at the moment you have four provider types:
 
 1. **Social** - this provides OAuth handlers for many popular social logins (such as Google, Github and Bitbucket)
 2. **LDAP** - a simple LDAP protocol binder that can validate a username and password against an LDAP server (tested against OpenLDAP)
