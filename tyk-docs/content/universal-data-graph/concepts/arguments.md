@@ -26,10 +26,10 @@ type User {
 
 We assume you already have your DataSource attached and now want to configure it so that the path argument gets propagated accordingly.
 We need to tell the GraphQL engine that when it comes to resolving the field "user", take the argument with the name "id" and use it in the URL to make the request to the REST API.
-We can do this by using templating syntax to inject it into the URL:
+We can do this by using templating syntax to inject it into the URL which can be easily done by adding an argument from datamodal tab and selecting the arguments from the given list.
 
 ```html
 https://example.com/user/{{ .arguments.id }}
 ``` 
 
-![Create New API](/docs/img/dashboard/udg/concepts/arguments.png)
+![Create New API](/docs/img/dashboard/udg/concepts/arguments.gif)
