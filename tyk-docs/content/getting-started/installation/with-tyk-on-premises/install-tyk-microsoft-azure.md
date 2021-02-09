@@ -2,8 +2,11 @@
 title: Microsoft Azure
 menu:
   main:
-    parent: "With Tyk On-Premises"
-weight: 6 
+    parent: "Tyk On-Premises"
+weight: 6
+url: "/tyk-on-premises/microsoft-azure/"
+aliases:
+  - /getting-started/installation/with-tyk-on-premises/install-tyk-microsoft-azure/
 ---
 
 ## Introduction

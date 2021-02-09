@@ -14,10 +14,10 @@ The primary application for Community Edition users and Pro users alike, the Tyk
 
 The Tyk Gateway can run completely independently, requiring only a Redis database to be effective, and can scale horizontally:
 
-![Tyk Open Source PI Gateway Standard CE Deployment][1]
+![Tyk Open Source PI Gateway Standard CE Deployment](/docs/img/diagrams/gateway3.png)
 
 The Tyk Gateway will take inbound requests, run them through a set of middleware components which apply transforms and any other service-specific operations, and then proxy the request out again to the origin, intercepting the response, running a set of response middleware and then returning.
 
 Tyk can also run dynamic middleware components written in JavaScript, and from v2.3 other languages, at either end of the built-in middleware.
 
- [1]: /docs/img/diagrams/gateway3.png
+[Installation options](/docs/tyk-oss-gateway/) for the Tyk Gateway

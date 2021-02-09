@@ -3,9 +3,11 @@ date: 2017-03-22T15:46:41Z
 Title: On Ubuntu
 menu:
   main:
-    parent: "With Tyk On-Premises"
+    parent: "Tyk On-Premises"
 weight: 3
-url: "/getting-started/installation/with-tyk-on-premises/on-ubuntu"
+url: "/tyk-on-premises/on-ubuntu"
+aliases:
+  - /getting-started/installation/with-tyk-on-premises/on-ubuntu/
 
 ---
 

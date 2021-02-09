@@ -3,9 +3,11 @@ date: 2017-03-22T16:57:26Z
 title: With Kubernetes
 menu:
   main:
-    parent: "With Tyk On-Premises"
+    parent: "Tyk On-Premises"
 weight: 2
-url: "/getting-started/installation/with-tyk-on-premises/with-kubernetes"
+url: "/tyk-on-premises/with-kubernetes"
+aliases:
+  - /getting-started/installation/with-tyk-on-premises/with-kubernetes
 ---
 
 There are two main ways to install Tyk on Kubernetes: Via our Helm chart, or manually.
