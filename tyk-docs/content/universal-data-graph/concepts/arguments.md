@@ -26,7 +26,7 @@ type User {
 
 We assume you already have your DataSource attached and now want to configure it so that the path argument gets propagated accordingly.
 We need to tell the GraphQL engine that when it comes to resolving the field "user", take the argument with the name "id" and use it in the URL to make the request to the REST API.
-We can do this by selecting the arguments from the given list 
+We can do this by adding an argument from datamodal tab and selecting the arguments from the given list 
 
 ```html
 https://example.com/user/{{ .arguments.id }}
