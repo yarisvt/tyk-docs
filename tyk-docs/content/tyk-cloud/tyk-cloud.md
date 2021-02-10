@@ -2,7 +2,9 @@
 title: "Tyk Cloud"
 date: 2020-06-24
 weight: 5
-menu: "main"
+menu: 
+    main:
+        parent: "Tyk Solutions"
 url: "/tyk-cloud/"
 ---
 

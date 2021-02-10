@@ -3,7 +3,7 @@ date: 2020-02-18T15:08:55Z
 Title: Important Prerequisites
 menu:
   main:
-    parent: "Tutorials"
+    parent: "Getting Started"
 weight: 1
 ---
 

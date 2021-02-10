@@ -3,7 +3,7 @@ date: 2017-03-13T15:08:55Z
 Title: Create an API Key
 menu:
   main:
-    parent: "Tutorials"
+    parent: "Getting Started"
 weight: 3
 ---
 

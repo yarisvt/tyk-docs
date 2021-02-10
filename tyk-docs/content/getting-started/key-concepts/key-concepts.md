@@ -2,7 +2,10 @@
 date: 2017-03-23T12:52:32Z
 title: Key Concepts
 weight: 20
-menu: "main"
+weight: 16
+menu:
+    main:
+        parent: "Tyk Gateway CE"
 url: "/getting-started/key-concepts"
 ---
 

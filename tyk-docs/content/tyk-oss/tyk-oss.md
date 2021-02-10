@@ -1,38 +1,24 @@
 ---
 title: "Tyk Gateway Community Edition (CE)"
 date: 2021-01-20
-weight: 15
+weight: 6
 menu: "main"
 linkTitle: "Tyk Gateway CE" 
 url: "/tyk-oss-gateway/"
 ---
-The backbone of all our products is our open source Gateway. You can install our Community Edition (Gateway only) on the following platforms:
 
-{{< grid >}}
+## What is the Tyk Gateway?
 
-{{< badge read="10 mins" href="/docs/tyk-oss/ce-docker/" image="/docs/img/docker.png">}}
-Install our **Community Edition** Gateway with Docker. 
-{{< /badge >}}
+The primary application for Community Edition users and Pro users alike, the Tyk Open Source API Gateway does all the heavy lifting of actually managing your requests: traffic proxying, access control, data transformation, logging and more.
 
-{{< badge read="10 mins" href="/docs/tyk-oss/ce-kubernetes/" image="/docs/img/k8s.png">}}
-Install our **Community Edition** Gateway with K8s. 
-{{< /badge >}}
+The Tyk Gateway can run completely independently, requiring only a Redis database to be effective, and can scale horizontally:
 
-{{< badge read="10 mins" href="/docs/tyk-oss/ce-redhat/" image="/docs/img/redhat-logo2.png">}}
-Install our **Community Edition** Gateway on Red Hat. 
-{{< /badge >}}
+![Tyk Open Source PI Gateway Standard CE Deployment](/docs/img/diagrams/gateway3.png)
+
+The Tyk Gateway will take inbound requests, run them through a set of middleware components which apply transforms and any other service-specific operations, and then proxy the request out again to the origin, intercepting the response, running a set of response middleware and then returning.
+
+Tyk can also run dynamic middleware components written in JavaScript, and from v2.3 other languages, at either end of the built-in middleware.
+
+[Installation options](/docs/tyk-oss-gateway/) for the Tyk Gateway
 
 
-{{< badge read="10 mins" href="/docs/tyk-oss/ce-ubuntu/" image="/docs/img/cof_white-orange_hex2.png">}}
-Install our **Community Edition** Gateway on Ubuntu. 
-{{< /badge >}}
-
-{{< badge read="10 mins" href="/docs/tyk-oss/ce-centos/" image="/docs/img/centos4.png">}}
-Install our **Community Edition** Gateway on CentOS. 
-{{< /badge >}}
-
-{{< badge read="10 mins" href="https://github.com/TykTechnologies/tyk" image="/docs/img/GitHub-Mark-64px.png">}}
-Visit our **Community Edition** Gateway GitHub Repo. 
-{{< /badge >}}
-
-{{< /grid >}}

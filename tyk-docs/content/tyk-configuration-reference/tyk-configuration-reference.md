@@ -2,7 +2,9 @@
 date: 2017-03-27T12:50:16+01:00
 title: Tyk Configuration Reference
 weight: 70
-menu: "main"
+menu:
+    main:
+        parent: "re-do"
 url: "/tyk-configuration-reference"
 ---
 

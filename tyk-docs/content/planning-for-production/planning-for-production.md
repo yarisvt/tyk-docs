@@ -2,7 +2,9 @@
 date: 2017-03-24T17:49:59Z
 title: Planning for Production
 weight: 90
-menu: "main"
+menu:
+    main:
+        parent: "re-do"
 url: "/planning-for-production"
 ---
 

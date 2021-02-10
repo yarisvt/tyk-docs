@@ -1,8 +1,10 @@
 ---
 date: 2017-03-24T15:49:11Z
 title: Advanced Configuration
+menu:
+    main:
+        parent: "Tyk Gateway CE"
 weight: 60
-menu: "main"
 url: "/advanced-configuration"
 ---
 

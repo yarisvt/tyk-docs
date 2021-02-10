@@ -2,7 +2,9 @@
 date: 2017-03-15T15:01:42Z
 title: Tyk On-Premises
 weight: 10
-menu: "main" 
+menu: 
+    main:
+        parent: "Tyk Solutions"
 url: "/tyk-on-premises/"
 aliases:
   - /getting-started/installation/with-tyk-on-premises/

@@ -3,7 +3,7 @@ date: 2017-03-09T11:10:21Z
 Title: Create an API
 menu:
   main:
-    parent: "Tutorials"
+    parent: "Getting Started"
 weight: 2
 ---
 

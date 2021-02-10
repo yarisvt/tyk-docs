@@ -3,7 +3,7 @@ date: 2017-03-15T16:33:46Z
 title: Create a Portal Entry
 menu:
   main:
-    parent: "Tutorials"
+    parent: "Getting Started"
 weight: 4
 aliases:
     - /docs/tyk-dashboard-v1-0/tutorials/set-up-your-portal/

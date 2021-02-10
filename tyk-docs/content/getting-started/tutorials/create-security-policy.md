@@ -4,7 +4,7 @@ title: Create a Security Policy
 weight: 3
 menu:
     main: 
-        parent: "Tutorials"
+      parent: "Getting Started"
 ---
 
 

@@ -1,7 +1,9 @@
 ---
 title: Upgrading Tyk
 weight: 251
-menu: "main"
+menu:
+    main:
+        parent: "re-do"
 url: "/upgrading-tyk"
 ---
 

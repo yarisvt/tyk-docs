@@ -2,14 +2,26 @@
 date: 2017-03-08T18:15:30+13:00
 title: Getting Started
 weight: 16
-menu: "main"
+menu:
+    main:
+        parent: "Tyk Gateway CE"
 url: "getting-started"
 ---
 
-Tyk is an open source API Gateway that is fast, scalable and modern. Out of the box, Tyk offers an API Management Platform with an API Gateway, API Analytics, Developer Portal and API Management Dashboard.
+The following tutorials will show you how to get up and running with Tyk depending on your installation type. 
 
-If you are new to Tyk, use this section to understand the following:
+### [Create an API](/docs/getting-started/tutorials/create-api/)
 
-* What are the individual [Tyk components](/docs/getting-started/tyk-components/)?
-*  What [deployment options](/docs/getting-started/deployment-options/) you have for installation
-*  Understand some [key concepts](/docs/getting-started/key-concepts/) to help you get the most out of Tyk
+How to add a basic API to Tyk
+
+### [Create a Security Policy](/docs/getting-started/tutorials/create-security-policy/)
+
+Create a Security Policy that can be applied to multiple keys
+
+### [Create an API Key](/docs/getting-started/tutorials/create-api-key/)
+
+Create a key to apply Quotas and Rate limits to an API, or it can inherit settings from a Security Policy
+
+### [Create a Developer Portal Entry](/docs/getting-started/tutorials/create-portal-entry/)
+
+Add an API to your Developer Portal for 3rd party developer access

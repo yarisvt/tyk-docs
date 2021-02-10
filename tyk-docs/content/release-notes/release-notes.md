@@ -1,7 +1,9 @@
 ---
 title: Release Notes
 weight: 250
-menu: "main"
+menu:
+    main:
+        parent: "re-do"
 url: "/release-notes"
 ---
 
