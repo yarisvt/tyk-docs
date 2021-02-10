@@ -60,6 +60,12 @@ curl -X POST \
 Because this example uses Tyk Cloud it uses the API id in the URL. For all other scenarios (e.g. On-Premises) you should use the API listen path instead e.g. https:/<your-tyk-dashboard-host>/api/apis/oauth/<your-api-listen-path>/authorize-client/. For the API used in this example it would be https://admin.cloud.tyk.io/api/apis/oauth/oauth-api/authorize-client/.
 {{< /note >}}
 
+{{< note success >}}
+**Note**  
+
+The Tyk Gateway also exposes an equivalent Gateway API authorization endpoint (`/tyk/oauth/authorize-client/`). In some scenarios, for example where access to the Dashboard API from the authentication server may be restricted, the Gateway API can be used instead.
+{{< /note >}}
+
 
 | Request | Value                                                                                                                                                                                                                          |
 | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |

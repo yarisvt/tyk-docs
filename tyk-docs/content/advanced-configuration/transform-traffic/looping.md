@@ -35,7 +35,7 @@ Imagine you have a legacy API that has existing authentication strategies.  We c
 We can use looping to achieve this.  We can set up triggers in URL Rewrite plugin, where based off a specific header, Tyk will loop the request to a specific API.
 
 For example, let's see the following use case:
-![!](../looping.png)
+![looping](/docs/img/diagrams/looping.png)
 
 #### 1.  A request comes into the ingress API.  This has two rules:
 -   If `Header == "Authorization: Bearer"`, loop to the OAuth API

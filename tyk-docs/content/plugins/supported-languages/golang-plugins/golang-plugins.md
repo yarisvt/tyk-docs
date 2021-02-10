@@ -611,3 +611,23 @@ func MyPluginFunction(w http.ResponseWriter, r *http.Request) {
 }
 ```
 `ctx.GetDefinition` returns an APIDefinition object, the Go data structure can be found [here](https://github.com/TykTechnologies/tyk/blob/master/apidef/api_definitions.go#L351)
+
+### Accessing User session from a Golang plugin
+
+When Tyk passes a request to your plugin, the User Sesssion object is made available as part of the request context. This can be accessed as follows:
+
+```{.copyWrapper}
+package main
+import (
+	"fmt"
+	"net/http"
+	"github.com/TykTechnologies/tyk/ctx"
+)
+func main() {}
+func MyPluginFunction(w http.ResponseWriter, r *http.Request) {
+  session := ctx.GetSession(r)
+  fmt.Println("Developer ID:", session.MetaData["tyk_developer_id"]
+  fmt.Println("Developer Email:", session.MetaData["tyk_developer_email"]
+}
+```
+`ctx.GetSession` returns an UserSession object, the Go data structure can be found [here](https://github.com/TykTechnologies/tyk/blob/master/user/session.go#L87)

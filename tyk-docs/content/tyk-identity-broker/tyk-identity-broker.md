@@ -87,7 +87,7 @@ TIB is also available as a Docker container from [https://hub.docker.com/r/tykio
 No command line arguments are needed, but if you are running TIB from another directory or during startup, you will need to set the absolute paths to the profile and config files:
 
 ```{.copyWrapper}
-Usage of ./tyk-auth-proxy:
+Usage of ./tyk-identity-broker:
   -c=string
         Path to the config file (default "tib.conf")
   -p#=string

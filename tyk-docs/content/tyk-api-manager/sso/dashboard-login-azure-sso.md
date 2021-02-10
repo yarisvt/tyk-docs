@@ -5,6 +5,8 @@ menu:
    main:
       parent: "Single Sign On"
 weight: 1
+aliases:
+  - /advanced-configuration/integrate/sso/dashboard-login-azure-sso/
 ---
 
 
@@ -87,6 +89,7 @@ curl http://{TIB-DOMAIN}:{TIB-PORT}/api/profiles/{PROFILE-NAME-IN-TIB} -H "Autho
  5. TIB redirected the call to the dashboard to a special endpoint `/tap` ( it was defined on the profile under `ReturnURL`) with the nonce that was created.
  6. The Dashboard on the `/tap` endpoint finds the session that is attached to the `nonce`, login the user and redirect to the dashboard first page
 
+![Generate Or Login User Profile flow](/docs/img/diagrams/generate-or-login-user-profile.png)
 
 ## Enhancements
 
