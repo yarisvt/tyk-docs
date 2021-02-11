@@ -33,41 +33,50 @@ The docs content lives in `tyk-docs/content`.
 ### Add a new Section
 
 1. Add a new folder in within the `tyk-docs/tyk-docs/content/` Directory. For example `new-section`
-2. Within your new folder create a markdown file with the same name as the folder (including any hyphens). So for the above folder, create `new-section.md`. This file will be converted to the equivalent of an `index.html` file.
+2. Within your new folder create a markdown file with the following command from your terminal - `hugo new` . So for the above, use `hugo new /new-section/new-section.md`. This file will be converted to the equivalent of an `index.html` file.
 3. You can then create other markdown files within that directory, that you can name as you want.
 
 ![readme-example](https://user-images.githubusercontent.com/1983518/36219727-457c16f4-11b0-11e8-9839-946ef00c4655.png)
 
 ### Front Matter
 
-For each new file, you need to add YAML formated [Front Matter](http://gohugo.io/content-management/front-matter/):
+For each new file created via `hugo new`, the following YAML formated [Front Matter](http://gohugo.io/content-management/front-matter/) is added:
 
 ```
 ---
-date: 2017-03-08T18:15:57+13:00
-title: Create an Account
-menu:
-  main:
-    parent: 'Tyk Cloud'
-weight: 5
+title: "New Section"
+date: 2021-02-10
+tags: [""]
+description: ""
+menu: "main"
+weight: 0
 ---
+
+**Insert Lead paragraph here.**
 ```
+* `title` is taken from the name of the markdown file created
+* `date` is auto populated in a year-month-day format
+* `tags` are used to create meta keywords in the HTML output, and are added in the following format - `tags: ["tag 1", "tag 2", "tag 3"]`
+* `description` is used for the meta description in the HTML output
+* `menu` is used to place the page in the correct place within the navigation hierarchy. By default a new page is assigned to the root level (`main`)
+* `weight` is used to order pages within a section of the menu with `0` being the top level page within a section.
 
 You can create a dynamic, nested navigation hierarchy simply by changing the `parent` field to the name of the parent page. Note, **these names must be unique**.
 
-For a new top-level page (like `new-section.md` in the example above), the front matter looks like this:
+Example front matter for a page:
 
 ```
---- 
-date: 2017-03-08T18:15:30+13:00
-title: Get started with Tyk
-menu: "main"
-weight: 0
-url: "/get-started-with-tyk"
+---
+title: "Test"
+date: 2021-02-10
+tags: ["Tyk", "advanced-configuration", "Dashboard"]
+description: "Testing the description and tagging functionality in Tyk"
+menu:
+  main:
+    parent: "Advanced Configuration"
+weight: 10
 ---
 ```
-
-Notice that we just define the `menu` field as a simple string. 
 
 ## Content
 
@@ -312,6 +321,8 @@ We recommend you restrict your IAM user as much as possible before sharing the c
 {{< /warning >}}
 ```
 ![image](https://user-images.githubusercontent.com/1983518/104921245-f70e3c00-5990-11eb-927c-916204d90325.png)
+
+See the [Hugo Docs](https://gohugo.io/content-management/shortcodes/#use-hugos-built-in-shortcodes) for other built in shortcodes.
 
 ## License
 
