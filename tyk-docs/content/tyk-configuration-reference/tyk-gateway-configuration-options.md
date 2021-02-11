@@ -54,7 +54,7 @@ If this is set to `true`, the same value should be enabled in the Dashboard conf
 
 ### enable_hashed_keys_listing
 
-Set to `false` by default, set this to `true` to enable the retrieval all (or per API) key hash listings.
+Set to `false` by default, set this to `true` to enable the retrieval of all (or per API) key hash listings. This needs to be enabled in the gateway configuration file tyk.conf and in the dashboard configuration file tyk_analytics.conf. Restart the gateway and dashboard after changes have been implemented. 
 
 ### enable_update_key_by_hash
 
@@ -466,7 +466,7 @@ To disable uptime tests on this node, switch this value to `true`.
 
 #### uptime_tests.poller_group
 
-Change the default poller group of the uptime tests. 
+Change the default poller group of the uptime tests.
 
 #### uptime_tests.config
 
@@ -984,7 +984,7 @@ New in 2.9.4, you can now override the default error code and or message returne
 
 ### ignore_endpoint_case
 
-New in v2.9.4 you can now configure Tyk to ignore the case of any endpoints for APIs managed by Tyk. Setting this to `true` will override any [individual API](/docs/tyk-rest-api/api-definition-objects/other-root-objects/) and [Ignore](/docs/advanced-configuration/transform-traffic/endpoint-designer/#ignore), [Blacklist](/docs/advanced-configuration/transform-traffic/endpoint-designer/#blacklist) and [Whitelist](/docs/advanced-configuration/transform-traffic/endpoint-designer/#whitelist) plugin endpoint settings. 
+New in v2.9.4 you can now configure Tyk to ignore the case of any endpoints for APIs managed by Tyk. Setting this to `true` will override any [individual API](/docs/tyk-rest-api/api-definition-objects/other-root-objects/) and [Ignore](/docs/advanced-configuration/transform-traffic/endpoint-designer/#ignore), [Blacklist](/docs/advanced-configuration/transform-traffic/endpoint-designer/#blacklist) and [Whitelist](/docs/advanced-configuration/transform-traffic/endpoint-designer/#whitelist) plugin endpoint settings.
 
 ### ssl_force_common_name_check
 
@@ -1000,7 +1000,7 @@ The log level used for these records is Error and the feature can be enabled by 
 Added in v3.0.2. When enabled Tyk ignores the canonical format of the MIME header keys.
 
 For example when a request header with a "my-header" key is injected using "global_headers", the upstream would typically get it as "My-Header", when this flag is enabled it will be sent as "my-header" instead.
- 
+
 Current support is limited to [JS plugins](https://tyk.io/docs/plugins/supported-languages/javascript-middleware/), [global header injection](https://tyk.io/docs/advanced-configuration/transform-traffic/request-headers/#injecting-and-removing-headers-globally), [virtual endpoint](https://tyk.io/docs/advanced-configuration/compose-apis/virtual-endpoints/) and [JQ transform header rewrites](https://tyk.io/docs/advanced-configuration/transform-traffic/jq-transformations/). This functionality doesn't affect headers that are sent by the HTTP client and the default formatting will apply for this case.
 
 
