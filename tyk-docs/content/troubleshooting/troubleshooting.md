@@ -4,7 +4,7 @@ title: Troubleshooting
 weight: 240
 menu:
     main:
-        parent: "re-do"
+        parent: "other"
 url: "/troubleshooting"
 ---
 

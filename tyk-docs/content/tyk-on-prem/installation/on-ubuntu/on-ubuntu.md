@@ -3,7 +3,7 @@ date: 2017-03-22T15:46:41Z
 Title: On Ubuntu
 menu:
   main:
-    parent: "Tyk On-Premises"
+    parent: "Installation"
 weight: 3
 url: "/tyk-on-premises/on-ubuntu"
 aliases:

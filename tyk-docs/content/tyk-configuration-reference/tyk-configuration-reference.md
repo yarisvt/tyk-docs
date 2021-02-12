@@ -4,7 +4,7 @@ title: Tyk Configuration Reference
 weight: 70
 menu:
     main:
-        parent: "re-do"
+        parent: "other"
 url: "/tyk-configuration-reference"
 ---
 

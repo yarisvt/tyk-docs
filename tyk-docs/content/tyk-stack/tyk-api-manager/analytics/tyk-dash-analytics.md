@@ -1,7 +1,7 @@
 ---
 date: 2017-03-24T15:49:11Z
 title: Analytics
-weight: 2
+weight: 3
 menu: 
     main:
         parent: Tyk API Manager

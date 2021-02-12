@@ -2,7 +2,7 @@
 title: Microsoft Azure
 menu:
   main:
-    parent: "Tyk On-Premises"
+    parent: "Installation"
 weight: 6
 url: "/tyk-on-premises/microsoft-azure/"
 aliases:

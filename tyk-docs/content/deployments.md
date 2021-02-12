@@ -5,5 +5,3 @@ weight: 4
 menu: "main"
 url: "/tyk-solutions/"
 ---
-
-Hello

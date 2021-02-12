@@ -1,9 +1,9 @@
 ---
-title: "CE on Red Hat"
+title: "Red Hat"
 date: 2021-01-20
 menu:
   main:
-    parent: "Gateway CE Install"
+    parent: "Installation "
 weight: 3
 url: "/tyk-oss/ce-redhat/"
 ---

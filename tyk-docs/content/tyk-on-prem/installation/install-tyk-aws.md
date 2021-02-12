@@ -3,7 +3,7 @@ date: 2019-12-03T15:46:41Z
 Title: AWS Marketplace
 menu:
   main:
-    parent: "Tyk On-Premises"
+    parent: "Installation"
 weight: 5
 url: "/tyk-on-premises/installation/on-aws"
 aliases:

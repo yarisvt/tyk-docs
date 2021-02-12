@@ -1,9 +1,7 @@
 ---
 title: Tyk APIs
 weight: 190
-menu:
-    main:
-        parent: "re-do"
+menu: none
 url: "/tyk-apis"
 ---
 

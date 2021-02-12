@@ -3,7 +3,7 @@ date: 2019-07-30T11:30:02Z
 title: Bootstrapper CLI
 menu:
   main:
-    parent: "Tyk On-Premises"
+    parent: "Installation"
 weight: 8
 url: "/tyk-on-premises/bootstrapper-cli/"
 aliases:

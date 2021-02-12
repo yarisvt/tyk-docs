@@ -3,7 +3,7 @@ date: 2017-03-22T17:04:48Z
 title: Vagrant
 menu:
   main:
-    parent: "Tyk On-Premises"
+    parent: "Installation"
 weight: 7
 url: "/tyk-on-premises/vagrant"
 aliases:

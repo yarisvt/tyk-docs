@@ -4,7 +4,7 @@ title: Planning for Production
 weight: 90
 menu:
     main:
-        parent: "re-do"
+        parent: "other"
 url: "/planning-for-production"
 ---
 

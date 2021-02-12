@@ -3,7 +3,7 @@ date: 2017-03-22T16:47:24Z
 Title: With Docker
 menu:
   main:
-    parent: "Tyk On-Premises"
+    parent: "Installation"
 weight: 1
 url: "/tyk-on-premises/docker"
 aliases:

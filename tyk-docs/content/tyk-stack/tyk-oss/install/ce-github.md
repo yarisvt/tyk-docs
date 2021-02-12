@@ -3,7 +3,7 @@ title: "Via GitHub"
 date: 2021-01-20
 menu:
   main:
-    parent: Gateway CE Install
+    parent: "Installation "
 weight: 7
 url: "/tyk-oss/ce-github/"
 ---

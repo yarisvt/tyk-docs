@@ -1,9 +1,9 @@
 ---
-title: "CE on Kubernetes"
+title: "Kubernetes"
 date: 2021-01-20
 menu:
   main:
-    parent: "Gateway CE Install"
+    parent: "Installation "
 weight: 2
 url: "/tyk-oss/ce-kubernetes/"
 ---

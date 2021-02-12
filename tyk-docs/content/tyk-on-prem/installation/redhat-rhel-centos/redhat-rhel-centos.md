@@ -3,7 +3,7 @@ date: 2017-03-22T16:19:08Z
 Title: On Red Hat (RHEL) / CentOS
 menu:
   main:
-    parent: "Tyk On-Premises"
+    parent: "Installation"
 weight: 4
 url: "/tyk-on-premises/redhat-rhel-centos"
 aliases:

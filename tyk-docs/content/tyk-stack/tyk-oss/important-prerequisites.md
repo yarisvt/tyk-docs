@@ -3,14 +3,13 @@ date: 2020-02-18T15:08:55Z
 Title: Important Prerequisites
 menu:
   main:
-    parent: "Getting Started"
-weight: 1
+    parent: "Tyk Gateway CE"
+weight: 6
+aliases:
+  - /getting-started/tutorials/important-prerequisites/
 ---
 
 These are some common settings that you need before proceeding with other parts of our tutorials.
-
-{{< tabs_start >}}
-{{< tab_start "Community Edition" >}}
 
 ## Tyk Config
 
@@ -68,6 +67,3 @@ API endpoint.
 ```
 curl -H "x-tyk-authorization: {your-secret}" -s https://{your-tyk-host}:{port}/tyk/reload/group | python -mjson.tool
 ```
-
-{{< tab_end >}}
-{{< tabs_end >}}

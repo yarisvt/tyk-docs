@@ -1,5 +1,6 @@
 ---
 title: "Tyk Gateway Community Edition (CE)"
+identifier: "tyk-gateway-ce"
 date: 2021-01-20
 weight: 1
 menu:

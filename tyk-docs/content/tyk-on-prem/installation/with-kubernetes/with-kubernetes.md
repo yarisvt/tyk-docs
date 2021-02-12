@@ -3,7 +3,7 @@ date: 2017-03-22T16:57:26Z
 title: With Kubernetes
 menu:
   main:
-    parent: "Tyk On-Premises"
+    parent: "Installation"
 weight: 2
 url: "/tyk-on-premises/with-kubernetes"
 aliases:

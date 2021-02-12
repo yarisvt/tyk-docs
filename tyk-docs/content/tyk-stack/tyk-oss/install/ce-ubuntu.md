@@ -1,9 +1,9 @@
 ---
-title: "CE on Ubuntu"
+title: "Ubuntu"
 date: 2021-01-20
 menu:
   main:
-    parent: "Gateway CE Install"
+    parent: "Installation "
 weight: 4
 url: "/tyk-oss/ce-ubuntu/"
 ---

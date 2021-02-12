@@ -4,11 +4,13 @@ title: Getting Started
 weight: 5
 menu: "main"
 url: "getting-started"
+aliases:
+    - /try-out-tyk/tutorials/tutorials/
 ---
 
 First of all, make sure you have a Tyk environment installed, whether it's self-managed OSS or Enterprise, or Cloud.
 
-Start at one of the [Tyk Solutions]() and then come back here to create your first API!
+Start at one of the [Tyk Solutions](/docs/tyk-solutions) and then come back here to create your first API!
 
 The following tutorials will show you how to get up and running with Tyk depending on your installation type. 
 
@@ -24,6 +26,7 @@ Create a Security Policy that can be applied to multiple keys
 
 Create a key to apply Quotas and Rate limits to an API, or it can inherit settings from a Security Policy
 
-### [Create a Developer Portal Entry](/docs/getting-started/tutorials/create-portal-entry/)
+**todo: replace the following with a label?**
+### [Create a Developer Portal Entry](/docs/getting-started/tutorials/create-portal-entry/) (Tyk Enterprise Only)
 
 Add an API to your Developer Portal for 3rd party developer access

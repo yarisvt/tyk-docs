@@ -1,11 +1,12 @@
 ---
-title: "Tyk Gateway CE Install"
 date: 2021-01-20
-weight: 5
+title: "Tyk Gateway CE Install"
+linkTitle: "Installation "
+weight: 1
 menu:
   main:
     parent: "Tyk Gateway CE"
-linkTitle: "Gateway CE Install" 
+url: "tyk-oss-gateway/install"
 ---
 
 The backbone of all our products is our open source Gateway. You can install our Community Edition (Gateway only) on the following platforms:

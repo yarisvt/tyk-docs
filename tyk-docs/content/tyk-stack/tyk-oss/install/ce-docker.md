@@ -1,9 +1,9 @@
 ---
-title: "CE on Docker"
+title: "Docker"
 date: 2021-01-20
 menu:
   main:
-    parent: Gateway CE Install
+    parent: "Installation "
 weight: 1
 url: "/tyk-oss/ce-docker/"
 

@@ -3,7 +3,7 @@ date: 2018-05-18T15:46:41Z
 Title: Heroku
 menu:
   main:
-    parent: "Tyk On-Premises"
+    parent: "Installation"
 weight: 6
 url: "/tyk-on-premises/installation/on-heroku"
 aliases:
