@@ -3,7 +3,7 @@ date: 2017-03-27T15:52:45+01:00
 title: Import APIs
 menu:
   main:
-    parent: "Tyk Configuration Reference"
+    parent: "other"
 weight: 11 
 ---
 

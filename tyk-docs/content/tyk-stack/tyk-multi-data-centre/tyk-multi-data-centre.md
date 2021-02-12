@@ -6,6 +6,8 @@ menu:
     main:
         parent: "Tyk Stack"
 url: "/tyk-multi-data-centre"
+aliases:
+    - /tyk-configuration-reference/mdcb-configuration-options/
 ---
 
 ## Introduction

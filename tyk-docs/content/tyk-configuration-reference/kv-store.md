@@ -2,7 +2,7 @@
 title: Key Value secrets storage for configuration in Tyk
 menu:
   main:
-    parent: "Tyk Configuration Reference"
+    parent: "Tyk Gateway CE"
 weight: 13
 ---
 

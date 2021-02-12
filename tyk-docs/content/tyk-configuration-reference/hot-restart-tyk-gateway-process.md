@@ -3,7 +3,7 @@ date: 2017-03-27T16:00:30+01:00
 title: Hot restart a Tyk Gateway Process
 menu:
   main:
-    parent: "Tyk Configuration Reference"
+    parent: "Tyk Gateway Configuration Options"
 weight: 10 
 ---
 

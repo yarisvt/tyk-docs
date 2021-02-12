@@ -5,6 +5,8 @@ menu:
   main:
     parent: Tyk Pump Analytics
 weight: 8
+aliases:
+  - /analytics-and-reporting/useful-debug-modes
 ---
 
 If you've seen the documentation for the log viewer, then you'll also be wondering how to set up your Tyk configuration to enable detail request logging.

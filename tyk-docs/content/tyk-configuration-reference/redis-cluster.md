@@ -3,8 +3,10 @@ date: 2017-03-27T15:52:45+01:00
 title: Configure Redis Cluster
 menu:
   main:
-    parent: "Tyk Configuration Reference"
+    parent: "Tyk Gateway Configuration Options"
 weight: 7 
+aliases:
+  - /tyk-configuration-reference/redis-cluster/
 ---
 
 ## Introduction

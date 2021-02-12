@@ -3,8 +3,10 @@ date: 2017-03-27T15:51:05+01:00
 title: Outbound Email Configuration
 menu:
   main:
-    parent: "Tyk Configuration Reference"
+    parent: "Tyk Dashboard Configuration Options"
 weight: 6 
+aliases:
+  - /tyk-configuration-reference/outbound-email-configuration/
 ---
 
 ### Custom Email Templates

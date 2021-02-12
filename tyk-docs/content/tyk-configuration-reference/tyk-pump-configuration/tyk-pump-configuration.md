@@ -3,7 +3,7 @@ date: 2017-03-27T15:47:05+01:00
 title: Tyk Pump Configuration
 menu:
   main:
-    parent: "Tyk Configuration Reference"
+    parent: "Tyk Pump Analytics"
 weight: 4
 ---
 
