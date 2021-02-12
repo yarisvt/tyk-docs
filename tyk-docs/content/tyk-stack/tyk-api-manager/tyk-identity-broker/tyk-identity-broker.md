@@ -3,9 +3,11 @@ date: 2021-18-01T15:00:00+13:00
 title: Tyk Identity Broker
 menu:
   main:
-    parent: "Tyk Components"
-weight: 1
-url: "/getting-started/tyk-components/new-tyk-identity-broker"
+    parent: "Tyk Stack"
+weight: 3
+url: "tyk-identity-broker"
+aliases: 
+  - "/getting-started/tyk-components/new-tyk-identity-broker"
 ---
 
 ## What is Tyk Identity Broker (TIB)?

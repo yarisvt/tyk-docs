@@ -1,9 +1,13 @@
 ---
 date: 2017-03-24T15:49:11Z
 title: Tyk Pump Analytics
-weight: 15
-menu: main
-url: "/analytics-and-reporting"
+weight: 2
+menu:
+  main:
+    parent: "Tyk Stack"
+url: "tyk-pump"
+aliases:
+    - "analytics-and-reporting"
 ---
 
 Traffic analytics are captured by the Gateway nodes and then temporarily stored in Redis.  The Tyk Pump is responsible for moving those analytics into a persistent data store, such as MongoDB, where the traffic can be analyzed.

@@ -1,10 +1,10 @@
 ---
 date: 2017-03-24T16:39:31Z
 title: Tyk Multi Data Centre
-weight: 95
+weight: 15
 menu:
     main:
-        parent: "Tyk On-Premises"
+        parent: "Tyk Stack"
 url: "/tyk-multi-data-centre"
 ---
 

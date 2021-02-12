@@ -4,8 +4,8 @@ title: Tyk Developer Portal
 weight: 10
 menu: 
     main:
-        parent: "Tyk API Manager"
-url: "/tyk-developer-portal"
+        parent: "Tyk Stack"
+url: "tyk-developer-portal"
 ---
 
 The Tyk Developer Portal is a small CMS-like system that enables you to expose a facade of your APIs and then allow third-party developers to register and use your APIs.

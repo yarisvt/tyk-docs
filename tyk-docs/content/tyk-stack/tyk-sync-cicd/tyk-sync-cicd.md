@@ -1,8 +1,10 @@
 ---
 date: 2017-03-23T13:19:38Z
 title: Tyk Sync CICD
-menu: "main"
-weight: 167
+menu: 
+  main:
+    parent: "Tyk Stack"
+weight: 4
 ---
 
 Tyk-Sync is a command line tool and library to manage and synchronise a Tyk installation with your version control system (VCS).

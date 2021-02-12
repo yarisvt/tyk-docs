@@ -1,9 +1,12 @@
 ---
 date: 2017-03-23T13:16:05Z
 title: Tyk API Manager
-menu: "main"
+menu:
+  main:
+    parent: "Tyk Stack"
 identifier: dashboard-component
 weight: 8 
+url: "tyk-api-manager"
 ---
 
 ## What is the Tyk Dashboard?

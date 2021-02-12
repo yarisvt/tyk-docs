@@ -1,12 +1,14 @@
 --- 
 date: 2017-03-08T18:15:30+13:00
 title: Getting Started
-weight: 16
-menu:
-    main:
-        parent: "Tyk Gateway CE"
+weight: 5
+menu: "main"
 url: "getting-started"
 ---
+
+First of all, make sure you have a Tyk environment installed, whether it's self-managed OSS or Enterprise, or Cloud.
+
+Start at one of the [Tyk Solutions]() and then come back here to create your first API!
 
 The following tutorials will show you how to get up and running with Tyk depending on your installation type. 
 

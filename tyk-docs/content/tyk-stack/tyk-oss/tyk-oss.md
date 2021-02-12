@@ -1,8 +1,10 @@
 ---
 title: "Tyk Gateway Community Edition (CE)"
 date: 2021-01-20
-weight: 6
-menu: "main"
+weight: 1
+menu:
+  main:
+    parent: "Tyk Stack"
 linkTitle: "Tyk Gateway CE" 
 url: "/tyk-oss-gateway/"
 ---

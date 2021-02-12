@@ -1,11 +1,11 @@
 ---
 title: "Universal Data Graph"
 date: 2020-06-03
-weight: 210
+weight: 10
 menu: 
     main:
-        parent: "Tyk API Manager"
-url: "/tyk-api-manager/universal-data-graph"
+        parent: "Tyk Stack"
+url: "universal-data-graph"
 aliases:
   - /universal-data-graph
 ---

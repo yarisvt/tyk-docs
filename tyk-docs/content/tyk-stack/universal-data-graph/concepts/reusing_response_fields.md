@@ -71,7 +71,7 @@ https://people-api.dev/people
 
 The `Query.person` field needs to use it's `id` argument to call the correct API endpoint.
 
-See [Concept: Arguments]({{< ref "/content/tyk-api-manager/universal-data-graph/concepts/arguments.md" >}}) to learn more about it.
+See [Concept: Arguments]({{< ref "/content/tyk-stack/universal-data-graph/concepts/arguments.md" >}}) to learn more about it.
  ```
  https://people-api.dev/people/{{.arguments.id}}
  ```
