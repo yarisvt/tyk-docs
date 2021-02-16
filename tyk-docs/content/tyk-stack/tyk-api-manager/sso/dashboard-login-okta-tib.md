@@ -5,6 +5,8 @@ menu:
    main:
       parent: "Single Sign On"
 weight: 0
+aliases:
+   - /advanced-configuration/integrate/sso/dashboard-login-okta-tib/
 ---
 
 

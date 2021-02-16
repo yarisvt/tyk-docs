@@ -5,6 +5,8 @@ menu:
   main:
     parent: Analytics
 weight: 9 
+aliases:
+  - /analytics-and-reporting/capping-analytics-data-storage/
 ---
 
 Tyk Gateways can generate a lot of analytics data. A guideline is that for every 3 million requests that your Gateway processes it will generate roughly 1GB of data.

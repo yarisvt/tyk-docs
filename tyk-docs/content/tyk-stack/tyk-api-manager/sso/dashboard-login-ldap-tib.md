@@ -5,6 +5,8 @@ menu:
   main:
     parent: "Single Sign On"
 weight: 0
+aliases:
+  - /advanced-configuration/integrate/sso/dashboard-login-ldap-tib/
 ---
 
 This is an end to end worked example of how you can use LDAP and our Tyk Identity Broker (TIB) to log in to your Dashboard.

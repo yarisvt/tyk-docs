@@ -5,6 +5,8 @@ menu:
   main:
     parent: "On Ubuntu"
 weight: 1
+aliases:
+  - /getting-started/installation/with-tyk-on-premises/on-ubuntu/dashboard/
 ---
 
 ## <a name="install-tyk-dashboard-ubuntu"></a>Install Tyk Dashboard on Ubuntu

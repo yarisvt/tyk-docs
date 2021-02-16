@@ -5,6 +5,8 @@ menu:
   main:
     parent: "On Ubuntu"
 weight: 3 
+aliases:
+  - /getting-started/installation/with-tyk-on-premises/on-ubuntu/gateway/
 ---
 
 ## <a name="install-tyk-ubuntu-gateway"></a>Install Tyk Gateway on Ubuntu

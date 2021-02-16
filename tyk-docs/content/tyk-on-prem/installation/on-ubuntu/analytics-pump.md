@@ -5,6 +5,8 @@ menu:
   main:
     parent: "On Ubuntu"
 weight: 2
+aliases:
+  - /getting-started/installation/with-tyk-on-premises/on-ubuntu/analytics-pump/
 ---
 
 ## Install Tyk Pump on Ubuntu
