@@ -108,21 +108,21 @@ If the command succeeds, you will see:
 
 **What did we just do?**
 
-We just sent an API definition to the Tyk `/apis` endpoint, API definitions are discussed in detail in the [Tyk Gateway REST API documentation](/docs/tyk-rest-api/api-definition-objects/). These objects encapsulate all of the settings for an API within Tyk.
+We just sent an API definition to the Tyk `/apis` endpoint, API definitions are discussed in detail in the [Tyk Gateway API documentation](/docs/tyk-gateway-api/)api-definition-objects/). These objects encapsulate all of the settings for an API within Tyk.
 {{< tab_end >}}
 {{< tab_start "Community Edition" >}}
-## <a name="prerequisites"></a>Prerequisites
+## Prerequisites
 
 In order to complete this tutorial, you need to have the [Tyk Community Edition installed](/docs/tyk-oss-gateway/).
 
 ## Creation Methods
 
-With Tyk On-Premises Community Edition, it is possible to create APIs using Tyk's REST API or to generate a file with the same object and store it in the `/apps` folder of the Tyk Gateway installation folder. This is demonstrated [here](#with-file-based-mode).
+With Tyk On-Premises Community Edition, it is possible to create APIs using Tyk's Gateway API or to generate a file with the same object and store it in the `/apps` folder of the Tyk Gateway installation folder. This is demonstrated [here](#with-file-based-mode).
 
 
-## Tutorial: Create an API with the Gateway REST API
+## Tutorial: Create an API with the Tyk Gateway API
 
-In order to use the REST API you will need an API key for your Gateway and one command to create the API and make it live.
+In order to use the Gateway API you will need an API key for your Gateway and one command to create the API and make it live.
 
 ### Step 1: Make sure you know your API secret
 

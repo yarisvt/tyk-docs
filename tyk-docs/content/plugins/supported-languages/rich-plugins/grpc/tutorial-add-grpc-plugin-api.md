@@ -9,7 +9,7 @@ aliases:
   -  "/plugins/rich-plugins/grpc/tutorial-add-grpc-plugin-api"
 ---
 
-## <a name="api-settings"></a> API settings
+## API settings
 
 To add a gRPC plugin to your API, you must specify the bundle name using the `custom_middleware_bundle` field:
 
@@ -50,7 +50,7 @@ To add a gRPC plugin to your API, you must specify the bundle name using the `cu
 }
 ```
 
-## <a name="global-settings"></a>Global settings
+## Global settings
 
 To enable gRPC plugins you need to add the following block to `tyk.conf`:
 
@@ -73,7 +73,7 @@ To enable gRPC plugins you need to add the following block to `tyk.conf`:
 `coprocess_options.grpc_recv_max_size` 
 `coprocess_options.grpc_send_max_size`
 
-When using gRPC plugins, Tyk acts as a gRPC client and dispatches requests to your gRPC server. gRPC libraries usually set a default maximum size, for example the official gRPC Java library establishes a 4 MB message size (https://jbrandhorst.com/post/grpc-binary-blob-stream/). We've added flags for establishing a message size in both directions (send and receive). For most use cases and especially if you're dealing with multiple hooks, where the same request object is passed through them, it's recommended to set both values to the same size."
+When using gRPC plugins, Tyk acts as a gRPC client and dispatches requests to your gRPC server. gRPC libraries usually set a default maximum size, for example the official gRPC Java library establishes a 4 MB message size [https://jbrandhorst.com/post/grpc-binary-blob-stream/](https://jbrandhorst.com/post/grpc-binary-blob-stream/). We've added flags for establishing a message size in both directions (send and receive). For most use cases and especially if you're dealing with multiple hooks, where the same request object is passed through them, it's recommended to set both values to the same size."
 
 `enable_bundle_downloader` enables the bundle downloader.
 

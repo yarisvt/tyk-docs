@@ -10,6 +10,7 @@ aliases:
   - /getting-started/installation/with-tyk-on-premises/
   - /tyk-on-premises/getting-started/
   - /getting-started/installation/with-tyk-on-premises/bootstrapper-cli/
+  - /getting-started/licencing/
 ---
 ## What is Tyk On-Premises?
 
@@ -22,6 +23,13 @@ The full Tyk On-Premises Pro system consists of:
 *   Tyk Pump: Handles moving analytics data between your gateways and your Dashboard (amongst other data sinks).
 *   Tyk Identity Broker (Optional): Handles integrations with third-party IDP's.
 *   Tyk Multi-Data-Center Bridge (Optional, Enterprise-only): Allows for the configuration of a Tyk ecosystem that spans many data centers and clouds.
+
+## Installing Tyk On-Premises:
+Please visit our [on-prem installation](/docs/tyk-on-premises/install/) page to get started.
+
+### Licencing
+
+For licence queries please contact your account manager. For free trial licences, please visit our [get started](https://tyk.io/get-started/) page on the web site.
 
 ## Database Support
 

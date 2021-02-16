@@ -71,8 +71,8 @@ The Tyk Developer Portal is a small CMS-like system that enables you to expose a
 The Multi Data Centre Bridge allows for centralised management of multiple independent Tyk clusters and the seamless transition of APIs between environments, availability zones and segmented nodes.
 {{< /badge >}}
 
-{{< badge href="/docs/getting-started/tyk-components/identity-broker/" image="" imageStyle="height:150px" >}}
-## Identity Broker
+{{< badge href="/docs/getting-started/tyk-components/new-tyk-identity-broker/" image="" imageStyle="height:150px" >}}
+## Tyk Identity Broker
 
 The Tyk Identity Broker (TIB) is a microservice portal that provides a bridge between various Identity Management Systems and your Tyk installation.
 {{< /badge >}}

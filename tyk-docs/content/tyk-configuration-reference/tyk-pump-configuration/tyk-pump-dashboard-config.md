@@ -77,7 +77,7 @@ There are 3 different pumps we want to look at:
 2. mongo-pump-selective
 3. mongo-pump-aggregate
 
-### mongo
+### Mongo
 
 This Pump simply saves all individual requests across every organisation to a collection called `tyk_analytics`. Each request will be stored as a single document.
 
@@ -165,7 +165,7 @@ This pump stores data in collections called `z_tyk_analyticz_{ORG ID}`.
 
 If the Dashboard configuration key `use_sharded_keys` equals `true`, then the Dashboard will use these collections to populate the `Log Browser`.
 
-This collection [should be capped](/docs/tyk-configuration-reference/tyk-pump-configuration/#capping-analytics-data) due to the number of individual documents.
+This collection [should be capped](/docs/analytics-and-reporting/capping-analytics-data-storage/) due to the number of individual documents.
 ```{.json}
 {
   ...
