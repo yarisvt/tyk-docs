@@ -8,7 +8,7 @@ menu:
 weight: 6
 ---
 
-This short guide will show you how easy it is to swap out out the default https://swagger.io/tools/swagger-ui/ library for Portal Catalogue API documentation for another tool like http://rebilly.github.io/ReDoc/
+This short guide will show you how easy it is to swap out out the default https://swagger.io/tools/swagger-ui/ library for Portal Catalogue API documentation for another tool like [ReDoc](http://rebilly.github.io/ReDoc/) 
 
 * Open up the default `/opt/tyk-dashboard/portal/templates/swagger.html`
 

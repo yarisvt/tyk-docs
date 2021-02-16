@@ -28,7 +28,3 @@ See our video for installing Tyk on Ubuntu via Azure:
 {{< youtube -Q9Lox-DyTU >}}
 
 We also have a [blog post](https://tyk.io/getting-started-with-tyk-on-microsoft-azure-and-ubuntu/) that walks you through installing Tyk on Azure.
-
-### Multi-Cloud
-
-It is also possible to install [Tyk Multi-Cloud](/docs/getting-started/installation/with-tyk-multi-cloud/) on Azure.

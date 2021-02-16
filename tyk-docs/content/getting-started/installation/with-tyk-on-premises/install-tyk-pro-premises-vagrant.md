@@ -94,5 +94,6 @@ You can now log in to the Tyk Dashboard from <http://my-tyk-instance.com:3000> u
 
 #### Next Steps
 
-* [Set up and test your first API](/docs/try-out-tyk/tutorials/create-api/)
-* [Set up your portal and publish your first API](/docs/try-out-tyk/tutorials/create-portal-entry/)
+* [Set up and test your first API](/docs/getting-started/tutorials/create-api/)
+* [Create a Security Policy](/docs/getting-started/tutorials/create-security-policy/)
+* [Set up your Developer Portal and publish your first API](/docs/getting-started/tutorials/create-portal-entry/)

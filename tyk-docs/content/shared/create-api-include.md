@@ -96,7 +96,7 @@ For a fresh install, you will see that no APIs currently exist
 
 ### Create your first API
 
-This example API definition configures the Tyk Gateway to reverse proxy to the http://httpbin.org
+This example API definition configures the Tyk Gateway to reverse proxy to the [http://httpbin.org](http://httpbin.org)
 request/response service.
 
 To view the raw API definition object, you may visit: https://bit.ly/2PdEHuv
