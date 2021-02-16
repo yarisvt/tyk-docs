@@ -19,10 +19,21 @@ The Tyk Pump is our [open source](https://github.com/TykTechnologies/tyk-pump) a
 
 ### Tyk Pump Data Flow
 
-TODO: PRO + OSS DIAGRAMS TOGGLE
+Here's the architecture depending on your deployment model:
 
+{{< tabs_start >}}
+{{< tab_start "Enterprise" >}}
 
 ![Tyk Pump Data Transport Service](/docs/img/diagrams/pump3.png)
+
+{{< tab_end >}}
+{{< tab_start "Open Source" >}}
+
+![Tyk Pump Data Transport Service](/docs/img/diagrams/pump4.png)
+
+{{< tab_end >}}
+{{< tabs_end >}}
+
 
 ### Other Supported Backend Services
 
