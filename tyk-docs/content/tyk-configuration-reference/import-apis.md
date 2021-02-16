@@ -3,8 +3,10 @@ date: 2017-03-27T15:52:45+01:00
 title: Import APIs
 menu:
   main:
-    parent: "other"
-weight: 11 
+    parent: "Getting Started"
+weight: 11
+aliases:
+  - /tyk-configuration-reference/import-apis/
 ---
 
 Tyk supports importing both API Blueprint and Swagger (OpenAPI) JSON definitions from either the Gateway or the Dashboard. Tyk will output the converted file to to `stdout`. Below are the commands you can use to get Tyk to switch to command mode and generate the respective API definitions for both API Blueprint and Swagger files.

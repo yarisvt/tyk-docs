@@ -8,6 +8,8 @@ menu:
     parent: "Tyk Stack"
 linkTitle: "Tyk Gateway CE" 
 url: "/tyk-oss-gateway/"
+aliases:
+  - /getting-started/tyk-components/gateway/
 ---
 
 ## What is the Tyk Gateway?

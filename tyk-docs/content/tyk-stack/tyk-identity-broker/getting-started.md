@@ -5,7 +5,9 @@ menu:
   main:
     parent: "Tyk Identity Broker"
 weight: 1
-url: "/getting-started/tyk-components/tyk-identity-broker/getting-started"
+url: "tyk-identity-broker/getting-started"
+aliases:
+  - /getting-started/tyk-components/tyk-identity-broker/getting-started/
 ---
 
 ## Requirements

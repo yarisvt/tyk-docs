@@ -1,11 +1,11 @@
 ---
 date: 2017-03-24T17:49:59Z
 title: Planning for Production
-weight: 90
 menu:
     main:
-        parent: "other"
+        parent: "Getting Started"
 url: "/planning-for-production"
+weight: 13
 ---
 
 So you want to deploy Tyk to production?

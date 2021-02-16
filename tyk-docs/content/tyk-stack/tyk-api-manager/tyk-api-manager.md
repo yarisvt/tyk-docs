@@ -7,6 +7,8 @@ menu:
 identifier: dashboard-component
 weight: 8 
 url: "tyk-api-manager"
+aliases:
+  - /getting-started/tyk-components/dashboard/
 ---
 
 ## What is the Tyk Dashboard?
