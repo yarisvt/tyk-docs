@@ -9,13 +9,13 @@ weight: 0
 
 This is an end to end worked example of how you can use LDAP and our Tyk Identity Broker (TIB) to log in to your Dashboard.
 
-## <a name="overview"></a> Overview
+## Overview
 
 The Tyk Dashboard is the command and control centre of your Tyk installation. It allows users to manage APIs, policies, keys, etc. All of this data is stored in the Dashboard's MonogDB database, including the user accounts. This works well in a lot of situations as it allows Tyk to be self-contained, but if you already have a centralised system for managing users then you may prefer to use that instead of a separate Tyk-specific database.
 
 Good news, Tyk supports this!
 
-## <a name="how"></a> How it works
+## How it works
 
 The Tyk Identity Broker (TIB) is an open-source project which can be used to integrate Tyk authentication with 3rd party identity providers (IDPs). You can use this to enable your Dashboard to authenticate users with your LDAP-powered identity providers such as Active Directory. TIB has been designed as a glue-code solution, so it can integrate with almost any identity provider (IDP). See [Tyk Identity Broker Configuration](/docs/tyk-configuration-reference/tyk-identity-broker-configuration/) for details on configuring the TIB.
 
@@ -29,7 +29,7 @@ The Tyk Identity Broker (TIB) is an open-source project which can be used to int
 
    * If unsuccessful, TIB redirects the user to a failure URL
 
-## <a name="implementation"></a>Step-by-step implementation guide
+## Step-by-step implementation guide
 
 This guide assumes you already have a Tyk environment set up, with a Gateway and Dashboard. If you don't, please follow the [Tyk On-Premises getting started guide](/docs/getting-started/installation/with-tyk-on-premises/).
 
@@ -125,7 +125,7 @@ TIB ships with a default `profiles.json` file which contains many example config
 The key attributes for LDAP profile are:
 
 * `ID`: The ID by which we will activate the profile by calling the appropriate TIB endpoint
-* `OrgId`: The organisation id which the profile is connected to - make sure this is the correct id for your organisation (see the [Dashboard Admin API documentation](https://tyk.io/docs/dashboard-admin-api/organisations/) for details on how to retrieve this)
+* `OrgId`: The organisation id which the profile is connected to - make sure this is the correct id for your organisation (see the [Dashboard Admin API documentation](/docs/tyk-apis/tyk-dashboard-admin-api/organisations/) for details on how to retrieve this)
 * `IdentityHandlerConfig.DashboardCredential`: The Dashboard API Access credential which is used as authorization header
 * `ProviderConfig.FailureRedirect`: The URL which TIB will redirect to if the authentication fails
 * `ProviderConfig.LDAPPort`: The port through which TIB can communicate with your LDAP server
@@ -250,7 +250,7 @@ Now that we have TIB installed and configured, Nginx installed and hosting our c
 5. Submit the form
 6. You should now be logged in to the Dashboard
 
-## <a name="test"></a> Using the TIB REST API
+## Using the TIB REST API
 
 When TIB is running you can use its REST API. See the [TIB REST API documentation](/docs/advanced-configuration/integrate/3rd-party-identity-providers/tib-rest-api/) for a full description of each endpoint.
 

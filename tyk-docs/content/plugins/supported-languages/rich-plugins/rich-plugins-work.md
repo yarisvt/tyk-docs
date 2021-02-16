@@ -77,7 +77,7 @@ Response hooks are not available for native Go plugins. Python and gRPC plugins 
 
 ### Coprocess Gateway API
 
-[`coprocess_api.go`](https://github.com/TykTechnologies/tyk/blob/master/coprocess.go) provides a bridge between the Gateway API and C. Any function that needs to be exported should have the `export` keyword:
+[`coprocess_api.go`](https://github.com/TykTechnologies/tyk/tree/master/coprocess) provides a bridge between the Gateway API and C. Any function that needs to be exported should have the `export` keyword:
 
 ```{.copyWrapper}
 //export TykTriggerEvent

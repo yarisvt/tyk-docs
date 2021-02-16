@@ -63,7 +63,7 @@ Install Tyk **On-Premises** on Heroku.
 Install Tyk **On-Premises** on Microsoft Azure. 
 {{< /badge >}}
 
-{{< badge read="10 mins" href="docs/tyk-on-premises/vagrant/" image="/docs/img/vagrant-logo.png">}}
+{{< badge read="10 mins" href="/docs/tyk-on-premises/vagrant/" image="/docs/img/vagrant-logo.png">}}
 Install Tyk **On-Premises** on Vagrant. 
 {{< /badge >}}
 
