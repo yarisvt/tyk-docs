@@ -10,7 +10,6 @@ aliases:
   - /getting-started/installation/with-tyk-on-premises/
   - /tyk-on-premises/getting-started/
   - /getting-started/installation/with-tyk-on-premises/bootstrapper-cli/
-  - /getting-started/licencing/
 ---
 ## What is Tyk On-Premises?
 
