@@ -5,6 +5,8 @@ menu:
   main:
     parent: Analytics
 weight: 7 
+aliases: 
+  - /analytics-and-reporting/geographic-distribution/
 ---
 
 Tyk will attempt to record GeoIP based information based on your inbound traffic. This requires a MaxMind IP database to be available to Tyk and is limited to the accuracy of that database.

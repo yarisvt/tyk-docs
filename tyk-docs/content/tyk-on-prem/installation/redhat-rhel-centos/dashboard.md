@@ -5,6 +5,9 @@ menu:
   main:
     parent: "On Red Hat (RHEL) / CentOS"
 weight: 1 
+url: /tyk-on-prem/installation/redhat-rhel-centos/dashboard
+aliases:
+  - /getting-started/installation/with-tyk-on-premises/redhat-rhel-centos/dashboard/
 ---
 
 

@@ -5,6 +5,8 @@ menu:
   main:
     parent: "Getting Started"
 weight: 2
+aliases:
+  - /try-out-tyk/tutorials/create-api/
 ---
 
 {{< tabs_start >}}
