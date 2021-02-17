@@ -11,20 +11,50 @@ aliases:
 
 ---
 
-## Install Tyk API Gateway on Ubuntu
+{{< tabs_start >}}
+{{< tab_start "Ansible" >}}
+## Requirements
+1. [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
 
-Installing Tyk on Ubuntu is very straightforward, follow the guides and tutorials in this section to have Tyk up and running in no time.
+## Getting Started
+1. clone the [tyk-ansible](https://github.com/TykTechnologies/tyk-ansible) repositry
 
-{{< note success >}}
-**Note**  
+```bash
+$ git clone https://github.com/TykTechnologies/tyk-ansible
+```
 
-For a production environment, we recommend that the Gateway, Dashboard and Pump are installed on separate machines. If installing multiple Gateways, you should install each on a separate machine. See [Planning for Production](/docs/planning-for-production/) For more details.
-{{< /note >}}
+2. `cd` into the directory
+```.bash
+$ cd tyk-ansible
+```
 
+3. Run initalization script to initialize environment
 
+```bash
+$ sh scripts/init.sh
+```
+
+4. Modify `hosts.yml` file to update ssh variables to your server(s). You can learn more about the hosts file [here](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html)
+
+5. Run ansible-playbook to install the following:
+- Redis
+- MongoDB
+- Tyk Dashboard
+- Tyk Gateway
+- Tyk Pump
+
+```bash
+$ ansible-playbook playbook.yml -t tyk-pro -t redis -t mongodb
+```
+
+You can choose to not install Redis or MongoDB by removing the `-t redis` or `-t mongodb` respectively.
+
+{{< tab_end >}}
+
+{{< tab_start "Shell" >}}
 ## Prerequisites
 
-Before installing the Tyk components in the order below, you need to install firstly MongoDB, then Redis.
+Before installing the Tyk components in the order below, you need to first install Redis and MongoDB.
 
 ### Default Ports
 
@@ -39,30 +69,7 @@ Before installing the Tyk components in the order below, you need to install fir
 |**Tyk Gateway**          |                |
 |Management API           |      8080      |
 
-## Database Support
-
-### Tyk Gateway
-
-By default the Tyk Gateway uses MongoDB. You can also use the following:
-
-* [DocumentDB](https://aws.amazon.com/documentdb/)
-* [Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/introduction)
-
-{{< note success >}}
-**Note**  
-
-If you are using DocumentDB, [capped collections](/docs/analytics-and-reporting/capping-analytics-data-storage/) are not supported. See [here](https://docs.aws.amazon.com/documentdb/latest/developerguide/mongo-apis.html) for more details.
-{{< /note >}}
-
-### Tyk Dashboard
-
-The Tyk Dashboard and Portal use Redis.
-
-
-### Supported Verions of MongoDB and Redis
-
-- MongoDB 3.x and 4.0.x
-- Redis 2.8.x to 5.0.x
+## Getting Started
 
 ### Install MongoDB 4.0
 
@@ -81,8 +88,14 @@ You should follow the [online tutorial for installing MongoDb](https://docs.mong
 sudo apt-get install -y redis-server
 ```
 
-We then recommend installing Tyk in the following order:
+### Install Tyk Dashboard
+You can find the tutorial to install `tyk-dashboard` [here](/docs/getting-started/installation/with-tyk-on-premises/on-ubuntu/dashboard/)
 
-- [Dashboard](/docs/getting-started/installation/with-tyk-on-premises/on-ubuntu/dashboard/)
-- [Pump](/docs/getting-started/installation/with-tyk-on-premises/on-ubuntu/analytics-pump/)
-- [Gateway](/docs/getting-started/installation/with-tyk-on-premises/on-ubuntu/gateway/)
+### Install Tyk Gateway
+You can find the tutorial to install `tyk-gateway` [here](/docs/getting-started/installation/with-tyk-on-premises/on-ubuntu/gateway/)
+
+### Install Tyk Pump
+You can find the tutorial to install `tyk-pump` [here](/docs/getting-started/installation/with-tyk-on-premises/on-ubuntu/analytics-pump/)
+{{< tab_end >}}
+{{< tabs_end >}}
+
