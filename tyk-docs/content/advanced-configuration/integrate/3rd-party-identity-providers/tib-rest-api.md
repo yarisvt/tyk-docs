@@ -4,6 +4,7 @@ menu:
   main:
     parent: "3rd Party Identity Providers"
 weight: 0 
+url: /integrate/3rd-party-identity-providers/tib-rest-api/
 ---
 
 The Tyk Identity Broker (TIB) has an API to allow policies to be created, updated, removed and listed for programmatic and automated access. TIB also has a "flush" feature that enables you to flush the current configuration to disk for use when the client starts again.
