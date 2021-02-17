@@ -283,7 +283,7 @@ Tyk Identity Broker now fully support LDAP search with complex filters! [Docs](/
 
 Cloud users will be automatically upgraded to the new release.
 
-Hybrid users should follow the upgrade instructions [here](/docs/get-started/with-tyk-hybrid/tutorials/install-hybrid-gateway/#upgrade-hybrid).
+Hybrid users should follow the upgrade instructions [here](/docs/upgrading-tyk/#tyk-multi-cloud-gateway).
 
 On-Premises users can download the new release packages from their usual repositories.
 

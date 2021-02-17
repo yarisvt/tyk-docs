@@ -5,6 +5,8 @@ menu:
   main:
     parent: "Authentication & Authorization"
 weight: 5 
+aliases:
+  - /tyk-apis/tyk-gateway-api/api-definition-objects/jwt/docs/basic-config-and-security/security/authentication-authorization/json-web-tokens/ 
 ---
 
 

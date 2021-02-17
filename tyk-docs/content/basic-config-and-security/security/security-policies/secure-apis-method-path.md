@@ -5,6 +5,10 @@ menu:
   main:
     parent: "Security Policies"
 weight: 3 
+url: 
+aliases:
+  - /basic-config-and-security/security/security-policies/secure-apis-method-path/
+  - /security/security-policies/secure-apis-method-path/
 ---
 
 Tyk already lets you set version access rights, whitelisted, and blacklisted paths to control how your users access your APIs, however what has not been easy to do is to restrict access based on specific paths, per key or policy.

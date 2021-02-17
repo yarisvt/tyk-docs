@@ -6,6 +6,7 @@ menu:
   main:
     parent: "Customise"
 weight: 5 
+url: /tyk-developer-portal/customise/custom-developer-portal/
 ---
 {{< note success >}}
 **Note**  

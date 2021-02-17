@@ -5,6 +5,9 @@ menu:
   main:
     parent: "Security Policies"
 weight: 2 
+aliases:
+  - /basic-config-and-security/security/security-policies/partitioned-policies/
+  - /security/security-policies/partitioned-policies/
 ---
 
 ## Partitioned Policies

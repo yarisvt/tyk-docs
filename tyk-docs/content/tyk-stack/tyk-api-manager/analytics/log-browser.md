@@ -5,6 +5,8 @@ menu:
   main:
     parent: Analytics
 weight: 5
+aliases:
+  - /analytics-and-reporting/log-browser/
 ---
 
 When you look through your Dashboard and your error breakdown statistics, you'll find that you will want to drill down to the root cause of the errors. This is what the Log Browser is for.
