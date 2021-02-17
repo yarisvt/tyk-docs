@@ -1,6 +1,7 @@
 ---
 title: "Tyk Gateway Open Source (OSS)"
 identifier: "tyk-gateway-ce"
+menuLabel: oss
 date: 2021-01-20
 weight: 1
 menu:
