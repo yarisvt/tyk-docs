@@ -7,10 +7,8 @@ menu:
 weight: 3
 ---
 
-Follow the tutorial for your installation.
-
 {{< tabs_start >}}
-{{< tab_start "Cloud Classic" >}}
+{{< tab_start "Cloud" >}}
 
 {{< include "create-api-key-include" >}}
 
@@ -26,16 +24,8 @@ You will see a 200 response with your new key:
 The value returned in the `key_id` parameter of the response is the access key you can now use to access the API that was specified in the `access_rights` section of the call.
 
 {{< tab_end >}}
-{{< tab_start "Multi-Cloud" >}}
+{{< tab_start "Self-Managed" >}}
 
-> **NOTE**: Tyk Multi-Cloud has superseded our Hybrid offering. See [Tyk Multi-Cloud](https://tyk.io/api-gateway/cloud/#multi-cloud) for more details. You can get a free 30 day trial of Tyk Multi-Cloud.
-
-Creating an API Key with Tyk Multi-Cloud is the same process as with Tyk Cloud. The only difference is that when you use the API key, you can use it either against your Cloud endpoints or against your Multi-Cloud Gateway. Both are valid.
-
-{{< include "create-api-key-include" >}}
-
-{{< tab_end >}}
-{{< tab_start "On-Premises" >}}
 {{< include "create-api-key-include" >}}
 
 You will see a response with your new key:
@@ -49,7 +39,8 @@ You will see a response with your new key:
 
 The value returned in the `key` parameter of the response is the access key you can now use to access the API that was specified in the `access_rights` section of the call
 {{< tab_end >}}
-{{< tab_start "Community Edition" >}}
+{{< tab_start "Open Source" >}}
+
 To create an API Key, we will need the API ID that we wish to grant the key access to, then creating the key is a very simple API call to the endpoint.
 
 **Prerequisite**

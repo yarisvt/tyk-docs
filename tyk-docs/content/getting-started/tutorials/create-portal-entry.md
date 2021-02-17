@@ -9,17 +9,15 @@ aliases:
     - /docs/tyk-dashboard-v1-0/tutorials/set-up-your-portal/
 ---
 
-
+This is for the closed source [Tyk Developer Portal](/docs/tyk-developer-portal) only
 
 {{< tabs_start >}}
-{{< tab_start "Cloud Classic" >}}
+{{< tab_start "Cloud" >}}
+
 {{< include "create-portal-entry-include" >}}
 
 {{< tab_end >}}
-{{< tab_start "Multi-Cloud" >}}
-{{< include "create-portal-entry-include" >}}
-{{< tab_end >}}
-{{< tab_start "On-Premises" >}}
+{{< tab_start "Self-Managed" >}}
 
 ## Add an API and Swagger based Docs to your Portal Catalogue
 

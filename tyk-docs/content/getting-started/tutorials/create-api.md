@@ -7,94 +7,16 @@ menu:
 weight: 2
 ---
 
-How to create an API within Tyk, depending on your installation type:
-
 {{< tabs_start >}}
-{{< tab_start "Cloud Classic" >}}
+{{< tab_start "Cloud" >}}
 
-{{< include "create-api-include" >}}
+<br>
 
-You will see a 200 response with your new key:
-```
-{
-  "api_model": {},
-  "key_id": "59bf9159adbab8abcdefghijac9299a1271641b94fbaf9913e0e048c",
-  "data": {...}
-}
-```
-
-The value returned in the `key_id` parameter of the response is the access key you can now use to access the API that was specified in the `access_rights` section of the call.
+The Cloud is simply the SaaS version of the Self-Managed product, but there are a few differences.  Please make sure you follow the Cloud [Get Started](/docs/tyk-cloud/getting-started-tyk-cloud/first-api/) guide instead.
 
 {{< tab_end >}}
-{{< tab_start "Multi-Cloud" >}}
-{{< include "create-api-include" >}}
+{{< tab_start "Self-Managed" >}}
 
-If the command succeeds, you will see:
-```
-{
-  "action": "added",
-  "key": "1",
-  "status": "ok"
-}
-```
-
-**What did we just do?**
-
-We just sent an API Definition to the Tyk `/apis` endpoint. API Definitions are described further [here][8]. These objects encapsulate all of the settings for an API within Tyk Multi-Cloud.
-
-## <a name="test-new-api"></a> Test your new API
-
-To access the proxied API via the Gateway on Tyk Cloud:
-```{.copyWrapper}
-curl -H "Authorization: null" https://your-organization.cloud.tyk.io/test-api/get
-    
-Output:
--------
-{
-  "error": "Key not authorised"
-}
-```
-
-If you see the above output, then the API is loaded and is being protected by Tyk. You can now generate a token and try the same command in place of `null` to see if the request proxies.
-
-
-## Test your new API using your local Tyk Gateway
-
-### To access the proxied API via the Gateway on your infrastructure ###
-```{.copyWrapper}
-curl -H "Authorization: null" https://your-gateway-hostname/test-api/get
-    
-Output:
--------
-{
-  "error": "Key not authorised"
-}
-```
-If you see the above output, then the API is loaded and is being protected by Tyk. You can now generate a token and try the same command in place of `null` to see if the request proxies.
-
-### To access localhost API via the Tyk-Hybrid containered Gateway on your infrastructure ###
-
-In order for Docker to access your `localhost` you need to edit `start.sh` and add `-net=host` to the command that starts the container just before the image name.
-This should look like this:
-
-```{.copyWrapper}
-docker run --restart always -v $cwd/confs:/etc/nginx/sites-enabled \
-        -d --name tyk_hybrid \
-        -p $PORT:$PORT \
-        -p 80:80 \
-        -e PORT=$PORT \
-        -e SECRET=$SECRET \
-        -e ORGID=$ORGID \
-        -e APIKEY=$APIKEY \
-        -e REDISHOST=$REDISHOST \
-        -e REDISPW=$REDISPW \
-        -e RPORT=$RPORT \
-        -e BINDSLUG=1 \
-        --net=host \
-        $IMAGE
-```
-{{< tab_end >}}
-{{< tab_start "On-Premises" >}}
 {{< include "create-api-include" >}}
 
 If the command succeeds, you will see:
@@ -110,7 +32,7 @@ If the command succeeds, you will see:
 
 We just sent an API definition to the Tyk `/apis` endpoint, API definitions are discussed in detail in the [Tyk Gateway API documentation](/docs/tyk-gateway-api/)api-definition-objects/). These objects encapsulate all of the settings for an API within Tyk.
 {{< tab_end >}}
-{{< tab_start "Community Edition" >}}
+{{< tab_start "Open Source" >}}
 ## Prerequisites
 
 In order to complete this tutorial, you need to have the [Tyk Community Edition installed](/docs/tyk-oss-gateway/).
