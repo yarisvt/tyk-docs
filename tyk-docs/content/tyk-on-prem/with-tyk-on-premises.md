@@ -1,6 +1,6 @@
 ---
 date: 2017-03-15T15:01:42Z
-title: Tyk On-Premises
+title: Tyk Self-Managed
 weight: 4
 menu: 
     main:

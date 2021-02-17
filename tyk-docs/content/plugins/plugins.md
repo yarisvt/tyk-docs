@@ -3,7 +3,7 @@ date: 2020-06-24T12:59:42Z
 title: Custom Plugins
 menu:
     main:
-        parent: "Tyk Gateway CE"
+        parent: "Tyk Gateway OSS"
 weight: 80
 url: "/plugins"
 ---

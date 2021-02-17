@@ -3,7 +3,7 @@ date: 2017-03-24T16:40:31Z
 title: Single Sign On
 menu: 
     main:
-        parent: "Tyk API Manager"
+        parent: "Tyk Dashboard"
 weight: 0
 url: "/advanced-configuration/integrate/sso"
 ---

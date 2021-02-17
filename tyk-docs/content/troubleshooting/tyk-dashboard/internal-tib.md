@@ -3,7 +3,7 @@ title: "Internal TIB SSO User unable to log in"
 date: 2020-08-07T13:10:55+01:00
 menu:
   main:
-    parent: "Tyk Dashboard"
+    parent: "Tyk Dashboard Troubleshooting"
 weight: 7
 ---
 

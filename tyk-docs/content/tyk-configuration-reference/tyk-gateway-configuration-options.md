@@ -3,7 +3,7 @@ date: 2017-03-27T12:51:44+01:00
 title: Tyk Gateway Configuration Options
 menu:
   main:
-    parent: "Tyk Gateway CE"
+    parent: "Tyk Gateway OSS"
 weight: 1
 ---
 

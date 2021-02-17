@@ -6,7 +6,7 @@ identifier: "tyk-on-premises-installation"
 weight: 1
 menu: 
     main:
-        parent: "Tyk On-Premises"
+        parent: Tyk Self-Managed
 url: "/tyk-on-premises/install"
 aliases:
   - "/tyk-on-premises/"

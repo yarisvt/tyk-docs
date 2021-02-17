@@ -4,7 +4,7 @@ title: Analytics
 weight: 3
 menu: 
     main:
-        parent: Tyk API Manager
+        parent: "Tyk Dashboard"
 url: "/tyk-dashboard-analytics"
 ---
 

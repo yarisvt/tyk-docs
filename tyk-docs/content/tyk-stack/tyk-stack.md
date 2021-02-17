@@ -30,3 +30,5 @@ The following Tyk components, created and maintained by the Tyk Team, are propri
 * [Universal Data Graph](/docs/universal-data-graph/)
 
 If you plan to deploy and use the above components On-premise, licence keys are required.
+
+todo: add link for liecnse key section in tyk on -prem

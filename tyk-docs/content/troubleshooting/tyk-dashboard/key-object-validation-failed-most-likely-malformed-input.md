@@ -3,7 +3,7 @@ date: 2020-04-16T19:20:30+01:00
 title: Key object validation failed, most likely malformed input error
 menu:
   main:
-    parent: "Tyk Dashboard"
+    parent: "Tyk Dashboard Troubleshooting"
 weight: 5 
 ---
 

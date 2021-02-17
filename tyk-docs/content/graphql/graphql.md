@@ -4,7 +4,7 @@ date: 2020-06-03
 weight: 200
 menu:
     main:
-        parent: "Tyk Gateway CE"
+        parent: "Tyk Gateway OSS"
 url: "/graphql"
 ---
 

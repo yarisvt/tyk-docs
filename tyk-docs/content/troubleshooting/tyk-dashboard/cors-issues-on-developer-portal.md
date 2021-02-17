@@ -3,7 +3,7 @@ date: 2020-08-18T10:17:54+01:00
 title: CORS issues on developer portal
 menu:
   main:
-    parent: "Tyk Dashboard"
+    parent: "Tyk Dashboard Troubleshooting"
 weight: 6 
 ---
 

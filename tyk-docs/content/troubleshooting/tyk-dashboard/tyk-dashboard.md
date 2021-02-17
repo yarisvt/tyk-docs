@@ -1,6 +1,6 @@
 ---
 date: 2017-03-27T17:38:09+01:00
-title: Tyk Dashboard
+title: Tyk Dashboard Troubleshooting
 menu:
   main:
     parent: "Troubleshooting"

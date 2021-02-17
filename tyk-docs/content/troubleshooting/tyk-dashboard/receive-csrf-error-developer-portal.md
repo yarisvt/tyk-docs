@@ -3,7 +3,7 @@ date: 2017-03-27T19:26:54+01:00
 title: Receive a CSRF error in the Developer Portal
 menu:
   main:
-    parent: "Tyk Dashboard"
+    parent: "Tyk Dashboard Troubleshooting"
 weight: 5 
 ---
 

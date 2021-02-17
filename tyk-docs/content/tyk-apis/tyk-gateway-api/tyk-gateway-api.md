@@ -3,7 +3,7 @@ date: 2017-03-27T10:41:57+01:00
 title: Tyk Gateway API
 menu:
   main:
-    parent: "Tyk Gateway CE"
+    parent: "Tyk Gateway OSS"
 weight: 3
 url: "/tyk-gateway-api"
 type: "swagger-ui"
