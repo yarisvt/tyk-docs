@@ -11,7 +11,22 @@ aliases:
 
 ## Full Lifecycle API Management
 
-There are many ways to consume the Tyk product suite.
+Which solution is right for me?
+
+|                          | Open Source  |   Self-Managed     |  Cloud
+|--------------------------|--------------|--------------------|---------
+| API Gateway Capabilities <br> <ul><li>Rate Limiting</li><li>Authentication</li> <li>API Versioning</li><li>Granular Access Control</li><li>GraphQL</li>  <li>and [more](/docs/tyk-solutions/open-source/#tyk-gateway)</li></ul> | ✅           |✅	                  |✅      
+| Version Control          | ✅		     |✅	                  |✅	 
+| Single Sign On (SSO)     | ❌	          |✅	              |✅	      
+| RBAC & API Teams         | ❌	          |✅	              |✅	      
+| Dashboard GUI            | ❌	          |✅	              |✅	      
+| Universal Data Graph     | ❌	          |✅	              |✅	      
+| Management of multiple Gateways | ❌	          |✅	              |✅	      
+| Multi-tenant | ❌	          |✅	              |✅	      
+| Multi-Data Center    | ❌	          |✅	              |✅	      
+| Developer Portal         | ❌		     |✅	                  |✅	   
+| Fully-Managed SaaS       | ❌		      |❌	              |✅	   
+| HIPAA-Compliant          | ✅		      |✅	              |❌	   
 
 ### Open Source Software (OSS)
 The Tyk OSS Gateway is the backbone of all our solutions.  You can deploy it for free, forever.

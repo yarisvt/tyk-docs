@@ -1051,8 +1051,3 @@ h2#feature-setups {
 @media only screen and (max-width: 768px) {
   .documentation-table-of-contents a {width: 100%; text-align: center;}
 }
-
-
-#main-content #full-lifecycle-api-management, #main-content #the-tyk-stack, #main-content #feature-setups {
-  text-align:center
-}

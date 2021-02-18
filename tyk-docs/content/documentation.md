@@ -35,7 +35,7 @@ Tyk **SaaS** solution
 
 {{< /grid >}}
 
-{{< button href="/docs/tyk-on-premises/#installing-tyk-on-premises" color="green" content="Tyk Solutions" >}}
+{{< button href="/docs/tyk-solutions" color="green" content="Tyk Solutions" >}}
 
 ## The Tyk Stack
 
