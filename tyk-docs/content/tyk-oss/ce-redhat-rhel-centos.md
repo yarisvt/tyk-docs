@@ -6,6 +6,9 @@ menu:
     parent: "Tyk Gateway CE"
 weight: 5
 url: "/tyk-oss/ce-redhat-rhel-centos/"
+aliases:
+  - /tyk-oss/ce-centos/
+  - /tyk-oss/ce-redhat/
 ---
 {{< tabs_start >}}
 {{< tab_start "Ansible" >}}

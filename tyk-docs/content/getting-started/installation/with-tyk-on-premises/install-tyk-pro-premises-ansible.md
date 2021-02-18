@@ -6,8 +6,6 @@ menu:
     parent: "Tyk On-Premises"
 weight: 3
 url: "/tyk-on-premises/ansible"
-aliases:
-  - /getting-started/installation/with-tyk-on-premises/install-tyk-pro-premises-ansible/ 
 ---
 {{< note >}}
 **Requirements**

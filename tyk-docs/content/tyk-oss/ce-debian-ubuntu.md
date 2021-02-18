@@ -6,6 +6,8 @@ menu:
     parent: "Tyk Gateway CE"
 weight: 4
 url: "/tyk-oss/ce-debian-ubuntu/"
+aliases:
+  - /tyk-oss/ce-ubuntu/
 ---
 {{< tabs_start >}}
 {{< tab_start "Ansible" >}}
