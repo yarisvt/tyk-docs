@@ -1,11 +1,11 @@
 ---
-title: "CE on CentOS"
+title: "CE on Debian / Ubuntu"
 date: 2021-01-20
 menu:
   main:
     parent: "Tyk Gateway CE"
-weight: 5
-url: "/tyk-oss/ce-centos/"
+weight: 4
+url: "/tyk-oss/ce-debian-ubuntu/"
 ---
 {{< tabs_start >}}
 {{< tab_start "Ansible" >}}
@@ -44,52 +44,51 @@ $ ansible-playbook playbook.yml -t tyk-ce -t redis
 ```
 
 You can choose to not install Redis by removing the `-t redis`. However Redis is a requirment and needs to be installed for the gateway to run.
+
+## Supported Distributions
+| Distribution | Version | Supported |
+| --------- | :---------: | :---------: |
+| Debian | 10 | ✅ |
+| Debian | 9 | ✅ |
+| Debian | 8 | ❌ |
+| Ubuntu | 20 | ✅ |
+| Ubuntu | 18 | ✅ |
+| Ubuntu | 16 | ✅ |
+| Ubuntu | 14 | ❌ |
+
 {{< tab_end >}}
 {{< tab_start "Shell" >}}
-<br />
 {{< note >}}
 **Requirements**
 
 *   Ensure port `8080` is open: this is used in this guide for Gateway traffic (the API traffic to be proxied).
-*   EPEL (Extra Packages for Enterprise Linux) is a free, community based repository project from Fedora which provides high quality add-on software packages for Linux distribution including RHEL, CentOS, and Scientific Linux. EPEL isn't a part of RHEL/CentOS but it is designed for major Linux distributions. In our case we need it for Redis DB. Install EPEL using the instructions [here](http://fedoraproject.org/wiki/EPEL#How_can_I_use_these_extra_packages.3F).
 {{< /note >}}
 
-### Install Redis using EPEL
+### Install Redis
 
 ```bash
-sudo yum install -y redis
+sudo apt-get install -y redis-server
 ```
 
-{{< note success >}}
-**Note**  
+## Installation
 
-You may be asked to accept the GPG key for our repos and when the package installs, click yes to continue.
-{{< /note >}}
-
-
-*   Tyk requires Python 3.4. Install via the following command:
+First import the public key as required by Ubuntu APT
 
 ```bash
-sudo yum install python34
-```
-
-### Start Redis
-
-In many cases Redis might not be running, so let's start that:
-```bash
-sudo service redis start
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
 ```
 
 ### Run Installation Scripts via our PackageCloud Repositories
 
 From [https://packagecloud.io/tyk/tyk-gateway](https://packagecloud.io/tyk/tyk-gateway) you have the following options:
 
-* Via the correct package for your CentOS version. We have packages for the following:
- * CentOS 7
- * CentOS 8
- 
-* Via Quick Installation Instructions. You can use:
- * [Manual Instructions](https://packagecloud.io/tyk/tyk-gateway/install#manual-rpm)
+* Via the correct package for your Ubuntu version. We have packages for the following:
+ * Xenial
+ * Trusty
+ * Precise
+
+* Via Quick Installation Instructions. You can use: 
+ * [Manual Instructions](https://packagecloud.io/tyk/tyk-gateway/install#manual-deb)
  * [Chef](https://packagecloud.io/tyk/tyk-gateway/install#chef)
  * [Puppet](https://packagecloud.io/tyk/tyk-gateway/install#puppet)
  * [CI and Build Tools](https://packagecloud.io/tyk/tyk-gateway/ci)
@@ -109,7 +108,7 @@ You need to replace `<hostname>` for `--redishost=<hostname>` with your own valu
 sudo /opt/tyk-gateway/install/setup.sh --listenport=8080 --redishost=<hostname> --redisport=6379 --domain=""
 ```
 
-What we've done here is told the setup script that:
+What you've done here is told the setup script that:
 
 *   `--listenport=8080`: Listen on port `8080` for API traffic.
 *   `--redishost=<hostname>`: The hostname for Redis.

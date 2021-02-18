@@ -1,5 +1,5 @@
 ---
-title: "CE on Docker"
+title: "CE with Docker"
 date: 2021-01-20
 menu:
   main:

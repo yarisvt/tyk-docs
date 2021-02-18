@@ -1,11 +1,11 @@
 ---
-title: "CE on Red Hat"
+title: "CE On Red Hat (RHEL / CentOS)"
 date: 2021-01-20
 menu:
   main:
     parent: "Tyk Gateway CE"
-weight: 3
-url: "/tyk-oss/ce-redhat/"
+weight: 5
+url: "/tyk-oss/ce-redhat-rhel-centos/"
 ---
 {{< tabs_start >}}
 {{< tab_start "Ansible" >}}
@@ -44,6 +44,24 @@ $ ansible-playbook playbook.yml -t tyk-ce -t redis
 ```
 
 You can choose to not install Redis by removing the `-t redis`. However Redis is a requirment and needs to be installed for the gateway to run.
+
+## Supported Distributions
+| Distribution | Version | Supported |
+| --------- | :---------: | :---------: |
+| Amazon Linux | 2 | ✅ |
+| CentOS | 8 | ⚠️ |
+| CentOS | 7 | ✅ |
+| CentOS | 6 | ❌ |
+| RHEL | 8 | ⚠️ |
+| RHEL | 7 | ✅ |
+| RHEL | 6 | ❌ |
+
+| Symbol | Description |
+| :---------: | --------- |
+| ✅ | Tested / Supported |
+| ⚠️ | Tested / Not officially supported by Tyk |
+| ❌️ | Untested / Not supported by tool |
+
 {{< tab_end >}}
 {{< tab_start "Shell" >}}
 <br />
