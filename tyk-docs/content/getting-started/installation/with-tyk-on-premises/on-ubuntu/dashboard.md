@@ -3,7 +3,7 @@ date: 2017-03-22T16:08:31Z
 Title: Dashboard on Ubuntu
 menu:
   main:
-    parent: "On Ubuntu"
+    parent: "On Debian / Ubuntu"
 weight: 1
 ---
 {{< tabs_start >}}

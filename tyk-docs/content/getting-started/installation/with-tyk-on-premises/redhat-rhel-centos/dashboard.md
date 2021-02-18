@@ -3,7 +3,7 @@ date: 2017-03-22T16:32:53Z
 Title: Dashboard on Red Hat (RHEL) / CentOS
 menu:
   main:
-    parent: "On Red Hat (RHEL) / CentOS"
+    parent: "On Red Hat (RHEL / CentOS)"
 weight: 1 
 ---
 {{< tabs_start >}}

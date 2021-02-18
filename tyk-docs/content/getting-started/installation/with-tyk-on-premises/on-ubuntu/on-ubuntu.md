@@ -1,10 +1,10 @@
 ---
 date: 2017-03-22T15:46:41Z
-Title: On Ubuntu
+Title: On Debian / Ubuntu
 menu:
   main:
     parent: "Tyk On-Premises"
-weight: 3
+weight: 4
 url: "/tyk-on-premises/on-ubuntu"
 aliases:
   - /getting-started/installation/with-tyk-on-premises/on-ubuntu/
@@ -52,6 +52,17 @@ $ ansible-playbook playbook.yml -t tyk-pro -t redis -t mongodb
 
 You can choose to not install Redis or MongoDB by removing the `-t redis` or `-t mongodb` respectively. However Redis and MongoDB are a requirment and need to be installed for the Tyk Pro to run.
 
+## Supported Distributions
+| Distribution | Version | Supported |
+| --------- | :---------: | :---------: |
+| Debian | 10 | ✅ |
+| Debian | 9 | ✅ |
+| Debian | 8 | ❌ |
+| Ubuntu | 20 | ✅ |
+| Ubuntu | 18 | ✅ |
+| Ubuntu | 16 | ✅ |
+| Ubuntu | 14 | ❌ |
+
 {{< tab_end >}}
 {{< tab_start "Shell" >}}
 <br />
@@ -80,7 +91,7 @@ You should follow the [online tutorial for installing MongoDb](https://docs.mong
 sudo apt-get install -y redis-server
 ```
 
-## Install Tyk API Gateway on Ubuntu
+## Install Tyk Pro on Ubuntu
 
 Installing Tyk on Ubuntu is very straightforward using our APT repositories, follow the guides and tutorials in this section to have Tyk up and running in no time.
 
@@ -91,43 +102,6 @@ The suggested order would be to install Tyk Dashboard, then Tyk Pump and then Ty
 - [Gateway](/docs/getting-started/installation/with-tyk-on-premises/on-ubuntu/gateway/)
 {{< tab_end >}}
 {{< tabs_end >}}
-
-## Database Support
-
-### Tyk Gateway
-
-By default the Tyk Gateway uses MongoDB. You can also use the following:
-
-* [DocumentDB](https://aws.amazon.com/documentdb/)
-* [Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/introduction)
-
-{{< note success >}}
-**Note**  
-
-If you are using DocumentDB, [capped collections](/docs/analytics-and-reporting/capping-analytics-data-storage/) are not supported. See [here](https://docs.aws.amazon.com/documentdb/latest/developerguide/mongo-apis.html) for more details.
-{{< /note >}}
-
-### Tyk Dashboard
-
-The Tyk Dashboard and Portal use Redis.
-
-### Supported Verions of MongoDB and Redis
-
-- MongoDB 3.x and 4.0.x
-- Redis 2.8.x to 5.0.x
-
-### Default Ports
-
-| Application             | Port           |
-|-------------------------|----------------|
-|MongoDB                  |      27017     |
-|Redis                    |      6379      |
-|**Tyk Dashboard**        |                |
-|Developer Portal         |      3000      |
-|Admin Dashboard          |      3000      |
-|Admin Dashboard API      |      3000      |
-|**Tyk Gateway**          |                |
-|Management API           |      8080      |
 
 {{< note success >}}
 **Note**  

@@ -3,7 +3,7 @@ date: 2017-03-22T16:39:29Z
 Title: Tyk Pump on Red Hat (RHEL) / CentOS
 menu:
   main:
-    parent: "On Red Hat (RHEL) / CentOS"
+    parent: "On Red Hat (RHEL / CentOS)"
 weight: 2 
 ---
 {{< tabs_start >}}

@@ -3,7 +3,7 @@ date: 2017-03-22T16:14:35Z
 Title: Tyk Pump on Ubuntu
 menu:
   main:
-    parent: "On Ubuntu"
+    parent: "On Debian / Ubuntu"
 weight: 2
 ---
 {{< tabs_start >}}

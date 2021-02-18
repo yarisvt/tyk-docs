@@ -3,7 +3,7 @@ date: 2017-03-22T15:55:18Z
 Title: Gateway on Ubuntu
 menu:
   main:
-    parent: "On Ubuntu"
+    parent: "On Debian / Ubuntu"
 weight: 3 
 ---
 {{< tabs_start >}}

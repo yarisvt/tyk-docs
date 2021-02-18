@@ -3,7 +3,7 @@ date: 2017-03-22T16:24:18Z
 Title: Gateway on Red Hat (RHEL) / CentOS
 menu:
   main:
-    parent: "On Red Hat (RHEL) / CentOS"
+    parent: "On Red Hat (RHEL / CentOS)"
 weight: 3 
 ---
 {{< tabs_start >}}

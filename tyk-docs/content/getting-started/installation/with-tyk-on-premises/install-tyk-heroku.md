@@ -4,7 +4,7 @@ Title: Heroku
 menu:
   main:
     parent: "Tyk On-Premises"
-weight: 6
+weight: 7
 url: "/tyk-on-premises/installation/on-heroku"
 aliases:
   - /getting-started/with-tyk-on-premises/installation/on-heroku/
