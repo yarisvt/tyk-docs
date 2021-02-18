@@ -13,8 +13,12 @@ aliases:
 
 {{< tabs_start >}}
 {{< tab_start "Ansible" >}}
-## Requirements
-1. [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
+<br />
+{{< note >}}
+**Requirements**
+
+[Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html) is required to run the following commands. Instructions on how run this with shell is in the <b>Shell</b> tab.
+{{< /note >}}
 
 ## Getting Started
 1. clone the [tyk-ansible](https://github.com/TykTechnologies/tyk-ansible) repositry
@@ -50,7 +54,6 @@ $ ansible-playbook playbook.yml -t tyk-pro -t redis -t mongodb
 You can choose to not install Redis or MongoDB by removing the `-t redis` or `-t mongodb` respectively.
 
 {{< tab_end >}}
-
 {{< tab_start "Shell" >}}
 ## Prerequisites
 
