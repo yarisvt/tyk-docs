@@ -15,17 +15,17 @@ Which solution is right for me?
 
 |                          | Open Source  |   Self-Managed     |  Cloud
 |--------------------------|--------------|--------------------|---------
-| API Gateway Capabilities <br> <ul><li>Rate Limiting</li><li>Authentication</li> <li>API Versioning</li><li>Granular Access Control</li><li>GraphQL</li>  <li>and [more](/docs/tyk-solutions/open-source/#tyk-gateway)</li></ul> | ✅           |✅	                  |✅      
-| Version Control          | ✅		     |✅	                  |✅	 
+| API Gateway Capabilities <br> <ul><li>Rate Limiting</li><li>Authentication</li> <li>API Versioning</li><li>Granular Access Control</li><li>GraphQL</li>  <li>and [more](/docs/tyk-solutions/open-source/#tyk-gateway)</li></ul> | ✅               |✅	                |✅      
+| Version Control Integration | ✅		  |✅	              |✅	 
+| Analytics Integrations   | ✅		      |✅	              |✅	 
+| Dashboard GUI            | ❌	          |✅	              |✅	 
 | Single Sign On (SSO)     | ❌	          |✅	              |✅	      
 | RBAC & API Teams         | ❌	          |✅	              |✅	      
-| Dashboard GUI            | ❌	          |✅	              |✅	      
 | Universal Data Graph     | ❌	          |✅	              |✅	      
-| Management of multiple Gateways | ❌	          |✅	              |✅	      
-| Multi-tenant | ❌	          |✅	              |✅	      
-| Multi-Data Center    | ❌	          |✅	              |✅	      
-| Developer Portal         | ❌		     |✅	                  |✅	   
-| Fully-Managed SaaS       | ❌		      |❌	              |✅	   
+| Multi-tenant             | ❌	          |✅	              |✅	      
+| Multi-Data Center        | ❌	          |✅	              |✅	      
+| Developer Portal         | ❌		      |✅	              |✅	   
+| Fully-Managed SaaS       | ❌		      |❌	              |✅
 | HIPAA-Compliant          | ✅		      |✅	              |❌	   
 
 ### Open Source Software (OSS)
