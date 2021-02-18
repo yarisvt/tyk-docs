@@ -17,12 +17,13 @@ Which solution is right for me?
 |--------------------------|--------------|--------------------|---------
 | API Gateway Capabilities <br> <ul><li>Rate Limiting</li><li>Authentication</li> <li>API Versioning</li><li>Granular Access Control</li><li>GraphQL</li>  <li>and [more](/docs/tyk-solutions/open-source/#tyk-gateway)</li></ul> | ✅               |✅	                |✅      
 | Version Control Integration | ✅		  |✅	              |✅	 
-| Analytics Integrations   | ✅		      |✅	              |✅	 
-| Dashboard GUI            | ❌	          |✅	              |✅	 
+| API Analytics Aggregation| ✅		      |✅	              |✅	 
+| API Analytics            | ❌		      |✅	              |✅	 
+| API Management Interface | ❌	          |✅	              |✅	 
 | Single Sign On (SSO)     | ❌	          |✅	              |✅	      
 | RBAC & API Teams         | ❌	          |✅	              |✅	      
 | Universal Data Graph     | ❌	          |✅	              |✅	      
-| Multi-tenant             | ❌	          |✅	              |✅	      
+| Multi-Tenant             | ❌	          |✅	              |✅	      
 | Multi-Data Center        | ❌	          |✅	              |✅	      
 | Developer Portal         | ❌		      |✅	              |✅	   
 | Fully-Managed SaaS       | ❌		      |❌	              |✅
