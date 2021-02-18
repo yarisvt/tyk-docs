@@ -16,16 +16,20 @@ hideSidebar: true
 
 {{< grid >}}
 
+{{< badge read="5 mins" imageStyle="object-fit:contain" href="/docs/tyk-oss-gateway/" image="/docs/img/logos/tyk_logo2.png">}}
+Tyk **open source**  Gateway
+{{< /badge >}}
+
 {{< badge read="7 mins" imageStyle="object-fit:contain" href="/docs/tyk-solutions/open-source/" image="/docs/img/opensource.png">}}
-Tyk **open source**
+Complete Tyk **open source** solutions
 {{< /badge >}}
 
 {{< badge read="10 mins" imageStyle="object-fit:contain" href="/docs/tyk-on-premises/" image="/docs/img/logos/tyk_logo2.png">}}
-Tyk **Self-Managed**
+Tyk **Self-Managed** solution
 {{< /badge >}}
 
 {{< badge read="15 mins" href="/docs/tyk-cloud/" image="/docs/img/tyk-cloud.svg" >}}
-Tyk **SaaS** product. 
+Tyk **SaaS** solution 
 {{< /badge >}}
 
 
