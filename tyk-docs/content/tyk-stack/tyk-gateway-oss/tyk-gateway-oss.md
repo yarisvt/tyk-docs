@@ -24,6 +24,7 @@ The Tyk Gateway will take inbound requests, run them through a set of middleware
 
 Tyk can also run dynamic middleware components written in JavaScript, and from v2.3 other languages, at either end of the built-in middleware.
 
-[Installation options](/docs/tyk-oss-gateway/) for the Tyk Gateway
+## Install 
+[Installation options](/docs/tyk-oss-gateway/install) for the Tyk Gateway
 
 
