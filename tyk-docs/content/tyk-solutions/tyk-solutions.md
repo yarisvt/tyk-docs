@@ -15,19 +15,30 @@ Which solution is right for me?
 
 |                          | Open Source  |   Self-Managed     |  Cloud
 |--------------------------|--------------|--------------------|---------
-| API Gateway Capabilities <br> <ul><li>Rate Limiting</li><li>Authentication</li> <li>API Versioning</li><li>Granular Access Control</li><li>GraphQL</li>  <li>and [more](/docs/tyk-solutions/open-source/#tyk-gateway)</li></ul> | ✅               |✅	                |✅      
-| Version Control Integration | ✅		  |✅	              |✅	 
-| API Analytics Aggregation| ✅		      |✅	              |✅	 
-| API Analytics            | ❌		      |✅	              |✅	 
-| API Management Interface | ❌	          |✅	              |✅	 
-| Single Sign On (SSO)     | ❌	          |✅	              |✅	      
-| RBAC & API Teams         | ❌	          |✅	              |✅	      
-| Universal Data Graph     | ❌	          |✅	              |✅	      
+| API Gateway Capabilities <br> <ul><li>Rate Limiting</li><li>Authentication</li> <li>API Versioning</li><li>Granular Access Control</li><li>GraphQL</li>  <li>and [more][1]</li></ul> | ✅               |✅	                |✅      
+| [Version Control][2] Integration | ✅		  |✅	              |✅	 
+| [API Analytics Aggregation][3]| ✅		      |✅	              |✅	 
+| [API Management Interface][4] | ❌	          |✅	              |✅	 
+| [Single Sign On (SSO)][5]     | ❌	          |✅	              |✅	      
+| [RBAC & API Teams][6]         | ❌	          |✅	              |✅	      
+| [Universal Data Graph][7]     | ❌	          |✅	              |✅	      
 | Multi-Tenant             | ❌	          |✅	              |✅	      
-| Multi-Data Center        | ❌	          |✅	              |✅	      
-| Developer Portal         | ❌		      |✅	              |✅	   
+| [Multi-Data Center][8]        | ❌	          |✅	              |✅	      
+| [Developer Portal][9]         | ❌		      |✅	              |✅	 
+| [Developer API Analytics][10]  | ❌		      |✅	              |✅	   
 | Fully-Managed SaaS       | ❌		      |❌	              |✅
 | HIPAA-Compliant          | ✅		      |✅	              |❌	   
+
+[1]: /docs/tyk-solutions/open-source/#tyk-gateway
+[2]: /docs/tyk-sync/
+[3]: /docs/tyk-pump/
+[4]: /docs/tyk-dashboard/
+[5]: /docs/advanced-configuration/integrate/sso/
+[6]: /docs/tyk-dashboard/rbac/
+[7]: /docs/universal-data-graph/
+[8]: /docs/tyk-multi-data-centre/
+[9]: /docs/tyk-developer-portal/
+[10]: /docs/tyk-dashboard-analytics/
 
 ### Open Source Software (OSS)
 The Tyk OSS Gateway is the backbone of all our solutions.  You can deploy it for free, forever.
