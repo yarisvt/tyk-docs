@@ -7,7 +7,7 @@ menu:
 weight: 1
 url: "/tyk-on-premises/docker"
 aliases:
-  - /docs/getting-started/installation/with-tyk-on-premises/docker/
+  - /getting-started/installation/with-tyk-on-premises/docker/
 ---
 
 Tyk has three containers that are available to set up a Docker installation:

@@ -11,30 +11,32 @@ aliases:
   - /tyk-on-premises/getting-started/
   - /getting-started/installation/with-tyk-on-premises/bootstrapper-cli/
 ---
-## What is Tyk On-Premises?
+## What is Tyk On-Premises / Self-Managed ?
 
-Tyk On-Premises is the way to install our entire Tyk Pro solution in your own infrastructure, it enables you to have full control over every element of the Tyk stack as well as no external dependency on our cloud solution or infrastructure.
+Tyk Self-Managed is the way to install our Full Lifecycle API Management solution in your own infrastructure.  There is no calling home, and there are no usage limits.  You have full control.
 
-The full Tyk On-Premises Pro system consists of:
+![Tyk API Analytics Dashboard][1]
 
-*   Tyk API Gateway: The API Gateway that proxies and manages your traffic.
-*   Tyk Dashboard: The management Dashboard and integration API for managing a cluster of Tyk Gateways, also shows analytics and features the Developer portal.
-*   Tyk Pump: Handles moving analytics data between your gateways and your Dashboard (amongst other data sinks).
-*   Tyk Identity Broker (Optional): Handles integrations with third-party IDP's.
-*   Tyk Multi-Data-Center Bridge (Optional, Enterprise-only): Allows for the configuration of a Tyk ecosystem that spans many data centers and clouds.
+The full Tyk Self-Managed system consists of:
+<!-- todo: oss labels: -->
+* [Tyk Gateway](/docs/getting-started/tyk-components/gateway/):  The API Gateway that proxies and manages your traffic.
+* [Tyk Dashboard](/docs/getting-started/tyk-components/dashboard/): The management Dashboard and integration API for managing a cluster of Tyk Gateways, also shows analytics and features the [Developer portal](/docs/tyk-developer-portal).
+* [Tyk Pump](/docs/tyk-pump): Handles moving analytics data between your gateways and your Dashboard (amongst other data sinks).
+* [Tyk Identity Broker](/docs/tyk-identity-broker/) (Optional): Handles integrations with third-party IDP's.
+* [Tyk Multi-Data Center Bridge](/docs/tyk-multi-data-centre/) (Optional, add-on): Allows for the configuration of a Tyk ecosystem that spans many data centers and clouds.
 
-## Installing Tyk On-Premises:
-Please visit our [on-prem installation](/docs/tyk-on-premises/install/) page to get started.
+## Installing Tyk Self-Managed:
+Please visit our [Self-Managed installation](/docs/tyk-on-premises/install/) page to get started.
 
 ### Licencing
 
 For licence queries please contact your account manager. For free trial licences, please visit our [get started](https://tyk.io/get-started/) page on the web site.
 
-## Database Support
+## Dependencies & Database Support
 
 ### Tyk Dashboard
 
-By default the Tyk Dashboard uses MongoDB. You can also use the following:
+By default the Tyk Dashboard uses MongoDB. You can use the following as a drop-in replacement:
 
 * [DocumentDB](https://aws.amazon.com/documentdb/)
 * [Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/introduction)
@@ -83,3 +85,6 @@ The `service` command can usually be used with SysVinit scripts, as well as invo
 
 
 Please consult with respective init system documentation for more details on how to use and configure it.
+
+
+[1]: /docs/img/diagrams/dashboard3.png

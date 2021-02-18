@@ -6,7 +6,7 @@ menu:
     parent: "Getting Started"
 weight: 4
 aliases:
-    - /docs/tyk-dashboard-v1-0/tutorials/set-up-your-portal/
+    - /tyk-dashboard-v1-0/tutorials/set-up-your-portal/
 ---
 
 This is for the closed source [Tyk Developer Portal](/docs/tyk-developer-portal) only

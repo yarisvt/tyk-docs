@@ -7,7 +7,7 @@ menu:
 weight: 6
 url: "/basic-config-and-security/security/security-policies"
 aliases:
-  - /docs/security/security-policies/
+  - /security/security-policies/
 ---
 
 [What is a Security Policy?](/docs/getting-started/key-concepts/what-is-a-security-policy/)

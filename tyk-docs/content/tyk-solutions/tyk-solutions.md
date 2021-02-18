@@ -14,9 +14,9 @@ aliases:
 There are many ways to consume the Tyk product suite.
 
 ### Open Source Software (OSS)
-The Tyk OSS Gateway is the backbone of all our products.  You can deploy it for free, forever.
+The Tyk OSS Gateway is the backbone of all our solutions.  You can deploy it for free, forever.
 
-Head on over to the [Tyk Gateway](/docs/tyk-oss-gateway/) page for more information.
+Head on over to the [OSS section](/docs/tyk-solutions/open-source) for more information on it and the other open source components. 
 
 
 ### Self-managed 

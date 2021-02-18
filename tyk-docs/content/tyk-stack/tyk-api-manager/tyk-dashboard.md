@@ -19,7 +19,6 @@ The Dashboard also provides the API Developer Portal, a customisable developer p
 
 The Dashboard also exposes the Developer Portal as a separate component of the the application. This means it can either be deployed as an internet-facing application or as a purely admin application depending on how it is being used:
 
-todo: move to on-prem?
 ![Tyk API Analytics Dashboard][1]
 
 The Dashboard is actually a large, granular REST API with a thin-client web front-end, and if it is being deployed as part of a Tyk install, serves as the main integration point instead of the gateway REST API.

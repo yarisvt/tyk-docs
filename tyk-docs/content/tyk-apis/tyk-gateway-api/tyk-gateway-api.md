@@ -9,5 +9,5 @@ url: "/tyk-gateway-api"
 type: "swagger-ui"
 swagger: "/docs/others/gateway-swagger.yaml"
 aliases:
-    - /docs/tyk-rest-api/
+    - /tyk-rest-api/
 ---
