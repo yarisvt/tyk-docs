@@ -16,11 +16,11 @@ hideSidebar: true
 
 {{< grid >}}
 
-{{< badge read="7 mins" imageStyle="object-fit:contain" href="/docs/getting-started/with-tyk-on-premises/installation/on-aws/" image="/docs/img/opensource.png">}}
+{{< badge read="7 mins" imageStyle="object-fit:contain" href="/docs/tyk-solutions/open-source/" image="/docs/img/opensource.png">}}
 Tyk **open source**
 {{< /badge >}}
 
-{{< badge read="10 mins" imageStyle="object-fit:contain" href="/docs/getting-started/with-tyk-on-premises/installation/on-aws/" image="/docs/img/logos/tyk_logo2.png">}}
+{{< badge read="10 mins" imageStyle="object-fit:contain" href="/docs/tyk-on-premises/" image="/docs/img/logos/tyk_logo2.png">}}
 Tyk **Self-Managed**
 {{< /badge >}}
 
