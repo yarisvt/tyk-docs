@@ -12,30 +12,26 @@ diffTitle: true
 hideSidebar: true
 ---
 
-## Quickstart Installation
+## Full Lifecycle API Management
 
 {{< grid >}}
 
+{{< badge read="7 mins" imageStyle="object-fit:contain" href="/docs/getting-started/with-tyk-on-premises/installation/on-aws/" image="/docs/img/opensource.png">}}
+Tyk **open source**
+{{< /badge >}}
+
+{{< badge read="10 mins" imageStyle="object-fit:contain" href="/docs/getting-started/with-tyk-on-premises/installation/on-aws/" image="/docs/img/logos/tyk_logo2.png">}}
+Tyk **Self-Managed**
+{{< /badge >}}
+
 {{< badge read="15 mins" href="/docs/tyk-cloud/" image="/docs/img/tyk-cloud.svg" >}}
-Our new, next level **SaaS** product. 
+Tyk **SaaS** product. 
 {{< /badge >}}
 
-{{< badge read="15 mins" href="/docs/getting-started/with-tyk-on-premises/installation/on-aws/" image="/docs/img/aws.png">}}
-Install our **On-Premises** product on AWS. 
-{{< /badge >}}
-
-
-{{< badge read="10 mins" href="/docs/tyk-on-premises/docker/" image="/docs/img/docker.png">}}
-Install our **On-Premises** product with Docker. 
-{{< /badge >}}
-
-{{< badge read="10 mins" href="/docs/getting-started/installation/with-tyk-on-premises/with-kubernetes/" image="/docs/img/k8s.png">}}
-Install our **On-Premises** product with Kubernetes. 
-{{< /badge >}}
 
 {{< /grid >}}
 
-{{< button href="/docs/tyk-on-premises/#installing-tyk-on-premises" color="green" content="All On-Premises installation options" >}}
+{{< button href="/docs/tyk-on-premises/#installing-tyk-on-premises" color="green" content="Tyk Solutions" >}}
 
 ## The Tyk Stack
 
