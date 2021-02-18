@@ -6,7 +6,42 @@ menu:
     parent: "On Red Hat (RHEL) / CentOS"
 weight: 3 
 ---
+{{< tabs_start >}}
+{{< tab_start "Ansible" >}}
+<br />
+{{< note >}}
+**Requirements**
 
+[Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html) is required to run the following commands. Instructions on how install Tyk Gateway with shell is in the <b>Shell</b> tab.
+{{< /note >}}
+
+## Getting Started
+1. clone the [tyk-ansible](https://github.com/TykTechnologies/tyk-ansible) repositry
+
+```bash
+$ git clone https://github.com/TykTechnologies/tyk-ansible
+```
+
+2. `cd` into the directory
+```.bash
+$ cd tyk-ansible
+```
+
+3. Run initalization script to initialize environment
+
+```bash
+$ sh scripts/init.sh
+```
+
+4. Modify `hosts.yml` file to update ssh variables to your server(s). You can learn more about the hosts file [here](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html)
+
+5. Run ansible-playbook to install `tyk-gateway`
+
+```bash
+$ ansible-playbook playbook.yml -t tyk-gateway
+```
+{{< tab_end >}}
+{{< tab_start "Shell" >}}
 ## Install Tyk API Gateway on Red Hat
 
 Tyk has it's own signed RPMs in a YUM repository hosted by the kind folks at [packagecloud.io][1], which makes it easy, safe and secure to install a trusted distribution of the Tyk Gateway stack.
@@ -24,7 +59,7 @@ This configuration should also work (with some tweaks) for CentOS.
 ### Step 1: Set up YUM Repositories
 
 First, we need to install some software that allows us to use signed packages:
-```{.copyWrapper}
+```bash
 sudo yum install pygpgme yum-utils wget
 ```
 
@@ -33,7 +68,7 @@ Next, we need to set up the various repository configurations for Tyk and MongoD
 ### Step 2: Create Tyk Gateway Repository Configuration
 
 Create a file named `/etc/yum.repos.d/tyk_tyk-gateway.repo` that contains the repository configuration below https://packagecloud.io/tyk/tyk-gateway/install#manual-rpm:
-```{.copyWrapper}
+```bash
 [tyk_tyk-gateway]
 name=tyk_tyk-gateway
 baseurl=https://packagecloud.io/tyk/tyk-gateway/el/7/$basearch
@@ -50,20 +85,20 @@ metadata_expire=300
 ### Step 3: Install EPEL
 
 EPEL (Extra Packages for Enterprise Linux) is a free, community based repository project from Fedora which provides high quality add-on software packages for Linux distribution including RHEL, CentOS, and Scientific Linux. EPEL isn't a part of RHEL/CentOS but it is designed for major Linux distributions. In our case we need it for Redis, run this command to get it. Full instructions available here http://fedoraproject.org/wiki/EPEL#How_can_I_use_these_extra_packages.3F:
-```{.copyWrapper}
+```bash
 sudo yum install -y epel-release
 sudo yum update
 ```
 
 Finally we'll need to update our local cache, so run:
-```{.copyWrapper}
+```bash
 sudo yum -q makecache -y --disablerepo='*' --enablerepo='tyk_tyk-gateway' --enablerepo=epel
 ```
 
 ### Step 4: Install Packages
 
 We're ready to go, you can now install the relevant packages using yum:
-```{.copyWrapper}
+```bash
 sudo yum install -y redis tyk-gateway
 ```
 
@@ -72,7 +107,7 @@ sudo yum install -y redis tyk-gateway
 ### Step 5: Start Redis
 
 In many cases Redis will not be running, so let's start those:
-```{.copyWrapper}
+```bash
 sudo service redis start
 ```
 
@@ -94,7 +129,7 @@ You can set up the core settings for Tyk Gateway with a single setup script, how
 You need to replace `<hostname>` for `--redishost=<hostname>`with your own value to run this script.
 {{< /note >}}
 
-```{.copyWrapper}
+```bash
 sudo /opt/tyk-gateway/install/setup.sh --dashboard=1 --listenport=8080 --redishost=<hostname> --redisport=6379
 ```
 
@@ -108,7 +143,7 @@ What we've done here is told the setup script that:
 ### Starting Tyk
 
 The Tyk Gateway can be started now that it is configured. Use this command to start the Tyk Gateway:
-```{.copyWrapper}
+```bash
 sudo service tyk-gateway start
 ```
 
@@ -124,3 +159,5 @@ Tyk Gateway has full domain support built-in, you can:
 
 [1]: https://packagecloud.io
 [2]: http://aws.amazon.com
+{{< tab_end >}}
+{{< tabs_end >}}
