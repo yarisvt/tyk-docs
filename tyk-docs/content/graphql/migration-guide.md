@@ -19,12 +19,13 @@ Old Api definitions will continue to work for the gateway
 
 - Data Source kind are `REST` or `GraphQL` regardless of api being internal or not.
 
-- Incase of internal apis that are accessed via `tyk://`scheme, `graphql.engine.data_sources[n].internal` property is set to true.
+- In case of internal apis that are accessed via `tyk://`scheme, `graphql.engine.data_sources[n].internal` property is set to true.
 
 - Each dataSources needs to be defined with a unique name `graphql.engine.data_sources[n].name`.
 
 - Each field connected to the data source is expected to be configured for mapping under `graphql.engine.field_configs` regardless of it requiring mapping or not.
 
+- It is important that all new graphql apis have version `graphql.version` property set to `2`.
 
 Examples
 
@@ -220,7 +221,6 @@ Examples
       }
     ]
   },
-  "type_field_configurations": [],
   "execution_mode": "executionEngine",
   "version": "2",
   "playground": {
