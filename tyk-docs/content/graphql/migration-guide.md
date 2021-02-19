@@ -11,15 +11,19 @@ aliases:
 
 As of 3.2 graphql schema under tyk api definition (i.e `api_definition.graphql`) changed significantly, hence graphql api definitions created in previous beta versions are not supported via UI and need to go through following changes manually.
 
+**Note**  
+Old Api definitions will continue to work for the gateway
+
+
 - To improve performance now a single Data Source can be used to link to multiple fields instead of having an independent data source for every field hence `graphql.type_field_configurations` is now obsolete and new data sources can be defined under `graphql.engine.data_sources` (see example below).
 
 - Data Source kind are `REST` or `GraphQL` regardless of api being internal or not.
 
-- Incase of internal apis `graphql.engine.data_sources[n].internal` property is set to true.
+- Incase of internal apis that are accessed via `tyk://`scheme, `graphql.engine.data_sources[n].internal` property is set to true.
 
 - Each dataSources needs to be defined with a unique name `graphql.engine.data_sources[n].name`.
 
-- Each field connected to the data source is expected to be configured for mapping under `graphql.engine.field_configs`
+- Each field connected to the data source is expected to be configured for mapping under `graphql.engine.field_configs` regardless of it requiring mapping or not.
 
 
 Examples
