@@ -1,5 +1,5 @@
 ---
-title: "CE on Kubernetes"
+title: "CE with Kubernetes"
 date: 2021-01-20
 menu:
   main:

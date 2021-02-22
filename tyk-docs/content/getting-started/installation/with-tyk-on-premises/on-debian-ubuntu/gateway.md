@@ -3,10 +3,45 @@ date: 2017-03-22T15:55:18Z
 Title: Gateway on Ubuntu
 menu:
   main:
-    parent: "On Ubuntu"
+    parent: "On Debian / Ubuntu"
 weight: 3 
 ---
+{{< tabs_start >}}
+{{< tab_start "Ansible" >}}
+<br />
+{{< note >}}
+**Requirements**
 
+[Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html) is required to run the following commands. Instructions on how install Tyk Gateway with shell is in the <b>Shell</b> tab.
+{{< /note >}}
+
+## Getting Started
+1. clone the [tyk-ansible](https://github.com/TykTechnologies/tyk-ansible) repositry
+
+```bash
+$ git clone https://github.com/TykTechnologies/tyk-ansible
+```
+
+2. `cd` into the directory
+```.bash
+$ cd tyk-ansible
+```
+
+3. Run initalization script to initialize environment
+
+```bash
+$ sh scripts/init.sh
+```
+
+4. Modify `hosts.yml` file to update ssh variables to your server(s). You can learn more about the hosts file [here](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html)
+
+5. Run ansible-playbook to install `tyk-gateway`
+
+```bash
+$ ansible-playbook playbook.yml -t tyk-gateway
+```
+{{< tab_end >}}
+{{< tab_start "Shell" >}}
 ## <a name="install-tyk-ubuntu-gateway"></a>Install Tyk Gateway on Ubuntu
 
 Tyk has it's own APT repositories hosted by the kind folks at [packagecloud.io][1], which makes it easy, safe and secure to install a trusted distribution of the Tyk Gateway stack.
@@ -25,28 +60,28 @@ Please note however, that should you wish to write your own plugins in Python, w
 
 First, add our GPG key which signs our binaries:
 
-```{.copyWrapper}
+```bash
 curl -L https://packagecloud.io/tyk/tyk-gateway/gpgkey | sudo apt-key add -
 ```
 
 Run update:
-```{.copyWrapper}
+```bash
 sudo apt-get update
 ```
 
 Since our repositories are installed via HTTPS, you will need to make sure APT supports this:
-```{.copyWrapper}
+```bash
 sudo apt-get install -y apt-transport-https 
 ```
 
 Create a file `/etc/apt/sources.list.d/tyk_tyk-gateway.list` with the following contents:
-```{.copyWrapper}
+```bash
 deb https://packagecloud.io/tyk/tyk-gateway/ubuntu/ bionic main
 deb-src https://packagecloud.io/tyk/tyk-gateway/ubuntu/ bionic main
 ```
 
 Now you can refresh the list of packages with:
-```{.copyWrapper}
+```bash
 sudo apt-get update
 ```
 
@@ -59,7 +94,7 @@ sudo apt-get update
 
 We're now ready to install the Tyk Gateway. To install it, run:
 
-```{.copyWrapper}
+```bash
 sudo apt-get install -y tyk-gateway
 ```
 What we've done here is instructed apt-get to install the Tyk Gateway without prompting, wait for the downloads to complete.
@@ -72,7 +107,7 @@ Debian packages are signed with the repository keys. These keys are verified at 
 
 First, you have to fetch Tyk's signing key and import it.
 
-```{.copyWrapper}
+```bash
 wget https://keyserver.tyk.io/tyk.io.deb.signing.key
 gpg --import tyk.io.deb.signing.key
 ```
@@ -83,7 +118,7 @@ Then, you have to either,
 
 The downloaded package will be available in `/var/cache/apt/archives`. Assuming you found the file `tyk-gateway-2.9.4_amd64.deb` there, you can verify the origin signature.
 
-```{.copyWrapper}
+```bash
 gpg --verify d.deb
 gpg: Signature made Wed 04 Mar 2020 03:05:00 IST
 gpg:                using RSA key F3781522A858A2C43D3BC997CA041CD1466FA2F8
@@ -107,7 +142,7 @@ You need to replace `<hostname>` for `--redishost=<hostname>`with your own value
 {{< /note >}}
 
 
-```{.copyWrapper}
+```bash
 sudo /opt/tyk-gateway/install/setup.sh --dashboard=1 --listenport=8080 --redishost=<hostname> --redisport=6379
 ```
 
@@ -121,7 +156,7 @@ What we've done here is told the setup script that:
 ### Starting Tyk
 
 The Tyk Gateway can be started now that it is configured. Use this command to start the Tyk Gateway:
-```{.copyWrapper}
+```bash
 sudo service tyk-gateway start
 sudo service tyk-gateway enable
 ```
@@ -136,3 +171,5 @@ Tyk Gateway has full domain support built-in, you can:
 *   If you have set a hostname for the Gateway, then all non-domain-bound APIs will be on this hostname + the `listen_path`.
 
 [1]: https://packagecloud.io/tyk
+{{< tab_end >}}
+{{< tabs_end >}}

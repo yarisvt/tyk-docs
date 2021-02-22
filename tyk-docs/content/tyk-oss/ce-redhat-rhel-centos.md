@@ -1,20 +1,83 @@
 ---
-title: "CE on Red Hat"
+title: "CE On Red Hat (RHEL / CentOS)"
 date: 2021-01-20
 menu:
   main:
     parent: "Tyk Gateway CE"
-weight: 3
-url: "/tyk-oss/ce-redhat/"
+weight: 4
+url: "/tyk-oss/ce-redhat-rhel-centos/"
+aliases:
+  - /tyk-oss/ce-centos/
+  - /tyk-oss/ce-redhat/
 ---
+{{< tabs_start >}}
+{{< tab_start "Ansible" >}}
+<br />
+{{< note >}}
+**Requirements**
 
-## Prerequisites
+*   [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html) is required to run the following commands. Instructions on how install Tyk CE with shell is in the <b>Shell</b> tab.
+*   Ensure port `8080` is open: this is used in this guide for Gateway traffic (the API traffic to be proxied).
+{{< /note >}}
+
+## Getting Started
+1. clone the [tyk-ansible](https://github.com/TykTechnologies/tyk-ansible) repositry
+
+```bash
+$ git clone https://github.com/TykTechnologies/tyk-ansible
+```
+
+2. `cd` into the directory
+```.bash
+$ cd tyk-ansible
+```
+
+3. Run initalization script to initialize environment
+
+```bash
+$ sh scripts/init.sh
+```
+
+4. Modify `hosts.yml` file to update ssh variables to your server(s). You can learn more about the hosts file [here](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html)
+
+5. Run ansible-playbook to install `tyk-ce`
+
+```bash
+$ ansible-playbook playbook.yml -t tyk-ce -t redis
+```
+
+You can choose to not install Redis by removing the `-t redis`. However Redis is a requirment and needs to be installed for the gateway to run.
+
+## Supported Distributions
+| Distribution | Version | Supported |
+| --------- | :---------: | :---------: |
+| Amazon Linux | 2 | ✅ |
+| CentOS | 8 | ⚠️ |
+| CentOS | 7 | ✅ |
+| CentOS | 6 | ❌ |
+| RHEL | 8 | ⚠️ |
+| RHEL | 7 | ✅ |
+| RHEL | 6 | ❌ |
+
+| Symbol | Description |
+| :---------: | --------- |
+| ✅ | Tested / Supported |
+| ⚠️ | Tested / Not officially supported by Tyk |
+| ❌️ | Untested / Not supported by tool |
+
+{{< tab_end >}}
+{{< tab_start "Shell" >}}
+<br />
+{{< note >}}
+**Requirements**
 
 *   Ensure port `8080` is open: this is used in this guide for Gateway traffic (the API traffic to be proxied).
 *   EPEL (Extra Packages for Enterprise Linux) is a free, community based repository project from Fedora which provides high quality add-on software packages for Linux distribution including RHEL, CentOS, and Scientific Linux. EPEL isn't a part of RHEL/CentOS but it is designed for major Linux distributions. In our case we need it for Redis DB. Install EPEL using the instructions [here](http://fedoraproject.org/wiki/EPEL#How_can_I_use_these_extra_packages.3F).
-*   Install Redis using EPEL
+{{< /note >}}
 
-```{.copyWrapper}
+### Install Redis using EPEL
+
+```bash
 sudo yum install -y redis
 ```
 
@@ -27,14 +90,14 @@ You may be asked to accept the GPG key for our repos and when the package instal
 
 *   Tyk requires Python 3.4. Install via the following command:
 
-```{.copyWrapper}
+```bash
 sudo yum install python34
 ```
 
 ### Start Redis
 
 In many cases Redis might not be running, so let's start that:
-```{.copyWrapper}
+```bash
 sudo service redis start
 ```
 
@@ -63,7 +126,7 @@ You need to replace `<hostname>` for `--redishost=<hostname>` with your own valu
 {{< /note >}}
 
 
-```{.copyWrapper}
+```bash
 sudo /opt/tyk-gateway/install/setup.sh --listenport=8080 --redishost=<hostname> --redisport=6379 --domain=""
 ```
 
@@ -79,10 +142,11 @@ In this example, you don't want Tyk to listen on a single domain. It is recommen
 ### Starting Tyk
 
 The Tyk Gateway can be started now that it is configured. Use this command to start the Tyk Gateway:
-```{.copyWrapper}
+```bash
 sudo service tyk-gateway start
 ```
-
+{{< tab_end >}}
+{{< tabs_end >}}
 ## Next Steps Tutorials
 
 Follow the Tutorials on the Community Edition tabs for the following:

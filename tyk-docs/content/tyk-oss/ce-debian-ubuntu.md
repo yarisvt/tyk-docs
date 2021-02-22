@@ -1,19 +1,74 @@
 ---
-title: "CE on Ubuntu"
+title: "CE on Debian / Ubuntu"
 date: 2021-01-20
 menu:
   main:
     parent: "Tyk Gateway CE"
-weight: 4
-url: "/tyk-oss/ce-ubuntu/"
+weight: 5
+url: "/tyk-oss/ce-debian-ubuntu/"
+aliases:
+  - /tyk-oss/ce-ubuntu/
 ---
+{{< tabs_start >}}
+{{< tab_start "Ansible" >}}
+<br />
+{{< note >}}
+**Requirements**
 
-## Prerequisites
+*   [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html) is required to run the following commands. Instructions on how install Tyk CE with shell is in the <b>Shell</b> tab.
+*   Ensure port `8080` is open: this is used in this guide for Gateway traffic (the API traffic to be proxied).
+{{< /note >}}
+
+## Getting Started
+1. clone the [tyk-ansible](https://github.com/TykTechnologies/tyk-ansible) repositry
+
+```bash
+$ git clone https://github.com/TykTechnologies/tyk-ansible
+```
+
+2. `cd` into the directory
+```.bash
+$ cd tyk-ansible
+```
+
+3. Run initalization script to initialize environment
+
+```bash
+$ sh scripts/init.sh
+```
+
+4. Modify `hosts.yml` file to update ssh variables to your server(s). You can learn more about the hosts file [here](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html)
+
+5. Run ansible-playbook to install `tyk-ce`
+
+```bash
+$ ansible-playbook playbook.yml -t tyk-ce -t redis
+```
+
+You can choose to not install Redis by removing the `-t redis`. However Redis is a requirment and needs to be installed for the gateway to run.
+
+## Supported Distributions
+| Distribution | Version | Supported |
+| --------- | :---------: | :---------: |
+| Debian | 10 | ✅ |
+| Debian | 9 | ✅ |
+| Debian | 8 | ❌ |
+| Ubuntu | 20 | ✅ |
+| Ubuntu | 18 | ✅ |
+| Ubuntu | 16 | ✅ |
+| Ubuntu | 14 | ❌ |
+
+{{< tab_end >}}
+{{< tab_start "Shell" >}}
+{{< note >}}
+**Requirements**
 
 *   Ensure port `8080` is open: this is used in this guide for Gateway traffic (the API traffic to be proxied).
-*   You have Redis installed and running
+{{< /note >}}
 
-```{.copyWrapper}
+### Install Redis
+
+```bash
 sudo apt-get install -y redis-server
 ```
 
@@ -21,7 +76,7 @@ sudo apt-get install -y redis-server
 
 First import the public key as required by Ubuntu APT
 
-```{.copyWrapper}
+```bash
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
 ```
 
@@ -51,7 +106,7 @@ You need to replace `<hostname>` for `--redishost=<hostname>` with your own valu
 {{< /note >}}
 
 
-```{.copyWrapper}
+```bash
 sudo /opt/tyk-gateway/install/setup.sh --listenport=8080 --redishost=<hostname> --redisport=6379 --domain=""
 ```
 
@@ -67,10 +122,11 @@ In this example, you don't want Tyk to listen on a single domain. It is recommen
 ### Starting Tyk
 
 The Tyk Gateway can be started now that it is configured. Use this command to start the Tyk Gateway:
-```{.copyWrapper}
+```bash
 sudo service tyk-gateway start
 ```
-
+{{< tab_end >}}
+{{< tabs_end >}}
 ## Next Steps Tutorials
 
 Follow the Tutorials on the Community Edition tabs for the following:
