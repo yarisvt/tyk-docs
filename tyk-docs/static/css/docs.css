@@ -1,7 +1,16 @@
 /* ==========================================================================
   Doc Specific Changes
    ========================================================================== */
-.logo {
+   
+   .products h2 {
+    text-align: center
+   }
+
+   .products .grid {
+    justify-content: center
+  }
+
+   .logo {
   height: auto;
   top: 43px;
   left: 50px;

@@ -12,30 +12,57 @@ diffTitle: true
 hideSidebar: true
 ---
 
+<div class="products">
+
 ## Full Lifecycle API Management
 
 {{< grid >}}
 
-{{< badge read="5 mins" imageStyle="object-fit:contain" href="/docs/tyk-oss-gateway/" image="/docs/img/logos/tyk_logo2.png">}}
+<!-- {{< badge read="5 mins" imageStyle="object-fit:contain" href="/docs/tyk-oss-gateway/" image="/docs/img/logos/tyk_logo2.png">}}
 Tyk **open source**  Gateway
-{{< /badge >}}
+{{< /badge >}} -->
 
-{{< badge read="7 mins" imageStyle="object-fit:contain" href="/docs/tyk-solutions/open-source/" image="/docs/img/opensource.png">}}
-Complete Tyk **open source** solutions
+{{< badge read="7 mins" imageStyle="object-fit:contain" href="/docs/tyk-solutions/Open-Source/" image="/docs/img/opensource.png">}}
+Tyk **open source** solutions
 {{< /badge >}}
 
 {{< badge read="10 mins" imageStyle="object-fit:contain" href="/docs/tyk-on-premises/" image="/docs/img/logos/tyk_logo2.png">}}
-Tyk **Self-Managed** solution
+Tyk **Self-Managed** Solution
 {{< /badge >}}
 
 {{< badge read="15 mins" href="/docs/tyk-cloud/" image="/docs/img/tyk-cloud.svg" >}}
-Tyk **SaaS** solution 
+Tyk **Cloud** SaaS Solution
 {{< /badge >}}
 
 
 {{< /grid >}}
 
 {{< button href="/docs/tyk-solutions" color="green" content="Tyk Solutions" >}}
+
+## Self-Managed Install Quickstart
+
+{{< grid >}}
+
+{{< badge read="15 mins" href="/docs/tyk-cloud/" image="/docs/img/tyk-cloud.svg" >}}
+Our new, next level **SaaS** product. 
+{{< /badge >}}
+
+{{< badge read="15 mins" href="/docs/getting-started/with-tyk-on-premises/installation/on-aws/" image="/docs/img/aws.png">}}
+Install our **On-Premises** product on AWS. 
+{{< /badge >}}
+
+
+{{< badge read="10 mins" href="/docs/tyk-on-premises/docker/" image="/docs/img/docker.png">}}
+Install our **On-Premises** product with Docker. 
+{{< /badge >}}
+
+{{< badge read="10 mins" href="/docs/getting-started/installation/with-tyk-on-premises/with-kubernetes/" image="/docs/img/k8s.png">}}
+Install our **On-Premises** product with Kubernetes. 
+{{< /badge >}}
+
+{{< /grid >}}
+
+{{< button href="/docs/tyk-on-premises/#installing-tyk-on-premises" color="green" content="All On-Premises installation options" >}}
 
 ## The Tyk Stack
 
@@ -112,3 +139,5 @@ Log into dashboard and portal with your existing IDP.
 {{< /grid >}}
 
 {{< button href="/docs/basic-config-and-security/" color="black" content="More Tyk Configuration" >}}
+
+</div>
