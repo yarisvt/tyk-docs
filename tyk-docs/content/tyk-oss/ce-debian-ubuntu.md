@@ -4,7 +4,7 @@ date: 2021-01-20
 menu:
   main:
     parent: "Tyk Gateway CE"
-weight: 4
+weight: 5
 url: "/tyk-oss/ce-debian-ubuntu/"
 aliases:
   - /tyk-oss/ce-ubuntu/

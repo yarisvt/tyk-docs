@@ -4,7 +4,7 @@ Title: On Debian / Ubuntu
 menu:
   main:
     parent: "Tyk On-Premises"
-weight: 4
+weight: 5
 url: "/tyk-on-premises/debian-ubuntu"
 aliases:
   - /getting-started/installation/with-tyk-on-premises/on-ubuntu/

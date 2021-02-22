@@ -65,3 +65,32 @@ You can choose to not install Redis by removing the `-t redis`. However Redis is
 | ✅ | Tested / Supported |
 | ⚠️ | Tested / Not officially supported by Tyk |
 | ❌️ | Untested / Not supported by tool |
+
+## Variables
+- `vars/mongodb.yml`
+
+| Variable | default value | Comments |
+| --------- | :---------: | --------- |
+| bind_ip | `0.0.0.0` | Binding address of MongoDB |
+| mongodb_version | `4.4` | MongoDB version |
+
+Read more about MongoDB configuration [here](https://github.com/ansible-collections/community.mongodb).
+
+- `vars/redis.yml`
+
+| Variable | default value | Comments |
+| --------- | :---------: | --------- |
+| redis_bind_interface | `0.0.0.0` | Binding address of Redis |
+
+Read more about Redis configuration [here](https://github.com/geerlingguy/ansible-role-redis).
+
+- `vars/tyk.yml`
+
+| Variable | Default | Comments |
+| --------- | :---------: | --------- |
+| redis_host | | Redis server host if different than the hosts url |
+| redis_port | `6379` | Redis server listening port |
+| redis_enable_cluster | `false` | Enable if redis is running in cluster mode |
+| redis_enable_ssl | `false` | Enable if redis connection is secured with SSL |
+| mongodb_host | | MongoDB server host if different than the hosts url |
+| mongodb_port | `27017` | MongoDB server listening port |

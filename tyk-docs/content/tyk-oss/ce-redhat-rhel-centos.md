@@ -4,7 +4,7 @@ date: 2021-01-20
 menu:
   main:
     parent: "Tyk Gateway CE"
-weight: 5
+weight: 4
 url: "/tyk-oss/ce-redhat-rhel-centos/"
 aliases:
   - /tyk-oss/ce-centos/
