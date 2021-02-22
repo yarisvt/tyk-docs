@@ -10,6 +10,7 @@ linkTitle: "Tyk Gateway OSS"
 url: "/tyk-oss-gateway/"
 aliases:
   - /getting-started/tyk-components/gateway/
+  - /concepts/tyk-components/gateway/
 ---
 
 ## What is the Tyk Gateway?

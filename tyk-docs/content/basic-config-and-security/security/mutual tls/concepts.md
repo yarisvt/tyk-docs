@@ -72,7 +72,7 @@ generating certificate SHA256 fingerprint using the following command:
 openssl x509 -noout -fingerprint -sha256 -inform pem -in <cert>.
 ```
 
-You may notice that you can't get the raw certificate back, only its meta information. This is to ensure security. Certificates with private keys have special treatment and are encoded before storing: if a private key is found it gets encrypted with the AES256 algorithm 3 using `security.private_certificate_encoding_secret` from the Gateway configuration file (`tyk.conf`)and if it is empty, it will fallback to the value in the field [secret](/docs/configure/tyk-gateway-configuration-options/#a-name-secret-a-secret).
+You may notice that you can't get the raw certificate back, only its meta information. This is to ensure security. Certificates with private keys have special treatment and are encoded before storing: if a private key is found it gets encrypted with the AES256 algorithm 3 using `security.private_certificate_encoding_secret` from the Gateway configuration file (`tyk.conf`)and if it is empty, it will fallback to the value in the field [secret](/docs/configure/tyk-gateway-configuration-options/#secret).
 
 ### MDCB 
 Mutual TLS configuration in an MDCB environment has specific requirements. An MDCB environment usually consists of a management environment and slaves who, using MDCB, sync configuration. 

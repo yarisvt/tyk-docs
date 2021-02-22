@@ -50,7 +50,7 @@ Install Tyk **On-Premises** on Heroku.
 Install Tyk **On-Premises** on Microsoft Azure. 
 {{< /badge >}}
 
-{{< badge read="10 mins" href="docs/tyk-on-premises/vagrant/" image="/docs/img/vagrant-logo.png">}}
+{{< badge read="10 mins" href="/docs/tyk-on-premises/vagrant/" image="/docs/img/vagrant-logo.png">}}
 Install Tyk **On-Premises** on Vagrant. 
 {{< /badge >}}
 
@@ -60,4 +60,4 @@ We distribute Tyk via Packagecloud.io APT and Yum repositories, as well as via o
 
 ### Licencing
 
-For licence queries please contact your account manager. For free trial licences, please visit our [get started](https://tyk.io/get-started/) page on the web site.
+Read more about licensing [here](/docs/tyk-on-premises/licensing).

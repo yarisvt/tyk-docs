@@ -53,7 +53,7 @@ Changing hashing algorithm is entirely backward compatible. All your existing ke
 
 ### User Groups
 
-Instead of setting permissions per user, you can now [create a user group](/docs/basic-config-and-security/security/dashboard/create-user-groups/), and assign it to multiple users. It works for Single Sign-On too, just specify group ID during [SSO API](docs/tyk-apis/tyk-dashboard-admin-api/sso/) flow.
+Instead of setting permissions per user, you can now [create a user group](/docs/basic-config-and-security/security/dashboard/create-user-groups/), and assign it to multiple users. It works for Single Sign-On too, just specify group ID during [SSO API](/docs/tyk-apis/tyk-dashboard-admin-api/sso/) flow.
 
 > This feature is available to all our Cloud and Hybrid users. For On-Premises installations, this feature is available for customers with an "Unlimited" license.
 

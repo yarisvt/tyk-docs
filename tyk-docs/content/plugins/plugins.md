@@ -6,6 +6,8 @@ menu:
         parent: "Tyk Gateway OSS"
 weight: 80
 url: "/plugins"
+aliases:
+    - /customise-tyk/plugins/
 ---
 
 Tyk supports the use of the following plugins to extend Tyk functionality:

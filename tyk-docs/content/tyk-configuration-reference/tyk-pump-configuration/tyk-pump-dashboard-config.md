@@ -5,6 +5,9 @@ menu:
     main:
         parent: "Tyk Pump Configuration"
 weight: 4 
+url: /tyk-pump/tyk-pump-configuration/tyk-pump-dashboard-config/
+aliases:
+  - /tyk-configuration-reference/tyk-pump-dashboard-config/
 ---
 
 Following these steps will give us analytics in the following Dashboard locations:

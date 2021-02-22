@@ -5,6 +5,9 @@ menu:
   main:
     parent: "Tyk Gateway OSS"
 weight: 1
+url: /configure/tyk-gateway-configuration-options/
+aliases:
+  - /tyk-configuration-reference/tyk-gateway-configuration-options/
 ---
 
 ## Tyk Gateway Configuration

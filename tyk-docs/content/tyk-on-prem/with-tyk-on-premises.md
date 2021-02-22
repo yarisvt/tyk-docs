@@ -30,7 +30,8 @@ Please visit our [Self-Managed installation](/docs/tyk-on-premises/install/) pag
 
 ### Licencing
 
-For licence queries please contact your account manager. For free trial licences, please visit our [get started](https://tyk.io/get-started/) page on the web site.
+Read more about licensing [here](/docs/tyk-on-premises/licensing).
+
 
 ## Dependencies & Database Support
 

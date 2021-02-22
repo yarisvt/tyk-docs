@@ -5,6 +5,8 @@ menu:
   main:
     parent: "Tyk Developer Portal"
 weight: 1
+url: /tyk-developer-portal/portal-concepts
+
 ---
 
 ## API Catalogue

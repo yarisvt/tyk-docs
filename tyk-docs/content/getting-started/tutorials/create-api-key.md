@@ -5,6 +5,10 @@ menu:
   main:
     parent: "Getting Started"
 weight: 3
+url: /getting-started/create-api-key/
+aliases:
+  - /try-out-tyk/tutorials/create-api-key/
+  - /try-out-tyk/create-api-key/
 ---
 
 {{< tabs_start >}}

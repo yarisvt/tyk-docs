@@ -5,6 +5,7 @@ menu:
   main:
     parent: "Getting Started"
 weight: 2
+url: /getting-started/create-api/
 aliases:
   - /try-out-tyk/tutorials/create-api/
 ---

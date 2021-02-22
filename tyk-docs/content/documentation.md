@@ -5,7 +5,7 @@ Title: Tyk API Gateway Documentation
 diffTitleName:
 menu:
   main:
-    name: Documentation
+    name: Home
 url: "/"
 weight: 1
 diffTitle: true
@@ -14,7 +14,7 @@ hideSidebar: true
 
 <div class="products">
 
-## Full Lifecycle API Management
+## Tyk API Management Solutions
 
 {{< grid >}}
 
@@ -22,7 +22,7 @@ hideSidebar: true
 Tyk **open source**  Gateway
 {{< /badge >}} -->
 
-{{< badge read="7 mins" imageStyle="object-fit:contain" href="/docs/tyk-solutions/Open-Source/" image="/docs/img/opensource.png">}}
+{{< badge read="7 mins" imageStyle="object-fit:contain" href="/docs/tyk-solutions/open-source/" image="/docs/img/opensource.png">}}
 Tyk **open source** solutions
 {{< /badge >}}
 
@@ -37,32 +37,7 @@ Tyk **Cloud** SaaS Solution
 
 {{< /grid >}}
 
-{{< button href="/docs/tyk-solutions" color="green" content="Tyk Solutions" >}}
-
-## Self-Managed Install Quickstart
-
-{{< grid >}}
-
-{{< badge read="15 mins" href="/docs/tyk-cloud/" image="/docs/img/tyk-cloud.svg" >}}
-Our new, next level **SaaS** product. 
-{{< /badge >}}
-
-{{< badge read="15 mins" href="/docs/getting-started/with-tyk-on-premises/installation/on-aws/" image="/docs/img/aws.png">}}
-Install our **On-Premises** product on AWS. 
-{{< /badge >}}
-
-
-{{< badge read="10 mins" href="/docs/tyk-on-premises/docker/" image="/docs/img/docker.png">}}
-Install our **On-Premises** product with Docker. 
-{{< /badge >}}
-
-{{< badge read="10 mins" href="/docs/getting-started/installation/with-tyk-on-premises/with-kubernetes/" image="/docs/img/k8s.png">}}
-Install our **On-Premises** product with Kubernetes. 
-{{< /badge >}}
-
-{{< /grid >}}
-
-{{< button href="/docs/tyk-on-premises/#installing-tyk-on-premises" color="green" content="All On-Premises installation options" >}}
+{{< button href="/docs/tyk-solutions" color="green" content="Compare Solutions" >}}
 
 ## The Tyk Stack
 

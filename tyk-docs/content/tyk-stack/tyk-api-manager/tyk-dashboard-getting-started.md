@@ -8,5 +8,8 @@ menu:
 url: "/tyk-dashboard/getting-started"
 ---
 
-todo:
-Install with Tyk Cloud or Tyk On-Prem
+Head on over to the 
+* [Tyk Self-Managed](/docs/tyk-on-premises/)
+* [Tyk Cloud](/docs/tyk-cloud/)
+
+solutions to get started today.

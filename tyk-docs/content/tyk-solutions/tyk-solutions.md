@@ -1,15 +1,13 @@
 ---
-title: "Tyk Solutions"
+title: "Tyk API Management Solutions"
 date: 2020-06-24
 weight: 4
 menu: "main"
 url: "/tyk-solutions/"
+linkTitle: Tyk Solutions
 aliases:
-    - "/getting-started/licencing"
     - /getting-started/deployment-options/
 ---
-
-## Full Lifecycle API Management
 
 Which solution is right for me?
 
@@ -17,8 +15,8 @@ Which solution is right for me?
 |--------------------------|--------------|--------------------|---------
 | API Gateway Capabilities <br> <ul><li>Rate Limiting</li><li>Authentication</li> <li>API Versioning</li><li>Granular Access Control</li><li>GraphQL</li>  <li>and [more][1]</li></ul> | ✅               |✅	                |✅      
 | [Version Control][2] Integration | ✅		  |✅	              |✅	 
-| [API Analytics Aggregation][3]| ✅		      |✅	              |✅	 
-| [API Management Interface][4] | ❌	          |✅	              |✅	 
+| [API Analytics Exporter][3]| ✅		      |✅	              |✅	 
+| [Tyk Manager][4] | ❌	          |✅	              |✅	 
 | [Single Sign On (SSO)][5]     | ❌	          |✅	              |✅	      
 | [RBAC & API Teams][6]         | ❌	          |✅	              |✅	      
 | [Universal Data Graph][7]     | ❌	          |✅	              |✅	      
@@ -26,8 +24,9 @@ Which solution is right for me?
 | [Multi-Data Center][8]        | ❌	          |✅	              |✅	      
 | [Developer Portal][9]         | ❌		      |✅	              |✅	 
 | [Developer API Analytics][10]  | ❌		      |✅	              |✅	   
+| Hybrid Deployments                       | ❌		      |❌	              |✅
 | Fully-Managed SaaS       | ❌		      |❌	              |✅
-| HIPAA-Compliant          | ✅		      |✅	              |❌	   
+| HIPAA, SOC2, PCI          | ✅		      |✅	              | [contact us][14]
 
 [1]: /docs/tyk-solutions/open-source/#tyk-gateway
 [2]: /docs/tyk-sync/
@@ -39,19 +38,19 @@ Which solution is right for me?
 [8]: /docs/tyk-multi-data-centre/
 [9]: /docs/tyk-developer-portal/
 [10]: /docs/tyk-dashboard-analytics/
+[14]: https://tyk.io/price-comparison/?__hstc=181257784.269e6993c6140df347029595da3a8f[…]4015210561.61&__hssc=181257784.22.1614015210561&__hsfp=1600587040
 
 ### Open Source Software (OSS)
 The Tyk OSS Gateway is the backbone of all our solutions.  You can deploy it for free, forever.
 
 Head on over to the [OSS section][11] for more information on it and the other open source components. 
 
+<br><br>
 
+# Licensing
 ### Self-managed 
-Self-managed allows you to host our full enterprise API management product on your own.  Head on over to the [Self-Managed section][12] to get started today.
+Read more about Self-Managed licensing [here](/docs/tyk-on-premises/licensing).
 
-For short terms trials, self-serve 14-day temporary licenses for the Tyk Dashboard & Developer Portal are available [here](https://pages.tyk.io/en/sign-up-for-tyk-on-prem-licence).
-
-For longer duration trials, or to request trials of the other proprietary software please contact the Tyk Team [here](https://tyk.io/price-comparison/) and tell us about your plans.
 ### Software as a Service/Cloud
 With Tyk Cloud all of the above closed-source components are available. Get your free account [here][13].
 

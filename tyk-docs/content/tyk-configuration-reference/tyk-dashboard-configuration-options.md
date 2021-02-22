@@ -6,6 +6,8 @@ menu:
     parent: "Tyk Dashboard"
 weight: 2 
 url: /configure/tyk-dashboard-configuration-options/
+aliases:
+    - /tyk-configuration-reference/tyk-dashboard-configuration-options/
 ---
 
 
