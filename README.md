@@ -28,7 +28,7 @@ Our Documentation is constructed using [Hugo](http://gohugo.io/).
 
 ### Use with Hugo
 1. [Install Hugo](http://gohugo.io/getting-started/installing/) - v0.60 or above
-2. Run `hugo server --theme=tykio --buildDrafts` from the `tyk-docs/tyk-docs` directory
+2. Run `hugo server --theme=tykio --buildDrafts --enableGitInfo` from the `tyk-docs/tyk-docs` directory
 
 Go to  [http://localhost:1313/docs](http://localhost:1313/docs) to view the docs locally
 

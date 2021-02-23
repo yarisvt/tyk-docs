@@ -8,6 +8,7 @@ weight: 2
 url: /getting-started/create-api/
 aliases:
   - /try-out-tyk/tutorials/create-api/
+  - /getting-started/tutorials/create-api/
 ---
 
 {{< tabs_start >}}

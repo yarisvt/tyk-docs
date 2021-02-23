@@ -3,11 +3,18 @@ date: 2018-05-18T15:46:41Z
 Title: Heroku
 menu:
   main:
+<<<<<<< HEAD:tyk-docs/content/tyk-on-prem/installation/install-tyk-heroku.md
     parent: "Installation"
 weight: 6
 url: "/tyk-on-premises/installation/on-heroku"
+=======
+    parent: "Tyk On-Premises"
+weight: 7
+url: "/tyk-on-premises/heroku"
+>>>>>>> master:tyk-docs/content/getting-started/installation/with-tyk-on-premises/install-tyk-heroku.md
 aliases:
   - /getting-started/with-tyk-on-premises/installation/on-heroku/
+  - /tyk-on-premises/installation/on-heroku
 ---
 
 ## Install Tyk API Gateway on Heroku

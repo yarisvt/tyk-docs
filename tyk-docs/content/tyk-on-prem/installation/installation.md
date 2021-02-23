@@ -15,43 +15,40 @@ aliases:
 
 ## Installing Tyk On-Premises:
 
+## Installing Tyk On-Premises:
+
 {{< grid >}}
 
 {{< badge read="10 mins" href="/docs/tyk-on-premises/docker/" image="/docs/img/docker.png">}}
 Install Tyk **On-Premises** with Docker. 
 {{< /badge >}}
 
-{{< badge read="10 mins" href="/docs/tyk-on-premises/with-kubernetes/" image="/docs/img/k8s.png">}}
+{{< badge read="10 mins" href="/docs/tyk-on-premises/kubernetes/" image="/docs/img/k8s.png">}}
 Install Tyk **On-Premises** with Kubernetes. 
+{{< /badge >}}
+
+{{< badge read="10 mins" href="/docs/tyk-on-premises/ansible/" image="/docs/img/ansible.png">}}
+Install Tyk **On-Premises** with Ansible. 
 {{< /badge >}}
 
 {{< badge read="10 mins" href="/docs/tyk-on-premises/redhat-rhel-centos/" image="/docs/img/redhat-logo2.png">}}
 Install Tyk **On-Premises** on Red Hat. 
 {{< /badge >}}
 
-
-{{< badge read="10 mins" href="/docs/getting-started/installation/with-tyk-on-premises/docker/" image="/docs/img/cof_white-orange_hex2.png">}}
+{{< badge read="10 mins" href="/docs/tyk-on-premises/debian-ubuntu/" image="/docs/img/debian-nd-753.png">}}
 Install Tyk **On-Premises** on Ubuntu. 
 {{< /badge >}}
 
-{{< badge read="10 mins" href="/docs/tyk-on-premises/redhat-rhel-centos/" image="/docs/img/centos4.png">}}
-Install Tyk **On-Premises** on CentOS. 
-{{< /badge >}}
-
-{{< badge read="10 mins" href="/docs/tyk-on-premises/installation/on-aws/" image="/docs/img/aws.png">}}
+{{< badge read="10 mins" href="/docs/tyk-on-premises/aws/" image="/docs/img/aws.png">}}
 Install Tyk **On-Premises** on Amazon AWS. 
 {{< /badge >}}
 
-{{< badge read="10 mins" href="/docs/tyk-on-premises/installation/on-aws/" image="/docs/img/heroku-logo.png">}}
+{{< badge read="10 mins" href="/docs/tyk-on-premises/heroku/" image="/docs/img/heroku-logo.png">}}
 Install Tyk **On-Premises** on Heroku. 
 {{< /badge >}}
 
 {{< badge read="10 mins" href="/docs/tyk-on-premises/microsoft-azure/" image="/docs/img/azure-2.png">}}
 Install Tyk **On-Premises** on Microsoft Azure. 
-{{< /badge >}}
-
-{{< badge read="10 mins" href="/docs/tyk-on-premises/vagrant/" image="/docs/img/vagrant-logo.png">}}
-Install Tyk **On-Premises** on Vagrant. 
 {{< /badge >}}
 
 {{< /grid >}}

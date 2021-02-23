@@ -9,6 +9,7 @@ url: /getting-started/create-api-key/
 aliases:
   - /try-out-tyk/tutorials/create-api-key/
   - /try-out-tyk/create-api-key/
+  - /getting-started/tutorials/create-api-key/
 ---
 
 {{< tabs_start >}}

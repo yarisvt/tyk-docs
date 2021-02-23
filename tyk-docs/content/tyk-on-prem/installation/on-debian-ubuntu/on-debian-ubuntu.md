@@ -1,13 +1,16 @@
 ---
-date: 2017-03-22T16:19:08Z
-Title: On Red Hat (RHEL / CentOS)
+date: 2017-03-22T15:46:41Z
+Title: On Debian / Ubuntu
 menu:
   main:
-    parent: "Installation"
-weight: 4
-url: "/tyk-on-premises/redhat-rhel-centos"
+    parent: "Tyk On-Premises"
+weight: 5
+url: "/tyk-on-premises/debian-ubuntu"
 aliases:
-  - /getting-started/installation/with-tyk-on-premises/redhat-rhel-centos/
+  - /getting-started/installation/with-tyk-on-premises/on-ubuntu/
+  - /getting-started/installation/tyk-on-premises/on-ubuntu/
+  - /tyk-on-premises/on-debian-ubuntu
+
 ---
 {{< tabs_start >}}
 {{< tab_start "Ansible" >}}
@@ -54,31 +57,51 @@ You can choose to not install Redis or MongoDB by removing the `-t redis` or `-t
 ## Supported Distributions
 | Distribution | Version | Supported |
 | --------- | :---------: | :---------: |
-| Amazon Linux | 2 | ✅ |
-| CentOS | 8 | ⚠️ |
-| CentOS | 7 | ✅ |
-| CentOS | 6 | ❌ |
-| RHEL | 8 | ⚠️ |
-| RHEL | 7 | ✅ |
-| RHEL | 6 | ❌ |
-
-| Symbol | Description |
-| :---------: | --------- |
-| ✅ | Tested / Supported |
-| ⚠️ | Tested / Not officially supported by Tyk |
-| ❌️ | Untested / Not supported by tool |
+| Debian | 10 | ✅ |
+| Debian | 9 | ✅ |
+| Debian | 8 | ❌ |
+| Ubuntu | 20 | ✅ |
+| Ubuntu | 18 | ✅ |
+| Ubuntu | 16 | ✅ |
+| Ubuntu | 14 | ❌ |
 
 {{< tab_end >}}
 {{< tab_start "Shell" >}}
-## Install Tyk Pro on Red Hat (RHEL) / CentOS
+<br />
+{{< note >}}
+**Requirements**
 
-Installing Tyk on RHEL is very straightforward using our YUM repositories, follow the guides and tutorials in this section to have Tyk up and running in no time.
+Before installing the Tyk components in the order below, you need to first install Redis and MongoDB.
+{{< /note >}}
+
+## Getting Started
+
+### Install MongoDB 4.0
+
+You should follow the [online tutorial for installing MongoDb](https://docs.mongodb.com/v4.0/tutorial/install-mongodb-on-ubuntu/). We will be using version 4.0. As part of the Mongo installation you need to perform the following:
+
+1. Import the public key
+2. Create a list file
+3. Reload the package database
+4. Install the MongoDB packages
+5. Start MongoDB
+6. Check the `mongod` service is running
+
+### Install Redis
+
+```bash
+sudo apt-get install -y redis-server
+```
+
+## Install Tyk Pro on Ubuntu
+
+Installing Tyk on Ubuntu is very straightforward using our APT repositories, follow the guides and tutorials in this section to have Tyk up and running in no time.
 
 The suggested order would be to install Tyk Dashboard, then Tyk Pump and then Tyk Gateway for a full stack.
 
-- [Dashboard](/docs/getting-started/installation/with-tyk-on-premises/redhat-rhel-centos/dashboard/)
-- [Pump](/docs/getting-started/installation/with-tyk-on-premises/redhat-rhel-centos/analytics-pump/)
-- [Gateway](/docs/getting-started/installation/with-tyk-on-premises/redhat-rhel-centos/gateway/)
+- [Dashboard](/docs/getting-started/installation/with-tyk-on-premises/on-ubuntu/dashboard/)
+- [Pump](/docs/getting-started/installation/with-tyk-on-premises/on-ubuntu/analytics-pump/)
+- [Gateway](/docs/getting-started/installation/with-tyk-on-premises/on-ubuntu/gateway/)
 {{< tab_end >}}
 {{< tabs_end >}}
 

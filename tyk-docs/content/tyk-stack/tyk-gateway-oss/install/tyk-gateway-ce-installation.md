@@ -21,17 +21,16 @@ Install our **Community Edition** Gateway with Docker.
 Install our **Community Edition** Gateway with K8s. 
 {{< /badge >}}
 
-{{< badge read="10 mins" href="/docs/tyk-oss/ce-redhat/" image="/docs/img/redhat-logo2.png">}}
-Install our **Community Edition** Gateway on Red Hat. 
+{{< badge read="10 mins" href="/docs/tyk-oss/ce-ansible/" image="/docs/img/ansible.png">}}
+Install our **Community Edition** Gateway with Ansible. 
 {{< /badge >}}
 
-
-{{< badge read="10 mins" href="/docs/tyk-oss/ce-ubuntu/" image="/docs/img/cof_white-orange_hex2.png">}}
-Install our **Community Edition** Gateway on Ubuntu. 
+{{< badge read="10 mins" href="/docs/tyk-oss/ce-redhat-rhel-centos/" image="/docs/img/redhat-logo2.png">}}
+Install our **Community Edition** Gateway on RHEL / CentOS. 
 {{< /badge >}}
 
-{{< badge read="10 mins" href="/docs/tyk-oss/ce-centos/" image="/docs/img/centos4.png">}}
-Install our **Community Edition** Gateway on CentOS. 
+{{< badge read="10 mins" href="/docs/tyk-oss/ce-debian-ubuntu/" image="/docs/img/debian-nd-753.png">}}
+Install our **Community Edition** Gateway on Debian / Ubuntu. 
 {{< /badge >}}
 
 {{< badge read="10 mins" href="https://github.com/TykTechnologies/tyk" image="/docs/img/GitHub-Mark-64px.png">}}
