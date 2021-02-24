@@ -1,9 +1,5 @@
 ---
-<<<<<<< HEAD:tyk-docs/content/tyk-stack/tyk-gateway-oss/install/ce-kubernetes.md
 title: "Kubernetes"
-=======
-title: "CE with Kubernetes"
->>>>>>> master:tyk-docs/content/tyk-oss/ce-kubernetes.md
 date: 2021-01-20
 menu:
   main:

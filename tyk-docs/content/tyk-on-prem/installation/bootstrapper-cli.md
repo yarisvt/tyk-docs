@@ -3,13 +3,8 @@ date: 2019-07-30T11:30:02Z
 title: Bootstrapper CLI
 menu:
   main:
-<<<<<<< HEAD:tyk-docs/content/tyk-on-prem/installation/bootstrapper-cli.md
     parent: "Installation"
-weight: 8
-=======
-    parent: "Tyk On-Premises"
 weight: 9
->>>>>>> master:tyk-docs/content/getting-started/installation/with-tyk-on-premises/bootstrapper-cli.md
 url: "/tyk-on-premises/bootstrapper-cli/"
 aliases:
   - /getting-started/installation/with-tyk-on-premises/bootstrapper-cli/

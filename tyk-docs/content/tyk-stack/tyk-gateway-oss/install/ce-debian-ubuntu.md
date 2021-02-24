@@ -1,23 +1,13 @@
 ---
-<<<<<<< HEAD:tyk-docs/content/tyk-stack/tyk-gateway-oss/install/ce-ubuntu.md
-title: "Ubuntu"
+title: "Debian / Ubuntu"
 date: 2021-01-20
 menu:
   main:
     parent: "Installation "
-weight: 4
-url: "/tyk-oss/ce-ubuntu/"
-=======
-title: "CE on Debian / Ubuntu"
-date: 2021-01-20
-menu:
-  main:
-    parent: "Tyk Gateway CE"
 weight: 5
 url: "/tyk-oss/ce-debian-ubuntu/"
 aliases:
   - /tyk-oss/ce-ubuntu/
->>>>>>> master:tyk-docs/content/tyk-stack/tyk-gateway-oss/install/ce-debian-ubuntu.md
 ---
 {{< tabs_start >}}
 {{< tab_start "Ansible" >}}

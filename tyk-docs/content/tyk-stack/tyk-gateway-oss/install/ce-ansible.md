@@ -1,9 +1,9 @@
 ---
-title: "CE with Ansible"
+title: "Ansible"
 date: 2021-01-20
 menu:
   main:
-    parent: "Tyk Gateway CE"
+    parent: "Installation "
 weight: 3
 url: "/tyk-oss/ce-ansible/"
 ---

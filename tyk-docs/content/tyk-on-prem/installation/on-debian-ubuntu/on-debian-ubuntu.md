@@ -3,7 +3,7 @@ date: 2017-03-22T15:46:41Z
 Title: On Debian / Ubuntu
 menu:
   main:
-    parent: "Tyk On-Premises"
+      parent: "Installation"
 weight: 5
 url: "/tyk-on-premises/debian-ubuntu"
 aliases:

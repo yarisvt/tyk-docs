@@ -13,10 +13,6 @@ aliases:
   - /getting-started/installation/with-tyk-on-premises/
 ---
 
-## Installing Tyk On-Premises:
-
-## Installing Tyk On-Premises:
-
 {{< grid >}}
 
 {{< badge read="10 mins" href="/docs/tyk-on-premises/docker/" image="/docs/img/docker.png">}}

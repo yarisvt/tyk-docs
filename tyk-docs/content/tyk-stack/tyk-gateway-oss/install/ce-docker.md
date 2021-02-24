@@ -1,9 +1,5 @@
 ---
-<<<<<<< HEAD:tyk-docs/content/tyk-stack/tyk-gateway-oss/install/ce-docker.md
 title: "Docker"
-=======
-title: "CE with Docker"
->>>>>>> master:tyk-docs/content/tyk-oss/ce-docker.md
 date: 2021-01-20
 menu:
   main:

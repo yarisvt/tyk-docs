@@ -3,7 +3,7 @@ date: 2017-03-22T17:04:48Z
 title: With Ansible
 menu:
   main:
-    parent: "Tyk On-Premises"
+      parent: "Installation"
 weight: 3
 url: "/tyk-on-premises/ansible"
 ---

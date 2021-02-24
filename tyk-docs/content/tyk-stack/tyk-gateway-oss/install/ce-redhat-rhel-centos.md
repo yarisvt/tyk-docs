@@ -1,24 +1,14 @@
 ---
-<<<<<<< HEAD:tyk-docs/content/tyk-stack/tyk-gateway-oss/install/ce-redhat.md
-title: "Red Hat"
+title: "Red Hat (RHEL / CentOS)"
 date: 2021-01-20
 menu:
   main:
-    parent: "Installation "
-weight: 3
-url: "/tyk-oss/ce-redhat/"
-=======
-title: "CE On Red Hat (RHEL / CentOS)"
-date: 2021-01-20
-menu:
-  main:
-    parent: "Tyk Gateway CE"
+      parent: "Installation "
 weight: 4
 url: "/tyk-oss/ce-redhat-rhel-centos/"
 aliases:
   - /tyk-oss/ce-centos/
   - /tyk-oss/ce-redhat/
->>>>>>> master:tyk-docs/content/tyk-stack/tyk-gateway-oss/install/ce-redhat-rhel-centos.md
 ---
 {{< tabs_start >}}
 {{< tab_start "Ansible" >}}

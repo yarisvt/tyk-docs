@@ -3,15 +3,9 @@ date: 2019-12-03T15:46:41Z
 Title: AWS Marketplace
 menu:
   main:
-<<<<<<< HEAD:tyk-docs/content/tyk-on-prem/installation/install-tyk-aws.md
     parent: "Installation"
-weight: 5
-url: "/tyk-on-premises/installation/on-aws"
-=======
-    parent: "Tyk On-Premises"
 weight: 6
-url: "/tyk-on-premises/aws"
->>>>>>> master:tyk-docs/content/getting-started/installation/with-tyk-on-premises/install-tyk-aws.md
+url: "/tyk-on-premises/installation/on-aws"
 aliases:
   - /getting-started/with-tyk-on-premises/installation/on-aws/
   - /tyk-on-premises/installation/on-aws
