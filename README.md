@@ -330,6 +330,12 @@ We recommend you restrict your IAM user as much as possible before sharing the c
 
 See the [Hugo Docs](https://gohugo.io/content-management/shortcodes/#use-hugos-built-in-shortcodes) for other built in shortcodes.
 
+### Tooltips shortcode
+
+You can add tooltips by using the following shortcode:
+
+{{< tooltip >}}some link text definition{{< definition >}}
+the tooltip text to display{{< /definition >}}{{< /tooltip >}}
 ## License
 
 Tyk is released under the MPL v2.0 please see the [license file](LICENSE.md) for a full version of the license.
