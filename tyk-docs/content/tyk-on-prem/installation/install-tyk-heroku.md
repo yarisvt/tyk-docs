@@ -9,6 +9,7 @@ url: "/tyk-on-premises/installation/on-heroku"
 aliases:
   - /getting-started/with-tyk-on-premises/installation/on-heroku/
   - /tyk-on-premises/installation/on-heroku
+  - /tyk-on-premises/heroku/
 ---
 
 ## Install Tyk API Gateway on Heroku

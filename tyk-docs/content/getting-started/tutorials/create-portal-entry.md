@@ -78,12 +78,6 @@ This process will bind your organisations' Portal to the domain name you've spec
 {{< note success >}}
 **Note**  
 
-If you installed [Tyk On-Premises for Vagrant](/docs/getting-started/installation/with-tyk-on-premises/install-tyk-pro-premises-vagrant/), you will have created a `etc/hosts` entry of `portal-instance.com`. You should enter this hostname in the drop-down.
-{{< /note >}}
-
-{{< note success >}}
-**Note**  
-
 You need to restart your Dashboard service for the changes to take effect.
 {{< /note >}}
 

@@ -9,6 +9,7 @@ url: "/tyk-on-premises/installation/on-aws"
 aliases:
   - /getting-started/with-tyk-on-premises/installation/on-aws/
   - /tyk-on-premises/installation/on-aws
+  - /tyk-on-premises/aws/
 ---
 
 To get started easily, [Tyk offers AWS Marketplace products][6] which bootstrap the entire stack, via CloudFormation templates.
