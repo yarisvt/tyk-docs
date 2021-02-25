@@ -1,6 +1,6 @@
 ---
 date: 2017-03-27T17:32:07+01:00
-title: Tyk Pump
+title: Tyk Pump Troubleshooting
 menu:
   main:
     parent: "Troubleshooting"

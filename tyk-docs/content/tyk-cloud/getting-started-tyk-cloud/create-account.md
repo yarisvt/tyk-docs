@@ -22,4 +22,8 @@ Watch our video on setting up your Tyk Cloud account.
 
 {{< youtube Y4Zd4DCwjk8 >}}
 
+## Creating your first account
+
+[Start here](https://account.cloud-ara.tyk.io/signup).
+
 After completing the Account Creation form, click Create Account. The next step is to set up your organisation.

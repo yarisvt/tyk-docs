@@ -2,7 +2,7 @@
 title: Support Information
 menu:
   main:
-    parent: "Tyk Gateway"
+    parent: "Tyk Gateway Troubleshooting"
 weight: 8
 url: "/troubleshooting/tyk-gateway/support-information"
 ---

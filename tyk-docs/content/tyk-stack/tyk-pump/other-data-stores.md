@@ -3,7 +3,7 @@ date: 2017-03-24T16:28:03Z
 title: Supported Back Ends
 menu:
   main:
-    parent: Tyk Pump Analytics
+    parent: Tyk Pump
 weight: 10 
 aliases:
   - /analytics-and-reporting/other-data-stores/

@@ -3,7 +3,7 @@ date: 2017-03-24T16:14:31Z
 title: Useful Debug Modes
 menu:
   main:
-    parent: Tyk Pump Analytics
+    parent: Tyk Pump
 weight: 8
 aliases:
   - /analytics-and-reporting/useful-debug-modes

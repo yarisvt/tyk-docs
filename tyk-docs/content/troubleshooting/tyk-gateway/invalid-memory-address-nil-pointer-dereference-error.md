@@ -3,7 +3,7 @@ date: 2017-03-27T17:25:35+01:00
 title: “Invalid memory address or nil pointer dereference“ error
 menu:
   main:
-    parent: "Tyk Gateway"
+    parent: "Tyk Gateway Troubleshooting"
 weight: 5 
 ---
 

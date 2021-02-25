@@ -4,7 +4,7 @@ title: Tyk Self-Managed
 weight: 4
 menu: 
     main:
-        parent: "Tyk Solutions"
+        parent: "API Management"
 url: "/tyk-on-premises/"
 aliases:
   - /getting-started/installation/with-tyk-on-premises/
@@ -15,8 +15,14 @@ aliases:
 
 Tyk Self-Managed is the way to install our Full Lifecycle API Management solution in your own infrastructure.  There is no calling home, and there are no usage limits.  You have full control.
 
-![Tyk API Analytics Dashboard][1]
+## Installing Tyk Self-Managed:
+Please visit our [Self-Managed installation](/docs/tyk-on-premises/install/) page to get started.
 
+## Licencing
+
+Read more about licensing [here](/docs/tyk-on-premises/licensing).
+
+## Tyk Components
 The full Tyk Self-Managed system consists of:
 <!-- todo: oss labels: -->
 * [Tyk Gateway](/docs/getting-started/tyk-components/gateway/):  The API Gateway that proxies and manages your traffic.
@@ -25,13 +31,8 @@ The full Tyk Self-Managed system consists of:
 * [Tyk Identity Broker](/docs/tyk-identity-broker/) (Optional): Handles integrations with third-party IDP's.
 * [Tyk Multi-Data Center Bridge](/docs/tyk-multi-data-centre/) (Optional, add-on): Allows for the configuration of a Tyk ecosystem that spans many data centers and clouds.
 
-## Installing Tyk Self-Managed:
-Please visit our [Self-Managed installation](/docs/tyk-on-premises/install/) page to get started.
-
-### Licencing
-
-Read more about licensing [here](/docs/tyk-on-premises/licensing).
-
+## Architecture
+![Tyk Self-Managed Architecture][1]
 
 ## Dependencies & Database Support
 

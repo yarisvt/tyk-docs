@@ -14,30 +14,26 @@ hideSidebar: true
 
 <div class="products">
 
-## Tyk API Management Solutions
+## Tyk API Management
 
 {{< grid >}}
 
-<!-- {{< badge read="5 mins" imageStyle="object-fit:contain" href="/docs/tyk-oss-gateway/" image="/docs/img/logos/tyk_logo2.png">}}
-Tyk **open source**  Gateway
-{{< /badge >}} -->
-
-{{< badge read="7 mins" imageStyle="object-fit:contain" href="/docs/tyk-solutions/open-source/" image="/docs/img/opensource.png">}}
-Tyk **open source** solutions
+{{< badge read="7 mins" imageStyle="object-fit:contain" href="/docs/apim/open-source/" image="/docs/img/opensource.png">}}
+Tyk **Open Source**
 {{< /badge >}}
 
 {{< badge read="10 mins" imageStyle="object-fit:contain" href="/docs/tyk-on-premises/" image="/docs/img/logos/tyk_logo2.png">}}
-Tyk **Self-Managed** Solution
+Tyk **Self-Managed**
 {{< /badge >}}
 
 {{< badge read="15 mins" href="/docs/tyk-cloud/" image="/docs/img/tyk-cloud.svg" >}}
-Tyk **Cloud** SaaS Solution
+Tyk **Cloud** SaaS
 {{< /badge >}}
 
 
 {{< /grid >}}
 
-{{< button href="/docs/tyk-solutions" color="green" content="Compare Solutions" >}}
+{{< button href="/docs/apim" color="green" content="Compare" >}}
 
 ## The Tyk Stack
 

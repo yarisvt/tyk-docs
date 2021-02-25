@@ -2,7 +2,7 @@
 title: Key Value secrets storage for configuration in Tyk
 menu:
   main:
-    parent: "Tyk Gateway OSS"
+    parent: Tyk Gateway
 weight: 13
 ---
 

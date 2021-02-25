@@ -1,11 +1,11 @@
 ---
 date: 2017-03-23T13:19:38Z
-title: Tyk Sync CICD
+title: Tyk Sync
 menu: 
   main:
-    parent: "Tyk Stack"
+    parent: Tyk Stack
 weight: 4
-url: "tyk-sync"
+url: tyk-sync
 aliases:
   - /advanced-configuration/manage-multiple-environments/tyk-sync/
 ---

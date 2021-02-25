@@ -2,7 +2,7 @@
 title: Basic Configuration and Security
 menu:
     main:
-        parent: "Tyk Gateway OSS"
+        parent: Tyk Gateway
 weight: 40
 url: "/basic-config-and-security"
 ---

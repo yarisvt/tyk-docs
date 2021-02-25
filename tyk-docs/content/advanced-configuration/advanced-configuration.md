@@ -3,7 +3,7 @@ date: 2017-03-24T15:49:11Z
 title: Advanced Configuration
 menu:
     main:
-        parent: "Tyk Gateway OSS"
+        parent: Tyk Gateway
 weight: 60
 url: "/advanced-configuration"
 ---

@@ -5,7 +5,7 @@ linkTitle: "Installation "
 weight: 1
 menu:
   main:
-    parent: "Tyk Gateway OSS"
+    parent: Tyk Gateway
 url: "tyk-oss-gateway/install"
 ---
 
@@ -38,3 +38,12 @@ Visit our **Community Edition** Gateway GitHub Repo.
 {{< /badge >}}
 
 {{< /grid >}}
+
+
+## Architecture
+
+The Tyk Gateway can run completely independently, requiring only a Redis database to be effective, and can scale horizontally:
+
+![Tyk Open Source Deployment](/docs/img/diagrams/gateway3.png)
+
+Combine with the other [Tyk OSS products](/docs/tyk-stack) For even more power!

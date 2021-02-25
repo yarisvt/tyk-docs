@@ -4,7 +4,7 @@ title: Tyk Dashboard Analytics
 weight: 1
 menu: 
     main:
-        parent: Tyk Pump Analytics
+        parent: Tyk Pump
 url: "/tyk-dashboard-analytics"
 ---
 

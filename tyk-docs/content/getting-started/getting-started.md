@@ -10,7 +10,7 @@ aliases:
 
 Tyk offers an open source API Gateway that is fast, scalable and modern. Tyk also offers a full life-cycle API Management Platform with an API Gateway, API Analytics, Developer Portal and API Management Dashboard.
 
-Not sure what you need? Visit our [solutions comparison](/docs/tyk-solutions) page to get started
+Not sure what you need? Visit our [APIM comparison](/docs/apim) page to get started
 
 Once you have a Tyk environment installed, whether it's self-managed OSS or Enterprise, or Cloud, come back here to create your first API!
 

@@ -15,4 +15,4 @@ Please head on over to the solution you want to setup:
 * [Self-Managed](/docs/tyk-on-premises/install/)
 * [Cloud](/docs/tyk-cloud/getting-started/)
 
-Not sure what you need? Head on over to [Tyk Solutions](/docs/tyk-solutions) to find out
+Not sure what you need? Head on over to [the compare page](/docs/apim) to find out

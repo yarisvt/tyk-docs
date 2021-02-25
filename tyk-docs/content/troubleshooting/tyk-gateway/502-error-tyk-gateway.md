@@ -3,7 +3,7 @@ date: 2017-03-27T17:23:51+01:00
 title: 502 error in Tyk Gateway
 menu:
   main:
-    parent: "Tyk Gateway"
+    parent: "Tyk Gateway Troubleshooting"
 weight: 5 
 ---
 

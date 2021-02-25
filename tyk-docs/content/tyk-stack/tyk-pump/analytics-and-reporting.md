@@ -1,6 +1,6 @@
 ---
 date: 2017-03-24T15:49:11Z
-title: Tyk Pump Analytics
+title: Tyk Pump
 weight: 2
 menu:
   main:

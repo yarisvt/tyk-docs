@@ -3,7 +3,7 @@ date: 2020-02-18T15:08:55Z
 Title: Important Prerequisites
 menu:
   main:
-    parent: "Tyk Gateway OSS"
+    parent: Tyk Gateway
 weight: 6
 aliases:
   - /getting-started/tutorials/important-prerequisites/

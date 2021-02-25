@@ -1,6 +1,6 @@
 ---
 date: 2017-03-27T17:23:27+01:00
-title: Tyk Gateway
+title: Tyk Gateway Troubleshooting
 menu:
   main:
     parent: "Troubleshooting"

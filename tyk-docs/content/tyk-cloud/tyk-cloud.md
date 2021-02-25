@@ -4,7 +4,7 @@ date: 2020-06-24
 weight: 10
 menu: 
     main:
-        parent: "Tyk Solutions"
+        parent: "API Management"
 url: "/tyk-cloud/"
 ---
 
