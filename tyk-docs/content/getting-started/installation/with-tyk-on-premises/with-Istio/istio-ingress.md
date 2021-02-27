@@ -1,4 +1,4 @@
-***How to use Tyk as the Ingress Gateway for Istio on kubernetes***
+##How to use Tyk as the Ingress Gateway for Istio on kubernetes
 
 Utilising Tyk for API Management at the edge ingress or egress of a service mesh is a common use case. We will cover here how to set up Tyk as an ingress alongside Istio acting as a service mesh for the upstream services. This opens up the ability to use the powerful API gateway and API management capabilities of Tyk, giving you the benefit of Istio for East-West traffic and Tyk for north-south traffic.
 
@@ -43,6 +43,8 @@ We can check IstioD is up and running with `kubectl -n istio-system get deploy` 
 NAME     READY   UP-TO-DATE   AVAILABLE   AGE
 istiod   1/1     1            1           1m
 ```
+
+## Install Tyk on Istio with Helm
 
 Before we install Tyk add our tyk namespace where our Tyk Gateway, API Dashboard and Pump are installed to the injected namespaces for Istio. (This demo will also inject sidecars on our Redis and MongoDB - these would normally be recommended to install outside your cluster).
 
@@ -121,7 +123,7 @@ kubectl apply -f samples/httpbin.yaml
 ```
 
 
-**Deploy an API with The Dashboard UI**
+##Tyk on Istio: Deploy an API with The Dashboard UI
 
 Once logged in to the dashboard follow one of our guides on the Tyk docs. 
 
@@ -129,7 +131,7 @@ https://www.tyk.io/docs/tyk-cloud/getting-started-tyk-cloud/first-api/
 
 This Tyk Cloud guide works similarly for on premise - remember to tag your API "ingress" so it will be loaded in the Ingress Gateway.
 
-**Deploy an API declaratively with the Tyk Operator**
+##Tyk on Istio: Deploy an API declaratively with the Tyk Operator
 
 Our Tyk Pro install has helpfully seeded a secret for us to use to connect our Tyk Operator to the API Management Dashboard.
 
