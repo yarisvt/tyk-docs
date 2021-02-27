@@ -127,9 +127,9 @@ Once logged in to the dashboard follow one of our guides on the Tyk docs.
 
 https://www.tyk.io/docs/tyk-cloud/getting-started-tyk-cloud/first-api/
 
-This Tyk Cloud guide works just the same for on premise - remember to tag your API "ingress" so it will be loaded in the Ingress Gateway.
+This Tyk Cloud guide works similarly for on premise - remember to tag your API "ingress" so it will be loaded in the Ingress Gateway.
 
-**Deploy and API declaratively with the Tyk Operator**
+**Deploy an API declaratively with the Tyk Operator**
 
 Our Tyk Pro install has helpfully seeded a secret for us to use to connect our Tyk Operator to the API Management Dashboard.
 
@@ -172,7 +172,7 @@ And deploy the operator itself:
 helm install tyk-op ./helm -n tyk
 ```
 
-Now we can apply our API definition:
+Now we can apply our API definition to create the proxy configuration for the gateway in front of the httpbin service we deployed into our mesh:
 
 ```
 cat <<EOF | kubectl create -n tyk -f -
