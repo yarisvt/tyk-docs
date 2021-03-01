@@ -102,7 +102,7 @@ The remaining fields are only required for grant types which include a redirect,
 
 ### 4. Create a Policy
 
-Next, [create a policy](docs/getting-started/tutorials/create-security-policy/) which includes this API on it’s Access rights.
+Next, [create a policy](/docs/getting-started/tutorials/create-security-policy/) which includes this API on it’s Access rights.
 
 ### 5. Create an OAuth Client
 
@@ -157,7 +157,7 @@ The key elements to take into account here are the enabling of the `use_oauth2` 
 
 #### Setting quotas and limits
 
-(See also bound policies below)
+(See also [bound policies](#using-bound-policies-with-oauth-client-ids))
 
 Once your application authorises a client to access data on a users behalf (Step 5 -> Step 6), your app will send a request to the Tyk REST API endpoint `/tyk/oauth/authorize-client/` with the POST data from the initial client request. It will also need to add one field to the POST data: `key_rules`.
 

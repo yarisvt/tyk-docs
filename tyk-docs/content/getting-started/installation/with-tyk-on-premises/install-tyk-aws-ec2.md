@@ -4,7 +4,7 @@ date: 2020-05-18
 menu:
   main:
     parent: "AWS Marketplace"
-weight: 5
+weight: 6
 url: "/tyk-on-premises/on-aws/ec2"
 aliases:
   - /getting-started/with-tyk-on-premises/installation/on-aws/ec2/

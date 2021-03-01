@@ -4,10 +4,11 @@ Title: AWS Marketplace
 menu:
   main:
     parent: "Tyk On-Premises"
-weight: 5
-url: "/tyk-on-premises/installation/on-aws"
+weight: 6
+url: "/tyk-on-premises/aws"
 aliases:
   - /getting-started/with-tyk-on-premises/installation/on-aws/
+  - /tyk-on-premises/installation/on-aws
 ---
 
 To get started easily, [Tyk offers AWS Marketplace products][6] which bootstrap the entire stack, via CloudFormation templates.

@@ -18,13 +18,19 @@ The following guide briefly explains how to work with Hugo, you would then need 
 
 Our Documentation is constructed using [Hugo](http://gohugo.io/).
 
-### To Install Hugo 
+## Getting Started
+1. Clone this repository 
+2. Navigate to the project directory
 
+### Use with Docker
+1. [Docker](https://docs.docker.com/get-docker/)
+2. Run `docker-compose up` from the project directory
+
+### Use with Hugo
 1. [Install Hugo](http://gohugo.io/getting-started/installing/) - v0.60 or above
-2. Clone this repository 
-3. Run `hugo server --theme=tykio --buildDrafts` from the `tyk-docs/tyk-docs` directory
-4. Go to  http://localhost:1313/docs to view the docs locally.
+2. Run `hugo server --theme=tykio --buildDrafts --enableGitInfo` from the `tyk-docs/tyk-docs` directory
 
+Go to  [http://localhost:1313/docs](http://localhost:1313/docs) to view the docs locally
 
 ## Adding and Editing Content
 
@@ -323,6 +329,15 @@ We recommend you restrict your IAM user as much as possible before sharing the c
 ![image](https://user-images.githubusercontent.com/1983518/104921245-f70e3c00-5990-11eb-927c-916204d90325.png)
 
 See the [Hugo Docs](https://gohugo.io/content-management/shortcodes/#use-hugos-built-in-shortcodes) for other built in shortcodes.
+
+### Tooltips shortcode
+
+You can add tooltips by using the following shortcode:
+
+{{< tooltip >}}some link text definition{{< definition >}}
+the tooltip text to display{{< /definition >}}{{< /tooltip >}}
+
+![tooltip-demo](https://user-images.githubusercontent.com/1983518/109049790-916c4880-76d0-11eb-8b3a-ad107d317468.gif)
 
 ## License
 

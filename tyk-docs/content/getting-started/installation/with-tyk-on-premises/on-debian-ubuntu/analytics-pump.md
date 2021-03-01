@@ -3,10 +3,45 @@ date: 2017-03-22T16:14:35Z
 Title: Tyk Pump on Ubuntu
 menu:
   main:
-    parent: "On Ubuntu"
+    parent: "On Debian / Ubuntu"
 weight: 2
 ---
+{{< tabs_start >}}
+{{< tab_start "Ansible" >}}
+<br />
+{{< note >}}
+**Requirements**
 
+[Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html) is required to run the following commands. Instructions on how install Tyk Pump with shell is in the <b>Shell</b> tab.
+{{< /note >}}
+
+## Getting Started
+1. clone the [tyk-ansible](https://github.com/TykTechnologies/tyk-ansible) repositry
+
+```bash
+$ git clone https://github.com/TykTechnologies/tyk-ansible
+```
+
+2. `cd` into the directory
+```.bash
+$ cd tyk-ansible
+```
+
+3. Run initalization script to initialize environment
+
+```bash
+$ sh scripts/init.sh
+```
+
+4. Modify `hosts.yml` file to update ssh variables to your server(s). You can learn more about the hosts file [here](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html)
+
+5. Run ansible-playbook to install `tyk-pump`
+
+```bash
+$ ansible-playbook playbook.yml -t tyk-pump
+```
+{{< tab_end >}}
+{{< tab_start "Shell" >}}
 ## Install Tyk Pump on Ubuntu
 
 ### What is Tyk Pump?
@@ -28,25 +63,25 @@ This tutorial has been tested Ubuntu 16.04 & 18.04 with few if any modifications
 
 First, add our GPG key which signs our binaries:
 
-```{.copyWrapper}
+```bash
 curl -L https://packagecloud.io/tyk/tyk-pump/gpgkey | sudo apt-key add -
 ```
 
 Run update:
 
-```{.copyWrapper}
+```bash
 sudo apt-get update
 ```
 
 Since our repositories are installed via HTTPS, you will need to make sure APT supports this:
 
-```{.copyWrapper}
+```bash
 sudo apt-get install -y apt-transport-https
 ```
 
 Now lets add the required repos and update again (notice the `-a` flag in the second Tyk commands - this is important!):
 
-```{.copyWrapper}
+```bash
 echo "deb https://packagecloud.io/tyk/tyk-pump/ubuntu/ bionic main" | sudo tee /etc/apt/sources.list.d/tyk_tyk-pump.list
 
 echo "deb-src https://packagecloud.io/tyk/tyk-pump/ubuntu/ bionic main" | sudo tee -a /etc/apt/sources.list.d/tyk_tyk-pump.list
@@ -63,7 +98,7 @@ sudo apt-get update
 
 We're now ready to install the Tyk Pump. To install it, run:
 
-```{.copyWrapper}
+```bash
 sudo apt-get install -y tyk-pump
 ```
 
@@ -77,7 +112,7 @@ Debian packages are signed with the repository keys. These keys are verified at 
 
 First, you have to fetch Tyk's signing key and import it.
 
-```{.copyWrapper}
+```bash
 wget https://keyserver.tyk.io/tyk.io.deb.signing.key
 gpg --import tyk.io.deb.signing.key
 ```
@@ -88,7 +123,7 @@ Then, you have to either,
 
 The downloaded package will be available in `/var/cache/apt/archives`. Assuming you found the file `tyk-gateway-2.9.3_amd64.deb` there, you can verify the origin signature.
 
-```{.copyWrapper}
+```bash
 gpg --verify d.deb
 gpg: Signature made Wed 04 Mar 2020 03:05:00 IST
 gpg:                using RSA key F3781522A858A2C43D3BC997CA041CD1466FA2F8
@@ -105,21 +140,23 @@ If you don't complete this step, you won't see any analytics in your Dashboard, 
 You need to replace `<hostname>` for `--redishost=<hostname>`, and `<IP Address>` for `--mongo=mongodb://<IP Address>/` with your own values to run this script.
 {{< /note >}}
 
-```{.copyWrapper}
+```bash
 sudo /opt/tyk-pump/install/setup.sh --redishost=<hostname> --redisport=6379 --mongo=mongodb://<IP Address>/tyk_analytics
 ```
 
 #### Step 4: Start Tyk Pump
 
-```{.copyWrapper}
+```bash
 sudo service tyk-pump start
 sudo service tyk-pump enable
 ```
 
 You can verify if Tyk Pump is running and working by tailing the log file:
 
-```{.copyWrapper}
+```bash
 sudo tail -f /var/log/upstart/tyk-pump.log
 ```
 
 [1]: https://packagecloud.io
+{{< tab_end >}}
+{{< tabs_end >}}

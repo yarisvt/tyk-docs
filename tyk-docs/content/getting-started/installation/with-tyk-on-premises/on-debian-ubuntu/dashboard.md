@@ -3,10 +3,45 @@ date: 2017-03-22T16:08:31Z
 Title: Dashboard on Ubuntu
 menu:
   main:
-    parent: "On Ubuntu"
+    parent: "On Debian / Ubuntu"
 weight: 1
 ---
+{{< tabs_start >}}
+{{< tab_start "Ansible" >}}
+<br />
+{{< note >}}
+**Requirements**
 
+[Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html) is required to run the following commands. Instructions on how install Tyk Dashboard with shell is in the <b>Shell</b> tab.
+{{< /note >}}
+
+## Getting Started
+1. clone the [tyk-ansible](https://github.com/TykTechnologies/tyk-ansible) repositry
+
+```bash
+$ git clone https://github.com/TykTechnologies/tyk-ansible
+```
+
+2. `cd` into the directory
+```.bash
+$ cd tyk-ansible
+```
+
+3. Run initalization script to initialize environment
+
+```bash
+$ sh scripts/init.sh
+```
+
+4. Modify `hosts.yml` file to update ssh variables to your server(s). You can learn more about the hosts file [here](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html)
+
+5. Run ansible-playbook to install `tyk-dashboard`
+
+```bash
+$ ansible-playbook playbook.yml -t tyk-dashboard
+```
+{{< tab_end >}}
+{{< tab_start "Shell" >}}
 ## <a name="install-tyk-dashboard-ubuntu"></a>Install Tyk Dashboard on Ubuntu
 
 Tyk has its own APT repositories hosted by the kind folks at [packagecloud.io][1], which makes it easy, safe and secure to install a trusted distribution of the Tyk Gateway stack.
@@ -22,25 +57,25 @@ This tutorial has been tested on Ubuntu 16.04 & 18.04 with few if any modificati
 
 First, add our GPG key which signs our binaries:
 
-```{.copyWrapper}
+```bash
 curl -L https://packagecloud.io/tyk/tyk-dashboard/gpgkey | sudo apt-key add -
 ```
 
 Run update:
 
-```{.copyWrapper}
+```bash
 sudo apt-get update
 ```
 
 Since our repositories are installed via HTTPS, you will need to make sure APT supports this:
 
-```{.copyWrapper}
+```bash
 sudo apt-get install -y apt-transport-https
 ```
 
 Now lets add the required repos and update again (notice the `-a` flag in the second Tyk commands - this is important!):
 
-```{.copyWrapper}
+```bash
 echo "deb https://packagecloud.io/tyk/tyk-dashboard/ubuntu/ bionic main" | sudo tee /etc/apt/sources.list.d/tyk_tyk-dashboard.list
 
 echo "deb-src https://packagecloud.io/tyk/tyk-dashboard/ubuntu/ bionic main" | sudo tee -a /etc/apt/sources.list.d/tyk_tyk-dashboard.list
@@ -57,7 +92,7 @@ sudo apt-get update
 
 We're now ready to install the Tyk Dashboard. To install run:
 
-```{.copyWrapper}
+```bash
 sudo apt-get install -y tyk-dashboard
 ```
 
@@ -71,7 +106,7 @@ Debian packages are signed with the repository keys. These keys are verified at 
 
 First, you have to fetch Tyk's signing key and import it.
 
-```{.copyWrapper}
+```bash
 wget https://keyserver.tyk.io/tyk.io.deb.signing.key
 gpg --import tyk.io.deb.signing.key
 ```
@@ -82,7 +117,7 @@ Then, you have to either,
 
 The downloaded package will be available in `/var/cache/apt/archives`. Assuming you found the file `tyk-gateway-2.9.4_amd64.deb` there, you can verify the origin signature.
 
-```{.copyWrapper}
+```bash
 gpg --verify d.deb
 gpg: Signature made Wed 04 Mar 2020 03:05:00 IST
 gpg:                using RSA key F3781522A858A2C43D3BC997CA041CD1466FA2F8
@@ -104,7 +139,7 @@ You need to replace `<hostname>` for `--redishost=<hostname>`, and `<IP Address>
 
 We can set the dashboard up with a helper setup command script. This will get the dashboard set up for the local instance:
 
-```{.copyWrapper}
+```bash
 sudo /opt/tyk-dashboard/install/setup.sh --listenport=3000 --redishost=<hostname> --redisport=6379 --mongo=mongodb://<IP Address>/tyk_analytics --tyk_api_hostname=$HOSTNAME --tyk_node_hostname=http://localhost --tyk_node_port=8080 --portal_root=/portal --domain="XXX.XXX.XXX.XXX"
 ```
 
@@ -135,7 +170,7 @@ Add your license in `/opt/tyk-dashboard/tyk_analytics.conf` in the `license` fie
 
 Start the dashboard service, and ensure it will start automatically on system boot.
 
-```{.copyWrapper}
+```bash
 sudo systemctl start tyk-dashboard
 sudo systemctl enable tyk-dashboard
 ```
@@ -183,3 +218,5 @@ You can now log in to the Tyk Dashboard from `127.0.0.1:3000`, using the usernam
 [1]: https://packagecloud.io/tyk
 [2]: /docs/getting-started/installation/with-tyk-on-premises/on-ubuntu/#prerequisites
 [3]: /docs/img/dashboard/system-management/bootstrap_screen.png
+{{< tab_end >}}
+{{< tabs_end >}}

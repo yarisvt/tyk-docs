@@ -4,7 +4,7 @@ title: Bootstrapper CLI
 menu:
   main:
     parent: "Tyk On-Premises"
-weight: 8
+weight: 9
 url: "/tyk-on-premises/bootstrapper-cli/"
 aliases:
   - /getting-started/installation/with-tyk-on-premises/bootstrapper-cli/

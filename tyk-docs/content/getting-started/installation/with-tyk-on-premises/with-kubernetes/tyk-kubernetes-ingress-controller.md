@@ -20,7 +20,7 @@ In this article we will cover:
 
 ## Prerequisites
 
-* Either a Tyk [Community Edition (CE) Installation](/docs/getting-started/installation/with-tyk-community-edition/), or a Tyk [On-Premises Pro Edition Installation](/docs/getting-started/installation/with-tyk-on-premises/) with an appropriate [licence](/docs/getting-started/licencing/#on-premises-licencing).
+* Either a Tyk [Community Edition (CE) Installation](/docs/tyk-oss-gateway/), or a Tyk [On-Premises Pro Edition Installation](/docs/getting-started/installation/with-tyk-on-premises/) with an appropriate [licence](/docs/getting-started/licencing/#on-premises-licencing).
 
 * Redis installed in the cluster or reachable from K8s
 * MongoDB installed in the cluster, or reachable from inside K8s

@@ -27,7 +27,8 @@ The developer Portal is available to Pro (On-Premises), Cloud Classic and Multi-
 
 For examples of how clients have used our portal, visit:
 
-[https://developer.hotelbeds.com/](https://developer.hotelbeds.com/)
-[https://developer.ft.com/portal](https://developer.ft.com/portal)
-[https://developer.geops.io/](https://developer.geops.io/)
-[https://opentransportdata.swiss/en/](https://opentransportdata.swiss/en/)
+* [https://developer.hotelbeds.com/](https://developer.hotelbeds.com/)
+* [https://developer.ft.com/portal](https://developer.ft.com/portal)
+* [https://developer.geops.io/](https://developer.geops.io/)
+* [https://opentransportdata.swiss/en/](https://opentransportdata.swiss/en/)
+
