@@ -7,7 +7,7 @@ menu:
 weight: 4 
 ---
 
-This is a step by step guide to setting Splunk to recieve logs from the Tyk Pump.
+This is a step by step guide to setting Splunk to receive logs from the Tyk Pump.
 
 The assumptions are that you have Docker installed and Tyk Pro On-premises already running.
 
@@ -48,14 +48,15 @@ Edit your pump's `pump.conf` and add this bit to the "Pumps" section, like so, a
 Make sure to add your token from the previous step into the `collector_token` field above
 
 ```json
-"pumps": {
-    ...
-    "splunk": {
-        "type": "splunk",
-        "meta": {
-            "collector_token": "<token>",
-            "collector_url": "https://localhost:8088/services/collector/event",
-            "ssl_insecure_skip_verify": true
+{
+    "pumps": {
+        "splunk": {
+            "type": "splunk",
+            "meta": {
+                "collector_token": "<token>",
+                "collector_url": "https://localhost:8088/services/collector/event",
+                "ssl_insecure_skip_verify": true
+            }
         }
     }
 }
@@ -81,7 +82,7 @@ Let's make a few API calls against Tyk, and see if they flow into Splunk
 $ curl localhost:8080/loan-service-api/
 
 {
-    "error": "Key not authorised"
+    "error": "Key not authorized"
 }%
 ```
 

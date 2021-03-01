@@ -11,20 +11,27 @@ weight: 0
 
 Tyk supports various ways of caching requests. At its simplest level, Tyk can cache all safe requests, however you can also manually set exactly which endpoint patterns to cache, and if that doesn't suffice, or you require more granular control, then you can enable upstream control and have your application tell Tyk whether to cache a request or not and for how long.
 
+{{< note success >}}
+**Note**  
+
+Invalidate Cache functionality is not currently supported in MDCB Gateways.
+{{< /note >}}
+
 
 ## Global
 
-### Enabling Caching via the API Definition
+### Enabling Caching via an API Definition
 
 To enable caching in your API, within your API definition you will need to set the `cache_options` flags in the main body of the definition:
 
 ```{.copyWrapper}
-cache_options: {
-  cache_timeout: 10,
-  enable_cache: true,
-  cache_all_safe_requests: false,
-  enable_upstream_cache_control: false,
-  cache_response_codes: [200]
+"cache_options": {
+  "cache_timeout": 10,
+  "enable_cache": true,
+  "cache_all_safe_requests": false,
+  "enable_upstream_cache_control": false,
+  "cache_by_headers": [],
+  "cache_response_codes": [200]
 }
 ```
 
@@ -37,7 +44,7 @@ If you set `cache_all_safe_requests` to true, then the cache will be global and 
 
 ### Enabling Caching via the Dashboard
 
-Follow these steps to enable caching via the dashboard.
+Follow these steps to enable caching via the Dashboard.
 
 #### Step 1: Go to the Advanced Options
 
@@ -56,6 +63,34 @@ Here you must set:
 3.  **Cache only these status codes**: To set which response codes to cache (remember to click **Add** after entering a response code).
 4.  **Global cache**: Enable the global cache.
 
+## Dynamic caching based on headers or body content
+
+By default Tyk maintains a cache of an API key (if auth is enabled), request method and request path.
+But you can have a dynamic cache for keys as well, and maintain a differnt cache based on the header or body content values.
+
+For HTTP headers you can set the`cache_option.cache_by_headers` option. For example: 
+```
+"cache_options": {
+   "cache_by_headers": ["Unique-user-Id"]
+   ....
+}
+```
+
+For request body based caching, it should be defined on a per endpoint level. Add the following config under the API definition `extended_paths` section:
+```
+"extended_paths": {
+  "advance_cache_config": [
+    {
+      "method":"POST",
+      "path":"addBooks",
+      "cache_key_regex": "pattern"
+    }
+  ]
+  ...
+}
+```
+
+Both header and body dynamic caching is not exposed in the Dashboard UI, and needs to be enabled though either the raw API editor or via the Dashboard API. 
 
 ## Per-Path
 
@@ -96,16 +131,16 @@ You need to set:
 
 #### Step 2: Select the Cache Plugin
 
-Go to Endpoint Designer tab. From the path you want to cache, select the **Cache** plugin option from the drop-down list.
+Go to the Endpoint Designer tab. From the path you want to cache, select the **Cache** plugin option from the drop-down list.
 
 ![Plugin dropdown list](/docs/img/2.10/cache_plugin.png)
 
  
 ## Upstream Control
 
-Upstream cache control enables you to set whether a response should be cached, and for how long. To enable this, you will need to set `enable_cache` to and `enable_upstream_cache_control` to `true`.
+Upstream cache control enables you to set whether a response should be cached, and for how long. To enable this, you will need to set `enable_cache` and `enable_upstream_cache_control` to `true`.
 
-Now you will also need to set on which paths to act, add thses paths as shown in the screengrab above or manually add these paths to the `cache` list in the `extended_paths` section of your API version as you can see below:
+Now you will also need to set which paths to act upon. Add these paths as shown in the screengrab above or manually add these paths to the `cache` list in the `extended_paths` section of your API version as below:
 ``` json
 "extended_paths": {
             "cache": [
@@ -114,6 +149,8 @@ Now you will also need to set on which paths to act, add thses paths as shown in
           }
  ```          
 
+## Tyk Response Headers
+
 Tyk will evaluate the response headers sent from your application for these paths and based on the data in the response, activate and set the cache values.
 
 The two response headers that Tyk looks for are:
@@ -121,12 +158,12 @@ The two response headers that Tyk looks for are:
 1.  `x-tyk-cache-action-set`: If Tyk finds this header set to `1`, the request will be cached.
 2.  `x-tyk-cache-action-set-ttl`: If Tyk finds this header, it will override the TTL of the cached response, otherwise it will default to `cache_options.cache_timeout`.
 
-Utilising this approach gives the most control as it will also only cache responses based on request method. So if you only want `OPTIONS` requests to be cached, and return cache control headers only for this method, then only that method/URL combination will be cached, ignoring other methods for the same path.
+Utilising this approach gives the most control as it will also only cache responses based on the request method. So if you only want `OPTIONS` requests to be cached, and return cache control headers only for this method, then only that method/URL combination will be cached, ignoring other methods for the same path.
 
 
 ### Configuration via the Dashboard
 
-Under the advanced settings, ensure that **Enable upstream cache control** is selected and **Global cache** is not selected, then follow the steps for per-path caching.
+Under the Advanced settings, ensure that **Enable upstream cache control** is selected and **Global cache** is not selected, then follow the steps for per-path caching.
 
 ## Configuring a Separate Redis Cache
 
@@ -159,7 +196,5 @@ To enable a separate cache server, update your `tyk.conf` with the following sec
 {{< /note >}}
 
 If you set `enable_cluster` to `false`, you only need to set one entry in `addrs`:
-
-`
 
 The configuration is the same (and uses the same underlying driver) as the regular configuration, so Redis Cluster is fully supported.

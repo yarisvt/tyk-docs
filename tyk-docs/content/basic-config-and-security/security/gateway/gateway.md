@@ -8,8 +8,8 @@ weight: 4
 url: "/basic-config-and-security/security/gateway"
 ---
 
-The Tyk API Gateway is the main component that will be internet-facing in your installation since it manages the traffic through to your services. The Gateway has a command and control API that must be secured, and is secured using a shared secret.
+The Tyk Gateway is the main component that will be internet-facing in your installation since it manages the traffic through to your services. The Gateway has a command and control API that must be secured, using a [shared secret](/docs/planning-for-production/#change-all-the-shared-secrets).
 
 Although the Gateway has an API, it is recommended to integrate with the Dashboard API as this is more secure and more granular.
 
-1. [What is the Tyk Gateway?](/docs/concepts/tyk-components/gateway/)
+[What is the Tyk Gateway?](/docs/getting-started/tyk-components/gateway/)

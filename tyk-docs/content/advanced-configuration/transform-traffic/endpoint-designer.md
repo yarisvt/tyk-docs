@@ -78,13 +78,13 @@ If you specify a a path to be in the cache list, then the path will be cached by
 
 ### Circuit Breaker
 
-Our circuit breaker is threshold-based, so if x% of requests are failing then the circuit is tripped. When the circuit is tripped, the gateway stops all inbound requests to that service for a pre-defined period of time (a recovery time-period).
+Our circuit breaker is rate-based, so if x% of requests are failing then the circuit is tripped. When the circuit is tripped, the gateway stops all inbound requests to that service for a pre-defined period of time (a recovery time-period).
 
 The circuit breaker will also emit an event which you can hook into to perform some corrective or logging action. See [Circuit Breaker](/docs/planning-for-production/ensure-high-availability/circuit-breakers/) for more details.
 
 ### Do Not Track Endpoint
 
-This plugin allows you to have all traffic including analytics for an endpoint completely ignored.
+This plugin prevents any analytics, including log browser, API activity and endpoint popularity from being tracked.
 
 ### Enforced Timeout
 
@@ -133,6 +133,12 @@ In order for mocks to be enabled, the path must also be in a list. We recommend 
 
 
 **API Blueprint**: If you have imported an API Blueprint definition, and selected the mocks option in the importer, then your whole API will be a white list.
+
+{{< note success >}}
+**Note**  
+
+Support for API Blueprint is being deprecated. See [Importing APIs](/docs/tyk-configuration-reference/import-apis/#api-blueprint-is-being-deprecated) for more details.
+{{< /note >}}
 
 The options are for a mock:
 

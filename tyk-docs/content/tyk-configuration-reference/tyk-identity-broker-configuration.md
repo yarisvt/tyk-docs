@@ -26,6 +26,7 @@ The Tyk Identity Broker (TIB) is configured through two files: The configuration
      "Hosts" : {
          "localhost": "6379"
      },
+     "Username": "",
      "Password": "",
      "Database": 0,
      "EnableCluster": false,
@@ -80,9 +81,13 @@ Since profiles are unlikely to change often, profiles are kept in-memory, but ca
 
 If you are using multiple databases (not supported in Redis cluster), let TIB know which DB to use for Identity caching.
 
+### BackEnd.IdentityBackendSettings.Username
+
+The username for Redis AUTH, if used (recommended).
+
 ### BackEnd.IdentityBackendSettings.Password
 
-The password for your Redis DB (recommended).
+The password for your Redis AUTH Username.
 
 ### BackEnd.IdentityBackendSettings.Hosts
 

@@ -30,7 +30,7 @@ The Tyk MDCB logical architecture consists of:
 {{< note success >}}
 **Note**  
 
-If setting up MDCB locally for a Proof of Concept, your Redis instances for the master and the slaves **must** be different.
+If setting up MDCB locally for a Proof of Concept, your Redis instances for the master and the slaves MUST be different.
 {{< /note >}}
 
 

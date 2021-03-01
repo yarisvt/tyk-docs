@@ -10,13 +10,17 @@ Tyk supports GraphQL **natively**. This means Tyk doesn't have to use any extern
 
 You can securely expose existing GraphQL APIs using our GraphQL core functionality.
 
-In addition to this, you can also use Tyk's integrated GraphQL engine to build a [Universal Data Graph]({{< ref "/content/universal-data-graph/universal-data-graph.md" >}}). The Universal Data Graph (UDG) lets you expose existing services as one single combined GraphQL API.  
+In addition to this, you can also use Tyk's integrated GraphQL engine to build a [Universal Data Graph]({{< ref "/content/universal-data-graph/universal-data-graph.md" >}}). The Universal Data Graph (UDG) lets you expose existing services as one single combined GraphQL API.
+
+See our video on getting started with GraphQL.
+
+{{< youtube 6yAqgnzzH10 >}}
 
 ## What is GraphQL?
 
 > GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools.
 
-source: "https://graphql.org/"
+source: [https://graphql.org/](https://graphql.org/)
 
 ## Why would you want to use GraphQL?
 

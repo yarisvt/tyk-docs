@@ -46,7 +46,7 @@ When an Edge Gateway is deployed, the tag 'edge' and a location tag are automati
 {{< warning success >}}
 **Warning**
   
-All APIs must be connected to an Edge Gateway by adding the appropriate tag in the **Segment Tags (Node Segmentation)** in the API Designer.
+All APIs must be connected to an Edge Gateway by adding the appropriate tag in the *Segment Tags (Node Segmentation)* in the API Designer.
 {{< /warning >}}
 
 ## Step Five - Save Your API

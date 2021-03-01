@@ -22,7 +22,7 @@ The highest level container for one or more Organisations.
 
 ### Organisation
 
-The main entity of data, can only view one Organisation at a time, all data is contained.
+The main entity for all your data (Environments, APIs, Users, etc). An Organisation is connected to a single region and once connected, cannot be changed.
 
 ### Team 
 
@@ -34,7 +34,7 @@ A person who is a member of a Team with a set of permissions.
 
 ### Role
 
-A set of data and access permissions that can be applied to a user or team of users. See [User Roles](/docs/tyk-cloud/reference-docs/user-roles/) for more details.
+A set of data and access permissions that can be applied to a user or team of users. See [User Roles](/docs/tyk-cloud/teams-users/user-roles/) for more details.
 
 ### Profile
 

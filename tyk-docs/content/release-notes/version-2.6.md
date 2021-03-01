@@ -3,7 +3,7 @@ title: Tyk Gateway v2.6
 menu:
   main:
     parent: "Release Notes"
-weight: 5
+weight: 6
 ---
 
 # <a name="new"></a>New in this Release:
@@ -322,7 +322,7 @@ These endpoints allow you to get a list of all current tokens issued for provide
 
 We have renamed the response `_id` field when retrieving a list of key requests to `id`.
 
-See [List Key Requests](/docs/tyk-dashboard-api/manage-key-requests/#list-key-requests) for more details.
+See [List Key Requests](/docs/tyk-apis/tyk-dashboard-api/manage-key-requests/#list-key-requests) for more details.
 
 
 ### Developers can request a password reset email

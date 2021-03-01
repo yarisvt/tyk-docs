@@ -20,7 +20,13 @@ This section covers both [Documentation](#documentation) and [Catalogue](#catalo
 | Body         | Documentation Object     |
 | Param        | None                     |
 
-The Swagger or Blueprint should be base64 encoded and included in the `documentation` field of the Request Body, as per the example below. 
+The Swagger or Blueprint should be base64 encoded and included in the `documentation` field of the Request Body, as per the example below.
+
+{{< note success >}}
+**Note**  
+
+Support for API Blueprint is being deprecated. See [Importing APIs](/docs/tyk-configuration-reference/import-apis/#api-blueprint-is-being-deprecated) for more details.
+{{< /note >}}
 
 #### Sample Request
 

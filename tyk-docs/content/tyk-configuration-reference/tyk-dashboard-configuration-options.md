@@ -37,6 +37,7 @@ The file will look like the sample below, the various fields are explained in th
     "shared_node_secret": "352d20ee67be67f6340b4c0605b044b7",
     "redis_port": 6379,
     "redis_host": "tyk-redis",
+    "redis_username": "",
     "redis_password": "",
     "redis_master_name": "",
     "redis_timeout": 0,
@@ -97,7 +98,8 @@ The file will look like the sample below, the various fields are explained in th
         "enforce_password_history": 0,
         "force_first_login_pw_reset": false,
         "enable_content_security_policy": false,
-        "allowed_content_sources": ""
+        "allowed_content_sources": "",
+        "private_certificate_encoding_secret": "some-secret"
     },
     "ui": {
         "languages": {
@@ -263,9 +265,13 @@ The Tyk Dashboard uses Redis to store its session data and to communicate with y
 
 The hostname for the Redis collection and can be an IP address.
 
+### redis_username
+
+If you are using Redis AUTH using its `requirepass` setting, enter your username here (recommended). If this is not used, the Dashboard will not attempt to login to Redis.
+
 ### redis_password
 
-If you have a set a password in your Redis configuration using its `requirepass` setting, enter it here. If this is set to empty, The Dashboard will not attempt to login to Redis.
+The password for your Redis Auth username.
 
 ### redis_database
 
@@ -503,6 +509,10 @@ Set a maximum number of previous passwords used by a user that cannot be reused.
 #### security.force_first_login_pw_reset
 
 A newly created user will be forced to reset their password upon first login. Defaults to `false`.
+
+### security.private_certificate_encoding_secret
+
+When using SAML with embeded identity broker, is required to upload a certificate that is encoded by the gateway to store it safely, TIB needs the private key as well, hence it needs the same `encoding secret` so the information is decoded successfully. This value should match with the encoding secret set in the gateway config file, if not set then it will use by default `tyk_api_config.secret` to attempt to decode the certificate.
 
 ### ui
 

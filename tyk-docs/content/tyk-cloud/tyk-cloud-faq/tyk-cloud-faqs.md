@@ -26,7 +26,7 @@ they'll be able to have a Tyk Cloud environment with Edges that can sustain more
 ## Q3: How can I geo-load balance across multiple Edge Gateways? Why should I want to?
 
 A: The use case to deploy multiple Edge Gateways is either segregating regional traffic and/or segregating APIs.
-This doesn't necessarily concern HA.
+This doesn't necessarily concern High Availability.
 
 The number of actual Gateway instances within a single Edge deployment varies, auto-scales and load balances depending
 on the plan.

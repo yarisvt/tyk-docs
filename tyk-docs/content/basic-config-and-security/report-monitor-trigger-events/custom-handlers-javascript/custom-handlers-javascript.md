@@ -1,6 +1,6 @@
 ---
 date: 2017-03-24T12:42:33Z
-title: Custom Handlers (Javascript)
+title: Custom Handlers (JavaScript)
 menu:
   main:
     parent: "Report, Monitor and Trigger Events"
@@ -98,4 +98,4 @@ Adding a dynamic event handler to your API is the same as adding a regular event
 
 The key differentiators here are the `handler_meta` configuration section. There are two fields: `name` and `path`. Similarly to dynamic middleware, the name represents the unique name of your middleware object, and the path is the relative path to the file (it can be absolute).
 
-The JS files are loaded on API reload into the global JSVM. If a hot-reload event occurs, the global JSVM is re-set and files are re-loaded. This could cause event handlers that are currently executing to get abandoned. This is a measured risk and should not cause instability, however it should be noted that because of this, in an environment where reloads occur frequently, there is risk that event handler may not fire correctly.
+The JavaScript files are loaded on API reload into the global JSVM. If a hot-reload event occurs, the global JSVM is re-set and files are re-loaded. This could cause event handlers that are currently executing to get abandoned. This is a measured risk and should not cause instability, however it should be noted that because of this, in an environment where reloads occur frequently, there is risk that event handler may not fire correctly.

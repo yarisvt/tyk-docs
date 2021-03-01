@@ -174,7 +174,11 @@ And this Template:
 
 ```{.copyWrapper}
 {
-{{range $x, $s := .servers.server}}    "{{$s.serverName}}": "{{$s.serverIP}}"{{if not $x}},{{end}}
+{{if hasPrefix "[]" (printf "%T" .servers.server) }}
+    {{range $x, $s := .servers.server}}    "{{$s.serverName}}": "{{$s.serverIP}}"{{if not $x}},{{end}}
+    {{end}}
+{{else}}
+    "{{.servers.server.serverName}}": "{{.servers.server.serverIP}}"
 {{end}}
 }
 ```

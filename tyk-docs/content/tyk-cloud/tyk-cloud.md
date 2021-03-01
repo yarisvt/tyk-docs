@@ -1,14 +1,14 @@
 ---
 title: "Tyk Cloud"
 date: 2020-06-24
-weight: 220
+weight: 5
 menu: "main"
 url: "/tyk-cloud/"
 ---
 
 The new Tyk Cloud platform allows you to quickly setup the full Tyk Enterprise API Management platform by simply choosing the regions where you want to locate your Tyk Gateways and where you wish your data to reside.
 
-[find out more](#)
+[Find out more](/docs/tyk-cloud/what-is-tyk-cloud/)
 
 ## Quickstarts
 

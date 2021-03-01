@@ -17,11 +17,18 @@ The developer portal enables you to:
 *   Unlike other platforms, Tyk will not auto-publish your APIs to the Portal, instead they are presented as a facade, you choose what APIs and what Policies to expose to the Portal.
 *   Fully control the flow of the developer sign-up and enrollment.
 
+{{< note success >}}
+**Note**  
+
+Support for API Blueprint is being deprecated. See [Importing APIs](/docs/tyk-configuration-reference/import-apis/#api-blueprint-is-being-deprecated) for more details.
+{{< /note >}}
+
 The developer Portal is available to Pro (On-Premises), Cloud Classic and Multi-Cloud users.
 
 For examples of how clients have used our portal, visit:
 
-[https://developer.hotelbeds.com/](https://developer.hotelbeds.com/)
-[https://developer.ft.com/portal](https://developer.ft.com/portal)
-[https://developer.geops.io/](https://developer.geops.io/)
-[https://opentransportdata.swiss/en/](https://opentransportdata.swiss/en/)
+* [https://developer.hotelbeds.com/](https://developer.hotelbeds.com/)
+* [https://developer.ft.com/portal](https://developer.ft.com/portal)
+* [https://developer.geops.io/](https://developer.geops.io/)
+* [https://opentransportdata.swiss/en/](https://opentransportdata.swiss/en/)
+

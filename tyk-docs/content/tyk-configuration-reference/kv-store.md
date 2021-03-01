@@ -53,10 +53,10 @@ Example configuration inside `tyk.conf`
       "timeout": 30,
       "token": "token if available",
       "kv_version": 2
-    },
-    "secrets": {
-      "gateway": "secret"
     }
+  },
+  "secrets": {
+  "gateway": "secret"
   }
 }
 ```
@@ -99,4 +99,4 @@ below:
 
 
 If you want to set local "secrets" section as environment variable, you should use the following notation:
-`TYK_GW_KV_SECRETS=key:value,key2:value2`
+`TYK_GW_SECRETS=key:value,key2:value2`

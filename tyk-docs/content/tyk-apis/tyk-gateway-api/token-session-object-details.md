@@ -68,7 +68,7 @@ A session object takes the following form:
 
 * `per`: The number of seconds that the rate window should encompass.
 
-* `expires`: An epoch that defines when the key should expire.
+* `expires`: A Unix timestamp that defines when the key should expire. You can set this to `0` (zero) if you don't want the key to expire.
 
 * `quota_max`: The maximum number of requests allowed during the quota period.
 
