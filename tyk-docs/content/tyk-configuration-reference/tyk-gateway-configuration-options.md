@@ -995,6 +995,10 @@ From v2.9.3 you can force the validation of the hostname against the common name
 From v3.0 you can log all the 404 errors happening if user tried to access Gateway with unknown listen path.
 The log level used for these records is Error and the feature can be enabled by setting the `config track_404_logs` to `true` in the gateway's config file.
 
+### key_space_sync_interval
+
+From 3.0.1 you have the ability to set the interval's length in which the slaved gateway will check for changes in the key space, if this value is not set then by default it will be 10 seconds.
+
 ### ignore_canonical_mime_header_key
 
 Added in v3.0.2. When enabled Tyk ignores the canonical format of the MIME header keys.

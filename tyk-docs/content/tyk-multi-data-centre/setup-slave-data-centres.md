@@ -67,6 +67,9 @@ if you set `analytics_config.type` to `rpc` - make sure you don't have your Tyk 
 {{< /note >}}
 
 
+As an optional configuration you can use `key_space_sync_interval` to set the period's length in which the gateway will check for changes in the key space, if this value is not set then by default it will be 10 seconds.
+
+
 The most important elements here are:
 
 | Field         | Description    |
