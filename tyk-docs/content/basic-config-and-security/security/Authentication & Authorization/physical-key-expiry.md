@@ -4,7 +4,9 @@ title: Physical Key Expiry and Deletion
 menu:
   main:
     parent: "Authentication & Authorization"
-weight: 8 
+weight: 8
+aliases:
+    - /basic-config-and-security/security/authentication-authorization/physical-token-expiry/
 ---
 
 
