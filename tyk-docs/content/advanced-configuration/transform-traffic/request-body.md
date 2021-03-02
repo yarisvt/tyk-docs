@@ -41,7 +41,7 @@ Setting up transforms in your API definition is easy:
 }
 ```
 
-Tyk will load and evaluate the template on start, if you modify the template, you will need to restart Tyk in order for the changes to take effect.
+Tyk will load and evaluate the template on start. If you modify the template, you will need to restart Tyk in order for the changes to take effect.
 
 The field representations are:
 
@@ -97,7 +97,7 @@ Assume your inbound date structure is as follows:
 
 ### Template
 
-You could use a golang template that looks like this to transform it into a different format:
+You could use a Golang template that looks like this to transform it into a different format:
 
 ```{.copyWrapper}
 {
@@ -235,13 +235,13 @@ Or (for body transforms):
 ```{.copyWrapper}
 {{._tyk_context.headers_HEADERNAME}}
 ```
-Check this [doc](https://tyk.io/docs/concepts/context-variables/) for all the context variable options.
+See [Context Variables](/docs/concepts/context-variables/) for more details.
 
 ## Form Data
 
 It is possible to work with inbound form data by making use of the Context Variable feature built into Tyk. If context variables are enabled in your API definition, then it is possible to iterate through form or querystring data in your template.
 
-You do this by using the `._tyk_context.` namespace, unlike the context exposed to the URL rewriter and header injector, the body transform can fully iterate through list indices, so for example calling `{{ index ._tyk_context.request_data.variablename 0 }}` in a template will expose the first entry in the `request_data.variablename` key/value array.
+You do this by using the `._tyk_context.` namespace. Unlike the context exposed to the URL rewriter and header injector, the body transform can fully iterate through list indices, so for example calling `{{ index ._tyk_context.request_data.variablename 0 }}` in a template will expose the first entry in the `request_data.variablename` key/value array.
 
 The `request_data` section is populated if the inbound request contained any query data or form data, it will be available in this object as a `key:[]value` map.
 

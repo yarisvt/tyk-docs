@@ -47,7 +47,7 @@ Setting up response transforms in your API definition is very similar to setting
 }
 ```
 
-Tyk will load and evaluate the template on start, if you modify the template, you will need to restart Tyk in order for the changes to take effect.
+Tyk will load and evaluate the template on start, if you modify the template, you will need to restart The Gateway in order for the changes to take effect.
 
 The field representations are:
 
