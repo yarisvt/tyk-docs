@@ -23,4 +23,4 @@ At the center of everything is the Tyk Gateway.  The primary application for Ope
 
 ## Get Started
 
-To Get started, simply install the [Tyk Gateway](/docs/tyk-oss-gateway/install/), and then create your first API!
+To Get started, simply install [Tyk Open Source](/docs/tyk-oss-gateway/install/), and then create your first API!

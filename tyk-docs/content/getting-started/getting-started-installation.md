@@ -11,7 +11,7 @@ aliases:
 ---
 
 Please head on over to the solution you want to setup:
-* [Open Source](/docs/tyk-oss-gateway/install/)
+* [Open Source](/docs/apim/open-source/getting-started/)
 * [Self-Managed](/docs/tyk-on-premises/install/)
 * [Cloud](/docs/tyk-cloud/getting-started/)
 

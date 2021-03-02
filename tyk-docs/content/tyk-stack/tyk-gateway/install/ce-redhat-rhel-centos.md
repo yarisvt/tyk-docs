@@ -3,7 +3,7 @@ title: "Red Hat (RHEL / CentOS)"
 date: 2021-01-20
 menu:
   main:
-      parent: "Installation "
+    parent: "Getting Started " # Child of APIM -> OSS
 weight: 4
 url: "/tyk-oss/ce-redhat-rhel-centos/"
 aliases:

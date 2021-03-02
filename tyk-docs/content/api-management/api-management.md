@@ -9,6 +9,8 @@ aliases:
     - /getting-started/deployment-options/
 ---
 
+*Jump to [licensing](/docs/apim#licensing) below*
+
 The API Management deployment options are comprised of the various [open and closed source](/docs/tyk-stack/) components.
 
 Which one is right for your organization depends on your requirements and preferences.  Please [contact us](https://tyk.io/about/contact/) for help.

@@ -3,7 +3,7 @@ title: "Via GitHub"
 date: 2021-01-20
 menu:
   main:
-    parent: "Installation "
+    parent: "Getting Started " # Child of APIM -> OSS
 weight: 7
 url: "/tyk-oss/ce-github/"
 ---
