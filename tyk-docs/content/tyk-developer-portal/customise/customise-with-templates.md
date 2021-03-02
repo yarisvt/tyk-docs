@@ -12,6 +12,13 @@ The Tyk Developer Portal can be fully customised using templates. The templates 
 
 All templates are based on Twitter Bootstrap and are standard HTML with some Golang Template snippets to handle dynamic content rendering.
 
+{{< note success >}}
+**Note**  
+
+The Portal process (`tyk-analytics`) must be restarted for template changes to take effect. This is because the application caches templates on startup.
+{{< /note >}}
+
+
 ### Adding new templates
 
 The Tyk content editor enables you to specify a template name to use when rendering templates. two are provided by default:
@@ -57,7 +64,7 @@ In existing page types, these content fields are already set out.
 
 Portal templates now have access to the Developer object, its subscriptions and issued keys meta-data, providing the ability to conditionally show or hide content inside the Portal, based on the attributes described below.
 
-The current logged in Developer can be accessed using `.Profile` variable with the following fields:
+The current logged in Developer can be accessed using `.UserData` variable with the following fields:
 
 *   Id - Internal developer ID
 *   Email - Developer email
@@ -77,18 +84,24 @@ The current logged in Developer detailed subscription object can be accessed usi
       * ID - Internal Policy ID
       * Name - Policy Name
       * More fields: https://github.com/TykTechnologies/tyk/blob/master/user/policy.go#L5
-*   KeyMetaData - Key meta-data of map type
+*   KeyMetaData - Key metadata of map type
 
 ## Example
 You have different teams of developers, and for each team we want to show them a different list of APIs. In this case, for each developer, we need to set a custom  `team` field, and assert it in a template like this:
 
 ```
-{{if .Profile.Fields.Team == `internal`}}
+{{if .UserData.Fields.Team == `internal`}}
 … Display internal APIs …
 {{end}}
-{{if .Profile.Fields.Team == `public`}}
+{{if .UserData.Fields.Team == `public`}}
 … Display public set of APIs …
 {{end}}
 ```
+
+### Add Files for Downloading
+
+If you want to have files available for download from your portal you can add them to your `/tyk-dashboard/portal/portal-assets` directory. 
+
+You can then refer to them by using a `/opt/tyk-dashboard/...` link.
 
 [1]: /docs/img/dashboard/portal-management/page_settings_2.5.png

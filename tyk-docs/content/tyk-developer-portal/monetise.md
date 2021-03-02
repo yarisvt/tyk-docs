@@ -4,7 +4,7 @@ title: Monetise
 menu:
   main:
     parent: "Tyk Developer Portal"
-weight: 5 
+weight: 6 
 ---
 
 Out of the box, the Tyk Developer Portal does not have a billing component, however, this does not mean that it is not possible to enable monetisation within a Portal developer access flow.
@@ -24,6 +24,10 @@ When Tyk hands off to the redirected app, it will also add the key request ID to
 
 To enable the developer hand-off in a Tyk Portal, from the **Portal Settings**  enable the redirect option:
 
-![Redirect key requests form][1]
+![Redirect key requests form](/docs/img/dashboard/portal-management/portal_redirect_2.5.png)
 
-[1]: /docs/img/dashboard/portal-management/portal_redirect_2.5.png
+## Example Using Stripe
+
+In this video, we walk you through setting up Stripe to take payments via your Tyk Developer Portal.
+
+{{< youtube k5b3FURaULk >}}

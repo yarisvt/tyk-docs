@@ -4,9 +4,8 @@ title: How to enable websockets in Cloud
 menu:
   main:
     parent: "Frequently Asked Questions"
-weight: 0 
+weight: 0
 ---
 
 
-Websockets are not enabled in our Cloud version due to the long-running resource constraints that websocket connections bring. Websockets are available in Multi-Cloud and in On-Premises versions of the Gateway.
-
+Websockets are enabled by default in our Cloud environment.

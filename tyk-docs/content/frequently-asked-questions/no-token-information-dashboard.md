@@ -1,6 +1,6 @@
 ---
 date: 2017-03-27T16:28:20+01:00
-title: No Token information on the Dashboard
+title: No Key information on the Dashboard
 menu:
   main:
     parent: "Frequently Asked Questions"

@@ -1,0 +1,6 @@
+{{ $shared := .Site.GetPage "/shared"  }}	
+{{ $page := $shared.Resources.GetMatch (printf "*%s*" (.Get 0)) }}
+
+{{ with $page }}
+{{.Content}}
+{{ end }}
