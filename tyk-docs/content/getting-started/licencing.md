@@ -8,52 +8,34 @@ weight: 3
 url: "/getting-started/licencing"
 ---
 
-## Cloud (SaaS)
+## Open Source
 
-### Free Licence
+The Tyk Team has created and maintains the following components, which are fully Open Source and available under Mozilla Public License 2.0 (MPL):
 
-The Tyk Cloud Proof of Concept (PoC) plan (1,000 API calls/day). No credit card required. This allows you to manage a single Tyk node.
+* [Tyk Gateway](/docs/getting-started/tyk-components/gateway/)
+* [Tyk Pump](/docs/getting-started/tyk-components/pump/)
+* [Tyk Operator](/docs/tyk-on-premises/with-kubernetes/#tyk-kubernetes-operator-and-ingress)
+* [Tyk Identity Broker](/docs/getting-started/tyk-components/new-tyk-identity-broker/)
+* [Tyk Sync](/docs/advanced-configuration/manage-multiple-environments/tyk-sync/)
 
-### Pro and Pro+ Licences
+MPL is a copyleft licence that is easy to comply with. You must make the source code for any of your changes available under MPL, but you can combine the MPL software with proprietary code, as long as you keep the MPL code in separate files. Version 2.0 is, by default, compatible with LGPL and GPL version 2 or greater. You can distribute binaries under a proprietary license, as long as you make the source available under MPL. This is just a brief overview of MPL, you should refer to the MPL licence in full and if you are in any doubt about how this licence impacts you, please contact us to discuss.
 
-A Pro Cloud licence gives you 50,000 calls a day. A Pro+ licence gives you 1,000,000 calls a day.
+You can find additional FAQs regarding the MPL licence [here](https://www.mozilla.org/en-US/MPL/2.0/FAQ/).
 
-We also have SaaS Enterprise solutions. [Contact us](https://tyk.io/about/contact/#contact-us) for details.
+## Closed Source
 
-See our [Cloud pricing](https://tyk.io/price-comparison/) page for more details
+The following Tyk components, created and maintained by the Tyk Team, are proprietary and closed-source:
 
+* [Tyk Dashboard](/docs/getting-started/tyk-components/dashboard/)
+* [Tyk Developer Portal](/docs/getting-started/tyk-components/developer-portal/)
+* [Tyk Multi Data Center Bridge](/docs/getting-started/tyk-components/mdcb/)
+* [Universal Data Graph](/docs/universal-data-graph/)
 
-## Multi-Cloud (SaaS)
+If you plan to deploy and use the above components On-premise, licence keys are required.
 
-### Free 1 Month Proof of Concept Licence
+### On-premises/Self-managed
+For short terms trials, self-serve 14-day temporary licenses for the Tyk Dashboard & Developer Portal are available [here](https://pages.tyk.io/en/sign-up-for-tyk-on-prem-licence).
 
-The Tyk Multi-Cloud Proof of Concept (PoC) plan (1,000 API calls/day). No credit card required. After 30-days you can cancel your account without charge. This allows you to manage a single Tyk Gateway node.
-
-### Pro and Pro+ Licences
-
-A Pro Cloud licence gives you 50,000 calls a day. A Pro+ licence gives you 1,000,000 calls a day.
-
-We also have **SaaS Enterprise** solutions. [Contact us](https://tyk.io/about/contact/#contact-us) for details.
-
-See our [Multi-Cloud pricing](https://tyk.io/price-comparison/) page for more details
-
-
-## On-Premises Licencing
-
-### Free 1 Month Proof of Concept Licence
-
-This licence is suitable for managing 1 Tyk Gateway node for evaluation purposes only. And you can renew the license as many times as you want, its always free, however, this licence doesn’t include support or patch notifications.
-
-
-### Pro Licence
-
-This commercial licence is valid for managing 2 Tyk Gateway nodes. Includes helpdesk support. We also offer Pricing models for more than 2 nodes if required.
-
-
-## Enterprise Licencing
-
-Our Enterprise offerings are licenced on a case by case basis. See [Tyk Enterprise](https://tyk.io/api-gateway/enterprise/) for how to contact us about how our Enterprise product works.
-
-## MDCB Licencing
-
-If you require our [Multi Data Centre Bridge](/docs/tyk-multi-data-centre/) functionality, [contact us](https://tyk.io/about/contact/#contact-us) for details.
+For longer duration trials, or to request trials of the other proprietary software please contact the Tyk Team [here](https://tyk.io/price-comparison/) and tell us about your plans.
+### Software as a Service/Cloud
+With Tyk Cloud all of the above closed-source components are available. Get your free account [here](https://account.cloud-ara.tyk.io/signup).

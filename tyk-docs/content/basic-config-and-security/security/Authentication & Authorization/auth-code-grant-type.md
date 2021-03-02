@@ -54,12 +54,23 @@ curl -X POST \
   -d 'response_type=code&client_id=ed59158fa2344e94b3e6278e8ab85142&redirect_uri=http%3A%2F%2Fexample.com%2Fclient-redirect-uri'
 ```
 
-> **Note**: Because this example uses Tyk Cloud it uses the API id in the URL. For all other scenarios (e.g. On-Premises) you should use the API listen path instead e.g. https:/<your-tyk-dashboard-host>/api/apis/oauth/<your-api-listen-path>/authorize-client/. For the API used in this example it would be https://admin.cloud.tyk.io/api/apis/oauth/oauth-api/authorize-client/.
+{{< note success >}}
+**Note**  
+
+Because this example uses Tyk Cloud it uses the API id in the URL. For all other scenarios (e.g. On-Premises) you should use the API listen path instead e.g. https:/<your-tyk-dashboard-host>/api/apis/oauth/<your-api-listen-path>/authorize-client/. For the API used in this example it would be https://admin.cloud.tyk.io/api/apis/oauth/oauth-api/authorize-client/.
+{{< /note >}}
+
+{{< note success >}}
+**Note**  
+
+The Tyk Gateway also exposes an equivalent Gateway API authorization endpoint (`/tyk/oauth/authorize-client/`). In some scenarios, for example where access to the Dashboard API from the authentication server may be restricted, the Gateway API can be used instead.
+{{< /note >}}
+
 
 | Request | Value                                                                                                                                                                                                                          |
 | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Method  | `POST`                                                                                                                                                                                                                         |
-| URL     | Uses the Dashboard Admin API client authorization endpoint `/authorize-client/`. Uses the special OAuth endpoint `/oauth/token` appended to the API URI e.g. `https://<your-gateway-host>/<your-api-listen-path>/oauth/token`. |
+| URL     | Uses the Dashboard API client authorization endpoint `/authorize-client/`. |
 
 | Header          | Value                                                                            |
 | --------------- | -------------------------------------------------------------------------------- |

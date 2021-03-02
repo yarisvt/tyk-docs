@@ -3,12 +3,46 @@ date: 2017-03-22T16:32:53Z
 Title: Dashboard on Red Hat (RHEL) / CentOS
 menu:
   main:
-    parent: "On Red Hat (RHEL) / CentOS"
+    parent: "On Red Hat (RHEL / CentOS)"
 weight: 1 
 ---
+{{< tabs_start >}}
+{{< tab_start "Ansible" >}}
+<br />
+{{< note >}}
+**Requirements**
 
+[Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html) is required to run the following commands. Instructions on how install Tyk Dashboard with shell is in the <b>Shell</b> tab.
+{{< /note >}}
 
-## <a name="install-dashboard"></a>Install Tyk Dashboard: Red Hat
+## Getting Started
+1. clone the [tyk-ansible](https://github.com/TykTechnologies/tyk-ansible) repositry
+
+```bash
+$ git clone https://github.com/TykTechnologies/tyk-ansible
+```
+
+2. `cd` into the directory
+```.bash
+$ cd tyk-ansible
+```
+
+3. Run initalization script to initialize environment
+
+```bash
+$ sh scripts/init.sh
+```
+
+4. Modify `hosts.yml` file to update ssh variables to your server(s). You can learn more about the hosts file [here](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html)
+
+5. Run ansible-playbook to install `tyk-dashboard`
+
+```bash
+$ ansible-playbook playbook.yml -t tyk-dashboard
+```
+{{< tab_end >}}
+{{< tab_start "Shell" >}}
+## Install Tyk Dashboard: Red Hat
 
 Tyk has its own signed RPMs in a YUM repository hosted by the kind folks at [packagecloud.io][1], which makes it easy, safe and secure to install a trusted distribution of the Tyk Gateway stack.
 
@@ -25,14 +59,14 @@ This configuration should also work (with some tweaks) for CentOS.
 *   Install Redis DB using EPEL
 *   Tyk requires Python 3.4. Install via the following command:
 
-```{.copyWrapper}
+```bash
 sudo yum install python34
 ```
 
 ### Step 1: Set up YUM Repositories
 
 First, we need to install some software that allows us to use signed packages:
-```{.copyWrapper}
+```bash
 sudo yum install pygpgme yum-utils wget
 ```
 
@@ -42,49 +76,50 @@ Next, we need to set up the various repository configurations for Tyk Dashboard 
 ### Step 2: Configure Tyk Dashboard
 
 Create a file named `/etc/yum.repos.d/tyk_tyk-dashboard.repo` that contains the repository configuration below. https://packagecloud.io/tyk/tyk-dashboard/install#manual-rpm
-```{.copyWrapper}
+```bash
 [tyk_tyk-dashboard]
 name=tyk_tyk-dashboard
 baseurl=https://packagecloud.io/tyk/tyk-dashboard/el/7/$basearch
 repo_gpgcheck=1
 gpgcheck=1
 enabled=1
-gpgkey=http://keyserver.tyk.io/tyk.io.rpm.signing.key
+gpgkey=https://keyserver.tyk.io/tyk.io.rpm.signing.key.2020
        https://packagecloud.io/tyk/tyk-dashboard/gpgkey
 sslverify=1
 sslcacert=/etc/pki/tls/certs/ca-bundle.crt
 metadata_expire=300
 ```
 
-### Step 3: Configure MongoDB
+### Step 3: Configure MongoDB v4.0
 
-Create a `/etc/yum.repos.d/mongodb-org-3.0.repo` file so that you can install MongoDB directly, using yum.
-```{.copyWrapper}
-[mongodb-org-3.0]
+Create a `/etc/yum.repos.d/mongodb-org-4.0.repo` file so that you can install MongoDB directly, using yum.
+```bash
+[mongodb-org-4.0]
 name=MongoDB Repository
-baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.0/x86_64/
-gpgcheck=0
+baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.0/x86_64/
+gpgcheck=1
 enabled=1
+gpgkey=https://www.mongodb.org/static/pgp/server-4.0.asc
 ```
 
 Finally we'll need to update our local cache, so run:
-```{.copyWrapper}
+```bash
 sudo yum -q makecache -y --disablerepo='*' --enablerepo='tyk_tyk-dashboard'
 ```
 
 ### Step 4: Install Packages
 
 We're ready to go, you can now install the relevant packages using yum:
-```{.copyWrapper}
+```bash
 sudo yum install -y mongodb-org tyk-dashboard redis
 ```
 
-*(you may be asked to accept the GPG key for our repos and when the package installs, hit yes to continue)*
+**(you may be asked to accept the GPG key for our repos and when the package installs, hit yes to continue)**
 
 ### Step 5: Start MongoDB and Redis
 
 In many cases MongoDB or Redis might not be running, so let's start that:
-```{.copyWrapper}
+```bash
 sudo service mongod start
 sudo service redis start
 ```
@@ -93,13 +128,23 @@ sudo service redis start
 
 We can set the Dashboard up with a similar setup command, the script below will get the Dashboard set up for the local instance.
 
-> **NOTE**: You need to replace `<hostname>` for `--redishost=<hostname>`, and `<IP Address>` for `--mongo=mongodb://<IP Address>/` with your own values to run this script.
+{{< note success >}}
+**Note**  
 
-```{.copyWrapper}
+You need to replace `<hostname>` for `--redishost=<hostname>`, and `<IP Address>` for `--mongo=mongodb://<IP Address>/` with your own values to run this script.
+{{< /note >}}
+
+
+```bash
 sudo /opt/tyk-dashboard/install/setup.sh --listenport=3000 --redishost=<hostname> --redisport=6379 --mongo=mongodb://<IP Address>/tyk_analytics --tyk_api_hostname=$HOSTNAME --tyk_node_hostname=http://localhost --tyk_node_port=8080 --portal_root=/portal --domain="XXX.XXX.XXX.XXX"
 ```
 
-> **Note**: Make sure to use the actual DNS hostname or the public IP of your instance as the last parameter.
+{{< note success >}}
+**Note**  
+
+Make sure to use the actual DNS hostname or the public IP of your instance as the last parameter.
+{{< /note >}}
+
 
 What we have done here is:
 
@@ -114,7 +159,7 @@ What we have done here is:
 *   `--portal_root=/portal`: We want the Portal to be shown on /portal of whichever domain we set for the Portal.
 
 ### Step 7: Start Tyk Dashboard
-```{.copyWrapper}
+```bash
 sudo service tyk-dashboard start
 ```
 
@@ -130,7 +175,7 @@ If all is going well, you will be taken to a Dashboard setup screen - we'll get 
 ### Step 9: Restart the Dashboard process
 
 Because we've just entered a license via the UI, we need to make sure that these changes get picked up, so to make sure things run smoothly, we restart the Dashboard process (you only need to do this once) and (if you have it installed) then start the gateway:
-```{.copyWrapper}
+```bash
 sudo service tyk-dashboard restart 
 ```
 
@@ -157,7 +202,13 @@ You need to enter the following:
 * A **Password** for your User
 * **Re-enter** your user **Password**
 
-> **NOTE**: For a password, we recommend a combination of alphanumeric characters, with both upper and lower case letters.
+
+{{< note success >}}
+**Note**  
+
+For a password, we recommend a combination of alphanumeric characters, with both upper and lower case letters.
+{{< /note >}}
+
 
 Click **Bootstrap** to save the details.
 
@@ -169,3 +220,5 @@ You can now log in to the Tyk Dashboard from `127.0.0.1:3000`, using the usernam
  [1]: https://packagecloud.io
  [2]: http://aws.amazon.com
  [3]: http://fedoraproject.org/wiki/EPEL#How_can_I_use_these_extra_packages.3F
+{{< tab_end >}}
+{{< tabs_end >}}

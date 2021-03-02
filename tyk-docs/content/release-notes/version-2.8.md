@@ -3,7 +3,7 @@ title: Tyk Gateway v2.8
 menu:
   main:
     parent: "Release Notes"
-weight: 2
+weight: 4
 ---
 
 ## Looping
@@ -11,26 +11,7 @@ weight: 2
 You now can configure complex request pipelines, allowing you to specify different actions for the same path, depending 
 on defined conditions.
 
-For URL rewrites, instead of rewriting to a HTTP endpoint, you now can tell Tyk to internally run its request 
-pipeline one more time, but for another specified endpoint. We call it called `looping` or adding a `loop`.  
-In order to specify a `loop`, in the target URL you specify a string in the following format: `tyk://self/<path>`. 
-You can also loop to another API as by specifying the API name or id instead of `self`: `tyk://<API_ID>/<path>`.
-
-Combined with our advanced URL rewriter rules, it can be turned into a powerful logical block, replacing the need for writing middleware or virtual endpoints in many cases.
-
-### Looping Example
-
-You have an endpoint which performs different logic depending on the specified header. For example, 
-it can be the `/get` endpoint which by default returns XML and if the `Accept` header in the request is 
-`application/json` it will return a JSON response instead. To perform the loop you will need to define 2 endpoints: 
-
-* /get - the endpoint the user hits, and contains our logical block.
-* /get-json - the internal endpoint, where you will loop to if the condition is met. It contains a body transform to rewrite the XML response to JSON.
-
-Inside the `/get` endpoint you add a URL rewrite plugin, with an advanced rule, which looks to see if the `Accept` header 
-equals `application/json`, and will then rewrite the target to `tyk://self/get-json` URL.
-
-Another example would be conditionally processing SOAP requests based on the content of the POST body. So you can define an individual request pipeline for each SOAP request, based on conditions defined in the URL rewriter rules.
+Visit the [looping section](/docs/advanced-configuration/transform-traffic/looping) for more information.
 
 ---
 
@@ -217,7 +198,7 @@ There is a new section in the Tyk Dashboard config file where you can specify pa
 - `enabled` - enables audit logging, set to `false` by default. NOTE: setting `security.audit_log_path` has the same effect as setting `enabled` to `true`
 - `format` - specifies the format of audit log file. Possible values are `json` and `text` (`text` is default value)
 - `path` - specifies path to the audit log and overwrites `security.audit_log_path` if it was set
-- `detailed_recording` - enables detailed records in the audit log. Set to `false`. y default. If set to `true` then audit log records will contain the http-request (without body) and full http-response including the body`
+- `detailed_recording` - enables detailed records in the audit log. Set to `false` by default. If set to `true` then audit log records will contain the http-request (without body) and full http-response including the body`
 
 Audit records the following fields for `json` format:
 

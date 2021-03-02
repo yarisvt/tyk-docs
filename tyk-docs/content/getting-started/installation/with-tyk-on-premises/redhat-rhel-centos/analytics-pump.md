@@ -3,11 +3,46 @@ date: 2017-03-22T16:39:29Z
 Title: Tyk Pump on Red Hat (RHEL) / CentOS
 menu:
   main:
-    parent: "On Red Hat (RHEL) / CentOS"
+    parent: "On Red Hat (RHEL / CentOS)"
 weight: 2 
 ---
+{{< tabs_start >}}
+{{< tab_start "Ansible" >}}
+<br />
+{{< note >}}
+**Requirements**
 
-## <a name="install-tyk-redhat"></a>Install Tyk Pump on Red Hat (RHEL) / CentOS
+[Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html) is required to run the following commands. Instructions on how install Tyk Pump with shell is in the <b>Shell</b> tab.
+{{< /note >}}
+
+## Getting Started
+1. clone the [tyk-ansible](https://github.com/TykTechnologies/tyk-ansible) repositry
+
+```bash
+$ git clone https://github.com/TykTechnologies/tyk-ansible
+```
+
+2. `cd` into the directory
+```.bash
+$ cd tyk-ansible
+```
+
+3. Run initalization script to initialize environment
+
+```bash
+$ sh scripts/init.sh
+```
+
+4. Modify `hosts.yml` file to update ssh variables to your server(s). You can learn more about the hosts file [here](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html)
+
+5. Run ansible-playbook to install `tyk-pump`
+
+```bash
+$ ansible-playbook playbook.yml -t tyk-pump
+```
+{{< tab_end >}}
+{{< tab_start "Shell" >}}
+## Install Tyk Pump on Red Hat (RHEL) / CentOS
 
 Tyk has it's own signed RPMs in a YUM repository hosted by the kind folks at [packagecloud.io][1], which makes it easy, safe and secure to install a trusted distribution of the Tyk Gateway stack.
 
@@ -24,7 +59,7 @@ This configuration should also work (with some tweaks) for CentOS.
 ### Step 1: Set up YUM Repositories
 
 First, we need to install some software that allows us to use signed packages:
-```{.copyWrapper}
+```bash
 sudo yum install pygpgme yum-utils wget
 ```
 
@@ -33,14 +68,14 @@ Next, we need to set up the various repository configurations for Tyk and MongoD
 Create a file named `/etc/yum.repos.d/tyk_tyk-pump.repo` that contains the repository configuration below: 
 
 Make sure to replace `el` and `7` in the config below with your Linux distribution and version:
-```{.copyWrapper}
+```bash
 [tyk_tyk-pump]
 name=tyk_tyk-pump
 baseurl=https://packagecloud.io/tyk/tyk-pump/el/7/$basearch
 repo_gpgcheck=1
 gpgcheck=1
 enabled=1
-gpgkey=http://keyserver.tyk.io/tyk.io.rpm.signing.key
+gpgkey=https://keyserver.tyk.io/tyk.io.rpm.signing.key.2020
        https://packagecloud.io/tyk/tyk-pump/gpgkey
 sslverify=1
 sslcacert=/etc/pki/tls/certs/ca-bundle.crt
@@ -48,39 +83,46 @@ metadata_expire=300
 ```
 
 Finally we'll need to update our local cache, so run:
-```{.copyWrapper}
+```bash
 sudo yum -q makecache -y --disablerepo='*' --enablerepo='tyk_tyk-pump'
 ```
 
 ### Step 2: Install Packages
 
 We're ready to go, you can now install the relevant packages using yum:
-```{.copyWrapper}
+```bash
 sudo yum install -y tyk-pump
 ```
 
-*(You may be asked to accept the GPG key for our repos and when the package installs, hit yes to continue.)*
+**(You may be asked to accept the GPG key for our repos and when the package installs, hit yes to continue.)**
 
 ### Step 3: Configure Tyk Pump
 
 If you don't complete this step, you won't see any analytics in your Dashboard, so to enable the analytics service, we need to ensure Tyk Pump is running and configured properly.
 
-> **NOTE**: You need to replace `<hostname>` for `--redishost=<hostname>`, and `<IP Address>` for `--mongo=mongodb://<IP Address>/` with your own values to run this script.
+
+{{< note success >}}
+**Note**  
+
+You need to replace `<hostname>` for `--redishost=<hostname>`, and `<IP Address>` for `--mongo=mongodb://<IP Address>/` with your own values to run this script.
+{{< /note >}}
 
 
-```{.copyWrapper}
+```bash
 sudo /opt/tyk-pump/install/setup.sh --redishost=<hostname> --redisport=6379 --mongo=mongodb://<IP Address>/tyk_analytics
 ```
 ### Step 4: Start Tyk Pump
-```{.copyWrapper}
+```bash
 sudo service tyk-pump start
 ```
 
 That's it, the Pump should now be up and running.
 
 You can verify if Tyk Pump is running and working by accessing the logs:
-```{.copyWrapper}
+```bash
 sudo journalctl -u tyk-pump
 ```
  [1]: https://packagecloud.io
  [2]: http://aws.amazon.com
+{{< tab_end >}}
+{{< tabs_end >}}

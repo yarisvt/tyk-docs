@@ -27,5 +27,10 @@ To implement keyless access, simply set the flag in your API Definition:
 ```
 This will stop checking keys that are proxied by Tyk.
 
-> **NOTE**: Keyless APIs cannot be selected for [Access Rights](/docs/get-started/with-tyk-cloud/tutorials/create-security-policy/#step-6-add-a-security-entry) in a security policy.
+{{< note success >}}
+**Note**  
+
+Keyless APIs cannot be selected for [Access Rights](/docs/getting-started/installation/tutorials/create-security-policy/) in a security policy.
+{{< /note >}}
+
 

@@ -9,7 +9,12 @@ weight: 7
 
 Tyk-Sync is a command line tool and library to manage and synchronise a Tyk installation with your version control system (VCS).
 
-> NOTE: Tyk-Sync works with APIs and Policies. It does not work with Keys. See [Move Keys between environments](/docs/advanced-configuration/manage-multiple-environments/move-keys-between-environments/) for details.
+{{< note success >}}
+**Note**  
+
+Tyk-Sync works with APIs and Policies. It does not work with Keys. See [Move Keys between environments](/docs/advanced-configuration/manage-multiple-environments/move-keys-between-environments/) for details.
+{{< /note >}}
+
 
 ## Features
 
@@ -20,7 +25,7 @@ Tyk-Sync is a command line tool and library to manage and synchronise a Tyk inst
 - Synchronise a Tyk Dashboard's APIs and Policies with your VCS (one-way, definitions are written to the Dashboard)
 - Synchronise a Tyk Community Edition Gateway APIs with those stored in a VCS (one-way, definitions are written to the Gateway)
 - Dump Policies and APIs in a transportable format from a Dashboard to a directory
-- Support for importing, converting and publishing Swagger JSON files (OpenAPI 2.0 and 3.0 are supported) to Tyk.
+- Support for importing, converting and publishing Swagger/OpenAPI JSON files (OpenAPI 2.0 and 3.0 are supported) to Tyk.
 - Specialized support for Git. But since API and policy definitions can be read directly from
   the file system, it will integrate with any VCS.
 
@@ -38,20 +43,37 @@ dependent tokens continue to have access to your services.
 ### Prerequisites:
 
 - Tyk-Sync was built using Go 1.10. The minimum Go version required to install is 1.7.
-- In order for policy ID matching to work correctly, your Gateway must have `policies.allow_explicit_policy_id: true`.
+- In order for policy ID matching to work correctly, your Dashboard must have `allow_explicit_policy_id: true` and `enable_duplicate_slugs: true` and your Gateway must have `policies.allow_explicit_policy_id: true`.
 - It is assumed you have a Tyk CE or Tyk Pro installation.
 
 ## Installation
 
-Currently the application is only available via Go, so to install you must have Go installed and run:
+Currently the application is available via Go, [Docker](https://hub.docker.com/r/tykio/tyk-sync) and [Packagecloud](https://packagecloud.io/tyk/tyk-sync).  To install via Go you must have Go installed and run:
 
 ```
-go install -u github.com/TykTechnologies/tyk-sync
+go get -u github.com/TykTechnologies/tyk-sync
 ```
 
 This should make the `tyk-sync` command available to your console.
 
 See our [Tyk-Sync Repo](https://github.com/TykTechnologies/tyk-sync) for more info.
+
+### Docker:
+
+To install a particular version of `tyk-sync` via docker image please run the command bellow with the appropriate version you want to use. All available versions could be found on the Tyk Sync Docker Hub page here: https://hub.docker.com/r/tykio/tyk-sync/tags
+```{.copyWrapper}
+docker pull tykio/tyk-sync:{version_id}
+```
+To run `tyk-sync` as a one-off command and display usage options please do:
+```{.copyWrapper}
+docker run -it --rm tykio/tyk-sync:{version_id} help
+```
+Then the docker image `tyk-sync` can be used in the following way:
+```{.copyWrapper}
+docker run -it --rm tykio/tyk-sync:{version_id} [flags]
+docker run -it --rm tykio/tyk-sync:{version_id} [command]
+```
+As per the examples below `tyk-sync` will need access to the host file sytem to read and write files.  You can use docker bind mounts to map files in the container to files on your host machine.
 
 ## Usage
 
@@ -75,12 +97,12 @@ Use "tyk-sync [command] --help" for more information about a command.
 
 ### Dump Command
 
-Dump will extract policies and APIs from a target (your Dashboard) and place them in a directory of your choosing. It will also generate a spec filethat can be used for syncing.
+Dump will extract policies and APIs from a target (your Dashboard) and place them in a directory of your choosing. It will also generate a spec file that can be used for syncing.
 
 ```
 
 Usage:
-  tyk-git dump [flags]
+  tyk-sync dump [flags]
 Flags:
   -b, --branch string      Branch to use (defaults to refs/heads/master) (default "refs/heads/master")
   -d, --dashboard string   Fully qualified dashboard target URL
@@ -88,6 +110,8 @@ Flags:
   -k, --key string         Key file location for auth (optional)
   -s, --secret string      Your API secret
   -t, --target string      Target directory for files
+      --policies           Specific policies ID selection (optional)
+      --apis               Specific api_id's selection (optional)
 ```
 
 ### Publish Command
@@ -96,7 +120,7 @@ Publish API definitions from a Git repo to a Gateway or Dashboard. This will not
 
 ```
 Usage:
-  tyk-git publish [flags]
+  tyk-sync publish [flags]
 Flags:
   -b, --branch string      Branch to use (defaults to refs/heads/master) (default "refs/heads/master")
   -d, --dashboard string   Fully qualified dashboard target URL
@@ -114,7 +138,7 @@ Sync will synchronise an API Gateway with the contents of a Github repository. T
 
 ```
 Usage:
-tyk-git sync [flags]
+tyk-sync sync [flags]
 Flags:
 -b, --branch string      Branch to use (defaults to refs/heads/master) (default "refs/heads/master")
 -d, --dashboard string   Fully qualified dashboard target URL
@@ -133,7 +157,7 @@ Update will attempt to identify matching APIs or Policies in the target, and upd
 
 ```
 Usage:
-tyk-git update [flags]
+tyk-sync update [flags]
 Flags:
 -b, --branch string      Branch to use (defaults to refs/heads/master) (default "refs/heads/master")
 -d, --dashboard string   Fully qualified dashboard target URL
@@ -150,7 +174,7 @@ Flags:
 First, we need to extract the data from our Tyk Dashboard, here we `dump` into ./tmp, let's assume this is a git-enabled
 directory
 
-```
+```{.copyWrapper}
 tyk-sync dump -d="http://localhost:3000" -s="b2d420ca5302442b6f20100f76de7d83" -t="./tmp"
 Extracting APIs and Policies from http://localhost:3000
 > Fetching policies
@@ -162,9 +186,20 @@ Extracting APIs and Policies from http://localhost:3000
 Done.
 ```
 
+If running `tyk-sync` in docker the command above would read
+
+```{.copyWrapper}
+docker run --rm --mount type=bind,source="$(pwd)",target=/opt/tyk-sync/tmp \
+ tykio/tyk-sync:v1.1.0-27-gbf4dd2f-3-g04f7740-1-gff89e43 \
+ dump \
+ -d="http://host.docker.internal:3000" \
+ -s="$b2d420ca5302442b6f20100f76de7d83" \
+ -t="./tmp"
+```
+
 Next, let's push those changes back to the Git repo on the branch `my-test-branch`:
 
-```
+```{.copyWrapper}
 cd tmp
 git add .
 git commit -m "My dashboard dump"
@@ -173,7 +208,7 @@ git push -u origin my-test-branch
 
 Now to restore this data directly from GitHub:
 
-```
+```{.copyWrapper}
 tyk-sync sync -d="http://localhost:3010" -s="b2d420ca5302442b6f20100f76de7d83" -b="refs/heads/my-test-branch" https://github.com/myname/my-test.git
 Using publisher: Dashboard Publisher
 Fetched 3 definitions
@@ -193,5 +228,39 @@ SYNC Updating Policy: Test policy 1
 --> Found policy using explicit ID, substituting remote ID for update
 ```
 
+If running `tyk-sync` in docker the command above would read
+
+```{.copyWrapper}
+docker run --rm \
+  --mount type=bind,source="$(pwd)",target=/opt/tyk-sync/tmp \
+ tykio/tyk-sync:v1.1.0-27-gbf4dd2f-3-g04f7740-1-gff89e43 \
+  sync \
+  -d="http://localhost:3010" \
+  -s="b2d420ca5302442b6f20100f76de7d83" \
+  -b="refs/heads/my-test-branch" https://github.com/myname/my-test.git
+```
+
 The command provides output to identify which actions have been taken. If using a Tyk Gateway, the Gateway will be
 automatically hot-reloaded.
+
+## Example: Dump a specific API from one Tyk Dashboard  
+
+First, we need to identify the `api_id` that we want to dump, in this case `ac35df594b574c9c7a3806286611d211`.
+When we have that, we are going to execute the dump command specifying the `api_id` in the tags.
+```
+tyk-sync dump -d="http://localhost:3000" -s="b2d420ca5302442b6f20100f76de7d83" -t="./tmp" --apis="ac35df594b574c9c7a3806286611d211"
+Extracting APIs and Policies from http://localhost:3000
+> Fetching policies
+--> Identified 0 policies
+--> Fetching and cleaning policy objects
+> Fetching APIs
+--> Fetched 1 APIs
+> Creating spec file in: tmp/.tyk.json
+Done.
+```
+
+Note that if you want to specify more than one API, the values need to be comma-separated.
+For example `--apis="ac35df594b574c9c7a3806286611d211,30e7b4001ea94fb970c324bad1a171c3"`.
+
+The same behaviour applies to policies.
+=======

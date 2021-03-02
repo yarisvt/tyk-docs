@@ -4,7 +4,7 @@ title: Tyk Gateway v2.5
 menu:
   main:
     parent: "Release Notes"
-weight: 5
+weight: 7
 ---
 
 # <a name="new"></a>New in this Release:
@@ -108,8 +108,8 @@ With this release we have refreshed the entire Dashboard UI with a new look-and-
 
 We have added API and Policy search functionality, which should help those with long lists.
 
-[API Docs](/docs/tyk-dashboard-api/api-definitions/)
-[Policy Docs](/docs/tyk-dashboard-api/token-policies/)
+* [API Docs](/docs/tyk-apis/tyk-dashboard-api/api-definitions/)
+* [Policy Docs](/docs/tyk-apis/tyk-dashboard-api/portal-policies/)
 
 ### A New, Interactive Getting Started Walkthrough
 

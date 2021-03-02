@@ -39,7 +39,12 @@ When an HMAC-signed request comes into Tyk, the key is extracted from the Author
 
 Tyk API Gateway supports full header signing through the use of the `headers` HMAC signature field. This includes the request method and path using the`(request-target)` value. For body signature verification, HTTP Digest headers should be included in the request and in the header field value.
 
-> **NOTE**: All headers should be in lowercase.
+{{< note success >}}
+**Note**  
+
+All headers should be in lowercase.
+{{< /note >}}
+
 
 ### A sample signature generation snippet
 
@@ -105,7 +110,7 @@ To enable the use of HMAC Signing in your API from the Dashboard:
 8. You can select whether to use a **cookie value**. If this is left blank, it will use the Header name value.
 
 
-![Target Details: HMAC](/docs/img/dashboard/system-management/hmac_auth2.9.3.png)
+![Target Details: HMAC](/docs/img/2.10/hmac_auth_settings.png)
 
 
 #### Setting up HMAC using an API Definition
@@ -142,4 +147,4 @@ When creating a user session object, the settings should be modified to reflect 
 }
 ```
 
-Creating HMAC keys is the same as creating regular access tokens - by using the Tyk REST API. Setting the `hmac_enabled` flag to `true`, Tyk will generate a secret key for the key owner (which should not be modified), but will be returned by the API so you can store and report it to your end-user.
+Creating HMAC keys is the same as creating regular access tokens - by using the [Tyk Gateway API](/docs/tyk-apis/tyk-gateway-api/api-definition-objects/authentication/). Setting the `hmac_enabled` flag to `true`, Tyk will generate a secret key for the key owner (which should not be modified), but will be returned by the API so you can store and report it to your end-user.

@@ -3,7 +3,7 @@ title: Tyk Gateway v2.7
 menu:
   main:
     parent: "Release Notes"
-weight: 3
+weight: 5
 ---
 
 # <a name="new"></a>New in this Release:
@@ -49,17 +49,17 @@ Technically wise, it is implemented by new key generation algorithms, which now 
 Changing hashing algorithm is entirely backward compatible. All your existing keys will continue working with the old `murmur32` hashing algorithm, and your new keys will use algorithm specified in Tyk config. Moreover, changing algorithms is also backward compatible, and Tyk will maintain keys multiple hashing algorithms without any issues.
 
 
-## <a name="dashboard"></a>Tyk Dashboard v1.7.0
+## Tyk Dashboard v1.7.0
 
 ### User Groups
 
-Instead of setting permissions per user, you can now [create a user group](/docs/basic-config-and-security/security/dashboard/create-user-groups/), and assign it to multiple users. It works for Single Sign-On too, just specify group ID during [SSO API](/docs/dashboard-admin-api/sso/) flow.
+Instead of setting permissions per user, you can now [create a user group](/docs/basic-config-and-security/security/dashboard/create-user-groups/), and assign it to multiple users. It works for Single Sign-On too, just specify group ID during [SSO API](docs/tyk-apis/tyk-dashboard-admin-api/sso/) flow.
 
 > This feature is available to all our Cloud and Hybrid users. For On-Premises installations, this feature is available for customers with an "Unlimited" license.
 
 To manage user groups, ensure that you have either admin or “user groups” permission for your user, which can be enabled by your admin.
 
-From an API standpoint, user groups can be managed by [new Dashboard API](/docs/tyk-dashboard-api/user-groups/). The User object now has a new `group_id` field, and if it is specified, all permissions will be inherited from the specified group. [SSO API](/docs/dashboard-admin-api/sso/) has been updated to include `group_id` field as well.
+From an API standpoint, user groups can be managed by [new Dashboard API](/docs/tyk-apis/tyk-dashboard-api/user-groups/). The User object now has a new `group_id` field, and if it is specified, all permissions will be inherited from the specified group. [SSO API](docs/tyk-apis/tyk-dashboard-admin-api/sso/) has been updated to include `group_id` field as well.
 
 ### Added SMTP support
 Now you can configure the Dashboard to send transactional emails using your SMTP provider. See [Outbound Email Configuration](/docs/tyk-configuration-reference/outbound-email-configuration/) for details.

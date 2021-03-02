@@ -1,18 +1,18 @@
 ---
 date: 2017-03-15T15:01:42Z
-title: With Tyk On-Premises
-menu: 
-  main:
-    parent: "Installation"
-weight: 5
-url: "/getting-started/installation/with-tyk-on-premises"
+title: Tyk On-Premises
+weight: 10
+menu: "main" 
+url: "/tyk-on-premises/"
+aliases:
+  - /getting-started/installation/with-tyk-on-premises/
 ---
 
-## <a name="what-is-tyk-on-premises"></a>What is Tyk On-Premises?
+## What is Tyk On-Premises?
 
-Tyk On-Premises is the way to install an entire Tyk solution in your own infrastructure, it enables you to have full control over every element of the Tyk stack as well as no external dependency on our cloud solution or infrastructure.
+Tyk On-Premises is the way to install our entire Tyk Pro solution in your own infrastructure, it enables you to have full control over every element of the Tyk stack as well as no external dependency on our cloud solution or infrastructure.
 
-The full Tyk On-Premises system consists of:
+The full Tyk On-Premises Pro system consists of:
 
 *   Tyk API Gateway: The API Gateway that proxies and manages your traffic.
 *   Tyk Dashboard: The management Dashboard and integration API for managing a cluster of Tyk Gateways, also shows analytics and features the Developer portal.
@@ -20,39 +20,83 @@ The full Tyk On-Premises system consists of:
 *   Tyk Identity Broker (Optional): Handles integrations with third-party IDP's.
 *   Tyk Multi-Data-Center Bridge (Optional, Enterprise-only): Allows for the configuration of a Tyk ecosystem that spans many data centers and clouds.
 
-> **NOTE**: For a production environment, we recommend that the Gateway, Dashboard and Pump are installed on separate machines. If installing multiple Gateways, you should install each on a separate machine. For more information on deploying to a production environment, see [here](/docs/planning-for-production/).
+{{< note success >}}
+**Note**  
 
-## <a name="package-options"></a>Installing Tyk On-Premises: Managed releases and package options
+For a production environment, we recommend that the Gateway, Dashboard and Pump are installed on separate machines. If installing multiple Gateways, you should install each on a separate machine. For more information on deploying to a production environment, see [Planning for Production](/docs/planning-for-production/).
+{{< /note >}}
 
-Tyk can be installed on almost any Linux environment, we've also created Docker containers that can be deployed and configured easily. Supported by the Tyk team, you can get Tyk for:
+## Installing Tyk On-Premises:
 
-* [Ubuntu](/docs/getting-started/installation/with-tyk-on-premises/on-ubuntu/) (x86, ARM and AMD64)
-* [Red Hat](/docs/getting-started/installation/with-tyk-on-premises/redhat-rhel-centos/) / CentOS (x86, ARM and AMD64)
-* [Tarballs](https://github.com/TykTechnologies/tyk/releases) for any other Linux variant (x86, ARM and AMD64)
-* [Docker images](https://hub.docker.com/u/tykio/)
-* [Heroku](/docs/getting-started/with-tyk-on-premises/installation/on-heroku/)
+{{< grid >}}
+
+{{< badge read="10 mins" href="/docs/tyk-on-premises/docker/" image="/docs/img/docker.png">}}
+Install Tyk **On-Premises** with Docker. 
+{{< /badge >}}
+
+{{< badge read="10 mins" href="/docs/tyk-on-premises/kubernetes/" image="/docs/img/k8s.png">}}
+Install Tyk **On-Premises** with Kubernetes. 
+{{< /badge >}}
+
+{{< badge read="10 mins" href="/docs/tyk-on-premises/ansible/" image="/docs/img/ansible.png">}}
+Install Tyk **On-Premises** with Ansible. 
+{{< /badge >}}
+
+{{< badge read="10 mins" href="/docs/tyk-on-premises/redhat-rhel-centos/" image="/docs/img/redhat-logo2.png">}}
+Install Tyk **On-Premises** on Red Hat. 
+{{< /badge >}}
+
+{{< badge read="10 mins" href="/docs/tyk-on-premises/debian-ubuntu/" image="/docs/img/debian-nd-753.png">}}
+Install Tyk **On-Premises** on Ubuntu. 
+{{< /badge >}}
+
+{{< badge read="10 mins" href="/docs/tyk-on-premises/aws/" image="/docs/img/aws.png">}}
+Install Tyk **On-Premises** on Amazon AWS. 
+{{< /badge >}}
+
+{{< badge read="10 mins" href="/docs/tyk-on-premises/heroku/" image="/docs/img/heroku-logo.png">}}
+Install Tyk **On-Premises** on Heroku. 
+{{< /badge >}}
+
+{{< badge read="10 mins" href="/docs/tyk-on-premises/microsoft-azure/" image="/docs/img/azure-2.png">}}
+Install Tyk **On-Premises** on Microsoft Azure. 
+{{< /badge >}}
+
+{{< /grid >}}
 
 We distribute Tyk via Packagecloud.io APT and Yum repositories, as well as via our [Github repository for the Tarballs](http://upstart.ubuntu.com/cookbook/).
 
-### Getting Started
+### Licencing
 
-To get started with Tyk On-Premises, visit our [licensing page](/docs/getting-started/licencing/).
+For licence queries please contact your account manager. For free trial licences, please visit our [get started](https://tyk.io/get-started/) page on the web site.
 
-## <a name="dependencies"></a>Dependencies
+## Database Support
 
-A full Tyk On-Premises installation has the following requirements:
+### Tyk Gateway
 
-*   Redis: The primary key store for the Tyk Gateway, also synchronises data across gateways in a horizontally scaling installation.
-*   MongoDB: The primary configuration store and analytics data store, required by the dashboard and portal, not required by the gateway.
+By default the Tyk Gateway uses MongoDB. You can also use the following:
 
-### <a name="supported-mongodb-and-redis"></a>Supported Redis and MongoDB versions
+* [DocumentDB](https://aws.amazon.com/documentdb/)
+* [Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/introduction)
+
+{{< note success >}}
+**Note**  
+
+If you are using DocumentDB, [capped collections](/docs/analytics-and-reporting/capping-analytics-data-storage/) are not supported. See [here](https://docs.aws.amazon.com/documentdb/latest/developerguide/mongo-apis.html) for more details.
+{{< /note >}}
+
+### Tyk Dashboard
+
+The Tyk Dashboard and Portal use Redis.
+
+### Supported MongoDB and Redis versions
 
 Tyk has been tested on the following versions:
 
 - MongoDB 3.x and 4.0.x
 - Redis 2.8.x to 5.0.x
 
-## <a name="init-systems"></a>Init Systems
+## Init Systems
 
 Tyk packages support [systemd](https://www.freedesktop.org/wiki/Software/systemd/), [Upstart](http://upstart.ubuntu.com/cookbook/) (both 0.6.x and 1.x) and SysVinit Linux init systems. During package installation only one is chosen depending on the operating system support, e.g.:
 

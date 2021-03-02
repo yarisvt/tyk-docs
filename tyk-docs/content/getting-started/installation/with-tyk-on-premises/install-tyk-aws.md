@@ -3,9 +3,12 @@ date: 2019-12-03T15:46:41Z
 Title: AWS Marketplace
 menu:
   main:
-    parent: "With Tyk On-Premises"
+    parent: "Tyk On-Premises"
 weight: 6
-url: "/getting-started/with-tyk-on-premises/installation/on-aws"
+url: "/tyk-on-premises/aws"
+aliases:
+  - /getting-started/with-tyk-on-premises/installation/on-aws/
+  - /tyk-on-premises/installation/on-aws
 ---
 
 To get started easily, [Tyk offers AWS Marketplace products][6] which bootstrap the entire stack, via CloudFormation templates.
@@ -76,19 +79,19 @@ The CF Template already creates Security Groups for the Dashboard with port 3000
 
 #### cURLing the GW(s)
 
-{{% tabs %}}
-{{% tab "PoC" %}}
+{{% tabs_start %}}
+{{% tab_start "PoC" %}}
 <br>
 In order to access GW, simply assign Elastic IP to the GW instance.  The auto generated GW security group is already set up to allow traffic on port 8080.
 
 To test, cURL the following: 
 ```{.copyWrapper}
 $ curl http://<elastic_public_ip>:8080/hello
-Hello Tiki
+{"status":"pass","version":"v3.0.0","description":"Tyk GW","details":{"dashboard":{"status":"pass","componentType":"system","time":"2020-08-28T17:19:49+02:00"},"redis":{"status":"pass","componentType":"datastore","time":"2020-08-28T17:19:49+02:00"}}}
 ```
 
-{{% /tab %}}
-{{% tab "High Availability / Autoscaling" %}}
+{{% tab_end %}}
+{{% tab_start "High Availability / Autoscaling" %}}
 <br>
 The CloudFormation stack sets up an Elastic Load Balancer for the Gateway cluster.  
 
@@ -97,11 +100,17 @@ Navigate to the AWS Load Balancing section and find the  `TYKElasticLoadBalancer
 We can check it is running by visiting
 ```{.copyWrapper}
 $ curl http://TYKElasticLoadBalancerALB-2050138050.us-east-1.elb.amazonaws.com/hello
-Hello Tiki
+{"status":"pass","version":"v3.0.0","description":"Tyk GW","details":{"dashboard":{"status":"pass","componentType":"system","time":"2020-08-28T17:19:49+02:00"},"redis":{"status":"pass","componentType":"datastore","time":"2020-08-28T17:19:49+02:00"}}}
 ```
 
 Note that ALB rules are already setup to accept traffic on port 80 and forward it to the Gateways on port 8080.
-{{% /tab %}}
+{{% tab_end %}}
+
+{{% tabs_end %}}
+
+
+### Tyk Component Updates
+Updates to the PAYG products can be done manually or automatically.  The manual method requires SSHing into the EC2 instances and doing the updates through the CLI.  To do this automatically, there is a mechanism to upgrade CloudFormation stack. The idea is to apply a new version of CloudFormation to your existing stack. We are releasing new versions of the product from time to time. When this happens, you will get a notification from AWS.
 
 
 [2]: https://aws.amazon.com/marketplace/pp/prodview-elvk5mxxlkueu?qid=1575313242174&sr=0-4&ref_=srh_res_product_title

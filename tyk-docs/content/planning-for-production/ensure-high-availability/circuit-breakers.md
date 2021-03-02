@@ -7,11 +7,11 @@ menu:
 weight: 3 
 ---
 
-## <a name="overview"></a>Overview
+## Overview
 
 ![Circuit Breaker Example](/docs/img/dashboard/system-management/circuit-breaker-diagram.png)
 
-Tyk has a built-in circuit breaker pattern as a path-based option. Our circuit breaker is threshold-based, so if a sample size `x` of `y%` requests fail, the breaker will trip. The Gateway will stop **all** inbound requests to that service for a pre-defined period of time (a recovery time-period). You configure this time period using the `return_to_service_after` option in your API definition, or setup via the Dashboard. See [Configure with the API Definition](#with-api) or [Configure with the Dashboard] (#with-dashboard). This also triggers an event which you can hook into to perform corrective or logging action. When a circuit breaker is tripped, it will return a 503 "Service temporarily unavailable" error.
+Tyk has a built-in circuit breaker pattern as a path-based option. Our circuit breaker is rate-based, so if a sample size `x` of `y%` requests fail, the breaker will trip. The Gateway will stop **all** inbound requests to that service for a pre-defined period of time (a recovery time-period). You configure this time period using the `return_to_service_after` option in your API definition, or setup via the Dashboard. The circuit breaker also has an half-open state that can check if the problem is fixed, this is done by making real requests to the upstream before the time configured in  `return_to_service_after` happens. By default the Tyk circuit breaker has enabled the half-open state, if the desired behavior is to only check after the time configured in `return_to_service_after` is consumed then you can disable this by setting  `disable_half_open_state` to `true`. See [Configure with the API Definition](#with-api) or [Configure with the Dashboard](#with-dashboard). This also triggers an event which you can hook into to perform corrective or logging action. When a circuit breaker is tripped, it will return a 503 "Service temporarily unavailable" error.
 
 The circuit breaker works across hosts (i.e. if you have multiple targets for an API, the sample is across **all** upstream requests).
 
@@ -51,10 +51,15 @@ BreakerTripped = 0
 // BreakerReset is sent when a breaker resets
 BreakerReset = 1
 ```
+{{< note success >}}
+**Note**  
 
-> **NOTE**: If you are using the service discovery module, every time the breaker trips, Tyk will attempt to refresh the node list.
+If you are using the service discovery module, every time the breaker trips, Tyk will attempt to refresh the node list.
+{{< /note >}}
 
-## <a name="with-api"></a>Configure with the API Definition
+
+
+## Configure with the API Definition
 
 To enable the breaker in your API Definition, you will need to add a new section to your versions' `extended_paths` list:
 
@@ -76,15 +81,15 @@ To enable the breaker in your API Definition, you will need to add a new section
 *   `samples`: The number of samples to take for a circuit breaker window.
 *   `return_to_service_after`: The cool-down period of the breaker to return to service (seconds).
 
-## <a name="with-dashboard"></a>Configure with the Dashboard
+## Configure with the Dashboard
 
 To set up a circuit breaker on a path for your API, add a new Endpoint in the **Endpoint Designer** section of your API and then select the **Circuit Breaker** plugin:
 
-![Plugin dropdown list](/docs/img/dashboard/system-management/circuit_breaker_designer_2.5.png)
+![Plugin dropdown list](/docs/img/2.10/circuit_breaker.png)
 
 Once the plugin is active, you can set up the various configurations options for the breaker in the drawer by clicking on it:
 
-![Circuit breaker configuration form](/docs/img/dashboard/system-management/circuit_breaker_config_2.5.png)
+![Circuit breaker configuration form](/docs/img/2.10/ciruit_breaker_settings.png)
 
 *   **Trigger threshold percentage**: The percentage of requests that can error before the breaker is tripped, this must be a value between 0.0 and 1.0.
 *   **Sample size (requests)**: The number of samples to take for a circuit breaker window.

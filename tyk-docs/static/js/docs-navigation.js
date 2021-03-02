@@ -34,13 +34,13 @@ var doNav = function() {
 	if(!prevPage) {
 		$('#previousArticle').hide();
 	} else {
-		$("#previousArticle").text(prevPage.text).attr('href', prevPage.link);	
+		$("#previousArticle").html("<span>PREVIOUS</span>" + prevPage.text).attr('href', prevPage.link);	
 	}
 	
 	if(!nextPage) {
 		$('#nextArticle').hide();
 	} else {
-		$("#nextArticle").text(nextPage.text).attr('href', nextPage.link);	
+		$("#nextArticle").html("<span>NEXT</span>" + nextPage.text).attr('href', nextPage.link);	
 	}
 
 	$('.suggest-edit').on('click', function (e){

@@ -7,48 +7,70 @@ menu:
 weight: 1 
 ---
 
-## <a name="rate-limiting-overview"></a>Rate Limiting Overview
+## Rate Limiting Overview
 
-Also known as throttling, Tyk API will actively only allow a key to make `x` requests per `y` time period. This is very useful if you want to ensure your API does not get flooded with requests.
+Also known as throttling, Tyk API will actively only allow a key to make `x` requests per `y` time period. This is very useful if you want to ensure your API does not get flooded with requests. See [Rate Limiting Concepts](/docs/getting-started/key-concepts/rate-limiting/) for more information.
 
-### How do Rate Limits Work?
 
-There are two rate limiters in Tyk as of v2.3: The hard-synchronised rate limiter (the rate limiter used in v2.2) and the distributed rate limiter (also referred to as the DRL in future). Both rate limiters come with different benefits and trade-offs, and in v2.3 we have opted to make the DRL the default rate limiter.
+## Setting up an API-Level Global Rate Limit
 
-### Hard-synchronised Rate Limiter
+Adding an API-level global rate limit is what requires the least amount of effort and can be done as soon as you’ve created the API in Tyk. To apply a global rate limit you simply need to:
 
-Here the limit is enforced using a pseudo "leaky bucket" mechanism: Tyk will record each request in a timestamped list in Redis, at the same time it will count the number of requests that fall between the current time, and the maximum time in the past that encompasses the rate limit (and remove these from the list). If this count exceeds the number of requests over the period, the request is blocked.
+1. Navigate to the API you want to set the global rate limit on
+2. From the **Core Settings** tab, navigate to the **Rate Limiting and Quotas** section
+3. Ensure that **Disable rate limiting** is not selected
+4. Enter in your **Rate** and **Per (seconds)** values
+5. **Save/Update** your changes
 
-This approach means that rate limits are applied across all Gateway instances equally and near-instantaneously and also that the actual limit is a "moving window" so that there is no fixed point in time to flood the limiter or execute more requests than is permitted by any one client.
+Check out the following video to see this being done.
 
-The downside of this rate limiter is that it puts a high amount of traffic to and from Redis, which can cause Redis itself to become a bottleneck in high-traffic situations.
+{{< youtube ETI7nOd3DNc >}}
 
-### Distributed Rate Limiter (DRL)
+## Setting up a Key-Level Global Rate Limit
 
-The distributed rate limiter (DRL) operates on an eventual-consistency basis, it too is a "leaky bucket" algorithm, but the rate limiter is not synchronised explicitly via Redis across all instances. Instead, the rate limiter is entirely in-memory to the instance servicing the request, and the "size" of the token value is determined by a quorum established between Tyk instances that share a common zone or tag group.
+{{< note success >}}
+**Note**  
 
-This approach means that Tyk will continually measure load on each instance that is running, and then use the load across all instances to calculate a value by which to normalise the rate limiter leaky buckets across all instances - this happens eventually (within a second or so) and is entirely dynamic. If a new instance joins the cluster, or an instance leaves the cluster, the token bucket value is recalculated and rate limits rebalance.
+ It is assumed that the APIs being protected with a rate limit are using our [Authentication token](/docs/basic-config-and-security/security/authentication-authorization/bearer-tokens/) Authentication mode and have policies already created
+{{< /note >}}
 
-The benefit of this approach is scalability and speed - the DRL is much more performant and puts much less pressure on Redis, meaning smaller deployments and higher availability.
+1. Navigate to the Tyk policy that you want to enforce rate limiting on
+2. Ensure that API(s) that you want to apply rate limits to are selected
+3. Under **Global Limits and Quota**, make sure that **Disable rate limiting** is not selected and enter your **Rate** and **Per (seconds)** values
+4. **Save/Update** the policy
 
-The DRL can work accurately only if your rate limit is a few times higher then number of your servers. DRL has a built in mechanism to automatically switch to a hard-synchronised rate limiter (a bit slower but more accurate) on a per user basis, if the rate limit is too low. You can control this behaviour using the `drl_threshold` option, which specifies the minimum number of requests PER server, in order to enable the DRL algorithm. By default `drl_threshold`  is set to 5, which means that if you have 3 servers, users with rate limit of > 15 (5 * 3) will use the DRL algorithm, and other users will fallback to the hard-synchronised rate limiter.
+## Setting up a Key-Level Per-API Rate Limit
 
-### Global Rate Limiter
-> Supported since Gateway v2.4 and Dashboard v1.4
+{{< note success >}}
+**Note**  
 
-Using `global_rate_limit` API definition field you can specifies a global API rate limit in the following format: `{"rate": 10, "per": 1}` similar to policies or keys. 
- 
-The API rate limit is an aggregate value across all users, which works in parallel with user rate limits, but has higher priority.
+ It is assumed that the APIs being protected with a rate limit are using our [Authentication token](/docs/basic-config-and-security/security/authentication-authorization/bearer-tokens/) Authentication mode and have policies already created
+{{< /note >}}
 
-#### Global Rate Limiter Algorithm
+1. Navigate to the Tyk policy that you want to enforce rate limiting on
+2. Ensure that API(s) that you want to apply rate limits to are selected
+3. Under **API Access**, turn on **Set per API Limits and Quota**
+4. You may be prompted with "Are you sure you want to disable partitioning for this policy?". Click **CONFIRM** to proceed.
+5. Under **Rate Limiting**, make sure that **Disable rate limiting** is not selected and enter your **Rate** and **Per (seconds)** values
+6. **Save/Update** the policy
 
-The algorithm used by the global rate limiter will be the same algorithm configured for the key rate limiter.
+Check out the following video to see this being done.
 
-#### Setting Global Rate Limits from the Dashboard 
- 
-From the Dashboard, you can specify the Global Rate Limits from the API Designer: 
+{{< youtube n7jbmuWgPsw >}}
 
-![global-limits](/docs/img/dashboard/system-management/global_rate_limit_2.5.png)
+## Setting Rate Limits in the Tyk Community Edition Gateway (CE)
+
+### Global Rate Limits
+
+Using `global_rate_limit` API definition field you can specifies a global API rate limit in the following format: `{"rate": 10, "per": 60}` similar to policies or keys.
+
+## Set a rate limit on the session object (API)
+
+All actions on the session object must be done via the Gateway API.
+
+1. Ensure that `allowance` and `rate` are set to the same value, this should be number of requests to be allowed in a time period, so if you wanted 100 requests every second, set this value to 100.
+
+2. Ensure that `per` is set to the time limit. Again, as in the above example, if you wanted 100 requests per second, set this value to 1. If you wanted 100 per 5 seconds, set this value to 5 etc.
 
 ### Can I disable the rate limiter?
 
@@ -56,28 +78,12 @@ Yes, the rate limiter can be disabled for an API Definition by checking **Disabl
 
 Alternatively, you could also set the values of `Rate` and `Per (Seconds)` to be 0 in the API Designer.
 
-> **Note**: Disabling the rate limiter at the global level does not disable the rate limiting at the key level.  Tyk will enforce the rate limit at the key level regardless of this setting.
+{{< note success >}}
+**Note**  
 
-### Can I rate limit by IP address?
+Disabling the rate limiter at the global level does not disable the rate limiting at the key level.  Tyk will enforce the rate limit at the key level regardless of this setting.
+{{< /note >}}
 
-Not yet, though IP-based rate limiting is possible using custom pre-processor middleware JavaScript that generates tokens based on IP addresses.
+### Can I set rate limits by IP address?
 
-## <a name="with-dashboard"></a> Setting a rate limit from the Dashboard
-
-1.  From **System Management** > **Keys** > **Add Key**.
-
-2.  Ensure the new key has access to the APIs you wish it work with by selecting the API from **Access Rights** > **Add Access Rule** and click **Add**
-
-3.  From the **Rate Limit** section, select the **rate** (number of requests) and the **per** period. If the period is not available in the drop down, you can set it to a custom value using the Dashboard REST API.
-    
-    ![Tyk API Gateway Rate Limits] (/docs/img/dashboard/system-management/rate_limit_2.5.png)
-
-4.  Save the token, it will be created instantly.
-
-## <a name="rate-limit-using-session-object"></a> Set a rate limit on the session object (API)
-
-All actions on the session object must be done via the Dashboard or Gateway REST API.
-
-1. Ensure that `allowance` and `rate` are set to the same value, this should be number of requests to be allowed in a time period, so if you wanted 100 requests every second, set this value to 100.
-
-2. Ensure that `per` is set to the time limit. Again, as in the above example, if you wanted 100 requests per second, set this value to 1. If you wanted 100 per 5 seconds, set this value to 5 etc.
+Not yet, though IP-based rate limiting is possible using custom pre-processor middleware JavaScript that generates tokens based on IP addresses. See our [Middleware Scripting Guide](/docs/plugins/supported-languages/javascript-middleware/middleware-scripting-guide/) for more details.

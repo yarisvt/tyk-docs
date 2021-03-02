@@ -7,7 +7,16 @@ menu:
 weight: 9 
 ---
 
-Tyk allows you to control password requirements for users, developers and basic auth keys. You can find the configuration files in the `schemas` directory of your Tyk installation folder. For the Dashboard users configuration is stored in `schemas/password.json`, for developers it is registered via your portal: `schemas/developer_password.json`, for basic auth keys: `./schemas/basic_auth.json`
+Tyk allows you to control password requirements for Dashboard users, developers (i.e. users registered to the developer portal) and basic auth keys. 
+Please note: This configuration is enforced by the Tyk-Dashboard and as such is not available in the Tyk Community Edition. Also since it require access to the Tyk Dashboard installation folder, it is *currently* not available for cloud/multi-cloud clients.
+
+There are other security options available from the Dashboard config file. See the [security section](/docs/tyk-configuration-reference/tyk-dashboard-configuration-options/#security) for more details.
+
+You can find the configuration files in the `schemas` directory of your Tyk Dashboard installation folder, as follows: 
+- For Dashboard users you define policy in `schemas/password.json` 
+- For developers you define policy in `schemas/developer_password.json`
+- For basic auth keys you define policy in `./schemas/basic_auth.json`
+
 
 The following validators are available:
 
@@ -31,5 +40,3 @@ Below is an example of `password.json` file, with all options turned on:
   "disableSequential": true
 }
 ```
-
-> **NOTE**: This option is only available from Dashboard v1.3.2 and onwards.

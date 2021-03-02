@@ -3,8 +3,11 @@ date: 2019-07-30T11:30:02Z
 title: Bootstrapper CLI
 menu:
   main:
-    parent: "With Tyk On-Premises"
-weight: 7
+    parent: "Tyk On-Premises"
+weight: 9
+url: "/tyk-on-premises/bootstrapper-cli/"
+aliases:
+  - /getting-started/installation/with-tyk-on-premises/bootstrapper-cli/
 ---
 
 ## bootstrap

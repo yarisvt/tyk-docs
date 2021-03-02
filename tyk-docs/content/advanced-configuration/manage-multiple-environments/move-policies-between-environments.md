@@ -1,4 +1,4 @@
----
+  ---
 date: 2017-03-24T12:27:47Z
 title: Move Policies Between Environments
 menu:
@@ -11,7 +11,7 @@ Moving policies between two (Dashboard) environments is not as easy as moving AP
 
 ### Preparation
 
-First you must set up your new environment to respect explicit policy IDs. To do so, edit the `tyk.conf` and `tyk_analytics.conf` files in your new environment and set the `policies. allow_explicit_policy_id` setting to `true` (the setting is just `allow_explicit_policy_id` at the root level of the Dashboard configuration).
+First you must set up your new environment to respect explicit policy IDs. To do so, edit the `tyk.conf` and `tyk_analytics.conf` files in your new environment and set the `policies. allow_explicit_policy_id` setting to `true` (the setting is just `allow_explicit_policy_id` at the root level of the Dashboard configuration). In order to retain your `api_id` when moving between environments then set `enable_duplicate_slugs` to `true` in your target `tyk_analytics.conf`.
 
 ### Step 1: Get your Policy
 
@@ -110,6 +110,38 @@ curl -X POST -H "authorization: {API-TOKEN}" \
 ```
 
 That's it, Tyk will now load this policy, and you will be able to manage and edit it the same way in your new environment, if you are re-creating tokens in your new environment, then those tokens' ACL does not need to be changed to a new policy ID since the legacy one will always be used as the reference for the policy.
+
+#### Policy IDs in the Dashboard
+
+After migrating a Policy from one environment to another, it is important to note that the **displayed** Policy ID is not going to match.  **That is okay**.  It happens because Tyk Dashboard displays the [`Mongo ObjectId`](https://docs.mongodb.com/manual/reference/glossary/#term-id), which is the `_id` field, but the `id` is the important part.
+
+**For example:**
+
+Policies in source environment
+![Policy ID Before](/docs/img/2.10/policy_id_before.png)
+
+Policies in target environment after migration
+![Policy ID After](/docs/img/2.10/policy_id_after.png)
+
+Notice that the IDs appear to be different.  These are the BSON IDs and are expected to be different.  But if we look for the underlying GUID `id`, you can see it's been mapped properly in the target environment.
+
+```
+$ curl dash-host-source/api/portal/policies/
+
+    ....
+    "_id": "5eb1b133e7644400013e54ec",
+    "id": "",
+    "name": "credit score",
+
+$ curl dash-host-target/api/portal/policies/
+
+    ....
+    "_id": "5f03be2ce043fe000177b047",
+    "id": "5eb1b133e7644400013e54ec",
+    "name": "credit score",
+```
+
+As you can see, under the hood, the policy has been migrated correctly with target Tyk Dashboard saving the proper ID inside `id`.   That is the value that will be referred to inside Key Creation, etc.
 
 ## Use Tyk-Sync
 

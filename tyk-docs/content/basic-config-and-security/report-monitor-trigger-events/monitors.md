@@ -31,7 +31,12 @@ Enabling monitors in your Tyk node means adding a new configuration section to y
 *   `configuration`: A webhook configuration object, please see the webhooks documentation for details.
 *   `global_trigger_limit`: This is the global trigger threshold and will be applied to all tokens being measured. This number is a percentage of the quota that the user must reach before the notification is triggered.
 
-> NOTE: From Dashboard v1.8.2, if you are using our [Developer Portal](/docs/tyk-developer-portal/), developers registered in the portal will also receive emails about quota threshold limits being reached.
+{{< note success >}}
+**Note**  
+
+From Dashboard v1.8.2, if you are using our [Developer Portal](/docs/tyk-developer-portal/), developers registered in the portal will also receive emails about quota threshold limits being reached.
+{{< /note >}}
+
 
 *   `monitor_user_keys`: Set to `true` to monitor individual tokens, this may result in a large amount of webhooks.
 *   `monitor_org_keys`: Set to `true` to have global organisation quotas monitored.

@@ -69,9 +69,20 @@ To set up an API Definition to use OIDC, add the following block to the definiti
 
 
 #### JWT scope to policy mapping support
-> **NOTE**: This feature is available starting from v2.9
 
-You can map JWT scopes to security policies (including OIDC) to be applied to a key. To enable this feature you will need to add the following fields in your API:
+{{< note success >}}
+**Note**: 
+
+This feature is available starting from v2.9
+{{< /note >}}
+
+Many times companies define the user's authorisation rules in a central place such as an authorisation server or some central identity provider (IdP). As such you would want to be able to enfoce these rules using your api gateway. 
+This feature enables you to onboard those rights into Tyk gateway and enforce them on the APIs you expose with Tyk by configuring the gateway itself. The identity provider does not need to know Tyk at all.
+As always, Tyk does it in the standard way, using *scopes* claim but you can set it to use any claim you want. 
+In the api definition you define a map of a scope (from the JWT claim) to one or a few policies in Tyk and Tyk gateway would know to apply those policies to the key when the api is called.
+This feature works with any generic JWT you would choose to create or with OIDC JWT tokens.
+
+To enable this feature you will need to add the following fields in your API:
 ```{.copyWrapper}
   "jwt_scope_to_policy_mapping": {
     "admin": "59672779fa4387000129507d",
@@ -85,19 +96,28 @@ Here we have set:
 * `jwt_scope_to_policy_mapping` provides a mapping of scopes (read from claim) to an actual policy ID. In this example we specify that scope "admin" will apply policy `"59672779fa4387000129507d"` to a key.
 * `jwt_scope_claim_name` identifies the JWT claim name which contains scopes. This API Spec field is optional with default value `"scope"`. This claim value is a string with space delimited list of values (by standard)
 
+{{< note success >}}
+**Note**  
 
-> **NOTE**: several scopes in JWT claim will lead to have several policies applied to a key. In this case all policies should have `"per_api"` set to `true` and shouldn't have the same `API ID` in access rights. I.e. if claim with scopes contains value `"admin developer"` then two policies `"59672779fa4387000129507d"` and `"53222349fa4387004324324e"` will be applied to a key (with using our example config above).
+Several scopes in JWT claim will lead to have several policies applied to a key. In this case all policies should have `"per_api"` set to `true` and shouldn't have the same `API ID` in access rights. I.e. if claim with scopes contains value `"admin developer"` then two policies `"59672779fa4387000129507d"` and `"53222349fa4387004324324e"` will be applied to a key (with using our example config above).
+{{< /note >}}
+
+
 
 #### Setting JWT Scope Claims with the Dashboard
 
 You can also map your JWT scope to your policies from the **API Designer**.
 
 1. Create a new API or edit an existing API that has the **Authentication mode** set to **JSON Web Token (JWT)**.
-2. At the bottom of the **Core Settings** tab, select **Use Scope Claim**.
-![Use Scope Claim](/docs/img/dashboard/system-management/jwt_scope_claim.png)
-3. Enter a **Scope Name** for your scope. For example "admin" in the above example.
-4. Enter a **Claim Name** for your scope. This is the equivalent to setting `jwt_scope_claim_name` above.
-5. Select an available policy from the **Policies** drop-down list. This is the equivalent to setting `jwt_scope_to_policy_mapping` above.
-6. Click add to save the scope claim.
-7. Repeat this process for all the scope claims you want to add to the API.
-8. Click **Update** to save the new settings for your API.
+2. In the **Core Settings** tab, under **Default Policy** choose a default policy for your JWT as explained in [step 4](https://tyk.io/docs/basic-config-and-security/security/authentication-authorization/json-web-tokens/#step-4-set-a-default-policy) above. This is required when using scopes to enforce a policy.
+
+![Default JWT Policy](/docs/img/dashboard/system-management/jwt_default_policy.png)
+
+3. At the bottom of the **Core Settings** tab, select **Use Scope Claim**.
+![Use Scope Claim](/docs/img/2.10/jwt_scope_claim.png)
+1. Enter a **Scope Name** for your scope. For example "admin" in the above example.
+2. Enter a **Claim Name** for your scope. This is the equivalent to setting `jwt_scope_claim_name` above.
+3. Select an available policy from the **Policies** drop-down list. This is the equivalent to setting `jwt_scope_to_policy_mapping` above.
+4. Click add to save the scope claim.
+5. Repeat this process for all the scope claims you want to add to the API.
+6. Click **Update** to save the new settings for your API.

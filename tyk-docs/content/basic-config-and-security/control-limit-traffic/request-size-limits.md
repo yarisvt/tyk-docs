@@ -7,17 +7,20 @@ menu:
 weight: 4 
 ---
 
-## <a name="maximum-request-sizes"></a> Maximum Request Sizes
+## Maximum Request Sizes
 
-Tyk supports forcing request size limits on a global and on a per-endpoint level. Tyk will reject any request that is too big. Size limits can be set on a global or per-path basis.
+Tyk supports forcing request size limits at the API and individual endpoint level. Tyk will reject any request that is too big.
 
-> **Note for Tyk Cloud Users**: Tyk Cloud enforces a strict request size limit of 1MB an all inbound requests via our cloud architecture. This does not affect Multi-Cloud users.
+{{< note success >}}
+**Note**  
 
-## <a name="max-request-size-with-dashboard"></a> Max Request Size with the Dashboard
+Tyk Cloud Classic enforces a strict request size limit of 1MB an all inbound requests via our cloud architecture. This does not affect Multi-Cloud users.
+{{< /note >}}
 
-To enforce a request size on your API, from your **Endpoint Designer**:
 
-![Endpoint designer tab location](/docs/img/dashboard/system-management/endpoint_designer_2.5.png)
+## Max Request Size with the Dashboard
+
+To enforce a request size from your API Endpoint Designer:
 
 1.  Click **ADD ENDPOINT**.
 
@@ -25,11 +28,11 @@ To enforce a request size on your API, from your **Endpoint Designer**:
 
 3.  Select **Request Size Limit** from the "Plugins" drop down.
     
-    ![Plugins drop down](/docs/img/dashboard/system-management/request_size_plugin_2.5.png)
+    ![Plugins drop down](/docs/img/2.10/request_size_limit.png)
 
 4.  Set the size limit in bytes.
     
-    ![Size limit form](/docs/img/dashboard/system-management/set_size_limit_2.5.png)
+    ![Size limit form](/docs/img/2.10/request_size_settings.png)
 
 5.  Save the API.
 
@@ -50,9 +53,9 @@ To set up this middleware in your API Definition, simply add a new section to th
 
 The size limit must be in in **bytes**.
 
-### Global size limiting
+### Global size limiting for your API
 
-To add a global check for size limits, simply add:
+To add an API size limit, simply add:
 ```
 "global_size_limit": 500 
 ```

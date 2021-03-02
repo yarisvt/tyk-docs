@@ -6,7 +6,7 @@ menu: "main"
 url: "/tyk-multi-data-centre"
 ---
 
-## <a name="introduction"></a>Introduction
+## Introduction
 Tyk Multi Data Centre Bridge (MDCB) acts as a broker between Tyk Gateway Instances that are isolated from one another and typically have their own Redis DB.
 
 In order to manage physically separate Tyk Gateway clusters from a centralised location, Tyk MDCB needs to be used to provide a remote "back-end" for token and configuration queries.
@@ -19,7 +19,7 @@ Tyk MDCB creates a bridge between a configuration source (MongoDB and a centrali
 
 The communication between instances works through a compressed RPC TCP tunnel between the gateway and MDCB, it is incredibly fast and can handle 10,000's of transactions per second.
 
-## <a name="logical-architecture"></a>MDCB Logical Architecture
+## MDCB Logical Architecture
 
 The Tyk MDCB logical architecture consists of:
 
@@ -27,7 +27,12 @@ The Tyk MDCB logical architecture consists of:
 2.  MDCB instances to handle the RPC connections.
 3.  The Tyk Slave clusters, these consist of Tyk Nodes and an isolated Redis DB.
 
-> **Note:** If setting up MDCB locally for Proof of Concept, your Redis instances for the master and the slaves **must** be different.
+{{< note success >}}
+**Note**  
+
+If setting up MDCB locally for a Proof of Concept, your Redis instances for the master and the slaves MUST be different.
+{{< /note >}}
+
 
 ![Tyk Open Source API Gateway Multi-Data Center Deployment][4]
 
@@ -55,14 +60,18 @@ When a request comes into a Slave Data Centre, the following set of actions occu
 4.  If token is found in master, copy to local cache and use
 5.  If it is found in the local cache, no remote call is made and rate limiting and validation happen on the slave copy
 
-> **Note:** Cached versions do not get synchronised back to the master data centre, setting a short TTL is important to ensure a regular lifetime
+{{< note success >}}
+**Note**  
+
+Cached versions do not get synchronised back to the master data centre, setting a short TTL is important to ensure a regular lifetime
+{{< /note >}}
 
 A Slave Data Centre consists of the following configuration:
 
 1.  A Tyk Gateway instance(s) specially configured as slaves
 2.  A Redis DB
 
-## <a name="use-case"></a>Use Case 
+## Use Case 
 
 You are company ABC with the following Data Centre Locations:
 
@@ -73,7 +82,7 @@ You are company ABC with the following Data Centre Locations:
 You want to have your Master Data Centre installation based in Chicago, with further Tyk Gateway installations in New York and San Francisco.
 
 
-## <a name="benefits"></a>Benefits of Using MDBC
+## Benefits of Using MDBC
 
 ### Better Uptime if Master Failover
 

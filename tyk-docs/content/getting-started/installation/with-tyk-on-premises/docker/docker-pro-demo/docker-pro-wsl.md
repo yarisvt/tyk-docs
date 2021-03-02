@@ -5,14 +5,27 @@ menu:
   main:
     parent: "With Docker"
 weight: 2
+url: "/tyk-on-premises/docker/docker-pro-demo/docker-pro-wsl/"
+aliases:
+  - /getting-started/installation/with-tyk-on-premises/docker/docker-pro-demo/docker-pro-wsl/
 ---
 
-> **Warning!** This demo is **NOT** designed for production use or performance testing. The Tyk Pro Docker Demo is our full, [On-Premises](https://tyk.io/api-gateway/on-premise/) solution, which includes our Gateway, Dashboard and analytics processing pipeline.
+## Proof of Concept with our Docker Pro Demo
 
-> This demo will run Tyk On-Premises on your machine, which contains 5 containers: Tyk Gateway, Tyk Dashboard, Tyk Pump, Redis and MongoDB.
-> This demo is great for proof of concept and demo purposes, but if you want to test performance, you need to move each component to a separate machine.
+The Tyk Pro Docker demo is our full [On-Premises](https://tyk.io/api-gateway/on-premise/) Pro solution, which includes our Gateway, Dashboard, and analytics processing pipeline. This demo will run Tyk On-Premises Pro on your machine, which contains 5 containers: Tyk Gateway, Tyk Dashboard, Tyk Pump, Redis and MongoDB. This demo is great for proof of concept and demo purposes, but if you want to test performance, you will need to move each component to a separate machine.
 
-> **NOTE**: You use this at your own risk. Tyk is not supported on the Windows platform. However you can test it as a proof of concept using our Pro Demo Docker installation.
+{{< warning success >}}
+**Warning**  
+
+This demo is NOT designed for production use or performance testing. 
+{{< /warning >}}
+
+{{< note success >}}
+**Note**  
+
+You use this at your own risk. Tyk is not supported on the Windows platform. However you can test it as a proof of concept using our Pro Demo Docker installation.
+{{< /note >}}
+
 
 ## Prerequisites
 
@@ -57,14 +70,14 @@ You should have received your free developer licence via email. Copy the licence
 From PowerShell, run the following command from your installation folder:
 
 ```{copy.Wrapper}
-docker-compose -f docker-compose.yml -f docker-local.yml up
+docker-compose up
 ```
 
 This will will download and setup the five Docker containers. This may take some time and will display all output.
 
 **NOTE**
 If you are getting issues related to errors when mounting files, you may need to modify 
-`docker-local.yml` file, and change configs paths from related to absolute, and from linux format to windows format, like this:
+`docker-compose.yml` file, and change configs paths from related to absolute, and from linux format to windows format, like this:
 ```
 volumes:
   - C:\Tyk\confs\tyk_analytics.conf:/opt/tyk-dashboard/tyk_analytics.conf
@@ -93,7 +106,12 @@ You need to enter the following:
 - A **Password** for your User
 - **Re-enter** your user **Password**
 
-> **NOTE**: For a password, we recommend a combination of alphanumeric characters, with both upper and lower case letters.
+{{< note success >}}
+**Note**  
+
+For a password, we recommend a combination of alphanumeric characters, with both upper and lower case
+letters.
+{{< /note >}}
 
 Click **Bootstrap** to save the details.
 

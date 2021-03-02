@@ -8,7 +8,8 @@ weight: 2
 
 ### Supported Versions
 
-Please check to see if you are using supported [Redis and Mongo Versions](/docs/#supported-mongodb-and-redis-versions)
+- MongoDB 3.x and 4.0.x
+- Redis 2.8.x to 5.0.x
 
 ### Split out your DB
 

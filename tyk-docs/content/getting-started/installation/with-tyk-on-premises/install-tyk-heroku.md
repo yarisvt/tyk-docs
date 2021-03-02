@@ -3,27 +3,30 @@ date: 2018-05-18T15:46:41Z
 Title: Heroku
 menu:
   main:
-    parent: "With Tyk On-Premises"
-weight: 6
-url: "/getting-started/with-tyk-on-premises/installation/on-heroku"
+    parent: "Tyk On-Premises"
+weight: 7
+url: "/tyk-on-premises/heroku"
+aliases:
+  - /getting-started/with-tyk-on-premises/installation/on-heroku/
+  - /tyk-on-premises/installation/on-heroku
 ---
 
-## <a name="heroku"></a> Install Tyk API Gateway on Heroku
+## Install Tyk API Gateway on Heroku
 
 A full Tyk installation can be deployed to Heroku dynos and workers using [Heroku Container Registry & Runtime](https://devcenter.heroku.com/articles/) functionality. This guide will utilise [Tyk Docker images](https://hub.docker.com/u/tykio/) with a small amount of customisation as well as an external MongoDB service.
 
 
-## <a name="prerequisites"></a> Prerequisites
+## Prerequisites
 
 1. Docker daemon installed and running locally
 2. [Heroku account](https://www.heroku.com/), the free plan is sufficient for a basic PoC but not recommended for production usage
 3. [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) installed
-4. MongoDB service (such as [Atlas](https://www.mongodb.com/cloud/atlas), [mLab](https://elements.heroku.com/addons/mongolab), [Compose](https://elements.heroku.com/addons/mongohq) or your own deployment), this guide is based on MongoDB Atlas but others should work as well
+4. MongoDB service (such as [Atlas](https://www.mongodb.com/cloud/atlas), [mLab](https://elements.heroku.com/addons/mongolab), [Compose](https://www.compose.com/) or your own deployment), this guide is based on MongoDB Atlas but others should work as well
 5. [Tyk License](https://tyk.io/pricing/on-premise/) (note that in case of running multiple gateway dynos, license type must match)
 6. Checkout the [Tyk quickstart repository](https://github.com/TykTechnologies/tyk-pro-heroku) from GitHub
 7. Python 2 or 3 in order to execute the bootstrap script
 
-## <a name="creating-apps"></a> Creating Heroku Apps
+## Creating Heroku Apps
 
 We will create two Heroku apps, one for the Tyk Gateway (with [Redis add-on](https://devcenter.heroku.com/articles/heroku-redis) attached to it) and another for the Dashboard and Pump.
 
@@ -40,8 +43,11 @@ heroku create
 Creating app... done, ⬢ infinite-plains-14949
 https://infinite-plains-14949.herokuapp.com/ | https://git.heroku.com/infinite-plains-14949.git
 ```
+{{< note success >}}
+**Note**  
 
-> Note: `--space` flag must be added to the command if the app is being created in a private space, see more details in the [section on Heroku private spaces](#private-spaces).
+`--space` flag must be added to the command if the app is being created in a private space, see more details in the [section on Heroku private spaces](#private-spaces).
+{{< /note >}}
 
 Provision a Redis add-on (we'll use a `hobby-dev` plan for demonstration purposes but that's not suitable for production), replacing the app name with your own:
 ```{.copyWrapper}
@@ -96,7 +102,7 @@ heroku config -a evening-beach-40625 | grep REDIS_URL
 
 Their outputs should match.
 
-## <a name="deploy-dashboard"></a> Deploy the Dashboard
+## Deploy the Dashboard
 
 It's recommended to start with the Dashboard so in your Heroku quickstart clone run:
 ```{.copyWrapper}
@@ -109,7 +115,12 @@ bootstrap.sh  Dockerfile.web  entrypoint.sh  tyk_analytics.conf
 
 You will find it contains a `Dockerfile.web` for the web dyno, a config file for the Dashboard, entrypoint script for the Docker container and a bootstrap script for seeding the dashboard instance with sample data. All these files are editable for your purposes but have sane defaults for a PoC.
 
-> Note that you can use the `FROM` statement in `Dockerfile.web` to use specific dashboard version and upgrade when needed instead of relying on the `latest` tag.
+{{< note success >}}
+**Note**  
+
+You can use the `FROM` statement in `Dockerfile.web` to use specific dashboard version and upgrade when needed instead of relying on the `latest` tag.
+{{< /note >}}
+
 
 The [Dashboard configuration](/docs/tyk-configuration-reference/tyk-dashboard-configuration-options/) can be changed by either editing the `tyk_analytics.conf` file or injecting them as [environment variables](/docs/tyk-configuration-reference/environment-variables/) via `heroku config`. In this guide we'll use the latter for simplicity of demonstration but there is merit to both methods.
 
@@ -286,7 +297,7 @@ heroku dyno:scale -a evening-beach-40625
 pump=1:Free web=1:Free
 ```
 
-## <a name="deploy-gateway"></a> Deploy the Gateway
+## Deploy the Gateway
 
 The process is very similar for the Tyk Gateway, except it doesn't have a worker process and doesn't need access to MongoDB.
 
@@ -351,10 +362,13 @@ Inspect the logs (`heroku logs -a infinite-plains-14949`) to check that deployme
 
 You're ready to follow the guide on [creating and managing your APIs](/docs/try-out-tyk/tutorials/create-api/) with this Heroku deployment.
 
+{{< note success >}}
+**Note**  
 
-> Note: to use the [geographic log distribution](/docs/analytics-and-reporting/geographic-distribution/) feature in the Dashboard please supply the GeoLite2 DB in the `gateway` directory, uncomment the marked line in `Dockerfile.web` and set the `analytics_config.enable_geo_ip` setting (or `TYK_GW_ANALYTICSCONFIG_ENABLEGEOIP` env var) to `true`.
+To use the [geographic log distribution](/docs/analytics-and-reporting/geographic-distribution/) feature in the Dashboard please supply the GeoLite2 DB in the `gateway` directory, uncomment the marked line in `Dockerfile.web` and set the `analytics_config.enable_geo_ip` setting (or `TYK_GW_ANALYTICSCONFIG_ENABLEGEOIP` env var) to `true`.
+{{< /note >}}
 
-## <a name="private-spaces"></a> Heroku Private Spaces
+## Heroku Private Spaces
 
 Most instructions are valid for [Heroku Private Spaces runtime](https://devcenter.heroku.com/articles/private-spaces). However there are several differences to keep in mind.
 
@@ -389,7 +403,7 @@ The minimal Heroku Redis add-on plan that installs into your private space is cu
 
 Apps in private spaces don't enable SSL/TLS by default. It needs to be configured in the app settings along with the domain name for it. If it's not enabled, please make sure that configs that refer to corresponding hosts are using HTTP instead of HTTPS and related ports (80 for HTTP).
 
-## <a name="gateway-plugins"></a> Gateway Plugins
+## Gateway Plugins
 
 In order to enable [rich plugins](/docs/plugins/rich-plugins/) for the Gateway, please set the following Heroku config option to either `python` or `lua` depending on the type of plugins used:
 ```{.copyWrapper}
@@ -410,7 +424,7 @@ After re-starting the Gateway, the logs should be showing something similar to t
 
 Set this variable back to an empty value in order to revert back to the default behaviour.
 
-## <a name="gateway-plugins"></a> Upgrading or Customising Tyk
+## Upgrading or Customising Tyk
 
 Since this deployment is based on Docker images and containers, upgrading or making changes to the deployment is as easy as building a new image and pushing it to the registry.
 

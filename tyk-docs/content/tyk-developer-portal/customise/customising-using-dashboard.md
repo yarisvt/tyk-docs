@@ -24,7 +24,11 @@ In the CSS Editor, add the classes that you would like to override in the home p
 
 #### Step 3: Make Email CSS Amendments
 
-If you wish to customise how emails are displayed to end-users, then you can also add new classes to the Email CSS editor, these classes will be added in-line to the email that is sent out:
+![Email CSS editor](/docs/img/dashboard/portal-management/portal_email_css.png)
+
+If you wish to customise how emails are displayed to end-users, then you can also add new classes to the Email CSS editor, these classes will be added in-line to the email that is sent out.
+
+Once you have finished making your changes, click **Update** and the new CSS will be available on your site.
 
 ### Updating CSS via API
 Alternatively, as always, you can perform the above actions with an API call instead of through the Dashboard UI.
@@ -61,10 +65,5 @@ curl -X PUT http://tyk-dashboard.com/api/portal/css \
   }' 
 ```
 
-![Email CSS editor][3]
-
-Once you have finished making your changes, click the "Update" button, the new CSS should be available almost immediately on your site.
-
  [1]: /docs/img/dashboard/portal-management/portal_man_css.png
  [2]: /docs/img/dashboard/portal-management/portal_site_css.png
- [3]: /docs/img/dashboard/portal-management/portal_email_css.png

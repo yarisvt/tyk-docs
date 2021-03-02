@@ -5,20 +5,30 @@ menu:
   main:
     parent: "With Docker"
 weight: 1
+url: "/tyk-on-premises/docker/docker-pro-demo/"
+aliases:
+  - /getting-started/installation/with-tyk-on-premises/docker/docker-pro-demo/docker-pro-demo/
 ---
 
-## Get Started with Docker & Tyk API Gateway
+## Proof of Concept with our Docker Pro Demo
 
-> **Warning!** This demo is **NOT** designed for production use or performance testing. The Tyk Pro Docker demo is our
-> full [On-Premises](https://tyk.io/api-gateway/on-premise/) solution, which includes our Gateway, Dashboard, and
-> analytics processing pipeline. This demo will run Tyk On-Premises on your machine, which contains 5 containers: Tyk
-> Gateway, Tyk Dashboard, Tyk Pump, Redis and MongoDB. This demo is great for proof of concept and demo purposes, but
-> if you want to test performance, you will need to move each component to a separate machine.
+{{< warning success >}}
+**Warning**  
+
+This demo is NOT designed for production use or performance testing.
+{{< /warning >}}
+
+We have a video which goes through installing our Docker Pro demo on your local machine, setting up a basic API and considerations for moving from POC to Production.
+
+{{< youtube tMrjEa5VRLg >}}
+
+
+The Tyk Pro Docker demo is our full [On-Premises](https://tyk.io/api-gateway/on-premise/) Pro solution, which includes our Gateway, Dashboard, and analytics processing pipeline. This demo will run Tyk On-Premises Pro on your machine, which contains 5 containers: Tyk Gateway, Tyk Dashboard, Tyk Pump, Redis and MongoDB. This demo is great for proof of concept and demo purposes, but if you want to test performance, you will need to move each component to a separate machine.
 
 ## Prerequisites
 
 * Our [Tyk Pro Docker demo on GitHub](https://github.com/TykTechnologies/tyk-pro-docker-demo)
-* A free Tyk On-Premises [Developer licence](https://tyk.io/get-started/)
+* A Tyk Pro [trial license](https://pages.tyk.io/get-started-with-tyk)
 
 ### Step One - Clone the GitHub repo
 
@@ -35,9 +45,6 @@ You need to add the following to your hosts file:
 
 ### Step Three - Add your developer licence
 
-You should have received an e-mail with your free developer licence after going through
-[the signup process](https://signup.tyk.io/product/tyk-on-premises-free-edition/).
-
 Copy the license key to the following location in your `/confs/tyk_analytics.conf` file:
 
 ``` conf
@@ -49,7 +56,7 @@ Copy the license key to the following location in your `/confs/tyk_analytics.con
 Run the following command from your installation folder:
 
 ```{copy.Wrapper}
-docker-compose -f docker-compose.yml -f docker-local.yml up
+docker-compose up
 ```
 
 This will will download and setup the five Docker containers. This may take some time and will display all output.
@@ -77,8 +84,13 @@ You need to enter the following:
 * A **Password** for your User
 * **Re-enter** your user **Password**
 
-> **NOTE**: For a password, we recommend a combination of alphanumeric characters, with both upper and lower case
+{{< note success >}}
+**Note**  
+
+For a password, we recommend a combination of alphanumeric characters, with both upper and lower case
 letters.
+{{< /note >}}
+
 
 Click **Bootstrap** to save the details.
 
