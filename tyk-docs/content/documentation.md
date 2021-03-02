@@ -26,7 +26,7 @@ Tyk **Open Source**
 Tyk **Self-Managed**
 {{< /badge >}}
 
-{{< badge read="15 mins" imageStyle="object-fit:contain" href="/docs/tyk-cloud/" image="/docs/img/logos/tyk-logo-opensource.png" >}}
+{{< badge read="15 mins" imageStyle="object-fit:contain" href="/docs/tyk-cloud/" image="/docs/img/logos/tyk-logo-cloud.png" >}}
 Tyk **Cloud** SaaS
 {{< /badge >}}
 
