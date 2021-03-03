@@ -3,7 +3,7 @@ date: 2017-03-27T19:37:54+01:00
 title: “ValueError No JSON object could be decoded" when running Dashboard Bootstrap script
 menu:
   main:
-    parent: "Tyk Dashboard"
+    parent: "Tyk Dashboard Troubleshooting"
 weight: 5 
 ---
 

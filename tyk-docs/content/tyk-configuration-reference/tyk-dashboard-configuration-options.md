@@ -3,8 +3,11 @@ date: 2017-03-27T14:55:44+01:00
 title: Tyk Dashboard Configuration Options
 menu:
   main:
-    parent: "Tyk Configuration Reference"
+    parent: "Tyk Dashboard"
 weight: 2 
+url: /configure/tyk-dashboard-configuration-options/
+aliases:
+    - /tyk-configuration-reference/tyk-dashboard-configuration-options/
 ---
 
 

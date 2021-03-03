@@ -3,7 +3,7 @@ date: 2018-06-08T14:04:00+01:00
 title: Fatal - Dashboard and portal domains cannot be the same
 menu:
   main:
-    parent: "Tyk Dashboard"
+    parent: "Tyk Dashboard Troubleshooting"
 weight: 5 
 ---
 

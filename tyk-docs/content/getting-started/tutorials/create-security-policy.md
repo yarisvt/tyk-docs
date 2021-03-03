@@ -1,10 +1,15 @@
 ---
 date: 2017-03-13T14:32:26Z
-title: Create a Security Policy
+title: Secure an API
 weight: 3
 menu:
     main: 
-        parent: "Tutorials"
+      parent: "Getting Started"
+url: /getting-started/create-security-policy/
+aliases:
+  - /getting-started/installation/tutorials/create-security-policy/
+  - /try-out-tyk/tutorials/create-security-policy/
+  - /getting-started/tutorials/create-security-policy/
 ---
 
 
@@ -13,29 +18,21 @@ A security policy encapsulates several options that can be applied to a key. It 
 See [What is a Security Policy?](/docs/getting-started/key-concepts/what-is-a-security-policy/) for more details.
 
 {{< tabs_start >}}
-{{< tab_start "Cloud Classic" >}}
+{{< tab_start "Cloud" >}}
+<br>
+
 {{< include "create-security-policy-include" >}}
 
 {{< tab_end >}}
-{{< tab_start "Multi-Cloud" >}}
-
-{{< note success >}}
-**Note**  
-
-Tyk Multi-Cloud has superseded our Hybrid offering. See [Tyk Multi-Cloud](https://tyk.io/api-gateway/cloud/#multi-cloud) for more details. You can get a free 30 day trial of Tyk Multi-Cloud.
-{{< /note >}}
-
-A security policy for Tyk Multi-Cloud is the same as one with Tyk Cloud and will be mirrored in your Multi-Cloud Gateways, follow the instructions below to generate a policy, within a few seconds, that policy will be available in your Multi-Cloud Gateways locally.
+{{< tab_start "Self-Managed" >}}
+<br>
 
 {{< include "create-security-policy-include" >}}
 {{< tab_end >}}
-{{< tab_start "On-Premises" >}}
-{{< include "create-security-policy-include" >}}
-{{< tab_end >}}
-{{< tab_start "Community Edition" >}}
-## Tutorial: Create a Policy with the Gateway API
+{{< tab_start "Open Source" >}}
+## Tutorial: Create a Policy with the Gateway
 
-Adding a policy to a Community Edition Tyk Gateway is very easy. Polices are loaded into memory on load and so need to be specified in advanced in a file called `policies.json`. To add a policy, simply create or edit the `/policies/policies.json` file and add the policy object to the object array:
+Adding a policy to the Tyk Gateway is very easy. Polices are loaded into memory on load and so need to be specified in advanced in a file called `policies.json`. To add a policy, simply create or edit the `/policies/policies.json` file and add the policy object to the object array:
 
 ```{.copyWrapper}
 {
@@ -48,16 +45,16 @@ Adding a policy to a Community Edition Tyk Gateway is very easy. Polices are loa
         "versions": [
             "Default"
         ]
-    }
-  },
-  "active": true,
-  "name": "POLICY NAME",
-  "rate": 100,
-  "per": 1,
-  "quota_max": 10000,
-  "quota_renewal_rate": 3600,
-  "state": "active",
-  "tags": ["Startup Users"]
+      }
+    },
+    "active": true,
+    "name": "POLICY NAME",
+    "rate": 100,
+    "per": 1,
+    "quota_max": 10000,
+    "quota_renewal_rate": 3600,
+    "state": "active",
+    "tags": ["Startup Users"]
   }
 }
 ```

@@ -3,7 +3,7 @@ date: 2017-03-27T17:38:45+01:00
 title: “API catalogue not found“ error in the Developer Portal
 menu:
   main:
-    parent: "Tyk Dashboard"
+    parent: "Tyk Dashboard Troubleshooting"
 weight: 5 
 ---
 

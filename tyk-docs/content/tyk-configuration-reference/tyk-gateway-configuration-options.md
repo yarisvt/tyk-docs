@@ -3,8 +3,11 @@ date: 2017-03-27T12:51:44+01:00
 title: Tyk Gateway Configuration Options
 menu:
   main:
-    parent: "Tyk Configuration Reference"
+    parent: Tyk Gateway
 weight: 1
+url: /configure/tyk-gateway-configuration-options/
+aliases:
+  - /tyk-configuration-reference/tyk-gateway-configuration-options/
 ---
 
 ## Tyk Gateway Configuration

@@ -3,7 +3,7 @@ date: 2017-03-27T19:23:24+01:00
 title: “Not Found” error in the Developer Portal
 menu:
   main:
-    parent: "Tyk Dashboard"
+    parent: "Tyk Dashboard Troubleshooting"
 weight: 5 
 ---
 

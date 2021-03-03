@@ -3,7 +3,7 @@ date: 2017-03-27T17:29:00+01:00
 title: “Key object validation failed“ error when updating a key
 menu:
   main:
-    parent: "Tyk Gateway"
+    parent: "Tyk Gateway Troubleshooting"
 weight: 5 
 ---
 

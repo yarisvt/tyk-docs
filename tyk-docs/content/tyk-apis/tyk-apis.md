@@ -1,7 +1,7 @@
 ---
 title: Tyk APIs
 weight: 190
-menu: "main"
+menu: none
 url: "/tyk-apis"
 ---
 

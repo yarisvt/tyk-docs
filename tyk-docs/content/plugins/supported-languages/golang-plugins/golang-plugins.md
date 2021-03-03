@@ -8,6 +8,7 @@ weight: 0
 url: "/plugins/supported-languages/golang"
 aliases:
   - /plugins/golang-plugins/golang-plugins/
+  - /customise-tyk/plugins/golang-plugins/golang-plugins/
 ---
 
 

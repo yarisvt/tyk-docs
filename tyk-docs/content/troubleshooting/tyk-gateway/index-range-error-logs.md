@@ -3,7 +3,7 @@ date: 2017-03-27T17:27:08+01:00
 title: “Index out of range“ error in logs
 menu:
   main:
-    parent: "Tyk Gateway"
+    parent: "Tyk Gateway Troubleshooting"
 weight: 5 
 ---
 

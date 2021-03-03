@@ -1,15 +1,33 @@
 --- 
 date: 2017-03-08T18:15:30+13:00
 title: Getting Started
-weight: 16
+weight: 5
 menu: "main"
 url: "getting-started"
+aliases:
+    - /try-out-tyk/tutorials/tutorials/
 ---
 
-Tyk is an open source API Gateway that is fast, scalable and modern. Out of the box, Tyk offers an API Management Platform with an API Gateway, API Analytics, Developer Portal and API Management Dashboard.
+Tyk offers an open source API Gateway that is fast, scalable and modern. Tyk also offers a full life-cycle API Management Platform with an API Gateway, API Analytics, Developer Portal and API Management Dashboard.
 
-If you are new to Tyk, use this section to understand the following:
+Not sure what you need? Visit our [APIM comparison](/docs/apim) page to get started
 
-* What are the individual [Tyk components](/docs/getting-started/tyk-components/)?
-*  What [deployment options](/docs/getting-started/deployment-options/) you have for installation
-*  Understand some [key concepts](/docs/getting-started/key-concepts/) to help you get the most out of Tyk
+Once you have a Tyk environment installed, whether it's self-managed OSS or Enterprise, or Cloud, come back here to create your first API!
+
+The following tutorials will show you how to get up and running with Tyk depending on your installation type. 
+
+### [Create an API](/docs/getting-started/tutorials/create-api/)
+
+How to add a basic API to Tyk
+
+### [Create a Security Policy](/docs/getting-started/tutorials/create-security-policy/)
+
+Create a Security Policy that can be applied to multiple keys
+
+### [Create an API Key](/docs/getting-started/tutorials/create-api-key/)
+
+Create a key to apply Quotas and Rate limits to an API, or it can inherit settings from a Security Policy
+
+### [Create a Developer Portal Entry](/docs/getting-started/tutorials/create-portal-entry/) (Tyk Enterprise Only)
+
+Add an API to your Developer Portal for 3rd party developer access

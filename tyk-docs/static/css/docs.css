@@ -1,7 +1,16 @@
 /* ==========================================================================
   Doc Specific Changes
    ========================================================================== */
-.logo {
+   
+   .products h2 {
+    text-align: center
+   }
+
+   .products .grid {
+    justify-content: center
+  }
+
+   .logo {
   height: auto;
   top: 43px;
   left: 50px;
@@ -587,7 +596,6 @@ body * { visibility: hidden; }
 .documentation-table-of-contents {display: none;}
 .hasSidebar .page-content { position: absolute; top:-300px; left: 30px; }
 }
-
 
 /* ==========================================================================
   Hero

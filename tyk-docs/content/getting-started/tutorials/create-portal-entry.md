@@ -1,25 +1,23 @@
 ---
 date: 2017-03-15T16:33:46Z
-title: Create a Portal Entry
+title: Publish an API
 menu:
   main:
-    parent: "Tutorials"
+    parent: "Getting Started"
 weight: 4
 aliases:
-    - /docs/tyk-dashboard-v1-0/tutorials/set-up-your-portal/
+    - /tyk-dashboard-v1-0/tutorials/set-up-your-portal/
 ---
 
-
+This is for the closed source [Tyk Developer Portal](/docs/tyk-developer-portal) only
 
 {{< tabs_start >}}
-{{< tab_start "Cloud Classic" >}}
+{{< tab_start "Cloud" >}}
+
 {{< include "create-portal-entry-include" >}}
 
 {{< tab_end >}}
-{{< tab_start "Multi-Cloud" >}}
-{{< include "create-portal-entry-include" >}}
-{{< tab_end >}}
-{{< tab_start "On-Premises" >}}
+{{< tab_start "Self-Managed" >}}
 
 ## Add an API and Swagger based Docs to your Portal Catalogue
 
@@ -76,12 +74,6 @@ Save the API Catalogue entry by clicking **Update**.
 When you set up your Tyk installation, you will have had to, at some point, define a hostname for your portal, either as a `/etc/hosts` file entry, or as a qualified hostname such as `portal.domain.com`. To make the Dashboard aware of this, from the **Your Developer portal > Set Your Portal Domain** enter the hostname and wait for Tyk to refresh.
 
 This process will bind your organisations' Portal to the domain name you've specified.
-
-{{< note success >}}
-**Note**  
-
-If you installed [Tyk On-Premises for Vagrant](/docs/getting-started/installation/with-tyk-on-premises/install-tyk-pro-premises-vagrant/), you will have created a `etc/hosts` entry of `portal-instance.com`. You should enter this hostname in the drop-down.
-{{< /note >}}
 
 {{< note success >}}
 **Note**  

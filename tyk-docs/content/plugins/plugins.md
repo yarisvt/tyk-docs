@@ -1,9 +1,13 @@
 ---
 date: 2020-06-24T12:59:42Z
 title: Custom Plugins
-menu: "main"
+menu:
+    main:
+        parent: Tyk Gateway
 weight: 80
 url: "/plugins"
+aliases:
+    - /customise-tyk/plugins/
 ---
 
 Tyk supports the use of the following plugins to extend Tyk functionality:

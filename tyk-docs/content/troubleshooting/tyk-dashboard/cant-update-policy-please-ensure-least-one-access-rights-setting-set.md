@@ -3,7 +3,7 @@ date: 2017-03-27T17:50:34+01:00
 title: “Can't update policy. Please ensure at least one access rights setting is set“
 menu:
   main:
-    parent: "Tyk Dashboard"
+    parent: "Tyk Dashboard Troubleshooting"
 weight: 5 
 ---
 

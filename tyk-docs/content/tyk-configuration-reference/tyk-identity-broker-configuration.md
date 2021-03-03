@@ -3,12 +3,12 @@ date: 2017-03-27T15:00:50+01:00
 title: Tyk Identity Broker Configuration Options
 menu:
   main:
-    parent: "Tyk Configuration Reference"
+    parent: "Tyk Identity Broker"
 weight: 3 
 ---
 
 
-The Tyk Identity Broker (TIB) is configured through two files: The configuration file `tib.conf` and the profiles file `profiles.json`. TIB can also be managed via the [TIB REST API](/docs/integrate/3rd-party-identity-providers/tib-rest-api/) for automated configurations.
+The Tyk Identity Broker (TIB) is configured through two files: The configuration file `tib.conf` and the profiles file `profiles.json`. TIB can also be managed via the [TIB REST API](/docs/advanced-configuration/integrate/3rd-party-identity-providers/tib-rest-api/) for automated configurations.
 
 #### The `tib.conf` file
 

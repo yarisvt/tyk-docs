@@ -3,7 +3,7 @@ date: 2017-03-27T19:26:54+01:00
 title: Port 5000 Errors in the Browser Console
 menu:
   main:
-    parent: "Tyk Dashboard"
+    parent: "Tyk Dashboard Troubleshooting"
 weight: 6 
 ---
 

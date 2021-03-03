@@ -5,37 +5,35 @@ Title: Tyk API Gateway Documentation
 diffTitleName:
 menu:
   main:
-    name: Documentation
+    name: Home
 url: "/"
 weight: 1
 diffTitle: true
 hideSidebar: true
 ---
 
-## Quickstart Installation
+<div class="products">
+
+## Tyk API Management
 
 {{< grid >}}
 
-{{< badge read="15 mins" href="/docs/tyk-cloud/" image="/docs/img/tyk-cloud.svg" >}}
-Our new, next level **SaaS** product. 
+{{< badge read="7 mins" imageStyle="object-fit:contain" href="/docs/apim/open-source/" image="/docs/img/logos/tyk-logo-opensource.png">}}
+Tyk **Open Source**
 {{< /badge >}}
 
-{{< badge read="15 mins" href="/docs/getting-started/with-tyk-on-premises/installation/on-aws/" image="/docs/img/aws.png">}}
-Install our **On-Premises** product on AWS. 
+{{< badge read="10 mins" imageStyle="object-fit:contain" href="/docs/tyk-on-premises/" image="/docs/img/logos/tyk-logo-selfmanaged.png">}}
+Tyk **Self-Managed**
 {{< /badge >}}
 
-
-{{< badge read="10 mins" href="/docs/tyk-on-premises/docker/" image="/docs/img/docker.png">}}
-Install our **On-Premises** product with Docker. 
+{{< badge read="15 mins" imageStyle="object-fit:contain" href="/docs/tyk-cloud/" image="/docs/img/logos/tyk-logo-cloud.png" >}}
+Tyk **Cloud** SaaS
 {{< /badge >}}
 
-{{< badge read="10 mins" href="/docs/getting-started/installation/with-tyk-on-premises/with-kubernetes/" image="/docs/img/k8s.png">}}
-Install our **On-Premises** product with Kubernetes. 
-{{< /badge >}}
 
 {{< /grid >}}
 
-{{< button href="/docs/tyk-on-premises/#installing-tyk-on-premises" color="green" content="All On-Premises installation options" >}}
+{{< button href="/docs/apim" color="green" content="Compare" >}}
 
 ## The Tyk Stack
 
@@ -112,3 +110,5 @@ Log into dashboard and portal with your existing IDP.
 {{< /grid >}}
 
 {{< button href="/docs/basic-config-and-security/" color="black" content="More Tyk Configuration" >}}
+
+</div>

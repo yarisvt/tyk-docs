@@ -6,6 +6,8 @@ menu:
     parent: "Teams & Users"
 weight: 3
 url: "/tyk-cloud/teams-&-users/user-roles"
+aliases:
+  - /tyk-cloud/reference-docs/user-roles/
 ---
 
 ## Introduction

@@ -3,7 +3,7 @@ date: 2017-03-27T19:28:52+01:00
 title: “runtime error invalid memory address or nil pointer dereference“
 menu:
   main:
-    parent: "Tyk Dashboard"
+    parent: "Tyk Dashboard Troubleshooting"
 weight: 5 
 ---
 

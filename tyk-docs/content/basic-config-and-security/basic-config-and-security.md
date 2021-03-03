@@ -1,6 +1,8 @@
 ---
 title: Basic Configuration and Security
-menu: "main"
+menu:
+    main:
+        parent: Tyk Gateway
 weight: 40
 url: "/basic-config-and-security"
 ---

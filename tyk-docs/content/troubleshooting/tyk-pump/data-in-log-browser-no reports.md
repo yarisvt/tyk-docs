@@ -3,7 +3,7 @@ date: 2017-03-27T17:32:44+01:00
 title: "Data Seen in Log Browser but No Reports"
 menu:
   main:
-    parent: "Tyk Pump"
+    parent: "Tyk Pump Troubleshooting"
 weight: 6 
 ---
 

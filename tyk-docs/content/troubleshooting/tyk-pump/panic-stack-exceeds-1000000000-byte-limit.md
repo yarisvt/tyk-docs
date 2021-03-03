@@ -3,7 +3,7 @@ date: 2017-03-27T17:33:45+01:00
 title: Tyk Pump Panic “stack exceeds 1000000000-byte limit“
 menu:
   main:
-    parent: "Tyk Pump"
+    parent: "Tyk Pump Troubleshooting"
 weight: 5 
 ---
 

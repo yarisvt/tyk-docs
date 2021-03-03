@@ -6,6 +6,8 @@ menu:
     parent: "Security"
 weight: 2
 url: "/basic-config-and-security/security/tls-and-ssl"
+aliases:
+  - /security/tls-and-ssl/
 ---
 
 TLS connections are supported for all Tyk components. 

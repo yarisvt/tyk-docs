@@ -10,7 +10,7 @@ url: "/tyk-cloud/teams-&-users/managing-teams"
 
 ## Introduction
 
-The following [user roles](/docs/tyk-cloud/reference-docs/user-roles/) can perform existing Team Admin tasks:
+The following [user roles](/docs/tyk-cloud/teams-users/user-roles/) can perform existing Team Admin tasks:
 
 * Organisation Admin - Can manage all teams in the organisation they are a member of.
 * Team Admin - Can only manage the team they are a member of.
