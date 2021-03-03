@@ -6,7 +6,7 @@ menu:
     parent: "Tyk Gateway Configuration Options"
 weight: 8 
 aliases:
-  - /tyk-configuration-reference/tyk-gateway-configuration-options/
+  - /tyk-configuration-reference/tyk-gateway-configuration-options/securing-system-payloads/
 ---
 
 Tyk, when first installed, does not insist on signing any cluster messages or middleware bundles. However, if you are moving to production, or thinking of enabling the Dashboard configuration feature, it is strongly recommended to enable payload signatures.
