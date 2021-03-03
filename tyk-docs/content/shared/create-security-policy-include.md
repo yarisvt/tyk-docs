@@ -130,6 +130,7 @@ curl -X POST -H "authorization: {API-TOKEN}" \
     "per": 1,
     "quota_max": 10000,
     "quota_renewal_rate": 3600,
+    "state": "active",
     "tags": ["Startup Users"]
   }' https://admin.cloud.tyk.io/api/portal/policies | python -mjson.tool
 ```
@@ -141,12 +142,21 @@ You must replace:
 *   `{API-NAME}`: The name of the API that is being granted access to (this is not required, but helps when debugging or auditing).
 *   `POLICY NAME`: The name of this security policy.
 
-The main elements that are important are:
+The important elements:
 
 *   `access_rights`: A list of objects representing which APIs that you have configured to grant access to.
 *   `rate` and `per`: The number of requests to allow per period.
 *   `quota_max`: The maximum number of allowed requests over a quota period.
 *   `quota_renewal_rate`: how often the quota resets, in seconds. In this case we have set it to renew every hour.
+*   `state`: New from **v3.0**, this can be used instead of `active` and `is_inactive`. You can use the following values:
+    *   `active` - all keys connected to the policy are active and new keys can be created
+    *   `draft` - all keys connected to the policy are active but new keys cannot be created
+    *   `deny` - all keys are deactivated and no keys can be created.
+{{< note success >}}
+**Note**  
+
+Setting a `state` value will automatically override the `active` or `is_inactive` setting.
+{{< /note >}}
 
 When you send this request, you should see the following reply with your Policy ID:
 ```
