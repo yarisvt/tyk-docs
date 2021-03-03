@@ -3,7 +3,7 @@ title: Upgrading Tyk
 weight: 251
 menu:
     main:
-        parent: "other"
+        parent: "FAQ"
 url: "/upgrading-tyk"
 ---
 

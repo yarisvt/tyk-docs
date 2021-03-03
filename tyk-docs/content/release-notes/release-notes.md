@@ -3,7 +3,7 @@ title: Release Notes
 weight: 250
 menu:
     main:
-        parent: "other"
+        parent: "FAQ"
 url: "/release-notes"
 ---
 

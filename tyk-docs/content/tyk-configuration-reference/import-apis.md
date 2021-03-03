@@ -1,6 +1,6 @@
 ---
 date: 2017-03-27T15:52:45+01:00
-title: Import APIs
+title: Import an API
 menu:
   main:
     parent: "Getting Started"

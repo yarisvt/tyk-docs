@@ -1,6 +1,6 @@
 ---
 date: 2017-03-13T14:32:26Z
-title: Create a Security Policy
+title: Secure an API
 weight: 3
 menu:
     main: 

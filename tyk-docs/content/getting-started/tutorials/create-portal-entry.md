@@ -1,6 +1,6 @@
 ---
 date: 2017-03-15T16:33:46Z
-title: Create a Portal Entry
+title: Publish an API
 menu:
   main:
     parent: "Getting Started"

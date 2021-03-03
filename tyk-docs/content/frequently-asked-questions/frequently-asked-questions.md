@@ -4,7 +4,7 @@ title: Frequently Asked Questions
 weight: 230
 menu:
     main:
-        parent: "other"
+        parent: "FAQ"
 url: "/frequently-asked-questions"
 ---
 
