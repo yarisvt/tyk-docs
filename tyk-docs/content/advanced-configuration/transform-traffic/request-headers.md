@@ -6,6 +6,8 @@ menu:
     parent: "Transform Traffic"
 weight: 1 
 url: /transform-traffic/request-headers/
+aliases:
+  - /advanced-configuration/transform-traffic/request-headers/
 ---
 
 ## Transform Request Headers with the API Definition

@@ -6,6 +6,8 @@ menu:
     parent: "Transform Traffic"
 weight: 3 
 url: /transform-traffic/request-body/
+aliases:
+  - /advanced-configuration/transform-traffic/request-body/
 ---
 
 Sometimes you may be exposing an older API, or one that uses a legacy structure for input data, or you are actually creating a new API schema and models that are cleaner which you want to apply to your existing API without modifying it (it may have many legacy clients that cannot be upgraded).

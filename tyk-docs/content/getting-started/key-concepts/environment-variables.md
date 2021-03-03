@@ -7,6 +7,7 @@ weight: 12
 url: /tyk-environment-variables
 aliases:
   - /tyk-configuration-reference/environment-variables/
+  - /configure/environment-variables/
 ---
 
 You can use environment variables to override the config file settings for the Gateway, Dashboard and Pump. Environment variables are created from the dot notation versions of the JSON objects contained with the config files.
