@@ -4,6 +4,9 @@ menu:
   main:
     parent: "With Kubernetes"
 weight: 2
+url: "/tyk-on-prem/kubernetes-ingress"
+aliases:
+  - /getting-started/installation/with-tyk-on-premises/with-kubernetes/tyk-kubernetes-ingress-controller/
 ---
 So, you want to run Tyk on Kubernetes? Well, we have you covered. Tyk has a dedicated Kubernetes controller that enables you to use Tyk in two key ways:
 

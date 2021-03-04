@@ -4,7 +4,7 @@ weight: 2
 menu:
     main: 
         parent: "Tyk Multi Data Centre"
-
+url: /tyk-multi-data-centre/setup-slave-data-centres/
 ---
 
 ## Overview

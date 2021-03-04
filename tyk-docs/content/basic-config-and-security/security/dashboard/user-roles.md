@@ -5,6 +5,8 @@ menu:
   main:
     parent: "Dashboard"
 weight: 4 
+aliases:
+  - /reference-docs/user-roles/
 ---
 
 ## User API Roles

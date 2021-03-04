@@ -5,8 +5,10 @@ menu:
   main:
     parent: "On Debian / Ubuntu"
 weight: 3 
+url: /tyk-on-premises/debian-ubuntu/gateway
 aliases:
   - /getting-started/installation/with-tyk-on-premises/on-ubuntu/gateway/
+  - /getting-started/installation/with-tyk-on-premises/on-debian-ubuntu/gateway/
 ---
 {{< tabs_start >}}
 {{< tab_start "Ansible" >}}

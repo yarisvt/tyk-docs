@@ -5,6 +5,9 @@ menu:
   main:
     parent: Analytics
 weight: 2 
+url: /tyk-dashboard-analytics/traffic-per-api/
+aliases:
+  - /analytics-and-reporting/traffic-per-api/
 ---
 
 To get a tabular view of how your API traffic is performing, you can select the **Activity by API** option in the navigation and see a tabular view of your APIs. This table will list out your APIs by their traffic volume and you'll be able to see when they were last accessed:

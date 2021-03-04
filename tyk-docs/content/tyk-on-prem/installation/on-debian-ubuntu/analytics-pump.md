@@ -5,8 +5,10 @@ menu:
   main:
     parent: "On Debian / Ubuntu"
 weight: 2
+url: /tyk-on-premises/debian-ubuntu/analytics-pump
 aliases:
   - /getting-started/installation/with-tyk-on-premises/on-ubuntu/analytics-pump/
+  - /getting-started/installation/with-tyk-on-premises/on-debian-ubuntu/analytics-pump
 ---
 {{< tabs_start >}}
 {{< tab_start "Ansible" >}}

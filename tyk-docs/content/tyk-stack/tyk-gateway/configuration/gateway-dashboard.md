@@ -5,6 +5,7 @@ menu:
   main:
     parent: "Tyk Gateway Configuration Options"
 weight: 9 
+url: /tyk-configuration-reference/gateway-dashboard/
 ---
 
 As of **v2.3** it is possible to configure your Gateways via the Dashboard. This feature can be disabled to avoid dangerous configuration settings being undertaken on a production environment, but can be useful in test environments where it is faster to just make changes via the Dashboard instead of via the shell.

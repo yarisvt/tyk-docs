@@ -5,6 +5,7 @@ menu:
     main:
         parent: "Tyk Pump Configuration"
 weight: 4 
+url: /tyk-configuration-reference/tyk-pump-configuration/moesif/
 ---
 
 This is a step by step guide to setting up [Moesif API Analytics](https://www.moesif.com/solutions/track-api-program?language=tyk-api-gateway) to receive logs from the Tyk Pump.

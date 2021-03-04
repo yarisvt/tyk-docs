@@ -6,6 +6,8 @@ menu: "main"
 url: "getting-started"
 aliases:
     - /try-out-tyk/tutorials/tutorials/
+    - /getting-started/tutorials
+    - /getting-started/installation/tutorials/tutorials/
 ---
 
 Tyk offers an open source API Gateway that is fast, scalable and modern. Tyk also offers a full life-cycle API Management Platform with an API Gateway, API Analytics, Developer Portal and API Management Dashboard.

@@ -5,6 +5,7 @@ menu:
   main:
     parent: "UDG DataSources"
 weight: 1
+url: /universal-data-graph/datasources/rest/
 aliases:
     - /universal-data-graph/data-sources/rest
 ---

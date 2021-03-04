@@ -6,6 +6,7 @@ menu:
 weight: 2
 aliases:
     - /basic-config-and-security/security/tls-and-ssl/mutual-tls/
+    - /security/tls-and-ssl/mutual-tls/
 url: "/basic-config-and-security/security/mutual-tls"
 ---
 

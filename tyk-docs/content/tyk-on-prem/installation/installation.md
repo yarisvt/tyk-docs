@@ -11,6 +11,7 @@ url: "/tyk-on-premises/install"
 aliases:
   - "/tyk-on-premises/"
   - /getting-started/installation/with-tyk-on-premises/
+  - /get-started/with-tyk-on-premise/installation/
 ---
 
 {{< grid >}}
