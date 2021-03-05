@@ -6,6 +6,8 @@ menu:
     parent: "Security"
 weight: 7 
 url: /security/certificate-pinning/
+aliases:
+  - /basic-config-and-security/security/certificate-pinning/
 ---
 
 Certificate pinning is a feature which allows you to whitelist public keys used to generate certificates, so you will be protected in case an upstream certificate is compromised.
