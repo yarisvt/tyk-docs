@@ -1,3 +1,13 @@
+---
+title: Istio
+menu:
+  main:
+    parent: "Installation"
+weight: 7
+url: "/tyk-on-premises/istio/"
+---
+
+
 ##How to use Tyk as the Ingress Gateway for Istio on kubernetes
 
 Utilising Tyk for API Management at the edge ingress or egress of a service mesh is a common use case. We will cover here how to set up Tyk as an ingress alongside Istio acting as a service mesh for the upstream services. This opens up the ability to use the powerful API gateway and API management capabilities of Tyk, giving you the benefit of Istio for East-West traffic and Tyk for north-south traffic.
