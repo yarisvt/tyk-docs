@@ -5,8 +5,10 @@ menu:
   main:
     parent: "On Debian / Ubuntu"
 weight: 1
+url: /tyk-on-premises/debian-ubuntu/dashboard
 aliases:
   - /getting-started/installation/with-tyk-on-premises/on-ubuntu/dashboard/
+  - /getting-started/installation/with-tyk-on-premises/on-debian-ubuntu/dashboard/
 ---
 {{< tabs_start >}}
 {{< tab_start "Ansible" >}}

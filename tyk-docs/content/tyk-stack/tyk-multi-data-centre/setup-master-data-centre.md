@@ -4,7 +4,7 @@ weight: 1
 menu:
     main: 
         parent: "Tyk Multi Data Centre"
-
+url: /tyk-multi-data-centre/setup-master-data-centre/
 ---
 
 ## Introduction

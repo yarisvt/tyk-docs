@@ -5,8 +5,11 @@ menu:
   main:
     parent: "Getting Started"
 weight: 4
+url: /getting-started/tutorials/publish-api/
 aliases:
     - /tyk-dashboard-v1-0/tutorials/set-up-your-portal/
+    - /tyk-developer-portal/tutorials/
+    - /getting-started/tutorials/create-portal-entry/
 ---
 
 This is for the closed source [Tyk Developer Portal](/docs/tyk-developer-portal) only

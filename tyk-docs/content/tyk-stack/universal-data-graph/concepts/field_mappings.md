@@ -5,6 +5,7 @@ menu:
   main:
     parent: "UDG Concepts"
 weight: 2
+url: /universal-data-graph/concepts/field_mappings/
 aliases:
     - /universal-data-graph/data-sources/graphql
 ---
