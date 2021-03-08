@@ -171,7 +171,7 @@ kubectl apply --validate=false -f https://github.com/jetstack/cert-manager/relea
 And deploy the operator itself:
 
 ```
-helm install tyk-op ./helm -n tyk
+helm install tyk-op -f ./config/samples/istio/values.yaml ./helm -n tyk
 ```
 
 Now we can apply our API definition to create the proxy configuration for the gateway in front of the httpbin service we deployed into our mesh:
