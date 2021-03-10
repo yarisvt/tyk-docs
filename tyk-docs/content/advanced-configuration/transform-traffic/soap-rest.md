@@ -35,7 +35,7 @@ An existing SOAP service and the WSDL definition. For this example we will use:
 
 3. Select **From WSDL** from the Import an API Definition window
 4. In the **Upstream Target** field, enter `https://www.dataaccess.com/webservicesserver/numberconversion.wso` as listed in the Prerequisites.
-5. Paste the WSDL definition from the link in Prerequisites (you should remove the `<script>` code from line 2)
+5. Paste the WSDL definition from the link in Prerequisites
 6. Click **Generate API**. You should now have an API named `NumberConversion` in your API list
 
 ![NumberService API](/docs/img/2.10/numberservice_api.png)
@@ -43,13 +43,19 @@ An existing SOAP service and the WSDL definition. For this example we will use:
 ## Step 2: Add the transforms to an Endpoint
 
 1. From the API list, select Edit from the Actions menu for the `NumberConversion` API
-2. Select the **Endpoint Designer** tab. You should see 2 POST endpoints that were imported. We will apply the transforms to one of the endpoints
+2. Select the **Endpoint Designer** tab. You should see 2 POST endpoints that were imported. We will apply the transforms to the `NumberToWords` endpoint.
 
 ![Endpoints](/docs/img/2.10/numberservice_endpoints.png)
 
 3. Expand the `NumberToWords` endpoint. The following plugins should have been added as part of the import process.
   - URL rewrite
   - Track endpoint
+
+{{< note success >}}
+**Note**  
+
+To make the URL a little friendlier, we're going to amend the Relative Path to just `/NumberToWords`. Update your API after doing this.
+{{< /note >}}
 4. Add the following plugins from the **Plugins** drop-down list:
   - Body transform
   - Modify headers
@@ -115,7 +121,7 @@ Again, for the response we will be using the `{{.FieldName}}` syntax as the foll
     "convertedNumber": "{{.Envelope.Body.NumberToDollarsResponse.NumberToDollarsResult}}"
 }
 ```
-3. Enter the folowing into the input field:
+3. Enter the following into the input field:
 
 ```{.CopyWrapper}
 <soap12:Envelope xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
@@ -145,7 +151,7 @@ We now need to change the `content-type` header to allow the SOAP service to rec
 
 ![Modify Header Request](/docs/img/2.10/add_header_type.png)
 
-4. From the **Response** tab enter thefollowing in the **Add this header** section
+4. From the **Response** tab enter the following in the **Add this header** section
   - Header Name: `content-type`
   - Header Value: `application/json`
 
