@@ -9,6 +9,7 @@ url: /tyk-oss-gateway/configuration
 aliases:
   - /tyk-configuration-reference/tyk-gateway-configuration-options/
   - /configure/tyk-gateway-configuration-options/
+  - /tyk-configuration-reference/ ## Redirects from legacy docs, this landing page no longer exists
 ---
 
 ## Tyk Gateway Configuration

@@ -42,6 +42,9 @@ files.each do |f|
             puts "Article '#{title}' (#{item_path}) has #{article.length} bytes, cropping!"
             article = article[0, MAX_ARTICLE_SIZE]
         end
+	if article == ""
+	  continue
+	end
         item = {
           title: title,
           article: article,

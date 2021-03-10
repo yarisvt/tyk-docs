@@ -5,7 +5,9 @@ weight: 7
 menu: 
   main:
     parent: "Advanced Configuration"
-url: "/advanced-configuration/log-data"
+url: /log-data/
+aliases:
+  - "/advanced-configuration/log-data"
 ---
 
 ## Logging

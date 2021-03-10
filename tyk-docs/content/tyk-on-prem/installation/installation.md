@@ -11,6 +11,7 @@ url: "/tyk-on-premises/install"
 aliases:
   - "/tyk-on-premises/"
   - /getting-started/installation/with-tyk-on-premises/
+  - /get-started/with-tyk-on-premise/installation/
 ---
 
 {{< grid >}}
@@ -45,6 +46,10 @@ Install Tyk **On-Premises** on Heroku.
 
 {{< badge read="10 mins" href="/docs/tyk-on-premises/microsoft-azure/" image="/docs/img/azure-2.png">}}
 Install Tyk **On-Premises** on Microsoft Azure. 
+{{< /badge >}}
+
+{{< badge read="10 mins" href="/docs/tyk-on-premises/istio/" image="/docs/img/istio-logo2.png">}}
+Install Tyk **On-Premises** on Istio. 
 {{< /badge >}}
 
 {{< /grid >}}

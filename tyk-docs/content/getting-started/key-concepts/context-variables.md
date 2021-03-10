@@ -8,6 +8,7 @@ weight: 65
 url: /context-variables/
 aliases:
   - /concepts/context-variables/
+  - /getting-started/key-concepts/context-variables/
 ---
 
 Context variables are extracted from the request at the start of the middleware chain, and must be explicitly enabled in order for them to be made available to your transforms. These values can be very useful for later transformation of request data, for example, in converting a Form-based POST into a JSON-based PUT or to capture an IP address as a header.

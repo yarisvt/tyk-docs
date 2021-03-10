@@ -10,6 +10,7 @@ aliases:
   - /getting-started/installation/tutorials/create-security-policy/
   - /try-out-tyk/tutorials/create-security-policy/
   - /getting-started/tutorials/create-security-policy/
+  - /try-out-tyk/tutorials/create-security-policy/
 ---
 
 

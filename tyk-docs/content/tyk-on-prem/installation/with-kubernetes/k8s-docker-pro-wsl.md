@@ -6,6 +6,9 @@ menu:
   main:
     parent: "With Kubernetes"
 weight: 3
+url: "/tyk-on-prem/kubernetes-on-windows"
+aliases:
+    - /getting-started/installation/with-tyk-on-premises/with-kubernetes/k8s-docker-pro-wsl/
 ---
 
 {{< note success >}}

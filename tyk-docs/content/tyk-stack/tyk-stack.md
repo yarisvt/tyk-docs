@@ -4,6 +4,8 @@ title: Tyk Stack
 weight: 7
 menu: main
 url: "tyk-stack"
+aliases:
+    - /getting-started/tyk-components/
 ---
 
 {{< include "oss-product-list-include" >}}

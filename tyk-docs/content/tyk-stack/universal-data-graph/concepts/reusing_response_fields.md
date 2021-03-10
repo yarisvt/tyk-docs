@@ -5,6 +5,7 @@ menu:
   main:
     parent: "UDG Concepts"
 weight: 0
+url: /universal-data-graph/concepts/reusing_response_fields/
 aliases:
     - /universal-data-graph/concepts/reusing-response-fields
 ---

@@ -5,6 +5,9 @@ menu:
   main:
     parent: Analytics
 weight: 3 
+url: /tyk-dashboard-analytics/traffic-per-token/
+aliases:
+  - /analytics-and-reporting/traffic-per-token/
 ---
 
 You will often want to see what individual keys are up to in Tyk, and you can do this with the **Activity per Key** section of your analytics Dashboard. This view will show a tabular layout of all keys that Tyk has seen in the range period and provide analytics for them:

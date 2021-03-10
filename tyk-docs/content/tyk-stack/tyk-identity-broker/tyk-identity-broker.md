@@ -7,7 +7,9 @@ menu:
 weight: 3
 url: "tyk-identity-broker"
 aliases: 
-  - "/getting-started/tyk-components/identity-broker"
+  - /getting-started/tyk-components/identity-broker
+  - /getting-started/key-concepts/tyk-components/identity-broker/
+  - /concepts/tyk-components/identity-broker/
 ---
 
 ## What is Tyk Identity Broker (TIB)?

@@ -5,6 +5,9 @@ menu:
   main:
     parent: "Compose APIs"
 weight: 1 
+url: /advanced-configuration/compose-apis/virtual-endpoints/
+aliases:
+  - /compose-apis/virtual-endpoints/
 ---
 
 Virtual endpoints are unique to Tyk. With a virtual endpoint, you can plug short JavaScript functions at the end of a Tyk route and have them run when the endpoint is called. Virtual endpoints are not available in the Tyk Cloud Edition.
