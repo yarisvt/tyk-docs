@@ -5,7 +5,7 @@ menu:
   main:
     parent: "Tyk Stack"
 weight: 3
-url: "tyk-identity-broker"
+url: "/tyk-identity-broker/"
 aliases: 
   - /getting-started/tyk-components/identity-broker
   - /getting-started/key-concepts/tyk-components/identity-broker/
