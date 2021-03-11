@@ -1,0 +1,8 @@
+# Checks for spelling mistakes in content, not code. Can return false positives
+# See https://docs.errata.ai/vale/styles for a list of all style options
+
+extends: spelling
+message: 'Spelling Check: "%$"?'
+level: warning
+ignore:
+  - tyk/spelling-exceptions.txt
