@@ -1014,7 +1014,7 @@ If should use SSL to connect to rpc
 Enable it when is desired to connect via SSL but skipping the validation of the certificate used (certificate chain and host name). Useful when using self signed certificates
 
 #### slave_options.connection_string
-Represents the URL where MDCB is reachable or the load balancer.
+Represents the URL where MDCB is reachable or the load balancer host.
 
 #### slave_options.rpc_key
 The Id of the organization that wants to connect to MDCB
@@ -1023,13 +1023,13 @@ The Id of the organization that wants to connect to MDCB
 This the API key of a user used to authenticate and authorise the Gateway's access through MDCB. The user should be a standard Dashboard user with minimal privileges so as to reduce risk if compromised. The suggested security settings are read for Real-time notifications and the remaining options set to deny.
 
 #### slave_options.enable_rpc_cache
-If should enable keys in rpc cache
+If should enable caching keys in rpc cache
 
 #### slave_options.bind_to_slugs
 For on-premise installation it is expected to be false. For Multi-cloud gateways (using Tyk's control plane) it MUST be true
 
 #### slave_options.disable_keyspace_sync
-If you don't want to check actively for changes in the key space.
+If you don't want to check actively for changes in the keys from the master gateway.
 
 #### slave_options.group_id
 This is the "zone" that this instance inhabits, e.g. the cluster/data-centre the gateway lives in. The group ID must be the same across all the gateways of a data-centre/cluster which are also sharing the same Redis instance. This id should also be unique per cluster (otherwise another gateways cluster can pick up your keyspace events and your cluster will get zero updates).
@@ -1044,7 +1044,7 @@ The maximum time in seconds that a rpc ping can last.
 The number of rpc connections in the pool, basically it creates a set of connections that you can re-use as needed.
 
 #### slave_options.key_space_sync_interval
-You can use this config to set the period's length in which the gateway will check for changes in the key space, if this value is not set then by default it will be 10 seconds. From 3.0.1 you have the ability to set the interval's length in which the slaved gateway will check for changes in the key space, if this value is not set then by default it will be 10 seconds.
+You can use this config to set the period's length in which the gateway will check if there're changes in keys that must be synchronized, if this value is not set then by default it will be 10 seconds. From 3.0.1 you have the ability to set the interval's length in which the slaved gateway will check for changes in the key space, if this value is not set then by default it will be 10 seconds.
 
 ### ignore_canonical_mime_header_key
 
