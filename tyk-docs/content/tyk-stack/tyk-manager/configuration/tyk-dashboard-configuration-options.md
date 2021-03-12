@@ -103,7 +103,11 @@ The file will look like the sample below, the various fields are explained in th
         "force_first_login_pw_reset": false,
         "enable_content_security_policy": false,
         "allowed_content_sources": "",
-        "private_certificate_encoding_secret": "some-secret"
+        "private_certificate_encoding_secret": "some-secret",
+        "enable_open_policy": true,
+        "open_policy_debug": false,
+        "disable_open_policy_api": false,
+        "additional_permissions": {}
     },
     "ui": {
         "languages": {
@@ -517,6 +521,24 @@ A newly created user will be forced to reset their password upon first login. De
 ### security.private_certificate_encoding_secret
 
 When using SAML with embeded identity broker, is required to upload a certificate that is encoded by the gateway to store it safely, TIB needs the private key as well, hence it needs the same `encoding secret` so the information is decoded successfully. This value should match with the encoding secret set in the gateway config file, if not set then it will use by default `tyk_api_config.secret` to attempt to decode the certificate.
+
+#### security.enable_open_policy
+Set to `true` by default, this option enables usage and evaluation of Open Policy Agent (OPA) rules defined.
+
+#### security.open_policy_debug
+Set to `false` by default, this option toggles debug mode for when Open Policy Agent (OPA) rules are running. Helpful for on-prem users.
+
+#### security.additional_permissions
+Through this options, you can provide a list of additional permissions, that can be applief for existing or newly created users or user groups.
+
+Example:
+
+```
+{
+    "api_developer": "API Developer",
+    "custom_permission": "Custom Permission"
+}
+```
 
 ### ui
 

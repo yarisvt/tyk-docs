@@ -48,6 +48,13 @@ Selet the User Group Permissions you want to apply.
 
 ![Add permissions](/docs/img/2.10/user_group_permissions.png)
 
+{{< note success >}}
+**Note**  
+
+You can now create your own custom permissions using the [Additional Permissions API](/docs/tyk-dashboard-api/org/permissions/)
+{{< /note >}}
+
+
 ### Step 4: Click "Save" to create the Group
 
 ![Click Save](/docs/img/2.10/user_group_save.png)

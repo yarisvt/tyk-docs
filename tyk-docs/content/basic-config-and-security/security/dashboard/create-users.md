@@ -43,6 +43,12 @@ You can be very specific with regards to which pages and segments of the Dashboa
 
 Permissions are set and enforced when they are set on this page. They can either be **read** or **write**. If  set to **deny** then the record is non-existent in the object (there is no explicit "deny"). This means that if you set **deny** on all options it looks as if they have not been written, but they will still be enforced so long as even one read or write option has been set.
 
+{{< note success >}}
+**Note**  
+
+You can now create your own custom permissions using the [Additional Permissions API](/docs/tyk-dashboard-api/org/permissions/)
+{{< /note >}}
+
 ### Step 5: Click "Save"
 
 ![Save button location](/docs/img/2.10/users_save.png)
