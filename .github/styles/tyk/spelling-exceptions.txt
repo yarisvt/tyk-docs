@@ -1,6 +1,7 @@
 analytics
 API
 api
+apim
 APIs
 apis
 AuthToken
@@ -37,12 +38,15 @@ graphql
 hmac
 HMAC
 http
+HTTP
 httpbin
 httpprofile
 https
+HTTPS
 IAM
 IDP
 init
+img
 io
 IoT
 JQ
@@ -54,6 +58,7 @@ JWK
 JWKs
 JWT
 keyless
+lastmod
 MDCB   
 memprofile
 microservice
@@ -61,6 +66,7 @@ middleware
 MongoDB
 MPL
 mprof
+mTLS
 Mutex
 mutex
 mutexes
