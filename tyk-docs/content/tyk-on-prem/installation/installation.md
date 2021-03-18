@@ -17,39 +17,39 @@ aliases:
 {{< grid >}}
 
 {{< badge read="10 mins" href="/docs/tyk-on-premises/docker/" image="/docs/img/docker.png">}}
-Install Tyk **On-Premises** with Docker. 
+Install with Docker 
 {{< /badge >}}
 
 {{< badge read="10 mins" href="/docs/tyk-on-premises/kubernetes/" image="/docs/img/k8s.png">}}
-Install Tyk **On-Premises** with Kubernetes. 
+Install with K8s 
 {{< /badge >}}
 
 {{< badge read="10 mins" href="/docs/tyk-on-premises/ansible/" image="/docs/img/ansible.png">}}
-Install Tyk **On-Premises** with Ansible. 
+Install with Ansible 
 {{< /badge >}}
 
 {{< badge read="10 mins" href="/docs/tyk-on-premises/redhat-rhel-centos/" image="/docs/img/redhat-logo2.png">}}
-Install Tyk **On-Premises** on Red Hat. 
+Install on Red Hat 
 {{< /badge >}}
 
 {{< badge read="10 mins" href="/docs/tyk-on-premises/debian-ubuntu/" image="/docs/img/debian-nd-753.png">}}
-Install Tyk **On-Premises** on Ubuntu. 
+Install on Ubuntu 
 {{< /badge >}}
 
 {{< badge read="10 mins" href="/docs/tyk-on-premises/aws/" image="/docs/img/aws.png">}}
-Install Tyk **On-Premises** on Amazon AWS. 
+Install on Amazon AWS 
 {{< /badge >}}
 
 {{< badge read="10 mins" href="/docs/tyk-on-premises/heroku/" image="/docs/img/heroku-logo.png">}}
-Install Tyk **On-Premises** on Heroku. 
+Install Tyk on Heroku 
 {{< /badge >}}
 
 {{< badge read="10 mins" href="/docs/tyk-on-premises/microsoft-azure/" image="/docs/img/azure-2.png">}}
-Install Tyk **On-Premises** on Microsoft Azure. 
+Install on Microsoft Azure 
 {{< /badge >}}
 
 {{< badge read="10 mins" href="/docs/tyk-on-premises/istio/" image="/docs/img/istio-logo2.png">}}
-Install Tyk **On-Premises** on Istio. 
+Install on Istio 
 {{< /badge >}}
 
 {{< /grid >}}
