@@ -5,7 +5,7 @@ menu:
   main:
     parent: "OAuth 2.0"
 weight: 1
-url: "/basic-config-and-security/security/authentication-&-authorization/oauth2.0/auth-code-grant"
+url: "/basic-config-and-security/security/authentication-&-authorization/oauth2-0/auth-code-grant"
 ---
 
 This process requires three steps:
