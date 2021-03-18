@@ -21,7 +21,7 @@ So, in order to support it, we provide the following variables for both our [Tyk
 A working DocumentDB configuration looks like this (assuming that there is SSH tunnel, proxying to 27018 port).
 
 ```{.json}
-  "mongo_url": "mongodb://testest:testtest@127.0.0.1:27018/tyk_analytics",
+  "mongo_url": "mongodb://testest:testtest@127.0.0.1:27018/tyk_analytics?connect=direct",
   "mongo_use_ssl": true,
   "mongo_ssl_insecure_skip_verify": false,
   "mongo_ssl_ca_file": "<path to>/rds-combined-ca-bundle.pem",
