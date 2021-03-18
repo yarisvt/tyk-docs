@@ -46,7 +46,7 @@ Permissions are set and enforced when they are set on this page. They can either
 {{< note success >}}
 **Note**  
 
-You can now create your own custom permissions using the [Additional Permissions API](/docs/tyk-dashboard-api/org/permissions/)
+You can now create your own custom permissions using the [Additional Permissions API](/docs/tyk-dashboard-api/org/permissions/) or by updating, [`security.additional_permissions`](/docs/tyk-dashboard/open-policy-agent/#configuration) map, in the Tyk Dashboard config.
 {{< /note >}}
 
 ### Step 5: Click "Save"

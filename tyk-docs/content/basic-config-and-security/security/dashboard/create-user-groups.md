@@ -51,7 +51,7 @@ Selet the User Group Permissions you want to apply.
 {{< note success >}}
 **Note**  
 
-You can now create your own custom permissions using the [Additional Permissions API](/docs/tyk-dashboard-api/org/permissions/)
+You can now create your own custom permissions using the [Additional Permissions API](/docs/tyk-dashboard-api/org/permissions/) or by updating, [`security.additional_permissions`](/docs/tyk-dashboard/open-policy-agent/#configuration) map, in the Tyk Dashboard config.
 {{< /note >}}
 
 
