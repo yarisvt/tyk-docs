@@ -188,10 +188,10 @@
 .badge img {
   border: 0 !important;
   float: left;
-  margin-right: 15px;
+  margin-left: 74px;
   object-fit: none;
-  height: 80px;
-  width: 80px;
+  height: 100px;
+  width: 100px;
   margin-top: -5px;
 }
 
