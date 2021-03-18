@@ -23,8 +23,5 @@ enableGitInfo = false
     noClasses = true
     style = "manni"
     tabWidth = 2
-  [markup.blackfriday]
-   plainIDAnchors = true
-   hrefTargetBlank = true
 [frontmatter]
 lastmod = ["lastmod", ":git", "date", "publishDate"]
