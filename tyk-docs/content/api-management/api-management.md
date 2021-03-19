@@ -17,7 +17,7 @@ Which one is right for your organization depends on your requirements and prefer
 
 |                          | [Open Source][11]  |   [Self-Managed][12]     |  [Cloud][13]
 |--------------------------|--------------|--------------------|---------
-| API Gateway Capabilities <br> <ul><li>Rate Limiting</li><li>Authentication</li> <li>API Versioning</li><li>Granular Access Control</li><li>GraphQL</li>  <li>and [**much more**][1]</li></ul> | ✅               |✅	                |✅      
+| API Gateway Capabilities <br> <ul><li>Rate Limiting</li><li>Authentication</li> <li>API Versioning</li><li>Granular Access Control</li><li>GraphQL</li>  <li>and [much more][1]</li></ul> | ✅               |✅	                |✅      
 | [Version Control][2] Integration | ✅		  |✅	              |✅	 
 | [API Analytics Exporter][3]| ✅		      |✅	              |✅	 
 | [Tyk Manager][4] | -	          |✅	              |✅	 
