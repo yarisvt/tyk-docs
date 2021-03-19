@@ -45,7 +45,6 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 ```
 {
   "open_policy": {
-    "debug": false,
     "enabled": true,
     "rules": "default hello = false\r\n\r\nhello {\r\n    m := input.message\r\n    m == \"world\"\r\n}"
   }
@@ -79,7 +78,6 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 ```
 {
   "open_policy": {
-    "debug": false,
     "enabled": false,
     "rules": "default hello = false\r\n\r\nhello {\r\n    m := input.message\r\n    m == \"world\"\r\n}"
   }
