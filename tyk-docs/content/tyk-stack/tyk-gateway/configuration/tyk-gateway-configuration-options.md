@@ -1002,46 +1002,46 @@ From v3.0 you can log all the 404 errors happening if user tried to access Gatew
 The log level used for these records is Error and the feature can be enabled by setting the `config track_404_logs` to `true` in the gateway's config file.
 
 ### Slave options
-In slave_options we will set the configurations that will enforce the RPC slave mechanism, this must be configured for any slave node. Next will be described each of the configurations available for slaved nodes
+The `slave_options` allow you to configure the RPC slave connection for MDCB installations. These settings must be configured for every RPC slave node.
 
 #### slave_options.use_rpc
-Whether to connect to MDCB using rpc
+Set this option to `true` to connect to an MDCB slave using RPC.
 
 #### slave_options.use_ssl
-If should use SSL to connect to rpc
+Set this option to `true` to use an SSL RPC connection.
 
 #### slave_options.ssl_insecure_skip_verify
-Enable it when is desired to connect via SSL but skipping the validation of the certificate used (certificate chain and host name). Useful when using self signed certificates
+Set this option to `true` to allow the certificate validation (certificate chain and hostname) to be skipped. This can be useful if you use a self-signed certificate.
 
 #### slave_options.connection_string
-Represents the URL where MDCB is reachable or the load balancer host.
+Use this setting to add the URL for your MDCB or load balancer host.
 
 #### slave_options.rpc_key
-The Id of the organization that wants to connect to MDCB
+Your organisation ID to connect to the MDCB installation.
 
 #### slave_options.api_key
 This the API key of a user used to authenticate and authorise the Gateway's access through MDCB. The user should be a standard Dashboard user with minimal privileges so as to reduce risk if compromised. The suggested security settings are read for Real-time notifications and the remaining options set to deny.
 
 #### slave_options.enable_rpc_cache
-If should enable caching keys in rpc cache
+Set this option to `true` to enable RPC caching for keys.
 
 #### slave_options.bind_to_slugs
-For on-premise installation it is expected to be false. For Multi-cloud gateways (using Tyk's control plane) it MUST be true
+For an On-Premises installation this can be left at `false` (the default setting). For Multi-Cloud Gateways it **must** be set to 'true'.
 
 #### slave_options.disable_keyspace_sync
-If you don't want to check actively for changes in the keys from the master gateway.
+Set this option to `true` if you don't want to monitor changes in the keys from a master Gateway.
 
 #### slave_options.group_id
-This is the "zone" that this instance inhabits, e.g. the cluster/data-centre the gateway lives in. The group ID must be the same across all the gateways of a data-centre/cluster which are also sharing the same Redis instance. This id should also be unique per cluster (otherwise another gateways cluster can pick up your keyspace events and your cluster will get zero updates).
+This is the "zone" that this instance inhabits, e.g. the cluster/data-centre the Gateway lives in. The group ID must be the same across all the Gateways of a data-centre/cluster which are also sharing the same Redis instance. This ID should also be unique per cluster (otherwise another Gateway cluster can pick up your keyspace events and your cluster will get zero updates).
 
 #### slave_options.call_timeout
 Call Timeout allows to specify a time in seconds for the maximum allowed duration of a RPC call.
 
 #### slave_options.ping_timeout
-The maximum time in seconds that a rpc ping can last.
+The maximum time in seconds that a RPC ping can last.
 
 #### slave_options.rpc_pool_size
-The number of rpc connections in the pool, basically it creates a set of connections that you can re-use as needed.
+The number of RPC connections in the pool, basically it creates a set of connections that you can re-use as needed.
 
 #### slave_options.key_space_sync_interval
 You can use this config to set the period's length in which the gateway will check if there're changes in keys that must be synchronized, if this value is not set then by default it will be 10 seconds. From 3.0.1 you have the ability to set the interval's length in which the slaved gateway will check for changes in the key space, if this value is not set then by default it will be 10 seconds.
