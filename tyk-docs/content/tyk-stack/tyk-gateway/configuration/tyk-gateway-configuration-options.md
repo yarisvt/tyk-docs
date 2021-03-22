@@ -60,30 +60,6 @@ If this is set to `true`, the same value should be enabled in the Dashboard conf
 ### enable_hashed_keys_listing
 
 Set to `false` by default, set this to `true` to enable the retrieval of all (or per API) key hash listings. This needs to be enabled in the gateway configuration file tyk.conf and in the dashboard configuration file tyk_analytics.conf. Restart the gateway and dashboard after changes have been implemented. 
-
-### enable_update_key_by_hash
-
-Available from **v2.8**, this setting allows you to update keys with just its hash value. Set to `false` by default.
-
-{{< note success >}}
-**Note**  
-
-This setting applies to On-Premises and MDCB installations only.
-{{< /note >}}
-
-
-### enable_delete_key_by_hash
-
-Available from **v2.8**, this setting allows you to delete keys with just its hash value. Set to `false` by default.
-
-{{< note success >}}
-**Note**  
-
-This setting applies to On-Premises and MDCB installations only.
-{{< /note >}}
-
-
-
 ### allow_master_keys
 
 If this value is set to `true`, session objects (key definitions) that do not have explicit access rights set will be allowed by Tyk. This means that keys that are created have access to ALL APIs, which in many cases is unwanted behaviour unless you are sure about what you are doing.
