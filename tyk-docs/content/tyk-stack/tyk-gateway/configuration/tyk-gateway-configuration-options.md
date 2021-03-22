@@ -59,7 +59,7 @@ If this is set to `true`, the same value should be enabled in the Dashboard conf
 
 ### enable_hashed_keys_listing
 
-Set to `false` by default, set this to `true` to enable the retrieval of all (or per API) key hash listings. This needs to be enabled in the gateway configuration file tyk.conf and in the dashboard configuration file tyk_analytics.conf. Restart the gateway and dashboard after changes have been implemented. 
+This is set to `false` by default. If you set this to `true` you are able to retrieve all (or per API) key hash listings. This needs to be enabled in the Tyk Gateway configuration file `tyk.conf` and in the Tyk Dashboard configuration file `tyk_analytics.conf`. Restart both the Gateway and Dashboard after making any changes. 
 ### allow_master_keys
 
 If this value is set to `true`, session objects (key definitions) that do not have explicit access rights set will be allowed by Tyk. This means that keys that are created have access to ALL APIs, which in many cases is unwanted behaviour unless you are sure about what you are doing.
