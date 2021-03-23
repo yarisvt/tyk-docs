@@ -21,7 +21,7 @@ The developer (or your application) then triggers a call to Tyk, using the token
 ### Requirements
 
 - A [Keycloak](https://www.keycloak.org/) instance.
-- Basic Tyk Setup (gateway + dashboard).
+- A [Tyk Self Managed installation](/docs/tyk-on-premises/) (Gateway + Dashboard).
 
 ### Getting started with Keycloak
 
@@ -59,7 +59,7 @@ For the **Identity Source** field use `"sub"` and for **Policy Field Name** use 
 
 1. Click **Save** 
 2. Select **Policies** under **System Management**
-3. Click **Create a Policy** and call it "Keycloak Policy". Use the default values for this policy.
+3. Click **Create a Policy** and call it **Keycloak Policy**. Use the default values for this policy.
 4. In the **Access rights** section, select your previously created **Keycloak API**. You will also need to enter an expiration setting for your keys.
 
 After the policy is created, switch back to the API settings and make sure that the API is using your **Keycloak API** policy:
