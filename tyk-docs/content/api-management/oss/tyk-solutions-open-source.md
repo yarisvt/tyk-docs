@@ -8,10 +8,15 @@ menu:
 url: "/apim/open-source"
 ---
 
+
+
 Tyk offers many open source products.  You can use as many or as few as you need to solve your API problems.
 
-![OSS-Guide](/docs/img/diagrams/tyk-oss.png)
+Please show your support by giving us a GitHub Star. You can star our API Gateway by clicking this button
+{{< github_star_button "TykTechnologies" "tyk" "true" >}}
 
+
+![OSS-Guide](/docs/img/diagrams/oss-flow.png)
 
 {{< include "oss-product-list-include" >}}
 

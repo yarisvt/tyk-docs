@@ -71,6 +71,9 @@
 
   <script src="/docs/js/modernizr.min.js"></script>
   <script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js?ver=1.12.0'></script>
+  {{ if .HasShortcode "github_star_button" }}
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+{{ end }}
 </head>
 
 <body class="page-documentation {{if not .Params.hideSidebar}}hasSidebar{{end}}">
@@ -253,7 +256,7 @@
     </div>
 
   </footer>
-
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
   <script src="/docs/js/simpletree.min.js"></script>
   <script type='text/javascript' src='/docs/js/docs.js'></script>
   <script type='text/javascript' src='/docs/js/docs-navigation.js'></script>
