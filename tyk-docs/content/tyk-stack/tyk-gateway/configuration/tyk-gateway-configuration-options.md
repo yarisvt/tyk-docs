@@ -1002,10 +1002,10 @@ From v3.0 you can log all the 404 errors happening if user tried to access Gatew
 The log level used for these records is Error and the feature can be enabled by setting the `config track_404_logs` to `true` in the gateway's config file.
 
 ### Slave options
-The `slave_options` allow you to configure the RPC slave connection for MDCB installations. These settings must be configured for every RPC slave node.
+The `slave_options` allow you to configure the RPC slave connection for MDCB installations. These settings must be configured for every RPC slave/worker node.
 
 #### slave_options.use_rpc
-Set this option to `true` to connect to an MDCB slave using RPC.
+Set to `true` to connect a worker gateway using RPC.
 
 #### slave_options.use_ssl
 Set this option to `true` to use an SSL RPC connection.
@@ -1044,7 +1044,7 @@ The maximum time in seconds that a RPC ping can last.
 The number of RPC connections in the pool, basically it creates a set of connections that you can re-use as needed.
 
 #### slave_options.key_space_sync_interval
-You can use this config to set the period's length in which the gateway will check if there're changes in keys that must be synchronized, if this value is not set then by default it will be 10 seconds. From 3.0.1 you have the ability to set the interval's length in which the slaved gateway will check for changes in the key space, if this value is not set then by default it will be 10 seconds.
+You can use this config to set the period's length in which the gateway will check if there're changes in keys that must be synchronized, if this value is not set then by default it will be 10 seconds. From 3.0.1 you have the ability to set the interval's length in which the slaved gateway will check for changes in the key space, this value is measured in seconds.
 
 ### ignore_canonical_mime_header_key
 
