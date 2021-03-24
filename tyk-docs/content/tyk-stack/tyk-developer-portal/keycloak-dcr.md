@@ -37,7 +37,27 @@ Click **Save** and the token will be created. Keep it safe as you'll use this to
 
 ### Setting up Tyk
 
-Now you're ready to set up Tyk; open the Tyk Dashboard and click **APIs** under **System Management**. Create a new API called "Keycloak API":
+Now you're ready to set up Tyk. For compatibility reasons, check your `tyk_analytics.conf` and make sure that a proper `oauth_redirect_uri_separator` parameter is set. You may use the following value:
+
+```json
+    "oauth_redirect_uri_separator": ";",
+```
+
+**Note:** If you're using a self-signed certificate on your Keycloak instance, you will need to set additional flags on both gateway and dashboard. For skipping DCR endpoint SSL verification, add the following flag to `tyk_analytics.conf`:
+
+```json
+    "dcr_ssl_insecure_skip_verify": true
+```
+
+Also add the following flag to `tyk.conf`, this will instruct the gateway to skip SSL verification when the JWT middleware is in use, particularly when JWKS are retrieved from your IDP:
+
+```json
+    "jwt_ssl_insecure_skip_verify": true
+```
+
+Remember to restart the services after applying the above changes.
+
+Open the Tyk Dashboard and click **APIs** under **System Management**. Create a new API called "Keycloak API":
 
 ![Step 3](/docs/img/dcr/keycloak/step_3.png)
 

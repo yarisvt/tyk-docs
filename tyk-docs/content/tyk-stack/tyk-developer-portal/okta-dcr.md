@@ -48,7 +48,15 @@ Next you need to create a scope, from the **Authorization servers** tab in the A
 
 ### Setting up Tyk
 
-Now you're ready to set up Tyk; open the Tyk Dashboard and click **APIs** under **System Management**. Create a new API called "OKTA API":
+Now you're ready to set up Tyk. For compatibility reasons, check your `tyk_analytics.conf` and make sure that a proper `oauth_redirect_uri_separator` parameter is set. You may use the following value:
+
+```json
+    "oauth_redirect_uri_separator": ";",
+```
+
+Remember to restart the service after applying the above change.
+
+Now open the Tyk Dashboard and click **APIs** under **System Management**. Create a new API called "OKTA API":
 
 ![Step 5](/docs/img/dcr/okta/step_5.png)
 
