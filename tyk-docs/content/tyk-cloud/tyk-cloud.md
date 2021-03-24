@@ -17,7 +17,7 @@ The new Tyk Cloud platform allows you to quickly setup the full Tyk Enterprise A
 {{< grid >}}
 
 {{< badge read="15 mins" href="/docs/tyk-cloud/getting-started/" image="/docs/img/tyk-cloud.svg">}}
-Configure and deploy your customised Tyk Stack implementation. 
+Configure Tyk Cloud 
 {{< /badge >}}
 
 {{< /grid >}}
