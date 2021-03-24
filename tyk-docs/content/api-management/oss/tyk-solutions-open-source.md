@@ -10,9 +10,9 @@ url: "/apim/open-source"
 
 
 
-Tyk offers many open source products.  You can use as many or as few as you need to solve your API problems.
+Tyk offers many open source products which integrate with the Gateway. You can use as many or as few as you need to solve your API problems.
 
-Please show your support by giving us a GitHub Star. You can star our API Gateway by clicking this button
+Please show your support for the Gateway by clicking the GitHub link, then adding your star.
 {{< github_star_button "TykTechnologies" "tyk" "true" >}}
 
 
