@@ -17,7 +17,7 @@ The backbone of all our products is our open source Gateway. You can install our
 {{< grid >}}
 
 {{< badge read="10 mins" href="/docs/tyk-oss/ce-docker/" image="/docs/img/docker.png">}}
-Install with with Docker. 
+Install with Docker. 
 {{< /badge >}}
 
 {{< badge read="10 mins" href="/docs/tyk-oss/ce-kubernetes/" image="/docs/img/k8s.png">}}
@@ -50,9 +50,11 @@ The Tyk Gateway can run completely independently, requiring only a Redis databas
 ![Tyk Open Source Deployment](/docs/img/diagrams/gateway3.png)
 
 
-## Other Tyk Open Source
+## Other Tyk Open Source components
 
 Combine with the other [Tyk OSS products](/docs/tyk-stack) For even more power, such as analytics exporting, version control integration, and more.
+
+![OSS-Guide](/docs/img/diagrams/oss-flow.png)
 
 
 ## Next Steps
