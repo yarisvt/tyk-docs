@@ -1,26 +1,26 @@
 ---
 date: 2017-03-23T14:59:47Z
-title: Create User Groups 
+title: Create User Groups
 menu:
   main:
     parent: "Dashboard"
-weight: 5 
+weight: 5
 ---
 
 ## <a name="introduction"></a>Introduction
 
-Instead of setting permissions per user, you can create a group, and assign it to one or more users. 
+Instead of setting permissions per user, you can create a group, and assign it to one or more users.
 
 You can use User Groups to help with Role Based Access Control (RBAC) for your users. For example, if you only want certain users to access the Tyk Logs, you can create a Logs User Group, then give those users the Logs Read permission and add them to your Logs User Group. See [User Roles](/docs/basic-config-and-security/security/dashboard/user-roles/) for assigning permissions to users.
 
-This also works for Single Sign On (SSO) as well, you can specify the group ID when setting up SSO. 
+This also works for Single Sign On (SSO) as well, you can specify the group ID when setting up SSO.
 
 This Role Based Access Control (RBAC) feature is available to all our SaaS users. For On-Premises installations, this feature is available for customers with at least a 5-node or Cloud Native Unlimited-node license.
 
 In order to manage user groups, ensure that you have either "admin" or "user groups" permission for your user, which can be enabled by your admin.
 
 {{< note success >}}
-**Note**  
+**Note**
 
 A user can only belong to one group.
 {{< /note >}}
@@ -49,9 +49,10 @@ Selet the User Group Permissions you want to apply.
 ![Add permissions](/docs/img/2.10/user_group_permissions.png)
 
 {{< note success >}}
-**Note**  
+**Note**
 
 You can now create your own custom permissions using the [Additional Permissions API](/docs/tyk-dashboard-api/org/permissions/) or by updating, [`security.additional_permissions`](/docs/tyk-dashboard/open-policy-agent/#configuration) map, in the Tyk Dashboard config.
+Custom permission could be managed also over config file in the Dashboard config file (`tyk_analytics.conf`).
 {{< /note >}}
 
 
