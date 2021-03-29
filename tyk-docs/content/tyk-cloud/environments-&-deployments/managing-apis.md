@@ -4,7 +4,7 @@ date: 2020-08-21T15:16:29+01:00
 menu:
   main:
     parent: "Environments & Deployments"
-weight: 5
+weight: 6
 url: "/tyk-cloud/environments-&-deployments/managing-apis"
 ---
 
