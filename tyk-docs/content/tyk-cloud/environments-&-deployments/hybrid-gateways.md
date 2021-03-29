@@ -11,14 +11,7 @@ weight: 5
 
 ## Introduction
 
-Hybrid Gateways are available on our [14 Day Free Trial](/docs/tyk-cloud/account-billing/plans/#14-day-trial) and [Enterprise Global](/docs/tyk-cloud/account-billing/plans/#enterprise-global-plan) plans. There are some settings you need to be aware of when adding a Hybrid Gateway to a Tyk Cloud installation:
-
-## Configuration
-
-* The MDCB endpoint URL is unique for each control plane
-* The TLS certificate is also unique and currently self-signed (i.e. not globally trusted), so you need to place it in the host trust store or by setting the Tyk Gateway config option `slave_options.ssl_insecure_skip_verify` to `true`.
-* The Hybrid Gateway should not bind to slugs. In the Hybrid Gateway config, set `slave_options.bind_to_slugs` to `false`.
-* Any [monitor](/docs/tyk-oss-gateway/configuration/#monitor) configuration settings with calling back to the old Tyk Cloud should be removed.
+Hybrid Gateways are available on our [14 Day Free Trial](/docs/tyk-cloud/account-billing/plans/#14-day-trial) and [Enterprise Global](/docs/tyk-cloud/account-billing/plans/#enterprise-global-plan) plans. Below is a sample Tyk Hybrid Gateway configuration file.
 
 ### Sample Hybrid Gateway Configuration File
 
@@ -43,4 +36,70 @@ Hybrid Gateways are available on our [14 Day Free Trial](/docs/tyk-cloud/account
     "enable_analytics": true,
     "analytics_config": {
         "type": "rpc",
+        "csv_dir": "/tmp",
+        "mongo_url": "",
+        "mongo_db_name": "",
+        "mongo_collection": "",
+        "purge_delay": -1,
+        "ignored_ips": []
+    },
+    "auth_override": {
+        "force_auth_provider": true,
+        "auth_provider": {
+            "name": "",
+            "storage_engine": "rpc",
+            "meta": {}
+        }
+    },
+    "slave_options": {
+        "use_rpc": true,
+        "rpc_key": "your org id",
+        "api_key": "your api key",
+        "connection_string": "your endpoint here",
+        "use_ssl": true,
+        "ssl_insecure_skip_verify": true,
+        "rpc_pool_size": 20,
+        "enable_rpc_cache": true,
+        "bind_to_slugs": false
+    },
+    "health_check": {
+        "enable_health_checks": false,
+        "health_check_value_timeouts": 60
+    },
+    "optimisations_use_async_session_write": true,
+    "enable_non_transactional_rate_limiter": true,
+    "enable_sentinel_rate_limiter": false,
+    "allow_master_keys": false,
+    "policies": {
+        "policy_source": "rpc",
+        "policy_record_name": "tyk_policies"
+    },
+    "hash_keys": true,
+    "hash_key_function": "murmur128",
+    "close_connections": false,
+    "http_server_options": {
+        "enable_websockets": true,
+        "use_ssl": false,
+        "server_name": "*",
+        "min_version": 771,
+        "certificates": [{
+            "domain_name": "*",
+            "cert_file": "/etc/certs/cert.pem",
+            "key_file": "/etc/certs/key.pem"
+        }]
+    },
+    "allow_insecure_configs": true,
+    "enable_jsvm": true,
+    "enable_context_vars": true,
+    "coprocess_options": {
+        "enable_coprocess": true,
+        "coprocess_grpc_server": ""
+    },
+    "enable_bundle_downloader": false,
+    "bundle_base_url": "",
+    "global_session_lifetime": 100,
+    "force_global_session_lifetime": false,
+    "max_idle_connections_per_host": 500,
+    "enable_custom_domains": true
+}
 ```
