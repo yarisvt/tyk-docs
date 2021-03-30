@@ -1,6 +1,8 @@
 ---
 date: 2017-03-22T16:32:53Z
 Title: Dashboard on Red Hat (RHEL) / CentOS
+tags: ["Tyk Dashboard", "Self Managed", "Installation", "Red Hat", "CentOS"]
+description: "How to install the Tyk Dashboard as part of the Tyk Stack on Red Hat or CentOS using Ansible or shell scripts"
 menu:
   main:
     parent: "On Red Hat (RHEL / CentOS)"

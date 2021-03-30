@@ -5,6 +5,8 @@ weight: 4
 menu: "main"
 url: "/apim/"
 linkTitle: API Management
+tags: ["Tyk API Management", "Licencing", "Open Source", "Self-Managed", "Tyk Cloud", "API Gateway"]
+description: "How to decide on which Tyk deployment option is best for you"
 aliases:
     - /getting-started/deployment-options/
 ---

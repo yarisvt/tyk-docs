@@ -1,5 +1,7 @@
 ---
-title: Tyk Kubernetes Ingress and Service Mesh Controller 
+title: Tyk Kubernetes Ingress and Service Mesh Controller
+tags: ["Tyk Stack", "Self Managed", "Installation", "Kubernetes", "Ingress", "Service Mesh"]
+description: "How to install Tyk in a self-managed environment using Kubernetes Ingress Controller" 
 menu:
   main:
     parent: "With Kubernetes"

@@ -1,6 +1,8 @@
 ---
 title: "Upgrade Free Trial"
 date: 2020-05-23
+tags: ["Tyk Cloud", "Free Trial", "Upgrade"]
+description: "How to upgrade your Tyk Cloud free 14 day trial"
 menu:
   main:
     parent: "Account and Billing"

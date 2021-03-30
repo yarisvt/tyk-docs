@@ -2,6 +2,8 @@
 title: "Initial Portal Configuration"
 date: 2020-07-30
 weight: 5
+tags: ["Tyk Cloud", "Configuration", "Portal"]
+description: "Initial configuration for your Tyk Cloud Portal"
 menu:
   main:
     parent: "Configuration Options"

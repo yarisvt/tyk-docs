@@ -1,6 +1,8 @@
 ---
 title: "Managing Billing Admins"
 date: 2020-04-15
+tags: ["Tyk Cloud", "Account", "Administration"]
+description: "Managing Billing admins for your Tyk account"
 menu:
   main:
     parent: "Account and Billing"

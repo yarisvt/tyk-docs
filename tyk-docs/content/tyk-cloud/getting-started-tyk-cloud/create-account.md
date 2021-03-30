@@ -1,6 +1,8 @@
 ---
 title: " Task 1 - Create Your Account"
 date: 2020-05-23
+tags: ["Tyk Stack", "Tyk Cloud", "SaaS", "Create an Account"]
+description: "Creating an account for Tyk Cloud"
 menu:
   main:
     parent: "Getting Started with Tyk Cloud"

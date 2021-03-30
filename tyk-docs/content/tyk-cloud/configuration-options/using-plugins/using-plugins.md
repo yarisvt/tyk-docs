@@ -2,6 +2,8 @@
 title: "Using Plugins"
 date: 2020-04-28
 weight: 3
+tags: ["Tyk Cloud", "Configuration", "Plugins", "Python", "JSVM"]
+description: "How to use custom plugins with Tyk Cloud"
 menu:
   main:
     parent: "Configuration Options"

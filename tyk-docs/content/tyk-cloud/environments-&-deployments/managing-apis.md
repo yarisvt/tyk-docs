@@ -1,6 +1,8 @@
 ---
 title: "Managing APIs"
 date: 2020-08-21T15:16:29+01:00
+tags: ["Tyk Cloud", "APIs", "Management"]
+description: "How to manage APIs with Tyk Cloud"
 menu:
   main:
     parent: "Environments & Deployments"

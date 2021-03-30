@@ -1,6 +1,8 @@
 ---
 title: "Docker"
 date: 2021-01-20
+tags: ["Tyk Gateway", "Open Source", "Installation", "Docker"]
+description: "How to install the open source Tyk Gateway using Docker Compose or as Docker Standalone"
 menu:
   main:
     parent: "Getting Started " # Child of APIM -> OSS

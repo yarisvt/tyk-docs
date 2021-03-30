@@ -1,6 +1,8 @@
 ---
 title: "Tyk Cloud"
 date: 2020-06-24
+tags: ["Tyk Stack", "Tyk Cloud", "SaaS"]
+description: "The Tyk Cloud SaaS solution for API management"
 weight: 10
 menu: 
     main:

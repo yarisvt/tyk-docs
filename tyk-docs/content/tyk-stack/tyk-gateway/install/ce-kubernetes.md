@@ -1,6 +1,8 @@
 ---
 title: "Kubernetes"
 date: 2021-01-20
+tags: ["Tyk Gateway", "Open Source", "Installation", "Kubernetes", "Helm Chart", "Tyk Operator"]
+description: "How to install the open source Tyk Gateway using our Kubernetes Helm Chart and the Tyk Operator"
 menu:
   main:
     parent: "Getting Started " # Child of APIM -> OSS

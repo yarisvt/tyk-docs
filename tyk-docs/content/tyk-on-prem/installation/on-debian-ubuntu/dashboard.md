@@ -1,6 +1,8 @@
 ---
 date: 2017-03-22T16:08:31Z
 Title: Dashboard on Ubuntu
+tags: ["Tyk Dashboard", "Self-Managed", "Installation", "Ubuntu", "Debian"]
+description: "How to install the Tyk Dashboard as part of the Tyk Stack on Ubuntu or Debian using Ansible or shell scripts"
 menu:
   main:
     parent: "On Debian / Ubuntu"

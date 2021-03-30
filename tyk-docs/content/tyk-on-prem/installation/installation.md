@@ -1,6 +1,8 @@
 ---
 date: 2017-03-15T15:01:42Z
 title: Tyk On-Premises Installation
+tags: ["Tyk Stack", "Self-Managed", "Installation"]
+description: "How to install the Tyk Stack On-Premises"
 linkTitle: Installation
 identifier: "tyk-on-premises-installation"
 weight: 1

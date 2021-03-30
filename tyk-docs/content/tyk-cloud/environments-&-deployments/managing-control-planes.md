@@ -1,6 +1,8 @@
 ---
 title: "Managing Control Planes"
 date: 2020-08-21T11:20:20+01:00
+tags: ["Tyk Cloud", "Management"]
+description: "How to manage your Tyk Cloud Control Planes"
 menu:
   main:
     parent: "Environments & Deployments"

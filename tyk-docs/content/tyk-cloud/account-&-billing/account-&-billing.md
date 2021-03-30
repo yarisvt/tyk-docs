@@ -1,6 +1,8 @@
 ---
 date: 2017-03-09T11:20:34Z
 Title: Account and Billing
+tags: ["Tyk Cloud", "Accounts", "Billing", "Plans", "Management"]
+description: "Setting up your organisation for Tyk Cloud"
 weight: 6
 menu:
   main:

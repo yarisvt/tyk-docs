@@ -2,6 +2,8 @@
 title: "Tyk Open Source"
 date: 2020-06-24
 weight: 1
+tags: ["Tyk API Management", "Open Source", "API Gateway"]
+description: "How to get started with the Tyk Open Source API Gateway"
 menu:
     main:
         parent: API Management

@@ -2,6 +2,8 @@
 publishdate: 2020-03-09
 lastmod: 2020-03-09
 title: Kubernetes Docker Pro Demo on Windows
+tags: ["Tyk Stack", "Self Managed", "Installation", "Kubernetes", "Helm Chart"]
+description: "How to install Tyk in a self-managed environment using Kubernetes on Windows" 
 menu:
   main:
     parent: "With Kubernetes"

@@ -1,6 +1,8 @@
 ---
 date: 2020-03-17T19:13:22Z
 Title: Task 2 - Set up Your Organisation
+tags: ["Tyk Stack", "Tyk Cloud", "SaaS", "Organisation"]
+description: "Setting up your organisation for Tyk Cloud"
 menu:
   main:
     parent: "Getting Started with Tyk Cloud"

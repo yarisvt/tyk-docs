@@ -1,6 +1,8 @@
 ---
 title: "API Middleware Test"
 date: 2020-05-20
+tags: ["Tyk Cloud", "Configuration", "Plugins", "Python"]
+description: "Testing your Python middleware with Tyk Cloud"
 menu:
   main:
     parent: "Python Custom Authentication"

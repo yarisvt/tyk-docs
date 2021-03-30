@@ -1,6 +1,8 @@
 ---
 date: 2017-03-22T16:39:29Z
 Title: Tyk Pump on Red Hat (RHEL) / CentOS
+tags: ["Tyk Pump", "Self Managed", "Installation", "Red Hat", "CentOS"]
+description: "How to install the Tyk Pump as part of the Tyk Stack on Red Hat or CentOS using Ansible or shell scripts"
 menu:
   main:
     parent: "On Red Hat (RHEL / CentOS)"

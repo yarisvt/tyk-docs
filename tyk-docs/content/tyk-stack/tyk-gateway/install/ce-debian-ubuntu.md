@@ -1,6 +1,8 @@
 ---
 title: "Debian / Ubuntu"
 date: 2021-01-20
+tags: ["Tyk Gateway", "Open Source", "Installation", "Ubuntu", "Debian"]
+description: "How to install the open source Tyk Gateway on Ubuntu or Debian using Ansible or with shell scripts"
 menu:
   main:
     parent: "Getting Started " # Child of APIM -> OSS
