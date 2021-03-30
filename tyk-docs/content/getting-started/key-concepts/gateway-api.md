@@ -8,7 +8,7 @@ menu:
 weight: 95
 ---
 
-The [Tyk Gateway REST API](/docs/tyk-gateway-api/) is the primary means for integrating your application with the Tyk API management platform. This
+The [Tyk Gateway REST API](/docs/tyk-gateway-api/) is the primary means for integrating your application with the Tyk API platform. This
 API is very small, and has no granular permissions system. It is intended to be used *purely* for internal automation
 and integration.
 
