@@ -90,7 +90,7 @@ In order to setup X509 certificate authentication with MongoDB, you can add the 
       "type": "mongo",
       "meta": {
         "collection_name": "tyk_analytics",
-        "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/{db_name}",
+        "mongo_url": "mongodb://CN=tyk-mongo-client,OU=TykTest@<host>:<port>/<db>?authSource=$external&authMechanism=MONGODB-X509",
         "mongo_use_ssl": true,
         "mongo_ssl_ca_file": "ca.pem",
         "mongo_ssl_pem_keyfile": "client.pem"
@@ -122,7 +122,7 @@ The config settings are exactly the same as the Tyk Dashboard steps, just nested
 {
   ...
   "analytics": {
-    "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/{db_name}",
+    "mongo_url": "mongodb://CN=tyk-mongo-client,OU=TykTest@<host>:<port>/<db>?authSource=$external&authMechanism=MONGODB-X509",
     "mongo_use_ssl": true,
     "mongo_ssl_ca_file": "ca.pem",
       "mongo_ssl_pem_keyfile": "client.pem"
