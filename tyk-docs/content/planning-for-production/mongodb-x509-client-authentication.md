@@ -19,7 +19,7 @@ Before we get into the configuration, we need to understand the 2 key components
 ### 1. Connection Strings
 
 
-A) You are required to specify a username (and password if needed) in the connection string.  [Why do you need a username at all?](https://www.google.com/url?q=https://docs.mongodb.com/manual/tutorial/configure-x509-client-authentication/&sa=D&source=editors&ust=1617117835402000&usg=AOvVaw1wxXzKRgdVePBtqwXhelXp)
+A) You are required to specify a username (and password if needed) in the connection string.  [Why do you need a username at all?](https://docs.mongodb.com/manual/tutorial/configure-x509-client-authentication/)
 
 B) We need to specify the following parameters: `?authSource=$external&authMechanism=MONGODB-X509"`
 
