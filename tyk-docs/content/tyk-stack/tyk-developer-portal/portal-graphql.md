@@ -38,7 +38,7 @@ If you have a protected API, your users won't be able to inspect the GraphQL sch
 
 ## CORS
 
-You may have to enable the following CORS settings in the "Advanced Options" of the API Designer in order to allow your consumers to access the GraphQL Playground:
+You may have to enable the following CORS settings in the "Advanced Options" of the API Designer to allow your consumers to access the GraphQL Playground:
 
 
 ![Portal GraphQL Playground CORS](/docs/img/portal/portal-graphql-cors.png)
