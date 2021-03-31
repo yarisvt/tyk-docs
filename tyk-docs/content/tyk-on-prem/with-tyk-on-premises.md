@@ -1,6 +1,8 @@
 ---
 date: 2017-03-15T15:01:42Z
 title: Tyk Self-Managed
+tags: ["Tyk Stack", "Self-Managed", "Installation"]
+description: "What is the Tyk Self-Managed solution"
 weight: 4
 menu: 
     main:

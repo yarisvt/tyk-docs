@@ -1,6 +1,8 @@
 ---
 title: "Managing Environments"
 date: 2020-04-21
+tags: ["Tyk Cloud", "Management"]
+description: "How to manage your Tyk Cloud Environments"
 menu:
   main:
     parent: "Environments & Deployments"

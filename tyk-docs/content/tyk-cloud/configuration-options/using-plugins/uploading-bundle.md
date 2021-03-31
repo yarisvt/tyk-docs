@@ -1,6 +1,8 @@
 ---
 title: "Uploading Your Bundle"
 date: 2020-05-19
+tags: ["Tyk Cloud", "Configuration", "Plugins", "Python", "Amazon S3"]
+description: "Uploading your Python middleware bundle to an Amazon S3 bucket"
 menu:
   main:
     parent: "Python Custom Authentication"

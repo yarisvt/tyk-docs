@@ -1,6 +1,8 @@
 ---
 date: 2020-03-17T19:13:22Z
-Title: Getting Started with Tyk Cloud
+title: Getting Started with Tyk Cloud
+tags: ["Tyk Stack", "Tyk Cloud", "SaaS", "Getting Started"]
+description: "Getting started with the Tyk Cloud SaaS solution for API management"
 weight: 2
 menu:
   main:

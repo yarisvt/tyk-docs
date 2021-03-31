@@ -1,6 +1,8 @@
 ---
 date: 2017-03-22T16:54:02Z
 title: Docker Pro Demo
+tags: ["Tyk Stack", "Self-Managed", "Installation", "Docker", "Demo"]
+description: "How to install the Tyk stack components using our Docker Pro-Demo proof of concept"
 menu:
   main:
     parent: "With Docker"

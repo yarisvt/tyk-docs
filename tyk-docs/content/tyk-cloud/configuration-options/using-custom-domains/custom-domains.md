@@ -1,6 +1,8 @@
 ---
 title: "Using Custom Domains"
 date: 2020-07-15
+tags: ["Tyk Cloud", "Configuration", "Domains"]
+description: "How to use custom domains with Tyk Cloud"
 weight: 4
 menu:
   main:

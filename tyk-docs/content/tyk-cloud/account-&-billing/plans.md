@@ -1,6 +1,8 @@
 ---
 title: "Our Plans"
 date: 2020-05-23
+tags: ["Tyk Cloud", "Account", "Plans"]
+description: "The various plans available with Tyk Cloud"
 menu:
   main:
     parent: "Account and Billing"

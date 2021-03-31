@@ -1,6 +1,8 @@
 ---
 date: 2020-03-17T19:13:22Z
 Title: Task 5 - Deploy your Edge Gateway and add your first API
+tags: ["Tyk Stack", "Tyk Cloud", "SaaS", "Add API"]
+description: "Adding your first API in Tyk Cloud"
 menu:
   main:
     parent: "Getting Started with Tyk Cloud"

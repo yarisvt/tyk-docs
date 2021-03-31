@@ -1,6 +1,8 @@
 ---
 title: "Setup Your Control Plane"
 date: 2020-04-30
+tags: ["Tyk Cloud", "Configuration", "Plugins", "Python"]
+description: "Configuring a Tyk Cloud control plane to use custom plugins"
 menu:
   main:
     parent: "Python Custom Authentication"

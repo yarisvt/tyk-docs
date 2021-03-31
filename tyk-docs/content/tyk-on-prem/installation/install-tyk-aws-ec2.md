@@ -1,6 +1,8 @@
 ---
 title: "Install Tyk on AWS EC2"
 date: 2020-05-18
+tags: ["Tyk Stack", "Self-Managed", "Installation", "AWS EC2"]
+description: "How to install the Tyk Stack on an AWS EC2 instance"
 menu:
   main:
     parent: "AWS Marketplace"

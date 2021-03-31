@@ -1,6 +1,8 @@
 ---
 date: 2019-07-30T11:30:02Z
 title: Bootstrapper CLI
+tags: ["Tyk Dasboard", "Self-Managed", "Bootstrapping", "CLI"]
+description: "How to Bootstrap the Tyk Dashboard to create your organisation and users"
 menu:
   main:
     parent: "Installation"

@@ -1,6 +1,8 @@
 ---
 title: "Via GitHub"
 date: 2021-01-20
+tags: ["Tyk Gateway", "Open Source", "Installation", "GitHub"]
+description: "The Tyk Gateway GitHub repository"
 menu:
   main:
     parent: "Getting Started " # Child of APIM -> OSS

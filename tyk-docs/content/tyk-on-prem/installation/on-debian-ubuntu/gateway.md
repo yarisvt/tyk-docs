@@ -1,6 +1,8 @@
 ---
 date: 2017-03-22T15:55:18Z
 Title: Gateway on Ubuntu
+tags: ["Tyk Gateway", "Self-Managed", "Installation", "Ubuntu", "Debian"]
+description: "How to install the Tyk Gateway as part of the Tyk Stack on Ubuntu or Debian using Ansible or shell scripts"
 menu:
   main:
     parent: "On Debian / Ubuntu"

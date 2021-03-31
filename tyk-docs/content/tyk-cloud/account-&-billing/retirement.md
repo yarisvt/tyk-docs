@@ -1,6 +1,8 @@
 ---
 title: "Retirement"
 date: 2020-04-27
+tags: ["Tyk Cloud", "Account", "Plans", "Retirement"]
+description: "How to manage your Tyk Cloud account if it goes into retirement mode"
 menu:
   main:
     parent: "Account and Billing"

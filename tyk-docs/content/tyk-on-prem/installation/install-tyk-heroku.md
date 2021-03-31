@@ -1,6 +1,8 @@
 ---
 date: 2018-05-18T15:46:41Z
 Title: Heroku
+tags: ["Tyk Stack", "Self-Managed", "Installation", "Heroku"]
+description: "How to install the Tyk Stack on Heroku"
 menu:
   main:
     parent: "Installation"
@@ -14,7 +16,7 @@ aliases:
 
 ## Install Tyk API Gateway on Heroku
 
-A full Tyk installation can be deployed to Heroku dynos and workers using [Heroku Container Registry & Runtime](https://devcenter.heroku.com/articles/) functionality. This guide will utilise [Tyk Docker images](https://hub.docker.com/u/tykio/) with a small amount of customisation as well as an external MongoDB service.
+A full Tyk installation can be deployed to Heroku dynos and workers using [Heroku Container Registry and Runtime](https://devcenter.heroku.com/articles/) functionality. This guide will utilise [Tyk Docker images](https://hub.docker.com/u/tykio/) with a small amount of customisation as well as an external MongoDB service.
 
 
 ## Prerequisites

@@ -1,6 +1,8 @@
 ---
 title: "Managing Edge Gateways"
 date: 2020-08-21T14:58:21+01:00
+tags: ["Tyk Cloud", "Management"]
+description: "How to manage your Tyk Cloud Edge Gateways"
 menu:
   main:
     parent: "Environments & Deployments"

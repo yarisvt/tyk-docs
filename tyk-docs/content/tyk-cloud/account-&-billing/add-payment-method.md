@@ -1,6 +1,8 @@
 ---
 title: "Add Payment Method"
 date: 2020-05-23
+tags: ["Tyk Cloud", "Account", "Payment"]
+description: "Adding payment methods to your Tyk Cloud account"
 menu:
   main:
     parent: "Account and Billing"

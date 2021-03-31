@@ -1,6 +1,8 @@
 ---
 title: "Python Custom Authentication"
 date: 2020-04-28
+tags: ["Tyk Cloud", "Configuration", "Plugins", "Python"]
+description: "Creating a custom Python authentication plugin"
 menu:
   main:
     parent: "Using Plugins"

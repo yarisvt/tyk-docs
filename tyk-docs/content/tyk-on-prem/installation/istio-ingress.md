@@ -1,5 +1,7 @@
 ---
 title: Istio
+tags: ["Tyk Stack", "Self-Managed", "Installation", "Istion"]
+description: "How to install the Tyk Stack for Istio on Kubernetes"
 menu:
   main:
     parent: "Installation"

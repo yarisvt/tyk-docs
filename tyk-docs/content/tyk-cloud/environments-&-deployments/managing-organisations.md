@@ -1,6 +1,8 @@
 ---
 title: "Managing Organisations"
 date: 2020-04-15
+tags: ["Tyk Cloud", "Management"]
+description: "How to manage your Tyk Cloud Organisations"
 menu:
   main:
     parent: "Environments & Deployments"

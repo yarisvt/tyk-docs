@@ -1,6 +1,8 @@
 ---
 title: "Red Hat (RHEL / CentOS)"
 date: 2021-01-20
+tags: ["Tyk Gateway", "Open Source", "Installation", "Red Hat", "CentOS"]
+description: "How to install the open source Tyk Gateway on Red Hat or CentOS using Ansible or with shell scripts"
 menu:
   main:
     parent: "Getting Started " # Child of APIM -> OSS
@@ -21,7 +23,7 @@ aliases:
 {{< /note >}}
 
 ## Getting Started
-1. clone the [tyk-ansible](https://github.com/TykTechnologies/tyk-ansible) repositry
+1. clone the [tyk-ansible](https://github.com/TykTechnologies/tyk-ansible) repository
 
 ```bash
 $ git clone https://github.com/TykTechnologies/tyk-ansible
@@ -32,13 +34,13 @@ $ git clone https://github.com/TykTechnologies/tyk-ansible
 $ cd tyk-ansible
 ```
 
-3. Run initalization script to initialize environment
+3. Run the initalization script to initialise your environment
 
 ```bash
 $ sh scripts/init.sh
 ```
 
-4. Modify `hosts.yml` file to update ssh variables to your server(s). You can learn more about the hosts file [here](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html)
+4. Modify the `hosts.yml` file to update ssh variables to your server(s). You can learn more about the hosts file [here](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html)
 
 5. Run ansible-playbook to install `tyk-ce`
 
@@ -46,7 +48,7 @@ $ sh scripts/init.sh
 $ ansible-playbook playbook.yml -t tyk-ce -t redis
 ```
 
-You can choose to not install Redis by removing the `-t redis`. However Redis is a requirment and needs to be installed for the gateway to run.
+You can choose to not install Redis by using `-t redis`. However Redis is a requirement and needs to be installed for the Tyk Gateway to run.
 
 ## Supported Distributions
 | Distribution | Version | Supported |
@@ -72,7 +74,7 @@ You can choose to not install Redis by removing the `-t redis`. However Redis is
 **Requirements**
 
 *   Ensure port `8080` is open: this is used in this guide for Gateway traffic (the API traffic to be proxied).
-*   EPEL (Extra Packages for Enterprise Linux) is a free, community based repository project from Fedora which provides high quality add-on software packages for Linux distribution including RHEL, CentOS, and Scientific Linux. EPEL isn't a part of RHEL/CentOS but it is designed for major Linux distributions. In our case we need it for Redis DB. Install EPEL using the instructions [here](http://fedoraproject.org/wiki/EPEL#How_can_I_use_these_extra_packages.3F).
+*   EPEL (Extra Packages for Enterprise Linux) is a free, community based repository project from Fedora which provides high quality add-on software packages for Linux distribution including RHEL, CentOS, and Scientific Linux. EPEL isn't a part of RHEL/CentOS but it is designed for major Linux distributions. In our case we need it for Redis. Install EPEL using the instructions [here](http://fedoraproject.org/wiki/EPEL#How_can_I_use_these_extra_packages.3F).
 {{< /note >}}
 
 ### Install Redis using EPEL
@@ -117,7 +119,7 @@ From [https://packagecloud.io/tyk/tyk-gateway](https://packagecloud.io/tyk/tyk-g
 
 ### Configuring The Gateway 
 
-You can set up the core settings for the Tyk Gateway with a single setup script, however for more involved deployments, you will want to provide your own configuration file.
+You can set up the core settings for the Tyk Gateway with a single setup script, however for more involved deployments you will want to provide your own configuration file.
 
 {{< note success >}}
 **Note**  
