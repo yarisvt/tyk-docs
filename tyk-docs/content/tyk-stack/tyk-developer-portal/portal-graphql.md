@@ -2,6 +2,7 @@
 date: 2017-03-24T17:10:33Z
 title: "GraphQL "
 tags: ["GraphQL", "Playground", "CORS", "UDG"]
+description: "How to publish GraphQL APIs to your Tyk Developer Portal"
 menu:
   main:
     parent: "Tyk Developer Portal"
