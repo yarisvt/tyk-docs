@@ -277,7 +277,7 @@ Here we see that:
 
 ### Authentication with a Golang plugin
 
-You can implement your own authentication method, using a Golang plugin and custom `"auth_check"` middleware. Please make sure to set the two fields as explained[above](#Post Authentication Hook):
+You can implement your own authentication method, using a Golang plugin and custom `"auth_check"` middleware. Ensure you set the two fields in [Post Authentication Hook](#post-authentication-hook):
 
 Let's have a look at the code example. Imagine we need to implement a very trivial authentication method when only one key is supported (in the real world you would want to store your keys in some storage or have some more complex logic).
 
