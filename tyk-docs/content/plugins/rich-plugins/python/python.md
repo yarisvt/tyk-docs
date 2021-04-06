@@ -23,12 +23,11 @@ If you're using Ubuntu/Debian:
 apt install python3 python3-dev python3-pip build-essential
 ```
 
-If you're using RedHat or CentOS, Yum could be used.
-Note that this sample refers to Python 3.4, you should use a suffix that matches the Python version you're planning to use:
+If you're using RedHat or CentOS:
 
 ```{.copyWrapper}
-yum install python34-dev python34-setuptools
-easy_install-3.4 pip
+yum install python3-devel python3-setuptools
+python3 -m ensurepip
 ```
 
 ### Install the Required Python Modules
