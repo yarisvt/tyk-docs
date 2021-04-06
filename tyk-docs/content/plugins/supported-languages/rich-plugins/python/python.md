@@ -10,7 +10,7 @@ aliases:
 ---
 ### Requirements
 
-Since v2.9, Tyk supports any currently stable [Python 3.x version](https://www.python.org/downloads/). The main requirement is to have the Python shared libraries installed, these are available as `libpython3.x` in most Linux distributions.
+Since v2.9, Tyk supports any currently stable [Python 3.x version](https://www.python.org/downloads/). The main requirement is to have the Python shared libraries installed. These are available as `libpython3.x` in most Linux distributions.
 
 * Python3-dev
 * [Protobuf](https://pypi.org/project/protobuf/): provides [Protocol Buffers](https://developers.google.com/protocol-buffers/) support 
@@ -24,7 +24,7 @@ If you're using Ubuntu/Debian:
 apt install python3 python3-dev python3-pip build-essential
 ```
 
-If you're using RedHat or CentOS:
+If you're using Red Hat or CentOS:
 
 ```{.copyWrapper}
 yum install python3-devel python3-setuptools
@@ -45,9 +45,13 @@ Newer Tyk versions provide more flexibility when using Python plugins, allowing 
 
 To see the Python initialization log, run the Tyk gateway in debug mode.
 
-To use a specific Python version, set the "python_version" flag under "coprocess_options" in the Tyk Gateway configuration file (tyk.conf).
+To use a specific Python version, set the `python_version` flag under `coprocess_options` in the Tyk Gateway configuration file (tyk.conf).
 
-Note that Tyk doesn't support Python 2.x.
+{{< note success >}}
+**Note**  
+
+Tyk doesn't support Python 2.x.
+{{< /note >}}
 
 ### Troubleshooting
 
@@ -59,7 +63,7 @@ python3 -c 'from google import protobuf'
 
 No output is expected from this command on successful setups.
 
-### How to write Python Plugins?
+### How do I write Python Plugins?
 
 We have created [a demo Python plugin repository](https://github.com/TykTechnologies/tyk-plugin-demo-python).
 
