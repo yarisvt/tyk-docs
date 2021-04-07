@@ -118,7 +118,7 @@ You can also use `ignore_endpoint_case` at a ["global" Tyk level](/docs/tyk-conf
 
 ### Internal
 
-This plugin allows an endpoint not be listened to by the Tyk Gateway, but can be called by other APIs using the `tyk://self/` prefix.
+This plugin allows an endpoint to not be listened to by the Tyk Gateway, but can be called by other APIs using the `tyk://self/` prefix.
 
 ### Method Transforms
 
