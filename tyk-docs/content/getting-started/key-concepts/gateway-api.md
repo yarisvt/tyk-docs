@@ -8,8 +8,8 @@ menu:
 weight: 95
 ---
 
-The [Tyk Gateway REST API](/docs/tyk-gateway-api/) is the primary means for managing the Tyk Gateway. This
-API is very small, and has no granular permissions system. It is intended to be used *purely* for internal automation
+The [Tyk Gateway REST API](/docs/tyk-gateway-api/) is the primary means for integrating your application with the Tyk API Gateway system. This
+API is very small, and has no granular permissions system. It is intended to be used **purely** for internal automation
 and integration.
 
 {{< warning success >}}
@@ -26,7 +26,7 @@ The Tyk Gateway API is capable of:
 * Hot reloads / reloading a cluster configuration
 * OAuth client creation (*only* when not using the Dashboard)
 
-In order to use the Tyk Gateway REST API, you'll need to set the `secret` parameter in your `tyk.conf` file.
+In order to use the Gateway API, you'll need to set the `secret` parameter in your `tyk.conf` file.
 
 The shared secret you set should then be sent along as a header with each REST API Request in order for it to be
 successful:
