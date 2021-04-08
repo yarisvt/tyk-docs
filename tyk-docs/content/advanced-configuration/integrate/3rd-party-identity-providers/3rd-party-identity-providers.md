@@ -67,7 +67,7 @@ Handlers are not limited to Tyk, a handler can be added quite easily by implemen
 {{< note success >}}
 **Note**  
 
-Dashboard/Portal SSO is also supported on Tyk Multi-Cloud accounts, but is an extra feature and is not enabled by default. Contact your Account Manager to request this feature. TIB must be run locally to support SSO with Tyk Cloud Classic. 
+The Tyk Identity Broker must be run locally to support SSO with Tyk Cloud Classic. 
 {{< /note >}}
 
 Starting from Tyk Dashboard v3.0, TIB is built-in to the dashboard. 
