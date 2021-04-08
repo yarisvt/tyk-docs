@@ -637,7 +637,7 @@ func MyPluginFunction(w http.ResponseWriter, r *http.Request) {
 
 ### Using a Go Response Plugin
 
-Now we need to instruct Tyk to load this shared library for an API so it will start processing traffic as part of the middleware chain. To do so we will need to edit our API spec using the raw JSON editor in the Tyk Dashboard or directly in the JSON file (in the case of the Community Edition). This change needs to be done for the "custom_middleware" field and it should look like this:
+Now you need to instruct Tyk to load this shared library for an API so it will start processing traffic as part of the middleware chain. To do so you will need to edit your API spec using the raw JSON editor in the Tyk Dashboard or directly in the JSON file (in the case of the Open Source edition). This change needs to be done for the "custom_middleware" field and it looks like this:
 
 ```
 "custom_middleware": {
@@ -656,10 +656,10 @@ Now we need to instruct Tyk to load this shared library for an API so it will st
 
 ```
 
-Here we have:
+Here you have:
 
 `"driver"` - Set this to goplugin (no value created for this plugin) which says to Tyk that this custom middleware is a Golang native plugin.
-`"response"` - This is the hook name. We use middleware with hook type response because we want this custom middleware to process the request on its return leg of a round trip.
+`"response"` - This is the hook name. You use middleware with a hook type response because you want this custom middleware to process the request on its return leg of a round trip.
 `response.name` - is your function name from the go plugin project.
 `response.path` - is the full or relative (to the Tyk binary) path to .so file with plugin implementation (make sure Tyk has read access to this file)
 Response plugin method signature
