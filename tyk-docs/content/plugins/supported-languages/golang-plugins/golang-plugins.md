@@ -659,9 +659,9 @@ Now we need to instruct Tyk to load this shared library for an API so it will st
 Here we have:
 
 `"driver"` - Set this to goplugin (no value created for this plugin) which says to Tyk that this custom middleware is a Golang native plugin.
-`"post"` - This is the hook name. We use middleware with hook type response because we want this custom middleware to process the request on its return leg of a round trip.
-`post.name` - is your function name from the go plugin project.
-`post.path` - is the full or relative (to the Tyk binary) path to .so file with plugin implementation (make sure Tyk has read access to this file)
+`"response"` - This is the hook name. We use middleware with hook type response because we want this custom middleware to process the request on its return leg of a round trip.
+`response.name` - is your function name from the go plugin project.
+`response.path` - is the full or relative (to the Tyk binary) path to .so file with plugin implementation (make sure Tyk has read access to this file)
 Response plugin method signature
 
 To write a response plugin in Go you need it to have a method signature as in the example below i.e. `func MyResponseFunctionName(rw http.ResponseWriter, res *http.Response, req *http.Request)`. You can then access and modify any part of the request or response. User session and API definition data can be accessed as with other Go plugin hook types.
