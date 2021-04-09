@@ -453,9 +453,11 @@ Change the default poller group of the uptime tests.
 
 The configuration section for the uptime tests on this node.
 
-#### uptime_tests.config.failure_trigger_sample_size
+#### uptime_test.config.enable_uptime_analytics
 
 Set this value to `true` to have the node capture and record analytics data regarding the uptime tests.
+
+#### uptime_tests.config.failure_trigger_sample_size
 
 The sample size to trigger a `HostUp` or `HostDown` event, e.g. a setting of `3` will require at least three failures to occur before the uptime test is triggered.
 
