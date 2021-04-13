@@ -11,8 +11,6 @@ aliases:
     - /getting-started/deployment-options/
 ---
 
-*Jump to [licensing](/docs/apim#licensing) below*
-
 The API Management deployment options are comprised of the various [open and closed source](/docs/tyk-stack/) components.
 
 Which one is right for your organization depends on your requirements and preferences.  Please [contact us](https://tyk.io/about/contact/) for help.
@@ -24,7 +22,7 @@ Which one is right for your organization depends on your requirements and prefer
 | [API Analytics Exporter][3]| ✅		      |✅	              |✅	 
 | [Tyk Manager][4] | -	          |✅	              |✅	 
 | [Single Sign On (SSO)][5]     | -	          |✅	              |✅	      
-| [RBAC & API Teams][6]         | -	          |✅	              |✅	      
+| [RBAC and API Teams][6]         | -	          |✅	              |✅	      
 | [Universal Data Graph][7]     | -	          |✅	              |✅	      
 | [Multi-Tenant][15]             | -	          |✅	              |✅	      
 | [Multi-Data Center][8]        | -	          |✅	              |✅	      
