@@ -43,7 +43,7 @@ Tyk Gateways can generate a lot of analytics data. Be sure to read about [cappin
 
 ### Sharding analytics to different data sinks
 
-In a multi-organisation deployment, each organisation, team, or environment might have their preferred analytics tooling. This capability allows Tyk-Pump to send analytics for different organisations or various APIs to different destinations. 
+In a multi-organisation deployment, each organisation, team, or environment might have their preferred analytics tooling. This capability allows the Tyk Pump to send analytics for different organisations or various APIs to different destinations. 
 E.g.  Org A can send their analytics to MongoDB + DataDog 
 while Org B can send their analytics to DataDog + expose the Prometheus metrics endpoint.
 
