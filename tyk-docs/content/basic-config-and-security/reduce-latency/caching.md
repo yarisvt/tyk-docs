@@ -138,9 +138,13 @@ Go to the Endpoint Designer tab. From the path you want to cache, select the **C
  
 ## Upstream Control
 
-Upstream cache control enables you to set whether a response should be cached, and for how long. To enable this, you will need to set `enable_cache` and `enable_upstream_cache_control` to `true`.
+Upstream cache control enables you to set whether a response should be cached, and for how long. 
+To enable this, you will need to set the following:
 
-Now you will also need to set which paths to act upon. Add these paths as shown in the screengrab above or manually add these paths to the `cache` list in the `extended_paths` section of your API version as below:
+Step 1. In the API definition:
+- `enable_cache: true` 
+- `enable_upstream_cache_control: true`
+- Set which paths to act upon. Add these paths as shown in the screengrab above or manually add these paths to the `cache` list in the `extended_paths` section of your API version as below:
 ``` json
 "extended_paths": {
             "cache": [
@@ -148,24 +152,21 @@ Now you will also need to set which paths to act upon. Add these paths as shown 
             ]
           }
  ```          
-
-## Tyk Response Headers
-
+Step 2. Use the upstream's response headers:
 Tyk will evaluate the response headers sent from your application for these paths and based on the data in the response, activate and set the cache values.
-
 The two response headers that Tyk looks for are:
-
-1.  `x-tyk-cache-action-set`: If Tyk finds this header set to `1`, the request will be cached.
+1.  `x-tyk-cache-action-set`: If Tyk finds this header set to `1`, the request will be cached, even if it's not a safe request since the upstream control overwrites Tyk's cache setting. Ifthe header's value is `0` or no such header, even if it's a safe request it will not be cached, again, upstream control overwrites Tyk's.
 2.  `x-tyk-cache-action-set-ttl`: If Tyk finds this header, it will override the TTL of the cached response, otherwise it will default to `cache_options.cache_timeout`.
+You can also change this header to a header of your choice by setting the fields `cache_options.cache_control_ttl_header`.
 
 Utilising this approach gives the most control as it will also only cache responses based on the request method. So if you only want `OPTIONS` requests to be cached, and return cache control headers only for this method, then only that method/URL combination will be cached, ignoring other methods for the same path.
 
 
-### Configuration via the Dashboard
+### Configuration via the Dashboard UI
 
 Under the Advanced settings, ensure that **Enable upstream cache control** is selected and **Global cache** is not selected, then follow the steps for per-path caching.
 
-## Configuring a Separate Redis Cache
+## A Separate Redis Cache
 
 For high-traffic systems that make heavy use of caching as well as rate limiting, it makes sense to separate out the Redis cache server from the Redis configuration server that supplies auth tokens and handles rate limiting configuration.
 
