@@ -51,7 +51,7 @@ while Org B can send their analytics to DataDog + expose the Prometheus metrics 
 
 You can achieve the sharding by setting both allow list and block list, meaning that some data sinks can receive information for all orgs, whereas other data sinks will not receive certain organisation's analytics if it was block listed.
 
-This feature makes use of the field called `filters`, which can be defined per pump. Its structure is the following:
+This feature makes use of the field called `filters`, which can be defined per pump. This is its structure:
 ```
 "filters":{
   "api_ids":[],
