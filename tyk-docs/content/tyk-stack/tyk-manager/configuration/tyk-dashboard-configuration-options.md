@@ -315,6 +315,10 @@ Licensed users can use this setting to enable/disable whether the Tyk Dashboard 
 
 If your Tyk Gateway is using hashed keys, set this value to `true` so it matches. The Dashboard will now operate in a mode that is compatible with key hashing.
 
+### enable_hashed_keys_listing
+
+To retrieve a list of all key hash listings, set this option to `true`.
+
 ### enable_delete_key_by_hash
 
 To delete a key by its hash, set this option to `true`.
@@ -322,6 +326,7 @@ To delete a key by its hash, set this option to `true`.
 ### enable_update_key_by_hash
 
 To update a key by its hash, set this option to `true`.
+
 
 ### enable_master_keys
 
