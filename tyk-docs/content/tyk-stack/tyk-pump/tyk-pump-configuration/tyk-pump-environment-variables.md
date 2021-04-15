@@ -68,13 +68,35 @@ You can also set custom names for each pump specifying the pump type. For exampl
 
 In this way, you can configure any pump using the environment variables naming convention and each pump configuration from [tyk-pump README](https://github.com/TykTechnologies/tyk-pump#configuration). 
 
-{{< note success >}}
-**Important**  
+#### General Pumps configuration
+Following the pump notation, we can configure any of the common pumps fields.
 
-An important point here is that you don't need to specify the `meta` variable in each pump configuration. For example, to set the `index_name` of an `elasticsearch` pump, you will need to set `TYK_PMP_PUMPS_ELASTICSEARCH_INDEXNAME` environment variable.
-{{< /note >}}
+If we want to set a timeout for a particular pump, the variable would be:
+```
+TYK_PMP_PUMPS_{PMP_NAME}_TIMEOUT
+```
 
+If we want to omit detailed recording for that pump, the variable would be:
+```
+TYK_PMP_PUMPS_{PMP_NAME}_OMITDETAILEDRECORDING
+```
+
+If we want to set a filter, the environment variables could be:
+```
+TYK_PMP_PUMPS_{PMP_NAME}_FILTERS_APIIDS
+TYK_PMP_PUMPS_{PMP_NAME}_FILTERS_ORGIDS
+TYK_PMP_PUMPS_{PMP_NAME}_FILTERS_RESPONSECODES
+TYK_PMP_PUMPS_{PMP_NAME}_FILTERS_SKIPAPIIDS
+TYK_PMP_PUMPS_{PMP_NAME}_FILTERS_SKIPORGIDS
+TYK_PMP_PUMPS_{PMP_NAME}_FILTERS_SKIPRESPONSECODES
+```
+Take into account that the filters values are slice, so you should assign comma separated values. For example,  `TYK_PMP_PUMPS_MONGO_FILTERS_APIIDS="api_1,api_2,api_3"`
+
+#### Specific Pumps configuration
+The `meta` configuration of each pump follows the same notation. So for example if we want to set `meta.mongo_url` for our Mongo pump we will need to set `TYK_PMP_PUMPS_MONGO_META_MONGOURL` variable. 
  
+
+#### 
 #### Examples
 
 Imagine we want to configure the following pumps:
@@ -96,6 +118,7 @@ Imagine we want to configure the following pumps:
         },
         "PROM": {
             "type": "prometheus",
+            "timeout":2,
             "meta": {
                 "listen_address": "localhost:9090",
                 "path": "/metrics"
@@ -105,15 +128,16 @@ Imagine we want to configure the following pumps:
 }
 ```
 
-Since the first pump has the default pump name, we just need to set the `csv_dir` variable using `TYK_PUMP_PUMPS_CSV_CSVDIR="default/"`.
+Since the first pump has the default pump name, we just need to set the `csv_dir` variable using `TYK_PUMP_PUMPS_CSV_META_CSVDIR="default/"`.
 
-To configure `csvcustom` pump we need to set the pump type first and then the `csv_dir` variable. This could be achieved with `TYK_PUMP_PUMPS_CSVCUSTOM_TYPE=csv` and `TYK_PUMP_PUMPS_CSVCUSTOM_CSVDIR="custom/"`.
+To configure `csvcustom` pump we need to set the pump type first and then the `csv_dir` variable. This could be achieved with `TYK_PUMP_PUMPS_CSVCUSTOM_TYPE=csv` and `TYK_PUMP_PUMPS_CSVCUSTOM_META_CSVDIR="custom/"`.
 
 Lastly, we need to configure a custom prometheus pump. We're going to do it with the following env variables:
 ```
 TYK_PUMP_PUMPS_PROM_TYPE=prometheus
-TYK_PUMP_PUMPS_PROM_LISTENADDRESS="localhost:9090"
-TYK_PUMP_PUMPS_PROM_PATH= "/metrics"
+TYK_PUMP_PUMPS_PROM_TIMEOUT=10
+TYK_PUMP_PUMPS_PROM_META_LISTENADDRESS="localhost:9090"
+TYK_PUMP_PUMPS_PROM_META_PATH= "/metrics"
 ```
 
 In this way, we configure our 3 pumps specified in the config file with environment variables.
