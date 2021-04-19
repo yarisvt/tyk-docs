@@ -327,3 +327,12 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
   "Meta": ""
 }
 ```
+
+### Graphql API
+
+At the moment dashboard is using graphql api to operate keys
+
+| **Method** | **URL**  | **Description**             |
+| ---------- | ------------- | --------------------------- |
+| POST       | `/graphql`    | GraphQL query endpoint      |
+| GET        | `/playground` | Dashboard Graphql Playground - where you could see docs and run queries |
