@@ -330,7 +330,7 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 
 ### Graphql API
 
-At the moment dashboard is using graphql api to operate keys
+Presently, the Tyk Dashboard uses the GraphQL API for keys.
 
 | **Method** | **URL**  | **Description**             |
 | ---------- | ------------- | --------------------------- |
