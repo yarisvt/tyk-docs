@@ -213,6 +213,15 @@ You can set a time (in seconds) to configure how long analytics are kept if they
 This option is available from v2.5.2 onwards.
 {{< /note >}}
 
+#### analytics_config.enable_multiple_analytics_keys
+
+Set this to `true` to have Tyk automatically divide the analytics records in multiple analytics keys. This is especially useful when `storage.enable_cluster` is `true` since it will distribute the analytic keys across all the cluster nodes.
+
+{{< note success >}}
+**Note**  
+
+This option is available from v3.2.0 and Pump v1.2.1 onwards.
+{{< /note >}}
 
 ### policies
 
