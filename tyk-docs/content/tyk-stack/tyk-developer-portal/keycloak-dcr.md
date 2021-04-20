@@ -1,6 +1,6 @@
 ---
 date: 2021-03-22T10:00:00Z
-title: Integrating with Keycloak using OpenID Connect Dynamic Client Registration
+title: Dynamic Client Registration using Keycloack
 menu:
   main:
     parent: "Tyk Developer Portal"
