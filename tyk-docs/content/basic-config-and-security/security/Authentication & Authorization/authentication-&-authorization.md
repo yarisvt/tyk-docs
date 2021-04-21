@@ -1,6 +1,8 @@
 ---
 date: 2017-03-23T15:23:32Z
 title: Authentication & Authorization
+tags: ["Authentication", "Authorization"]
+description: "How you can apply security options to lock down your APIs with Tyk"
 menu:
   main:
     parent: "Security"

@@ -1,5 +1,7 @@
 ---
 title: Upstream mTLS
+tags: ["mTLS"]
+description: "How to send upstream requests with a mTLS protected API"
 menu:
   main:
     parent: "Mutual TLS"

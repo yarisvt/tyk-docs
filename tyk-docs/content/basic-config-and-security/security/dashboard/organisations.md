@@ -1,6 +1,8 @@
 ---
 date: 2017-03-23T14:40:22Z
 title: Organisations
+tags: ["Organisations", "Dashboard", "Admin API"]
+description: "How organisations are created and used with the Tyk Dashboard"
 menu:
   main:
     parent: "Dashboard"

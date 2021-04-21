@@ -1,6 +1,8 @@
 ---
 date: 2017-03-23T17:13:30Z
 title: Request Quotas
+tags: ["Quotas", "Rate Limiting"]
+description: "How to set time period quotas for requests in Tyk"
 menu:
   main:
     parent: "Control & Limit Traffic"

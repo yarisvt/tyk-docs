@@ -1,6 +1,8 @@
 ---
 date: 2017-03-24T12:31:55Z
 title: Report, Monitor and Trigger Events
+tags: ["Event Handlers"]
+description: "The built in event handlers for Tyk"
 weight: 5
 menu: 
   main:

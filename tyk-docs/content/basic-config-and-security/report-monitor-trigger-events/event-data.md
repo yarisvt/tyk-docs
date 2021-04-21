@@ -1,6 +1,8 @@
 ---
 date: 2017-03-24T12:34:19Z
 title: Event Data
+tags: ["Events", "Metadata"]
+description: "Understanding the metadata associated with Tyk events"
 menu:
   main:
     parent: "Report, Monitor and Trigger Events"

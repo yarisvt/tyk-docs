@@ -1,13 +1,15 @@
 ---
 date: 2017-03-23T14:59:47Z
-title: Create User Groups 
+title: Create User Groups
+tags: ["Users", "Groups"]
+description: "How to create groups and add users to them"
 menu:
   main:
     parent: "Dashboard"
 weight: 5 
 ---
 
-## <a name="introduction"></a>Introduction
+## Introduction
 
 Instead of setting permissions per user, you can create a group, and assign it to one or more users. 
 

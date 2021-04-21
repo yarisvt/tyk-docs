@@ -1,6 +1,8 @@
 ---
 date: 2017-03-23T14:36:28Z
 title: TLS and SSL
+tags: ["TLS", "SSL", "Security"]
+description: "How to enable SSL with the Tyk Gateway and Dashboard"
 menu:
   main:
     parent: "Security"

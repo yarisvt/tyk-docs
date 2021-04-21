@@ -1,6 +1,8 @@
 ---
 date: 2017-03-23T17:08:35Z
 title: Rate Limiting
+tags: ["Rate Limiting", "Global limits", "Per API limits"]
+description: "How to use Global and per API rate limit throttling in Tyk"
 menu:
   main:
     parent: "Control & Limit Traffic"

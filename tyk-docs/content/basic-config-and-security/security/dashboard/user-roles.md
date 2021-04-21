@@ -1,6 +1,8 @@
 ---
 date: 2017-03-23T14:45:17Z
 title: User Roles
+tags: ["Users", "Roles"]
+description: "How set user roles with the Tyk Dashboard"
 menu:
   main:
     parent: "Dashboard"

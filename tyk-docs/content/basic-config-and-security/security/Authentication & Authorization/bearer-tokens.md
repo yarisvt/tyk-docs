@@ -1,6 +1,8 @@
 ---
 date: 2017-03-23T15:41:34Z
 title: Bearer Tokens
+tags: ["Bearer tokens", "Security"]
+description: "Using bearer tokens to lock-down your APIs with Tyk"
 menu:
   main:
     parent: "Authentication & Authorization"
