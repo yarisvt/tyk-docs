@@ -1,5 +1,7 @@
 ---
 title: "Revoke OAuth Tokens"
+tags: ["Revoke", "Oauth"]
+description: "How to revoke OAuth tokens in Tyk"
 date: 2020-03-17
 menu:
   main:

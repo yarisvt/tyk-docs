@@ -1,6 +1,8 @@
 ---
 date: 2017-03-23T16:06:42Z
 title: OAuth 2.0
+tags: ["OAuth 2.0", "Security"]
+description: "Using OAuth 2.0 to secure your APIs with Tyk"
 menu:
   main:
     parent: "Authentication & Authorization"

@@ -1,6 +1,8 @@
 ---
 date: 2017-03-23T16:06:42Z
 title: Client Credentials Grant Type
+tags: ["Grant Types", "Client Credentials"]
+description: "Using a Client Credentials grant type with OAuth 2.0"
 menu:
   main:
     parent: "OAuth 2.0"

@@ -1,6 +1,8 @@
 ---
 date: 2017-03-23T16:06:42Z
 title: Refresh Token Grant Type
+tags: ["Grant Types", "Refresh Token"]
+description: "Using a Refresh Token grant type with OAuth 2.0"
 menu:
   main:
     parent: "OAuth 2.0"

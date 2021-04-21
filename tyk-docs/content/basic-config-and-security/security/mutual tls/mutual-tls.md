@@ -1,5 +1,7 @@
 ---
 title: Mutual TLS
+tags: ["mTLS"]
+description: "How Tyk supports mutual TLS"
 menu:
   main:
     parent: "Security"

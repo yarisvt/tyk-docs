@@ -1,6 +1,8 @@
 ---
 date: 2017-03-23T17:01:35Z
 title: Certificate Pinning
+tags: ["Certificates", "Pinning"]
+description: "How to use Certificate pinning with Tyk"
 menu:
   main:
     parent: "Security"

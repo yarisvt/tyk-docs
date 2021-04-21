@@ -1,6 +1,8 @@
 ---
 date: 2017-03-23T16:06:42Z
 title: Authorization Code Grant Type
+tags: ["Grant Types", "Authorization"]
+description: "Using an Authorization grant type with OAuth 2.0"
 menu:
   main:
     parent: "OAuth 2.0"

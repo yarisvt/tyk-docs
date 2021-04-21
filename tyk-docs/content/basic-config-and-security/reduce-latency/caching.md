@@ -1,6 +1,8 @@
 ---
 date: 2017-03-24T09:58:52Z
 title: Caching
+tags: ["Caching requests"]
+description: "How to cache requests in Tyk"
 menu:
   main:
     parent: "Reduce Latency"

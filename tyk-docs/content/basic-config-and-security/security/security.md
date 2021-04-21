@@ -1,6 +1,8 @@
 ---
 date: 2017-03-23T14:29:56Z
 title: Security
+tags: ["Security", "Configuration"]
+description: "How you can configure security in Tyk"
 weight: 1
 menu: 
   main:

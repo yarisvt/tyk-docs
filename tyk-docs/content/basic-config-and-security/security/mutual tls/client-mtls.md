@@ -1,5 +1,7 @@
 ---
 title: Client mTLS
+tags: ["mTLS", "Static", "Dynamic"]
+description: "How to set up client mTLS"
 menu:
   main:
     parent: "Mutual TLS"
