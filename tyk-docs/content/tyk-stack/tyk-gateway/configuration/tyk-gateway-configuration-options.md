@@ -18,7 +18,7 @@ The Tyk Gateway server is configured primarily via the `tyk.conf` file, this fil
 
 ### Environment Variables
 
-Environment variables can be used to override the settings defined in the configuration file. See [Environment Variables](/docs/tyk-configuration-reference/environment-variables/) for details. Where an environment variable is specified, its value will take precedence over the value in the configuration file.
+Environment variables (env var) can be used to override the settings defined in the configuration file. Where an environment variable is specified, its value will take precedence over the value in the configuration file.
 
 ### tyk lint
 
