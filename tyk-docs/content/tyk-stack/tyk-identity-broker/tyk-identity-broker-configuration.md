@@ -60,17 +60,25 @@ The various options for `tib.conf` file are:
 
 The REST API secret to configure the Tyk Identity Broker remotely.
 
+(env var:**TYK_TIB_SECRET**)
+
 ### HttpServerOptions.UseSSL
 
-Set this to `true` to turn on SSL for the server, this is *highly recommended*.
+Set this to `true` to turn on SSL for the server, this is **highly recommended**.
+
+(env var:**TYK_TIB_HTTPSERVEROPTIONS_USESSL**)
 
 ### HttpServerOptions.KeyFile
 
 The path to the key file for this server, required for SSL.
 
+(env var:**TYK_TIB_HTTPSERVEROPTIONS_KEYFILE**)
+
 ### HttpServerOptions.CertFile
 
 The path to the certificate file for this server, required for SSL.
+
+(env var:**TYK_TIB_HTTPSERVEROPTIONS_CERTFILE**)
 
 ### BackEnd
 
@@ -84,29 +92,43 @@ Since profiles are unlikely to change often, profiles are kept in-memory, but ca
 
 If you are using multiple databases (not supported in Redis cluster), let TIB know which DB to use for Identity caching.
 
+(env var:**TYK_TIB_BACKEND_IDENTITYBACKENDSETTINGS_DATABASE**)
+
 ### BackEnd.IdentityBackendSettings.Username
 
 The username for Redis AUTH, if used (recommended).
+
+(env var:**TYK_TIB_BACKEND_IDENTITYBACKENDSETTINGS_USERNAME**)
 
 ### BackEnd.IdentityBackendSettings.Password
 
 The password for your Redis AUTH Username.
 
+(env var:**TYK_TIB_BACKEND_IDENTITYBACKENDSETTINGS_PASSWORD**)
+
 ### BackEnd.IdentityBackendSettings.Hosts
 
 Add your Redis hosts here as a map of hostname:port. Since TIB uses the same cluster driver as Tyk, it is possible to have TIB interact with your existing Redis cluster if you enable it.
+
+(env var:**TYK_TIB_BACKEND_IDENTITYBACKENDSETTINGS_HOSTS**)
 
 ### BackEnd.IdentityBackendSettings.MaxIdle
 
 Max idle connections to Redis.
 
+(env var:**TYK_TIB_BACKEND_IDENTITYBACKENDSETTINGS_MAXIDLE**)
+
 ### BackEnd.IdentityBackendSettings.MaxActive
 
 Max active Redis connections.
 
+(env var:**TYK_TIB_BACKEND_IDENTITYBACKENDSETTINGS_MAXACTIVE**)
+
 ### BackEnd.IdentityBackendSettings.EnableCluster
 
 If you are using Redis cluster, enable it here to enable the slots mode.
+
+(env var:**BackEnd.IdentityBackendSettings.EnableCluster**)
 
 ### BackEnd.UseSSL
 
