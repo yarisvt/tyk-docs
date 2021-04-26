@@ -408,7 +408,7 @@ The custom settings sections for the back end system.
 
 (env var:**TYK_DB_EMAILBACKEND_SETTINGS**)
 
-#### settings.ClientKey
+#### email_backend.settings.ClientKey
 
 The client key that we can use to integrate with the Mandrill API.
 
@@ -424,15 +424,11 @@ The name to use when sending emails.
 
 (env var:**TYK_DB_EMAILBACKEND_DEFAULTFROMNAME**)
 
-#### dashboard_domain
+#### dashboard_hostname
 
 Your public dashboard hostname.
 
-{{< note success >}}
-**Note**  
-
-`dashboard_domain` is available from v1.3.6 onwards.
-{{< /note >}}
+(env var:**TYK_DB_EMAILBACKEND_DASHBOARDHOSTNAME**)
 
 
 ### hide_listen_path
