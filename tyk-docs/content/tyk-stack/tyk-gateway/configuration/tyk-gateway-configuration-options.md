@@ -211,6 +211,8 @@ You can set a time (in seconds) to configure how long analytics are kept if they
 
 You can set the interval length on how often the gateway will purge analytics data, this value is in seconds and defaults to 10 seconds.
 
+(env var:**TYK_GW_ANALYTICSCONFIG_PURGEINTERVAL**)
+
 {{< note success >}}
 **Note**  
 
