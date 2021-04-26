@@ -78,9 +78,11 @@ If this value is set to `true`, session objects (key definitions) that do not ha
 
 (env var:**TYK_GW_ALLOWMASTERKEYS**)
 
-### min_key_length
+### min_token_length
 
 This allows you to set a minimum key length for Authorisation key requests. Any request containing less than the minimum length will automatically rejected. The default setting is `3`.
+
+(env var:**TYK_GW_MINTOKENLENGTH**)
 
 ### use_db_app_configs 
 
