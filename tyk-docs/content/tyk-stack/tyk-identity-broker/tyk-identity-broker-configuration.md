@@ -130,9 +130,11 @@ If you are using Redis cluster, enable it here to enable the slots mode.
 
 (env var:**BackEnd.IdentityBackendSettings.EnableCluster**)
 
-### BackEnd.UseSSL
+### BackEnd.IdentityBackendSettings.UseSSL
 
 If you are using a TLS protected Redis enable to connect.
+
+(env var:**TYK_TIB_BACKEND_IDENTITYBACKENDSETTINGS_USESSL**)
 
 {{< note success >}}
 **Note**  
@@ -140,9 +142,11 @@ If you are using a TLS protected Redis enable to connect.
 This option is available from TIB v0.4.0
 {{< /note >}}
 
-### BackEnd.SSLInsecureSkipVerify
+### BackEnd.IdentityBackendSettings.SSLInsecureSkipVerify
 
 Allows usage of self-signed certificates when connecting to an encrypted Redis database.
+
+(env var:**TYK_TIB_BACKEND_IDENTITYBACKENDSETTINGS_SSLINSECURESKIPVERIFY**)
 
 {{< note success >}}
 **Note**  
@@ -154,6 +158,8 @@ This option is available from TIB v0.4.0
 ### TykAPISettings
 
 This section enables you to configure the API credentials for the various Tyk Components TIB is interacting with.
+
+(env var:**TYK_TIB_TYKAPISETTINGS**)
 
 ### TykAPISettings.GatewayConfig.Endpoint
 
