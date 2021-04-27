@@ -129,18 +129,18 @@ Imagine you want to configure the following pumps:
 }
 ```
 
-Since the first pump has the default pump name, you just need to set the `meta.csv_dir` variable using `TYK_PUMP_PUMPS_CSV_META_CSVDIR="default/"`.
+Since the first pump has the default pump name, you just need to set the `meta.csv_dir` variable using `TYK_PMP_PUMPS_CSV_META_CSVDIR="default/"`.
 
-To configure a `csvcustom` pump you need to set the pump type first and then add the `csv_dir` variable. For example `TYK_PUMP_PUMPS_CSVCUSTOM_TYPE=csv` and `TYK_PUMP_PUMPS_CSVCUSTOM_META_CSVDIR="custom/"`.
+To configure a `csvcustom` pump you need to set the pump type first and then add the `csv_dir` variable. For example `TYK_PMP_PUMPS_CSVCUSTOM_TYPE=csv` and `TYK_PMP_PUMPS_CSVCUSTOM_META_CSVDIR="custom/"`.
 
 #### Prometheus Example
 
 To configure a custom prometheus pump, use the following environment variables:
 ```
-TYK_PUMP_PUMPS_PROM_TYPE=prometheus
-TYK_PUMP_PUMPS_PROM_TIMEOUT=10
-TYK_PUMP_PUMPS_PROM_META_LISTENADDRESS="localhost:9090"
-TYK_PUMP_PUMPS_PROM_META_PATH= "/metrics"
+TYK_PMP_PUMPS_PROM_TYPE=prometheus
+TYK_PMP_PUMPS_PROM_TIMEOUT=10
+TYK_PMP_PUMPS_PROM_META_LISTENADDRESS="localhost:9090"
+TYK_PMP_PUMPS_PROM_META_PATH= "/metrics"
 ```
 
 You have now configured all 3 pumps specified in your config file with environment variables.
