@@ -207,6 +207,12 @@ This is a list of custom patterns you can add, these must be valid regex strings
 
 You can set a time (in seconds) to configure how long analytics are kept if they are not processed. The default is 60 seconds. This is used to prevent the potential infinite growth of Redis analytics storage.
 
+#### analytics_config.purge_interval
+
+You can set the interval length on how often the gateway will purge analytics data, this value is in seconds and defaults to 10 seconds.
+
+(env var:**TYK_GW_ANALYTICSCONFIG_PURGEINTERVAL**)
+
 {{< note success >}}
 **Note**  
 

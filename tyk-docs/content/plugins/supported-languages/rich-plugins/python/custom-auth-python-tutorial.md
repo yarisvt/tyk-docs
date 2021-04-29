@@ -89,15 +89,26 @@ You can modify the `manifest.json` to add as many files as you want. Files that 
 
 ## Building the Plugin
 
-To bundle our plugin we run the following command in the working directory. Check your `tyk-cli` install path first:
-
-`/opt/tyk-gateway/utils/tyk-cli bundle build -y`
-
-For Tyk 2.8 upwards use:
-
-`/opt/tyk-gateway/bin/tyk bundle build -y`
-
 A plugin bundle is a packaged version of the plugin, it may also contain a cryptographic signature of its contents. The `-y` flag tells the Tyk CLI tool to skip the signing process in order to simplify the flow of this tutorial. For more information on the Tyk CLI tool, see [here](/docs/plugins/rich-plugins/plugin-bundles/#bundler-tool).
+
+We will use the Dockerized version of the Tyk CLI tool to bundle our package.
+
+First, export your Tyk Gateway version to a variable.
+```bash
+### THIS MUST MATCH YOUR TYK GATEWAY VERSION
+$ IMAGETAG=v3.1.2
+```
+
+Then run the following commands to generate a "bundle.zip" in your current directory:
+```
+$ docker run \
+  --rm -w "/tmp" -v $(pwd):/tmp \
+  --entrypoint "/bin/sh" -it \
+  tykio/tyk-gateway:$IMAGETAG \
+  -c '/opt/tyk-gateway/tyk bundle build -y'
+```
+
+**Success!**
 
 You should now have a `bundle.zip` file in the plugin directory.
 
@@ -161,8 +172,12 @@ From the **Core Settings** tab in the **API Designer** select **Use Custom Authe
 
 ![Advanced Options](/docs/img/2.10/custom_auth_python.png)
 
-
 ## Testing the Plugin
+
+Now, we can simply make an API call against the API for which we've loaded the Python plugin.
+
+
+### If Running Tyk Gateway from Source
 
 At this point we have our test HTTP server ready to serve the plugin bundle and the configuration with all the required parameters.
 The final step is to start or restart the **Tyk Gateway** (this may vary depending on how you setup Tyk).
