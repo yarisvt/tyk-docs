@@ -165,9 +165,13 @@ This section enables you to configure the API credentials for the various Tyk Co
 
 The hostname of the Tyk Gateway (this is for token generation purposes).
 
+(env var:**TYK_TIB_TYKAPISETTINGS_GATEWAYCONFIG_ENDPOINT**)
+
 ### TykAPISettings.GatewayConfig.Port
 
 The port to use on the Tyk Gateway host.
+
+(env var:**TYK_TIB_TYKAPISETTINGS_GATEWAYCONFIG_PORT**)
 
 {{< note success >}}
 **Note**  
@@ -180,14 +184,22 @@ For HTTP or HTTPS endpoints, you do need need to specify the default ports (80 a
 
 The API secret for the Tyk Gateway REST API.
 
+(env var:**TYK_TIB_TYKAPISETTINGS_GATEWAYCONFIG_ADMINSECRET**)
+
 ### TykAPISettings.DashboardConfig.Endpoint
 
 The hostname of your Dashboard (Advanced API).
+
+(env var:**TYK_TIB_TYKAPISETTINGS_DASHBOARDCONFIG_ENDPOINT**)
 
 ### TykAPISettings.DashboardConfig.Port
 
 The port of your Advanced API.
 
+(env var:**TYK_TIB_TYKAPISETTINGS_DASHBOARDCONFIG_PORT**)
+
 ### TykAPISettings.DashboardConfig.AdminSecret
 
 The high-level secret for the Advanced API. This is required because of the SSO-nature of some of the actions provided by TIB, it requires the capability to access a special SSO endpoint in the Advanced API to create one-time tokens for access.
+
+(env var:**TYK_TIB_TYKAPISETTINGS_DASHBOARDCONFIG_ADMINSECRET**)
