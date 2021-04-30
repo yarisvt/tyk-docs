@@ -390,7 +390,7 @@ This defaults to true for HTTP/2 connections.
 
 Set to `true` to enable SSL connections.
 
-(env var:**TYK_GW_HTTPSERVEROPTIONS_USELE_SSL**)
+(env var:**TYK_GW_HTTPSERVEROPTIONS_USESSL**)
 
 #### http_server_options.certificates.domain_name
 
