@@ -190,8 +190,6 @@ You may see `net::ERR_CONNECTION_REFUSED` errors in the browser console if you d
 
 This section contains details for a Tyk Gateway node that the Tyk Dashboard can speak to. The Dashboard controls Tyk using the Gateway API and only requires visibility to one node, so long as all nodes are using the same API Definitions.
 
-(env var:**TYK_DB_TYKAPI_HOST**)
-
 {{< note success >}}
 **Note**  
 
