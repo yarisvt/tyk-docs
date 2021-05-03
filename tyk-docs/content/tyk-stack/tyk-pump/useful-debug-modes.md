@@ -67,3 +67,32 @@ be enabled:
 - Global configuration.
 
 You will also need your Tyk Pump configured to move data into your preferred data store.
+
+#### Disabling detailed recording for a particular pump
+
+In some cases, you don't want to send the detailed request and response to a particular data store. 
+In order to do that, you can use `omit_detailed_recording` in Tyk Pump configuration to disable the detailed logging for a specific pump.
+
+For example, if we have an ElasticSearch, Kafka and CSV stores, and we want to save the detailed recording in all of them except Kafka we need the following configuration:
+
+- Enable detailed analytics on the gateway `tyk.conf` using:
+```{.copyWrapper}
+"enable_analytics" : true,
+"analytics_config": {
+  "enable_detailed_recording": true
+}
+```
+- Configure each pump on `pump.conf`.
+- Add the `omit_detailed_recording` variable to the Kafka pump:
+```{.copyWrapper}
+"pumps": {
+  "kafka": {
+      "type": "kafka",
+      "omit_detailed_recording":"true"
+      "meta": {
+        ...
+      }
+  },
+  ... 
+},
+```
