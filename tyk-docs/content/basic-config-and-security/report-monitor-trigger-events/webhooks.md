@@ -1,6 +1,8 @@
 ---
 date: 2017-03-24T12:36:32Z
 title: Webhooks
+tags: ["Webhooks", "Events"]
+description: "Using the Tyk webhook event handler"
 menu:
   main:
     parent: "Report, Monitor and Trigger Events"

@@ -1,6 +1,8 @@
 ---
 title: "Configuration Options"
 date: 2020-07-16
+tags: ["Tyk Cloud", "Configuration"]
+description: "Options for configuring your Tyk Cloud installation"
 weight: 3
 menu:
   main:

@@ -1,11 +1,13 @@
 ---
 title: "Revoke OAuth Tokens"
+tags: ["Revoke", "Oauth"]
+description: "How to revoke OAuth tokens in Tyk"
 date: 2020-03-17
 menu:
   main:
     parent: "OAuth 2.0"
 weight: 6
-url: "/basic-config-and-security/security/your-apis/oauth2.0/revoke-oauth-tokens"
+url: "/basic-config-and-security/security/your-apis/oauth20/revoke-oauth-tokens"
 ---
 
 This feature gives you (both developers and Dashboard users) the ability to revoke OAuth tokens. You can revoke specific tokens by providing the token and token hint (`access_token` or `refresh_token`) or you can revoke all OAuth Client tokens. 

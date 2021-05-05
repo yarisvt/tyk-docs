@@ -1,6 +1,8 @@
 ---
 date: 2017-03-23T15:16:58Z
-title: Gateway 
+title: Gateway
+tags: ["Gateway", "Security"]
+description: "How to secure your Tyk Gateway" 
 menu:
   main:
     parent: "Security"

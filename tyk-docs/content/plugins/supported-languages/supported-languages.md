@@ -23,7 +23,7 @@ What Language do I want to write my middleware in and can I use it in this phase
 
 |                          | Auth   |   Pre     | Post-Auth | Post | Response   
 |--------------------------|--------|-----------|-----------|------|-----------|
-| GoLang                   | ✅     |✅	        |✅        |✅    |❌
+| GoLang                   | ✅     |✅	        |✅        |✅    |✅
 | JavaScript               | ❌		 |✅	        |❌	      |✅ 	  |❌
 | gRPC <sup>2</sup> (Rich) <sup>1</sup>  | ✅		 |✅	        |✅	      |✅	  |✅
 | Python (Rich) <sup>1</sup>| ✅		 |✅	        |✅	      |✅	  |✅

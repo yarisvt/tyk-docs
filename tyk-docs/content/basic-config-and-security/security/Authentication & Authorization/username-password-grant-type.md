@@ -1,11 +1,13 @@
 ---
 date: 2017-03-23T16:06:42Z
 title: Username and Password Grant Type
+tags: ["Grant Types", "Username and Password"]
+description: "Using a Username and Password grant type with OAuth 2.0"
 menu:
   main:
     parent: "OAuth 2.0"
 weight: 4
-url: "/basic-config-and-security/security/authentication-&-authorization/oauth2.0/username-password-grant"
+url: "/basic-config-and-security/security/authentication-&-authorization/oauth2-0/username-password-grant"
 ---
 
 The Username and Password grant type uses a _basic authentication_ key to generate a token. When you create the _basic authentication_ key in the Dashboard, this stores the `username` and `password` used in the API token request.

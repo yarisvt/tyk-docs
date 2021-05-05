@@ -1,11 +1,13 @@
 ---
 date: 2017-03-23T16:06:42Z
 title: Client Credentials Grant Type
+tags: ["Grant Types", "Client Credentials"]
+description: "Using a Client Credentials grant type with OAuth 2.0"
 menu:
   main:
     parent: "OAuth 2.0"
 weight: 5
-url: "/basic-config-and-security/security/authentication-&-authorization/oauth2.0/client-credentials-grant"
+url: "/basic-config-and-security/security/authentication-&-authorization/oauth2-0/client-credentials-grant"
 ---
 
 The Client Credentials grant type uses the OAuth client credentials to generate a token.

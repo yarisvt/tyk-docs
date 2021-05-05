@@ -1,6 +1,8 @@
 ---
 date: 2017-03-24T09:57:45Z
 title: Reduce Latency
+tags: ["Latency"]
+description: "How you can reduce latency in Tyk"
 weight: 3
 menu: 
   main:

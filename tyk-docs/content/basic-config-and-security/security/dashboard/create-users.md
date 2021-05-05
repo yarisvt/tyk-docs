@@ -1,6 +1,8 @@
 ---
 date: 2017-03-23T14:59:47Z
 title: Create Users
+tags: ["Users", "Creation"]
+description: "How to create users and set their permissions" 
 menu:
   main:
     parent: "Dashboard"

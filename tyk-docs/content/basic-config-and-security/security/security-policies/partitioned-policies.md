@@ -1,6 +1,8 @@
 ---
 date: 2017-03-23T16:54:24Z
 title: Partitioned Policies
+tags: ["Policies", "Partitioning"]
+description: "How to create a partitioned policy"
 menu:
   main:
     parent: "Security Policies"

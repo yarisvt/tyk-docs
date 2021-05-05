@@ -1,13 +1,15 @@
 ---
 date: 2017-03-23T14:37:51Z
 title: Let's Encrypt
+tags: ["SSL", "Let's Encrypt"]
+description: "How to use Let's Encrypt SSL certificates in Tyk"
 menu:
   main:
     parent: "TLS and SSL"
 weight: 5
 ---
 
-Tyk v2.3 introduces experimental Let's Encrypt support. This module allows Tyk to automatically provision SSL certificates for domains as set for domains in a Tyk configuration using the ACME protocol and the Let's Encrypt service.
+Tyk v2.3 introduces experimental Let's Encrypt support. This module allows Tyk to automatically provision SSL certificates for domains as set in a Tyk configuration using the ACME protocol and the Let's Encrypt service.
 
 ### What is Let's Encrypt?
 

@@ -1,6 +1,8 @@
 ---
 date: 2017-03-23T16:15:37Z
 title: Physical Key Expiry and Deletion
+tags: ["Keys", "Expiry"]
+description: "How to expire keys in Tyk"
 menu:
   main:
     parent: "Authentication & Authorization"

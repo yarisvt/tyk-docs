@@ -1,6 +1,8 @@
 ---
 date: 2017-03-23T16:58:50Z
 title: Key Level Security
+tags: ["Keys", "Security"]
+description: "How to configure access control at key level in Tyk"
 menu:
   main:
     parent: "Security"

@@ -1,6 +1,8 @@
 ---
 date: 2020-03-17T19:13:22Z
 Title: Task 3 - Set up Your First Team
+tags: ["Tyk Stack", "Tyk Cloud", "SaaS", "Teams"]
+description: "Setting up your teams for Tyk Cloud"
 menu:
   main:
     parent: "Getting Started with Tyk Cloud"

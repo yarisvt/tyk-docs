@@ -1,6 +1,8 @@
 ---
 date: 2019-12-03T15:46:41Z
 Title: AWS Marketplace
+tags: ["Tyk Stack", "Self-Managed", "Installation", "AWS Marketplace"]
+description: "How to install the Tyk Stack via AWS Marketplace"
 menu:
   main:
     parent: "Installation"
@@ -32,9 +34,9 @@ Please [contact an account manager][7] in order to get a license.
 ## PAYG
 There are three billed through AWS Marketplace PAYG products to get you started.  The license for these products is baked into the product as an hourly cost.  Please follow this video in order to get started
 
-- [**PoC**][2]
-- [**High Availability (2-node)**][4]
-- [**AutoScaling (3+ node)**][3]
+- [PoC](https://aws.amazon.com/marketplace/pp/prodview-elvk5mxxlkueu?qid=1575313242174&sr=0-4&ref_=srh_res_product_title)
+- [High Availability (2-node)](https://aws.amazon.com/marketplace/pp/prodview-nempvlrcr4fq4?qid=1575313242174&sr=0-3&ref_=srh_res_product_title)
+- [AutoScaling (3+ node)](https://aws.amazon.com/marketplace/pp/prodview-2bgdxbpeygf5w?qid=1575313242174&sr=0-5&ref_=srh_res_product_title)
 
 ### Installation
 

@@ -1,6 +1,8 @@
 ---
 title: "Ansible"
 date: 2021-01-20
+tags: ["Tyk Gateway", "Open Source", "Installation", "Ansible"]
+description: "How to install the open source Tyk Gateway using Ansible"
 menu:
   main:
     parent: "Getting Started " # Child of APIM -> OSS

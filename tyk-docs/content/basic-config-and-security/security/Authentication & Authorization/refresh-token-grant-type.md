@@ -1,11 +1,13 @@
 ---
 date: 2017-03-23T16:06:42Z
 title: Refresh Token Grant Type
+tags: ["Grant Types", "Refresh Token"]
+description: "Using a Refresh Token grant type with OAuth 2.0"
 menu:
   main:
     parent: "OAuth 2.0"
 weight: 2
-url: "/basic-config-and-security/security/authentication-&-authorization/oauth2.0/refresh-token-grant"
+url: "/basic-config-and-security/security/authentication-&-authorization/oauth2-0/refresh-token-grant"
 ---
 
 The Refresh Token grant type uses the refresh token to generate a new token.

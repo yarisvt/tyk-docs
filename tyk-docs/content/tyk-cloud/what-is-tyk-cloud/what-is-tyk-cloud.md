@@ -1,6 +1,8 @@
 ---
 title: "What Is Tyk Cloud?"
 date: 2020-03-17T19:13:22Z
+tags: ["Tyk Stack", "Tyk Cloud", "SaaS"]
+description: "What is the Tyk Cloud SaaS solution?"
 weight: 1
 menu:
   main:

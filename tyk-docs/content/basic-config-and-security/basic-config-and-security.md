@@ -1,5 +1,7 @@
 ---
 title: Basic Configuration and Security
+tags: ["Gateway", "Security"]
+description: "Methods for securing the Tyk Gateway"
 menu:
     main:
         parent: Tyk Gateway

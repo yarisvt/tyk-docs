@@ -1,6 +1,8 @@
 ---
 date: 2017-03-23T16:11:54Z
 title: Open (Keyless)
+tags: ["Keyless", "Security"]
+description: "When to use keyless (open access) security with your APIs"
 menu:
   main:
     parent: "Authentication & Authorization"

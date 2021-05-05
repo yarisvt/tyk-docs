@@ -1,6 +1,8 @@
 ---
 date: 2017-03-22T16:54:02Z
 title: Docker Pro Demo on Windows
+tags: ["Tyk Stack", "Self-Managed", "Installation", "Docker", "Demo", "Windows"]
+description: "How to install our Docker Pro-Demo proof of concept using Docker on Windows"
 menu:
   main:
     parent: "With Docker"

@@ -55,7 +55,7 @@ The Example `token.json` file
 The import of the key to Tyk:
 
 ```
-curl http://127.0.0.1:8080/tyk/keys/abc -H 'x-tyk-authorization: 352d20ee67be67f6340b4c0605b044b7' -H 'Content-Type: application/json'  -d @token.json
+curl http://127.0.0.1:8080/tyk/keys/mycustomkey -H 'x-tyk-authorization: 352d20ee67be67f6340b4c0605b044b7' -H 'Content-Type: application/json'  -d @token.json
 ```
 
 Test the key after the import:

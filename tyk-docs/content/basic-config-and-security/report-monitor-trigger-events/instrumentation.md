@@ -1,6 +1,8 @@
 ---
 date: 2017-03-24T12:35:05Z
 title: Instrumentation
+tags: ["Monitoring", "StatsD", "NewRelic"]
+description: "How to configure StatsD and NewRelic monitoring in Tyk"
 menu:
   main:
     parent: "Report, Monitor and Trigger Events"
@@ -11,15 +13,15 @@ The Tyk Dashboard, Pump and Gateway use StatsD monitoring. StatsD is a network d
 
 Additionally, starting from Tyk Gateway v2.5, we support NewRelic instrumentation, see [NewRelic](#newrelic) for more details.
 
-## <a name="settings"></a>Settings
+## Settings
 
 Each Tyk component supports `statsd_connection_string`. Additionally you can set `statsd_prefix` to a custom prefix value. For example separate settings for production and staging. In order to enable instrumentation, you will need to set the environment variable: `TYK_INSTRUMENTATION=1`.
 
-## <a name="pump-specific"></a>Pump Specific Settings
+## Pump Specific Settings
 
 The Pump also requires setting the following environment variable: `TYK_INSTRUMENTATION=1`
 
-## <a name="statsd-keys"></a>StatsD Keys
+## StatsD Keys
 
 There are plenty of StatsD keys available when you enable statsd, but these are the basics:
 
@@ -37,7 +39,7 @@ Dashboard: `counters.<prefix>.SystemAPICall.SystemCallComplete.count` (requests 
 Pump: `counters.<prefix>.record.count` (number of records processed by pump)
 
 
-## <a name="newrelic"></a>NewRelic instrumentation
+## NewRelic instrumentation
 
 Supported only by the Tyk Gateway, starting from v2.5. Add the following config section to `tyk.conf` to make it work:
 ```

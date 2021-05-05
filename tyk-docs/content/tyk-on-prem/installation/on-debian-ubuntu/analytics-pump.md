@@ -1,6 +1,8 @@
 ---
 date: 2017-03-22T16:14:35Z
 Title: Tyk Pump on Ubuntu
+tags: ["Tyk Pump", "Self-Managed", "Installation", "Ubuntu", "Debian"]
+description: "How to install the Tyk Pump as part of the Tyk Stack on Ubuntu or Debian using Ansible or shell scripts"
 menu:
   main:
     parent: "On Debian / Ubuntu"

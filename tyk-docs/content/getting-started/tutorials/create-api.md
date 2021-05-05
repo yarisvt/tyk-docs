@@ -1,6 +1,8 @@
 ---
 date: 2017-03-09T11:10:21Z
 Title: Create an API
+tags: ["Tyk Tutorials", "Getting Started", "First API", "Tyk Cloud", "Tyk Self-Managed", "Tyk Open Source"]
+description: "Creating a first API using Tyk"
 menu:
   main:
     parent: "Getting Started"
@@ -85,7 +87,7 @@ curl -v -H "x-tyk-authorization: 352d20ee67be67f6340b4c0605b044b7" \
     },
     "proxy": {
       "listen_path": "/test-api/",
-      "target_url": "http://httpbin.org/",
+      "target_url": "http://echo.tyk-demo.com:8080/",
       "strip_listen_path": true
     },
     "active": true
@@ -145,7 +147,7 @@ Create a file called `api1.json` and place it in the `/apps` folder of your Tyk 
   },
   "proxy": {
     "listen_path": "/test-api/",
-    "target_url": "http://httpbin.org/",
+    "target_url": "http://echo.tyk-demo.com:8080/",
     "strip_listen_path": true
   },
   "active": true

@@ -27,7 +27,7 @@ The GraphiQL try-out playground comes with a series of features by default, whic
 
   **Headers**
 
-  Debugging a GraphQL API might require additional headers to be passed to the requests while playing with the GraphiQL interface. (i.e. `Authorization` header in case of Authentication Token protection over the API);
+  Debugging a GraphQL API might require additional headers to be passed to the requests while playing with the GraphiQL interface (i.e. `Authorization` header in case of Authentication Token protection over the API). This can be done using the dedicated headers tab in the Graphiql IDE.
 
 ![Headers](/docs/img/dashboard/udg/getting-started/headers.png)
 

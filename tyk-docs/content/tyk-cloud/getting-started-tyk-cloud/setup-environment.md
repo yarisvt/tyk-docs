@@ -1,6 +1,8 @@
 ---
 date: 2020-03-17T19:13:22Z
 Title: Task 4 - Set Up Environment and Configure Deployments
+tags: ["Tyk Stack", "Tyk Cloud", "SaaS", "Environment"]
+description: "Setting up your environment for Tyk Cloud"
 menu:
   main:
     parent: "Getting Started with Tyk Cloud"

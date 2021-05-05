@@ -1,6 +1,8 @@
 ---
 title: "Create a Python Code Bundle"
 date: 2020-05-15
+tags: ["Tyk Cloud", "Configuration", "Plugins", "Python"]
+description: "Creating a Python plugin code bundle for Tyk Cloud"
 menu:
   main:
     parent: "Python Custom Authentication" 
