@@ -1,5 +1,5 @@
 ---
-title: "Graphql WebSockets"
+title: "GraphQL WebSockets"
 date: 2021-05-05
 tags: ["GraphQL", "WebSockets"]
 description: "How to enable the WebSocket protocol support for GraphQL APIs in Tyk v3.2"
