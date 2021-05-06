@@ -52,5 +52,5 @@ https://github.com/TykTechnologies/tyk/releases/tag/v3.0.5
 Tyk Gateway 3.2
 Tyk Dashboard 3.2
 
-# Uprade process
+# Upgrade process
 If you already have GraphQL or UDG APIs you need to follow this upgrade guide https://tyk.io/docs/graphql/migration-guide/

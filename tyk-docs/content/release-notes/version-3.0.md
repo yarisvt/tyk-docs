@@ -3,7 +3,7 @@ title: Tyk v3.0
 menu:
   main:
     parent: "Release Notes"
-weight: 2
+weight: 3
 ---
 
 ### Version changes and LTS releases
