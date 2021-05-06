@@ -659,7 +659,6 @@ Example:
 ```
 (env var:**TYK_DB_SECURITY_PRIVATECERTIFICATEENCODINGSECRET**)
 
-
 ### ui
 
 This section controls various settings for the look and feel of the Dashboard UI.

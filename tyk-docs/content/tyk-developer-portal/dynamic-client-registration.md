@@ -10,12 +10,12 @@ weight: 1
 ## OAuth 2.0 Dynamic Client Registration Protocol (DCR)
 Available on version 3.2.0 onwards - currently not generally available but if you want beta access, get in touch! 
 
-# What is Dynamic client registration? 
+## What is Dynamic client registration? 
 
 DCR is a protocol of the Internet Engineering Task Force put in place to set standards in the dynamic registration of clients with authorisation servers. 
 We will go into the specifics of how it works in the context of Tyk, but if you are interested in reading the full RFC, go to: https://tools.ietf.org/html/rfc7591
 
-# Why should I use it? 
+## Why should I use it? 
 
 DCR is a way for you to integrate your developer portal with an external identity provider such as Keycloak, Gluu, Auth0, Okta etc... 
 The portal developer won't notice a difference. However when they create the app via Tyk Developer portal, Tyk will dynamically register that client on your authorization server. This means that it is the Authorization Server who will issue issue the Client ID and Client Secret for the app.
@@ -23,7 +23,7 @@ Some of our users leverage external Identity Providers because they provide a va
 
 This feature is optional and you can still have a great level of security only using Tyk as your authorisation server. 
 
-# Enabling Dynamic Client Registration
+## Enabling Dynamic Client Registration
 
 We provide guides for the following identity providers:
 
@@ -34,6 +34,6 @@ Support for Gluu has also been tested, you may find the docs [here](https://www.
 
 In case your provider isn't on the list, use the "Other" provider option in the DCR settings. This mode would keep the interaction with your IDP as standard possible. Note that not all IDPs fully implement the standard.
 
-# Troubleshooting
+## Troubleshooting
 
 The DCR functionality abstracts most of the errors to the end user (in this case, the developer). In order to diagnose issues between Tyk and your IDP, please refer to the Tyk Dashboard logs.
