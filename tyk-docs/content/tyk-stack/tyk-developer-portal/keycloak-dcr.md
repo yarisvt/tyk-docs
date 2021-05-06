@@ -1,6 +1,6 @@
 ---
 date: 2021-03-22T10:00:00Z
-title: Dynamic Client Registration using Keycloack
+title: Dynamic Client Registration using Keycloak
 menu:
   main:
     parent: "Tyk Developer Portal"
