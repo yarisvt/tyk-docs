@@ -1,6 +1,8 @@
 ---
 date: 2017-03-23T16:33:00Z
 title: Policies Guide
+tags: ["Policies", "Security"]
+description: "How to create and use policies in Tyk"
 menu:
   main:
     parent: "Security Policies"
@@ -69,7 +71,7 @@ To the policy object, when the key is generated, the expiry will be forced.
 
 Tyk Pro (The Dashboard) has policies enabled by default.
 
-### Configuring Community Edition to use a policy list
+### Configuring the Open Source Edition to use a policy list
 
 If your Tyk configuration is standalone and configuration is being managed via the Gateway API without the support of the dashboard, then you will need to set the `policies section` in your configuration file as follows:
 
@@ -148,6 +150,6 @@ Although we have set the main factors of the key, they will be overridden by the
 
 [With the Dashboard API](/docs/getting-started/tutorials/create-security-policy/#tutorial-create-a-security-policy-with-the-api)
 
-[With the Gateway API - Community Edition tab](/docs/getting-started/tutorials/create-security-policy)
+[With the Gateway API - Open Source tab](/docs/getting-started/tutorials/create-security-policy)
 
 [With the Dashboard](/docs/getting-started/tutorials/create-security-policy/#tutorial-create-a-security-policy-with-the-dashboard)

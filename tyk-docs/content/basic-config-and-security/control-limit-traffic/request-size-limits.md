@@ -1,6 +1,8 @@
 ---
 date: 2017-03-23T17:18:54Z
 title: Request Size Limits
+tags: ["Request size limits"]
+description: "The key concepts for implementing rate limits and quotas with Tyk"
 menu:
   main:
     parent: "Control & Limit Traffic"
@@ -9,7 +11,7 @@ weight: 4
 
 ## Maximum Request Sizes
 
-Tyk supports forcing request size limits at the API and individual endpoint level. Tyk will reject any request that is too big.
+Tyk supports forcing request size limits at the API and individual endpoint level. Tyk will reject any request that exceeds the size you set.
 
 {{< note success >}}
 **Note**  

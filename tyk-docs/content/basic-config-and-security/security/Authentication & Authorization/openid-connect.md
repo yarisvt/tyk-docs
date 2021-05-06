@@ -1,6 +1,8 @@
 ---
 date: 2017-03-23T16:13:12Z
 title: OpenID Connect
+tags: ["OpenID", "OIDC", "Security"]
+description: "Using OpenID Identity Tokens with Tyk"
 menu:
   main:
     parent: "Authentication & Authorization"

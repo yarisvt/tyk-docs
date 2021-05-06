@@ -1,6 +1,8 @@
 ---
 date: 2019-04-01T12:47:30Z
 title: Request Throttling
+tags: ["Request throttling"]
+description: "How to queue and retry requests in Tyk"
 menu:
   main:
     parent: "Control & Limit Traffic"
@@ -11,7 +13,7 @@ weight: 2
 
 From v2.8, when hitting quota or rate limits, the Gateway now can now automatically queue and auto-retry client requests. Throttling can be configured at a *key* or *policy* level via the following two fields: 
 
-1. `throttle_interval`: Interval(in seconds) between each request retry.
+1. `throttle_interval`: Interval (in seconds) between each request retry.
 2. `throttle_retry_limit`: Total request retry number.
 
 

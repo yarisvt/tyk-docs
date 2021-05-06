@@ -1,6 +1,8 @@
 ---
 date: 2017-03-24T12:33:05Z
 title: Event Types
+tags: ["Events", "Types", "JavaScript"]
+description: "The events that can be raised in Tyk"
 menu:
   main:
     parent: "Report, Monitor and Trigger Events"

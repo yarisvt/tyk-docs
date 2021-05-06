@@ -1,10 +1,12 @@
 ---
 date: 2017-03-23T14:59:47Z
-title: Create Users 
+title: Create Users
+tags: ["Users", "Creation"]
+description: "How to create users and set their permissions" 
 menu:
   main:
     parent: "Dashboard"
-weight: 2 
+weight: 2
 ---
 
 Dashboard users have twofold access to the dashboard: they can access both the Dashboard API and the dashboard itself, it is possible to generate users that have read-only access to certain sections of the dashboard and the underlying API.
@@ -44,9 +46,10 @@ You can be very specific with regards to which pages and segments of the Dashboa
 Permissions are set and enforced when they are set on this page. They can either be **read** or **write**. If  set to **deny** then the record is non-existent in the object (there is no explicit "deny"). This means that if you set **deny** on all options it looks as if they have not been written, but they will still be enforced so long as even one read or write option has been set.
 
 {{< note success >}}
-**Note**  
+**Note**
 
 You can now create your own custom permissions using the [Additional Permissions API](/docs/tyk-dashboard-api/org/permissions/) or by updating, [`security.additional_permissions`](/docs/tyk-dashboard/open-policy-agent/#configuration) map, in the Tyk Dashboard config.
+Custom permissions could be also managed over config file in the Dashboard config file (`tyk_analytics.conf`).
 {{< /note >}}
 
 ### Step 5: Click "Save"
@@ -99,7 +102,7 @@ The user is now active.
 
 
 You can change your password in these circumstances:
- 
+
 *  If you have forgotten your password
 *  If you wish to change your password
 
@@ -111,7 +114,7 @@ If you have forgotten your password, you can request a password reset email from
 Enter your login email address, and you will receive an email with a link that enables you to create a new password.
 
 {{< note success >}}
-**Note**  
+**Note**
 
 This link will only be valid for 1000 seconds
 
@@ -123,7 +126,7 @@ You will need to configure your [outbound email settings](/docs/configure/outbou
 If you wish to change your current password, from the **System Management > Users** screen, select **Edit** for your Username.
 
 {{< note success >}}
-**Note**  
+**Note**
 
 You will not be able to change the password for other Dashboard users.
 {{< /note >}}

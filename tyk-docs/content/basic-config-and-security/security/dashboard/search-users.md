@@ -1,6 +1,8 @@
 ---
 date: 2017-03-23T14:42:33Z
 title: Search Users
+tags: ["Users", "Search"]
+description: "How to search for users in the Tyk Dashboard"
 menu:
   main:
     parent: "Dashboard"

@@ -1,6 +1,8 @@
 ---
 date: 2017-03-24T12:35:05Z
 title: Monitors
+tags: ["Monitors", "Quotas"]
+description: "How to enable monitors in Tyk"
 menu:
   main:
     parent: "Report, Monitor and Trigger Events"

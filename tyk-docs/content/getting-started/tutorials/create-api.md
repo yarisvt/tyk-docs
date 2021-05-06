@@ -87,7 +87,7 @@ curl -v -H "x-tyk-authorization: 352d20ee67be67f6340b4c0605b044b7" \
     },
     "proxy": {
       "listen_path": "/test-api/",
-      "target_url": "http://httpbin.org/",
+      "target_url": "http://echo.tyk-demo.com:8080/",
       "strip_listen_path": true
     },
     "active": true
@@ -147,7 +147,7 @@ Create a file called `api1.json` and place it in the `/apps` folder of your Tyk 
   },
   "proxy": {
     "listen_path": "/test-api/",
-    "target_url": "http://httpbin.org/",
+    "target_url": "http://echo.tyk-demo.com:8080/",
     "strip_listen_path": true
   },
   "active": true

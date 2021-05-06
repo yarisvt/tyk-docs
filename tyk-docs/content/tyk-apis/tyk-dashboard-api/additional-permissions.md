@@ -15,6 +15,7 @@ This API helps you to manage (CRUD) the list of additional (custom) permissions 
 Once created, a custom permission will be added to standard list of user permissions.
 
 Only Admin Dashboard users will be authorised to use it.
+
 {{< /note >}}
 
 
@@ -68,8 +69,10 @@ Whenever you want to add/update/delete an additional permission, just send back 
 
 #### Sample Request
 
+
 Let's imagine you have already defined two additional permissions: `api_developer` and `api_manager`. In order to add a new permission to this list, just send 
 an updated list of permissions by appending the values you want. In this case you will add `custom_permission` value.
+
 
 ```{.copyWrapper}
 PUT /api/org/permissions HTTP/1.1

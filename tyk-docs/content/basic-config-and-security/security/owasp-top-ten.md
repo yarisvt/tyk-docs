@@ -1,6 +1,8 @@
 ---
 date: 2017-03-23T16:58:50Z
 title: Tyk and OWASP Top Ten Threats
+tags: ["OWASP", "Security", "Top Ten"]
+description: "How Tyk guards agains the OWASP top ten threats"
 menu:
   main:
     parent: "Security"

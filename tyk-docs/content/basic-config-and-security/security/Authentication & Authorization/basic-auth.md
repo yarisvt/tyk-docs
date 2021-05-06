@@ -1,6 +1,8 @@
 ---
 date: 2017-03-23T15:28:35Z
 title: Basic Authentication
+tags: ["Authentication", "Security"]
+description: "Using basic authentication to lock-down your APIs with Tyk"
 menu:
   main:
     parent: "Authentication & Authorization"

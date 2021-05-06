@@ -1,6 +1,8 @@
 ---
 date: 2017-03-23T14:39:30Z
 title: Dashboard
+tags: ["Dashboard", "Security"]
+description: "How to secure the Tyk Dashboard"
 menu:
   main:
     parent: "Security"

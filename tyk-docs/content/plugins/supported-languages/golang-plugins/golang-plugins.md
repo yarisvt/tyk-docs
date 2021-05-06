@@ -143,12 +143,13 @@ curl http://localhost:8181/my_api_name/get
 We see that the upstream target has received the header `"Foo": "Bar"` which was added by our custom middleware implemented as a native Golang plugin in Tyk.
 
 ### Types of custom middleware hooks supported by Tyk Golang plugins
-All four types of custom middleware are supported by Tyk Golang plugins. They represent different request stages where Golang plugins can be added as part of the middleware chain. Let's recap the meaning of all four types:
+All types of custom middleware hooks are supported by Tyk Golang plugins. They represent different request stages where Golang plugins can be added as part of the middleware chain. Let's recap the meaning of all these types:
 
 * `"pre"` - contains array of middlewares to be run before any others (i.e. before authentication).
 * `"auth_check"` - contains only one middleware info, his middleware performs custom authentication and adds API key session info into request context.
 * `"post_auth_check"` - contains array of middlewares to be run after authentication, at this point we have authenticated session API key for the given key (in request context) so we can perform any extra checks.
 * `"post"` - contains array of middlewares to be run at the very end of middleware chain, at this point Tyk is about to request a round-trip to the upstream target.
+* `"response"` - run only at the point the response has returned from a service upstream of the API Gateway. `NOTE: The method signature for Go repsonse plugins varies from the other hook types` 
 
 #### Custom Auth Hook
 `"auth_check"` can be used only if both fields in the Tyk API definition are set:
@@ -632,3 +633,62 @@ func MyPluginFunction(w http.ResponseWriter, r *http.Request) {
 }
 ```
 `ctx.GetSession` returns an UserSession object, the Go data structure can be found [here](https://github.com/TykTechnologies/tyk/blob/master/user/session.go#L87)
+
+
+### Using a Go Response Plugin
+
+Now you need to instruct Tyk to load this shared library for an API so it will start processing traffic as part of the middleware chain. To do so you will need to edit your API spec using the raw JSON editor in the Tyk Dashboard or directly in the JSON file (in the case of the Open Source edition). This change needs to be done for the "custom_middleware" field and it looks like this:
+
+```
+"custom_middleware": {
+  "pre": [],
+  "post_key_auth": [],
+  "auth_check": {},
+  "post": [],
+  "response": [
+    {
+      "name": "MyResponsePlugin",
+      "path": "<path>/resplugin.so"
+    }
+  ],
+  "driver": "goplugin"
+}
+
+```
+
+Here you have:
+
+`"driver"` - Set this to goplugin (no value created for this plugin) which says to Tyk that this custom middleware is a Golang native plugin.
+`"response"` - This is the hook name. You use middleware with a hook type response because you want this custom middleware to process the request on its return leg of a round trip.
+`response.name` - is your function name from the go plugin project.
+`response.path` - is the full or relative (to the Tyk binary) path to .so file with plugin implementation (make sure Tyk has read access to this file)
+Response plugin method signature
+
+To write a response plugin in Go you need it to have a method signature as in the example below i.e. `func MyResponseFunctionName(rw http.ResponseWriter, res *http.Response, req *http.Request)`. You can then access and modify any part of the request or response. User session and API definition data can be accessed as with other Go plugin hook types.
+
+
+```
+package main
+
+import (
+	"bytes"
+	"encoding/json"
+	"io/ioutil"
+	"net/http"
+
+)
+
+// MyPluginResponse intercepts response from upstream 
+func MyPluginResponse(rw http.ResponseWriter, res *http.Response, req *http.Request) {
+        // add a header to our response object
+	res.Header.Add("X-Response-Added", "resp-added")
+
+        // overwrite our response body
+	var buf bytes.Buffer
+	buf.Write([]byte(`{"message":"Hi! I'm a response plugin"}`))
+	res.Body = ioutil.NopCloser(&buf)
+
+}
+
+func main() {}
+```

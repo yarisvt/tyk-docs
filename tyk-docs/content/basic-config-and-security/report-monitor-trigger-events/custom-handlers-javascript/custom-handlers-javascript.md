@@ -1,6 +1,8 @@
 ---
 date: 2017-03-24T12:42:33Z
 title: Custom Handlers (JavaScript)
+tags: ["Events", "Custom handlers", "JavaScript"]
+description: "How to script custom JavaScript handlers for events with Tyk"
 menu:
   main:
     parent: "Report, Monitor and Trigger Events"

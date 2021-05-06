@@ -1,6 +1,8 @@
 ---
 date: 2017-03-23T15:58:42Z
 title: Multiple Auth
+tags: ["Authentication", "Multiple"]
+description: "How to combine multiple authentication methods to lock-down your APIs"
 menu:
   main:
     parent: "Authentication & Authorization"

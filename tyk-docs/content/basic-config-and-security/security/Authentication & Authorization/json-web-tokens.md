@@ -1,6 +1,8 @@
 ---
 date: 2017-03-23T15:50:24Z
 title: JSON Web Tokens
+tags: ["JWT", "JSON Web Token", "Security"]
+description: "How to protect your APIs with JSON Web Tokens"
 menu:
   main:
     parent: "Authentication & Authorization"

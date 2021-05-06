@@ -40,7 +40,7 @@ In `tyk.conf` on `tracing` setting
       "disabled": false,
       "headers": null,
       "reporter": {
-        "BufferFlushInterval": 0,
+        "BufferFlushInterval": "0s",
         "collectorEndpoint": "",
         "localAgentHostPort": "jaeger:6831",
         "logSpans": true,
@@ -52,7 +52,7 @@ In `tyk.conf` on `tracing` setting
       "sampler": {
         "maxOperations": 0,
         "param": 1,
-        "samplingRefreshInterval": 0,
+        "samplingRefreshInterval": "0s",
         "samplingServerURL": "",
         "type": "const"
       },
