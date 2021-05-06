@@ -14,7 +14,8 @@ aliases: /tyk-apis/tyk-dashboard-api/org/permissions
 This API helps you to manage (CRUD) the list of additional (custom) permissions for your Dashboard.
 Once created, a custom permission will be added to standard list of user permissions.
 
-Only Admin Dashboard users will be authorized to use it.
+Only Admin Dashboard users will be authorised to use it.
+
 {{< /note >}}
 
 
@@ -54,7 +55,7 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 {{< note success >}}
 **Note**  
 
-Whenever you want to add/update/delete an additional permission, just send back the updated list of permissions, through a PUT request to the API.
+Whenever you want to add/update/delete an additional permission, just send back the updated list of permissions via a PUT request to the API.
 {{< /note >}}
 
 
@@ -68,8 +69,10 @@ Whenever you want to add/update/delete an additional permission, just send back 
 
 #### Sample Request
 
-Let's imagine we have already defined two additional permissions: `api_developer` and `api_manager`. In order to add a new permission to this list, just send 
-an updated list of permissions by appending the values you want. In this case we will add `custom_permission` value.
+
+Let's imagine you have already defined two additional permissions: `api_developer` and `api_manager`. In order to add a new permission to this list, just send 
+an updated list of permissions by appending the values you want. In this case you will add `custom_permission` value.
+
 
 ```{.copyWrapper}
 PUT /api/org/permissions HTTP/1.1
