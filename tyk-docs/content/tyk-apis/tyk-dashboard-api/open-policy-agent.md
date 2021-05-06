@@ -4,15 +4,19 @@ title: Open Policy Agent
 menu:
   main:
     parent: "Tyk Dashboard API"
-weight: 5
+weight: 5 
 url: /tyk-dashboard-api/org/opa
 aliases: /tyk-apis/tyk-dashboard-api/org/opa
 ---
 {{< note success >}}
-**Note**
+**Note**  
 
 This API helps you to manage (CRUD) the OPA (Open Policy Agent) rules, that are being applied to the Tyk Dashboard. Also through this API,
+<<<<<<< HEAD
 you are able to change the OPA settings, such as to enable or disable it.
+=======
+you are able to change the OPA settings, such as to enable/disable it or enable/disable the debug mode.
+>>>>>>> origin
 
 Only Admin Dashboard users will be authorised to use it.
 {{< /note >}}
@@ -20,7 +24,11 @@ Only Admin Dashboard users will be authorised to use it.
 
 ### List OPA rules and settings
 
+<<<<<<< HEAD
 This API returns by default, the initial set of OPA rules defined in Tyk Dashboard, which are located in [schema/dashboard.rego](/docs/tyk-dashboard/opa-rules/) (accessible in Self-Managed installations).
+=======
+This API returns by default the initial set of OPA rules defined in your Tyk Dashboard, which are located in [`schema/dashboard.rego`](/docs/tyk-dashboard/opa-rules/) (accessible in Self-Managed installations).
+>>>>>>> origin
 
 Once you update the rules via the API, the OPA rules will be stored at the organisation level.
 
@@ -53,7 +61,7 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 ### Update OPA rules and settings
 
 {{< note success >}}
-**Note**
+**Note**  
 
 Whenever you want to update OPA rules or its settings, just send back the updated value of the OPA rules or changed values for the settings (`enabled`) , via a PUT request to the API.
 
@@ -94,3 +102,4 @@ authorization:7a7b140f-2480-4d5a-4e78-24049e3ba7f8
     "Meta": null
 }
 ```
+
