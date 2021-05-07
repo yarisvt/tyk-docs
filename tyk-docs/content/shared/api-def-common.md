@@ -17,8 +17,8 @@
 *   `session_lifetime`: The session lifetime will override the expiry date if it has been set on a key (in seconds). for example, if a key has been created that never expires, then it will remain in the session cache forever unless manually deleted. If a re-auth needs to be forced or a default expiry needs to be applied to all keys, then use this feature to set the session expiry for an entire API.
 
 * `domain`: The domain to bind this API to. Multiple APIs can share the same domain, so long as their listen paths are unique.
-This domain will affect your API only, to set up the portal domain for your organisation, please register it in the main dashboard settings file. 
-Tyk Gateway can listen on multiple domains/subdomains through the use of regular expressions, more precisely the RE2 Syntax. They are defined using the format `{name}` or `{name:pattern}`. 
+This domain will affect your API only. To set up the portal domain for your organisation, please register it in the main Tyk Dashboard settings file. 
+Your Tyk Gateway can listen on multiple domains/subdomains through the use of regular expressions, more precisely the RE2 Syntax. They are defined using the format `{name}` or `{name:pattern}`. 
   * `www.example.com` Matches only if domain is www.example.com
   * `{subdomain:[a-z]+}.example.com` Matches dynamic subdomain
   * `{subdomain:foo|bar}.example.com` will listen on foo.example.com and bar.example.com"
