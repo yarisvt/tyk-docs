@@ -1,6 +1,6 @@
 ---
 date: 2017-03-27T12:13:12+01:00
-title: Open Policy Agent
+title: Open Policy Agent (OPA)
 menu:
   main:
     parent: "Tyk Dashboard API"
