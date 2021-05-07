@@ -17,7 +17,7 @@ you are able to change the OPA settings, such as to enable/disable it or enable/
 Only Admin Dashboard users will be authorised to use it.
 {{< /note >}}
 
-
+For more information on how to configure OPA see [Open Policy Agent](/docs/tyk-dashboard/open-policy-agent/).
 ### List OPA rules and settings
 
 This API returns by default, the initial set of OPA rules defined in Tyk Dashboard, which are located in [schema/dashboard.rego](/docs/tyk-dashboard/opa-rules/) (accessible in Self-Managed installations).
