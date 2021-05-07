@@ -137,6 +137,8 @@ Once installed, modify your `/opt/tyk-sink/tyk_sink.conf` file as follows:
 |`forward_analytics_to_pump` |   bool  |Instead of sending analytics directly to MongoDB, MDCB can send analytics to Redis. This will allow [tyk-pump] (https://github.com/TykTechnologies/tyk-pump) to pull analytics from Redis and send to your own data sinks.|
 |`enable_multiple_analytics_keys` |   bool  |Instead of saving all the analytics in one key, this will enable to save the analytics in multiple keys. It's specially useful when you are using Redis cluster. This will work only if `forward_analytics_to_pump` is true and tyk-pump is v1.2.1+ .|
 |`ignore_tag_prefix_list` |   String Array  |If custom analytics tags are used (`tag_header`), you may disable generating aggregate analytics for these tags. E.g.<br>`["Request-Id", "Secret-Key"]` will stop aggregating data for headers that *starts* with `Request-Id*` and `Secret-Key*`. <br> This field is replacing  `aggregates_ignore_tags` which is now deprecated|
+|`enable_separate_analytics_store` |   bool  |Set it to true if you are using a separated analytic storage in the master gateway. If `forward_analytics_to_pump` is true, it will forward the analytics to the separated storage specified in `analytics_storage`.|
+|`analytics_storage` |   object  |This section describes your separated analytic Redis DB. It has the same fields as `storage`. It requires `enable_separate_analytics_store` set to true. |
 |`analytics` |   object  ||
 |`analytics.mongo_url` |   string  |Connection string for MongoDB.|
 |`license` | string    |Enter your license in this section so MDCB can start.|
