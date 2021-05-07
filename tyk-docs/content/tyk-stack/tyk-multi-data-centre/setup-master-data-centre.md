@@ -139,6 +139,12 @@ Once installed, modify your `/opt/tyk-sink/tyk_sink.conf` file as follows:
 |`ignore_tag_prefix_list` |   String Array  |If custom analytics tags are used (`tag_header`), you may disable generating aggregate analytics for these tags. E.g.<br>`["Request-Id", "Secret-Key"]` will stop aggregating data for headers that *starts* with `Request-Id*` and `Secret-Key*`. <br> This field is replacing  `aggregates_ignore_tags` which is now deprecated|
 |`analytics` |   object  ||
 |`analytics.mongo_url` |   string  |Connection string for MongoDB.|
+|`analytics.mongo_use_ssl` |   string  |A Boolean setting for Mongo SSL support. Set to true to enable SSL.|
+|`analytics.mongo_ssl_insecure_skip_verify` |   string  |This setting allows the use of self-signed certificates when connecting to an encrypted MongoDB database.|
+|`analytics.mongo_ssl_allow_invalid_hostnames` |   string  |ignore hostname check when it differs from the original (for example with SSH tunneling). The rest of the TLS verification will still be performed|
+|`analytics.mongo_ssl_ca_file` |   string  |path to the PEM file with trusted root certificates|
+|`analytics.mongo_ssl_pem_keyfile` |   string  |path to the PEM file which contains both client certificate and private key. This is required for Mutual TLS.|
+|`analytics.mongo_batch_size` |   string  |Sets the batch size for mongo results.|
 |`license` | string    |Enter your license in this section so MDCB can start.|
 
 
