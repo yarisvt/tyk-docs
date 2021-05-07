@@ -19,7 +19,7 @@ Only Admin Dashboard users will be authorized to use it.
 
 
 ### List Additional Permissions
-This API returns by default, the initial set of additional permissions defined in Tyk Dashboard configuration, under [`security.additional_permissions`](/docs/tyk-dashboard/open-policy-agent/#configuration).
+This API returns by default, the initial set of additional permissions defined in Tyk Dashboard configuration, under [security.additional_permissions](/docs/tyk-dashboard/configuration/#securityadditional_permissions).
 
 Once you update the permissions via the API, they will be stored at organisation level.
 

@@ -6,7 +6,7 @@ menu:
 url: "/tyk-dashboard/open-policy-agent"
 ---
 
-Tyk Dashboard permission system can be extended by writing custom rules using Open Policy Agent (OPA). The rule engine works on top of Dashboard API, which means you can control not only access rules, but also behaviour of all Dashboard APIs (except public developer portal).
+The Tyk Dashboard permission system can be extended by writing custom rules using an Open Policy Agent (OPA). The rule engine works on top of your Dashboard API, which means you can control not only access rules, but also behaviour of all Dashboard APIs (except your public developer portal).
 
 To give you some inspiration here are some ideas of the rules you can implement now:
 
@@ -28,11 +28,10 @@ You can control OPA functionality on global level via configuration file or per 
 | security.additional_permissions        | string map | Add custom user/user_group permissions. You can use them in your rules, and they will be displayed on UI | `{"key": "human name"}` |
 
 
-With Opa turned on, the majority of the security rules will be dynamically evaluated based on these rules.
+With the OPA turned on, the majority of the security rules will be dynamically evaluated based on these rules.
 
-Additionally, users can modify OPA rules, and define their own, through the [OPA API](/docs/tyk-dashboard-api/org/permissions/), or, On-premises users can access and modify the OPA rules from the file system, in [`schemas/dashboard.rego`](/docs/tyk-dashboard/opa-rules).
-Moreover, using these rules you can also modify request content 🚀
-Suggestion is to use those modifications in dev environments also do not forget to create a backup of the rego rules (ideally to store it in git)
+Additionally, users can modify OPA rules, and define their own, through the [OPA API](/docs/tyk-dashboard-api/org/permissions/). For Self-Managed installations you can access and modify the OPA rules from your Tyk installation directory from [schemas/dashboard.rego](/docs/tyk-dashboard/opa-rules).
+Moreover, using these rules you can also modify request content. Our recommendation is to use those modifications in a development environment and remember to create a backup of the rego rules.
 
 ### Language intro
 The Open Policy Agent (OPA, pronounced “oh-pa”) is an open source, general-purpose policy engine that unifies policy enforcement across the stack. OPA provides a high-level declarative language (Rego) that lets you specify policy as code and simple APIs to offload policy decision-making from your software. (source: https://www.openpolicyagent.org/docs/latest/)
