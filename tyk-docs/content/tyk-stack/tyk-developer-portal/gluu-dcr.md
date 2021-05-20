@@ -1,10 +1,10 @@
 ---
 date: 2021-03-22T10:00:00Z
-title: Dynamic Client Registration using Gluu
+title: Step by step guide using Gluu
 menu:
   main:
-    parent: "Tyk Developer Portal"
-weight: 7 
+    parent: "Dynamic Client Registration"
+weight: 3 
 url: /tyk-developer-portal/gluu-dcr
 ---
 
