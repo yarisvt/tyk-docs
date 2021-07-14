@@ -15,7 +15,7 @@ Hybrid Gateways are available on our [14 Day Free Trial](/docs/tyk-cloud/account
 
 ### Sample Hybrid Gateway Configuration File
 
-```.copyWrapper
+```.json
 {
     "listen_port": 8081,
     "template_path": "./templates",
@@ -102,4 +102,48 @@ Hybrid Gateways are available on our [14 Day Free Trial](/docs/tyk-cloud/account
     "max_idle_connections_per_host": 500,
     "enable_custom_domains": true
 }
+```
+
+## Installing Hybrid Gateways in a Kubernetes Cluster
+This Helm Chart provides a method of adding Hybrid Gateways into your Kubernetes cluster.
+The Hybrid Gateways can connected to *Tyk Cloud* or to a *Tyk Self managed Control plane* (a.k.a *MDCB* or *Tyk Multi data centre bridge*). 
+
+### Add Tyk official Helm repo
+```bash
+helm repo add tyk-helm https://helm.tyk.io/public/helm/charts/
+helm repo update
+```
+
+### Create namespace for tyk deployment
+```bash
+kubectl create namespace tyk
+```
+
+### Installing Redis
+If you have an external SaaS Redis you can skip this section. 
+
+For Redis you can use these rather excellent chart provided by Bitnami.
+
+```bash
+helm install tyk-redis bitnami/redis -n tyk
+```
+
+Follow the notes from the installation output to get connection details and update them in your local `values.yaml` file.
+Alternatively, you can use `--set redis.pass=$REDIS_PASSWORD` flag to set it in Tyk installation.  
+
+### Getting and Setting values.yaml
+Before we proceed with installation of the chart you need to set some custom values. 
+To see what options are configurable on a chart and save that options to a custom `values.yaml` file run:
+ ```bash
+helm show values tyk-helm/tyk-hybrid > values.yaml
+```
+
+1. to allow the *Tyk Hybrid Gateway* to connect to *Tyk control plane* (*MDCB* management layer), add your connection 
+string in the `gateway.rpc.connString`. On the Tyk Cloud Console find this value in the endpoints panel for your control plane deployment.
+2. For *Tyk Gateway* to identify itself against *Tyk control plane*, add your Dashboard users API key in the `gateway.rpc.apiKey` field.
+3. Add your Dashboard users organisation ID in the `gateway.rpc.rpcKey` field
+
+Then run the following command from the root of the repository:
+```bash
+helm install tyk-hybrid tyk-helm/tyk-hybrid --version 0.9.1 -f values.yaml -n tyk
 ```
