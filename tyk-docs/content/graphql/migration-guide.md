@@ -9,7 +9,8 @@ aliases:
     - /graphql/migration/
 ---
 
-As of 3.2 GraphQL schema under tyk API definition (i.e `api_definition.graphql`) changed significantly, hence GraphQL API definitions created in previous beta versions are not supported via the UI and need to go through manual migration.
+
+As of 3.2 GraphQL schema for Tyk API definitions (i.e `api_definition.graphql`) changed significantly, hence GraphQL API definitions created in previous beta versions are not supported via the UI and need to go through manual migration.
 
 {{< note success >}}
 **Note**
@@ -20,6 +21,7 @@ Before you continue, we strongly advise to simply create a new API and avoid mig
 
 {{< note success >}}
 **Note**
+
 
 Old Api definitions will continue to work for the gateway
 

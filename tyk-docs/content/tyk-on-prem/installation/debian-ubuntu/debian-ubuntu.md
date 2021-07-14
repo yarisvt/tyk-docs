@@ -1,17 +1,17 @@
 ---
 date: 2017-03-22T15:46:41Z
-Title: On Debian / Ubuntu
+Title: "Debian / Ubuntu "
 tags: ["Tyk Stack", "Self Managed", "Installation", "Ubuntu", "Debian"]
 description: "How to install the Tyk Stack on Ubuntu or Debian using Ansible or with shell scripts"
 menu:
   main:
-      parent: "Installation"
+      parent: "Self-Managed Installation"
 weight: 5
 url: "/tyk-on-premises/debian-ubuntu"
 aliases:
   - /getting-started/installation/with-tyk-on-premises/on-ubuntu/
   - /getting-started/installation/tyk-on-premises/on-ubuntu/
-  - /tyk-on-premises/on-debian-ubuntu
+  - /tyk-on-premises/debian-ubuntu
 
 ---
 {{< tabs_start >}}
