@@ -84,10 +84,7 @@ Alternatively, you can use `--set` flag to set it in Tyk installation. For examp
 helm install tyk-mongo bitnami/mongodb --set "replicaSet.enabled=true" -n tyk
 ```
 
-Follow notes from the installation output to get connection details and password.
-The DNS name of your MongoDB as set with Bitnami is `tyk-mongo-mongodb.tyk.svc.cluster.local`
-You can update them in your local `values.yaml` file under `mongo.mongoURL`
-Alternatively, you can use `--set` flag to set it in Tyk installation.
+Follow the notes from the installation output to get connection details and password. The DNS name of your MongoDB as set with Bitnami is `tyk-mongo-mongodb.tyk.svc.cluster.local` and you also need to set the `authSource` parameter to `admin`. The full `mongoURL` should be similar to `mongoURL: mongodb://root:pass@tyk-mongo-mongodb.tyk.svc.cluster.local:27017/tyk_analytics?authSource=admin`. You can update them in your local `values.yaml` file under `mongo.mongoURL` Alternatively, you can use `--set` flag to set it in your Tyk installation.
 
 {{< note success >}}
 **Important Note regarding MongoDB**
@@ -126,13 +123,13 @@ To ensure that your Gateway pods will not scale beyond your license allowance, c
 and the replica count to your license node limit. For example, use the following options for a single node license:
 `--set gateway.kind=Deployment --set gateway.replicaCount=1` in your `values.yaml` file or in the Helm install command.
 
-{{< warning >}}
-
+{{< note success >}}
 **Please Note**
+
 There may be intermittent issues on the new pods during the rolling update process, when the total number of online
 gateway pods is more than the license limit with lower amounts of Licensed nodes.
 
-{{< /warning >}}
+{{< /note >}}
 
 ### Installing Tyk Self managed
 Now we can install the chart using our custom values:
@@ -141,7 +138,12 @@ Now we can install the chart using our custom values:
 helm install tyk-pro tyk-helm/tyk-pro -f ./values.yaml -n tyk --wait
 ```
 
->Please note the `--wait` argument is important to successfully finish the bootstrap job of *Tyk Manager*.
+{{< note success >}}
+**Important Note regarding MongoDB**
+
+The `--wait` argument is important to successfully complete the bootstrap of your *Tyk Manager*..
+
+{{< /note >}}
 
 #### Tyk Developer Portal
 You can disable the bootstrapping of the Developer Portal by the `portal.bootstrap: false` in your local `values.yaml` file.
