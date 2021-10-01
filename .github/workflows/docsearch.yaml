@@ -5,7 +5,12 @@ on:
 jobs:
   index:
     runs-on: ubuntu-latest
+    env:
+      APPLICATION_ID: ${{ secrets.ALGOLIA_APPLICATION_ID }}
+      API_KEY: ${{ secrets.ALGOLIA_APP_ID }}
+      CONFIG: ${{ secrets.ALGOLIA_CONFIG }}
+      
     steps:
       - name: Index
-        run: docker run -i -e APPLICATION_ID=${{ secrets.ALGOLIA_APPLICATION_ID }} -e API_KEY=${{ secrets.ALGOLIA_APP_ID }} -e "CONFIG=${{ secrets.ALGOLIA_CONFIG }}" algolia/docsearch-scraper
+        run: docker run -i -e APPLICATION_ID=$APPLICATION_ID -e API_KEY=$API_KEY -e "CONFIG=$CONFIG" algolia/docsearch-scraper
 
