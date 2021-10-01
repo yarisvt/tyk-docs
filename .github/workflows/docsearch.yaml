@@ -1,0 +1,15 @@
+name: Index update
+on: 
+  workflow_dispatch:
+    inputs:
+
+jobs:
+  index:
+    runs-on: ubuntu-latest
+    steps:
+    container:
+      image: algolia/docsearch-scraper
+      env:
+        - APPLICATION_ID: ${{ secrets.ALGOLIA_APPLICATION_ID }}
+        - API_KEY: ${{ secrets.ALGOLIA_APP_ID }}
+        - CONFIG: ${{ secrets.ALGOLIA_CONFIG }}
