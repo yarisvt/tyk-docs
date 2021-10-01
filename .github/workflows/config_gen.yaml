@@ -33,6 +33,8 @@ jobs:
     - name: Commit & Push changes
       uses: actions-js/push@master
       with:
+        author_email: leonsbox@gmail.com
+        author_name: Leonid Bugaev
         github_token: ${{ secrets.REPO_TOKEN }}
         branch: ${{ github.event.inputs.branch }}
         message: Updated configuration documention for ${{ github.event.inputs.repo }}:${{ github.event.inputs.repoBranch }}
