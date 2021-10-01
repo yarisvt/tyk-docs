@@ -5,13 +5,7 @@ on:
 jobs:
   index:
     runs-on: ubuntu-latest
-    services:
-      indexer:
-        image: algolia/docsearch-scraper
-        env:
-          APPLICATION_ID: ${{ secrets.ALGOLIA_APPLICATION_ID }}
-          API_KEY: ${{ secrets.ALGOLIA_APP_ID }}
-          CONFIG: ${{ secrets.ALGOLIA_CONFIG }}
     steps:
-      - name: Wait for index to compete
-        run: echo "Finished"
+      - name: Index
+        run: docker run -it -e APPLICATION_ID=${{ secrets.ALGOLIA_APPLICATION_ID }} -e API_KEY=${{ secrets.ALGOLIA_APP_ID }} -e "CONFIG=${{ secrets.ALGOLIA_CONFIG }}" algolia/docsearch-scraper
+
