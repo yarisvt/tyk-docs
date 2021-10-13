@@ -71,6 +71,12 @@ Type: `string`<br />
 
 Path to the PEM file which contains both client certificate and private key. This is required for Mutual TLS.
 
+### mongo_session_consistency
+EV: **TYK_DB_MONGOSESSIONCONSISTENCY**<br />
+Type: `string`<br />
+
+Mongo session constency: “strong”, “eventual”, or “monotonic”. default is “strong”
+
 ### mongo_batch_size
 EV: **TYK_DB_MONGOBATCHSIZE**<br />
 Type: `int`<br />
@@ -227,6 +233,12 @@ EV: **TYK_DB_STORAGE_UPTIME_MYSQL_SKIPINITIALIZEWITHVERSION**<br />
 Type: `bool`<br />
 
 auto configure based on currently MySQL version
+
+### admin_secret
+EV: **TYK_DB_ADMINSECRET**<br />
+Type: `string`<br />
+
+This secret is to be used by a special set of endpoints that we call “Admin APIs”. This API is part of the super-admin context and therefore has a separate endpoint prefix `/admin`. It also requires a special auth header called admin-auth. This purpose of these endpoints is to allow functionality that regular Dashboard users should not have, such as create new organisations, create super users etc. See the [Admin API](https://tyk.io/docs/dashboard-admin-api/) for more information on these endpoints.
 
 ### shared_node_secret
 EV: **TYK_DB_NODESECRET**<br />
@@ -494,6 +506,12 @@ EV: **TYK_DB_HOSTCONFIG_GENERATEHTTPS**<br />
 Type: `bool`<br />
 
 If you prefer to have your URLs start with https, set this option to true.
+
+### host_config.secure_cookies
+EV: **TYK_DB_HOSTCONFIG_SECURECOOKIES**<br />
+Type: `bool`<br />
+
+This enables HTTPS “secure” cookies.
 
 ### http_server_options
 This section is reserved for settings relating to the HTTP server that powers the Dashboard.
