@@ -316,6 +316,13 @@ If you set this value to `true`, then the id parameter in a stored policy (or im
 
 This option should only be used when moving an installation to a new database.
 
+### policies.policy_path
+EV: **TYK_GW_POLICIES_POLICYPATH**<br />
+Type: `string`<br />
+
+This option is used for storing a policies  if `policies.policy_source` is set to `file`.
+it should be some existing file path on hard drive
+
 ### ports_whitelist
 Defines the ports that will be available for the API services to bind to.
 This is a map of protocol to PortWhiteList. This allows per protocol
@@ -547,6 +554,12 @@ Type: `int`<br />
 
 The number of RPC connections in the pool. Basically it creates a set of connections that you can re-use as needed.
 
+### slave_options.key_space_sync_interval
+EV: **TYK_GW_SLAVEOPTIONS_KEYSPACESYNCINTERVAL**<br />
+Type: `float32`<br />
+
+You can use this to set a period for which the Gateway will check if there are changes in keys that must be synchronized. If this value is not set then it will default to 10 seconds.
+
 ### management_node
 EV: **TYK_GW_MANAGEMENTNODE**<br />
 Type: `bool`<br />
@@ -573,6 +586,9 @@ Redis based rate limiter with fixed window. Provides 100% rate limiting accuracy
 EV: **TYK_GW_ENABLESENTINELRATELIMITER**<br />
 Type: `bool`<br />
 
+To enable, set to `true`. The sentinel-based rate limiter delivers a smoother performance curve as rate-limit calculations happen off-thread, but a stricter time-out based cool-down for clients. For example, when a throttling action is triggered, they are required to cool-down for the period of the rate limit.
+Disabling the sentinel based rate limiter will make rate-limit calculations happen on-thread and therefore offers a staggered cool-down and a smoother rate-limit experience for the client.
+For example, you can slow your connection throughput to regain entry into your rate limit. This is more of a “throttle” than a “block”.
 The standard rate limiter offers similar performance as the sentinel-based limiter. This is disabled by default.
 
 ### enable_non_transactional_rate_limiter
@@ -1005,6 +1021,12 @@ Type: `bool`<br />
 Set this to `true` to have Tyk automatically divide the analytics records in multiple analytics keys.
 This is especially useful when `storage.enable_cluster` is set to `true` since it will distribute the analytic keys across all the cluster nodes.
 
+### analytics_config.purge_interval
+EV: **TYK_GW_ANALYTICSCONFIG_PURGEINTERVAL**<br />
+Type: `float32`<br />
+
+You can set the interval length on how often the tyk Gateway will purge analytics data. This value is in seconds and defaults to 10 seconds.
+
 ### enable_separate_analytics_store
 EV: **TYK_GW_ENABLESEPERATEANALYTICSSTORE**<br />
 Type: `bool`<br />
@@ -1366,6 +1388,9 @@ Ignore the case of any endpoints for APIs managed by Tyk. Setting this to `true`
 EV: **TYK_GW_IGNORECANONICALMIMEHEADERKEY**<br />
 Type: `bool`<br />
 
+When enabled Tyk ignores the canonical format of the MIME header keys.
+
+For example when a request header with a “my-header” key is injected using “global_headers”, the upstream would typically get it as “My-Header”. When this flag is enabled it will be sent as “my-header” instead.
 
 Current support is limited to JavaScript plugins, global header injection, virtual endpoint and JQ transform header rewrites.
 This functionality doesn’t affect headers that are sent by the HTTP client and the default formatting will apply in this case.
