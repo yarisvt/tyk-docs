@@ -1,5 +1,3 @@
----
----
 ### listen_port
 EV: **TYK_DB_LISTENPORT**<br />
 Type: `int`<br />
@@ -537,6 +535,13 @@ For example:
   "key_file": "new.cert.key"
 }
 ```
+
+**CertData Object**
+| Variable | Type | Key | Description |
+| ----------- | ----------- | ----------- | ----------- |
+| Name | string | domain_name |  |
+| CertFile | string | cert_file |  |
+| KeyFile | string | key_file |  |
 
 ### http_server_options.min_version
 EV: **TYK_DB_HTTPSERVEROPTIONS_MINVERSION**<br />
