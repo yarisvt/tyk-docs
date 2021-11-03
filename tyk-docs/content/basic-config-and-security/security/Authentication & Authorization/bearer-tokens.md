@@ -43,7 +43,7 @@ These tokens can be set as a *header, url parameter, or cookie name of a request
 The name of the key can be defined as part of the API definition under the `auth` section of an API Definition file:
 
 ```{.copyWrapper}
-"auth": {
+"auth_configs": {
   "auth_header_name": "authorization",
   "use_param": false,
   "param_name": "",
@@ -52,7 +52,7 @@ The name of the key can be defined as part of the API definition under the `auth
 },
 ```
 
-To use URL query parameters instead of a header, set the `auth.use_param` setting in your API definition to `true`. 
+To use URL query parameters instead of a header, set the `auth_configs.use_param` setting in your API definition to `true`. 
 
 {{< note success >}}
 **Note**  
@@ -69,7 +69,7 @@ If you are migrating from platforms like Mashery, which use request signing, you
 
 ```{.copyWrapper}
 ...
-"auth": {
+"auth_configs": {
   "validate_signature": true,
   "signature": {
     "algorithm": "MasherySHA256",

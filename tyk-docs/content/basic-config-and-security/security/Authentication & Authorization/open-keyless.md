@@ -21,7 +21,7 @@ To implement keyless access, simply set the flag in your API Definition:
 {
   ...
   "use_keyless": true,
-  "auth": {
+  "auth_configs": {
       "auth_header_name": ""
   },
   ...

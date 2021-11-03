@@ -127,7 +127,7 @@ To enable HMAC on your API, first you will need to set the API definition up to 
   "use_basic_auth": false,
   "use_keyless": false,
   "use_oauth2": false,
-  "auth": {
+  "auth_configs": {
     "auth_header_name": ""
   },
   ...

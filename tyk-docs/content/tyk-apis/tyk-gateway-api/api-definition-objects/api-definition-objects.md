@@ -30,7 +30,7 @@ An API Definition has many switches that change the way an incoming request is h
     "allowed_authorize_types": [],
     "auth_login_redirect": ""
   },
-  "auth": {
+  "auth_configs": {
     "use_param": false,
     "param_name": "",
     "use_cookie": false,

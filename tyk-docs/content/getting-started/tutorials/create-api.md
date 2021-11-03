@@ -74,7 +74,7 @@ curl -v -H "x-tyk-authorization: {your-secret}" \
     "api_id": "Hello-World",
     "org_id": "1",
     "use_keyless": true,
-    "auth": {
+    "auth_config": {
       "auth_header_name": "Authorization"
     },
     "definition": {

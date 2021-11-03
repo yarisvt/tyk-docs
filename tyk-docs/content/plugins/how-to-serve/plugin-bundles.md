@@ -146,7 +146,7 @@ A complete API Definition would look like:
     "location": "header",
     "key": "version"
   },
-  "auth": {
+  "auth_configs": {
     "auth_header_name": "authorization"
   },
   "use_keyless": true,

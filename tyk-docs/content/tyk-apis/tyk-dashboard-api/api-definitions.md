@@ -52,7 +52,7 @@ authorization: 7a7b140f-2480-4d5a-4e78-24049e3ba7f8
           ],
             "auth_login_redirect": ""
         },
-        "auth": {
+        "auth_configs": {
           "auth_header_name": "authorization"
         },
         "use_basic_auth": false,
@@ -187,7 +187,7 @@ authorization: 7a7b140f-2480-4d5a-4e78-24049e3ba7f8
       ],
       "auth_login_redirect": ""
     },
-    "auth": {
+    "auth_configs": {
       "auth_header_name": "authorization"
     },
     "use_basic_auth": false,
@@ -359,7 +359,7 @@ authorization: 7a7b140f-2480-4d5a-4e78-24049e3ba7f8
 {
   "api_definition": {
       "name": "Test",
-      "auth": {
+      "auth_configs": {
           "auth_header_name": "authorization"
       },
       "definition": {
@@ -500,7 +500,7 @@ authorization: 7a7b140f-2480-4d5a-4e78-24049e3ba7f8
       "id": "54c24242eba6db1c9a000002",
       "api_id": "bc2f8cfb7ab241504d9f3574fe407499",
       "name": "Test",
-      "auth": {
+      "auth_configs": {
         "auth_header_name": "authorization"
       },
       "definition": {

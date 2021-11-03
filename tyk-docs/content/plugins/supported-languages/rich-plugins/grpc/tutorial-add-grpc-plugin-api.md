@@ -22,7 +22,7 @@ To add a gRPC plugin to your API, you must specify the bundle name using the `cu
     "location": "header",
     "key": "version"
   },
-  "auth": {
+  "auth_configs": {
       "auth_header_name": "authorization"
   },
   "use_keyless": true,

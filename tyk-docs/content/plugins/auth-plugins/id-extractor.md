@@ -58,7 +58,7 @@ The API should be a protected one and have the `enable_coprocess_auth` flag set 
   "api_id": "my-api",
   "org_id": "my-org",
   "use_keyless": false,
-  "auth": {
+  "auth_configs": {
       "auth_header_name": "Authorization"
   },
   "proxy": {
