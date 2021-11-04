@@ -50,7 +50,7 @@ In the above sample, Tyk will cache the key for 60 seconds. During that time any
 ## <a name="when"></a>How to enable the ID Extractor
 
 The ID extractor is configured on a per API basis.
-The API should be a protected one and have the `enable_coprocess_auth` flag set to true, like the following definition:
+The API should be a protected one and have the `enable_coprocess_auth` flag set to true, like the following definition (using Auth Token authentication):
 
 ```{json}
 {
@@ -59,7 +59,13 @@ The API should be a protected one and have the `enable_coprocess_auth` flag set 
   "org_id": "my-org",
   "use_keyless": false,
   "auth_configs": {
-      "auth_header_name": "Authorization"
+    "authToken": {
+    "auth_header_name": "authorization",
+    "use_param": false,
+    "param_name": "",
+    "use_cookie": false,
+    "cookie_name": ""
+    }
   },
   "proxy": {
       "listen_path": "/test-api/",

@@ -44,11 +44,13 @@ The name of the key can be defined as part of the API definition under the `auth
 
 ```{.copyWrapper}
 "auth_configs": {
+  "authToken": {
   "auth_header_name": "authorization",
   "use_param": false,
   "param_name": "",
   "use_cookie": false,
   "cookie_name": ""
+  }
 },
 ```
 

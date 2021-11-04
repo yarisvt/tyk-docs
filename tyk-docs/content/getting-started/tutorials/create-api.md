@@ -74,9 +74,6 @@ curl -v -H "x-tyk-authorization: {your-secret}" \
     "api_id": "Hello-World",
     "org_id": "1",
     "use_keyless": true,
-    "auth_config": {
-      "auth_header_name": "Authorization"
-    },
     "definition": {
       "location": "header",
       "key": "x-api-version"
@@ -125,7 +122,7 @@ This command will hot-reload your API Gateway(s) and the new API will be loaded,
 
 To create a file-based API definition is very easy.
 
-Create a file called `api1.json` and place it in the `/apps` folder of your Tyk Gateway installation (usually in `/var/tyk-gateway`), then add the following:
+Create a file called `api1.json` and place it in the `/apps` folder of your Tyk Gateway installation (usually in `/var/tyk-gateway`), then add the following (this example uses Auth Token authentication):
 ```{.copyWrapper}
 {
   "name": "Test API",
@@ -134,7 +131,11 @@ Create a file called `api1.json` and place it in the `/apps` folder of your Tyk 
   "org_id": "1",
   "auth_configs": {
     "authToken": {
-      "auth_header_name": "Authorization"
+    "auth_header_name": "authorization",
+    "use_param": false,
+    "param_name": "",
+    "use_cookie": false,
+    "cookie_name": ""
     }
   },
   "definition": {

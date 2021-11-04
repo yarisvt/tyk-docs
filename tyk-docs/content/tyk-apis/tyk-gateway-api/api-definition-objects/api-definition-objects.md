@@ -31,12 +31,13 @@ An API Definition has many switches that change the way an incoming request is h
     "auth_login_redirect": ""
   },
   "auth_configs": {
+    "authToken": {
+    "auth_header_name": "authorization",
     "use_param": false,
     "param_name": "",
     "use_cookie": false,
-    "cookie_name": "",
-    "auth_header_name": "Authorization",
-    "use_certificate": false
+    "cookie_name": ""
+    }
   },
   "use_basic_auth": false,
   "use_mutual_tls_auth": false,

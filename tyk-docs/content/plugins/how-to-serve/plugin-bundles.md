@@ -147,7 +147,13 @@ A complete API Definition would look like:
     "key": "version"
   },
   "auth_configs": {
-    "auth_header_name": "authorization"
+    "authToken": {
+    "auth_header_name": "authorization",
+    "use_param": false,
+    "param_name": "",
+    "use_cookie": false,
+    "cookie_name": ""
+    }
   },
   "use_keyless": true,
   "version_data": {
