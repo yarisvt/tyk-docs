@@ -88,6 +88,150 @@ Type: `int`<br />
 
 The page size that the dashboard should use. Defaults to 10.
 
+### storage.main.postgres.prefer_simple_protocol
+EV: <b>TYK_DB_STORAGE_MAIN_POSTGRES_PREFERSIMPLEPROTOCOL</b><br />
+Type: `bool`<br />
+
+disables implicit prepared statement usage
+
+### storage.main.mysql.default_string_size
+EV: <b>TYK_DB_STORAGE_MAIN_MYSQL_DEFAULTSTRINGSIZE</b><br />
+Type: `uint`<br />
+
+default size for string fields. By default set to: 256
+
+### storage.main.mysql.disable_datetime_precision
+EV: <b>TYK_DB_STORAGE_MAIN_MYSQL_DISABLEDATETIMEPRECISION</b><br />
+Type: `bool`<br />
+
+disable datetime precision, which not supported before MySQL 5.6
+
+### storage.main.mysql.dont_support_rename_index
+EV: <b>TYK_DB_STORAGE_MAIN_MYSQL_DONTSUPPORTRENAMEINDEX</b><br />
+Type: `bool`<br />
+
+drop & create when rename index, rename index not supported before MySQL 5.7, MariaDB
+
+### storage.main.mysql.dont_support_rename_column
+EV: <b>TYK_DB_STORAGE_MAIN_MYSQL_DONTSUPPORTRENAMECOLUMN</b><br />
+Type: `bool`<br />
+
+`change` when rename column, rename column not supported before MySQL 8, MariaDB
+
+### storage.main.mysql.skip_initialize_with_version
+EV: <b>TYK_DB_STORAGE_MAIN_MYSQL_SKIPINITIALIZEWITHVERSION</b><br />
+Type: `bool`<br />
+
+auto configure based on currently MySQL version
+
+### storage.analytics.postgres.prefer_simple_protocol
+EV: <b>TYK_DB_STORAGE_ANALYTICS_POSTGRES_PREFERSIMPLEPROTOCOL</b><br />
+Type: `bool`<br />
+
+disables implicit prepared statement usage
+
+### storage.analytics.mysql.default_string_size
+EV: <b>TYK_DB_STORAGE_ANALYTICS_MYSQL_DEFAULTSTRINGSIZE</b><br />
+Type: `uint`<br />
+
+default size for string fields. By default set to: 256
+
+### storage.analytics.mysql.disable_datetime_precision
+EV: <b>TYK_DB_STORAGE_ANALYTICS_MYSQL_DISABLEDATETIMEPRECISION</b><br />
+Type: `bool`<br />
+
+disable datetime precision, which not supported before MySQL 5.6
+
+### storage.analytics.mysql.dont_support_rename_index
+EV: <b>TYK_DB_STORAGE_ANALYTICS_MYSQL_DONTSUPPORTRENAMEINDEX</b><br />
+Type: `bool`<br />
+
+drop & create when rename index, rename index not supported before MySQL 5.7, MariaDB
+
+### storage.analytics.mysql.dont_support_rename_column
+EV: <b>TYK_DB_STORAGE_ANALYTICS_MYSQL_DONTSUPPORTRENAMECOLUMN</b><br />
+Type: `bool`<br />
+
+`change` when rename column, rename column not supported before MySQL 8, MariaDB
+
+### storage.analytics.mysql.skip_initialize_with_version
+EV: <b>TYK_DB_STORAGE_ANALYTICS_MYSQL_SKIPINITIALIZEWITHVERSION</b><br />
+Type: `bool`<br />
+
+auto configure based on currently MySQL version
+
+### storage.logs.postgres.prefer_simple_protocol
+EV: <b>TYK_DB_STORAGE_LOGS_POSTGRES_PREFERSIMPLEPROTOCOL</b><br />
+Type: `bool`<br />
+
+disables implicit prepared statement usage
+
+### storage.logs.mysql.default_string_size
+EV: <b>TYK_DB_STORAGE_LOGS_MYSQL_DEFAULTSTRINGSIZE</b><br />
+Type: `uint`<br />
+
+default size for string fields. By default set to: 256
+
+### storage.logs.mysql.disable_datetime_precision
+EV: <b>TYK_DB_STORAGE_LOGS_MYSQL_DISABLEDATETIMEPRECISION</b><br />
+Type: `bool`<br />
+
+disable datetime precision, which not supported before MySQL 5.6
+
+### storage.logs.mysql.dont_support_rename_index
+EV: <b>TYK_DB_STORAGE_LOGS_MYSQL_DONTSUPPORTRENAMEINDEX</b><br />
+Type: `bool`<br />
+
+drop & create when rename index, rename index not supported before MySQL 5.7, MariaDB
+
+### storage.logs.mysql.dont_support_rename_column
+EV: <b>TYK_DB_STORAGE_LOGS_MYSQL_DONTSUPPORTRENAMECOLUMN</b><br />
+Type: `bool`<br />
+
+`change` when rename column, rename column not supported before MySQL 8, MariaDB
+
+### storage.logs.mysql.skip_initialize_with_version
+EV: <b>TYK_DB_STORAGE_LOGS_MYSQL_SKIPINITIALIZEWITHVERSION</b><br />
+Type: `bool`<br />
+
+auto configure based on currently MySQL version
+
+### storage.uptime.postgres.prefer_simple_protocol
+EV: <b>TYK_DB_STORAGE_UPTIME_POSTGRES_PREFERSIMPLEPROTOCOL</b><br />
+Type: `bool`<br />
+
+disables implicit prepared statement usage
+
+### storage.uptime.mysql.default_string_size
+EV: <b>TYK_DB_STORAGE_UPTIME_MYSQL_DEFAULTSTRINGSIZE</b><br />
+Type: `uint`<br />
+
+default size for string fields. By default set to: 256
+
+### storage.uptime.mysql.disable_datetime_precision
+EV: <b>TYK_DB_STORAGE_UPTIME_MYSQL_DISABLEDATETIMEPRECISION</b><br />
+Type: `bool`<br />
+
+disable datetime precision, which not supported before MySQL 5.6
+
+### storage.uptime.mysql.dont_support_rename_index
+EV: <b>TYK_DB_STORAGE_UPTIME_MYSQL_DONTSUPPORTRENAMEINDEX</b><br />
+Type: `bool`<br />
+
+drop & create when rename index, rename index not supported before MySQL 5.7, MariaDB
+
+### storage.uptime.mysql.dont_support_rename_column
+EV: <b>TYK_DB_STORAGE_UPTIME_MYSQL_DONTSUPPORTRENAMECOLUMN</b><br />
+Type: `bool`<br />
+
+`change` when rename column, rename column not supported before MySQL 8, MariaDB
+
+### storage.uptime.mysql.skip_initialize_with_version
+EV: <b>TYK_DB_STORAGE_UPTIME_MYSQL_SKIPINITIALIZEWITHVERSION</b><br />
+Type: `bool`<br />
+
+auto configure based on currently MySQL version
+
 ### admin_secret
 EV: <b>TYK_DB_ADMINSECRET</b><br />
 Type: `string`<br />

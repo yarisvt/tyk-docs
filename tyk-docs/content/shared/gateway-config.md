@@ -304,6 +304,13 @@ If you set this value to `true`, then the id parameter in a stored policy (or im
 
 This option should only be used when moving an installation to a new database.
 
+### policies.policy_path
+EV: <b>TYK_GW_POLICIES_POLICYPATH</b><br />
+Type: `string`<br />
+
+This option is used for storing a policies  if `policies.policy_source` is set to `file`.
+it should be some existing file path on hard drive
+
 ### ports_whitelist
 Defines the ports that will be available for the API services to bind to.
 This is a map of protocol to PortWhiteList. This allows per protocol
@@ -534,6 +541,12 @@ EV: <b>TYK_GW_SLAVEOPTIONS_RPCPOOLSIZE</b><br />
 Type: `int`<br />
 
 The number of RPC connections in the pool. Basically it creates a set of connections that you can re-use as needed.
+
+### slave_options.key_space_sync_interval
+EV: <b>TYK_GW_SLAVEOPTIONS_KEYSPACESYNCINTERVAL</b><br />
+Type: `float32`<br />
+
+You can use this to set a period for which the Gateway will check if there are changes in keys that must be synchronized. If this value is not set then it will default to 10 seconds.
 
 ### management_node
 EV: <b>TYK_GW_MANAGEMENTNODE</b><br />
@@ -992,6 +1005,12 @@ Type: `bool`<br />
 
 Set this to `true` to have Tyk automatically divide the analytics records in multiple analytics keys.
 This is especially useful when `storage.enable_cluster` is set to `true` since it will distribute the analytic keys across all the cluster nodes.
+
+### analytics_config.purge_interval
+EV: <b>TYK_GW_ANALYTICSCONFIG_PURGEINTERVAL</b><br />
+Type: `float32`<br />
+
+You can set the interval length on how often the tyk Gateway will purge analytics data. This value is in seconds and defaults to 10 seconds.
 
 ### enable_separate_analytics_store
 EV: <b>TYK_GW_ENABLESEPERATEANALYTICSSTORE</b><br />
