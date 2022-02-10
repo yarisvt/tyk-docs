@@ -43,8 +43,31 @@ $ sh scripts/init.sh
 5. Run ansible-playbook to install `tyk-dashboard`
 
 ```bash
-$ ansible-playbook playbook.yml -t tyk-dashboard
+$ ansible-playbook playbook.yaml -t tyk-dashboard
 ```
+
+## Supported Distributions
+| Distribution | Version | Supported |
+| --------- | :---------: | :---------: |
+| Amazon Linux | 2 | ✅ |
+| CentOS | 8 | ✅ |
+| CentOS | 7 | ✅ |
+| RHEL | 8 | ✅ |
+| RHEL | 7 | ✅ |
+
+## Variables
+- `vars/tyk.yaml`
+
+| Variable | Default | Comments |
+| --------- | :---------: | --------- |
+| secrets.APISecret | `352d20ee67be67f6340b4c0605b044b7` | API secret |
+| secrets.AdminSecret | `12345` | Admin secret |
+| dash.license | | Dashboard license|
+| dash.service.host | | Dashboard server host if different than the hosts url |
+| dash.service.port | `3000` | Dashboard server listening port |
+| dash.service.proto | `http` | Dashboard server protocol |
+| dash.service.tls | `false` | Set to `true` to enable SSL connections |
+
 {{< tab_end >}}
 {{< tab_start "Shell" >}}
 ## Install Tyk Dashboard: Red Hat
@@ -94,8 +117,9 @@ sslverify=1
 sslcacert=/etc/pki/tls/certs/ca-bundle.crt
 metadata_expire=300
 ```
-
-### Step 3: Configure MongoDB v4.0
+### Step 3: Configure MongoDB v4.0 or SQL
+{{< tabs_start >}}
+{{< tab_start "MongoDB" >}}
 
 Create a `/etc/yum.repos.d/mongodb-org-4.0.repo` file so that you can install MongoDB directly, using yum.
 ```bash
@@ -111,24 +135,30 @@ Finally we'll need to update our local cache, so run:
 ```bash
 sudo yum -q makecache -y --disablerepo='*' --enablerepo='tyk_tyk-dashboard'
 ```
-
 ### Step 4: Install Packages
 
 We're ready to go, you can now install the relevant packages using yum:
 ```bash
 sudo yum install -y mongodb-org tyk-dashboard redis
 ```
+{{< tab_end >}}
+{{< tab_start "SQL" >}}
+[SQL configuration]({{< ref "/content/planning-for-production/database-settings/sql-configuration.md" >}})
+{{< tab_end >}}
+{{< tabs_end >}}
+### Step 4: Install Packages
+
 
 **(you may be asked to accept the GPG key for our repos and when the package installs, hit yes to continue)**
 
 ### Step 5: Start MongoDB and Redis
 
-In many cases MongoDB or Redis might not be running, so let's start that:
+In many cases MongoDB/SQL or Redis might not be running, so let's start that:
 ```bash
 sudo service mongod start
 sudo service redis start
 ```
-
+**ADD SQL**
 ### Step 6: Configure Tyk Dashboard
 
 We can set the Dashboard up with a similar setup command, the script below will get the Dashboard set up for the local instance.
@@ -143,7 +173,7 @@ You need to replace `<hostname>` for `--redishost=<hostname>`, and `<IP Address>
 ```bash
 sudo /opt/tyk-dashboard/install/setup.sh --listenport=3000 --redishost=<hostname> --redisport=6379 --mongo=mongodb://<IP Address>/tyk_analytics --tyk_api_hostname=$HOSTNAME --tyk_node_hostname=http://localhost --tyk_node_port=8080 --portal_root=/portal --domain="XXX.XXX.XXX.XXX"
 ```
-
+**ADD SQL**
 {{< note success >}}
 **Note**  
 
