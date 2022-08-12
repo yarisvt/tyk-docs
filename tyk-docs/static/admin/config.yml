@@ -22,7 +22,7 @@ collections:
       - { label: 'Body', name: 'body', widget: 'markdown' }
   - name: 'docs'
     label: 'Docs'
-    folder: 'content'
+    folder: 'tyk-docs/content'
     create: true
     slug: '{{slug}}'
     nested:
