@@ -5,7 +5,7 @@ tags: ["API", "OAS"]
 description: ""
 menu:
   main:
-    parent: "Key Concepts"
+    parent: "OpenAPI Specification"
 weight: 57
 ---
 
