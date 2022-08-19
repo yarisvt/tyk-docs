@@ -14,5 +14,5 @@ jobs:
       
     steps:
       - name: Index
-        run: docker run -i -e APPLICATION_ID=$APPLICATION_ID -e API_KEY=$API_KEY -e "CONFIG=$CONFIG" algolia/docsearch-scraper
+        run: docker run -i -e APPLICATION_ID=$APPLICATION_ID -e API_KEY=$API_KEY -e "CONFIG=$CONFIG" algolia/docsearch-scraper:v1.13.0
 
