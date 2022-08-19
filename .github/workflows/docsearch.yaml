@@ -16,5 +16,5 @@ jobs:
 #       - name: Setup tmate session
 #         uses: mxschmitt/action-tmate@v3
       - name: Index
-        run: docker run -i -e APPLICATION_ID=$APPLICATION_ID -e API_KEY=$API_KEY -e "CONFIG=$CONFIG" algolia/docsearch-scraper:v1.13.0
+        run: docker run -i -e APPLICATION_ID=$APPLICATION_ID -e API_KEY=$API_KEY -e "CONFIG=$CONFIG" algolia/docsearch-scraper
 
