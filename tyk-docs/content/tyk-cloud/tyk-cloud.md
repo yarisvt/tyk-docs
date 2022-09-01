@@ -51,7 +51,9 @@ Configure custom domain for your Dashboard and Developer Portal
 Create and manage multiple environments within your Tyk Cloud organisation
 {{< /badge >}}
 
-{{< badge title="Administration" href="/docs/tyk-cloud/environments-&-deployments/" >}}
+hybrid-new
+{{< badge title="Administration" href="/content/tyk-cloud/environments-&-deployments/managing-environments.md" >}}
+
 #### Manage deployments
 
 Create and manage your Control Plane and Edge Gateway deployments
