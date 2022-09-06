@@ -6,6 +6,7 @@ menu:
         parent: Tyk Gateway
 weight: 60
 url: "/advanced-configuration"
+tags: ["onprem", "oss"]
 ---
 
 This section covers less common settings, some of which require custom code. Areas include:
