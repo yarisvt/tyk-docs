@@ -32,6 +32,6 @@ enableGitInfo = false
 lastmod = ["lastmod", ":git", "date", "publishDate"]
 
 [taxonomies]
-  tag = tags
+  tag = "tags"
   
 disableKinds = ["term"]
