@@ -1,6 +1,7 @@
 /docs/3.1/* https://release-3-1--tyk-docs.netlify.app/docs/:splat 200!
 /docs/3.2/* https://release-3-2--tyk-docs.netlify.app/docs/:splat 200!
 /docs/4.0/* https://release-4--tyk-docs.netlify.app/docs/:splat 200!
+/docs/4.1/* https://release-4-1--tyk-docs.netlify.app/docs/:splat 200!
 /docs/3-lts/* https://release-3-lts--tyk-docs.netlify.app/docs/:splat 200!
 /docs/nightly/* https://tyk-docs.netlify.app/docs/:splat 200!
 
@@ -42,3 +43,4 @@
 /docs/concepts/session-meta-data/ /docs/getting-started/key-concepts/what-is-a-session-object/
 /docs/tyk-api-gateway-v1-9/tutorials/set-up-your-first-api/ /docs/getting-started/create-api/
 /docs/tyk-apis/tyk-gateway-api/api-definition-objects/ /docs/tyk-gateway-api/api-definition-objects/
+/docs/concepts/tyk-components/developer-portal/ /docs/tyk-developer-portal/
