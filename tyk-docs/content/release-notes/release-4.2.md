@@ -12,8 +12,8 @@ weight: 1
 
 ### Changed GUI in Universal Data Graph configuration section.
 
-New GUI introduces enhancements to user experience and more consistent user journey for UDG. 
-This change does not yet cover all possible use cases and is released with a feature flag. To enable new GUI analytics.conf needs the following setting:
+A new GUI introduces enhancements to the user experience and more consistent user journey for UDG. 
+This change does not yet cover all possible use cases and is released with a feature flag. To enable the new GUI, analytics.conf needs the following setting:
 
 ```
 "ui": {
@@ -31,7 +31,7 @@ What’s possible with this change:
 
 > Note: Full configuration of new Universal Data Graph is not yet possible in the GUI, however any UDGs created earlier will not be broken and will work as previously. 
 
-## Changes to federation Entities
+## Changes to federation entities
 ### Defining the base entity
 Entities must be defined with the `@key` directive. The fields argument must reference a field by which the entity can be uniquely identified. Multiple primary keys are possible. For example:
 
@@ -47,7 +47,7 @@ type MyEntity @key(fields: "id") @key(fields: "name") {
 ### Entity stubs
 
 Entities cannot be shared types (be defined in more than one single subgraph).
-If one subgraph references a base entity (an entity defined in another subgraph), that reference must be declared as a stub (stubs look like extension without any new fields in federation v1). This stub would contain the minimal amount of information to identify the entity (referencing exactly one of the primary keys on the base entity regardless of whether there are multiple primary keys on the base entity). For example, a stub for MyEntity from Subgraph 1 (defined above):
+If one subgraph references a base entity (an entity defined in another subgraph), that reference must be declared as a stub (stubs look like an extension without any new fields in federation v1). This stub would contain the minimal amount of information to identify the entity (referencing exactly one of the primary keys on the base entity regardless of whether there are multiple primary keys on the base entity). For example, a stub for MyEntity from Subgraph 1 (defined above):
 
 Subgraph 2 (stub)
 ```
@@ -60,13 +60,13 @@ extend type MyEntity @key(fields: "id") {
 It is now possible to define an extension for a type in a subgraph that does not define the base type.
 However, if an extension is unresolved (an extension orphan) after an attempted federation, the federation will fail and produce an error.
 
-### Improved dashboard UI and error messages
-GraphQL-related (for example when federating subgraphs into a supergraph) errors in the dashboard UI will show a lean error message with no irrelevant prefixes or suffixes.
+### Improved Dashboard UI and error messages
+GraphQL-related (for example when federating subgraphs into a supergraph) errors in the Dashboard UI will show a lean error message with no irrelevant prefixes or suffixes.
 
-Changed look & feel of request logs in Playground tab for GraphQL APIs. New component presents all logs in a clearer way and is easier to read for the user
+Changed the look & feel of request logs in Playground tab for GraphQL APIs. New component presents all logs in a clearer way and is easier to read for the user
 
 ### Shared types
-Types of the same name can be defined in more than one subgraph (a shared type). This will no longer produce an error if each definition is exactly identical.
+Types of the same name can be defined in more than one subgraph (a shared type). This will no longer produce an error if each definition is identical.
 Shared types cannot be extended outside of the current subgraph, and the resolved extension must be identical to the resolved extension of the shared type in all other subgraphs (see subgraph normalisation notes). Attempting to extend a shared type will result in an error.
 The federated supergraph will include a single definition of a shared type, regardless of how many times it has been identically defined in its subgraphs.
 
@@ -100,10 +100,10 @@ The enum named “Example” defined in Subgraph 1 would resolve to be identical
 Union members must be both unique and defined.
 Types must have bodies, e.g., enums must contain at least one value; inputs, interfaces, or objects must contain at least one field
 
-## Open API 
-Added support for the Request Body Transform middleware, for the new Tyk OAS API Definition.
+## OpenAPI 
+Added support for the Request Body Transform middleware, for new Tyk OAS API Definitions.
 
-## Universal data Graph
+## Universal Data Graph
 
 Added support for Kafka as a data source in Universal Data Graph. Configuration allows the user to provide multiple topics and broker addresses.
 
@@ -117,7 +117,7 @@ Added support for Kafka as a data source in Universal Data Graph. Configuration 
 - Added support for the Request Body Transform middleware, for the new Tyk OAS API Definition 
 ### Changed
 - Generate API ID when API ID is not provided while creating API. 
-- Updated the Go plugin loader to load the most appropriate plugin bundle, honouring Tyk version, architecture and OS
+- Updated the Go plugin loader to load the most appropriate plugin bundle, honouring the Tyk version, architecture and OS
 - When GraphQL query with a @skip directive is sent to the upstream it will no longer return “null” for the skipped field, but remove the field completely from the response
 - Added validation to Union members - must be both unique and defined.
 ### Fixed
@@ -130,7 +130,7 @@ Added support for Kafka as a data source in Universal Data Graph. Configuration 
 - Added support for Kafka as a data source in Universal Data Graph.
 - Added support for the Request Body Transform middleware for OAS based APIs
 ### Changed
-- Improved GraphQL dashboard UI error messages
+- Improved GraphQL Dashboard UI error messages
 - Changed GUI in Universal Data Graph
 - Changed look & feel of request logs in Playground tab for GraphQL APIs.
 ### Fixed
