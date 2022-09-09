@@ -9,8 +9,7 @@ menu:
 weight: 1
 ---
 
-## Overview
-
+## MongoDB Sizing
 The aggregate record size depends on the number of APIs and Keys you have. Each counter size ~50b, and every aggregated value has its own counter. 
 
 So an hourly aggregate record is computed like this: 50 * active_apis + 50 * api_versions + 50 * active_api_keys  + 50 * oauth_keys, etc. 
