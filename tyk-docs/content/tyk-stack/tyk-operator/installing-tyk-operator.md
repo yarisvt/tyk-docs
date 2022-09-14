@@ -137,7 +137,12 @@ If you install Tyk Self Managed manually, you can access `TYK_AUTH` and `TYK_ORG
 
 Under the Users page, you can click on the Operator user to find associated values for that particular user.
 
-`TYK_AUTH` corresponds to `Tyk Dashboard API Access Credentials`. `TYK_ORG` corresponds to `Organisation ID`. You can follow the instructions for Tyk Open Source to create a `tyk-operator-conf` secret using `kubectl` command.
+`TYK_AUTH` corresponds to `Tyk Dashboard API Access Credentials`. `TYK_ORG` corresponds to `Organisation ID`. You can follow the instructions for our Tyk Open Source Gateway to create a `tyk-operator-conf` secret using `kubectl` command.
+
+{{< note success >}}
+ **Note**
+ If the credentials embedded in the `tyk-operator-conf` are ever changed or updated, the tyk-operator-controller-manager pod must be restarted to pick up these changes. 
+{{< /note >}}
 
 #### Other configurations
 
@@ -249,5 +254,12 @@ If you think we did something wrong, you can create a [GitHub issue](https://git
 
 ```bash
 helm delete tyk-operator -n tyk-operator-system
+```
+
+### Troubleshooting Tyk Operator
+If you experience issues with the behavior of the Tyk Operator (e.g. API changes not being applied), to investigate, you can check the logs of the tyk-operator-controller-manager pod in your cluster with the following command:
+
+```bash
+kubectl logs <tyk-controller-manager-pod-name> -n tyk-operator-system manager
 ```
  
