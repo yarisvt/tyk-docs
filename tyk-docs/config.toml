@@ -5,7 +5,7 @@ theme = "tykio"
 MetaDataFormat = "yaml"
 enableGitInfo = false
 disableKinds = ["taxonomy", "taxonomyTerm"]
-canonifyurls = "true"
+canonifyurls = "false"
 [sitemap]
   changefreq = "daily"
   priority = 0.5
