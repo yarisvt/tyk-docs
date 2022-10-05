@@ -4,8 +4,8 @@ title = "Tyk Documentation"
 theme = "tykio"
 MetaDataFormat = "yaml"
 enableGitInfo = false
-disableKinds = ["taxonomy", "term"]
-canonifyurls = "true"
+disableKinds = ["taxonomy", "taxonomyTerm"]
+canonifyurls = "false"
 [sitemap]
   changefreq = "daily"
   priority = 0.5
