@@ -27,7 +27,7 @@ The following are required for a Tyk Self-Managed installation:
              You can find instructions for a simple Redis installation bellow.
  - MongoDB or SQL - Should be installed in the cluster or be reachable by the **Tyk Manager** (for SaaS option).
 
-You could find supported versions [here](https://tyk.io/docs/planning-for-production/redis-mongodb/#supported-versions).
+You can find supported MongoDB and SQL versions [here]({{< ref "/content/planning-for-production/database-settings/database-settings.md" >}}).
 
 Installation instructions for Redis and MongoDB/SQL are detailed below.
             
@@ -242,10 +242,6 @@ to set the name of this **ConfigMap** (`tyk-tib-profiles-conf` by default).
 
 ### Tyk as an Ingress using Tyk Operator
 To set up an ingress for your Tyk Gateways see our [Tyk Operator GitHub repository](https://github.com/TykTechnologies/tyk-operator).
-
-### Istio Service Mesh with Tyk as an Ingress
-To use Tyk's Gateways as the ingress to your Istio Service Mesh simply change `gateway.enableIstioIngress: true` in the
-`values.yaml`. Ensure you are using an Istio manifest which disables the default Istio Ingress gateway.
 
 
 ## Next Steps Tutorials
