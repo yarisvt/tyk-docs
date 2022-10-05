@@ -4,7 +4,6 @@ title = "Tyk Documentation"
 theme = "tykio"
 MetaDataFormat = "yaml"
 enableGitInfo = false
-lastmod = ["lastmod", ":git", "date", "publishDate"]
 disableKinds = ["taxonomy", "taxonomyTerm"]
 canonifyurls = "true"
 [sitemap]
@@ -32,3 +31,4 @@ canonifyurls = "true"
     endLevel = 5
     ordered = true
 [frontmatter]
+lastmod = ["lastmod", ":git", "date", "publishDate"]
