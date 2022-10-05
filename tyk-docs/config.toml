@@ -4,6 +4,8 @@ title = "Tyk Documentation"
 theme = "tykio"
 MetaDataFormat = "yaml"
 enableGitInfo = false
+lastmod = ["lastmod", ":git", "date", "publishDate"]
+disableKinds = ["taxonomy", "taxonomyTerm"]
 [sitemap]
   changefreq = "daily"
   priority = 0.5
@@ -29,5 +31,3 @@ enableGitInfo = false
     endLevel = 5
     ordered = true
 [frontmatter]
-lastmod = ["lastmod", ":git", "date", "publishDate"]
-disableKinds = ["taxonomy", "taxonomyTerm"]
