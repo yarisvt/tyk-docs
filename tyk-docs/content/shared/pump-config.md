@@ -61,6 +61,12 @@ Type: `string`<br />
 
 Path to the PEM file with trusted root certificates
 
+### uptime_pump_config.omit_index_creation
+EV: <b>TYK_PMP_UPTIMEPUMPCONFIG_OMITINDEXCREATION</b><br />
+Type: `bool`<br />
+
+Set to true to disable the default tyk index creation.
+
 ### uptime_pump_config.collection_name
 EV: <b>TYK_PMP_UPTIMEPUMPCONFIG_COLLECTIONNAME</b><br />
 Type: `string`<br />
@@ -160,7 +166,7 @@ Type: `string`<br />
 
 Determines the uptime type. Options are `mongo` and `sql`. Defaults to `mongo`.
 
-### syslog
+### pumps
 The default environment variable prefix for each pump follows this format:
 `TYK_PMP_PUMPS_{PUMP-NAME}_`, for example `TYK_PMP_PUMPS_KAFKA_`.
 
@@ -1129,6 +1135,12 @@ fields in the example below. Default value is `["method",
 "path", "response_code", "api_key", "time_stamp", "api_version", "api_name", "api_id",
 "org_id", "oauth_id", "raw_request", "request_time", "raw_response", "ip_address"]`.
 
+### pumps.influx.meta.tags
+EV: <b>TYK_PMP_PUMPS_INFLUX_META_TAGS</b><br />
+Type: `[]string`<br />
+
+List of tags to be added to the metric.
+
 ### pumps.kafka.name
 EV: <b>TYK_PMP_PUMPS_KAFKA_NAME</b><br />
 Type: `string`<br />
@@ -1902,6 +1914,12 @@ Type: `string`<br />
 
 Path to the PEM file with trusted root certificates
 
+### pumps.mongo.meta.omit_index_creation
+EV: <b>TYK_PMP_PUMPS_MONGO_META_OMITINDEXCREATION</b><br />
+Type: `bool`<br />
+
+Set to true to disable the default tyk index creation.
+
 ### pumps.mongo.meta.collection_name
 EV: <b>TYK_PMP_PUMPS_MONGO_META_COLLECTIONNAME</b><br />
 Type: `string`<br />
@@ -2086,6 +2104,12 @@ EV: <b>TYK_PMP_PUMPS_MONGOAGGREGATE_META_MONGOSSLCAFILE</b><br />
 Type: `string`<br />
 
 Path to the PEM file with trusted root certificates
+
+### pumps.mongoaggregate.meta.omit_index_creation
+EV: <b>TYK_PMP_PUMPS_MONGOAGGREGATE_META_OMITINDEXCREATION</b><br />
+Type: `bool`<br />
+
+Set to true to disable the default tyk index creation.
 
 ### pumps.mongoaggregate.meta.use_mixed_collection
 EV: <b>TYK_PMP_PUMPS_MONGOAGGREGATE_META_USEMIXEDCOLLECTION</b><br />
@@ -2283,6 +2307,12 @@ Type: `string`<br />
 
 Path to the PEM file with trusted root certificates
 
+### pumps.mongoselective.meta.omit_index_creation
+EV: <b>TYK_PMP_PUMPS_MONGOSELECTIVE_META_OMITINDEXCREATION</b><br />
+Type: `bool`<br />
+
+Set to true to disable the default tyk index creation.
+
 ### pumps.mongoselective.meta.max_insert_batch_size_bytes
 EV: <b>TYK_PMP_PUMPS_MONGOSELECTIVE_META_MAXINSERTBATCHSIZEBYTES</b><br />
 Type: `int`<br />
@@ -2442,6 +2472,41 @@ EV: <b>TYK_PMP_PUMPS_PROMETHEUS_META_PATH</b><br />
 Type: `string`<br />
 
 The path to the Prometheus collection. For example `/metrics`.
+
+### pumps.prometheus.meta.aggregate_observations
+EV: <b>TYK_PMP_PUMPS_PROMETHEUS_META_AGGREGATEOBSERVATIONS</b><br />
+Type: `bool`<br />
+
+This will enable an experimental feature that will aggregate the histogram metrics request time values before exposing them to prometheus.
+Enabling this will reduce the CPU usage of your prometheus pump but you will loose histogram precision. Experimental.
+
+### pumps.prometheus.meta.custom_metrics
+EV: <b>undefined</b><br />
+Type: `[]PrometheusMetric`<br />
+
+Custom Prometheus metrics.
+
+**PrometheusMetric Object**
+
+| Variable | Type | Key | Description |
+| ----------- | ----------- | ----------- | ----------- |
+| Name | string | name | The name of the custom metric. For example: `tyk_http_status_per_api_name` |
+| Help | string | help | Description text of the custom metric. For example: `HTTP status codes per API` |
+| MetricType | string | metric_type | Determines the type of the metric. There's currently 2 available options: `counter` or `histogram`.
+In case of histogram, you can only modify the labels since it always going to use the request_time. |
+| Buckets | []float64 | buckets | Defines the buckets into which observations are counted. The type is float64 array and by default, [1, 2, 5, 7, 10, 15, 20, 25, 30, 40, 50, 60, 70, 80, 90, 100, 200, 300, 400, 500, 1000, 2000, 5000, 10000, 30000, 60000] |
+| Labels | []string | labels | Defines the partitions in the metrics. For example: ['response_code','api_name'].
+The available labels are: `["host","method",
+"path", "response_code", "api_key", "time_stamp", "api_version", "api_name", "api_id",
+"org_id", "oauth_id","request_time", "ip_address"]`. |
+| enabled | bool | enabled |  |
+| counterVec | *prometheus.CounterVec | counterVec |  |
+| histogramVec | *prometheus.HistogramVec | histogramVec |  |
+| counterMap | map[string]uint64 | counterMap |  |
+| histogramMap | histogramCounter | histogramMap |  |
+| histogramMap_totalRequestTime | map[string]uint64 | histogramMap.totalRequestTime |  |
+| histogramMap_hits | map[string]uint64 | histogramMap.hits |  |
+| aggregatedObservations | bool | aggregatedObservations |  |
 
 ### pumps.splunk.name
 EV: <b>TYK_PMP_PUMPS_SPLUNK_NAME</b><br />
@@ -3228,6 +3293,12 @@ Type: `[]string`<br />
 
 List of tags to be added to the metric.
 
+### pumps.statsd.meta.separated_method
+EV: <b>TYK_PMP_PUMPS_STATSD_META_SEPARATEDMETHOD</b><br />
+Type: `bool`<br />
+
+Allows to have a separated method field instead of having it embedded in the path field.
+
 ### pumps.stdout.name
 EV: <b>TYK_PMP_PUMPS_STDOUT_NAME</b><br />
 Type: `string`<br />
@@ -3549,6 +3620,202 @@ that FluentD can correctly read the logs.
   }
 ```
 
+### pumps.timesteram.name
+EV: <b>TYK_PMP_PUMPS_TIMESTERAM_NAME</b><br />
+Type: `string`<br />
+
+Deprecated.
+
+### pumps.timesteram.type
+EV: <b>TYK_PMP_PUMPS_TIMESTERAM_TYPE</b><br />
+Type: `string`<br />
+
+Sets the pump type. This is needed when the pump key does not equal to the pump name type.
+
+### pumps.timesteram.filters
+This feature adds a new configuration field in each pump called filters and its structure is
+the following:
+```{.json}
+"filters":{
+  "api_ids":[],
+  "org_ids":[],
+  "response_codes":[],
+  "skip_api_ids":[],
+  "skip_org_ids":[],
+  "skip_response_codes":[]
+}
+```
+The fields api_ids, org_ids and response_codes works as allow list (APIs and orgs where we
+want to send the analytics records) and the fields skip_api_ids, skip_org_ids and
+skip_response_codes works as block list.
+
+The priority is always block list configurations over allow list.
+
+An example of configuration would be:
+```{.json}
+"csv": {
+ "type": "csv",
+ "filters": {
+   "org_ids": ["org1","org2"]
+ },
+ "meta": {
+   "csv_dir": "./bar"
+ }
+}
+```
+
+### pumps.timesteram.filters.org_ids
+EV: <b>TYK_PMP_PUMPS_TIMESTERAM_FILTERS_ORGSIDS</b><br />
+Type: `[]string`<br />
+
+Filters pump data by the whitelisted org_ids.
+
+### pumps.timesteram.filters.api_ids
+EV: <b>TYK_PMP_PUMPS_TIMESTERAM_FILTERS_APIIDS</b><br />
+Type: `[]string`<br />
+
+Filters pump data by the whitelisted api_ids.
+
+### pumps.timesteram.filters.response_codes
+EV: <b>TYK_PMP_PUMPS_TIMESTERAM_FILTERS_RESPONSECODES</b><br />
+Type: `[]int`<br />
+
+Filters pump data by the whitelisted response_codes.
+
+### pumps.timesteram.filters.skip_org_ids
+EV: <b>TYK_PMP_PUMPS_TIMESTERAM_FILTERS_SKIPPEDORGSIDS</b><br />
+Type: `[]string`<br />
+
+Filters pump data by the blacklisted org_ids.
+
+### pumps.timesteram.filters.skip_api_ids
+EV: <b>TYK_PMP_PUMPS_TIMESTERAM_FILTERS_SKIPPEDAPIIDS</b><br />
+Type: `[]string`<br />
+
+Filters pump data by the blacklisted api_ids.
+
+### pumps.timesteram.filters.skip_response_codes
+EV: <b>TYK_PMP_PUMPS_TIMESTERAM_FILTERS_SKIPPEDRESPONSECODES</b><br />
+Type: `[]int`<br />
+
+Filters pump data by the blacklisted response_codes.
+
+### pumps.timesteram.timeout
+EV: <b>TYK_PMP_PUMPS_TIMESTERAM_TIMEOUT</b><br />
+Type: `int`<br />
+
+You can configure a different timeout for each pump with the configuration option `timeout`.
+Its default value is `0` seconds, which means that the pump will wait for the writing
+operation forever.
+
+An example of this configuration would be:
+```{.json}
+"mongo": {
+  "type": "mongo",
+  "timeout":5,
+  "meta": {
+    "collection_name": "tyk_analytics",
+    "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/{db_name}"
+  }
+}
+```
+
+In case that any pump doesn't have a configured timeout, and it takes more seconds to write
+than the value configured for the purge loop in the `purge_delay` config option, you will
+see the following warning message: `Pump PMP_NAME is taking more time than the value
+configured of purge_delay. You should try to set a timeout for this pump.`.
+
+In case that you have a configured timeout, but it still takes more seconds to write than
+the value configured for the purge loop in the `purge_delay` config option, you will see the
+following warning message: `Pump PMP_NAME is taking more time than the value configured of
+purge_delay. You should try lowering the timeout configured for this pump.`.
+
+### pumps.timesteram.omit_detailed_recording
+EV: <b>TYK_PMP_PUMPS_TIMESTERAM_OMITDETAILEDRECORDING</b><br />
+Type: `bool`<br />
+
+Setting this to true will avoid writing raw_request and raw_response fields for each request
+in pumps. Defaults to `false`.
+
+### pumps.timesteram.max_record_size
+EV: <b>TYK_PMP_PUMPS_TIMESTERAM_MAXRECORDSIZE</b><br />
+Type: `int`<br />
+
+Defines maximum size (in bytes) for Raw Request and Raw Response logs, this value defaults
+to 0. If it is not set then tyk-pump will not trim any data and will store the full
+information. This can also be set at a pump level. For example:
+```{.json}
+"csv": {
+  "type": "csv",
+  "max_record_size":1000,
+  "meta": {
+    "csv_dir": "./"
+  }
+}
+```
+
+### pumps.timesteram.meta.AWSRegion
+EV: <b>TYK_PMP_PUMPS_TIMESTERAM_META_AWSREGION</b><br />
+Type: `string`<br />
+
+The aws region that contains the timestream database
+
+### pumps.timesteram.meta.TableName
+EV: <b>TYK_PMP_PUMPS_TIMESTERAM_META_TABLENAME</b><br />
+Type: `string`<br />
+
+The table name where the data is going to be written
+
+### pumps.timesteram.meta.DatabaseName
+EV: <b>TYK_PMP_PUMPS_TIMESTERAM_META_DATABASENAME</b><br />
+Type: `string`<br />
+
+The timestream database name that contains the table being written to
+
+### pumps.timesteram.meta.Dimensions
+EV: <b>TYK_PMP_PUMPS_TIMESTERAM_META_DIMENSIONS</b><br />
+Type: `[]string`<br />
+
+A filter of all the dimensions that will be written to the table. The possible options are
+["Method","Host","Path","RawPath","APIKey","APIVersion","APIName","APIID","OrgID","OauthID"]
+
+### pumps.timesteram.meta.Measures
+EV: <b>TYK_PMP_PUMPS_TIMESTERAM_META_MEASURES</b><br />
+Type: `[]string`<br />
+
+A filter of all the measures that will be written to the table. The possible options are
+["ContentLength","ResponseCode","RequestTime","NetworkStats.OpenConnections",
+"NetworkStats.ClosedConnection","NetworkStats.BytesIn","NetworkStats.BytesOut",
+"Latency.Total","Latency.Upstream","GeoData.City.GeoNameID","IPAddress",
+"GeoData.Location.Latitude","GeoData.Location.Longitude","UserAgent","RawRequest","RawResponse",
+"RateLimit.Limit","Ratelimit.Remaining","Ratelimit.Reset",
+"GeoData.Country.ISOCode","GeoData.City.Names","GeoData.Location.TimeZone"]
+
+### pumps.timesteram.meta.WriteRateLimit
+EV: <b>TYK_PMP_PUMPS_TIMESTERAM_META_WRITERATELIMIT</b><br />
+Type: `bool`<br />
+
+Set to true in order to save any of the `RateLimit` measures. Default value is `false`.
+
+### pumps.timesteram.meta.ReadGeoFromRequest
+EV: <b>TYK_PMP_PUMPS_TIMESTERAM_META_READGEOFROMREQUEST</b><br />
+Type: `bool`<br />
+
+If set true, we will try to read geo information from the headers if
+values aren't found on the analytic record . Default value is `false`.
+
+### pumps.timesteram.meta.WriteZeroValues
+EV: <b>TYK_PMP_PUMPS_TIMESTERAM_META_WRITEZEROVALUES</b><br />
+Type: `bool`<br />
+
+Set to true, in order to save numerical values with value zero. Default value is `false`.
+
+### pumps.timesteram.meta.NameMappings
+EV: <b>TYK_PMP_PUMPS_TIMESTERAM_META_NAMEMAPPINGS</b><br />
+Type: `map[string]string`<br />
+
+A name mapping for both Dimensions and Measures names. It's not required
+
 ### analytics_storage_type
 EV: <b>TYK_PMP_ANALYTICSSTORAGETYPE</b><br />
 Type: `string`<br />
@@ -3752,4 +4019,10 @@ EV: <b>TYK_PMP_OMITCONFIGFILE</b><br />
 Type: `bool`<br />
 
 Defines if tyk-pump should ignore all the values in configuration file. Specially useful when setting all configurations in environment variables.
+
+### enable_http_profiler
+EV: <b>TYK_PMP_HTTPPROFILE</b><br />
+Type: `bool`<br />
+
+Enable debugging of Tyk Pump by exposing profiling information, the same as the gateway https://tyk.io/docs/troubleshooting/tyk-gateway/profiling/
 
