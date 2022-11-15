@@ -67,6 +67,12 @@ Type: `bool`<br />
 
 Set to true to disable the default tyk index creation.
 
+### uptime_pump_config.mongo_session_consistency
+EV: <b>TYK_PMP_UPTIMEPUMPCONFIG_MONGOSESSIONCONSISTENCY</b><br />
+Type: `string`<br />
+
+Set the consistency mode for the session, it defaults to `Strong`. The valid values are: strong, monotonic, eventual.
+
 ### uptime_pump_config.collection_name
 EV: <b>TYK_PMP_UPTIMEPUMPCONFIG_COLLECTIONNAME</b><br />
 Type: `string`<br />
@@ -258,31 +264,25 @@ Filters pump data by the blacklisted response_codes.
 EV: <b>TYK_PMP_PUMPS_CSV_TIMEOUT</b><br />
 Type: `int`<br />
 
-You can configure a different timeout for each pump with the configuration option `timeout`.
-Its default value is `0` seconds, which means that the pump will wait for the writing
-operation forever.
+By default, a pump will wait forever for each write operation to complete; you can configure an optional timeout by setting the configuration option `timeout`.
+If you have deployed multiple pumps, then you can configure each timeout independently. The timeout is in seconds and defaults to 0.
 
-An example of this configuration would be:
+The timeout is configured within the main pump config as shown here; note that this example would configure a 5 second timeout:
 ```{.json}
-"mongo": {
-  "type": "mongo",
+"pump_name": {
+  ...
   "timeout":5,
-  "meta": {
-    "collection_name": "tyk_analytics",
-    "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/{db_name}"
-  }
+  "meta": {...}
 }
 ```
 
-In case that any pump doesn't have a configured timeout, and it takes more seconds to write
-than the value configured for the purge loop in the `purge_delay` config option, you will
-see the following warning message: `Pump PMP_NAME is taking more time than the value
-configured of purge_delay. You should try to set a timeout for this pump.`.
+Tyk will inform you if the pump's write operation is taking longer than the purging loop (configured via `purge_delay`) as this will mean that data is purged before being written to the target data sink.
 
-In case that you have a configured timeout, but it still takes more seconds to write than
-the value configured for the purge loop in the `purge_delay` config option, you will see the
-following warning message: `Pump PMP_NAME is taking more time than the value configured of
-purge_delay. You should try lowering the timeout configured for this pump.`.
+If there is no timeout configured and pump's write operation is taking longer than the purging loop, the following warning log will be generated:
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
+
+If there is a timeout configured, but pump's write operation is still taking longer than the purging loop, the following warning log will be generated:
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
 
 ### pumps.csv.omit_detailed_recording
 EV: <b>TYK_PMP_PUMPS_CSV_OMITDETAILEDRECORDING</b><br />
@@ -398,31 +398,25 @@ Filters pump data by the blacklisted response_codes.
 EV: <b>TYK_PMP_PUMPS_DOGSTATSD_TIMEOUT</b><br />
 Type: `int`<br />
 
-You can configure a different timeout for each pump with the configuration option `timeout`.
-Its default value is `0` seconds, which means that the pump will wait for the writing
-operation forever.
+By default, a pump will wait forever for each write operation to complete; you can configure an optional timeout by setting the configuration option `timeout`.
+If you have deployed multiple pumps, then you can configure each timeout independently. The timeout is in seconds and defaults to 0.
 
-An example of this configuration would be:
+The timeout is configured within the main pump config as shown here; note that this example would configure a 5 second timeout:
 ```{.json}
-"mongo": {
-  "type": "mongo",
+"pump_name": {
+  ...
   "timeout":5,
-  "meta": {
-    "collection_name": "tyk_analytics",
-    "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/{db_name}"
-  }
+  "meta": {...}
 }
 ```
 
-In case that any pump doesn't have a configured timeout, and it takes more seconds to write
-than the value configured for the purge loop in the `purge_delay` config option, you will
-see the following warning message: `Pump PMP_NAME is taking more time than the value
-configured of purge_delay. You should try to set a timeout for this pump.`.
+Tyk will inform you if the pump's write operation is taking longer than the purging loop (configured via `purge_delay`) as this will mean that data is purged before being written to the target data sink.
 
-In case that you have a configured timeout, but it still takes more seconds to write than
-the value configured for the purge loop in the `purge_delay` config option, you will see the
-following warning message: `Pump PMP_NAME is taking more time than the value configured of
-purge_delay. You should try lowering the timeout configured for this pump.`.
+If there is no timeout configured and pump's write operation is taking longer than the purging loop, the following warning log will be generated:
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
+
+If there is a timeout configured, but pump's write operation is still taking longer than the purging loop, the following warning log will be generated:
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
 
 ### pumps.dogstatsd.omit_detailed_recording
 EV: <b>TYK_PMP_PUMPS_DOGSTATSD_OMITDETAILEDRECORDING</b><br />
@@ -629,31 +623,25 @@ Filters pump data by the blacklisted response_codes.
 EV: <b>TYK_PMP_PUMPS_ELASTICSEARCH_TIMEOUT</b><br />
 Type: `int`<br />
 
-You can configure a different timeout for each pump with the configuration option `timeout`.
-Its default value is `0` seconds, which means that the pump will wait for the writing
-operation forever.
+By default, a pump will wait forever for each write operation to complete; you can configure an optional timeout by setting the configuration option `timeout`.
+If you have deployed multiple pumps, then you can configure each timeout independently. The timeout is in seconds and defaults to 0.
 
-An example of this configuration would be:
+The timeout is configured within the main pump config as shown here; note that this example would configure a 5 second timeout:
 ```{.json}
-"mongo": {
-  "type": "mongo",
+"pump_name": {
+  ...
   "timeout":5,
-  "meta": {
-    "collection_name": "tyk_analytics",
-    "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/{db_name}"
-  }
+  "meta": {...}
 }
 ```
 
-In case that any pump doesn't have a configured timeout, and it takes more seconds to write
-than the value configured for the purge loop in the `purge_delay` config option, you will
-see the following warning message: `Pump PMP_NAME is taking more time than the value
-configured of purge_delay. You should try to set a timeout for this pump.`.
+Tyk will inform you if the pump's write operation is taking longer than the purging loop (configured via `purge_delay`) as this will mean that data is purged before being written to the target data sink.
 
-In case that you have a configured timeout, but it still takes more seconds to write than
-the value configured for the purge loop in the `purge_delay` config option, you will see the
-following warning message: `Pump PMP_NAME is taking more time than the value configured of
-purge_delay. You should try lowering the timeout configured for this pump.`.
+If there is no timeout configured and pump's write operation is taking longer than the purging loop, the following warning log will be generated:
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
+
+If there is a timeout configured, but pump's write operation is still taking longer than the purging loop, the following warning log will be generated:
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
 
 ### pumps.elasticsearch.omit_detailed_recording
 EV: <b>TYK_PMP_PUMPS_ELASTICSEARCH_OMITDETAILEDRECORDING</b><br />
@@ -800,6 +788,30 @@ Type: `string`<br />
 
 Basic auth password. It's send to ES in the Authorization header as username:password encoded in base64.
 
+### pumps.elasticsearch.meta.use_ssl
+EV: <b>TYK_PMP_PUMPS_ELASTICSEARCH_META_USESSL</b><br />
+Type: `bool`<br />
+
+Enables SSL connection.
+
+### pumps.elasticsearch.meta.ssl_insecure_skip_verify
+EV: <b>TYK_PMP_PUMPS_ELASTICSEARCH_META_SSLINSECURESKIPVERIFY</b><br />
+Type: `bool`<br />
+
+Controls whether the pump client verifies the Elastic Search server's certificate chain and hostname.
+
+### pumps.elasticsearch.meta.ssl_cert_file
+EV: <b>TYK_PMP_PUMPS_ELASTICSEARCH_META_SSLCERTFILE</b><br />
+Type: `string`<br />
+
+Can be used to set custom certificate file for authentication with Elastic Search.
+
+### pumps.elasticsearch.meta.ssl_key_file
+EV: <b>TYK_PMP_PUMPS_ELASTICSEARCH_META_SSLKEYFILE</b><br />
+Type: `string`<br />
+
+Can be used to set custom key file for authentication with Elastic Search.
+
 ### pumps.graylog.name
 EV: <b>TYK_PMP_PUMPS_GRAYLOG_NAME</b><br />
 Type: `string`<br />
@@ -884,31 +896,25 @@ Filters pump data by the blacklisted response_codes.
 EV: <b>TYK_PMP_PUMPS_GRAYLOG_TIMEOUT</b><br />
 Type: `int`<br />
 
-You can configure a different timeout for each pump with the configuration option `timeout`.
-Its default value is `0` seconds, which means that the pump will wait for the writing
-operation forever.
+By default, a pump will wait forever for each write operation to complete; you can configure an optional timeout by setting the configuration option `timeout`.
+If you have deployed multiple pumps, then you can configure each timeout independently. The timeout is in seconds and defaults to 0.
 
-An example of this configuration would be:
+The timeout is configured within the main pump config as shown here; note that this example would configure a 5 second timeout:
 ```{.json}
-"mongo": {
-  "type": "mongo",
+"pump_name": {
+  ...
   "timeout":5,
-  "meta": {
-    "collection_name": "tyk_analytics",
-    "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/{db_name}"
-  }
+  "meta": {...}
 }
 ```
 
-In case that any pump doesn't have a configured timeout, and it takes more seconds to write
-than the value configured for the purge loop in the `purge_delay` config option, you will
-see the following warning message: `Pump PMP_NAME is taking more time than the value
-configured of purge_delay. You should try to set a timeout for this pump.`.
+Tyk will inform you if the pump's write operation is taking longer than the purging loop (configured via `purge_delay`) as this will mean that data is purged before being written to the target data sink.
 
-In case that you have a configured timeout, but it still takes more seconds to write than
-the value configured for the purge loop in the `purge_delay` config option, you will see the
-following warning message: `Pump PMP_NAME is taking more time than the value configured of
-purge_delay. You should try lowering the timeout configured for this pump.`.
+If there is no timeout configured and pump's write operation is taking longer than the purging loop, the following warning log will be generated:
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
+
+If there is a timeout configured, but pump's write operation is still taking longer than the purging loop, the following warning log will be generated:
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
 
 ### pumps.graylog.omit_detailed_recording
 EV: <b>TYK_PMP_PUMPS_GRAYLOG_OMITDETAILEDRECORDING</b><br />
@@ -1052,31 +1058,25 @@ Filters pump data by the blacklisted response_codes.
 EV: <b>TYK_PMP_PUMPS_INFLUX_TIMEOUT</b><br />
 Type: `int`<br />
 
-You can configure a different timeout for each pump with the configuration option `timeout`.
-Its default value is `0` seconds, which means that the pump will wait for the writing
-operation forever.
+By default, a pump will wait forever for each write operation to complete; you can configure an optional timeout by setting the configuration option `timeout`.
+If you have deployed multiple pumps, then you can configure each timeout independently. The timeout is in seconds and defaults to 0.
 
-An example of this configuration would be:
+The timeout is configured within the main pump config as shown here; note that this example would configure a 5 second timeout:
 ```{.json}
-"mongo": {
-  "type": "mongo",
+"pump_name": {
+  ...
   "timeout":5,
-  "meta": {
-    "collection_name": "tyk_analytics",
-    "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/{db_name}"
-  }
+  "meta": {...}
 }
 ```
 
-In case that any pump doesn't have a configured timeout, and it takes more seconds to write
-than the value configured for the purge loop in the `purge_delay` config option, you will
-see the following warning message: `Pump PMP_NAME is taking more time than the value
-configured of purge_delay. You should try to set a timeout for this pump.`.
+Tyk will inform you if the pump's write operation is taking longer than the purging loop (configured via `purge_delay`) as this will mean that data is purged before being written to the target data sink.
 
-In case that you have a configured timeout, but it still takes more seconds to write than
-the value configured for the purge loop in the `purge_delay` config option, you will see the
-following warning message: `Pump PMP_NAME is taking more time than the value configured of
-purge_delay. You should try lowering the timeout configured for this pump.`.
+If there is no timeout configured and pump's write operation is taking longer than the purging loop, the following warning log will be generated:
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
+
+If there is a timeout configured, but pump's write operation is still taking longer than the purging loop, the following warning log will be generated:
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
 
 ### pumps.influx.omit_detailed_recording
 EV: <b>TYK_PMP_PUMPS_INFLUX_OMITDETAILEDRECORDING</b><br />
@@ -1225,31 +1225,25 @@ Filters pump data by the blacklisted response_codes.
 EV: <b>TYK_PMP_PUMPS_KAFKA_TIMEOUT</b><br />
 Type: `int`<br />
 
-You can configure a different timeout for each pump with the configuration option `timeout`.
-Its default value is `0` seconds, which means that the pump will wait for the writing
-operation forever.
+By default, a pump will wait forever for each write operation to complete; you can configure an optional timeout by setting the configuration option `timeout`.
+If you have deployed multiple pumps, then you can configure each timeout independently. The timeout is in seconds and defaults to 0.
 
-An example of this configuration would be:
+The timeout is configured within the main pump config as shown here; note that this example would configure a 5 second timeout:
 ```{.json}
-"mongo": {
-  "type": "mongo",
+"pump_name": {
+  ...
   "timeout":5,
-  "meta": {
-    "collection_name": "tyk_analytics",
-    "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/{db_name}"
-  }
+  "meta": {...}
 }
 ```
 
-In case that any pump doesn't have a configured timeout, and it takes more seconds to write
-than the value configured for the purge loop in the `purge_delay` config option, you will
-see the following warning message: `Pump PMP_NAME is taking more time than the value
-configured of purge_delay. You should try to set a timeout for this pump.`.
+Tyk will inform you if the pump's write operation is taking longer than the purging loop (configured via `purge_delay`) as this will mean that data is purged before being written to the target data sink.
 
-In case that you have a configured timeout, but it still takes more seconds to write than
-the value configured for the purge loop in the `purge_delay` config option, you will see the
-following warning message: `Pump PMP_NAME is taking more time than the value configured of
-purge_delay. You should try lowering the timeout configured for this pump.`.
+If there is no timeout configured and pump's write operation is taking longer than the purging loop, the following warning log will be generated:
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
+
+If there is a timeout configured, but pump's write operation is still taking longer than the purging loop, the following warning log will be generated:
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
 
 ### pumps.kafka.omit_detailed_recording
 EV: <b>TYK_PMP_PUMPS_KAFKA_OMITDETAILEDRECORDING</b><br />
@@ -1447,31 +1441,25 @@ Filters pump data by the blacklisted response_codes.
 EV: <b>TYK_PMP_PUMPS_LOGZIO_TIMEOUT</b><br />
 Type: `int`<br />
 
-You can configure a different timeout for each pump with the configuration option `timeout`.
-Its default value is `0` seconds, which means that the pump will wait for the writing
-operation forever.
+By default, a pump will wait forever for each write operation to complete; you can configure an optional timeout by setting the configuration option `timeout`.
+If you have deployed multiple pumps, then you can configure each timeout independently. The timeout is in seconds and defaults to 0.
 
-An example of this configuration would be:
+The timeout is configured within the main pump config as shown here; note that this example would configure a 5 second timeout:
 ```{.json}
-"mongo": {
-  "type": "mongo",
+"pump_name": {
+  ...
   "timeout":5,
-  "meta": {
-    "collection_name": "tyk_analytics",
-    "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/{db_name}"
-  }
+  "meta": {...}
 }
 ```
 
-In case that any pump doesn't have a configured timeout, and it takes more seconds to write
-than the value configured for the purge loop in the `purge_delay` config option, you will
-see the following warning message: `Pump PMP_NAME is taking more time than the value
-configured of purge_delay. You should try to set a timeout for this pump.`.
+Tyk will inform you if the pump's write operation is taking longer than the purging loop (configured via `purge_delay`) as this will mean that data is purged before being written to the target data sink.
 
-In case that you have a configured timeout, but it still takes more seconds to write than
-the value configured for the purge loop in the `purge_delay` config option, you will see the
-following warning message: `Pump PMP_NAME is taking more time than the value configured of
-purge_delay. You should try lowering the timeout configured for this pump.`.
+If there is no timeout configured and pump's write operation is taking longer than the purging loop, the following warning log will be generated:
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
+
+If there is a timeout configured, but pump's write operation is still taking longer than the purging loop, the following warning log will be generated:
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
 
 ### pumps.logzio.omit_detailed_recording
 EV: <b>TYK_PMP_PUMPS_LOGZIO_OMITDETAILEDRECORDING</b><br />
@@ -1620,31 +1608,25 @@ Filters pump data by the blacklisted response_codes.
 EV: <b>TYK_PMP_PUMPS_MOESIF_TIMEOUT</b><br />
 Type: `int`<br />
 
-You can configure a different timeout for each pump with the configuration option `timeout`.
-Its default value is `0` seconds, which means that the pump will wait for the writing
-operation forever.
+By default, a pump will wait forever for each write operation to complete; you can configure an optional timeout by setting the configuration option `timeout`.
+If you have deployed multiple pumps, then you can configure each timeout independently. The timeout is in seconds and defaults to 0.
 
-An example of this configuration would be:
+The timeout is configured within the main pump config as shown here; note that this example would configure a 5 second timeout:
 ```{.json}
-"mongo": {
-  "type": "mongo",
+"pump_name": {
+  ...
   "timeout":5,
-  "meta": {
-    "collection_name": "tyk_analytics",
-    "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/{db_name}"
-  }
+  "meta": {...}
 }
 ```
 
-In case that any pump doesn't have a configured timeout, and it takes more seconds to write
-than the value configured for the purge loop in the `purge_delay` config option, you will
-see the following warning message: `Pump PMP_NAME is taking more time than the value
-configured of purge_delay. You should try to set a timeout for this pump.`.
+Tyk will inform you if the pump's write operation is taking longer than the purging loop (configured via `purge_delay`) as this will mean that data is purged before being written to the target data sink.
 
-In case that you have a configured timeout, but it still takes more seconds to write than
-the value configured for the purge loop in the `purge_delay` config option, you will see the
-following warning message: `Pump PMP_NAME is taking more time than the value configured of
-purge_delay. You should try lowering the timeout configured for this pump.`.
+If there is no timeout configured and pump's write operation is taking longer than the purging loop, the following warning log will be generated:
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
+
+If there is a timeout configured, but pump's write operation is still taking longer than the purging loop, the following warning log will be generated:
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
 
 ### pumps.moesif.omit_detailed_recording
 EV: <b>TYK_PMP_PUMPS_MOESIF_OMITDETAILEDRECORDING</b><br />
@@ -1846,31 +1828,25 @@ Filters pump data by the blacklisted response_codes.
 EV: <b>TYK_PMP_PUMPS_MONGO_TIMEOUT</b><br />
 Type: `int`<br />
 
-You can configure a different timeout for each pump with the configuration option `timeout`.
-Its default value is `0` seconds, which means that the pump will wait for the writing
-operation forever.
+By default, a pump will wait forever for each write operation to complete; you can configure an optional timeout by setting the configuration option `timeout`.
+If you have deployed multiple pumps, then you can configure each timeout independently. The timeout is in seconds and defaults to 0.
 
-An example of this configuration would be:
+The timeout is configured within the main pump config as shown here; note that this example would configure a 5 second timeout:
 ```{.json}
-"mongo": {
-  "type": "mongo",
+"pump_name": {
+  ...
   "timeout":5,
-  "meta": {
-    "collection_name": "tyk_analytics",
-    "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/{db_name}"
-  }
+  "meta": {...}
 }
 ```
 
-In case that any pump doesn't have a configured timeout, and it takes more seconds to write
-than the value configured for the purge loop in the `purge_delay` config option, you will
-see the following warning message: `Pump PMP_NAME is taking more time than the value
-configured of purge_delay. You should try to set a timeout for this pump.`.
+Tyk will inform you if the pump's write operation is taking longer than the purging loop (configured via `purge_delay`) as this will mean that data is purged before being written to the target data sink.
 
-In case that you have a configured timeout, but it still takes more seconds to write than
-the value configured for the purge loop in the `purge_delay` config option, you will see the
-following warning message: `Pump PMP_NAME is taking more time than the value configured of
-purge_delay. You should try lowering the timeout configured for this pump.`.
+If there is no timeout configured and pump's write operation is taking longer than the purging loop, the following warning log will be generated:
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
+
+If there is a timeout configured, but pump's write operation is still taking longer than the purging loop, the following warning log will be generated:
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
 
 ### pumps.mongo.omit_detailed_recording
 EV: <b>TYK_PMP_PUMPS_MONGO_OMITDETAILEDRECORDING</b><br />
@@ -1919,6 +1895,12 @@ EV: <b>TYK_PMP_PUMPS_MONGO_META_OMITINDEXCREATION</b><br />
 Type: `bool`<br />
 
 Set to true to disable the default tyk index creation.
+
+### pumps.mongo.meta.mongo_session_consistency
+EV: <b>TYK_PMP_PUMPS_MONGO_META_MONGOSESSIONCONSISTENCY</b><br />
+Type: `string`<br />
+
+Set the consistency mode for the session, it defaults to `Strong`. The valid values are: strong, monotonic, eventual.
 
 ### pumps.mongo.meta.collection_name
 EV: <b>TYK_PMP_PUMPS_MONGO_META_COLLECTIONNAME</b><br />
@@ -2037,31 +2019,25 @@ Filters pump data by the blacklisted response_codes.
 EV: <b>TYK_PMP_PUMPS_MONGOAGGREGATE_TIMEOUT</b><br />
 Type: `int`<br />
 
-You can configure a different timeout for each pump with the configuration option `timeout`.
-Its default value is `0` seconds, which means that the pump will wait for the writing
-operation forever.
+By default, a pump will wait forever for each write operation to complete; you can configure an optional timeout by setting the configuration option `timeout`.
+If you have deployed multiple pumps, then you can configure each timeout independently. The timeout is in seconds and defaults to 0.
 
-An example of this configuration would be:
+The timeout is configured within the main pump config as shown here; note that this example would configure a 5 second timeout:
 ```{.json}
-"mongo": {
-  "type": "mongo",
+"pump_name": {
+  ...
   "timeout":5,
-  "meta": {
-    "collection_name": "tyk_analytics",
-    "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/{db_name}"
-  }
+  "meta": {...}
 }
 ```
 
-In case that any pump doesn't have a configured timeout, and it takes more seconds to write
-than the value configured for the purge loop in the `purge_delay` config option, you will
-see the following warning message: `Pump PMP_NAME is taking more time than the value
-configured of purge_delay. You should try to set a timeout for this pump.`.
+Tyk will inform you if the pump's write operation is taking longer than the purging loop (configured via `purge_delay`) as this will mean that data is purged before being written to the target data sink.
 
-In case that you have a configured timeout, but it still takes more seconds to write than
-the value configured for the purge loop in the `purge_delay` config option, you will see the
-following warning message: `Pump PMP_NAME is taking more time than the value configured of
-purge_delay. You should try lowering the timeout configured for this pump.`.
+If there is no timeout configured and pump's write operation is taking longer than the purging loop, the following warning log will be generated:
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
+
+If there is a timeout configured, but pump's write operation is still taking longer than the purging loop, the following warning log will be generated:
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
 
 ### pumps.mongoaggregate.omit_detailed_recording
 EV: <b>TYK_PMP_PUMPS_MONGOAGGREGATE_OMITDETAILEDRECORDING</b><br />
@@ -2111,6 +2087,12 @@ Type: `bool`<br />
 
 Set to true to disable the default tyk index creation.
 
+### pumps.mongoaggregate.meta.mongo_session_consistency
+EV: <b>TYK_PMP_PUMPS_MONGOAGGREGATE_META_MONGOSESSIONCONSISTENCY</b><br />
+Type: `string`<br />
+
+Set the consistency mode for the session, it defaults to `Strong`. The valid values are: strong, monotonic, eventual.
+
 ### pumps.mongoaggregate.meta.use_mixed_collection
 EV: <b>TYK_PMP_PUMPS_MONGOAGGREGATE_META_USEMIXEDCOLLECTION</b><br />
 Type: `bool`<br />
@@ -2145,7 +2127,22 @@ Defaults to 1000.
 EV: <b>TYK_PMP_PUMPS_MONGOAGGREGATE_META_STOREANALYTICSPERMINUTE</b><br />
 Type: `bool`<br />
 
-Determines if the aggregations should be made per minute instead of per hour.
+Determines if the aggregations should be made per minute (true) or per hour (false).
+
+### pumps.mongoaggregate.meta.aggregation_time
+EV: <b>TYK_PMP_PUMPS_MONGOAGGREGATE_META_AGGREGATIONTIME</b><br />
+Type: `int`<br />
+
+Determines the amount of time the aggregations should be made (in minutes). It defaults to the max value is 60 and the minimum is 1.
+If StoreAnalyticsPerMinute is set to true, this field will be skipped.
+
+### pumps.mongoaggregate.meta.enable_aggregate_self_healing
+EV: <b>TYK_PMP_PUMPS_MONGOAGGREGATE_META_ENABLEAGGREGATESELFHEALING</b><br />
+Type: `bool`<br />
+
+Determines if the self healing will be activated or not.
+Self Healing allows pump to handle Mongo document's max-size errors by creating a new document when the max-size is reached.
+It also divide by 2 the AggregationTime field to avoid the same error in the future.
 
 ### pumps.mongoaggregate.meta.ignore_aggregations
 EV: <b>TYK_PMP_PUMPS_MONGOAGGREGATE_META_IGNOREAGGREGATIONSLIST</b><br />
@@ -2239,31 +2236,25 @@ Filters pump data by the blacklisted response_codes.
 EV: <b>TYK_PMP_PUMPS_MONGOSELECTIVE_TIMEOUT</b><br />
 Type: `int`<br />
 
-You can configure a different timeout for each pump with the configuration option `timeout`.
-Its default value is `0` seconds, which means that the pump will wait for the writing
-operation forever.
+By default, a pump will wait forever for each write operation to complete; you can configure an optional timeout by setting the configuration option `timeout`.
+If you have deployed multiple pumps, then you can configure each timeout independently. The timeout is in seconds and defaults to 0.
 
-An example of this configuration would be:
+The timeout is configured within the main pump config as shown here; note that this example would configure a 5 second timeout:
 ```{.json}
-"mongo": {
-  "type": "mongo",
+"pump_name": {
+  ...
   "timeout":5,
-  "meta": {
-    "collection_name": "tyk_analytics",
-    "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/{db_name}"
-  }
+  "meta": {...}
 }
 ```
 
-In case that any pump doesn't have a configured timeout, and it takes more seconds to write
-than the value configured for the purge loop in the `purge_delay` config option, you will
-see the following warning message: `Pump PMP_NAME is taking more time than the value
-configured of purge_delay. You should try to set a timeout for this pump.`.
+Tyk will inform you if the pump's write operation is taking longer than the purging loop (configured via `purge_delay`) as this will mean that data is purged before being written to the target data sink.
 
-In case that you have a configured timeout, but it still takes more seconds to write than
-the value configured for the purge loop in the `purge_delay` config option, you will see the
-following warning message: `Pump PMP_NAME is taking more time than the value configured of
-purge_delay. You should try lowering the timeout configured for this pump.`.
+If there is no timeout configured and pump's write operation is taking longer than the purging loop, the following warning log will be generated:
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
+
+If there is a timeout configured, but pump's write operation is still taking longer than the purging loop, the following warning log will be generated:
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
 
 ### pumps.mongoselective.omit_detailed_recording
 EV: <b>TYK_PMP_PUMPS_MONGOSELECTIVE_OMITDETAILEDRECORDING</b><br />
@@ -2312,6 +2303,12 @@ EV: <b>TYK_PMP_PUMPS_MONGOSELECTIVE_META_OMITINDEXCREATION</b><br />
 Type: `bool`<br />
 
 Set to true to disable the default tyk index creation.
+
+### pumps.mongoselective.meta.mongo_session_consistency
+EV: <b>TYK_PMP_PUMPS_MONGOSELECTIVE_META_MONGOSESSIONCONSISTENCY</b><br />
+Type: `string`<br />
+
+Set the consistency mode for the session, it defaults to `Strong`. The valid values are: strong, monotonic, eventual.
 
 ### pumps.mongoselective.meta.max_insert_batch_size_bytes
 EV: <b>TYK_PMP_PUMPS_MONGOSELECTIVE_META_MAXINSERTBATCHSIZEBYTES</b><br />
@@ -2411,31 +2408,25 @@ Filters pump data by the blacklisted response_codes.
 EV: <b>TYK_PMP_PUMPS_PROMETHEUS_TIMEOUT</b><br />
 Type: `int`<br />
 
-You can configure a different timeout for each pump with the configuration option `timeout`.
-Its default value is `0` seconds, which means that the pump will wait for the writing
-operation forever.
+By default, a pump will wait forever for each write operation to complete; you can configure an optional timeout by setting the configuration option `timeout`.
+If you have deployed multiple pumps, then you can configure each timeout independently. The timeout is in seconds and defaults to 0.
 
-An example of this configuration would be:
+The timeout is configured within the main pump config as shown here; note that this example would configure a 5 second timeout:
 ```{.json}
-"mongo": {
-  "type": "mongo",
+"pump_name": {
+  ...
   "timeout":5,
-  "meta": {
-    "collection_name": "tyk_analytics",
-    "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/{db_name}"
-  }
+  "meta": {...}
 }
 ```
 
-In case that any pump doesn't have a configured timeout, and it takes more seconds to write
-than the value configured for the purge loop in the `purge_delay` config option, you will
-see the following warning message: `Pump PMP_NAME is taking more time than the value
-configured of purge_delay. You should try to set a timeout for this pump.`.
+Tyk will inform you if the pump's write operation is taking longer than the purging loop (configured via `purge_delay`) as this will mean that data is purged before being written to the target data sink.
 
-In case that you have a configured timeout, but it still takes more seconds to write than
-the value configured for the purge loop in the `purge_delay` config option, you will see the
-following warning message: `Pump PMP_NAME is taking more time than the value configured of
-purge_delay. You should try lowering the timeout configured for this pump.`.
+If there is no timeout configured and pump's write operation is taking longer than the purging loop, the following warning log will be generated:
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
+
+If there is a timeout configured, but pump's write operation is still taking longer than the purging loop, the following warning log will be generated:
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
 
 ### pumps.prometheus.omit_detailed_recording
 EV: <b>TYK_PMP_PUMPS_PROMETHEUS_OMITDETAILEDRECORDING</b><br />
@@ -2480,33 +2471,17 @@ Type: `bool`<br />
 This will enable an experimental feature that will aggregate the histogram metrics request time values before exposing them to prometheus.
 Enabling this will reduce the CPU usage of your prometheus pump but you will loose histogram precision. Experimental.
 
+### pumps.prometheus.meta.disabled_metrics
+EV: <b>TYK_PMP_PUMPS_PROMETHEUS_META_DISABLEDMETRICS</b><br />
+Type: `[]string`<br />
+
+Metrics to exclude from exposition. Currently, excludes only the base metrics.
+
 ### pumps.prometheus.meta.custom_metrics
-EV: <b>undefined</b><br />
-Type: `[]PrometheusMetric`<br />
+EV: <b>TYK_PMP_PUMPS_PROMETHEUS_META_CUSTOMMETRICS</b><br />
+Type: `CustomMetrics`<br />
 
 Custom Prometheus metrics.
-
-**PrometheusMetric Object**
-
-| Variable | Type | Key | Description |
-| ----------- | ----------- | ----------- | ----------- |
-| Name | string | name | The name of the custom metric. For example: `tyk_http_status_per_api_name` |
-| Help | string | help | Description text of the custom metric. For example: `HTTP status codes per API` |
-| MetricType | string | metric_type | Determines the type of the metric. There's currently 2 available options: `counter` or `histogram`.
-In case of histogram, you can only modify the labels since it always going to use the request_time. |
-| Buckets | []float64 | buckets | Defines the buckets into which observations are counted. The type is float64 array and by default, [1, 2, 5, 7, 10, 15, 20, 25, 30, 40, 50, 60, 70, 80, 90, 100, 200, 300, 400, 500, 1000, 2000, 5000, 10000, 30000, 60000] |
-| Labels | []string | labels | Defines the partitions in the metrics. For example: ['response_code','api_name'].
-The available labels are: `["host","method",
-"path", "response_code", "api_key", "time_stamp", "api_version", "api_name", "api_id",
-"org_id", "oauth_id","request_time", "ip_address"]`. |
-| enabled | bool | enabled |  |
-| counterVec | *prometheus.CounterVec | counterVec |  |
-| histogramVec | *prometheus.HistogramVec | histogramVec |  |
-| counterMap | map[string]uint64 | counterMap |  |
-| histogramMap | histogramCounter | histogramMap |  |
-| histogramMap_totalRequestTime | map[string]uint64 | histogramMap.totalRequestTime |  |
-| histogramMap_hits | map[string]uint64 | histogramMap.hits |  |
-| aggregatedObservations | bool | aggregatedObservations |  |
 
 ### pumps.splunk.name
 EV: <b>TYK_PMP_PUMPS_SPLUNK_NAME</b><br />
@@ -2592,31 +2567,25 @@ Filters pump data by the blacklisted response_codes.
 EV: <b>TYK_PMP_PUMPS_SPLUNK_TIMEOUT</b><br />
 Type: `int`<br />
 
-You can configure a different timeout for each pump with the configuration option `timeout`.
-Its default value is `0` seconds, which means that the pump will wait for the writing
-operation forever.
+By default, a pump will wait forever for each write operation to complete; you can configure an optional timeout by setting the configuration option `timeout`.
+If you have deployed multiple pumps, then you can configure each timeout independently. The timeout is in seconds and defaults to 0.
 
-An example of this configuration would be:
+The timeout is configured within the main pump config as shown here; note that this example would configure a 5 second timeout:
 ```{.json}
-"mongo": {
-  "type": "mongo",
+"pump_name": {
+  ...
   "timeout":5,
-  "meta": {
-    "collection_name": "tyk_analytics",
-    "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/{db_name}"
-  }
+  "meta": {...}
 }
 ```
 
-In case that any pump doesn't have a configured timeout, and it takes more seconds to write
-than the value configured for the purge loop in the `purge_delay` config option, you will
-see the following warning message: `Pump PMP_NAME is taking more time than the value
-configured of purge_delay. You should try to set a timeout for this pump.`.
+Tyk will inform you if the pump's write operation is taking longer than the purging loop (configured via `purge_delay`) as this will mean that data is purged before being written to the target data sink.
 
-In case that you have a configured timeout, but it still takes more seconds to write than
-the value configured for the purge loop in the `purge_delay` config option, you will see the
-following warning message: `Pump PMP_NAME is taking more time than the value configured of
-purge_delay. You should try lowering the timeout configured for this pump.`.
+If there is no timeout configured and pump's write operation is taking longer than the purging loop, the following warning log will be generated:
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
+
+If there is a timeout configured, but pump's write operation is still taking longer than the purging loop, the following warning log will be generated:
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
 
 ### pumps.splunk.omit_detailed_recording
 EV: <b>TYK_PMP_PUMPS_SPLUNK_OMITDETAILEDRECORDING</b><br />
@@ -2800,31 +2769,25 @@ Filters pump data by the blacklisted response_codes.
 EV: <b>TYK_PMP_PUMPS_SQL_TIMEOUT</b><br />
 Type: `int`<br />
 
-You can configure a different timeout for each pump with the configuration option `timeout`.
-Its default value is `0` seconds, which means that the pump will wait for the writing
-operation forever.
+By default, a pump will wait forever for each write operation to complete; you can configure an optional timeout by setting the configuration option `timeout`.
+If you have deployed multiple pumps, then you can configure each timeout independently. The timeout is in seconds and defaults to 0.
 
-An example of this configuration would be:
+The timeout is configured within the main pump config as shown here; note that this example would configure a 5 second timeout:
 ```{.json}
-"mongo": {
-  "type": "mongo",
+"pump_name": {
+  ...
   "timeout":5,
-  "meta": {
-    "collection_name": "tyk_analytics",
-    "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/{db_name}"
-  }
+  "meta": {...}
 }
 ```
 
-In case that any pump doesn't have a configured timeout, and it takes more seconds to write
-than the value configured for the purge loop in the `purge_delay` config option, you will
-see the following warning message: `Pump PMP_NAME is taking more time than the value
-configured of purge_delay. You should try to set a timeout for this pump.`.
+Tyk will inform you if the pump's write operation is taking longer than the purging loop (configured via `purge_delay`) as this will mean that data is purged before being written to the target data sink.
 
-In case that you have a configured timeout, but it still takes more seconds to write than
-the value configured for the purge loop in the `purge_delay` config option, you will see the
-following warning message: `Pump PMP_NAME is taking more time than the value configured of
-purge_delay. You should try lowering the timeout configured for this pump.`.
+If there is no timeout configured and pump's write operation is taking longer than the purging loop, the following warning log will be generated:
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
+
+If there is a timeout configured, but pump's write operation is still taking longer than the purging loop, the following warning log will be generated:
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
 
 ### pumps.sql.omit_detailed_recording
 EV: <b>TYK_PMP_PUMPS_SQL_OMITDETAILEDRECORDING</b><br />
@@ -3012,31 +2975,25 @@ Filters pump data by the blacklisted response_codes.
 EV: <b>TYK_PMP_PUMPS_SQLAGGREGATE_TIMEOUT</b><br />
 Type: `int`<br />
 
-You can configure a different timeout for each pump with the configuration option `timeout`.
-Its default value is `0` seconds, which means that the pump will wait for the writing
-operation forever.
+By default, a pump will wait forever for each write operation to complete; you can configure an optional timeout by setting the configuration option `timeout`.
+If you have deployed multiple pumps, then you can configure each timeout independently. The timeout is in seconds and defaults to 0.
 
-An example of this configuration would be:
+The timeout is configured within the main pump config as shown here; note that this example would configure a 5 second timeout:
 ```{.json}
-"mongo": {
-  "type": "mongo",
+"pump_name": {
+  ...
   "timeout":5,
-  "meta": {
-    "collection_name": "tyk_analytics",
-    "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/{db_name}"
-  }
+  "meta": {...}
 }
 ```
 
-In case that any pump doesn't have a configured timeout, and it takes more seconds to write
-than the value configured for the purge loop in the `purge_delay` config option, you will
-see the following warning message: `Pump PMP_NAME is taking more time than the value
-configured of purge_delay. You should try to set a timeout for this pump.`.
+Tyk will inform you if the pump's write operation is taking longer than the purging loop (configured via `purge_delay`) as this will mean that data is purged before being written to the target data sink.
 
-In case that you have a configured timeout, but it still takes more seconds to write than
-the value configured for the purge loop in the `purge_delay` config option, you will see the
-following warning message: `Pump PMP_NAME is taking more time than the value configured of
-purge_delay. You should try lowering the timeout configured for this pump.`.
+If there is no timeout configured and pump's write operation is taking longer than the purging loop, the following warning log will be generated:
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
+
+If there is a timeout configured, but pump's write operation is still taking longer than the purging loop, the following warning log will be generated:
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
 
 ### pumps.sqlaggregate.omit_detailed_recording
 EV: <b>TYK_PMP_PUMPS_SQLAGGREGATE_OMITDETAILEDRECORDING</b><br />
@@ -3225,31 +3182,25 @@ Filters pump data by the blacklisted response_codes.
 EV: <b>TYK_PMP_PUMPS_STATSD_TIMEOUT</b><br />
 Type: `int`<br />
 
-You can configure a different timeout for each pump with the configuration option `timeout`.
-Its default value is `0` seconds, which means that the pump will wait for the writing
-operation forever.
+By default, a pump will wait forever for each write operation to complete; you can configure an optional timeout by setting the configuration option `timeout`.
+If you have deployed multiple pumps, then you can configure each timeout independently. The timeout is in seconds and defaults to 0.
 
-An example of this configuration would be:
+The timeout is configured within the main pump config as shown here; note that this example would configure a 5 second timeout:
 ```{.json}
-"mongo": {
-  "type": "mongo",
+"pump_name": {
+  ...
   "timeout":5,
-  "meta": {
-    "collection_name": "tyk_analytics",
-    "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/{db_name}"
-  }
+  "meta": {...}
 }
 ```
 
-In case that any pump doesn't have a configured timeout, and it takes more seconds to write
-than the value configured for the purge loop in the `purge_delay` config option, you will
-see the following warning message: `Pump PMP_NAME is taking more time than the value
-configured of purge_delay. You should try to set a timeout for this pump.`.
+Tyk will inform you if the pump's write operation is taking longer than the purging loop (configured via `purge_delay`) as this will mean that data is purged before being written to the target data sink.
 
-In case that you have a configured timeout, but it still takes more seconds to write than
-the value configured for the purge loop in the `purge_delay` config option, you will see the
-following warning message: `Pump PMP_NAME is taking more time than the value configured of
-purge_delay. You should try lowering the timeout configured for this pump.`.
+If there is no timeout configured and pump's write operation is taking longer than the purging loop, the following warning log will be generated:
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
+
+If there is a timeout configured, but pump's write operation is still taking longer than the purging loop, the following warning log will be generated:
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
 
 ### pumps.statsd.omit_detailed_recording
 EV: <b>TYK_PMP_PUMPS_STATSD_OMITDETAILEDRECORDING</b><br />
@@ -3383,31 +3334,25 @@ Filters pump data by the blacklisted response_codes.
 EV: <b>TYK_PMP_PUMPS_STDOUT_TIMEOUT</b><br />
 Type: `int`<br />
 
-You can configure a different timeout for each pump with the configuration option `timeout`.
-Its default value is `0` seconds, which means that the pump will wait for the writing
-operation forever.
+By default, a pump will wait forever for each write operation to complete; you can configure an optional timeout by setting the configuration option `timeout`.
+If you have deployed multiple pumps, then you can configure each timeout independently. The timeout is in seconds and defaults to 0.
 
-An example of this configuration would be:
+The timeout is configured within the main pump config as shown here; note that this example would configure a 5 second timeout:
 ```{.json}
-"mongo": {
-  "type": "mongo",
+"pump_name": {
+  ...
   "timeout":5,
-  "meta": {
-    "collection_name": "tyk_analytics",
-    "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/{db_name}"
-  }
+  "meta": {...}
 }
 ```
 
-In case that any pump doesn't have a configured timeout, and it takes more seconds to write
-than the value configured for the purge loop in the `purge_delay` config option, you will
-see the following warning message: `Pump PMP_NAME is taking more time than the value
-configured of purge_delay. You should try to set a timeout for this pump.`.
+Tyk will inform you if the pump's write operation is taking longer than the purging loop (configured via `purge_delay`) as this will mean that data is purged before being written to the target data sink.
 
-In case that you have a configured timeout, but it still takes more seconds to write than
-the value configured for the purge loop in the `purge_delay` config option, you will see the
-following warning message: `Pump PMP_NAME is taking more time than the value configured of
-purge_delay. You should try lowering the timeout configured for this pump.`.
+If there is no timeout configured and pump's write operation is taking longer than the purging loop, the following warning log will be generated:
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
+
+If there is a timeout configured, but pump's write operation is still taking longer than the purging loop, the following warning log will be generated:
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
 
 ### pumps.stdout.omit_detailed_recording
 EV: <b>TYK_PMP_PUMPS_STDOUT_OMITDETAILEDRECORDING</b><br />
@@ -3530,31 +3475,25 @@ Filters pump data by the blacklisted response_codes.
 EV: <b>TYK_PMP_PUMPS_SYSLOG_TIMEOUT</b><br />
 Type: `int`<br />
 
-You can configure a different timeout for each pump with the configuration option `timeout`.
-Its default value is `0` seconds, which means that the pump will wait for the writing
-operation forever.
+By default, a pump will wait forever for each write operation to complete; you can configure an optional timeout by setting the configuration option `timeout`.
+If you have deployed multiple pumps, then you can configure each timeout independently. The timeout is in seconds and defaults to 0.
 
-An example of this configuration would be:
+The timeout is configured within the main pump config as shown here; note that this example would configure a 5 second timeout:
 ```{.json}
-"mongo": {
-  "type": "mongo",
+"pump_name": {
+  ...
   "timeout":5,
-  "meta": {
-    "collection_name": "tyk_analytics",
-    "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/{db_name}"
-  }
+  "meta": {...}
 }
 ```
 
-In case that any pump doesn't have a configured timeout, and it takes more seconds to write
-than the value configured for the purge loop in the `purge_delay` config option, you will
-see the following warning message: `Pump PMP_NAME is taking more time than the value
-configured of purge_delay. You should try to set a timeout for this pump.`.
+Tyk will inform you if the pump's write operation is taking longer than the purging loop (configured via `purge_delay`) as this will mean that data is purged before being written to the target data sink.
 
-In case that you have a configured timeout, but it still takes more seconds to write than
-the value configured for the purge loop in the `purge_delay` config option, you will see the
-following warning message: `Pump PMP_NAME is taking more time than the value configured of
-purge_delay. You should try lowering the timeout configured for this pump.`.
+If there is no timeout configured and pump's write operation is taking longer than the purging loop, the following warning log will be generated:
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
+
+If there is a timeout configured, but pump's write operation is still taking longer than the purging loop, the following warning log will be generated:
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
 
 ### pumps.syslog.omit_detailed_recording
 EV: <b>TYK_PMP_PUMPS_SYSLOG_OMITDETAILEDRECORDING</b><br />
@@ -3704,31 +3643,25 @@ Filters pump data by the blacklisted response_codes.
 EV: <b>TYK_PMP_PUMPS_TIMESTERAM_TIMEOUT</b><br />
 Type: `int`<br />
 
-You can configure a different timeout for each pump with the configuration option `timeout`.
-Its default value is `0` seconds, which means that the pump will wait for the writing
-operation forever.
+By default, a pump will wait forever for each write operation to complete; you can configure an optional timeout by setting the configuration option `timeout`.
+If you have deployed multiple pumps, then you can configure each timeout independently. The timeout is in seconds and defaults to 0.
 
-An example of this configuration would be:
+The timeout is configured within the main pump config as shown here; note that this example would configure a 5 second timeout:
 ```{.json}
-"mongo": {
-  "type": "mongo",
+"pump_name": {
+  ...
   "timeout":5,
-  "meta": {
-    "collection_name": "tyk_analytics",
-    "mongo_url": "mongodb://username:password@{hostname:port},{hostname:port}/{db_name}"
-  }
+  "meta": {...}
 }
 ```
 
-In case that any pump doesn't have a configured timeout, and it takes more seconds to write
-than the value configured for the purge loop in the `purge_delay` config option, you will
-see the following warning message: `Pump PMP_NAME is taking more time than the value
-configured of purge_delay. You should try to set a timeout for this pump.`.
+Tyk will inform you if the pump's write operation is taking longer than the purging loop (configured via `purge_delay`) as this will mean that data is purged before being written to the target data sink.
 
-In case that you have a configured timeout, but it still takes more seconds to write than
-the value configured for the purge loop in the `purge_delay` config option, you will see the
-following warning message: `Pump PMP_NAME is taking more time than the value configured of
-purge_delay. You should try lowering the timeout configured for this pump.`.
+If there is no timeout configured and pump's write operation is taking longer than the purging loop, the following warning log will be generated:
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try to set a timeout for this pump.`
+
+If there is a timeout configured, but pump's write operation is still taking longer than the purging loop, the following warning log will be generated:
+`Pump {pump_name} is taking more time than the value configured of purge_delay. You should try lowering the timeout configured for this pump.`.
 
 ### pumps.timesteram.omit_detailed_recording
 EV: <b>TYK_PMP_PUMPS_TIMESTERAM_OMITDETAILEDRECORDING</b><br />
