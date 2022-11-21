@@ -1,7 +1,7 @@
 {
   "index_name": "docsearch",
   "start_urls": ["https://tyk.io/docs"],
-  "stop_urls": ["https://tyk.io/docs/nightly"]
+  "stop_urls": ["https://tyk.io/docs/nightly"],
   "only_content_level": true,
   "selectors": {
     "default": {
