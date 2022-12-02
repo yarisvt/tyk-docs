@@ -1,6 +1,4 @@
 
-## TYK OAS API Object
-
 ### **x-tyk-gateway**
 
 **Field: `info` ([Info](#info))**

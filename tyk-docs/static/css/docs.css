@@ -2,6 +2,7 @@
   Doc Specific Changes
    ========================================================================== */
 
+.products h1,
 .products h2 {
   text-align: center;
 }
