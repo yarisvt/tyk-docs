@@ -43,14 +43,14 @@ In addition, you can now create your own custom permissions using the Additional
 With Go response plugins you are now able to modify and create a full request round trip made through the Tyk Gateway. 
 Find out more about [plugins](/docs/plugins/) and how to write [Go response plugins](/docs/plugins/supported-languages/golang/#using-a-go-response-plugin).
 
-# Bug fixes and minor changes
+## Bug fixes and minor changes
 
 In addition to the above, version 3.2 includes all the fixes that are part of 3.0.5
 https://github.com/TykTechnologies/tyk/releases/tag/v3.0.5
 
-# Updated Versions
+## Updated Versions
 Tyk Gateway 3.2
 Tyk Dashboard 3.2
 
-# Upgrade process
+## Upgrade process
 If you already have GraphQL or UDG APIs you need to follow this upgrade guide https://tyk.io/docs/graphql/migration-guide/

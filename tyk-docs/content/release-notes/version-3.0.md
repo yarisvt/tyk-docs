@@ -115,13 +115,13 @@ The feature can be enabled by setting the config `track_404_logs` to `true` in t
 
 
 
-### Updated Versions
+## Updated Versions
 
 - Tyk Gateway 3.0
 - Tyk Dashboard 3.0
 - Tyk Pump 1.0
 
-### Upgrading From Version 2.9
+## Upgrading From Version 2.9
 
 No specific actions required.
 If you are upgrading from version 2.8, pls [read this guide](/docs/release-notes/version-2.9/#upgrading-from-version-28)

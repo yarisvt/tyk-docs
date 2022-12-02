@@ -106,11 +106,11 @@ Note that if the CommonName is an invalid host name, it's always ignored, regard
 - Adding a path that contains a path parameter, doesn’t throw an error anymore on the Dashboard UI, and creates default path parameter description in the OAS.
 
 
-# Updated Versions
+## Updated Versions
 Tyk Gateway 4.3
 Tyk Dashboard 4.3
 
-# Upgrade process
+## Upgrade process
 
 Follow the [standard upgrade guide]({{< ref "/content/upgrading-tyk/upgrading-tyk.md" >}}), there are no breaking changes in this release.
 

@@ -48,7 +48,7 @@ We have two provide two certificates to complete the X509 Client Authentication.
 
 **Client Cert,** Should contain both the public and private key of the client.
 
-# Configuration
+## Configuration
 
 Here's what it looks like all put together:
 

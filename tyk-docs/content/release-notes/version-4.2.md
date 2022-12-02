@@ -140,11 +140,11 @@ Added support for Kafka as a data source in Universal Data Graph. Configuration 
 - Fixed an issue in Universal Data Graph which prevented users from injecting an argument value or parameter value in the domain part of the defined data source upstream URL
 
 
-# Updated Versions
+## Updated Versions
 Tyk Gateway 4.2
 Tyk Dashboard 4.2
 
-# Upgrade process
+## Upgrade process
 
 Follow the [standard upgrade guide]({{< ref "/content/upgrading-tyk/upgrading-tyk.md" >}}), there are no breaking changes in this release.
 

@@ -7,14 +7,14 @@ menu:
 weight: 12
 ---
 
-# <a name="new"></a>New in this Release:
+## <a name="new"></a>New in this Release:
 
 This release touches all our products and brings you numerous features and fixes. Here are the packages and their versions we are releasing today: Tyk Gateway v2.5.0, Tyk Dashboard v1.5.0, Tyk Pump v0.6.0, MDCB v1.5.0, TIB v0.3.
 
 
-# <a name="major-highlights"></a>Major Highlights
+## <a name="major-highlights"></a>Major Highlights
 
-## <a name="dashboard"></a>New Dashboard Look and Feel
+### <a name="dashboard"></a>New Dashboard Look and Feel
 
 Our Dashboard has had a UI overhaul, with the following improvements:
 
@@ -23,23 +23,23 @@ Our Dashboard has had a UI overhaul, with the following improvements:
 * Better feedback on errors and updates
 * Various UX improvements
 
-## <a name="sso"></a>SSO with OpenId Identity Providers
+### <a name="sso"></a>SSO with OpenId Identity Providers
 
 With TIB v0.3 we have made it possible to integrate any OpenID supported Identity provider with Tyk so you can configure Single Sign On (SSO), if the provider supports those.
 
-## <a name="search"></a>Searching API and Policies List
+### <a name="search"></a>Searching API and Policies List
 
 This long awaited feature has been added on the Dashboard UI.
 
-## <a name="versioning"></a>Default API Versioning
+### <a name="versioning"></a>Default API Versioning
 
 You can now specify a default API version when using a versioning strategy.
 
-## <a name="pump"></a>Tyk Pump with MDCB
+### <a name="pump"></a>Tyk Pump with MDCB
 
 We've added MDCB support in this release of Tyk Pump
 
-# Moar!
+## Moar!
 This release is packed with way more more cool stuff. Here are detailed release notes for each product:
 
 ## <a name="gateway"></a>Tyk Gateway v2.5.0
