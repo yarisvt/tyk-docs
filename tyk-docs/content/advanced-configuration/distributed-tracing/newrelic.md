@@ -2,7 +2,7 @@
 title: "New Relic"
 date: 2022-04-04
 tags: ["distributed tracing","NewRelic"]
-description: "You can create your own tracing implementation using the Trace API. The Trace API is used to send distributed tracing data to New Relic: either in the generic format or the Zipkin data format."
+description: "Create your own tracing implementation with Trace API, used to send distributed tracing data to New Relic, in the generic or Zipkin data format."
 weight: 3
 menu: 
   main:
