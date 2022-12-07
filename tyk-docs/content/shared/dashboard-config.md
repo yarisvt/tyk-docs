@@ -522,7 +522,7 @@ Enable to use SSL.
 
 ### http_server_options.certificates
 EV: <b>TYK_DB_HTTPSERVEROPTIONS_CERTIFICATES</b><br />
-Type: `[]CertData`<br />
+Type: `CertsData`<br />
 
 Add a certificate block for each domain being covered by the application.
 
@@ -536,13 +536,11 @@ For example:
 }
 ```
 
-**CertData Object**
+### http_server_options.ssl_certificates
+EV: <b>TYK_DB_HTTPSERVEROPTIONS_SSLCERTIFICATES</b><br />
+Type: `[]string`<br />
 
-| Variable | Type | Key | Description |
-| ----------- | ----------- | ----------- | ----------- |
-| Name | string | domain_name |  |
-| CertFile | string | cert_file |  |
-| KeyFile | string | key_file |  |
+SSL certificates used by your Gateway server. A list of certificate path to files.
 
 ### http_server_options.min_version
 EV: <b>TYK_DB_HTTPSERVEROPTIONS_MINVERSION</b><br />
@@ -596,6 +594,12 @@ EV: <b>TYK_DB_SECURITY_LOGINFAILUREEXPIRATION</b><br />
 Type: `int`<br />
 
 Controls how long before the failure limits are reset in seconds. The default is 900 seconds.
+
+### security.hide_login_failure_limit_error
+EV: <b>TYK_DB_SECURITY_HIDELOGINFAILURELIMITERROR</b><br />
+Type: `bool`<br />
+
+By default it will show message like "Retry in N seconds.". In some secure environments it can be treated as leaking of secure context. This option makes failed login attemt to be shown as standard login failure.
 
 ### security.login_disallow_forward_proxy
 EV: <b>TYK_DB_SECURITY_LOGINDISALLOWFORWARDPROXY</b><br />
@@ -706,6 +710,12 @@ Type: `bool`<br />
 
 Do not allow licens management screen
 
+### ui.dev
+EV: <b>TYK_DB_UI_DEV</b><br />
+Type: `bool`<br />
+
+Temporary : Enable dev mode feature on UI
+
 ### home_dir
 EV: <b>TYK_DB_HOMEDIR</b><br />
 Type: `string`<br />
@@ -721,6 +731,9 @@ Type: `bool`<br />
 
 A boolean setting to enable the TIB integration (otherwise it will not appear in the UI).
 
+### identity_broker.host
+When using external TIB, this is the URL where it's reachable
+
 ### identity_broker.host.connection_string
 EV: <b>TYK_DB_TIB_HOST_CONNECTIONSTRING</b><br />
 Type: `string`<br />
@@ -733,6 +746,12 @@ EV: <b>TYK_DB_TIB_HOST_SECRET</b><br />
 Type: `string`<br />
 
 The shared secret between TIB and the Dashboard. This ensures all API requests between Dashboard and TIB are valid.
+
+### identity_broker.ssl_insecure_skip_verify
+EV: <b>TYK_DB_TIB_SSLINSECURESKIPVERIFY</b><br />
+Type: `bool`<br />
+
+Skip the TLS verification in the transport layer of the HTTP client. Is intended to have it enable for POC and testing purposes, do not use in production. Defaults to false.
 
 ### use_sharded_analytics
 EV: <b>TYK_DB_USESHARDEDANLAYTICS</b><br />
