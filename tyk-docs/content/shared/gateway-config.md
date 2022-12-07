@@ -1564,12 +1564,6 @@ Type: `bool`<br />
 
 Enable global API token expiration. Can be needed if all your APIs using JWT or oAuth 2.0 auth methods with dynamically generated keys.
 
-### session_lifetime_respects_key_expiration
-EV: <b>TYK_GW_SESSIONLIFETIMERESPECTSKEYEXPIRATION</b><br />
-Type: `bool`<br />
-
-SessionLifetimeRespectsKeyExpiration respects the key expiration time when the session lifetime is less than the key expiration. That is, Redis waits the key expiration for physical removal.
-
 ### global_session_lifetime
 EV: <b>TYK_GW_GLOBALSESSIONLIFETIME</b><br />
 Type: `int64`<br />
