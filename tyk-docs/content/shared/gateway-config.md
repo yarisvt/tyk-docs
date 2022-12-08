@@ -144,17 +144,6 @@ Type: `bool`<br />
 
 Enable HTTP2 protocol handling
 
-### http_server_options.enable_strict_routes
-EV: <b>TYK_GW_HTTPSERVEROPTIONS_ENABLESTRICTROUTES</b><br />
-Type: `bool`<br />
-
-EnableStrictRoutes changes the routing to avoid nearest-neighbour requests on overlapping routes
-
-- if disabled, `/apple` will route to `/app`, the current default behavior,
-- if enabled, `/app` only responds to `/app`, `/app/` and `/app/*` but not `/apple`
-
-Regular expressions and parameterized routes will be left alone regardless of this setting.
-
 ### http_server_options.ssl_insecure_skip_verify
 EV: <b>TYK_GW_HTTPSERVEROPTIONS_SSLINSECURESKIPVERIFY</b><br />
 Type: `bool`<br />
@@ -169,9 +158,17 @@ Enabled WebSockets and server side events support
 
 ### http_server_options.certificates
 EV: <b>TYK_GW_HTTPSERVEROPTIONS_CERTIFICATES</b><br />
-Type: `CertsData`<br />
+Type: `[]CertData`<br />
 
 Deprecated. SSL certificates used by Gateway server.
+
+**CertData Object**
+
+| Variable | Type | Key | Description |
+| ----------- | ----------- | ----------- | ----------- |
+| Name | string | domain_name | Domain name |
+| CertFile | string | cert_file | Path to certificate file |
+| KeyFile | string | key_file | Path to private key file |
 
 ### http_server_options.ssl_certificates
 EV: <b>TYK_GW_HTTPSERVEROPTIONS_SSLCERTIFICATES</b><br />
@@ -245,14 +242,7 @@ Enable Key hashing
 EV: <b>TYK_GW_HASHKEYFUNCTION</b><br />
 Type: `string`<br />
 
-Specify the Key hashing algorithm. Possible values: murmur64, murmur128, sha256.
-
-### basic_auth_hash_key_function
-EV: <b>TYK_GW_BASICAUTHHASHKEYFUNCTION</b><br />
-Type: `string`<br />
-
-Specify the Key hashing algorithm for "basic auth". Possible values: murmur64, murmur128, sha256, bcrypt.
-Will default to "bcrypt" if not set.
+Specify the Key hashing algorithm. Possible values: murmur64, murmur128, sha256
 
 ### hash_key_function_fallback
 EV: <b>TYK_GW_HASHKEYFUNCTIONFALLBACK</b><br />
@@ -314,18 +304,8 @@ If you set this value to `true`, then the id parameter in a stored policy (or im
 
 This option should only be used when moving an installation to a new database.
 
-### policies.policy_path
-EV: <b>TYK_GW_POLICIES_POLICYPATH</b><br />
-Type: `string`<br />
-
-This option is used for storing a policies  if `policies.policy_source` is set to `file`.
-it should be some existing file path on hard drive
-
 ### ports_whitelist
-EV: <b>TYK_GW_PORTWHITELIST</b><br />
-Type: `PortsWhiteList`<br />
-
-Defines the ports that will be available for the API services to bind to in the following format: `{ “": “” }``.
+Defines the ports that will be available for the API services to bind to.
 This is a map of protocol to PortWhiteList. This allows per protocol
 configurations.
 
@@ -560,24 +540,6 @@ EV: <b>TYK_GW_SLAVEOPTIONS_KEYSPACESYNCINTERVAL</b><br />
 Type: `float32`<br />
 
 You can use this to set a period for which the Gateway will check if there are changes in keys that must be synchronized. If this value is not set then it will default to 10 seconds.
-
-### slave_options.rpc_cert_cache_expiration
-EV: <b>TYK_GW_SLAVEOPTIONS_RPCCERTCACHEEXPIRATION</b><br />
-Type: `float32`<br />
-
-RPCCertCacheExpiration defines the expiration time of the rpc cache that stores the certificates, defined in seconds
-
-### slave_options.rpc_global_cache_expiration
-EV: <b>TYK_GW_SLAVEOPTIONS_RPCGLOBALCACHEEXPIRATION</b><br />
-Type: `float32`<br />
-
-RPCKeysCacheExpiration defines the expiration time of the rpc cache that stores the keys, defined in seconds
-
-### slave_options.synchroniser_enabled
-EV: <b>TYK_GW_SLAVEOPTIONS_SYNCHRONISERENABLED</b><br />
-Type: `bool`<br />
-
-SynchroniserEnabled enable this config if MDCB has enabled the synchoniser. If disabled then it will ignore signals to synchonise recources
 
 ### management_node
 EV: <b>TYK_GW_MANAGEMENTNODE</b><br />
@@ -1042,12 +1004,6 @@ EV: <b>TYK_GW_ANALYTICSCONFIG_PURGEINTERVAL</b><br />
 Type: `float32`<br />
 
 You can set the interval length on how often the tyk Gateway will purge analytics data. This value is in seconds and defaults to 10 seconds.
-
-### analytics_config.serializer_type
-EV: <b>TYK_GW_ANALYTICSCONFIG_SERIALIZERTYPE</b><br />
-Type: `string`<br />
-
-Determines the serialization engine for analytics. Available options: msgpack, and protobuf. By default, msgpack.
 
 ### enable_separate_analytics_store
 EV: <b>TYK_GW_ENABLESEPERATEANALYTICSSTORE</b><br />
@@ -1572,12 +1528,6 @@ EV: <b>TYK_GW_FORCEGLOBALSESSIONLIFETIME</b><br />
 Type: `bool`<br />
 
 Enable global API token expiration. Can be needed if all your APIs using JWT or oAuth 2.0 auth methods with dynamically generated keys.
-
-### session_lifetime_respects_key_expiration
-EV: <b>TYK_GW_SESSIONLIFETIMERESPECTSKEYEXPIRATION</b><br />
-Type: `bool`<br />
-
-SessionLifetimeRespectsKeyExpiration respects the key expiration time when the session lifetime is less than the key expiration. That is, Redis waits the key expiration for physical removal.
 
 ### global_session_lifetime
 EV: <b>TYK_GW_GLOBALSESSIONLIFETIME</b><br />
