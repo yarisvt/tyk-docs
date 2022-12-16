@@ -9,6 +9,7 @@ menu:
 weight: 1
 diffTitle: true
 hideSidebar: true
+url: /
 ---
 
 <div class="products">
