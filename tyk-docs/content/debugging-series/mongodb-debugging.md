@@ -64,7 +64,7 @@ There are three ways to do this:
 
 1. The first method is to delete (drop) the collection and create a new collection with a cap (commands below).
 
-```
+```bash
   # This will drop a collection. When using this, cached data will not be deleted.
   db.<collection_name>.drop()
 ```
