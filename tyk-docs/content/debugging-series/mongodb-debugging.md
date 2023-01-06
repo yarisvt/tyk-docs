@@ -78,7 +78,7 @@ There are three ways to do this:
 
 3. The third method is to delete (deleteMany() call below) the old data to trim down their collection size. Then, you can restart your instance to see if the connection goes up again.
 
-```
+```bash
   # Will delete data off a collection that does NOT have a cap. Otherwise, it will throw an error.
   db.<collection_name>.deleteMany()
 ```
