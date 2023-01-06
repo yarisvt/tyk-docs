@@ -69,7 +69,7 @@ There are three ways to do this:
   db.<collection_name>.drop()
 ```
 
-```
+```bash
   #  Can use the below call. Drops the collection and removes any cache data
   db.<collection_name>.remove()
 ```
