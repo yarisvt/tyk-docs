@@ -94,7 +94,7 @@ You will use a secured connection to your Mongo instance in most production case
 
 - Connect (command below) to Mongo with certificates
 
-```
+```bash
   # Replace the above files with the correct parameters (proper file paths and host).
   mongo --ssl --sslCAFile /opt/mongodb/ssl/ca.pem --sslPEMKeyFile /opt/mongodb/ssl/mongodb.pem --host 127.0.0.1
 ```
