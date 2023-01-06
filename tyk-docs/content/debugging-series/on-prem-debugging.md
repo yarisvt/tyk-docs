@@ -125,6 +125,6 @@ You will eventually hit the point of error by further isolating parts of your AP
 You're probably not the first to encounter this error. Visit these relevant Tyk resources additional help or guidance:
 
 1. [Tyk Community Forums](https://community.tyk.io/)
-2. [Tyk FAQ Section](({{< ref "frequently-asked-questions/faq" >}}))
+2. [Tyk FAQ Section]({{< ref "frequently-asked-questions" >}})
 3. [Tyk Github Page](https://github.com/TykTechnologies)
 4. Tyk Support (Paid SLA only)
