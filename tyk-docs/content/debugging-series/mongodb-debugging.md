@@ -40,7 +40,7 @@ Does Tyk support the version of Mongo that you’re using? Read more about that 
 
 Suppose a Mongo instance runs over a long period in addition to a lot of traffic in a Tyk system. In that case, the chances of the collections growing out of control are very real - especially the `tyk_analytics` collections.
 
-In some cases, ` enable_detailed_logging: true` adds fuel to the fire, as this parameter should only be set temporarily during debugging. This configuration exists on the gateway and the API levels, so ensure this is off after debugging.
+In some cases, `enable_detailed_logging: true` adds fuel to the fire, as this parameter should only be set temporarily during debugging. This configuration exists on the gateway and the API levels, so ensure this is off after debugging.
 
 We advise everyone to cap every collection in Mongo, as this prevents collections from growing out of control and bringing your dashboard down by hitting resource limits.
 
