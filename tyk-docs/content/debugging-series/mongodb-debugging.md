@@ -102,7 +102,7 @@ You will use a secured connection to your Mongo instance in most production case
 
 - Verify your dashboard has the correct parameters relative to your environment:
 
-```
+```json
   "mongo_url": "mongodb://localhost/tyk_analytics",
   "mongo_use_ssl": true,
   "mongo_ssl_ca_file": "/opt/mongodb/ssl/ca.pem",
