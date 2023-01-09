@@ -1,6 +1,9 @@
 ---
 date: 2017-03-24T17:09:48Z
-title: Tyk Developer Portal
+title: API Developer Portal | API Portal Documentation
+diffTitle: true
+diffTitleName: Tyk API Developer Portal
+linktitle: Tyk Developer Portal
 weight: 10
 menu: 
     main:
@@ -10,7 +13,7 @@ aliases:
   - /getting-started/tyk-components/developer-portal/
 ---
 
-The Tyk Developer Portal enables you to expose a facade of your APIs and then allow third-party developers to register and use your APIs.
+The Tyk Developer Portal for API management enables you to expose a facade of your APIs and then allow third-party developers to register and use your APIs.
 
 The Tyk Developer Portal comes into two flavours:
 *   Tyk Classic Developer Portal.
@@ -25,7 +28,7 @@ If you are interested in getting access contact us at [support@tyk.io](<mailto:s
 
 {{< /note >}}
 
-For examples of how clients have used our portal, visit:
+For examples of how clients have used our API management developer portal, visit:
 
 - [https://developer.hotelbeds.com/](https://developer.hotelbeds.com/)
 - [https://developer.geops.io/](https://developer.geops.io/)

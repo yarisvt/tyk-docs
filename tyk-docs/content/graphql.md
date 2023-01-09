@@ -1,11 +1,16 @@
 ---
-title: "GraphQL"
+title: API Management for GraphQL | Tyk Documentation
+linktitle: "GraphQL"
+diffTitle: true
+diffTitleName: API Management for GraphQL
+description: The Tyk API management platform natively supports GraphQL. Click here to learn more and get started with GraphQL today.
 date: 2020-06-03
 weight: 200
 menu:
     main:
         parent: Tyk Gateway
 ---
+
 
 Tyk supports GraphQL **natively**. This means Tyk doesn't have to use any external service or process for any GraphQL middleware. 
 
@@ -66,5 +71,7 @@ GraphiQL and the GraphQL Playground makes it very easy to explore a GraphQL API.
 There are very strong integrations, e.g. for the React Framework, which is often reported to help developers being more productive.
 
 All in all, as with every technology, you should always evaluate your specific **use case** and decide based on this if you really benefit from adding a new tool to the stack.
+
+## GraphQL API Management
 
 At Tyk, we believe that GraphQL can be a very powerful too for many use cases. That's why we decided to support it **natively** with our API management platform. 

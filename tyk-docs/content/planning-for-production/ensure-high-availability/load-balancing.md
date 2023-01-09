@@ -1,8 +1,11 @@
 ---
 date: 2017-03-24T10:59:12Z
-title: Load Balancing
+title: API Gateway Load Balancer | Tyk Documentation
+diffTitle: true
+diffTitleName: API Gateway Load Balancing
+linktitle: Load Balancing
 tags: ["High Availability", "SLAs", "Uptime", "Monitoring", "Load Balancing"]
-description: "How to configure load balancing for your Tyk installation"
+description: Tyk supports native round-robin load-balancing in its proxy and will rotate requests through a list of target hosts as requests come in.
 menu:
   main:
     parent: "Ensure High Availability"

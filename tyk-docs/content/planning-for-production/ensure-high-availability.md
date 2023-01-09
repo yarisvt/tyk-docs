@@ -1,8 +1,11 @@
 ---
 date: 2017-03-24T10:10:41Z
-title: Ensure High Availability
+title: Ensure High Availability for API Gateways | Tyk Docs
+diffTitle: true
+diffTitleName: Ensure API Gateway High Availability
+linktitle: Ensure High Availability
 tags: ["High Availability", "SLAs"]
-description: "Tyk features that ensure high availability for your installation"
+description: Tyk offers a whole host of features that can help you with ensuring that uptime is high and SLA’s are enforceable.
 weight: 1
 menu:
   main:
@@ -11,4 +14,4 @@ menu:
 
 In many cases, it is necessary to ensure service levels for your clients, be this in maximum round-trip times, guaranteed responses, self-healing architecture or triaging failing services.
 
-Tyk offers a whole host of features that can help you with ensuring that uptime is high and SLA's are enforceable.
+Tyk offers a whole host of features that can help you with ensuring API gateway availability is high and SLA's are enforceable.

@@ -1,5 +1,9 @@
 ---
-title: API Versioning
+title: API Versioning | TyK API Documentation
+diffTitle: true
+diffTitleName: API Versioning
+linktitle: API Versioning
+description: Tyk enables full version life-cycle management for your APIs. Learn more about API versioning and allowing access here. 
 menu:
   main:
     parent: "Key Concepts"

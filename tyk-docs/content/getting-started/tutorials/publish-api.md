@@ -1,8 +1,11 @@
 ---
 date: 2017-03-15T16:33:46Z
-title: Publish an API
+title: API Publishing with Tyk | Tyk Documentation
+diffTitle: true
+diffTitleName: How to Publish APIs
+linktitle: Publish an API
 tags: ["Tyk Tutorials", "Getting Started", "Publish API", "Tyk Cloud", "Tyk Self-Managed", "Developer Portal"]
-description: "Publishing your API in the Tyk Developer Portal"
+description: Publish your API in the Tyk Developer Portal with the Tyk Dashboard to create a portal that allows developers to access the APIs you create.
 menu:
   main:
     parent: "Getting Started"
