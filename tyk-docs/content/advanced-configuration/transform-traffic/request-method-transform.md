@@ -1,6 +1,5 @@
 ---
 date: 2017-03-23T17:45:01Z
-title: API Request Methods & API Gateway Transformation
 linktitle: Request Method Transform
 title: API Request Methods & API Gateway Transformation
 description: It is now possible, as of Tyk Gateway v2.2, to change the method of a request. Learn how to enable here.
