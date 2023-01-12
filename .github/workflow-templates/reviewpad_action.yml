@@ -17,4 +17,4 @@ jobs:
         with:
           # Uses a default Reviewpad configuration file to get your started.
           # For customization and documentation, see https://github.com/reviewpad/action
-          file_url: https://github.com/reviewpad/.github/blob/main/reviewpad-models/common.yml
+          file_url: https://github.com/TykTechnologies/tyk-docs/blob/letzya-reviewpad/.github/reviewpad/common.yaml
