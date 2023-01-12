@@ -1,0 +1,20 @@
+name: Reviewpad
+
+on: 
+  pull_request_target:
+    types:
+      - opened
+      - synchronize
+      - edited
+
+jobs:
+  reviewpad_job:
+    runs-on: ubuntu-latest
+    name: Reviewpad
+    steps:
+      - name: Reviewpad
+        uses: reviewpad/action@v3.x
+        with:
+          # Uses a default Reviewpad configuration file to get your started.
+          # For customization and documentation, see https://github.com/reviewpad/action
+          file_url: https://github.com/reviewpad/.github/blob/main/reviewpad-models/common.yml
