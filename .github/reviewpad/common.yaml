@@ -1,0 +1,70 @@
+api-version: reviewpad.com/v3.x
+
+metrics-on-merge: true
+
+labels:
+  small:
+    color: "#294b69"
+  medium:
+    color: "#a8c3f7"
+  large:
+    color: "#8a2138"
+
+workflows:
+  - name: add-label-with-size
+    always-run: true
+    if:
+      - rule: $size() <= 30
+        extra-actions:
+          - '$addLabel("small")'
+      - rule: $size() > 30 && $size() <= 100
+        extra-actions:
+          - '$addLabel("medium")'
+      - rule: $size() > 100
+        extra-actions:
+          - '$addLabel("large")'
+
+  - name: lint-commits
+    always-run: true
+    if:
+      - rule: '!$hasLinearHistory()'
+        extra-actions:
+          - '$warn("The pull request does not have a linear history")'
+      - rule: 'true'
+        extra-actions:
+          - '$commitLint()'
+          - '$titleLint()'
+
+  - name: check-for-linked-issued
+    always-run: true
+    if:
+      - '!$hasLinkedIssues()'
+    then:
+      - '$info("This pull request does not have a linked issue")'
+
+  - name: manage-issues-in-projects
+    always-run: true
+    on:
+      - issue
+    if:
+      - rule: $state() == "open" && !$isLinkedToProject("Reviewpad")
+        extra-actions:
+          - $addToProject("Reviewpad", "Backlog")
+      - rule: $state() == "closed"
+        extra-actions:
+          - $addToProject("Reviewpad", "Done")
+
+  - name: first-time-contributor
+    always-run: true
+    if:
+      - '$pullRequestCountBy($author(), "all") == 1'
+    then:
+      - '$commentOnce($sprintf("Welcome @%v! Thank you so much for your first pull request!", [$author()]))'
+
+  - name: empty-description
+    always-run: true
+    if:
+      - $description() == ""
+    then:
+      - '$warn("The description is empty. Please add more information!")'
+      - '$fail("Empty description")'
