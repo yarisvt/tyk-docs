@@ -1,8 +1,11 @@
 ---
 date: 2017-03-23T17:08:35Z
-title: Rate Limiting
+title: API Rate Limiting | How to Design API Rate Limiters
+diffTitle: true
+diffTitleName: API Rate Limiting
+linktitle: Rate Limiting
 tags: ["Rate Limiting", "Global limits", "Per API limits"]
-description: "How to use Global and per API rate limit throttling in Tyk"
+description: Tyk API will actively only allow a key to make x requests per y time period. This is critical to ensure your API does not get flooded with requests.
 menu:
   main:
     parent: "Control & Limit Traffic"

@@ -1,8 +1,11 @@
 ---
 date: 2017-03-27T15:52:45+01:00
-title: Import an API
+title: Import an API with Tyk | Tyk API Import Documentation
+diffTitle: true
+diffTitleName: Import an API
+linktitle: Import an API
 tags: ["Tyk Tutorials", "Getting Started", "Importing APIs", "Tyk Cloud", "Tyk Self-Managed", "Tyk Open Source", "Swagger", "OpenAPI Specification"]
-description: "Importing your existing APIs into Tyk"
+description: Tyk supports importing both API Blueprint and Swagger (OpenAPI) JSON definitions from either the Gateway or the Dashboard.
 menu:
   main:
     parent: "Getting Started"
@@ -22,7 +25,7 @@ As a work around, you can do the following:
 * Create API Blueprint in JSON format using the Apiary [Drafter](https://github.com/apiaryio/drafter) tool
 * Convert API Blueprint to OpenAPI (Swagger) using the Apiary [API Elements CLI](https://github.com/apiaryio/api-elements.js/tree/master/packages/cli) tool.
 
-## Import APIs via the Gateway
+## Import APIs via the API Gateway
 
 ### Using API Blueprint
 

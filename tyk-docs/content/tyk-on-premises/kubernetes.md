@@ -1,8 +1,11 @@
 ---
 date: 2017-03-22T16:57:26Z
-title: "Kubernetes "
+title: Kubernetes API Gateway | Tyk API Documentation
+diffTitle: true
+diffTitleName: Kubernetes Gateway
+linktitle: "Kubernetes "
 tags: ["Tyk Stack", "Self Managed", "Installation", "Kubernetes", "Helm Chart", "Tyk Operator"]
-description: "How to install Tyk in a self-managed environment using Kubernetes"
+description: Learn how to install Tyk in a self-managed environment using Kubernetes.
 menu:
   main:
     parent: "Self-Managed Installation"

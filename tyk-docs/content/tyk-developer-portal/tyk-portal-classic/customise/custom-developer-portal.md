@@ -1,7 +1,8 @@
 ---
 date: 2017-03-24T17:18:28Z
-title: Creating a Custom Developer Portal
+title: How to Build a Developer Portal
 linktitle: Custom Portal
+description: This guide includes the implementation of a full featured developer portal written in Ruby in just 250 lines of code.
 menu:
   main:
     parent: "Customise"

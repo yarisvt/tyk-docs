@@ -1,7 +1,10 @@
 ---
 date: 2020-07-24
-title: Customising API Visibility
+title: Customising API Visibility | Tyk Documentation
+diffTitle: true
+diffTitleName: Customising API Visibility
 linktitle: Customising API Visibility
+description: Learn how you can use custom Page Templates to control the visibility of your APIs so it can only be seen by specific group of developers.
 menu:
   main:
     parent: "Customise" 

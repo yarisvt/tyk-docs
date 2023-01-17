@@ -1,9 +1,12 @@
 ---
-title: "Tyk Open Source"
+title: Open Source API Developer Portal | Tyk Documentation
+diffTitle: true
+diffTitleName: "Tyk Open Source API Management Solutions & Developer Portal"
+linktitle: Tyk Open Source
 date: 2020-06-24
 weight: 1
 tags: ["Tyk API Management", "Open Source", "API Gateway", "Tyk OSS"]
-description: "How to get started with the Tyk Open Source API Gateway"
+description: Tyk is an open source Enterprise API Gateway, supporting REST, GraphQL, TCP and gRPC protocols. Get started today.
 menu:
     main:
         parent: API Management

@@ -1,8 +1,11 @@
 ---
 date: 2017-03-24T11:18:53Z
-title: Service Discovery
+title: API Gateway and Service Discovery | Tyk Documentation
+diffTitle: true
+diffTitleName: API Service Discovery
+linktitle: Service Discovery
 tags: ["High Availability", "SLAs", "Uptime", "Monitoring", "Service Discovery"]
-description: "How to configure service discovery to keep your Tyk installation responding with a dynamic upstream service"
+description: API Service Discovery is a very useful feature for when you have a dynamically changing upstream service set. Learn more here. 
 menu:
   main:
     parent: "Ensure High Availability"
@@ -15,7 +18,7 @@ For example, you have ten Docker containers that are running the same service, a
 
 Now the Gateway would need to either be manually reconfigured, or, more appropriately, detect the failure and reconfigure itself.
 
-This is what the service discovery module does.
+This is what the API discovery service module does.
 
 We recommend using the SD module in conjunction with the circuit breaker features, as this makes detection and discovery of failures at the gateway level much more dynamic and responsive.
 
