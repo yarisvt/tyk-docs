@@ -5,9 +5,8 @@ tags: ["Tyk Pump", "Elastic Pump", "Elasticsearch"]
 description: "Elasticsearch Pump"
 menu:
   main:
-    parent: "Supported Backends" # Child of APIM -> OSS
+    parent: "Supported Backends"
 weight: 2
-
 ---
 
 ## Introduction
@@ -37,7 +36,7 @@ Elasticsearch pump is an available Pump in the Tyk Pump that allows you to send 
 {{< tab_start "Configuration file" >}}
 ```json
 {
-"pumps:{
+"pumps":{
     "elasticsearch": {
         "type": "elasticsearch",
         "meta": {
