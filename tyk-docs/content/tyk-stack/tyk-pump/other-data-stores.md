@@ -15,19 +15,19 @@ The Tyk Pump component takes all of the analytics in Tyk and moves the data from
 ## Tyk Analytics Pumps
 {{< grid >}}
 
-{{< badge  href="tyk-oss/ce-docker/" image="/img/pump/pumps/mongo.png">}}
+{{< badge  href="tyk-oss/ce-docker/" image="/img/pump/pumps/mongo.png" style="object-fit:initial">}}
 MongoDB Pump
 {{< /badge >}}
 
-{{< badge  href="tyk-oss/ce-docker/" image="/img/pump/pumps/mongo.png">}}
+{{< badge  href="tyk-oss/ce-docker/" image="/img/pump/pumps/mongo.png" style="object-fit:initial">}}
 Mongo Aggregate Pump
 {{< /badge >}}
 
-{{< badge  href="tyk-oss/ce-docker/" image="/img/pump/pumps/postgres.png">}}
+{{< badge  href="tyk-oss/ce-docker/" image="/img/pump/pumps/postgres.png" style="object-fit:initial">}}
 SQL Pump
 {{< /badge >}}
 
-{{< badge  href="tyk-oss/ce-docker/" image="/img/pump/pumps/postgres.png">}}
+{{< badge  href="tyk-oss/ce-docker/" image="/img/pump/pumps/postgres.png" style="object-fit:initial">}}
 SQL Aggregate Pump
 {{< /badge >}}}
 
@@ -36,31 +36,31 @@ SQL Aggregate Pump
 ## Other supported backends
 {{< grid >}}
 
-{{< badge  href="tyk-oss/ce-docker/" image="/img/pump/pumps/prometheus.png">}}
+{{< badge  href="tyk-oss/ce-docker/" image="/img/pump/pumps/prometheus.png" style="object-fit:initial">}}
 Prometheus Pump
 {{< /badge >}}
 
-{{< badge  href="tyk-oss/ce-docker/" image="/img/pump/pumps/moesif.png">}}
+{{< badge  href="tyk-oss/ce-docker/" image="/img/pump/pumps/moesif.png" style="object-fit:initial">}}
 Moesif Pump
 {{< /badge >}}
 
-{{< badge  href="tyk-oss/ce-docker/" image="/img/pump/pumps/elastic.png">}}
+{{< badge  href="tyk-oss/ce-docker/" image="/img/pump/pumps/elastic.png" style="object-fit:initial">}}
 Elasticsearch Pump
 {{< /badge >}}
 
-{{< badge  href="tyk-oss/ce-docker/" image="/img/pump/pumps/kafka.png">}}
+{{< badge  href="tyk-oss/ce-docker/" image="/img/pump/pumps/kafka.png" style="object-fit:initial">}}
 Kafka Pump
 {{< /badge >}}}
 
-{{< badge  href="tyk-oss/ce-docker/" image="/img/pump/pumps/kafka.png">}}
+{{< badge  href="tyk-oss/ce-docker/" image="/img/pump/pumps/kafka.png" style="object-fit:initial">}}
 Kafka Pump
 {{< /badge >}}}
 
-{{< badge  href="tyk-oss/ce-docker/" image="/img/pump/pumps/splunk.png">}}
+{{< badge  href="tyk-oss/ce-docker/" image="/img/pump/pumps/splunk.png" style="object-fit:initial">}}
 Splunk Pump
 {{< /badge >}}}
 
-{{< badge  href="tyk-oss/ce-docker/" image="/img/pump/pumps/timestream.png">}}
+{{< badge  href="tyk-oss/ce-docker/" image="/img/pump/pumps/timestream.png" style="object-fit:initial">}}
 Timestream Pump
 {{< /badge >}}}
 
