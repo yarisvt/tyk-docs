@@ -36,6 +36,10 @@ SQL Aggregate Pump
 ## Other supported backends
 {{< grid >}}
 
+{{< badge  href="/content/tyk-stack/tyk-pump/other-data-stores/elastic.md" image="/img/pump/pumps/elastic.png" style="object-fit:initial">}}
+Elasticsearch Pump
+{{< /badge >}}
+
 {{< badge  href="tyk-oss/ce-docker/" image="/img/pump/pumps/prometheus.png" style="object-fit:initial">}}
 Prometheus Pump
 {{< /badge >}}
@@ -44,17 +48,11 @@ Prometheus Pump
 Moesif Pump
 {{< /badge >}}
 
-{{< badge  href="tyk-oss/ce-docker/" image="/img/pump/pumps/elastic.png" style="object-fit:initial">}}
-Elasticsearch Pump
-{{< /badge >}}
 
 {{< badge  href="tyk-oss/ce-docker/" image="/img/pump/pumps/kafka.png" style="object-fit:initial">}}
 Kafka Pump
 {{< /badge >}}}
 
-{{< badge  href="tyk-oss/ce-docker/" image="/img/pump/pumps/kafka.png" style="object-fit:initial">}}
-Kafka Pump
-{{< /badge >}}}
 
 {{< badge  href="tyk-oss/ce-docker/" image="/img/pump/pumps/splunk.png" style="object-fit:initial">}}
 Splunk Pump
