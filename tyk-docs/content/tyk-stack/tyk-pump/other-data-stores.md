@@ -36,7 +36,7 @@ SQL Aggregate Pump
 ## Other supported backends
 {{< grid >}}
 
-{{< badge  href="/content/tyk-stack/tyk-pump/other-data-stores/elastic.md" image="/img/pump/pumps/elastic.png" style="object-fit:initial">}}
+{{< badge  href="/analytics-and-reporting/pumps/elastic/" image="/img/pump/pumps/elastic.png" style="object-fit:initial">}}
 Elasticsearch Pump
 {{< /badge >}}
 

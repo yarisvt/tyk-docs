@@ -7,6 +7,8 @@ menu:
   main:
     parent: "Supported Backends"
 weight: 2
+aliases:
+  - /analytics-and-reporting/pumps/elastic/
 ---
 
 ## Introduction
