@@ -19,7 +19,7 @@ This guide should help a user of Tyks self managed pro offering in debugging com
 
 The `/hello` health check endpoint against the Gateway is the quickest way in determining the status of your Tyk instance. You can find more information in our docs about the [Gateway Liveness health check]({{< ref "planning-for-production/ensure-high-availability/health-check" >}}).
 
-The reason this endpoint is important is that components such as the Tyk Dashboard, RPC, or Redis can go down at any given point so it is useful to know if the Gateway is currently usable or not.
+This endpoint is important as it allows for a user to isolate where a problem might be originating from. At a glance, the `/hello` endpoint reports the Gateways connectivity to the Dashboard, Redis, or in enterprise/hybrid installations: MDCB (rpc).
 
 ```json
 {
@@ -46,11 +46,50 @@ The reason this endpoint is important is that components such as the Tyk Dashboa
 }
 ```
 
-The Gateway can still function if the Dashboard fails. This means that your API calls are still working as normal.
+If the Dashboard or RPC connectivity fails, the Gateway will still function based on the last received configurations from those components respectively. If Redis fails, Gateway will not be able to perform since it is a hard dependency.
 
 ## Debug Logs
 
-Having Debug mode turned on is helpful when debugging because it throws more descriptive error messages.
+Having Debug mode turned on is helpful when debugging because it throws more descriptive error messages. For example, here are the different outputs you receive when calling an Open Keyless API with `info` and `debug` log level modes.
+
+Here is the output when using `info` as the log level:
+
+```
+tyk-pump       | time="Jan 24 14:39:19" level=info msg="Purged 1 records..." prefix=mongo-pump
+tyk-pump       | time="Jan 24 14:39:19" level=info msg="Purged 1 records..." prefix=mongo-pump-selective
+tyk-mongo      | 2023-01-24T14:39:19.228+0000 I  NETWORK  [listener] connection accepted from 172.20.0.2:51028 #19 (19 connections now open)
+tyk-pump       | time="Jan 24 14:39:19" level=info msg="Completed upserting" collection="tyk_analytics_aggregates" prefix=mongo-pump-aggregate
+tyk-pump       | time="Jan 24 14:39:19" level=info msg="Purged 1 records..." prefix=mongo-pump-aggregate
+```
+
+Here is a more detailed output of the same call when using `debug` as the log level:
+
+```
+tyk-gateway    | time="Jan 24 14:32:19" level=debug msg="Started proxy"
+tyk-gateway    | time="Jan 24 14:32:19" level=debug msg="Stripping proxy listen path: /api1/"
+tyk-gateway    | time="Jan 24 14:32:19" level=debug msg="Upstream path is: /get"
+tyk-gateway    | time="Jan 24 14:32:19" level=debug msg=Started api_id=63666619de884d0563ee3ccc67d57929 api_name=api1 mw=ReverseProxy org_id=63ca963f6888c7000191890e ts=1674570739659369736
+tyk-gateway    | time="Jan 24 14:32:19" level=debug msg="Upstream request URL: /get" api_id=63666619de884d0563ee3ccc67d57929 api_name=api1 mw=ReverseProxy org_id=63ca963f6888c7000191890e
+tyk-gateway    | time="Jan 24 14:32:19" level=debug msg="Outbound request URL: http://httpbin.org/get" api_id=63666619de884d0563ee3ccc67d57929 api_name=api1 mw=ReverseProxy org_id=63ca963f6888c7000191890e
+tyk-gateway    | time="Jan 24 14:32:19" level=debug msg="Creating new transport" api_id=63666619de884d0563ee3ccc67d57929 api_name=api1 mw=ReverseProxy org_id=63ca963f6888c7000191890e
+tyk-gateway    | time="Jan 24 14:32:19" level=debug msg="Out request url: http://httpbin.org/get" api_id=63666619de884d0563ee3ccc67d57929 api_name=api1 mw=ReverseProxy org_id=63ca963f6888c7000191890e
+tyk-gateway    | time="Jan 24 14:32:19" level=debug msg="Request is not cacheable" mw=ResponseCacheMiddleware
+tyk-gateway    | time="Jan 24 14:32:19" level=debug msg=Finished api_id=63666619de884d0563ee3ccc67d57929 api_name=api1 mw=ReverseProxy ns=316559477 org_id=63ca963f6888c7000191890e
+tyk-gateway    | time="Jan 24 14:32:19" level=debug msg="Upstream request took (ms): 316.639871"
+tyk-gateway    | time="Jan 24 14:32:19" level=debug msg="Checking: 63ca963f6888c7000191890e" api_id=63666619de884d0563ee3ccc67d57929 api_name=api1 org_id=63ca963f6888c7000191890e
+tyk-gateway    | time="Jan 24 14:32:19" level=debug msg="no cached entry found, returning 7 days" api_id=63666619de884d0563ee3ccc67d57929 api_name=api1 org_id=63ca963f6888c7000191890e
+tyk-gateway    | time="Jan 24 14:32:19" level=debug msg="Done proxy"
+tyk-pump       | time="Jan 24 14:32:20" level=info msg="Purged 0 records..." prefix=mongo-pump-aggregate
+tyk-pump       | time="Jan 24 14:32:20" level=info msg="Purged 1 records..." prefix=mongo-pump-selective
+tyk-pump       | time="Jan 24 14:32:20" level=info msg="Completed purging the records" collection="tyk_analytics" number of records=1 prefix=mongo-pump
+tyk-pump       | time="Jan 24 14:32:20" level=info msg="Purged 1 records..." prefix=mongo-pump
+tyk-mongo      | 2023-01-24T14:32:20.398+0000 I  NETWORK  [listener] connection accepted from 172.20.0.3:54712 #19 (19 connections now open)
+tyk-pump       | time="Jan 24 14:32:20" level=info msg="Completed upserting" collection="tyk_analytics_aggregates" prefix=mongo-pump-aggregate
+tyk-pump       | time="Jan 24 14:32:20" level=info msg="Purged 1 records..." prefix=mongo-pump-aggregate
+
+```
+
+As shown above, the `debug` log level mode throws more information which will help during your debugging stage, i.e when the API call was started, when it was finished, how long it took for the call to finish, the endpoint that was called, the upstream that was called, the organization that the API belongs to, and more.
 
 ### Gateway Debug Settings
 
@@ -96,7 +135,7 @@ extraEnvs:
     value: debug
 ```
 
-You can find the full log levels in our documentation.
+You can find the full [log levels]({{< ref "log-data" >}}) in our documentation.
 
 ## Versions/ Replicate
 
@@ -106,9 +145,9 @@ We recommend using the latest version of Tyk always. Tyk is backwards compatible
 
 ## Dashboard
 
-It's essential to note that our dashboard is built on top of our OSS, which means that the dashboard uses the Dashboard API to retrieve its data. This means you can use the developer tools on your browser to access the API and its information. From here, you'll be able to see whether it's the Dashboard UI that's causing the error or if it's the API itself.
+It's essential to note that our Dashboard is built on top of our OSS, which means that the Dashboard uses the Dashboard API to retrieve its data. This means you can use the developer tools on your browser to access the API and its information. From here, you'll be able to see whether it's the Dashboard UI that's causing the error or if it's the API itself.
 
-In many cases, you'll want to expose the same analytics you see in the dashboard elsewhere or isolate if an error is on the [Gateway API]({{< ref "tyk-gateway-api" >}}) level or the [Dashboard API]({{< ref "tyk-dashboard-api" >}}) level.
+In many cases, you'll want to expose the same analytics you see in the Dashboard elsewhere or isolate if an error is on the [Gateway API]({{< ref "tyk-gateway-api" >}}) level or the [Dashboard API]({{< ref "tyk-dashboard-api" >}}) level.
 
 By using the browser developer tools, you can see and replicate this information through API calls.
 
@@ -118,9 +157,9 @@ As mentioned above, errors can come from many parts of Tyk or your architecture,
 
 ### Dashboard Level
 
-When using the dashboard, you'll run into a common theme where something doesn't work on the dashboard but will work when using the gateway API.
+When using the Dashboard, you'll run into a common theme where something doesn't work on the Dashboard but will work when using the Tyk Gateway API.
 
-That's one of the first things you should do when debugging something on the dashboard, i.e. does the same call work if you isolate the gateway away from the dashboard? If it works with the gateway API only, then it's likely on the dashboard level. This might be because the dashboard needs some configuration parameters or environment variables.
+That's one of the first things you should do when debugging something on the Dashboard, i.e. does the same call work if you isolate the gateway away from the Dashboard? If it works with the gateway API only, then it's likely on the Dashboard level. This might be because the Dashboard needs some configuration parameters or environment variables.
 
 ### Gateway or API level
 
