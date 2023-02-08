@@ -51,6 +51,5 @@ jobs:
           title: import OAS API Object from ${{ env.TYK_REF }}
           branch: ${{ env.TYK_REF }}/update-oas-docs
           path: ./tyk-docs
-          branch-suffix: ${{ env.TYK_REF }}
           delete-branch: true
           reviewers: letzya, Keithwachira
