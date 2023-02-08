@@ -4,12 +4,21 @@ name: Tyk OAS API definition fields sync
 
 on:
   workflow_dispatch:
+    inputs:
+      branch:
+        description: "Docs Branch"
+        required: true
+        default: "master"
+      repoBranch:
+        description: "Project Branch"
+        required: true
+        default: "master"
   repository_dispatch:
     types: [tyk-oas-docs]
 
 env:
-  TYK_SHA: ${{ github.event.client_payload.sha }}
-  TYK_REF: ${{ github.event.client_payload.ref }}
+  TYK_SHA: ${{ github.event.client_payload.sha || github.event.inputs.repoBranch }}
+  TYK_REF: ${{ github.event.client_payload.ref || github.event.inputs.branch }}
   GOPRIVATE: github.com/TykTechnologies
 
 jobs:
