@@ -49,7 +49,7 @@ jobs:
         with:
           commit-message: import OAS API Object from ${{ env.TYK_REF }}
           title: import OAS API Object from ${{ env.TYK_REF }}
-          branch: ${{ env.TYK_REF }}/update-oas-docs
+          branch: ${{ env.TYK_REF }}-update-oas-docs
           path: ./tyk-docs
           delete-branch: true
           reviewers: letzya, Keithwachira
