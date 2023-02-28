@@ -1,0 +1,69 @@
+---
+name: Lighthouse performance scans
+
+on:  # yamllint disable-line rule:truthy
+  workflow_dispatch:
+  push:
+  schedule:
+  - cron: '0 2 * * *'
+
+jobs:
+  prod:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Audit Tyk Docs
+      id: lighthouse-audit
+      uses: treosh/lighthouse-ci-action@v9
+      with:
+        runs: 3
+        urls: |
+          https://tyk.io/docs/
+        uploadArtifacts: true
+        configPath: .github/lighthouse/lighthouserc.json
+
+    - name: Format lighthouse score
+      id: format-lighthouse-score
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const result = ${{ steps.lighthouse-audit.outputs.manifest }}[0].summary
+          console.log({ result })
+          const formatResult = (res) => Math.round((res * 100))
+          Object.keys(result).forEach(key => result[key] = formatResult(result[key]))
+          const score = res => res >= 90 ? '🟢 ' : res >= 50 ? '🟠 ' : '🔴 '
+          const comment = [
+              `⚡️🏠  *Lighthouse report*\n`,
+              'Category                   Score',
+              `${score(result.performance)} Performance     *${result.performance}*`,
+              `${score(result.accessibility)} Accessibility      *${result.accessibility}*`,
+              `${score(result['best-practices'])} Best practices   *${result['best-practices']}*`,
+              `${score(result.seo)} SEO                    *${result.seo}*`,
+              `${score(result.pwa)} PWA                   *${result.pwa}*`,
+          ].join('\n');
+          console.log(comment)
+          return comment
+        result-encoding: string
+
+    - name: Prepare Slack Message
+      if: ${{ always() }}
+      id: slack-message-creator
+      run: |
+        SLACK_MESSAGE="${{ steps.format-lighthouse-score.outputs.result }}"
+        echo "::set-output name=slack-message::${SLACK_MESSAGE//$'\n'/'%0A'}"
+
+    - name: Notify Slack
+      if: ${{ always() }}
+      uses: rtCamp/action-slack-notify@v2
+      env:
+        SLACK_USERNAME: GitHub Actions
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+        SLACK_CHANNEL: team-ext-documentation
+        SLACK_COLOR: ${{ job.status }}
+        SLACK_ICON: https://dashboard.cloud-ara.tyk.io/assets/images/favicon-32x32.png
+        SLACK_TITLE: "Tyk Docs - ${{ job.status }}"
+        SLACK_MESSAGE: '${{ steps.slack-message-creator.outputs.slack-message }}'
+        SLACK_FOOTER: "Always Look on the Bright Side of Life"
+        MSG_MINIMAL: "actions"
