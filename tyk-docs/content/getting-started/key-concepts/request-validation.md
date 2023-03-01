@@ -84,7 +84,7 @@ To configure validation of the body of Requests to an endpoint, follow these two
 }
 ```
 
-2. Enable `validateRequest` middleware within the `operations` section of the API definition, using the [`operationId`]({{< ref "/content/getting-started/key-concepts/paths#operation-id" >}}) to identify the specific endpoint for which validation is to be applied.
+2. Enable `validateRequest` middleware within the `operations` section of the API definition, using the [operationId]({{< ref "getting-started/key-concepts/paths#operation-id" >}}) to identify the specific endpoint for which validation is to be applied.
 
 ```json
 {
