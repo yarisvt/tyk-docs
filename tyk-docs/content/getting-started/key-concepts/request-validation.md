@@ -56,7 +56,7 @@ operation:
 If there is at least one parameter, that parameter will enable validation
 of parameters.
 
-To configure validation of the body of Requests to an endpoint, follow these two simple steps:
+To configure Request Validation, which will check the body of each API request sent to the endpoint, follow these simple steps:
 
 1. Define a schema for an `application/json` content type in the `requestBody` section of a path.
 
