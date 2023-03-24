@@ -5,7 +5,9 @@
    {{- $url = printf "%s" (replace $url "/nightly/" "/") }}
    {{- printf "{\"path\":\"%s\", \"title\":\"%s\", \"file\": \"./content/%s\"}\n" $url $title $path}}
    {{- range $value.Aliases }}
-     {{- $from := printf "%s" (replace . "/docs/" "/") }}
-     {{- printf "{\"path\":\"%s\", \"title\":\"%s\", \"file\":\"./content/%s\", \"alias\":true}\n" $from $title $path}}
+     {{- $from := strings.TrimPrefix " " . }}
+     {{- $from := strings.TrimPrefix "/docs" $from }}
+     {{- $from := strings.TrimPrefix "/" $from }}
+     {{- printf "{\"path\":\"/docs/%s\", \"file\":\"./content/%s\", \"alias\":true}\n" $from $path}}
    {{- end }}
  {{- end }}
