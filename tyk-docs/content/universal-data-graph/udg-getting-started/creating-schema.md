@@ -9,6 +9,19 @@ aliases:
     - /universal-data-graph/udg-getting-started/creating-schema/
 ---
 
+## Creating Data Graph schema in Tyk Dasboard
+
+You can design your Data Graph schema from scratch in Tyk Dashboard. To do that go to **Schema tab** and use the built-in schema editor.
+
+{{< img src="/img/dashboard/udg/getting-started/schema-designer.png" alt="Schema editor" >}}
+
+On the left-hand side some additional actions are available:
+- **Schema import** - if you have a `.gql` `.graphql` or `.graphqls` file that you created in an external tool of you choice, you can import it using this button.
+- **Hide schema editor** - this will toggle the schema editor on and off if you need more space on your screen to work on [connecting data sources]({{< ref "/universal-data-graph/udg-getting-started/connect-datasource">}}).
+- **Search schema** - if your Data Graph schema is large and you need to find a type ot a field quickly, this search button will help you do that. It also has the *Find and replace* option, if you need to do bulk changes in Data Graph schema.
+- **Download schema** - this allows you to download current Data Graph schema and store it outside of Tyk Dashboard.
+- **Learn more** - open a new tab in your browser and takes you directly to Universal Data Graph documentation.
+
 ## Designing Data Graph schema
 
 The first step in configuring a Data Graph in Tyk is to decide which datasources you want to stitch together. Once you've done that, you can start designing your Data Graph.
@@ -20,7 +33,7 @@ Because Tyk's Universal Data Graph is using our GraphQL engine, the schema you d
 
 You can use Tyk Dashboard to design your Data Graph schema. Our GQL schema editor will validate your schema in real-time, highlighting any inconsistencies or problems and give you prompts on how to fix them.
 
-You can also use any external tools you like, save your design with `.graphql` or `.graphqls` extension and import it to Tyk later on.
+You can also use any external tools you like, save your design with `.gql`, `.graphql` or `.graphqls` extension and import it to Tyk later on.
 
 {{< /note >}}
 
@@ -365,16 +378,4 @@ type State {
 
 At this point you can also remove any fields from any type and not show them in your Data Graph response.
 
-## Creating Data Graph schema in Tyk Dasboard
-
-You can design your Data Graph schema from scratch in Tyk Dashboard. To do that go to **Schema tab** and use the built-in schema editor.
-
-{{< img src="/img/dashboard/udg/getting-started/schema-designer.png" alt="Schema editor" >}}
-
-On the left-hand side some additional actions are available:
-- **Schema import** - if you have a `.gql` `.graphql` or `.graphqls` file that you created in an external tool of you choice, you can import it using this button.
-- **Hide schema editor** - this will toggle the schema editor on and off if you need more space on your screen to work on [connecting data sources]({{< ref "/universal-data-graph/udg-getting-started/connect-datasource">}}).
-- **Search schema** - if your Data Graph schema is large and you need to find a type ot a field quickly, this search button will help you do that. It also has the *Find and replace* option, if you need to do bulk changes in Data Graph schema.
-- **Download schema** - this allows you to download current Data Graph schema and store it outside of Tyk Dashboard.
-- **Learn more** - open a new tab in your browser and takes you directly to Universal Data Graph documentation.
 
