@@ -94,7 +94,7 @@ type Pet {
 }
 ```
 
-6. Documentation can be added to any `field` and `object` by using standard [GQL descriptions](https://spec.graphql.org/October2021/#sec-Descriptions). In the type system definition language, description strings occur immediately before the definition they describe.
+6. Documentation can be added to any `field` and `object` by using standard [GQL descriptions](https://spec.graphql.org/October2021/#sec-Descriptions). In the type system definition language, description strings occur immediately before the definition they describe. Any descriptions you add will be visible in the Data Graph designer playground and the public GQL playground (if you enable it). To learn about all GQL playgrounds available with Tyk go [to read more here]({{< ref "/graphql/graphql-playground">}})
 
 ```graphql
 """
