@@ -245,12 +245,12 @@ type WordDefinition {
 }
 ```
 
-Some fields return objects (like `license`) and some return arrays or strings (like `sourceUrls`) and some arrays of objects (like `meanings`) and you need to make sure that you replicate this pattern in your Data Graph schema.
+Some fields return objects (like `license`), some return arrays of strings (like `sourceUrls`) and some arrays of objects (like `meanings`) and you want to make sure that you replicate this pattern in your Data Graph schema.
 
 {{< note success >}}
 **Note**  
 
-You don't have to mirror the data source response hierarchy 1-to-1 and it is possible to design your Data Graph schema differently. The advantage of doing that is the fact that in this case you will be able to connect your data source easily and UDG engine will automatically parse the response into the correct fields at every level.
+You don't have to mirror the data source response hierarchy 1-to-1 and it is possible to design your Data Graph schema differently. The advantage of doing 1-to-1 is the fact that in this case you will be able to connect your data source easily and UDG engine will automatically parse the response into the correct fields at every level.
 
 To get away from your REST API data source schema and modify it in your Data Graph, you need to get familiar with the concept of [field mapping]({{< ref "/universal-data-graph/concepts/field_mappings">}}) and learn how to [connect a datasource]({{< ref "/universal-data-graph/udg-getting-started/connect-datasource">}})
 
@@ -296,7 +296,7 @@ The only thing you have to do is decide if you want to use all possible fields a
 
 *To illustrate this process, we will use a public GQL API called [Countries Trevorblades](https://countries.trevorblades.com/). You can browse its schema by clicking the notebook icon at the top right-hand corner of the page*
 
-The GQL data source schema is quite extensive and it defined several different queries that the user can invoke:
+The GQL data source schema is quite extensive and it defines several different queries that the consumer can use:
 
 ```graphql
 type Query {
@@ -365,5 +365,16 @@ type State {
 
 At this point you can also remove any fields from any type and not show them in your Data Graph response.
 
-### Designing Data Graph schema for Kafka data source
+## Creating Data Graph schema in Tyk Dasboard
+
+You can design your Data Graph schema from scratch in Tyk Dashboard. To do that go to **Schema tab** and use the built-in schema editor.
+
+{{< img src="/img/dashboard/udg/getting-started/schema-designer.png" alt="Schema editor" >}}
+
+On the left-hand side some additional actions are available:
+- **Schema import** - if you have a `.gql` `.graphql` or `.graphqls` file that you created in an external tool of you choice, you can import it using this button.
+- **Hide schema editor** - this will toggle the schema editor on and off if you need more space on your screen to work on [connecting data sources]({{< ref "/universal-data-graph/udg-getting-started/connect-datasource">}}).
+- **Search schema** - if your Data Graph schema is large and you need to find a type ot a field quickly, this search button will help you do that. It also has the *Find and replace* option, if you need to do bulk changes in Data Graph schema.
+- **Download schema** - this allows you to download current Data Graph schema and store it outside of Tyk Dashboard.
+- **Learn more** - open a new tab in your browser and takes you directly to Universal Data Graph documentation.
 
