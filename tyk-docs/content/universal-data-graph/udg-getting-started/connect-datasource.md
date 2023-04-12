@@ -143,7 +143,7 @@ To save data source configuration click **Save** and then update the Data Graph 
 
 Using Tyk Gateway API you will need to configure Tyk Definition correctly in order to connect a REST API data source to your query.
 
-All the settings will be done in `"graphql"` object of Tyk Definition JSON. You can check how this object looks like [here]({{< ref "/shared/api-def-graphql">}}). Below only the fields required for connecting a data source are shown.
+All the settings will be done in `"graphql"` object of Tyk Definition JSON.
 
 Make sure your execution mode is set as:
 ```bash
