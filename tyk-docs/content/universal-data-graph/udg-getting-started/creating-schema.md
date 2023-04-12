@@ -1,5 +1,5 @@
 ---
-title: "1. Creating schema"
+title: "Designing & creating schema"
 date: 2020-09-14
 menu:
   main:
@@ -21,6 +21,18 @@ On the left-hand side some additional actions are available:
 - **Search schema** - if your Data Graph schema is large and you need to find a type ot a field quickly, this search button will help you do that. It also has the *Find and replace* option, if you need to do bulk changes in Data Graph schema.
 - **Download schema** - this allows you to download current Data Graph schema and store it outside of Tyk Dashboard.
 - **Learn more** - open a new tab in your browser and takes you directly to Universal Data Graph documentation.
+
+## Creating Data Graph schema using Tyk Gateway API
+
+In case you don't have access to Tyk Dashboard and you need to use Tyk Gateway API, you will most likely use external tools to design your schema.
+
+Once done, that schema needs to be added to Tyk API Definition. All Data Graph specific configurations are stored in `"graphql"` object insode the Tyk Definition JSON.
+
+```bash
+    "graphql": {
+        "schema": "type VatInfo {\n  valid: Boolean\n  vat_number: String\n  name: String\n  address: String\n  country_code: String\n}\n\ntype Query {\n  vatcheck(code: String): VatInfo\n}"
+    }
+```
 
 ## Designing Data Graph schema
 
@@ -378,4 +390,6 @@ type State {
 
 At this point you can also remove any fields from any type and not show them in your Data Graph response.
 
+### Next steps
 
+Data Graph schema itself is not going to return any data, it's just a blueprint of your graph. Next step is to [attach your data sources]({{< ref "/universal-data-graph/udg-getting-started/connect-datasource">}}) to it, so they can populate all the fields you've just designed with correct data.

@@ -403,23 +403,23 @@ To avoid these kind of scenarios we will set query depth limit on the keys creat
 
 Although we can directly create keys by selecting this API but we'll use policy as it will make it easier to update keys for this API in future. You can read more about policies [here](../../../getting-started/key-concepts/what-is-a-security-policy/)
 
-  ##### Create Policy
-    - Navigate to policies page
-    - Click Add Policy
-    - Select our API from Access Rights table
-    - Expand `Global Limits and Quota` section
-    - Unselect `Unlimited Query Depth` and set limit to `5`
-    - Switch to configuration tab
-    - Set policy name (eg. user-reviews-policy)
-    - Set expiration date for the keys that would be created using this policy
-    - Click on create policy
+##### Create Policy
+- Navigate to policies page
+- Click Add Policy
+- Select our API from Access Rights table
+- Expand `Global Limits and Quota` section
+- Unselect `Unlimited Query Depth` and set limit to `5`
+- Switch to configuration tab
+- Set policy name (eg. user-reviews-policy)
+- Set expiration date for the keys that would be created using this policy
+- Click on create policy
 
-  ##### Create a key using above policy
-    - Navigate to keys page
-    - Click Add Key
-    - Select our newly created policy
-    - Click create key
-    - Copy the key ID
+##### Create a key using above policy
+- Navigate to keys page
+- Click Add Key
+- Select our newly created policy
+- Click create key
+- Copy the key ID
 
 Now if you try to query our UDG API using the  key you should see an error as follows
 
@@ -447,7 +447,7 @@ It is also possible to restrict user's based on fields using policies. For examp
 
 ### Creating keys with read-only access
 
-  - ##### Create Policy
+##### Create Policy
     - Navigate to policies page
     - Click Add Policy
     - Select our API from Access Rights table
@@ -476,7 +476,7 @@ The syntax for this is straight forward:
 
   That's it!
 
-  {{< note success >}}
+{{< note success >}}
 **Note**
 
 A JSON string has to be escaped before using as a header value. For example:
