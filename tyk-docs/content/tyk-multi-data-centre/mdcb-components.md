@@ -13,18 +13,16 @@ description: "The elements that make up an MDCB environment."
 
 Here we will give an overview of the main elements of a Tyk Multi Data Centre (distributed) solution, clarifying the terminology used by Tyk.
 {{< img src="/img/mdcb/mdcb-components.png" width="800" height="975" alt="A Tyk Multi Data Centre Bridge deployment" >}}
+(TODO: remove "Worker Gateway" in diagram)
 
 ### Tyk Gateway
-- The workhorse of any deployment, Tyk’s lightweight Open Source API gateway that exposes your APIs for consumption by your users. It is a reverse proxy that secures your APIs, manages session and policies, monitors, caches and manipulates requests/responses when needed before/after it proxies them to and from the upstream.
+- The workhorse of any deployment, Tyk’s lightweight Open Source API gateway in data plane exposes your APIs for consumption by your users. It is a reverse proxy that secures your APIs, manages session and policies, monitors, caches and manipulates requests/responses when needed before/after it proxies them to and from the upstream. Tyk Gateway in control plane is used as reference for configuring APIs, keys, and quotas and would not serve API requests.
 
 ### Tyk Dashboard
 - Tyk’s management platform used to control the creation of API configurations, policies and keys in a persistent manner. It provides analytic information on the traffic the Gateways have processed which includes aggregated API usage and detailed information per transaction.
 
 ### Tyk Multi Data Centre Bridge (MDCB)
 - The backbone of the distributed Tyk deployment, connecting the distributed Data Plane deployments back to the Control Plane.
-
-### Management Gateway
-- Management Gateway in the Control Plane is used for creation of keys and certificates, this does not service API requests.
 
 ### Tyk Pump
 - Tyk’s open source analytics purger that can be used to export transaction logs from the Tyk deployment to the visualisation tool or other data store of your choice
@@ -41,13 +39,14 @@ Here we will give an overview of the main elements of a Tyk Multi Data Centre (d
 
 ## Control Plane
 {{< img src="/img/mdcb/mdcb-control-plane.png" width="800" height="975" alt="The Tyk Control Plane" >}}
+(TODO: rename to "Tyk Gateway")
 
 The Control Plane must consist of the following elements:
 - **Tyk Dashboard** (used to configure and control the whole Tyk installation)
 - **Tyk Gateway** (used for creation of keys and certificates, this does not service API requests; it is important to ensure there is no public access to it and it must not be sharded (tagged) as it "belongs" to the whole Tyk installation)
-- **Tyk MDCB** (TODO: used for ....)
-- **Redis** (TODO: used for ...; high availability Redis data store that should be backed up in case of failure; this [document](https://redis.io/docs/management/persistence/) gives recommendation on Redis persistency)
-- **MongoDB or SQL** (TODO: used for ...; a persistent data store that should be deployed and set up for redundancy and high availability)
+- **Tyk MDCB** (used for propagation configurations to Data Plane gateways)
+- **Redis** (in-memery data store and message broker. High availability Redis data store that should be backed up in case of failure; this [document](https://redis.io/docs/management/persistence/) gives recommendation on Redis persistency)
+- **MongoDB or SQL** (a persistent data store for configurations and analytics. It that should be deployed and set up for redundancy and high availability)
 
 To improve resilience and availability, multiple instances of each Tyk component should be deployed and load balanced within the Control Plane.
 
