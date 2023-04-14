@@ -45,18 +45,19 @@ Here we will give an overview of the main elements of a Tyk Multi Data Centre (d
 The Control Plane must consist of the following elements:
 - **Tyk Dashboard** (used to configure and control the whole Tyk installation)
 - **Tyk Gateway** (used for creation of keys and certificates, this does not service API requests; it is important to ensure there is no public access to it and it must not be sharded (tagged) as it "belongs" to the whole Tyk installation)
-- **Tyk MDCB**
-- **Redis** (high availability Redis data store that should be backed up in case of failure; this [document](https://redis.io/docs/management/persistence/) gives recommendation on Redis persistency)
-- **MongoDB or SQL** (a persistent data store that should be deployed and set up for redundancy and high availability)
+- **Tyk MDCB** (TODO: used for ....)
+- **Redis** (TODO: used for ...; high availability Redis data store that should be backed up in case of failure; this [document](https://redis.io/docs/management/persistence/) gives recommendation on Redis persistency)
+- **MongoDB or SQL** (TODO: used for ...; a persistent data store that should be deployed and set up for redundancy and high availability)
 
 To improve resilience and availability, multiple instances of each Tyk component should be deployed and load balanced within the Control Plane.
 
 ### Optional Components
 - One or more **Tyk Pumps** can be deployed within the Control Plane to export analytics data (request/response logs) to your [data sink of choice]({{< ref "/tyk-stack/tyk-pump/other-data-stores.md" >}}) for further analytics and visualisation.
-- A **Tyk Developer Portal** can be added to enhance the end-user experience when accessing your APIs.
+- A **Tyk Developer Portal** can be added to (TODO: enhance the end-user experience when accessing your APIs).
  
 ## Data Plane
 {{< img src="/img/mdcb/mdcb-data-plane.png" width="800" height="975"  alt="The Tyk Data Plane" >}}
+(TODO: API Consumers or API end-users?)
 
 The Data Plane deployment must consist of the following elements:
 - **Tyk Gateway** (one or more Gateways specifically configured as Workers)
@@ -67,6 +68,7 @@ If you want this Data Plane deployment to be resilient, available, and independe
   
 ### Optional Components
 - A **Tyk Pump** specifically configured as a [Hybrid Pump]({{< ref "/release-notes/version-2.8.md#custom-analytics-storage-engines-for-multi-cloud--enterprise-mdcb-users" >}}) can be deployed with the Data Plane gateways to export analytics data (request/response logs) to your [data sink of choice]({{< ref "/tyk-stack/tyk-pump/other-data-stores.md" >}}) for further analytics and visualisation.
+(TODO: Not only hybrid pump?)
   
 ## Next Steps
  - [Run an MDCB Proof of Concept]({{< ref "/tyk-multi-data-centre/mdcb-example-minimising-latency.md" >}})
