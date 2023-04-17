@@ -52,8 +52,8 @@ To improve resilience and availability, multiple instances of each Tyk component
 
 ### Optional Components
 - One or more **Tyk Pumps** can be deployed within the Control Plane to export analytics data (request/response logs) to your [data sink of choice]({{< ref "/tyk-stack/tyk-pump/other-data-stores.md" >}}) for further analytics and visualisation.
-- A **Tyk Developer Portal** can be added to (TODO: enhance the end-user experience when accessing your APIs).
- 
+- A **Tyk Developer Portal** can be added to expose a facade of your APIs and then allow third-party developers to register and use your APIs.
+
 ## Data Plane
 {{< img src="/img/mdcb/mdcb-data-plane.png" width="800" height="975"  alt="The Tyk Data Plane" >}}
 (TODO: API Consumers or API end-users?)
