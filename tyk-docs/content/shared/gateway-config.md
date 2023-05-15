@@ -118,19 +118,25 @@ Gateway HTTP server configuration
 EV: <b>TYK_GW_HTTPSERVEROPTIONS_READTIMEOUT</b><br />
 Type: `int`<br />
 
-API Consumer -> Gateway network read timeout. Not setting this config, or setting this to 0, defaults to 120 seconds
+User -> Gateway network read timeout
 
 ### http_server_options.write_timeout
 EV: <b>TYK_GW_HTTPSERVEROPTIONS_WRITETIMEOUT</b><br />
 Type: `int`<br />
 
-API Consumer -> Gateway network write timeout. Not setting this config, or setting this to 0, defaults to 120 seconds
+User -> Gateway network write timeout
 
 ### http_server_options.use_ssl
 EV: <b>TYK_GW_HTTPSERVEROPTIONS_USESSL</b><br />
 Type: `bool`<br />
 
 Set to true to enable SSL connections
+
+### http_server_options.use_ssl_le
+EV: <b>TYK_GW_HTTPSERVEROPTIONS_USELE_SSL</b><br />
+Type: `bool`<br />
+
+Enable Lets-Encrypt support
 
 ### http_server_options.enable_http2
 EV: <b>TYK_GW_HTTPSERVEROPTIONS_ENABLEHTTP2</b><br />
@@ -190,6 +196,14 @@ EV: <b>TYK_GW_HTTPSERVEROPTIONS_MAXVERSION</b><br />
 Type: `uint16`<br />
 
 Maximum TLS version.
+
+### http_server_options.skip_client_ca_announcement
+EV: <b>TYK_GW_HTTPSERVEROPTIONS_SKIPCLIENTCAANNOUNCEMENT</b><br />
+Type: `bool`<br />
+
+When mTLS enabled, this option allows to skip client CA announcement in the TLS handshake.
+This option is useful when you have a lot of ClientCAs and you want to reduce the handshake overhead, as some clients can hit TLS handshake limits.
+This option does not give any hints to the client, on which certificate to pick (but this is very rare situation when it is required)
 
 ### http_server_options.flush_interval
 EV: <b>TYK_GW_HTTPSERVEROPTIONS_FLUSHINTERVAL</b><br />
@@ -308,18 +322,11 @@ If you set this value to `true`, then the id parameter in a stored policy (or im
 
 This option should only be used when moving an installation to a new database.
 
-### policies.policy_path
-EV: <b>TYK_GW_POLICIES_POLICYPATH</b><br />
-Type: `string`<br />
-
-This option is used for storing a policies  if `policies.policy_source` is set to `file`.
-it should be some existing file path on hard drive
-
 ### ports_whitelist
 EV: <b>TYK_GW_PORTWHITELIST</b><br />
 Type: `PortsWhiteList`<br />
 
-Defines the ports that will be available for the API services to bind to in the following format: `"{“":“”}"`. Remember to escape JSON strings.
+Defines the ports that will be available for the API services to bind to in the following format: `{ “": “” }``.
 This is a map of protocol to PortWhiteList. This allows per protocol
 configurations.
 
@@ -566,12 +573,6 @@ EV: <b>TYK_GW_SLAVEOPTIONS_RPCGLOBALCACHEEXPIRATION</b><br />
 Type: `float32`<br />
 
 RPCKeysCacheExpiration defines the expiration time of the rpc cache that stores the keys, defined in seconds
-
-### slave_options.synchroniser_enabled
-EV: <b>TYK_GW_SLAVEOPTIONS_SYNCHRONISERENABLED</b><br />
-Type: `bool`<br />
-
-SynchroniserEnabled enable this config if MDCB has enabled the synchoniser. If disabled then it will ignore signals to synchonise recources
 
 ### management_node
 EV: <b>TYK_GW_MANAGEMENTNODE</b><br />
@@ -1037,12 +1038,6 @@ Type: `float32`<br />
 
 You can set the interval length on how often the tyk Gateway will purge analytics data. This value is in seconds and defaults to 10 seconds.
 
-### analytics_config.serializer_type
-EV: <b>TYK_GW_ANALYTICSCONFIG_SERIALIZERTYPE</b><br />
-Type: `string`<br />
-
-Determines the serialization engine for analytics. Available options: msgpack, and protobuf. By default, msgpack.
-
 ### enable_separate_analytics_store
 EV: <b>TYK_GW_ENABLESEPERATEANALYTICSSTORE</b><br />
 Type: `bool`<br />
@@ -1382,6 +1377,12 @@ Type: `int`<br />
 
 Maximum message which can be sent to gRPC server
 
+### coprocess_options.grpc_authority
+EV: <b>TYK_GW_COPROCESSOPTIONS_GRPCAUTHORITY</b><br />
+Type: `string`<br />
+
+Authority used in GRPC connection
+
 ### coprocess_options.python_path_prefix
 EV: <b>TYK_GW_COPROCESSOPTIONS_PYTHONPATHPREFIX</b><br />
 Type: `string`<br />
@@ -1572,12 +1573,6 @@ EV: <b>TYK_GW_FORCEGLOBALSESSIONLIFETIME</b><br />
 Type: `bool`<br />
 
 Enable global API token expiration. Can be needed if all your APIs using JWT or oAuth 2.0 auth methods with dynamically generated keys.
-
-### session_lifetime_respects_key_expiration
-EV: <b>TYK_GW_SESSIONLIFETIMERESPECTSKEYEXPIRATION</b><br />
-Type: `bool`<br />
-
-SessionLifetimeRespectsKeyExpiration respects the key expiration time when the session lifetime is less than the key expiration. That is, Redis waits the key expiration for physical removal.
 
 ### global_session_lifetime
 EV: <b>TYK_GW_GLOBALSESSIONLIFETIME</b><br />
