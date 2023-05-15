@@ -11,7 +11,7 @@ weight: 4
 
 ## Maximum Request Sizes
 
-Tyk supports forcing request size limits at the global, per-API and individual endpoint level.
+Tyk supports forcing request size limits per API at the global and individual endpoint level.
 Tyk will reject any request that exceeds the size you set.
 
 {{< note success >}}
