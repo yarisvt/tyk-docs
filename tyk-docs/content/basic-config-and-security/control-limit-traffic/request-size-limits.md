@@ -58,7 +58,7 @@ The size limit must be in in **bytes**.
 
 ### Global size limiting per API
 
-To add an per-API size limit, simply add:
+To add a per API size limit, simply add:
 ```
 "global_size_limit": 500 
 ```
