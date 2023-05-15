@@ -11,7 +11,8 @@ weight: 4
 
 ## Maximum Request Sizes
 
-Tyk supports forcing request size limits at the API and individual endpoint level. Tyk will reject any request that exceeds the size you set.
+Tyk supports forcing request size limits at the global, per-API and individual endpoint level.
+Tyk will reject any request that exceeds the size you set.
 
 {{< note success >}}
 **Note**  
@@ -55,12 +56,25 @@ To set up this middleware in your API Definition, simply add a new section to th
 
 The size limit must be in in **bytes**.
 
-### Global size limiting for your API
+### Global size limiting per API
 
-To add an API size limit, simply add:
+To add an per-API size limit, simply add:
 ```
 "global_size_limit": 500 
 ```
 
+The setting must be added to the version element of your API Definition.
+The configuration of the global size limit value will be evaluated before
+the specific path-based one.
 
-To the version element of your API Definition, the global size limit will be checked before the specific path-based one.
+### Global size limiting for all APIs
+
+To add a global request body size limit, simply add:
+```
+"max_request_body_size": 500
+```
+
+The setting must be added to the
+[http_server_options](https://tyk.io/docs/tyk-oss-gateway/configuration/#http_server_options)
+element of tyk.conf. The configuration of this value will be evaluated
+before per-API or per-endpoint settings.
