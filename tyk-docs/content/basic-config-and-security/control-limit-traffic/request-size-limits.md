@@ -60,7 +60,7 @@ To set up this middleware in your API Definition, simply add a new section to th
 
 The size limit must be in in **bytes**.
 
-### Global size limiting per API
+### Applying a size limit for a specific API
 
 To add a per API size limit, simply add:
 ```
