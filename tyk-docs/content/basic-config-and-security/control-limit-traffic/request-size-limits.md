@@ -11,7 +11,11 @@ weight: 4
 
 ## Maximum Request Sizes
 
-Tyk supports forcing request size limits per API at the global and individual endpoint level.
+With Tyk, you are able to apply limits to the size of requests to your APIs; you might do this to protect your upstream services or even the gateway itself, for example, to avoid excessive memory usage or brute force attacks.
+
+Tyk offers a flexible system of limiting request sizes ranging from globally applied limits across all APIs deployed on the gateway down to specific size limits for individual API endpoints.
+
+All size limits are applied only to the request body and are stated in bytes.
 Tyk will reject any request that exceeds the size you set.
 
 {{< note success >}}
