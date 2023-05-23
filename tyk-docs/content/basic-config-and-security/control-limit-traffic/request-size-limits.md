@@ -67,7 +67,7 @@ To add a per API size limit, simply add:
 "global_size_limit": 500 
 ```
 
-The setting must be added to the version element of your API Definition.
+Remember that this is stated in bytes and is a limit for the size of the request body, excluding the headers.
 The configuration of the global size limit value will be evaluated before
 the specific path-based one.
 
