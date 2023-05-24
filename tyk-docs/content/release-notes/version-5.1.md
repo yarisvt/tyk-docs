@@ -20,6 +20,8 @@ weight: 1
 
 #### Changed
 
+- Tyk Gateway updated to use Go 1.19
+
 #### Fixed
 
 - Fixed an issue where invalid IP addresses could be added to the IP allow list
@@ -28,6 +30,7 @@ weight: 1
 - Fixed an issue where OAuth access keys were physically removed from Redis on expiry. Behaviour for OAuth is now the same as for other authorisation methods
 - Fixed an issue where the `global_size_limit` setting didn't enable request size limit middleware. Thanks to @PatrickTaibel for the contribution!
 - Reduced default CPU and memory footprint by changing the default RPC pool size from 20 to 5 connections.
+- Added support for the `:authority` header when making GRPC requests. If the `:authority` header is not present then some GRPC servers return PROTOCOL_ERROR which prevents custom GRPC plugins from running. Thanks to @vanhtuan0409 from the Tyk Community for the contribution!
 
 ### Tyk Dashboard
 
@@ -36,6 +39,8 @@ weight: 1
 #### Added
 
 #### Changed
+
+- Tyk Dashboard updated to Go 1.19
 
 #### Fixed
 
