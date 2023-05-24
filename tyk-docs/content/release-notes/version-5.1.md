@@ -56,6 +56,14 @@ weight: 1
 - Fixed an issue where the log browser showed analytics for APIs not owned by the logged-in user
 - Fixed an issue that prevented non-admin users from seeing _Endpoint Popularity_ data in the Tyk Dashboard
 - Fixed an issue where additional data was returned when requesting analytics with p=-1 query when using SQL for the analytics store
+- Fixed an issue so that filtering by API respects API Ownership in three Dashboard charts.
+
+  - Gateway Dashboard - API Activity Dashboard - Requests
+  - Activity by API - Traffic Activity per API
+  - Errors - Average Errors Over Time
+
+- Fixed an issue so that the Log Browser now respects API Ownership. A user will now only be able to see logs for the APIs that they are authorised to view
+- Fixed filters for the Log Browser, Errors - Average Errors Over Time and API Activity Dashboard - Requests so that a user can only select from versions of APIs for which they have visibility
 
 ### Tyk Portal Classic
 
