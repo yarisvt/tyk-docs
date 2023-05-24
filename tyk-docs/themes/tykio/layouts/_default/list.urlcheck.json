@@ -1,9 +1,6 @@
 {{- range $key, $value := .Site.RegularPages }}
-   {{- $title := (replace .Title "\"" "\\\"") }}
    {{- $path := .File.Path }}
-   {{- $url := printf "%s" (replace $value.RelPermalink "/docs/" "/") }}
-   {{- $url = printf "%s" (replace $url "/nightly/" "/") }}
-   {{- printf "{\"path\":\"%s\", \"title\":\"%s\", \"file\": \"./content/%s\"}\n" $url $title $path}}
+   {{- printf "{\"path\":\"%s\", \"file\": \"./content/%s\"}\n" (replace $value.RelPermalink "/nightly" "") $path}}
    {{- range $value.Aliases }}
      {{- $from := strings.TrimPrefix " " . }}
      {{- $from := strings.TrimPrefix "/docs" $from }}
@@ -11,3 +8,4 @@
      {{- printf "{\"path\":\"/docs/%s\", \"file\":\"./content/%s\", \"alias\":true}\n" $from $path}}
    {{- end }}
  {{- end }}
+
