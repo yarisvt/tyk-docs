@@ -38,9 +38,14 @@ weight: 1
 
 #### Added
 
+- CHECK Added two endpoints to the dashboard to support the retrieval of example API definitions. One for fetching all examples and another for fetching a single example.
+-
+
 #### Changed
 
 - Tyk Dashboard updated to Go 1.19
+- Improve performance when opening the portal page by pre-fetching required data by a few calls instead of thousands.
+- Updated npm package dependencies of Dashboard, to address critical and high CVEs
 
 #### Fixed
 
@@ -87,6 +92,18 @@ weight: 1
 
 - Reduced default CPU and memory footprint by changing the default RPC pool size from 20 to 5 connections.
 
+### Tyk Classic Portal
+
+#### Deprecated
+
+#### Added
+
+#### Changed
+
+- Improve performance when opening the portal page by pre-fetching required data by a few calls instead of thousands.
+
+#### Fixed
+
 ## Updated Versions
 
 Tyk Gateway 5.1 - [docker](https://hub.docker.com/layers/tykio/tyk-gateway/v5.0.0/images/sha256-196815adff2805ccc14c267b14032f23913321b24ea86c052b62a7b1568b6725?context=repo)
@@ -104,3 +121,6 @@ In case you want to switch from MongoDB to SQL, you can [use our migration tool]
 
 Note: Upgrading the Golang version implies that all the Golang custom plugins that you are using need to be recompiled before migrating to v5.0 of the Gateway. Check our docs for more details [Golang Plugins]({{< ref "plugins/supported-languages/golang#upgrading-tyk" >}}).
 {{< /note >}}
+
+QUESTIONS TO DO
+Is UDG and Tyk Pump, Classic Portal separate changelog sections HERE
