@@ -21,6 +21,7 @@ weight: 1
 #### Changed
 
 - Tyk Gateway updated to use Go 1.19
+- Update kin-openapi dependency to latest released version v0.114.0
 
 #### Fixed
 
