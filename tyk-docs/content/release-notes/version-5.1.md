@@ -71,28 +71,6 @@ weight: 1
 - Fixed an issue so that the Log Browser now respects API Ownership. A user will now only be able to see logs for the APIs that they are authorised to view
 - Fixed filters for the Log Browser, Errors - Average Errors Over Time and API Activity Dashboard - Requests so that a user can only select from versions of APIs for which they have visibility
 
-### Tyk Portal Classic
-
-#### Deprecated
-
-#### Added
-
-#### Changed
-
-#### Fixed
-
-### Tyk Pump
-
-#### Deprecated
-
-#### Added
-
-#### Changed
-
-#### Fixed
-
-- Reduced default CPU and memory footprint by changing the default RPC pool size from 20 to 5 connections.
-
 ### Tyk Classic Portal
 
 #### Deprecated
