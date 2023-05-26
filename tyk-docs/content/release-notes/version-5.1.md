@@ -18,20 +18,24 @@ weight: 1
 
 #### Added
 
+- Added "HasOperation", "Operation" and "Variables" to GraphQL data source API definition for easier nesting
+
 #### Changed
 
 - Tyk Gateway updated to use Go 1.19
-- Update kin-openapi dependency to latest released version v0.114.0
+- Updated kin-openapi dependency to latest released version v0.114.0
+- Updated the UDG parser to parse all information needed for UDG config from a provided OAS specification
 
 #### Fixed
 
 - Fixed an issue where invalid IP addresses could be added to the IP allow list
 - Fixed an issue when using custom authentication with multiple authentication methods, custom authentication could not be selected to provide the base identity
-- When the control API is not protected with mTLS we now do not ask for a cert, even if all the APIs registered have mTLS as authorization mechanism
 - Fixed an issue where OAuth access keys were physically removed from Redis on expiry. Behaviour for OAuth is now the same as for other authorisation methods
 - Fixed an issue where the `global_size_limit` setting didn't enable request size limit middleware. Thanks to @PatrickTaibel for the contribution!
+- Fixed minor versioning, url and field mapping issues when importing OAS to UDG
 - Reduced default CPU and memory footprint by changing the default RPC pool size from 20 to 5 connections.
 - Added support for the `:authority` header when making GRPC requests. If the `:authority` header is not present then some GRPC servers return PROTOCOL_ERROR which prevents custom GRPC plugins from running. Thanks to @vanhtuan0409 from the Tyk Community for the contribution!
+- When the control API is not protected with mTLS we now do not ask for a cert, even if all the APIs registered have mTLS as authorization mechanism
 
 ### Tyk Dashboard
 
@@ -40,13 +44,17 @@ weight: 1
 #### Added
 
 - CHECK Added two endpoints to the dashboard to support the retrieval of example API definitions. One for fetching all examples and another for fetching a single example.
--
+- Added a way to display UDG examples from the tyk-examples repository in the Dashboard UI
+- Added a screen to display details of a UDG example API
+- Added a feature to display a full tyk-sync command that will allow a user to import an example UDG into their Dashboard
 
 #### Changed
 
 - Tyk Dashboard updated to Go 1.19
 - Improve performance when opening the portal page by pre-fetching required data by a few calls instead of thousands.
 - Updated npm package dependencies of Dashboard, to address critical and high CVEs
+- Changed the field mapping tickbox description in GUI to be 'Use default field
+  mapping'.
 
 #### Fixed
 
@@ -70,6 +78,7 @@ weight: 1
 
 - Fixed an issue so that the Log Browser now respects API Ownership. A user will now only be able to see logs for the APIs that they are authorised to view
 - Fixed filters for the Log Browser, Errors - Average Errors Over Time and API Activity Dashboard - Requests so that a user can only select from versions of APIs for which they have visibility
+- Fixed UI bug so that data graphs created with multiple words are sluggified, i.e. spaces are replaced with '-'
 
 ### Tyk Classic Portal
 
