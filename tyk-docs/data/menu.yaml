@@ -724,19 +724,7 @@ menu:
             category: Directory
             menu:
             - title: "Authentication & Authorization"
-              path: /basic-config-and-security/security/authentication-&-authorization
-              category: Page
-            - title: "Authorization Code Grant Type"
-              path: /basic-config-and-security/security/authentication-&-authorization/oauth2-0/auth-code-grant
-              category: Page
-            - title: "Client Credentials Grant Type"
-              path: /basic-config-and-security/security/authentication-&-authorization/oauth2-0/client-credentials-grant
-              category: Page
-            - title: "Refresh Token Grant Type"
-              path: /basic-config-and-security/security/authentication-&-authorization/oauth2-0/refresh-token-grant
-              category: Page
-            - title: "Username and Password Grant Type"
-              path: /basic-config-and-security/security/authentication-&-authorization/oauth2-0/username-password-grant
+              path: /basic-config-and-security/security/authentication-authorization
               category: Page
             - title: "Basic Authentication"
               path: /basic-config-and-security/security/authentication-authorization/basic-auth
@@ -2197,17 +2185,50 @@ menu:
       category: Page
     - title: "Creating a PoC"
       category: Page
+    - title: "Managing Organisations"
+      path: /tyk-cloud/environments-deployments/managing-organisations/
+      category: Page
+    - title: "Authorization Code Grant Type"
+      path: /basic-config-and-security/security/authentication-authorization/oauth2-0/auth-code-grant/
+      category: Page
+    - title: "Managing Environments"
+      path: /tyk-cloud/environments-deployments/managing-environments/
+      category: Page
+    - title: "Managing Teams"
+      path: /tyk-cloud/teams-users/managing-teams/
+      category: Page
+    - title: "Refresh Token Grant Type"
+      path: /basic-config-and-security/security/authentication-authorization/oauth2-0/refresh-token-grant/
+      category: Page
     - title: "Update an OAS API"
       path: /getting-started/using-oas-definitions/update-an-oas-api/
+      category: Page
+    - title: "Managing Control Planes"
+      path: /tyk-cloud/environments-deployments/managing-control-planes/
       category: Page
     - title: "Configuration Options"
       path: /tyk-cloud/configuration-options/
       category: Page
+    - title: "Managing Users"
+      path: /tyk-cloud/teams-users/managing-users/
+      category: Page
+    - title: "Tyk Cloud User Roles"
+      path: /tyk-cloud/teams-users/user-roles/
+      category: Page
     - title: "ID Extractor"
       path: /plugins/plugin-types/auth-plugins/id-extractor/
       category: Page
+    - title: "Managing Edge Gateways"
+      path: /tyk-cloud/environments-deployments/managing-gateways/
+      category: Page
+    - title: "Username and Password Grant Type"
+      path: /basic-config-and-security/security/authentication-authorization/oauth2-0/username-password-grant/
+      category: Page
     - title: "Graph Pump setup"
       path: /tyk-stack/tyk-pump/tyk-pump-configuration/graph-pump/
+      category: Page
+    - title: "Teams & Users"
+      path: /tyk-cloud/teams-users/
       category: Page
     - title: "“301 Moved permanently“ error in the Dashboard API"
       path: /troubleshooting/tyk-cloud-classic/301-moved-permanently/
@@ -2245,8 +2266,26 @@ menu:
     - title: "404 when trying to access Tyk Gateway Repo"
       path: /troubleshooting/tyk-installation/404-trying-access-tyk-gateway-repo/
       category: Page
+    - title: "Client Credentials Grant Type"
+      path: /basic-config-and-security/security/authentication-authorization/oauth2-0/client-credentials-grant/
+      category: Page
     - title: "Tyk Cloud Classic"
       path: /troubleshooting/tyk-cloud/
+      category: Page
+    - title: "Managing APIs"
+      path: /tyk-cloud/environments-deployments/managing-apis/
+      category: Page
+    - title: "Monitoring"
+      path: /tyk-cloud/environments-deployments/monitoring/
+      category: Page
+    - title: "Tyk Cloud FAQs"
+      path: /tyk-cloud/troubleshooting-support/faqs/
+      category: Page
+    - title: "Troubleshooting & Support"
+      path: /tyk-cloud/troubleshooting-support/
+      category: Page
+    - title: "Glossary"
+      path: /tyk-cloud/troubleshooting-support/glossary/
       category: Page
     - title: "CICD - Automating Your Plugin Builds"
       path: /plugins/get-started-selfmanaged/deploy-plugins/
