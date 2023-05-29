@@ -176,17 +176,17 @@ non-caching of the request.
 
 Explanation:
 
-- `x-tyk-cache-action-set`: If the header is set to `1`, Tyk caches the
+**x-tyk-cache-action-set**: If the header is set to `1`, Tyk caches the
 request, even for non-safe requests. If the header is empty or absent,
 Tyk follows its default behavior, which typically involves not caching
-the request.
+the request, or caching only valid response codes
+(`cache_response_codes`).
 
-- `x-tyk-cache-action-set-ttl`: If the header is present, Tyk uses the
+**x-tyk-cache-action-set-ttl**: If the header is present, Tyk uses the
 specified value as the TTL. If the header is not present, Tyk falls back
-to the value specified in `cache_options.cache_timeout`.
-
-If you wish to change these headers to a header of your choice, you can
-do so by setting the following cache options:
+to the value specified in `cache_options.cache_timeout`. If you wish to
+change this header to a header of your choice, you can do so by setting
+the following cache options:
 
 ```json
 "cache_options": {
