@@ -138,30 +138,70 @@ Go to the Endpoint Designer tab. From the path you want to cache, select the **C
 {{< img src="/img/2.10/cache_plugin.png" alt="Plugin dropdown list" >}}
 
  
-## Upstream Control
+## Upstream Cache Control
 
-Upstream cache control enables you to set whether a response should be cached, and for how long. 
-To enable this, you will need to set the following:
+Upstream cache control allows you to specify caching behavior for
+responses from your back-end services. Follow these steps to enable it:
 
-Step 1. In the API definition:
-- `enable_cache: true` 
-- `enable_upstream_cache_control: true`
-- Set which paths to act upon. Add these paths as shown in the screengrab above or manually add these paths to the `cache` list in the `extended_paths` section of your API version as below:
-``` json
+Step 1: In the API definition, set the following properties:
+
+```json
+"enable_cache": true,
+"enable_upstream_cache_control": true
+```
+
+Additionally, identify the paths that should be affected. You can either
+use the dashboard user interface or manually add these paths to the cache
+list in the extended_paths section of your API version, as shown below:
+
+```json
 "extended_paths": {
-            "cache": [
-              "ip"
-            ]
-          }
- ```          
-Step 2. Use the upstream's response headers:
-Tyk will evaluate the response headers sent from your application for these paths and based on the data in the response, activate and set the cache values.
-The two response headers that Tyk looks for are:
-1.  `x-tyk-cache-action-set`: If Tyk finds this header set to `1`, the request will be cached, even if it's not a safe request since the upstream control overwrites Tyk's cache setting. Ifthe header's value is `0` or no such header, even if it's a safe request it will not be cached, again, upstream control overwrites Tyk's.
-2.  `x-tyk-cache-action-set-ttl`: If Tyk finds this header, it will override the TTL of the cached response, otherwise it will default to `cache_options.cache_timeout`.
-You can also change this header to a header of your choice by setting the fields `cache_options.cache_control_ttl_header`.
+    "cache": [
+        "ip"
+    ]
+}
+```
 
-Utilising this approach gives the most control as it will also only cache responses based on the request method. So if you only want `OPTIONS` requests to be cached, and return cache control headers only for this method, then only that method/URL combination will be cached, ignoring other methods for the same path.
+Step 2: Tyk evaluates the response headers sent by your application for the specified paths.
+
+The following headers control caching behavior:
+
+- `x-tyk-cache-action-set`: This header determines whether the request should be cached. Send `1` to enable caching the request.
+- `x-tyk-cache-action-set-ttl`: This header allows you to override the default cache TTL (Time to Live) value, specified in seconds.
+
+By configuring these headers in the responses, you have precise control
+over caching behavior. When the headers are absent or set to specific
+values, Tyk follows its default behavior, typically resulting in
+non-caching of the request.
+
+Explanation:
+
+- `x-tyk-cache-action-set`: If the header is set to `1`, Tyk caches the
+request, even for non-safe requests. If the header is empty or absent,
+Tyk follows its default behavior, which typically involves not caching
+the request.
+
+- `x-tyk-cache-action-set-ttl`: If the header is present, Tyk uses the
+specified value as the TTL. If the header is not present, Tyk falls back
+to the value specified in `cache_options.cache_timeout`.
+
+If you wish to change these headers to a header of your choice, you can
+do so by setting the following cache options:
+
+```json
+"cache_options": {
+    "cache_control_ttl_header": "x-expire"
+}
+```
+
+With this set, you can send `x-expire: 30` to cache a response for 30
+seconds.
+
+Utilising this approach gives the most control as it will also only cache
+responses based on the request method. So if you only want `OPTIONS`
+requests to be cached, and return cache control headers only for this
+method, then only that method/URL combination will be cached, ignoring
+other methods for the same path.
 
 
 ### Configuration via the Dashboard UI
