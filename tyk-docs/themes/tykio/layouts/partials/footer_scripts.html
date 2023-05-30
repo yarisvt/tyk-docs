@@ -53,6 +53,16 @@
   $(document).on('load', onResizing)
   $(document).on('resize', onResizing)
 </script>
+
+<script>
+// handle setting the is-production class on the body element
+document.addEventListener('DOMContentLoaded', () => {
+	let body = document.querySelector('body');
+	let isProduction = location.host === 'tyk.io';
+	if (isProduction) body.classList.add('is-production');
+});
+</script>
+
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
 <script>

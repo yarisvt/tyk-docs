@@ -19,29 +19,29 @@ var searchContainerFn = function() {
 	var $body = $('body'),
 		$html = $('html'),
     container = $(".documentation-search-container");
-	
+
 	// Remove helper class
 	$html.removeClass('no-js');
-	
+
 	// Tree Menu
 	$('[data-tree]').simpleTree({startCollapsed: true});
-	
-	
-	// Sticky Sidebar 
+
+
+	// Sticky Sidebar
 	if ($('[data-sticky]').size() > 0 ) {
 	    $('[data-sticky]').theiaStickySidebar({
 			// Settings
 			containerSelector	:	'.section-page',
 			additionalMarginTop	:	113,
 			minWidth			:	1000
-	    });		
+	    });
 	}
 
 	// Toggle Class
 	$body.on('click','a[data-toggle], button[data-toggle]', function(e){
 		e.preventDefault();
 		$body.toggleClass($(this).data('toggle'));
-	});	 
+	});
 
 	// Scroll Class
 	$body.on('click','a[data-scroll]', function(e){
@@ -56,9 +56,9 @@ var searchContainerFn = function() {
 	});
 
 
-	// Search result list container functionality 
+	// Search result list container functionality
 	$(document).mouseup(function(e) {
-    if (!container.is(e.target) && container.has(e.target).length === 0) 
+    if (!container.is(e.target) && container.has(e.target).length === 0)
     {
       container.slideUp();
     }
@@ -69,7 +69,7 @@ var searchContainerFn = function() {
 	})
 };
 
-// Scroll to Top  
+// Scroll to Top
 $(window).scroll(function() {
   if ($(this).scrollTop() >= 250) {
       $('#return-to-top, .button.grey.medium.bottom').fadeIn(200);
@@ -93,7 +93,7 @@ $(window).scroll(function() {
 // 	} else {
 // 		$(".documentation-table-of-contents").show();
 // 	}
-// 	// $(".documentation-table-of-contents").css("opacity", op ); 
+// 	// $(".documentation-table-of-contents").css("opacity", op );
 // });
 
 // Turbo links
@@ -137,7 +137,7 @@ $(document).ready(function(e){
 
 				setTimeout(function(){
 					$button.text( 'Copy to Clipboard').prop('disabled', false);
-				}, 3000);			
+				}, 3000);
 			};
 
 			var bindEvents = function bindEvents() {
@@ -150,7 +150,7 @@ $(document).ready(function(e){
 
 			appendButton();
 			bindEvents();
-		});   
+		});
 	};
 
 	$('code[class^="language"]:not(.language-diff)').copyToClipboard();
@@ -171,15 +171,15 @@ $(document).ready(function(e){
 
 	if ($submenu_tab_items) {
 		$submenu_tab_items.wrapAll('<div class="links-container--dropdown"></div>');
-		
+
 		$submenu_tab_active.on('click', function(e) {
 			e.preventDefault();
 			var $tab_active_parent = $(e.currentTarget).closest('.links-container');
 			var $submenu_tab_dropdown = $('.links-container--dropdown');
-			
+
 			$tab_active_parent.toggleClass('js-open');
 			console.log($submenu_tab_dropdown)
-		});	
+		});
 	}
-	
+
 });

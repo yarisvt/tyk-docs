@@ -6,7 +6,7 @@
 {{ $pagePath := replace $pagePath "/" "" }}
 
 <ul>
-{{ range .menu }}  
+{{ range .menu }}
   {{ $is := false }}
   {{ $has := false }}
 
@@ -41,10 +41,10 @@
     {{ end }}
   {{ end }}
 
-  {{ if (isset . "menu") }} 
-    <li class="category-{{.category}} {{if $is}} active {{end}} {{ if or $is $has (eq .category `Label`)}} st-open {{else}} st-collapsed {{end}}">
+  {{ if (isset . "menu") }}
+    <li class="category-{{.category}} {{if $is}} active {{end}} {{ if or $is $has (eq .category `Label`)}} st-open {{else}} st-collapsed {{end}} {{ if not .menu }} has-no-menu-items {{end}}">
       {{ if .path }}
-      {{ $prefixPath := strings.TrimLeft "/" .path }} 
+      {{ $prefixPath := strings.TrimLeft "/" .path }}
       <a href="{{ $prefixPath | relURL }}">
         {{ .title }}
       </a>
@@ -55,9 +55,11 @@
         {{ partial "menu_recursive.html" (dict "menu" .menu "page" $page "site" $site) }}
     </li>
   {{ else }}
-    <li class="st-file {{if $is}} active {{end}} ">
-      {{ $prefixPath := strings.TrimLeft "/" .path }} 
-      <a href="{{ $prefixPath | relURL }}"  {{if not .path}}style="border: 1px solid red"{{end}}>
+    <li class="st-file {{if $is}} active {{end}} {{if not .path}} has-no-path {{end}}">
+      {{ $prefixPath := strings.TrimLeft "/" .path }}
+      <a href="{{ $prefixPath | relURL }}">
+      <!-- <a href="{{ $prefixPath | relURL }}" {{if not .path}}class="has-no-path"{{end}}> -->
+      <!-- <a href="{{ $prefixPath | relURL }}" {{if not .path}}style="border: 1px solid red"{{end}}> -->
         {{ .title }}
       </a>
 

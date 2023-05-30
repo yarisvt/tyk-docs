@@ -201,9 +201,25 @@ Tree View
                 letter-spacing: initial;
             }
 
-            &:not(:has(li)) a {
-              border: 1px solid red;
+            &.has-no-menu-items {
+              body.is-production & {
+                display: none;
+              }
+
+              > a {
+                border: 1px solid red;
+              }
             }
+        }
+
+        &.has-no-path {
+          body.is-production & {
+            display: none;
+          }
+
+          a {
+            border: 1px solid red;
+          }
         }
     }
 
