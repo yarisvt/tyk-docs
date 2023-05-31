@@ -14,8 +14,6 @@ weight: 1
 
 ### Tyk Gateway
 
-#### Deprecated
-
 #### Added
 
 - Added "HasOperation", "Operation" and "Variables" to GraphQL data source API definition for easier nesting
@@ -40,11 +38,9 @@ weight: 1
 
 ### Tyk Dashboard
 
-#### Deprecated
-
 #### Added
 
-- CHECK Added two endpoints to the dashboard to support the retrieval of example API definitions. One for fetching all examples and another for fetching a single example.
+- Added two endpoints to the dashboard to support the retrieval of example API definitions. One for fetching all examples and another for fetching a single example.
 - Added a way to display UDG examples from the tyk-examples repository in the Dashboard UI
 - Added a screen to display details of a UDG example API
 - Added a feature to display a full tyk-sync command that will allow a user to import an example UDG into their Dashboard
@@ -52,22 +48,21 @@ weight: 1
 #### Changed
 
 - Tyk Dashboard updated to Go 1.19
-- Improve performance when opening the portal page by pre-fetching required data by a few calls instead of thousands.
+- Improve performance when opening the portal page by pre-fetching required data by a few calls instead of thousands
 - Updated npm package dependencies of Dashboard, to address critical and high CVEs
-- Changed the field mapping tickbox description in GUI to be 'Use default field
-  mapping'.
+- Changed the field mapping tickbox description in GUI to be 'Use default field mapping'
 
 #### Fixed
 
-- Fixed an issue when using custom authentication with multiple authentication methods, custom authentication could not be selected to provide the base identity
+- Fixed an issue when using custom authentication with multiple authentication methods. Custom authentication could not be selected to provide the base identity
 - Fixed an issue where API Ownership was not respected in the _API Activity Dashboard Requests_ and _Average Errors Over Time_ charts in the Tyk Dashboard. Note that it is not currently possible to respect API Ownership in other aggregated charts
-- Fixed an issue where the LOGIN URL was displayed as undefined when creating a TIB Profile using LDAP as a provider
+- Fixed an issue where the login url was displayed as undefined when creating a TIB Profile using LDAP as a provider
 - Fixed an issue where it was not possible to download Activity by API or Activity by Key from the Dashboard when using PostgreSQL for the analytics store
 - Fixed an issue where a new user could be stuck in a password reset loop in the dashboard if `TYK_DB_SECURITY_FORCEFIRSTLOGINPWRESET` was enabled
-- CHECK Fixed an issue where the `ssl_force_common_name_check` flag was disappearing. The flag was disappearing after being updated via dashboard UI raw API editor and a subsequent page reload. It was also disappearing when updating the API Definition via the GW/DB API.
+- Fixed an issue where the `ssl_force_common_name_check` flag was disappearing. The flag was disappearing after being updated via dashboard UI raw API editor and a subsequent page reload. It was also disappearing when updating the API Definition via the GW/DB API.
 - Fixed an issue where a user could update their email address to match that of another user within the same organisation
 - Fixed an issue where users without `user:write` permission were able to update their permissions through manipulation of Dashboard API calls
-- Fixed an issue where the versions endpoint returned APIs not owned by the logged-in user
+- Fixed an issue where the versions endpoint returned APIs were not owned by the logged-in user
 - Fixed an issue where the log browser showed analytics for APIs not owned by the logged-in user
 - Fixed an issue that prevented non-admin users from seeing _Endpoint Popularity_ data in the Tyk Dashboard
 - Fixed an issue where additional data was returned when requesting analytics with p=-1 query when using SQL for the analytics store
@@ -83,15 +78,9 @@ weight: 1
 
 ### Tyk Classic Portal
 
-#### Deprecated
-
-#### Added
-
 #### Changed
 
 - Improve performance when opening the portal page by pre-fetching required data by a few calls instead of thousands.
-
-#### Fixed
 
 ## Updated Versions
 
