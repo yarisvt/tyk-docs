@@ -19,6 +19,7 @@ weight: 1
 #### Added
 
 - Added "HasOperation", "Operation" and "Variables" to GraphQL data source API definition for easier nesting
+- Added abstractions/interfaces for ExecutionEngineV2 and ExecutionEngine2Executor with respect to graphql-go-tools
 
 #### Changed
 
@@ -109,6 +110,3 @@ In case you want to switch from MongoDB to SQL, you can [use our migration tool]
 
 Note: Upgrading the Golang version implies that all the Golang custom plugins that you are using need to be recompiled before migrating to v5.0 of the Gateway. Check our docs for more details [Golang Plugins]({{< ref "plugins/supported-languages/golang#upgrading-tyk" >}}).
 {{< /note >}}
-
-QUESTIONS TO DO
-Is UDG and Tyk Pump, Classic Portal separate changelog sections HERE
