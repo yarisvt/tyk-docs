@@ -42,8 +42,12 @@ weight: 1
 
 - Added two endpoints to the dashboard to support the retrieval of example API definitions. One for fetching all examples and another for fetching a single example.
 - Added a way to display UDG examples from the tyk-examples repository in the Dashboard UI
+- Added screens in Dashboard New Graph flow, that allows users to choose between creating a graph from scratch or importing one of our example graphs
 - Added a screen to display details of a UDG example API
 - Added a feature to display a full tyk-sync command that will allow a user to import an example UDG into their Dashboard
+- Added an api/examples endpoint to Dashboard API that returns a list of available API examples that can later be imported into the Dasboard
+- Added an endpoint to Dashboard API that transforms an OpenAPI document into UDG config and publishes it in Dashboard
+- Added query param `apidef=true` to example detail endpoint in Dashboard API to retrieve the API definition of an example
 
 #### Changed
 
@@ -75,6 +79,7 @@ weight: 1
 - Fixed an issue so that the Log Browser now respects API Ownership. A user will now only be able to see logs for the APIs that they are authorised to view
 - Fixed filters for the Log Browser, Errors - Average Errors Over Time and API Activity Dashboard - Requests so that a user can only select from versions of APIs for which they have visibility
 - Fixed UI bug so that data graphs created with multiple words are sluggified, i.e. spaces are replaced with '-'
+- Fixed an issue with routing, which was sending user to a blank screen while creating new Data Graph or importing an example API
 
 ### Tyk Classic Portal
 
