@@ -93,7 +93,7 @@ with open(urlcheck_path, "r") as file:
         title = obj.get("title")
         
         #linktitle = obj.get("linktitle")
-        
+
         # if title and link title are empty
         # log to file and continue to next row in urlcheck.json
         # if only title is empty then title = linktitle and
@@ -254,7 +254,7 @@ with open(pages_path, "r") as file:
         if data[2] == "Page doesn't exists":
             print("Page doesn't exists: " + data[0], file=openDoesntExists)
             continue
-            
+ 
         if data[2] == "Other":
             print("Probably an alias: " + data[0])
             continue
