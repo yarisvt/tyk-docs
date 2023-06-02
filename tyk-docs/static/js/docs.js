@@ -93,7 +93,7 @@ $(window).scroll(function() {
 // 	} else {
 // 		$(".documentation-table-of-contents").show();
 // 	}
-// 	// $(".documentation-table-of-contents").css("opacity", op );
+// 	// $(".documentation-table-of-contents").css("opacity", op ); 
 // });
 
 // Turbo links
@@ -171,7 +171,6 @@ $(document).ready(function(e){
 
 	if ($submenu_tab_items) {
 		$submenu_tab_items.wrapAll('<div class="links-container--dropdown"></div>');
-
 		$submenu_tab_active.on('click', function(e) {
 			e.preventDefault();
 			var $tab_active_parent = $(e.currentTarget).closest('.links-container');
@@ -181,5 +180,4 @@ $(document).ready(function(e){
 			console.log($submenu_tab_dropdown)
 		});
 	}
-
 });

@@ -51,6 +51,7 @@ fileOrphan = outputFileName + "-orphan.txt"
 fileMaybeDelete = outputFileName + "-maybeDelete.txt"
 fileDoesntExists = outputFileName + "-doesntExists.txt"
 fileUrlCheckNoTitle = outputFileName + "-urlcheck-noTitle.txt"
+fileUrlCheckAliases = outputFileName + "-urlcheck-aliases.txt"
 fileMenu = "./tyk-docs/data/menu.yaml"
 
 # Open the output files
@@ -61,6 +62,7 @@ openMaybeDelete = open(fileMaybeDelete, "w")
 openDoesntExists = open(fileDoesntExists, "w")
 openFileMenu = open(fileMenu, "w")
 openUrlCheckNoTitle = open(fileUrlCheckNoTitle, "w")
+openUrlCheckAliases = open(fileUrlCheckAliases, "w")
 
 #
 # Mapping of paths in urlcheck to title
@@ -83,22 +85,31 @@ with open(urlcheck_path, "r") as file:
         if line.isspace():
             continue
         obj = json.loads(line)
-        title = obj.get("title")
-        linktitle = obj.get("linktitle")
+        alias = obj.get("alias")
+        if alias is not None and alias == True:
+            print(f"alias url: {line.strip()}", file=openUrlCheckAliases)
+            continue
 
+        title = obj.get("title")
+        
+        #linktitle = obj.get("linktitle")
+        
         # if title and link title are empty
         # log to file and continue to next row in urlcheck.json
         # if only title is empty then title = linktitle and
         # replace trailing slash
-        if title is None:
+        
+        if title is None or title == "":
+            print(f"no title, check for linktitle. {line.strip()}, ", file=openUrlCheckNoTitle)
+
+            linktitle = obj.get("linktitle")
             if linktitle is None:
-                print(
-                    f"{line.strip()}, no title or linktitle", file=openUrlCheckNoTitle
-                )
+                print(f"Error: no title or linktitle for {line.strip()}, ")
                 continue
-            else:
-                title = linktitle
-                print(f"{line.strip()}, linktile is present", file=openUrlCheckNoTitle)
+            title = linktitle
+
+        if title == "/" or title == "\\":
+            raise ValueError(f"An empty title {line.strip()}")
 
         title_map[obj["path"].replace("/", "")] = title
 
@@ -175,11 +186,11 @@ with open(categories_path, "r") as file:
             if not found:
                 tabURLs = {
                     "Home": "/",
-                    "APIM Best Practices": "/getting-started/key-concepts",
                     "Deployment and Operations": "/apim",
                     "Managing APIs": "/getting-started",
                     "Product Stack": "/tyk-stack",
                     "Developer Support": "/frequently-asked-questions/faq",
+                    "APIM Best Practices": "/getting-started/key-concepts",
                     "Orphan": "/orphan",
                 }
 
@@ -243,6 +254,10 @@ with open(pages_path, "r") as file:
         if data[2] == "Page doesn't exists":
             print("Page doesn't exists: " + data[0], file=openDoesntExists)
             continue
+            
+        if data[2] == "Other":
+            print("Probably an alias: " + data[0])
+            continue
 
         data[0] = data[0].replace("https://tyk.io/docs", "")
 
@@ -301,7 +316,8 @@ def print_tree_as_yaml(tree, level=1):
                 title = title_map[node["url"].replace("/", "")]
             except:
                 title = "Unknown url: " + node["url"]
-                print(
+                #print(f"node[url] = {'https://tyk.io/docs' + node['url']},  node['name'] = {node['name']}")
+                print( 
                     "Unknown menu url:" " https://tyk.io/docs" + node["url"],
                     file=openUnknownUrlFile,
                 )
