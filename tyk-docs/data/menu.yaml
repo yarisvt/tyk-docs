@@ -2330,7 +2330,6 @@ menu:
       path: /api-management/oss/gateway-api/
       category: Page
     - title: "Tyk On-Premises"
-
       path: /troubleshooting/tyk-on-premise/tyk-on-premise/
       category: Page
     - title: "How to enable websockets in Cloud"
