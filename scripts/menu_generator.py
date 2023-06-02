@@ -91,14 +91,12 @@ with open(urlcheck_path, "r") as file:
             continue
 
         title = obj.get("title")
-        
         #linktitle = obj.get("linktitle")
 
         # if title and link title are empty
         # log to file and continue to next row in urlcheck.json
         # if only title is empty then title = linktitle and
         # replace trailing slash
-        
         if title is None or title == "":
             print(f"no title, check for linktitle. {line.strip()}, ", file=openUrlCheckNoTitle)
 
@@ -254,7 +252,7 @@ with open(pages_path, "r") as file:
         if data[2] == "Page doesn't exists":
             print("Page doesn't exists: " + data[0], file=openDoesntExists)
             continue
- 
+
         if data[2] == "Other":
             print("Probably an alias: " + data[0])
             continue
