@@ -18,7 +18,7 @@ menu:
     category: Tab
     menu:
     - title: "Overview"
-      show: hide
+      show: false
       category: Page
     - title: "Quick start guides"
       show: true
@@ -37,7 +37,7 @@ menu:
           show: true
           category: Page
       - title: "Getting Started"
-        show: hide
+        show: false
         category: Page
       - title: "Installation"
         show: true
@@ -80,30 +80,30 @@ menu:
           show: true
           category: Page
       - title: "API Gateway Deployment"
-        show: hide
+        show: false
         category: Page
       - title: "API Gateway Operations"
-        show: hide
+        show: false
         category: Page
     - title: "Tyk Cloud Platform"
       show: true
       category: Directory
       menu:
       - title: "Overview"
-        show: hide
+        show: false
         category: Page
       - title: "Getting Started"
         show: true
         category: Directory
         menu:
         - title: "Tyk Cloud Trial"
-          show: hide
+          show: false
           category: Page
         - title: "Licensing and deployment models"
-          show: hide
+          show: false
           category: Page
         - title: "Hybrid deployment"
-          show: hide
+          show: false
           category: Page
         - title: "Getting Started with Tyk Cloud"
           path: /tyk-cloud/getting-started
@@ -146,19 +146,19 @@ menu:
         category: Directory
         menu:
         - title: "Availability of infrastructure"
-          show: hide
+          show: false
           category: Page
         - title: "User identity"
-          show: hide
+          show: false
           category: Page
         - title: "Manage subscriptions and add-ons"
-          show: hide
+          show: false
           category: Page
         - title: "Environments and deployments"
-          show: hide
+          show: false
           category: Page
         - title: "Teams and users"
-          show: hide
+          show: false
           category: Page
         - title: "Initial Portal Configuration"
           path: /tyk-cloud/initial-portal-config
@@ -169,10 +169,10 @@ menu:
         category: Directory
         menu:
         - title: "Deploy features to the Tyk cloud"
-          show: hide
+          show: false
           category: Page
         - title: "Enable configuration and workflows between deployments"
-          show: hide
+          show: false
           category: Page
         - title: "Securing Your APIs"
           path: /tyk-cloud/securing-your-apis
@@ -187,19 +187,19 @@ menu:
         category: Directory
         menu:
         - title: "Manage, audit and govern cloud infrastructure"
-          show: hide
+          show: false
           category: Page
         - title: "Observability of cloud data"
-          show: hide
+          show: false
           category: Page
         - title: "Using plugins"
-          show: hide
+          show: false
           category: Page
         - title: "Accounts and billing"
-          show: hide
+          show: false
           category: Page
         - title: "Troubleshooting and support"
-          show: hide
+          show: false
           category: Page
     - title: "Tyk Self Managed"
       show: true
@@ -310,10 +310,10 @@ menu:
             category: Label
             menu:
             - title: "Tyk & K8s demo"
-              show: hide
+              show: false
               category: Page
             - title: "Tyk & Docker demo"
-              show: hide
+              show: false
               category: Page
             - title: "Tyk Helm Chart "
               path: /tyk-self-managed/tyk-helm-chart
@@ -324,16 +324,16 @@ menu:
             category: Label
             menu:
             - title: "Kuberenetes Demo"
-              show: hide
+              show: false
               category: Page
             - title: "Docker Demo"
-              show: hide
+              show: false
               category: Page
             - title: "Servers/VMs"
-              show: hide
+              show: false
               category: Page
         - title: "Licensing and deployment models"
-          show: hide
+          show: false
           category: Page
         - title: "Tyk Pump on Red Hat (RHEL) / CentOS"
           path: /tyk-on-prem/installation/redhat-rhel-centos/analytics-pump
@@ -348,44 +348,44 @@ menu:
         category: Directory
         menu:
         - title: "Design for high availability and performance"
-          show: hide
+          show: false
           category: Page
         - title: "Design for CI/CD"
-          show: hide
+          show: false
           category: Page
         - title: "Multi-tenancy with Orgs, Teams and Users"
-          show: hide
+          show: false
           category: Page
         - title: "Resource sizing"
-          show: hide
+          show: false
           category: Page
         - title: "Design for compliance (security, data privacy, data residency)"
-          show: hide
+          show: false
           category: Page
         - title: "Design for disaster recovery"
-          show: hide
+          show: false
           category: Page
         - title: "Design for multiple data centres"
-          show: hide
+          show: false
           category: Page
       - title: "Day 1 - Deployment in production"
         show: true
         category: Directory
         menu:
         - title: "Deploy Tyk components and their dependencies"
-          show: hide
+          show: false
           category: Page
         - title: " Set-up infrastructure monitoring"
-          show: hide
+          show: false
           category: Page
         - title: "Set-up GitOps"
-          show: hide
+          show: false
           category: Page
         - title: "Secure deployment options"
-          show: hide
+          show: false
           category: Page
         - title: "Sending logs to your logging systems"
-          show: hide
+          show: false
           category: Page
         - title: "Planning for Production"
           path: /planning-for-production
@@ -464,28 +464,28 @@ menu:
         category: Directory
         menu:
         - title: "Monitor Tyk components and their dependencies"
-          show: hide
+          show: false
           category: Page
         - title: "Monitoring Upstream Services"
-          show: hide
+          show: false
           category: Page
         - title: "Scaling up and down depending on usage/performance"
-          show: hide
+          show: false
           category: Page
         - title: "Troubleshoot Tyk components and their dependencies in case of issues"
-          show: hide
+          show: false
           category: Page
         - title: "Manage plug-ins (install, monitor, update, configure)"
-          show: hide
+          show: false
           category: Page
         - title: "Manage third party integrations (API observability, observability, ...)"
-          show: hide
+          show: false
           category: Page
         - title: "Maintain Tyk configuration"
-          show: hide
+          show: false
           category: Page
         - title: "Upgrade Tyk components and their dependencies"
-          show: hide
+          show: false
           category: Page
         - title: "Using Tyk Operator to enable GitOps with Tyk"
           path: /getting-started/key-concepts/gitops-with-tyk
@@ -501,26 +501,26 @@ menu:
     category: Tab
     menu:
     - title: "Overview"
-      show: hide
+      show: false
       category: Page
     - title: "Quick start demos"
       show: true
       category: Directory
       menu:
       - title: "Protect an API using Tyk OSS Gateway"
-        show: hide
+        show: false
         category: Page
       - title: "Securely deploy a REST API (Dashboard)"
-        show: hide
+        show: false
         category: Page
       - title: "OpenAPI Spec operations (Dashboard)"
-        show: hide
+        show: false
         category: Page
       - title: "Publish your first API through the Developer Portal"
-        show: hide
+        show: false
         category: Page
       - title: "Add a Kafka data source (UDG)"
-        show: hide
+        show: false
         category: Page
       - title: "Getting Started"
         path: /getting-started
@@ -547,29 +547,29 @@ menu:
       category: Directory
       menu:
       - title: "Overview"
-        show: hide
+        show: false
         category: Page
       - title: "Create APIs"
         show: true
         category: Directory
         menu:
         - title: "Plan and define APIs"
-          show: hide
+          show: false
           category: Page
         - title: "Create APIs"
-          show: hide
+          show: false
           category: Page
         - title: "Define access to APIs"
-          show: hide
+          show: false
           category: Page
         - title: "Define governance for APIs"
-          show: hide
+          show: false
           category: Page
         - title: "Develop APIs"
-          show: hide
+          show: false
           category: Page
         - title: "Protect and secure APIs"
-          show: hide
+          show: false
           category: Page
         - title: "Import an API"
           path: /getting-started/import-apis
@@ -580,39 +580,39 @@ menu:
         category: Directory
         menu:
         - title: "Follow governance for APIs"
-          show: hide
+          show: false
           category: Page
         - title: "Document APIs"
-          show: hide
+          show: false
           category: Page
         - title: "Test APIs"
-          show: hide
+          show: false
           category: Page
         - title: "Deploy APIs"
-          show: hide
+          show: false
           category: Page
       - title: "API Operations"
         show: true
         category: Directory
         menu:
         - title: "Version APIs"
-          show: hide
+          show: false
           category: Page
         - title: "Monitor APIs"
-          show: hide
+          show: false
           category: Page
         - title: "API Observability"
-          show: hide
+          show: false
           category: Page
       - title: "API Operations--> Troubleshoot APIs"
-        show: hide
+        show: false
         category: Page
     - title: "Publish API Products"
       show: true
       category: Directory
       menu:
       - title: "Overview"
-        show: hide
+        show: false
         category: Page
       - title: "Deployment"
         show: true
@@ -659,29 +659,29 @@ menu:
         category: Directory
         menu:
         - title: "Publish APIs to the portal"
-          show: hide
+          show: false
           category: Page
         - title: "Manage developers and developer audiences"
-          show: hide
+          show: false
           category: Page
         - title: "Portal customization"
-          show: hide
+          show: false
           category: Page
         - title: "Document API Products"
-          show: hide
+          show: false
           category: Page
         - title: "Debug apps and resolve integration issues"
-          show: hide
+          show: false
           category: Page
       - title: "API Consumer access"
         show: true
         category: Directory
         menu:
         - title: "Enable consumers to access API Products"
-          show: hide
+          show: false
           category: Page
         - title: "Provide self-service debug capabilities to developers"
-          show: hide
+          show: false
           category: Page
       - title: "API Product Management"
         show: true
@@ -700,17 +700,17 @@ menu:
       category: Directory
       menu:
       - title: "Overview"
-        show: hide
+        show: false
         category: Page
       - title: "Data Graph Design"
         show: true
         category: Directory
         menu:
         - title: "Design UDG schemas / APIs"
-          show: hide
+          show: false
           category: Page
         - title: "Manage data sources"
-          show: hide
+          show: false
           category: Page
         - title: "UDG Examples"
           path: /universal-data-graph/udg-examples
@@ -721,19 +721,19 @@ menu:
         category: Directory
         menu:
         - title: "Define access to UDG APIs"
-          show: hide
+          show: false
           category: Page
         - title: "Test UDG"
-          show: hide
+          show: false
           category: Page
         - title: "Monitor / Troubleshoot UDG"
-          show: hide
+          show: false
           category: Page
         - title: "Version UDG"
-          show: hide
+          show: false
           category: Page
         - title: "Expose as a REST API"
-          show: hide
+          show: false
           category: Page
     - title: "GraphQL"
       show: true
@@ -744,7 +744,7 @@ menu:
         category: Directory
         menu:
         - title: "Federated GraphQL"
-          show: hide
+          show: false
           category: Page
   - title: "Product Stack"
     path: /tyk-stack
@@ -752,7 +752,7 @@ menu:
     category: Tab
     menu:
     - title: "Overview"
-      show: hide
+      show: false
       category: Page
     - title: "Tyk Gateway"
       show: true
@@ -983,23 +983,19 @@ menu:
         category: Directory
         menu:
         - title: "Overview"
-          show: hide
+          show: false
           category: Page
         - title: "Security"
           show: true
           category: Directory
           menu:
           - title: "Overview"
-            show: hide
+            show: false
             category: Page
           - title: "Authentication and Authorization"
             show: true
             category: Directory
             menu:
-            - title: "Authentication & Authorization"
-              path: /basic-config-and-security/security/authentication-authorization
-              show: true
-              category: Page
             - title: "Basic Authentication"
               path: /basic-config-and-security/security/authentication-authorization/basic-auth
               show: true
@@ -1209,7 +1205,7 @@ menu:
         category: Directory
         menu:
         - title: "Transform Traffic"
-          show: hide
+          show: false
           category: Page
         - title: "Integration Options"
           show: true
@@ -1668,7 +1664,7 @@ menu:
         category: Directory
         menu:
         - title: "Changelog"
-          show: hide
+          show: false
           category: Page
         - title: "Old releases"
           show: true
@@ -1679,7 +1675,7 @@ menu:
           category: Directory
           menu:
           - title: "[version]"
-            show: hide
+            show: false
             category: Page
         - title: "Tyk Gateway v2.4"
           path: /release-notes/version-2.4
@@ -1714,7 +1710,7 @@ menu:
       category: Directory
       menu:
       - title: "Overview"
-        show: hide
+        show: false
         category: Page
       - title: "Advanced Configurations"
         show: true
@@ -2085,7 +2081,7 @@ menu:
         category: Directory
         menu:
         - title: "Changelog"
-          show: hide
+          show: false
           category: Page
         - title: "Old releases"
           show: true
@@ -2096,7 +2092,7 @@ menu:
           category: Directory
           menu:
           - title: "[version]"
-            show: hide
+            show: false
             category: Page
       - title: "Tyk Classic Developer Portal"
         show: true
@@ -2251,7 +2247,7 @@ menu:
       category: Directory
       menu:
       - title: "Overview"
-        show: hide
+        show: false
         category: Page
       - title: "Getting Started"
         show: true
@@ -2430,7 +2426,7 @@ menu:
       category: Directory
       menu:
       - title: "Overview"
-        show: hide
+        show: false
         category: Page
       - title: "Getting Started"
         show: true
@@ -2477,7 +2473,7 @@ menu:
         category: Directory
         menu:
         - title: "Changelog"
-          show: hide
+          show: false
           category: Page
         - title: "Old releases"
           show: true
@@ -2488,7 +2484,7 @@ menu:
           category: Directory
           menu:
           - title: "[version]"
-            show: hide
+            show: false
             category: Page
         - title: "MDCB v2.0"
           path: /release-notes/mdcb-2.0
@@ -2503,7 +2499,7 @@ menu:
       category: Directory
       menu:
       - title: "Overview"
-        show: hide
+        show: false
         category: Page
       - title: "Key Concepts"
         show: true
@@ -2610,7 +2606,7 @@ menu:
       category: Directory
       menu:
       - title: "Overview"
-        show: hide
+        show: false
         category: Page
       - title: "Getting Started"
         show: true
@@ -2645,7 +2641,7 @@ menu:
         category: Directory
         menu:
         - title: "Configure Data Sinks"
-          show: hide
+          show: false
           category: Page
         - title: "Monitor your APIs with Prometheus"
           path: /tyk-stack/tyk-pump/other-data-stores/monitor-apis-prometheus
@@ -2688,7 +2684,7 @@ menu:
         category: Directory
         menu:
         - title: "Changelog"
-          show: hide
+          show: false
           category: Page
         - title: "Old releases"
           show: true
@@ -2699,7 +2695,7 @@ menu:
           category: Directory
           menu:
           - title: "[version]"
-            show: hide
+            show: false
             category: Page
       - title: "Supported Backends"
         path: /tyk-stack/tyk-pump/other-data-stores
@@ -2714,7 +2710,7 @@ menu:
       category: Directory
       menu:
       - title: "Overview"
-        show: hide
+        show: false
         category: Page
       - title: "Getting Started"
         show: true
@@ -2777,14 +2773,14 @@ menu:
           category: Directory
           menu:
           - title: "[version]"
-            show: hide
+            show: false
             category: Page
     - title: "Tyk Sync"
       show: true
       category: Directory
       menu:
       - title: "Overview"
-        show: hide
+        show: false
         category: Page
       - title: "Getting Started"
         show: true
@@ -2815,7 +2811,7 @@ menu:
       category: Directory
       menu:
       - title: "Overview"
-        show: hide
+        show: false
         category: Page
       - title: "Getting Started"
         show: true
@@ -2863,7 +2859,7 @@ menu:
     category: Tab
     menu:
     - title: "Overview"
-      show: hide
+      show: false
       category: Page
     - title: "Tyk APIs reference"
       show: true
@@ -2882,7 +2878,7 @@ menu:
       category: Hide
       menu:
     - title: "Config reference"
-      show: hide
+      show: false
       category: Page
     - title: "Debugging series"
       show: true
@@ -2929,13 +2925,13 @@ menu:
         show: true
         category: Page
     - title: "Marketplace of plugin, dev repositories and code snippet"
-      show: hide
+      show: false
       category: Page
     - title: "Tyk release summary"
-      show: hide
+      show: false
       category: Page
     - title: "Contribute to Tyk Docs"
-      show: hide
+      show: false
       category: Page
   - title: "APIM Best Practices"
     path: /getting-started/key-concepts
@@ -2943,36 +2939,36 @@ menu:
     category: Tab
     menu:
     - title: "Overview"
-      show: hide
+      show: false
       category: Page
     - title: "API security best practice"
-      show: hide
+      show: false
       category: Page
     - title: "FLAPIM best practice"
-      show: hide
+      show: false
       category: Page
     - title: "API architectural patterns"
-      show: hide
+      show: false
       category: Page
     - title: "Sector specific guides"
-      show: hide
+      show: false
       category: Page
     - title: "APIs as integration"
-      show: hide
+      show: false
       category: Page
     - title: "Creating a PoC"
-      show: hide
+      show: false
       category: Page
     - title: "Deploy Tyk OSS using new Helm Chart"
       path: /tyk-oss/ce-helm-chart-new/
       show: true
       category: Page
     - title: "Managing Organisations"
-      path: /tyk-cloud/environments-deployments/managing-organisations/
+      path: /tyk-cloud/environments--deployments/managing-organisations/
       show: true
       category: Page
     - title: "Authorization Code Grant Type"
-      path: /basic-config-and-security/security/authentication-authorization/oauth2-0/auth-code-grant/
+      path: /basic-config-and-security/security/authentication--authorization/oauth2-0/auth-code-grant/
       show: true
       category: Page
     - title: "JWT and Keycloak with Tyk"
@@ -2980,15 +2976,15 @@ menu:
       show: true
       category: Page
     - title: "Managing Environments"
-      path: /tyk-cloud/environments-deployments/managing-environments/
+      path: /tyk-cloud/environments--deployments/managing-environments/
       show: true
       category: Page
     - title: "Managing Teams"
-      path: /tyk-cloud/teams-users/managing-teams/
+      path: /tyk-cloud/teams--users/managing-teams/
       show: true
       category: Page
     - title: "Refresh Token Grant Type"
-      path: /basic-config-and-security/security/authentication-authorization/oauth2-0/refresh-token-grant/
+      path: /basic-config-and-security/security/authentication--authorization/oauth2-0/refresh-token-grant/
       show: true
       category: Page
     - title: "Update an OAS API"
@@ -2996,7 +2992,7 @@ menu:
       show: true
       category: Page
     - title: "Managing Control Planes"
-      path: /tyk-cloud/environments-deployments/managing-control-planes/
+      path: /tyk-cloud/environments--deployments/managing-control-planes/
       show: true
       category: Page
     - title: "Configuration Options"
@@ -3004,11 +3000,11 @@ menu:
       show: true
       category: Page
     - title: "Managing Users"
-      path: /tyk-cloud/teams-users/managing-users/
+      path: /tyk-cloud/teams--users/managing-users/
       show: true
       category: Page
     - title: "Tyk Cloud User Roles"
-      path: /tyk-cloud/teams-users/user-roles/
+      path: /tyk-cloud/teams--users/user-roles/
       show: true
       category: Page
     - title: "ID Extractor"
@@ -3016,11 +3012,15 @@ menu:
       show: true
       category: Page
     - title: "Managing Edge Gateways"
-      path: /tyk-cloud/environments-deployments/managing-gateways/
+      path: /tyk-cloud/environments--deployments/managing-gateways/
+      show: true
+      category: Page
+    - title: "Environments & Deployments"
+      path: /tyk-cloud/environments--deployments/
       show: true
       category: Page
     - title: "Username and Password Grant Type"
-      path: /basic-config-and-security/security/authentication-authorization/oauth2-0/username-password-grant/
+      path: /basic-config-and-security/security/authentication--authorization/oauth2-0/username-password-grant/
       show: true
       category: Page
     - title: "Deploy Hybrid Gateways using new Helm Chart"
@@ -3028,7 +3028,7 @@ menu:
       show: true
       category: Page
     - title: "Teams & Users"
-      path: /tyk-cloud/teams-users/
+      path: /tyk-cloud/teams--users/
       show: true
       category: Page
     - title: "“301 Moved permanently“ error in the Dashboard API"
@@ -3080,7 +3080,11 @@ menu:
       show: true
       category: Page
     - title: "Client Credentials Grant Type"
-      path: /basic-config-and-security/security/authentication-authorization/oauth2-0/client-credentials-grant/
+      path: /basic-config-and-security/security/authentication--authorization/oauth2-0/client-credentials-grant/
+      show: true
+      category: Page
+    - title: "Authentication & Authorization"
+      path: /basic-config-and-security/security/authentication--authorization/
       show: true
       category: Page
     - title: "Tyk Cloud Classic"
@@ -3088,23 +3092,23 @@ menu:
       show: true
       category: Page
     - title: "Managing APIs"
-      path: /tyk-cloud/environments-deployments/managing-apis/
+      path: /tyk-cloud/environments--deployments/managing-apis/
       show: true
       category: Page
     - title: "Monitoring"
-      path: /tyk-cloud/environments-deployments/monitoring/
+      path: /tyk-cloud/environments--deployments/monitoring/
       show: true
       category: Page
     - title: "Tyk Cloud FAQs"
-      path: /tyk-cloud/troubleshooting-support/faqs/
+      path: /tyk-cloud/troubleshooting--support/faqs/
       show: true
       category: Page
     - title: "Troubleshooting & Support"
-      path: /tyk-cloud/troubleshooting-support/
+      path: /tyk-cloud/troubleshooting--support/
       show: true
       category: Page
     - title: "Glossary"
-      path: /tyk-cloud/troubleshooting-support/glossary/
+      path: /tyk-cloud/troubleshooting--support/glossary/
       show: true
       category: Page
     - title: "CICD - Automating Your Plugin Builds"

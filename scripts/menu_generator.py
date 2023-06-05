@@ -208,7 +208,7 @@ with open(categories_path, "r") as file:
                     new_node["url"] = tabURLs[name]
 
                 if category == "Page":
-                    new_node["show"] = "hide"
+                    new_node["show"] = "false"
 
                 # if category == "Page":
                 #   filename1 = new_node["name"].replace(" ", "-")
