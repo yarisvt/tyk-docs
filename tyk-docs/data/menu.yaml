@@ -996,6 +996,10 @@ menu:
             show: true
             category: Directory
             menu:
+            - title: "Authentication & Authorization"
+              path: /basic-config-and-security/security/authentication-authorization
+              show: true
+              category: Page
             - title: "Basic Authentication"
               path: /basic-config-and-security/security/authentication-authorization/basic-auth
               show: true
@@ -2964,11 +2968,11 @@ menu:
       show: true
       category: Page
     - title: "Managing Organisations"
-      path: /tyk-cloud/environments--deployments/managing-organisations/
+      path: /tyk-cloud/environments-deployments/managing-organisations/
       show: true
       category: Page
     - title: "Authorization Code Grant Type"
-      path: /basic-config-and-security/security/authentication--authorization/oauth2-0/auth-code-grant/
+      path: /basic-config-and-security/security/authentication-authorization/oauth2-0/auth-code-grant/
       show: true
       category: Page
     - title: "JWT and Keycloak with Tyk"
@@ -2976,15 +2980,15 @@ menu:
       show: true
       category: Page
     - title: "Managing Environments"
-      path: /tyk-cloud/environments--deployments/managing-environments/
+      path: /tyk-cloud/environments-deployments/managing-environments/
       show: true
       category: Page
     - title: "Managing Teams"
-      path: /tyk-cloud/teams--users/managing-teams/
+      path: /tyk-cloud/teams-users/managing-teams/
       show: true
       category: Page
     - title: "Refresh Token Grant Type"
-      path: /basic-config-and-security/security/authentication--authorization/oauth2-0/refresh-token-grant/
+      path: /basic-config-and-security/security/authentication-authorization/oauth2-0/refresh-token-grant/
       show: true
       category: Page
     - title: "Update an OAS API"
@@ -2992,7 +2996,7 @@ menu:
       show: true
       category: Page
     - title: "Managing Control Planes"
-      path: /tyk-cloud/environments--deployments/managing-control-planes/
+      path: /tyk-cloud/environments-deployments/managing-control-planes/
       show: true
       category: Page
     - title: "Configuration Options"
@@ -3000,11 +3004,11 @@ menu:
       show: true
       category: Page
     - title: "Managing Users"
-      path: /tyk-cloud/teams--users/managing-users/
+      path: /tyk-cloud/teams-users/managing-users/
       show: true
       category: Page
     - title: "Tyk Cloud User Roles"
-      path: /tyk-cloud/teams--users/user-roles/
+      path: /tyk-cloud/teams-users/user-roles/
       show: true
       category: Page
     - title: "ID Extractor"
@@ -3012,15 +3016,11 @@ menu:
       show: true
       category: Page
     - title: "Managing Edge Gateways"
-      path: /tyk-cloud/environments--deployments/managing-gateways/
-      show: true
-      category: Page
-    - title: "Environments & Deployments"
-      path: /tyk-cloud/environments--deployments/
+      path: /tyk-cloud/environments-deployments/managing-gateways/
       show: true
       category: Page
     - title: "Username and Password Grant Type"
-      path: /basic-config-and-security/security/authentication--authorization/oauth2-0/username-password-grant/
+      path: /basic-config-and-security/security/authentication-authorization/oauth2-0/username-password-grant/
       show: true
       category: Page
     - title: "Deploy Hybrid Gateways using new Helm Chart"
@@ -3028,7 +3028,7 @@ menu:
       show: true
       category: Page
     - title: "Teams & Users"
-      path: /tyk-cloud/teams--users/
+      path: /tyk-cloud/teams-users/
       show: true
       category: Page
     - title: "“301 Moved permanently“ error in the Dashboard API"
@@ -3080,11 +3080,7 @@ menu:
       show: true
       category: Page
     - title: "Client Credentials Grant Type"
-      path: /basic-config-and-security/security/authentication--authorization/oauth2-0/client-credentials-grant/
-      show: true
-      category: Page
-    - title: "Authentication & Authorization"
-      path: /basic-config-and-security/security/authentication--authorization/
+      path: /basic-config-and-security/security/authentication-authorization/oauth2-0/client-credentials-grant/
       show: true
       category: Page
     - title: "Tyk Cloud Classic"
@@ -3092,23 +3088,23 @@ menu:
       show: true
       category: Page
     - title: "Managing APIs"
-      path: /tyk-cloud/environments--deployments/managing-apis/
+      path: /tyk-cloud/environments-deployments/managing-apis/
       show: true
       category: Page
     - title: "Monitoring"
-      path: /tyk-cloud/environments--deployments/monitoring/
+      path: /tyk-cloud/environments-deployments/monitoring/
       show: true
       category: Page
     - title: "Tyk Cloud FAQs"
-      path: /tyk-cloud/troubleshooting--support/faqs/
+      path: /tyk-cloud/troubleshooting-support/faqs/
       show: true
       category: Page
     - title: "Troubleshooting & Support"
-      path: /tyk-cloud/troubleshooting--support/
+      path: /tyk-cloud/troubleshooting-support/
       show: true
       category: Page
     - title: "Glossary"
-      path: /tyk-cloud/troubleshooting--support/glossary/
+      path: /tyk-cloud/troubleshooting-support/glossary/
       show: true
       category: Page
     - title: "CICD - Automating Your Plugin Builds"
