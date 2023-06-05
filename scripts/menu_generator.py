@@ -91,14 +91,17 @@ with open(urlcheck_path, "r") as file:
             continue
 
         title = obj.get("title")
-        #linktitle = obj.get("linktitle")
+        # linktitle = obj.get("linktitle")
 
         # if title and link title are empty
         # log to file and continue to next row in urlcheck.json
         # if only title is empty then title = linktitle and
         # replace trailing slash
         if title is None or title == "":
-            print(f"no title, check for linktitle. {line.strip()}, ", file=openUrlCheckNoTitle)
+            print(
+                f"no title, check for linktitle. {line.strip()}, ",
+                file=openUrlCheckNoTitle,
+            )
 
             linktitle = obj.get("linktitle")
             if linktitle is None:
@@ -195,9 +198,17 @@ with open(categories_path, "r") as file:
                 if name.isspace():
                     continue
 
-                new_node = {"name": name, "category": category, "children": []}
+                new_node = {
+                    "name": name,
+                    "category": category,
+                    "children": [],
+                }
+
                 if category == "Tab":
                     new_node["url"] = tabURLs[name]
+
+                if category == "Page":
+                    new_node["show"] = "hide"
 
                 # if category == "Page":
                 #   filename1 = new_node["name"].replace(" ", "-")
@@ -314,8 +325,8 @@ def print_tree_as_yaml(tree, level=1):
                 title = title_map[node["url"].replace("/", "")]
             except:
                 title = "Unknown url: " + node["url"]
-                #print(f"node[url] = {'https://tyk.io/docs' + node['url']},  node['name'] = {node['name']}")
-                print( 
+                # print(f"node[url] = {'https://tyk.io/docs' + node['url']},  node['name'] = {node['name']}")
+                print(
                     "Unknown menu url:" " https://tyk.io/docs" + node["url"],
                     file=openUnknownUrlFile,
                 )
@@ -327,6 +338,13 @@ def print_tree_as_yaml(tree, level=1):
         yaml_string += (
             "  " * level + "  path: " + node["url"] + "\n" if "url" in node else ""
         )
+
+        yaml_string += (
+            "  " * level + "  show: " + node["show"] + "\n"
+            if "show" in node
+            else "  " * level + "  show: true\n"
+        )
+
         yaml_string += "  " * level + "  category: " + node["category"] + "\n"
         if node["category"] != "Page":
             yaml_string += "  " * level + "  menu:\n"
