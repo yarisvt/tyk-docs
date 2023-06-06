@@ -16,7 +16,7 @@ weight: 1
 
 #### Added
 
-- Added "HasOperation", "Operation" and "Variables" to GraphQL data source API definition for easier nesting
+- Added `HasOperation`, `Operation` and `Variables` to GraphQL data source API definition for easier nesting
 - Added abstractions/interfaces for ExecutionEngineV2 and ExecutionEngine2Executor with respect to graphql-go-tools
 
 #### Changed
