@@ -59,7 +59,7 @@ weight: 1
 #### Fixed
 
 - Fixed an issue when using custom authentication with multiple authentication methods. Custom authentication could not be selected to provide the base identity
-- Fixed an issue where API Ownership was not respected in the _API Activity Dashboard Requests_ and _Average Errors Over Time_ charts in the Tyk Dashboard. Note that it is not currently possible to respect API Ownership in other aggregated charts
+- [Awaiting docs - need to check] Fixed an issue where API Ownership was not respected in [traffic]({{< ref "tyk-dashboard-analytics/traffic-overview" >}}) reports for the [_API Activity Dashboard Requests_]({{< ref "tyk-dashboard-analytics/error-overview" >}}) and [_Average Errors Over Time_]({{< ref "https://tyk.io/docs/tyk-dashboard-analytics/error-overview" >}}) charts in the Tyk Dashboard. Note that it is not currently possible to respect API Ownership in other aggregated charts
 - Fixed an issue where the login url was displayed as undefined when creating a TIB Profile using LDAP as a provider
 - Fixed an issue where it was not possible to download Activity by API or Activity by Key from the Dashboard when using PostgreSQL for the [analytics store]({{< ref tyk-pump/tyk-pump-configuration/tyk-pump-dashboard-config >}})
 - Fixed an issue where a new user could be stuck in a password reset loop in the dashboard if [TYK_DB_SECURITY_FORCEFIRSTLOGINPWRESET]({{< ref "tyk-dashboard/configuration#securityforce_first_login_pw_reset" >}}) was enabled
