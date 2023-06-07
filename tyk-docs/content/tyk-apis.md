@@ -1,12 +1,14 @@
 ---
 title: Tyk APIs
 description: Tyk APIs. In this section you will find Tyk API Gateway and Tyk Manager OpenAPI Specs APIs
-tags: ["swagger", "REST", "Tyk APIs", "Tyk OpenAPI Specs APIs" ]
+tags: ["swagger", "REST", "Tyk APIs", "Tyk OpenAPI Specs APIs"]
 weight: 190
 menu: none
 aliases:
   - /tyk-oas/
 ---
+
+_This is a change_
 
 We have our own APIs and a Postman public workspace.
 
@@ -14,24 +16,22 @@ We have our own APIs and a Postman public workspace.
 
 We have a Postman public workspace where you can view, fork and test our Gateway and Dashboard APIs.
 
-
 {{< button_left href="https://www.postman.com/tyk-technologies/workspace/379673ec-4cc5-4b8e-bef5-8a6a988071cb/overview" target="_blank" color="green" content="Tyk Postman Collections">}}
 
 ## [Tyk Gateway API]({{< ref "tyk-gateway-api" >}})
 
 This API is very small, and has no granular permissions system. It is used purely for internal automation and integration. It offers the following endpoints:
 
-* Managing session objects (key generation)
-* Managing and listing API Definitions (only when not using the Dashboard)
-* Hot reloads / reloading a cluster configuration
-* OAuth client creation (only when not using the Dashboard)
+- Managing session objects (key generation)
+- Managing and listing API Definitions (only when not using the Dashboard)
+- Hot reloads / reloading a cluster configuration
+- OAuth client creation (only when not using the Dashboard)
 
 This allows you to test, connect to and control your Gateway.
 
 ## [Tyk Dashboard API]({{< ref "tyk-dashboard-api" >}})
 
 The Tyk Dashboard API allows much more fine-grained, secure and multi-user access to your Tyk cluster, and should be used to manage a database-backed Tyk node. The Tyk Dashboard API works seamlessly with the Tyk Dashboard.
-
 
 ## [Tyk Dashboard Admin API]({{< ref "dashboard-admin-api" >}})
 
@@ -40,4 +40,3 @@ The Dashboard Admin API is a special bootstrapping API that can be used to set u
 ## [Tyk Portal API]({{< ref "tyk-portal-api" >}})
 
 The Tyk Portal API covers all available endpoints for your developer portal.
-
