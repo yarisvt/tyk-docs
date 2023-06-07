@@ -20,7 +20,7 @@ Which one is right for your organisation depends on your requirements and prefer
 
 {{< button_left href="https://tyk.io/contact/" color="green" content="Contact us" >}}
 
-|                                                                                                                                                            | [Open Source]({{< ref "apim/open-source" >}})  |   [Self-Managed]({{< ref "tyk-on-premises" >}})      |  [Cloud](https://account.cloud-ara.tyk.io/signup)
+|                                                                                                                                                            | [Open Source]({{< ref "/apim/open-source" >}})  |   [Self-Managed]({{< ref "/tyk-on-premises" >}})      |  [Cloud](https://account.cloud-ara.tyk.io/signup)
 |------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|--------------------|---------
 | API Gateway Capabilities <br> <ul><li>Rate Limiting</li><li>Authentication</li> <li>API Versioning</li><li>Granular Access Control</li><li>GraphQL</li>  <li>and [much more]({{< ref "apim/open-source#tyk-gateway" >}})</li></ul> | ✅              |✅	                |✅      
 | [Version Control]({{< ref "tyk-sync" >}}) Integration                                                                                                      | ✅		  |✅	              |✅	 
@@ -42,7 +42,7 @@ Which one is right for your organisation depends on your requirements and prefer
 ### Open Source (OSS)
 The Tyk Gateway is the backbone of all our solutions. You can deploy it for free, forever.
 
-Head on over to the [OSS section]({{< ref "apim/open-source" >}}) for more information on it and the other open source components.
+Head on over to the [OSS section]({{< ref "/apim/open-source" >}}) for more information on it and the other open source components.
 ### Self-managed (On-Prem)
 
 {{< include "self-managed-licensing-include" >}}
