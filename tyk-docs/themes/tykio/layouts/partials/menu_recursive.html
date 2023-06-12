@@ -7,6 +7,11 @@
 
 <ul>
 {{ range .menu }}  
+
+  {{with .title -}}
+    {{ printf "TEST DEBUG MESSAGE %s" .}}
+  {{end}}
+
   {{ $is := false }}
   {{ $has := false }}
 

@@ -10,3 +10,5 @@ resources
 .vscode/launch.json*
 check-pages-*.txt
 .venv/
+data-bank.csv
+pages-list.csv
