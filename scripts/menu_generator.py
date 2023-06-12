@@ -202,8 +202,8 @@ with open(categories_path, "r") as file:
                 if category == "Tab":
                     new_node["url"] = tabURLs[name]
 
-                #                 if category == "Page":
-                #                     new_node["show"] = False
+                if category == "Page":
+                    new_node["show"] = False
 
                 # if category == "Page":
                 #   filename1 = new_node["name"].replace(" ", "-")
@@ -352,11 +352,11 @@ def print_tree_as_yaml(tree, level=1):
         yaml_string += "  " * level + "  category: " + node["category"] + "\n"
 
         # display show status
-        #        yaml_string += (
-        #            "  " * level + "  show: " + str(node["show"]) + "\n"
-        #            if "show" in node
-        #            else ""
-        #        )
+        yaml_string += (
+            "  " * level + "  show: " + str(node["show"]) + "\n"
+            if "show" in node
+            else ""
+        )
 
         if node["category"] != "Page":
             yaml_string += "  " * level + "  menu:\n"
@@ -369,31 +369,36 @@ def print_tree_as_yaml(tree, level=1):
     return yaml_string
 
 
-# def process_show_status(nodeList) -> bool:
-#     """
-#     Access the children of node and return true for
-#     first path that has show set to true. Otherwise false.
-#     """
-#     found = False
-#
-#     for node in nodeList:
-#         category = node.get("category")
-#         children = node.get("children", [])
-#
-#         # if there is a path and show key is not present then assume true
-#         if category == "Page":  # and show is None:
-#             node["show"] = True
-#             found = True
-#         elif category == "Directory":
-#             node["show"] = process_show_status(children)
-#             found = node["show"] or found
-#         elif category == "Tab":
-#             process_show_status(children)
-#
-#     return found
+def process_show_status(nodeList) -> bool:
+    """
+    Add show flag for Page and Driectory nodes.
+    If there is no show key in the dictionary then it has
+    not been explictly set to to false because a mapping was
+    not found in the data-bank file. For pages this means writes
+    set the show status to true.
+    Directories are processed recursively. If a directory contains
+    a page that has show set to true it will have a show attribute
+    set to true.
+    """
+    found = False
+
+    for node in nodeList:
+        category = node.get("category")
+        children = node.get("children", [])
+
+        if category == "Page":  # and show is None:
+            node["show"] = True
+            found = True
+        elif category == "Directory":
+            node["show"] = process_show_status(children)
+            found = node["show"] or found
+        elif category == "Tab":
+            process_show_status(children)
+
+    return found
 
 
-# process_show_status(tree)
+process_show_status(tree)
 
 yaml_string = "menu:\n"
 yaml_string += print_tree_as_yaml(tree)
