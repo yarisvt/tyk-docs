@@ -202,9 +202,6 @@ with open(categories_path, "r") as file:
                 if category == "Tab":
                     new_node["url"] = tabURLs[name]
 
-                #                 if category == "Page":
-                #                     new_node["show"] = False
-
                 # if category == "Page":
                 #   filename1 = new_node["name"].replace(" ", "-")
                 #   filename1 = filename1.replace("/", "-")
@@ -217,7 +214,6 @@ with open(categories_path, "r") as file:
 
                 # update current level to empty list, e.g. new_node["children"]
                 current_level = new_node["children"]
-
 
 #
 # Read the pages csv file
@@ -290,6 +286,8 @@ with open(pages_path, "r") as file:
 
         # remove page from not_used_map, if fails it will remain in not used
         # map and will be adding to last node in tree struct with a blank name
+        # not_used_map has all pages (not aliases) and we try to remove them
+        # anything else left in not_used_map is an orphan
         try:
             del not_used_map[data[0].replace("/", "")]
         except:
@@ -361,44 +359,7 @@ def print_tree_as_yaml(tree, level=1):
         if node["category"] != "Page":
             yaml_string += "  " * level + "  menu:\n"
             yaml_string += print_tree_as_yaml(node["children"], level + 1)
-        # else:
-        #     if node["category"] == "Page" and len(node["children"]) == 0:
-        #         print(
-        #             f"PAGE WITH CHILDREN : name={node['name']},url={node['children'][0]['url']}"
-        #         )
     return yaml_string
-
-
-# def process_show_status(nodeList) -> bool:
-#     """
-#     Add show flag for Page and Driectory nodes.
-#     If there is no show key in the dictionary then it has
-#     not been explictly set to to false because a mapping was
-#     not found in the data-bank file. For pages this means writes
-#     set the show status to true.
-#     Directories are processed recursively. If a directory contains
-#     a page that has show set to true it will have a show attribute
-#     set to true.
-#     """
-#     found = False
-#
-#     for node in nodeList:
-#         category = node.get("category")
-#         children = node.get("children", [])
-#
-#         if category == "Page":  # and show is None:
-#             node["show"] = True
-#             found = True
-#         elif category == "Directory":
-#             node["show"] = process_show_status(children)
-#             found = node["show"] or found
-#         elif category == "Tab":
-#             process_show_status(children)
-#
-#     return found
-#
-#
-# process_show_status(tree)
 
 yaml_string = "menu:\n"
 yaml_string += print_tree_as_yaml(tree)
