@@ -215,7 +215,6 @@ with open(categories_path, "r") as file:
                 # update current level to empty list, e.g. new_node["children"]
                 current_level = new_node["children"]
 
-
 #
 # Read the pages csv file
 #
@@ -287,6 +286,8 @@ with open(pages_path, "r") as file:
 
         # remove page from not_used_map, if fails it will remain in not used
         # map and will be adding to last node in tree struct with a blank name
+        # not_used_map has all pages (not aliases) and we try to remove them
+        # anything else left in not_used_map is an orphan
         try:
             del not_used_map[data[0].replace("/", "")]
         except:
@@ -317,7 +318,6 @@ def print_tree_as_yaml(tree, level=1):
                 title = title_map[node["url"].replace("/", "")]
             except:
                 title = "Unknown url: " + node["url"]
-                # print(f"node[url] = {'https://tyk.io/docs' + node['url']},  node['name'] = {node['name']}")
                 print(
                     "Unknown menu url:" " https://tyk.io/docs" + node["url"],
                     file=openUnknownUrlFile,
@@ -327,10 +327,27 @@ def print_tree_as_yaml(tree, level=1):
 
         yaml_string += "  " * level + '- title: "' + title + '"\n'
 
-        yaml_string += (
-            "  " * level + "  path: " + node["url"] + "\n" if "url" in node else ""
-        )
+        # "Config reference"
+        # {'name': 'Config reference', 'category': 'Page', 'children': [{'url': '/tyk-environment-variables', 'name': '', 'category': 'Page', 'children': []}]}
+        #
+        # the script does not catch the above scenario
+        #
+        # display the path
+        if (
+            node["category"] == "Page"
+            and len(node["children"]) == 1
+            and "url" in node["children"][0]
+            and node["children"][0]["category"] == "Page"
+        ):
+            yaml_string += "  " * level + "  path: " + node["children"][0]["url"] + "\n"
+        else:
+            yaml_string += (
+                "  " * level + "  path: " + node["url"] + "\n" if "url" in node else ""
+            )
+
+        # display the category
         yaml_string += "  " * level + "  category: " + node["category"] + "\n"
+
         if node["category"] != "Page":
             yaml_string += "  " * level + "  menu:\n"
             yaml_string += print_tree_as_yaml(node["children"], level + 1)
