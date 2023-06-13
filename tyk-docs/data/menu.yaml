@@ -14,6 +14,7 @@ menu:
     category: Tab
     menu:
     - title: "Overview"
+      path: /apim
       category: Page
     - title: "Quick start guides"
       category: Directory
@@ -62,6 +63,7 @@ menu:
       - title: "API Gateway Deployment"
         category: Page
       - title: "API Gateway Operations"
+        path: /tyk-configuration-reference/hot-restart-tyk-gateway-process
         category: Page
     - title: "Tyk Cloud Platform"
       category: Directory
@@ -244,6 +246,7 @@ menu:
             - title: "Servers/VMs"
               category: Page
         - title: "Licensing and deployment models"
+          path: /tyk-on-premises/licensing
           category: Page
         - title: "Tyk Pump on Red Hat (RHEL) / CentOS"
           path: /tyk-on-prem/installation/redhat-rhel-centos/analytics-pump
@@ -405,14 +408,17 @@ menu:
         - title: "Plan and define APIs"
           category: Page
         - title: "Create APIs"
+          path: /getting-started/create-api
           category: Page
         - title: "Define access to APIs"
+          path: /getting-started/create-api-key
           category: Page
         - title: "Define governance for APIs"
           category: Page
         - title: "Develop APIs"
           category: Page
         - title: "Protect and secure APIs"
+          path: /getting-started/create-security-policy
           category: Page
         - title: "Import an API"
           path: /getting-started/import-apis
@@ -544,6 +550,7 @@ menu:
     category: Tab
     menu:
     - title: "Overview"
+      path: /tyk-stack
       category: Page
     - title: "Tyk Gateway"
       category: Directory
@@ -722,6 +729,7 @@ menu:
           category: Directory
           menu:
           - title: "Overview"
+            path: /basic-config-and-security
             category: Page
           - title: "Authentication and Authorization"
             category: Directory
@@ -1797,6 +1805,7 @@ menu:
       category: Directory
       menu:
       - title: "Overview"
+        path: /tyk-multi-data-centre
         category: Page
       - title: "Getting Started"
         category: Directory
@@ -1851,6 +1860,7 @@ menu:
       category: Directory
       menu:
       - title: "Overview"
+        path: /universal-data-graph/datasources/graphql
         category: Page
       - title: "Key Concepts"
         category: Directory
@@ -1931,6 +1941,7 @@ menu:
       category: Directory
       menu:
       - title: "Overview"
+        path: /tyk-pump
         category: Page
       - title: "Getting Started"
         category: Directory
@@ -2133,6 +2144,7 @@ menu:
       category: Hide
       menu:
     - title: "Config reference"
+      path: /tyk-environment-variables
       category: Page
     - title: "Debugging series"
       category: Directory
@@ -2172,6 +2184,7 @@ menu:
     - title: "Tyk release summary"
       category: Page
     - title: "Contribute to Tyk Docs"
+      path: /contribute
       category: Page
   - title: "APIM Best Practices"
     path: /getting-started/key-concepts
@@ -2191,11 +2204,17 @@ menu:
       category: Page
     - title: "Creating a PoC"
       category: Page
+    - title: "Deploy Tyk OSS using new Helm Chart"
+      path: /tyk-oss/ce-helm-chart-new/
+      category: Page
     - title: "Managing Organisations"
       path: /tyk-cloud/environments--deployments/managing-organisations/
       category: Page
     - title: "Authorization Code Grant Type"
       path: /basic-config-and-security/security/authentication--authorization/oauth2-0/auth-code-grant/
+      category: Page
+    - title: "JWT and Keycloak with Tyk"
+      path: /basic-config-and-security/security/authentication-authorization/json-web-tokens/jwt-keycloak/
       category: Page
     - title: "Managing Environments"
       path: /tyk-cloud/environments--deployments/managing-environments/
@@ -2232,6 +2251,9 @@ menu:
       category: Page
     - title: "Username and Password Grant Type"
       path: /basic-config-and-security/security/authentication--authorization/oauth2-0/username-password-grant/
+      category: Page
+    - title: "Deploy Hybrid Gateways using new Helm Chart"
+      path: /tyk-cloud/environments-deployments/hybrid-gateways-helm/
       category: Page
     - title: "Teams & Users"
       path: /tyk-cloud/teams--users/
