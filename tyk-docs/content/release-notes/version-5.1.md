@@ -30,10 +30,10 @@ weight: 1
 - Fixed an issue where invalid IP addresses could be added to the IP allow list
 - Fixed an issue when using custom authentication with multiple authentication methods, custom authentication could not be selected to provide the base identity
 - Fixed an issue where OAuth access keys were physically removed from Redis on expiry. Behaviour for OAuth is now the same as for other authorisation methods
-- Fixed an issue where the `global_size_limit` setting didn't enable request size limit middleware. Thanks to @PatrickTaibel for the contribution!
+- Fixed an issue where the `global_size_limit` setting didn't enable request size limit middleware. Thanks to [PatrickTaibel](https://github.com/PatrickTaibel) for the contribution!
 - Fixed minor versioning, url and field mapping issues when importing OAS to UDG
 - Reduced default CPU and memory footprint by changing the default RPC pool size from 20 to 5 connections.
-- Added support for the `:authority` header when making GRPC requests. If the `:authority` header is not present then some GRPC servers return PROTOCOL_ERROR which prevents custom GRPC plugins from running. Thanks to @vanhtuan0409 from the Tyk Community for the contribution!
+- Added support for the `:authority` header when making GRPC requests. If the `:authority` header is not present then some GRPC servers return PROTOCOL_ERROR which prevents custom GRPC plugins from running. Thanks to [vanhtuan0409](https://github.com/vanhtuan0409) from the Tyk Community for the contribution!
 - When the control API is not protected with mTLS we now do not ask for a cert, even if all the APIs registered have mTLS as authorization mechanism
 
 ### Tyk Dashboard
