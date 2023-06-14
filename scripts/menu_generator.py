@@ -390,7 +390,7 @@ def process_show_status(nodeList) -> bool:
                 found = False
         elif category == "Directory":
             node["show"] = process_show_status(children)
-            found = node["show"] and found
+            found = node["show"] or found
         elif category == "Tab":
             process_show_status(children)
 
