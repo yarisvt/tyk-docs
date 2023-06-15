@@ -6,26 +6,49 @@ menu:
 weight: 1
 ---
 
-## Major features
+# What’s Changed?
 
-<< INSERT PARAGRAPH HERE RECEIVED FROM DEVS >>
+# Core APIM
+ 
 
-## Changelog
+## API as Integration
+There are 3 highlights in this release:
 
-### Tyk Gateway
+Import API examples from within the Dashboard. In 5.0 we introduced the possibility to import API examples manually or via tyk-sync.
+We now extended this feature and it is now possible to do this without leaving the Dashboard. When having an empty “Data Graphs” section you will be presented with 3 icon buttons with one of them offering you to import an Example API.
+If you already have Data Graphs in your Dashboard you can either click on the “Import” button or click on the “Add Data Graph“ button and select “Use example data graph“ on the next screen.
+The examples UI will present you with a list of available examples. You can navigate to the details page for every example and import it as well from the same page.
 
-#### Added
+Improved nested GraphQL stitching. Before this release, it was only possible to realize nested GraphQL stitching (GraphQL data source inside another data source) by using a REST data source and providing the GraphQL body manually.
+We now extended the GraphQL data source so that you can provide a custom operation and therefore access arguments or object data from parent data sources.
+To use this feature you will only need to check the “Add GraphQL operation“ checkbox when creating a GraphQL data source.
+
+Import UDG API from OAS 3.x. We added a Dashboard API Endpoint that is capable of taking an OAS 3.x document and converting it into a UDG API.
+This means it will generate the full schema as well as the data sources that are defined inside the OAS document.
+
+
+## Platform
+The default RPC pool size is changed from 20 to 5. This can reduce the CPU and memory footprint on high throughput scenarios. Please monitor the CPU and memory allocation of your environment and adjust accordingly. You can change the pool size at [slave_options.rpc_pool_size](https://tyk.io/docs/tyk-oss-gateway/configuration/#slave_optionsrpc_pool_size)
+
+Multiple options can be selected.
+
+
+# Changelog
+
+## Tyk Gateway
+
+### Added
 
 - Added `HasOperation`, `Operation` and `Variables` to GraphQL data source API definition for easier nesting
 - Added abstractions/interfaces for ExecutionEngineV2 and ExecutionEngine2Executor with respect to graphql-go-tools
 
-#### Changed
+### Changed
 
 - Tyk Gateway updated to use Go 1.19
 - Updated kin-openapi dependency to latest released version v0.114.0
 - Updated the UDG parser to parse all information needed for UDG config from a provided OAS specification
 
-#### Fixed
+### Fixed
 
 - Fixed an issue where invalid IP addresses could be added to the IP allow list
 - Fixed an issue when using custom authentication with multiple authentication methods, custom authentication could not be selected to provide the base identity
@@ -36,9 +59,9 @@ weight: 1
 - Added support for the `:authority` header when making GRPC requests. If the `:authority` header is not present then some GRPC servers return PROTOCOL_ERROR which prevents custom GRPC plugins from running. Thanks to [vanhtuan0409](https://github.com/vanhtuan0409) from the Tyk Community for the contribution!
 - When the control API is not protected with mTLS we now do not ask for a cert, even if all the APIs registered have mTLS as authorization mechanism
 
-### Tyk Dashboard
+## Tyk Dashboard
 
-#### Added
+### Added
 
 - Added two endpoints to the dashboard to support the retrieval of example API definitions. One for fetching all examples and another for fetching a single example.
 - Added a way to display UDG examples from the tyk-examples repository in the Dashboard UI
@@ -49,14 +72,14 @@ weight: 1
 - Added an endpoint to Dashboard API that transforms an OpenAPI document into UDG config and publishes it in Dashboard
 - Added query param `apidef=true` to example detail endpoint in Dashboard API to retrieve the API definition of an example
 
-#### Changed
+### Changed
 
 - Tyk Dashboard updated to Go 1.19
 - Improve performance when opening the portal page by pre-fetching required data by a few calls instead of thousands
 - Updated npm package dependencies of Dashboard, to address critical and high CVEs
 - Changed the field mapping tickbox description in GUI to be 'Use default field mapping'
 
-#### Fixed
+### Fixed
 
 - Fixed an issue when using custom authentication with multiple authentication methods. Custom authentication could not be selected to provide the base identity
 - Fixed an issue where API Ownership was not respected in traffic reports for the _API Activity Dashboard Requests_ and _Average Errors Over Time_ charts in the Tyk Dashboard. Note that it is not currently possible to respect API Ownership in other aggregated charts
@@ -81,19 +104,19 @@ weight: 1
 - Fixed UI bug so that data graphs created with multiple words are sluggified, i.e. spaces are replaced with '-'
 - Fixed an issue with routing, which was sending user to a blank screen while creating new Data Graph or importing an example API
 
-### Tyk Classic Portal
+## Tyk Classic Portal
 
-#### Changed
+### Changed
 
 - Improve performance when opening the portal page by pre-fetching required data by a few calls instead of thousands.
 
-## Updated Versions
+# Updated Versions
 
 Tyk Gateway 5.1 - [docker](https://hub.docker.com/layers/tykio/tyk-gateway/v5.0.0/images/sha256-196815adff2805ccc14c267b14032f23913321b24ea86c052b62a7b1568b6725?context=repo)
 
 Tyk Dashboard 5.1 - [docker](https://hub.docker.com/layers/tykio/tyk-dashboard/v5.0/images/sha256-3d736b06b023e23f406b1591f4915b3cb15a417fcb953d380eb8b4d71829f20f?tab=vulnerabilities)
 
-## Upgrade process
+# Upgrade process
 
 Follow the [standard upgrade guide]({{< ref "upgrading-tyk.md" >}}), there are no breaking changes in this release.
 
