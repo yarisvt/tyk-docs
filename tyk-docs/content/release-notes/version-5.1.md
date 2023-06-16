@@ -34,12 +34,14 @@ Multiple options can be selected.
 
 - Added `HasOperation`, `Operation` and `Variables` to GraphQL data source API definition for easier nesting
 - Added abstractions/interfaces for ExecutionEngineV2 and ExecutionEngine2Executor with respect to graphql-go-tools
+- Added support for the `:authority` header when making GRPC requests. If the `:authority` header is not present then some GRPC servers return PROTOCOL_ERROR which prevents custom GRPC plugins from running. Thanks to [vanhtuan0409](https://github.com/vanhtuan0409) from the Tyk Community for the contribution!
 
 ### Changed
 
 - Tyk Gateway updated to use Go 1.19
 - Updated kin-openapi dependency to latest released version v0.114.0
 - Updated the UDG parser to parse all information needed for UDG config from a provided OAS specification
+- Reduced default CPU and memory footprint by changing the default RPC pool size from 20 to 5 connections.
 
 ### Fixed
 
@@ -48,8 +50,6 @@ Multiple options can be selected.
 - Fixed an issue where OAuth access keys were physically removed from Redis on expiry. Behaviour for OAuth is now the same as for other authorisation methods
 - Fixed an issue where the `global_size_limit` setting didn't enable request size limit middleware. Thanks to [PatrickTaibel](https://github.com/PatrickTaibel) for the contribution!
 - Fixed minor versioning, url and field mapping issues when importing OAS to UDG
-- Reduced default CPU and memory footprint by changing the default RPC pool size from 20 to 5 connections.
-- Added support for the `:authority` header when making GRPC requests. If the `:authority` header is not present then some GRPC servers return PROTOCOL_ERROR which prevents custom GRPC plugins from running. Thanks to [vanhtuan0409](https://github.com/vanhtuan0409) from the Tyk Community for the contribution!
 - When the control API is not protected with mTLS we now do not ask for a cert, even if all the APIs registered have mTLS as authorization mechanism
 
 ## Tyk Dashboard
@@ -108,6 +108,10 @@ Multiple options can be selected.
 Tyk Gateway 5.1 - [docker](https://hub.docker.com/layers/tykio/tyk-gateway/v5.0.0/images/sha256-196815adff2805ccc14c267b14032f23913321b24ea86c052b62a7b1568b6725?context=repo)
 
 Tyk Dashboard 5.1 - [docker](https://hub.docker.com/layers/tykio/tyk-dashboard/v5.0/images/sha256-3d736b06b023e23f406b1591f4915b3cb15a417fcb953d380eb8b4d71829f20f?tab=vulnerabilities)
+
+# Contributors
+
+Thanks to [PatrickTaibel](https://github.com/PatrickTaibel) and [vanhtuan0409](https://github.com/vanhtuan0409) for their contributions.
 
 # Upgrade process
 
