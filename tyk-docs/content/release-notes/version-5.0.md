@@ -3,7 +3,7 @@ title: Tyk v5.0
 menu:
   main:
     parent: "Release Notes"
-weight: 1
+weight: 2
 ---
 
 ## Major features
@@ -27,13 +27,13 @@ Of course, we’ve also addressed some bugs and usability issues as part of our 
 
 Thanks to our community contributors [armujahid](https://github.com/armujahid), [JordyBottelier](https://github.com/JordyBottelier) and [ls-michal-dabrowski](https://github.com/ls-michal-dabrowski) for your PRs that further improve the quality of Tyk OSS Gateway!
 
-
 ### GraphQL and Universal Data Graph improvements
 
 This release is all about making things easier for our users with GraphQL and Universal Data Graph.
 
 In order to get our users up and running with a working Universal Data Graph quickly, we’ve created a repository of examples that anyone can import into their Dashboard or Gateway and see what Universal Data Graph is capable of. Import can be done in two ways:
-- manually, by simply copying a Tyk API definition from GitHub - [TykTechnologies/tyk-examples](https://TykTechnologies/tyk-examples): A repository containing example API definitions and policies for Tyk products. 
+
+- manually, by simply copying a Tyk API definition from GitHub - [TykTechnologies/tyk-examples](https://TykTechnologies/tyk-examples): A repository containing example API definitions and policies for Tyk products.
 - via command line [using tyk-sync]({{< ref "universal-data-graph/udg-examples" >}})
 
 To make it easier for our users to find their way to Universal Data Graph, we’ve also given it its own space in the Dashboard. From now on you can find UDG under Data Graphs section of the menu.
@@ -49,9 +49,11 @@ Additionally we’ve added Dashboard support for introspection control on policy
 ### Tyk Gateway
 
 #### Deprecated
+
 - Tyk Gateway no longer natively support **LetsEncrypt** integration. You still can use LetsEncrypt CLI tooling to generate certificates, and use them with Tyk.
 
 #### Added
+
 - Support for OpenAPI request validation (including query params, headers and the rest of OAS rules)
 - Transform request/response middleware for OpenAPI apis
 - Custom middleware for OpenAPI apis
@@ -63,11 +65,13 @@ Additionally we’ve added Dashboard support for introspection control on policy
 #### Changed
 
 #### Fixed
+
 - Fixed potential race when using distributed rate limiter
 
 ### Tyk Dashboard
 
 #### Added
+
 - Numerous UX improvements
 - New UI for custom middleware for OpenAPI apis
 - Significantly improved OpenAPI versioning user experience
@@ -76,9 +80,11 @@ Additionally we’ve added Dashboard support for introspection control on policy
 - Way to control access to introspection on policy and key level
 
 #### Changed
+
 - Universal Data Graph moved to a separate dashboard section
 
 ## Updated Versions
+
 Tyk Gateway 5.0 - [docker](https://hub.docker.com/layers/tykio/tyk-gateway/v5.0.0/images/sha256-196815adff2805ccc14c267b14032f23913321b24ea86c052b62a7b1568b6725?context=repo)
 
 Tyk Dashboard 5.0 - [docker](https://hub.docker.com/layers/tykio/tyk-dashboard/v5.0/images/sha256-3d736b06b023e23f406b1591f4915b3cb15a417fcb953d380eb8b4d71829f20f?tab=vulnerabilities)
@@ -90,7 +96,7 @@ Follow the [standard upgrade guide]({{< ref "upgrading-tyk.md" >}}), there are n
 In case you want to switch from MongoDB to SQL, you can [use our migration tool]({{< ref "planning-for-production/database-settings/postgresql.md#migrating-from-an-existing-mongodb-instance" >}}), but keep in mind that it does not yet support the migration of your analytics data.
 
 {{< note success >}}
-**Note**  
+**Note**
 
 Note: Upgrading the Golang version implies that all the Golang custom plugins that you are using need to be recompiled before migrating to v5.0 of the Gateway. Check our docs for more details [Golang Plugins]({{< ref "plugins/supported-languages/golang#upgrading-tyk" >}}).
 {{< /note >}}

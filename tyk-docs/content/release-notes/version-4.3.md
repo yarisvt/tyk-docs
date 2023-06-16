@@ -3,7 +3,7 @@ title: Tyk v4.3
 menu:
   main:
     parent: "Release Notes"
-weight: 2
+weight: 3
 ---
 
 ## Major features
@@ -19,7 +19,7 @@ Tyk v4.3 adds API versioning to the Dashboard UI, including:
 
 ### Importing OAS v3 via the Dashboard
 
-Importing OpenAPI v3 documents in order to generate Tyk OAS API definition is now fully supported in our Dashboard UI. Our UI automatically detects the version of your OpenAPI Document, and will suggest options that you can pass or allow Tyk to read from the provided document, in order to configure the Tyk OAS API Definition. Such as: 
+Importing OpenAPI v3 documents in order to generate Tyk OAS API definition is now fully supported in our Dashboard UI. Our UI automatically detects the version of your OpenAPI Document, and will suggest options that you can pass or allow Tyk to read from the provided document, in order to configure the Tyk OAS API Definition. Such as:
 
 - custom upstream URL
 - custom listen path
@@ -34,7 +34,7 @@ Does your Tyk OAS API Definition define examples or a schema for your path respo
 
 ### External OAuth - 3rd party OAuth IDP integration
 
-If you’re using a 3rd party IDP to generate tokens for your OAuth applications, Tyk can now validate the generated tokens by either performing JWT validation or by communicating with the authorisation server and executing token introspection. 
+If you’re using a 3rd party IDP to generate tokens for your OAuth applications, Tyk can now validate the generated tokens by either performing JWT validation or by communicating with the authorisation server and executing token introspection.
 
 This can be achieved by configuring the new External OAuth authentication mechanism. Find out more here [External OAuth Integration]({{< ref "/content/basic-config-and-security/security/authentication-authorization/ext-oauth-middleware.md" >}})
 
@@ -53,12 +53,12 @@ Note that if the CommonName is an invalid host name, it's always ignored, regard
 1. Ability to turn on/off introspection - this feature allows much more control over what consumers are able to do when interacting with a GraphQL API. In cases where introspection is not desirable, API managers can now disallow it. The setting is done on API key level, which means API providers will have very granular control over who can and who cannot introspect the API.
 2. Support for allow list in field-based permissions - so far Tyk was offering field-based permissions as a “block list” only. That meant that any new field/query added to a graph was by default accessible for all consumers until API manager explicitly blocked it on key/policy level. Adding support for “allow list” gives APi managers much more control over changing schemas and reduces the risk of unintentionally exposing part of the graph that are not ready for usage. See [Introspection]({{< ref "/content/graphql/introspection.md" >}}) for more details.
 
-
 ## Changelog
 
 ### Tyk Gateway
 
 #### Added
+
 - Minor modifications to the Gateway needed for enabling support for Graph Mongo Pump.
 - Added header `X-Tyk-Sub-Request-Id` to each request dispatched by federated supergraph and Universal Data Graph, so that those requests can be distinguished from requests directly sent by consumers.
 - Added a functionality that allows to block introspection for any GraphQL API, federated supergraph and Universal Data Graph (currently only supported via Gateway, UI support coming in the next release).
@@ -68,7 +68,7 @@ Note that if the CommonName is an invalid host name, it's always ignored, regard
 
 #### Changed
 
-Updated the Tyk Gateway and Dashboard version of Golang, to 1.16. 
+Updated the Tyk Gateway and Dashboard version of Golang, to 1.16.
 
 **SECURITY: The release deprecates x509 commonName certificates usage. This will be the last release where it's still possible to use commonName, users need to explicitly re-enable it with an environment variable.**
 
@@ -117,7 +117,7 @@ Follow the [standard upgrade guide]({{< ref "/content/upgrading-tyk.md" >}}), th
 If you want switch from MongoDB to SQL, you can [use our migration tool]({{< ref "/content/planning-for-production/database-settings/postgresql.md#migrating-from-an-existing-mongodb-instance" >}}), but keep in mind that it does not yet support the migration of your analytics data.
 
 {{< note success >}}
-**Note**  
+**Note**
 
 Note: Upgrading the Golang version implies that all the Golang custom plugins that you are using need to be recompiled before migrating to 4.3 version of the Gateway. Check our docs for more details [Golang Plugins]({{< ref "/content/plugins/supported-languages/golang.md" >}}).
 {{< /note >}}

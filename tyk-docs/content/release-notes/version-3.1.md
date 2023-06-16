@@ -3,20 +3,22 @@ title: Tyk v3.1
 menu:
   main:
     parent: "Release Notes"
-weight: 7
+weight: 8
 ---
 
 ## What’s new?
 
 ### Identity Management UX and SAML support
-You will notice that the experience for creating a new profile in the Identity management section of the dashboard was changed to a ‘wizard’ approach which reduces the time it takes to get started and configure a profile. 
+
+You will notice that the experience for creating a new profile in the Identity management section of the dashboard was changed to a ‘wizard’ approach which reduces the time it takes to get started and configure a profile.
 In addition, users are now able to use SAML for the dashboard and portal login, whether you use TIB(Tyk Identity Broker) internally or externally of the dashboard.
 
-This follows the recent changes that we have made to embed TIB (Tyk Identity Broker)in the dashboard. See 3.0 [release notes](https://tyk.io/docs/release-notes/version-3.0/) for more information regarding this. 
+This follows the recent changes that we have made to embed TIB (Tyk Identity Broker)in the dashboard. See 3.0 [release notes](https://tyk.io/docs/release-notes/version-3.0/) for more information regarding this.
 
 To learn more [see the documentation](https://tyk.io/docs/getting-started/tyk-components/identity-broker/)
 
 ## UDG (Universal Data Graph) & GraphQL
+
 ### Schema Validation
 
 For any GraphQL API that is created via Dashboard or through our API, the GraphQL schema is now validated before saving the definition. Instant feedback is returned in case of error.
@@ -37,18 +39,18 @@ Before the request is sent:
 
 Example log message: "Query.countries: preSendHttpHook executed”. Along with this message, the log entry will contain the following set of fields: Typename, Fieldname and Upstream url;
 
-
 After the request is sent:
 
 Example log message: "Query.countries: postReceiveHttpHook executed”. Along with this message, the log entry will contain the following set of fields: Typename, Filename, response body, status code.
 
-Example: 
+Example:
 
-```{"typename": "Query", "fielname": "countries", "response_body": "{\"data\":{}}", "status_code": 200}```
+`{"typename": "Query", "fielname": "countries", "response_body": "{\"data\":{}}", "status_code": 200}`
 
 Docs [here](https://tyk.io/docs/graphql/graphql-playground/)
 
 ## Portal
+
 ### GraphQL Documentation
 
 Documentation for the GraphQL APIs that you are exposing to the portal is available now through a GraphQL Playground UI component, same as on the playground tab of API Designer.
@@ -56,18 +58,17 @@ Documentation for the GraphQL APIs that you are exposing to the portal is availa
 Also to overcome the CORS issues that you might encounter while testing documentation pages on the portal, we have pre-filled the CORS settings section in API Designer with explicit values from the start. All you need to do is to check the “Enable CORS” option.
 
 ### Portal - API key is hidden in email
+
 You now have the option to hide the API key in the email generated after you approve the key request for a developer.
 
 [Docs here](https://tyk.io/docs/tyk-developer-portal/key-requests/)
 
-
 ## Bug Fixes
-The 3.1 version includes the fixes that are part of 3.0.1. 
-https://github.com/TykTechnologies/tyk/releases/tag/v3.0.1
 
+The 3.1 version includes the fixes that are part of 3.0.1.
+https://github.com/TykTechnologies/tyk/releases/tag/v3.0.1
 
 ## Updated Versions
 
 - Tyk Gateway 3.1
 - Tyk Dashboard 3.1
-

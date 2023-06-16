@@ -3,7 +3,7 @@ title: Tyk Gateway v2.7
 menu:
   main:
     parent: "Release Notes"
-weight: 11
+weight: 12
 ---
 
 # <a name="new"></a>New in this Release:
@@ -12,13 +12,12 @@ weight: 11
 
 ### Performance improvements
 
-
 > **TLDR**
 > To get benefit or performance improvements ensure that you have `close_connections` set to `false` and set `max_idle_connections_per_host` according to our [production perfomance guide]({{< ref "planning-for-production" >}})
 
 We have thoroughly analysed every part of our Gateway, and the results are astounding, up to 160% improvement, compared to our 2.6 release.
 
-Such a performance boost comes from various factors, such as optimising our default configs, better HTTP connection re-use, optimisation of the analytics processing pipeline, regexp caching, doing fewer queries to the database, and numerous small changes in each of the  middleware we have.
+Such a performance boost comes from various factors, such as optimising our default configs, better HTTP connection re-use, optimisation of the analytics processing pipeline, regexp caching, doing fewer queries to the database, and numerous small changes in each of the middleware we have.
 
 Our performance testing plan was focused on replicating our customer's setup, and try not to optimise for “benchmarks”: so no supercomputers and no sub-millisecond inner DC latency. Instead, we were testing on average performance 2 CPU Linode machine, with 50ms latency between Tyk and upstream. For testing, we used the Tyk Gateway in Hybrid mode, with a default config, except for a single 2.7 change where `max_idle_connections_per_host ` is set to 500, as apposed to 100 in 2.6. Test runner was using [Locust](https://locust.io/) framework and [Boomer](https://github.com/myzhan/boomer) for load generation.
 
@@ -35,6 +34,7 @@ To get the benefit of optimised connection pooling, ensure that `close_connectio
 Key hashing is a security technique introduced inside Tyk a long time ago, which allows you to prevent storing your API tokens in database, and instead, only store their hashes. Only API consumers have access to their API tokens, and API owners have access to the hashes, which gives them access to usage and analytics in a secure manner. Time goes on, algorithms age, and to keep up with the latest security trends, we introduce a way to change algorithms used for key hashing.
 
 This new feature is in public beta, and turned off by default, keeping old behavior when Tyk uses `murmur32` algorithm. To set the custom algorithm, you need to set `hash_key_function` to one of the following options:
+
 - `murmur32`
 - `murmur64`
 - `murmur128`
@@ -47,7 +47,6 @@ Performance wise, setting new key hashing algorithms can increase key hash lengt
 Technically wise, it is implemented by new key generation algorithms, which now embed additional metadata to the key itself, and if you are curious about the actual implementation details, feel free to check the following [pull request](https://github.com/TykTechnologies/tyk/pull/1753).
 
 Changing hashing algorithm is entirely backward compatible. All your existing keys will continue working with the old `murmur32` hashing algorithm, and your new keys will use algorithm specified in Tyk config. Moreover, changing algorithms is also backward compatible, and Tyk will maintain keys multiple hashing algorithms without any issues.
-
 
 ## Tyk Dashboard v1.7.0
 
@@ -62,6 +61,7 @@ To manage user groups, ensure that you have either admin or “user groups” pe
 From an API standpoint, user groups can be managed by [new Dashboard API]({{< ref "tyk-apis/tyk-dashboard-api/user-groups" >}}). The User object now has a new `group_id` field, and if it is specified, all permissions will be inherited from the specified group. [SSO API]({{< ref "tyk-apis/tyk-dashboard-admin-api/sso" >}}) has been updated to include `group_id` field as well.
 
 ### Added SMTP support
+
 Now you can configure the Dashboard to send transactional emails using your SMTP provider. See [Outbound Email Configuration]({{< ref "configure/outbound-email-configuration" >}}) for details.
 
 ## <a name="upgrade"></a>Upgrading all new Components
@@ -72,7 +72,5 @@ For details on upgrading all Tyk versions, see [Upgrading Tyk]({{< ref "upgradin
 
 Get started now, for free, or contact us with any questions.
 
-* [Get Started](https://tyk.io/pricing/compare-api-management-platforms/#get-started)
-* [Contact Us](https://tyk.io/about/contact/)
-
-
+- [Get Started](https://tyk.io/pricing/compare-api-management-platforms/#get-started)
+- [Contact Us](https://tyk.io/about/contact/)

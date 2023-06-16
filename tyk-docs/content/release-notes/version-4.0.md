@@ -3,7 +3,7 @@ title: Tyk v4.0
 menu:
   main:
     parent: "Release Notes"
-weight: 5
+weight: 6
 ---
 
 ## GraphQL federation
@@ -25,9 +25,10 @@ With release 4.0, users can federate GraphQL APIs that support subscriptions. Fe
 [Subscriptions docs]({{< ref "/content/getting-started/key-concepts/graphql-subscriptions.md" >}})
 
 ## SQL database support
-The other major capability in Tyk 4.0 is that the Tyk Dashboard can store its data in a SQL  relational database. 
 
-Until now, Tyk Dashboard has used MongoDB for storing everything from data such as APIs, policies and users through to analytics and logs. MongoDB is still a great storage choice for most projects. However, not all users have MongoDB as part of their tech stack. Some are in heavily regulated industries which means adding it would be a pain. For others, the document storage type and lack of proper ACID transaction support may not be the best solution. These users can now choose a SQL database solution instead. 
+The other major capability in Tyk 4.0 is that the Tyk Dashboard can store its data in a SQL  relational database.
+
+Until now, Tyk Dashboard has used MongoDB for storing everything from data such as APIs, policies and users through to analytics and logs. MongoDB is still a great storage choice for most projects. However, not all users have MongoDB as part of their tech stack. Some are in heavily regulated industries which means adding it would be a pain. For others, the document storage type and lack of proper ACID transaction support may not be the best solution. These users can now choose a SQL database solution instead.
 
 From version 4.0, Tyk Dashboard and Tyk Pump will support four data storage layers, which can be configured separately, each with a different officially supported database solution (if needed). All data stored in SQL databases will provide the same information in the Dashboard that MongoDB did.
 
@@ -37,11 +38,13 @@ As part of SQL support we are also providing tooling to perform seamless migrati
 [MongoDB to SQL migration docs]({{< ref "/content/planning-for-production/database-settings/postgresql.md#migrating-from-an-existing-mongodb-instance" >}})
 
 ## Other minor changes
+
 - Now it is possible to configure GraphQL upstream authentification, in order for Tyk to work with its schema
 - JWT scopes now support arrray and comma delimeters
 - Go plugins can be attached on per-endpoint level, similar to virtual endpoints
 
 # Updated Versions
+
 Tyk Gateway 4.0
 Tyk Dashboard 4.0
 Tyk Pump 1.5
@@ -51,4 +54,3 @@ Tyk Pump 1.5
 Follow the [standard upgrade guide]({{< ref "/content/upgrading-tyk.md" >}}), there are no breaking changes in this release.
 
 If you want switch from MongoDB to SQL, you can [use our migration tool]({{< ref "/content/planning-for-production/database-settings/postgresql.md#migrating-from-an-existing-mongodb-instance" >}}), but keep in mind that it does not yet support the migration of your analytics data.
- 

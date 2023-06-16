@@ -3,12 +3,12 @@ title: Tyk v3.0
 menu:
   main:
     parent: "Release Notes"
-weight: 8
+weight: 9
 ---
 
 ### Version changes and LTS releases
 
-We have bumped our major Tyk Gateway version from 2 to 3, a long overdue change as we’ve been on version 2 for 3 years. We have also changed our Tyk Dashboard major version from 1 to 3, and from now on it will always be aligned with the Tyk Gateway for major and minor releases. The Tyk Pump has also now updated to 1.0, so we can better indicate major changes in future. 
+We have bumped our major Tyk Gateway version from 2 to 3, a long overdue change as we’ve been on version 2 for 3 years. We have also changed our Tyk Dashboard major version from 1 to 3, and from now on it will always be aligned with the Tyk Gateway for major and minor releases. The Tyk Pump has also now updated to 1.0, so we can better indicate major changes in future.
 
 Importantly, such a big change in versions does not mean that we going to break backward compatibility. More-over we are restructuring our internal release strategy to guarantee more stability and to allow us to deliver all Tyk products at a faster pace. We aim to bring more clarity to our users on the stability criteria they can expect, based on the version number.
 Additionally we are introducing Long Term Releases (also known as LTS).
@@ -17,7 +17,7 @@ Read more about this changes in our blogpost: https://tyk.io/introducing-long-te
 
 ### New Look and Feel
 
-We have a brand new look to our Tyk Dashboard. About half a year ago, we made some changes to our visual branding to better express our love for creativity and great UX. Those changes started with our website and now we are also incorporating these visual changes into the UI of our products. We do this to keep our brand consistent across the whole Tyk experience and to enhance your experience using our products. 
+We have a brand new look to our Tyk Dashboard. About half a year ago, we made some changes to our visual branding to better express our love for creativity and great UX. Those changes started with our website and now we are also incorporating these visual changes into the UI of our products. We do this to keep our brand consistent across the whole Tyk experience and to enhance your experience using our products.
 
 See our updated [Tutorials]({{< ref "getting-started/installation" >}}) section.
 
@@ -33,8 +33,7 @@ With the Universal Data Graph Tyk becomes your central integration point for all
 
 Read more about the [GraphQL]({{< ref "graphql" >}}) and [Universal Data Graph]({{< ref "universal-data-graph" >}})
 
-
-### Policies and Keys UX changes 
+### Policies and Keys UX changes
 
 We have a lot to update you on with our UX & UI revamp, but one thing we want to highlight here are the updates to the policies and keys Dashboard pages. We know there was confusion in the way we set policies and keys up in the Tyk Dashboard, so we redesigned the UI workflow to make it less error-prone, simpler and more intuitive when you create, view and edit security policies and keys.
 
@@ -44,13 +43,11 @@ See updated tutorials on how to [create a policy]({{< ref "getting-started/creat
 
 We also have a [blog post](https://tyk.io/the-transformation-of-policies-and-keys/) that explains what we've done, and why we did it.
 
-
 ### Tyk Identity broker now built-in to the Dashboard
 
 Previously you had to run a separate process to setup SSO (single sign on). Now this functionality is built-in to the dashboard and got UI revamp. So now you can just start the dashboard, and via UI, create a SSO flow, without installing 3-rd party components. Including SSO via social logins, OpenID Connect and LDAP (with SAML coming very soon!) including integration with the Dashboards RBAC and your Identity Provider.
 
 See [updated flow details]({{< ref "tyk-identity-broker" >}})
-
 
 ### Using external secret management services
 
@@ -58,13 +55,11 @@ Want to reference secrets from a KV store in your API definitions? We now have n
 
 [Read more]({{< ref "tyk-configuration-reference/kv-store" >}})
 
-
 ### Co-Process Response Plugins
 
 We added a new middleware hook allowing middleware to modify the response from the upstream. Using response middleware you can transform, inspect or obfuscate parts of the response body or response headers, or fire an event or webhook based on information received by the upstream service.
 
 At the moment the Response hook is supported for [Python and gRPC plugins]({{< ref "plugins/supported-languages/rich-plugins/rich-plugins-work#overriding-response" >}}).
-
 
 ### Enhanced Gateway health check API
 
@@ -74,7 +69,8 @@ You can configure notifications or load balancer rules, based on new data. For e
 [Read More]({{< ref "planning-for-production/ensure-high-availability/health-check" >}})
 
 ### Enhanced Detailed logging
-Detailed logging is used in a lot of the cases for debugging issues. Now as well as enabling detailed logging globally (which can cause a huge overhead with lots of traffic), you can enable it for a single key, or specific APIs. 
+
+Detailed logging is used in a lot of the cases for debugging issues. Now as well as enabling detailed logging globally (which can cause a huge overhead with lots of traffic), you can enable it for a single key, or specific APIs.
 
 New detailed logging changes are available only to our Self-Managed customers currently.
 
@@ -104,16 +100,13 @@ This change requires updating to new Tyk Pump 1.0
 
 ### 404 Error logging - unmatched paths
 
-Concerned that client’s are getting a 404 response? Could it be that the API definition or URL rewrites have been misconfigured? Telling Tyk to track 404 logs, will cause the Tyk Gateway to produce error logs showing that a particular resource has not been found. 
+Concerned that client’s are getting a 404 response? Could it be that the API definition or URL rewrites have been misconfigured? Telling Tyk to track 404 logs, will cause the Tyk Gateway to produce error logs showing that a particular resource has not been found.
 
 The feature can be enabled by setting the config `track_404_logs` to `true` in the gateway's config file.
 
-
 ### Fixes
 
-- Fixed the bug when tokens created with non empty quota, and quota expiration set to `Never`, were treated as having unlimited quota. Now such tokens will stop working, once initial quota is reached. 
-
-
+- Fixed the bug when tokens created with non empty quota, and quota expiration set to `Never`, were treated as having unlimited quota. Now such tokens will stop working, once initial quota is reached.
 
 ### Updated Versions
 

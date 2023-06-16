@@ -4,13 +4,12 @@ title: Tyk Gateway v2.5
 menu:
   main:
     parent: "Release Notes"
-weight: 13
+weight: 14
 ---
 
 # <a name="new"></a>New in this Release:
 
 This release touches all our products and brings you numerous features and fixes. Here are the packages and their versions we are releasing today: Tyk Gateway v2.5.0, Tyk Dashboard v1.5.0, Tyk Pump v0.6.0, MDCB v1.5.0, TIB v0.3.
-
 
 # <a name="major-highlights"></a>Major Highlights
 
@@ -18,10 +17,10 @@ This release touches all our products and brings you numerous features and fixes
 
 Our Dashboard has had a UI overhaul, with the following improvements:
 
-* A more modern, fun look and feel
-* Consistent layouts and action buttons across each section
-* Better feedback on errors and updates
-* Various UX improvements
+- A more modern, fun look and feel
+- Consistent layouts and action buttons across each section
+- Better feedback on errors and updates
+- Various UX improvements
 
 ## <a name="sso"></a>SSO with OpenId Identity Providers
 
@@ -40,6 +39,7 @@ You can now specify a default API version when using a versioning strategy.
 We've added MDCB support in this release of Tyk Pump
 
 # Moar!
+
 This release is packed with way more more cool stuff. Here are detailed release notes for each product:
 
 ## <a name="gateway"></a>Tyk Gateway v2.5.0
@@ -63,7 +63,7 @@ You can now specify a default API version, and it will be used if a version is n
 ### Disable URL Encoding
 
 You can disable URL encoding using a new boolean `http_server_options` setting:
- 
+
 `skip_target_path_escaping`
 
 [Docs]({{< ref "tyk-oss-gateway/configuration#a-name-http-server-options-a-http-server-options" >}})
@@ -74,10 +74,9 @@ By default all key ids in logs are hidden. You can now turn it on if you want to
 
 [Docs]({{< ref "tyk-oss-gateway/configuration#a-name-enable-key-logging-a-enable-key-logging" >}})
 
-
 ### Specify TLS Cipher Suites
 
-We have added support for specifying allowed  SSL ciphers using the following option:
+We have added support for specifying allowed SSL ciphers using the following option:
 
 `http_server_options - ssl_ciphers`
 
@@ -85,13 +84,12 @@ We have added support for specifying allowed  SSL ciphers using the following op
 
 ## <a name="plugins"></a>Plugins Updates
 
-* Coprocess plugins now have access to `config_data`
-* The JSVM `spec` object now has access to `APIID` and `OriginID` to reflect similar functionality of Coprocess plugins.
-* Plugins now have access to Host HTTP Header.
+- Coprocess plugins now have access to `config_data`
+- The JSVM `spec` object now has access to `APIID` and `OriginID` to reflect similar functionality of Coprocess plugins.
+- Plugins now have access to Host HTTP Header.
 
 [JSVM Docs]({{< ref "plugins/supported-languages/javascript-middleware/middleware-scripting-guide" >}})
 [Plugin Data Structure Docs]({{< ref "plugins/supported-languages/rich-plugins/rich-plugins-data-structures" >}})
-
 
 ## <a name="dashboard"></a>Tyk Dashboard v1.5.0
 
@@ -99,17 +97,17 @@ We have added support for specifying allowed  SSL ciphers using the following op
 
 With this release we have refreshed the entire Dashboard UI with a new look-and-feel, bringing with it such improvements as:
 
-* A more modern, fun look and feel
-* Consistent layouts and action buttons across each section
-* Better feedback on errors and updates
-* UX improvements
+- A more modern, fun look and feel
+- Consistent layouts and action buttons across each section
+- Better feedback on errors and updates
+- UX improvements
 
 ### Search on API and Policy List Pages
 
 We have added API and Policy search functionality, which should help those with long lists.
 
-* [API Docs]({{< ref "tyk-apis/tyk-dashboard-api/api-definitions" >}})
-* [Policy Docs]({{< ref "tyk-apis/tyk-dashboard-api/portal-policies" >}})
+- [API Docs]({{< ref "tyk-apis/tyk-dashboard-api/api-definitions" >}})
+- [Policy Docs]({{< ref "tyk-apis/tyk-dashboard-api/portal-policies" >}})
 
 ### A New, Interactive Getting Started Walkthrough
 
@@ -141,7 +139,6 @@ Once set, the API slug will no longer be overridden when the API title is change
 
 We have fixed the API URL if a custom domain is set.
 
-
 ## <a name="pump"></a> Tyk Pump v0.5.0
 
 ### Splunk Support
@@ -166,17 +163,14 @@ We added support for forwarding analytics data to Splunk. A sample configuration
 
 Detailed analytics collection capping is now enabled by default and configurable via the `collection_cap_enable` and `collection_cap_max_size_bytes` options.
 
-
-
 ## <a name="mdcb"></a> MDCB v1.5.0
 
 We've introduced long awaited support for using Tyk Pump in conjunction with MDCB to use any of services supported by Tyk Pump, like ElasticSearch, Splunk and etc. This works by setting `forward_analytics_to_pump` to true, which disables analytics processing by MDCB itself, and enables the forwarding of all data to Tyk Pump running inside your management environment.
 
-
 ## <a name="tib"></a>TIB v0.3
-  
+
 With this release, you now can use any OpenID Connect compatible provider with TIB. This means that you can use almost any Identity management solution, supporting OpenID, like Okta, Ping or Keycloak.
- 
+
 Use `SocialProvider` with the following options:
 
 ```
@@ -190,12 +184,11 @@ Use `SocialProvider` with the following options:
 
 ## Packaging changes across all products
 
-New deb and rpm packages add the "tyk" user and group so that package files and directories would be owned by it and the process run with its effective uid and gid. In addition to this gateway PID now has to reside in its own sub-rundir due to this change, so that's created (and additionally managed by systemd where it's available), default pidfile location changed appropriately so that upgrade wouldn't require any config changes by the users. The gateway config file is now only readable and writable by the "tyk" user and group. This change is applied across all our products except Gateway: its changes scheduled to 2.6. 
+New deb and rpm packages add the "tyk" user and group so that package files and directories would be owned by it and the process run with its effective uid and gid. In addition to this gateway PID now has to reside in its own sub-rundir due to this change, so that's created (and additionally managed by systemd where it's available), default pidfile location changed appropriately so that upgrade wouldn't require any config changes by the users. The gateway config file is now only readable and writable by the "tyk" user and group. This change is applied across all our products except Gateway: its changes scheduled to 2.6.
 
 The "default" init system files are not removed on upgrade/remove anymore so that it's now a way for users to run the respective process with custom environment variables.
 
 The bug with removal of init system files on upgrade in rpm-based systems is now fixed.
-
 
 ## <a name="upgrade"></a>Upgrading all new Components
 
@@ -205,5 +198,6 @@ For details on upgrading all Tyk versions, see [Upgrading Tyk](https://tyk.io/do
 
 Get started now, for free, or contact us with any questions.
 
-* [Get Started](https://tyk.io/pricing/compare-api-management-platforms/#get-started)
-* [Contact Us](https://tyk.io/about/contact/)
+- [Get Started](https://tyk.io/pricing/compare-api-management-platforms/#get-started)
+- [Contact Us](https://tyk.io/about/contact/)
+
