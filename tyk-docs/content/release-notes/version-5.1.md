@@ -50,7 +50,9 @@ In 5.0 we introduced the possibility to import API examples manually or via
 tyk-sync. We now extended this feature and it is now possible to do this without
 leaving the Dashboard. When having an empty “Data Graphs” section you will be
 presented with 3 icon buttons with one of them offering you to import an Example
-API. If you already have Data Graphs in your Dashboard you can either click on
+API.
+
+If you already have Data Graphs in your Dashboard you can either click on
 the “Import” button or click on the “Add Data Graph“ button and select “Use
 example data graph“ on the next screen. The examples UI will present you with a
 list of available examples. You can navigate to the details page for every
@@ -62,14 +64,17 @@ Before this release, it was only possible to realize nested GraphQL stitching
 (GraphQL data source inside another data source) by using a REST data source and
 providing the GraphQL body manually. We now extended the GraphQL data source so
 that you can provide a custom operation and therefore access arguments or object
-data from parent data sources. To use this feature you will only need to check
+data from parent data sources.
+
+To use this feature you will only need to check
 the “Add GraphQL operation“ checkbox when creating a GraphQL data source.
 
 ### Import UDG API from OAS 3.x
 
 We added a Dashboard API Endpoint that is capable of taking an OAS 3.x document
 and converting it into a UDG API.
-This means it will geneate the full schema as well as the data sources that are defined inside the OAS document.
+
+This means it will generate the full schema as well as the data sources that are defined inside the OAS document.
 
 ## Platform
 
