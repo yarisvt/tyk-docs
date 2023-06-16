@@ -12,12 +12,13 @@ weight: 1
 
 ### Tyk Gateway and Dashboard updated to Golang version 1.19
 
-Our Dashboard and Gateway are using Golang 1.19 [Go 1.19 Release Notes - The Go
-Programming Language ] starting with the 5.1 release. This brings improvements
-to the code base and allows us to benefit from the latest features and security
-enhancements in Go. Don’t forget that, if you’re using GoPlugins, you’ll need to
-recompile these to maintain compatibility with the latest Gateway [Upgrading Tyk
-].
+Our Dashboard and Gateway are using [Golang
+1.19](https://tip.golang.org/doc/go1.19) Programming Language ] starting with
+the 5.1 release. This brings improvements to the code base and allows us to
+benefit from the latest features and security enhancements in Go. Don’t forget
+that, if you’re using GoPlugins, you’ll need to recompile these to maintain
+compatibility with the latest
+[Gateway](https://tyk.io/docs/upgrading-tyk/#tyk-go-plugins)
 
 ### Request Body Size Limits
 
