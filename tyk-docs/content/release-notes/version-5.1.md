@@ -171,7 +171,10 @@ Tyk Dashboard 5.1 - [docker](https://hub.docker.com/layers/tykio/tyk-dashboard/v
 
 # Contributors
 
-Thanks to [PatrickTaibel](https://github.com/PatrickTaibel) and [vanhtuan0409](https://github.com/vanhtuan0409) for their contributions.
+Special thanks go the Tyl community for their contributions in this release.
+
+Thanks to [PatrickTaibel](https://github.com/PatrickTaibel) for fixing an issue where `global_size_limit` was not enabling request size limit middleware.
+Thanks to [vanhtuan0409](https://github.com/vanhtuan0409) for adding support to the `:authority` header when making grpc requests.
 
 # Upgrade process
 
