@@ -8,10 +8,6 @@ weight: 1
 
 # What’s Changed?
 
-# Core APIM
- 
-
-## API as Integration
 There are 3 highlights in this release:
 
 Import API examples from within the Dashboard. In 5.0 we introduced the possibility to import API examples manually or via tyk-sync.
@@ -26,12 +22,9 @@ To use this feature you will only need to check the “Add GraphQL operation“ 
 Import UDG API from OAS 3.x. We added a Dashboard API Endpoint that is capable of taking an OAS 3.x document and converting it into a UDG API.
 This means it will generate the full schema as well as the data sources that are defined inside the OAS document.
 
-
-## Platform
 The default RPC pool size is changed from 20 to 5. This can reduce the CPU and memory footprint on high throughput scenarios. Please monitor the CPU and memory allocation of your environment and adjust accordingly. You can change the pool size at [slave_options.rpc_pool_size](https://tyk.io/docs/tyk-oss-gateway/configuration/#slave_optionsrpc_pool_size)
 
 Multiple options can be selected.
-
 
 # Changelog
 
