@@ -8,23 +8,78 @@ weight: 1
 
 # What’s Changed?
 
-There are 3 highlights in this release:
+## Core APIM
 
-Import API examples from within the Dashboard. In 5.0 we introduced the possibility to import API examples manually or via tyk-sync.
-We now extended this feature and it is now possible to do this without leaving the Dashboard. When having an empty “Data Graphs” section you will be presented with 3 icon buttons with one of them offering you to import an Example API.
-If you already have Data Graphs in your Dashboard you can either click on the “Import” button or click on the “Add Data Graph“ button and select “Use example data graph“ on the next screen.
-The examples UI will present you with a list of available examples. You can navigate to the details page for every example and import it as well from the same page.
+### Tyk Gateway and Dashboard updated to Golang version 1.19
 
-Improved nested GraphQL stitching. Before this release, it was only possible to realize nested GraphQL stitching (GraphQL data source inside another data source) by using a REST data source and providing the GraphQL body manually.
-We now extended the GraphQL data source so that you can provide a custom operation and therefore access arguments or object data from parent data sources.
-To use this feature you will only need to check the “Add GraphQL operation“ checkbox when creating a GraphQL data source.
+Our Dashboard and Gateway are using Golang 1.19 [Go 1.19 Release Notes - The Go
+Programming Language ] starting with the 5.1 release. This brings improvements
+to the code base and allows us to benefit from the latest features and security
+enhancements in Go. Don’t forget that, if you’re using GoPlugins, you’ll need to
+recompile these to maintain compatibility with the latest Gateway [Upgrading Tyk
+].
 
-Import UDG API from OAS 3.x. We added a Dashboard API Endpoint that is capable of taking an OAS 3.x document and converting it into a UDG API.
-This means it will generate the full schema as well as the data sources that are defined inside the OAS document.
+### Request Body Size Limits
 
-The default RPC pool size is changed from 20 to 5. This can reduce the CPU and memory footprint on high throughput scenarios. Please monitor the CPU and memory allocation of your environment and adjust accordingly. You can change the pool size at [slave_options.rpc_pool_size](https://tyk.io/docs/tyk-oss-gateway/configuration/#slave_optionsrpc_pool_size)
+We have introduced a new Gateway-level option to limit the size of requests made
+to your APIs. You can use this as a first line of defence against overly large
+requests that might affect your Tyk Gateways or upstream services. Of course,
+being Tyk, we also provide the flexibility to configure API-level and
+per-endpoint size limits so you can be as granular as you need to protect and
+optimise your services. Check out our improved documentation for full
+description of how to use these powerful features [Request Size Limits ].
 
-Multiple options can be selected.
+### Dashboard Analytics for API Ownership
+
+When we implemented Role Based Access Control and API Ownership in Tyk
+Dashboard, we unlocked great flexibility for you to assign different roles to
+different users and user groups with visibility and control over different
+collections of APIs on your Gateway. Well, from 5.1 we have added a new Role,
+which layers on top of the existing “Analytics” role and can be used to restrict
+a user’s access, within the Dashboard Analytics screens, to view only the
+statistics from APIs that that own; we’ve called this “Owned Analytics”. Due to
+the way the analytics data are aggregated (to optimise storage), a user granted
+this role will not have access to the full range of charts. Take a look at the
+documentation for a full description of this new user role [User Roles ].
+
+## API as Integration
+
+### Import API examples from within the Dashboard
+
+In 5.0 we introduced the possibility to import API examples manually or via
+tyk-sync. We now extended this feature and it is now possible to do this without
+leaving the Dashboard. When having an empty “Data Graphs” section you will be
+presented with 3 icon buttons with one of them offering you to import an Example
+API. If you already have Data Graphs in your Dashboard you can either click on
+the “Import” button or click on the “Add Data Graph“ button and select “Use
+example data graph“ on the next screen. The examples UI will present you with a
+list of available examples. You can navigate to the details page for every
+example and import it as well from the same page.
+
+### Improved nested GraphQL stitching
+
+Before this release, it was only possible to realize nested GraphQL stitching
+(GraphQL data source inside another data source) by using a REST data source and
+providing the GraphQL body manually. We now extended the GraphQL data source so
+that you can provide a custom operation and therefore access arguments or object
+data from parent data sources. To use this feature you will only need to check
+the “Add GraphQL operation“ checkbox when creating a GraphQL data source.
+
+### Import UDG API from OAS 3.x
+
+We added a Dashboard API Endpoint that is capable of taking an OAS 3.x document
+and converting it into a UDG API.
+This means it will geneate the full schema as well as the data sources that are defined inside the OAS document.
+
+## Platform
+
+### Changed default RPC pool size for MDCB deployments
+
+The default RPC pool size is changed from 20 to 5. This can reduce the CPU and
+memory footprint on high throughput scenarios. Please monitor the CPU and memory
+allocation of your environment and adjust accordingly. You can change the pool
+size at
+[slave_options.rpc_pool_size](https://tyk.io/docs/tyk-oss-gateway/configuration/#slave_optionsrpc_pool_size)
 
 # Changelog
 
