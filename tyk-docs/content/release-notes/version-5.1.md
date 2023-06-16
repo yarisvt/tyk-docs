@@ -27,7 +27,7 @@ requests that might affect your Tyk Gateways or upstream services. Of course,
 being Tyk, we also provide the flexibility to configure API-level and
 per-endpoint size limits so you can be as granular as you need to protect and
 optimise your services. Check out our improved documentation for full
-description of how to use these powerful features [Request Size Limits ].
+description of how to use these powerful [features](https://tyk.io/docs/basic-config-and-security/control-limit-traffic/request-size-limits/).
 
 ### Dashboard Analytics for API Ownership
 
