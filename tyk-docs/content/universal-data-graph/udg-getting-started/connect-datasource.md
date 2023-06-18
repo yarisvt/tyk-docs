@@ -81,7 +81,7 @@ On the right-hand side click the `query` name you are intending to connect the d
 
 *In this example there's only one query called `vatcheck`.*
 
-You will see the *schema editor* fold away and instead a new section **Configure data source** to slide out from the right. If you've previously created any REST or GraphQL APIs in your Tyk Dashboard you will see them in the top two dropdowns. Open **REST | Tyk** and choose an API you want to use as a data source.
+You will see the *schema editor* fold away and instead a new section **Configure data source** will slide out from the right. If you've previously created any REST or GraphQL APIs in your Tyk Dashboard you will see them in the top two dropdowns. Open **REST | Tyk** and choose an API you want to use as a data source.
 
 {{< img src="/img/dashboard/udg/getting-started/choosing-rest-ds.png" alt="Choosing Tyk REST">}}
 
@@ -125,7 +125,7 @@ By ticking the *Add headers* box you will be able to provide a list of key/value
 
 This is an **optional** setting.
 
-*Header values* can reference [request context variables]({{< ref "/context-variables">}}).
+UDG is capable of forwarding the headers your consumers send with their request to multiple data sources. To know more about header forwarding see [this]({{< ref "/universal-data-graph/concepts/header-forwarding">}}) section.
 
 **Field mapping**
 This setting allows you to define how Tyk's Data Graph engine should traverse the data source response, to parse the part you want. This is an **optional** setting and it is disabled by default.
@@ -261,3 +261,37 @@ A set of header key/value pairs that you want to send with each request to your 
 {{< tabs_end >}}
 
 #### Using external REST data source for query
+
+The configuration for this type of data source is almost identical to **Tyk REST** with the exception of `url` field. In this case the `url` has to be provided explicitl, not as a reference to a Tyk API. For example:
+
+```bash
+"data_sources": [
+    {
+        "kind": "REST",
+        "name": "vatcheck",
+        "internal": false,
+        "root_fields": [
+            {
+                "type": "Query",
+                "fields": [
+                    "vatcheck"
+                ]
+            }
+        ],
+        "config": {
+            "url": "https://api.vatcomply.com/vat?vat_number={{.arguments.code}}",
+            "method": "GET",
+            "body": "",
+            "headers": {}
+        }
+    }
+]
+```
+
+### Using internal GQL data source for query
+
+To create a GQL API in Tyk refer to [this guide]({{< ref "/getting-started/create-api">}}) first. Once done, you can come back to your Data Graph.
+
+
+
+### Using external GQL data source for query

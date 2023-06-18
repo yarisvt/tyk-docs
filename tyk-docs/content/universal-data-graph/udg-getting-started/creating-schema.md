@@ -257,7 +257,7 @@ type Query {
 }
 ```
 
-Next step is to start designing the `Definition` type. REST API data source returns 6 fields on the main level of the JSON response, you want to reflect this in your schema:
+Next step is to start designing the `WordDefinition` type. REST API data source returns 6 fields on the main level of the JSON response, you want to reflect this in your schema:
 
 ```graphql
 type WordDefinition {
