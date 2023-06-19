@@ -45,6 +45,7 @@ if len(sys.argv) == 5:
     outputFileName = sys.argv[4]
 
 # Set output file names
+fileMissingPaths = outputFileName + "-missingPathsIssue.txt"
 fileUnknownUrl = outputFileName + "-unknownUrl.txt"
 fileNeedsRedirect = outputFileName + "-needsRedirect.txt"
 fileOrphan = outputFileName + "-orphan.txt"
@@ -55,6 +56,7 @@ fileUrlCheckAliases = outputFileName + "-urlcheck-aliases.txt"
 fileMenu = "./tyk-docs/data/menu.yaml"
 
 # Open the output files
+openMissingPathsFile = open(fileMissingPaths, "w")
 openUnknownUrlFile = open(fileUnknownUrl, "w")
 openNeedsRedirectFile = open(fileNeedsRedirect, "w")
 openOrphanFile = open(fileOrphan, "w")
@@ -191,7 +193,7 @@ with open(categories_path, "r") as file:
                     "Managing APIs": "/getting-started",
                     "Product Stack": "/tyk-stack",
                     "Developer Support": "/frequently-asked-questions/faq",
-                    "APIM Best Practices": "/getting-started/key-concepts",
+                    "APIM Best Practice": "/getting-started/key-concepts",
                     "Orphan": "/orphan",
                 }
 
@@ -340,6 +342,7 @@ def print_tree_as_yaml(tree, level=1):
             and node["children"][0]["category"] == "Page"
         ):
             yaml_string += "  " * level + "  path: " + node["children"][0]["url"] + "\n"
+            print(f"{node['children'][0]['url']}", file=openMissingPathsFile)
         else:
             yaml_string += (
                 "  " * level + "  path: " + node["url"] + "\n" if "url" in node else ""
@@ -361,6 +364,7 @@ print(yaml_string, file=openFileMenu)
 
 
 # Close the files
+openMissingPathsFile.close()
 openUnknownUrlFile.close()
 openNeedsRedirectFile.close()
 openOrphanFile.close()
