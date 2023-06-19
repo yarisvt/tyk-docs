@@ -145,7 +145,7 @@ size at
 - Fixed an issue where the log browser showed analytics for APIs not owned by the logged-in user
 - Fixed an issue that prevented non-admin users from seeing _Endpoint Popularity_ data in the Tyk Dashboard
 - Fixed an issue where additional data was returned when requesting analytics with p=-1 query when using SQL for the analytics store
-- Fixed an issue so that filtering by API respects API Ownership in three Dashboard charts.
+- Fixed an issue so that filtering by API now respects API Ownership in three Dashboard charts.
 
   - Gateway Dashboard - API Activity Dashboard - Requests
   - Activity by API - Traffic Activity per API
