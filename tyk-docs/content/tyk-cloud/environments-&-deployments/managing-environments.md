@@ -8,7 +8,9 @@ menu:
     parent: "Environments & Deployments"
 weight: 2
 aliases:
-  - tyk-cloud/environments-&-deployments/managing-environments
+  - /tyk-cloud/environments-&-deployments/managing-environments
+  - /tyk-cloud/environments--deployments/managing-environments
+  - /tyk-cloud/environments-deployments/managing-environments
 ---
 
 ## Introduction
