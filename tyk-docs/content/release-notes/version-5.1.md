@@ -126,7 +126,6 @@ size using
 ### Changed
 
 - Tyk Dashboard updated to Go 1.19
-- Improve performance when opening the portal page by pre-fetching required data by a few calls instead of thousands
 - Updated npm package dependencies of Dashboard, to address critical and high CVEs
 - Changed the field mapping tickbox description in GUI to be 'Use default field mapping'
 
