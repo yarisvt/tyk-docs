@@ -42,7 +42,6 @@ the way the analytics data are aggregated (to optimise storage), a user granted
 this role will not have access to the full range of charts. Take a look at the
 documentation for a full description of this new [user role](https://tyk.io/docs/basic-config-and-security/security/dashboard/user-roles/).
 
-## API as Integration
 
 ### Import API examples from within the Dashboard
 
