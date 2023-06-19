@@ -6,7 +6,9 @@ menu:
     parent: "Teams & Users"
 weight: 2
 aliases:
-  - tyk-cloud/teams-&-users/managing-teams
+  - /tyk-cloud/teams-&-users/managing-teams
+  - /tyk-cloud/teams--users/managing-teams
+  - /tyk-cloud/teams-users/managing-teams
 ---
 
 ## Introduction
