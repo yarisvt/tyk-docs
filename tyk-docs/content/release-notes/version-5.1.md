@@ -77,7 +77,7 @@ This will generate the full schema as well as the data sources that are defined 
 
 ### Changed default RPC pool size for MDCB deployments
 
-The default RPC pool size is changed from 20 to 5. This can reduce the CPU and
+We have reduced the default RPC pool size from 20 to 5. This can reduce the CPU and
 memory footprint on high throughput scenarios. Please monitor the CPU and memory
 allocation of your environment and adjust accordingly. You can change the pool
 size at
