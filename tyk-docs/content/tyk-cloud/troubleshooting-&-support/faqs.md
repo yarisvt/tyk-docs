@@ -8,7 +8,7 @@ menu:
 aliases:
   - tyk-cloud/troubleshooting-&-support/faqs
   - /tyk-cloud/troubleshooting--support/faqs
-  - /tyk-cloud/troubleshooting-and-support/faqs/
+  - /tyk-cloud/troubleshooting-and-support/faqs
 ---
 
 ## Introduction
