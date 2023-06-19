@@ -9,6 +9,8 @@ menu:
     parent: "Tyk Cloud"
 aliases:
   - /tyk-cloud/environments-&-deployments
+  - /tyk-cloud/environments--deployments
+  - /tyk-cloud/environments-deployments
 ---
 
 This section covers the administration of the various components of your Tyk Cloud installation:
