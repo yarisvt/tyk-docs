@@ -46,7 +46,7 @@ documentation for a full description of this new [user role](https://tyk.io/docs
 ### Import API examples from within the Dashboard
 
 In 5.0 we introduced the possibility to import API examples manually or via
-tyk-sync. We now extended this feature and it is now possible to do this without
+tyk-sync. We have now extended this feature and it is now possible to do this without
 leaving the Dashboard. When having an empty “Data Graphs” section you will be
 presented with 3 icon buttons with one of them offering you to import an Example
 API.
