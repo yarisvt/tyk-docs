@@ -60,7 +60,7 @@ example and import it as well from the same page.
 
 Before this release, it was only possible to implement nested GraphQL stitching
 (GraphQL data source inside another data source) by using a REST data source and
-providing the GraphQL body manually. We now extended the GraphQL data source so
+providing the GraphQL body manually. We have now extended the GraphQL data source so
 that you can provide a custom operation and therefore access arguments or object
 data from parent data sources.
 
