@@ -75,7 +75,6 @@ and converting it into a UDG API.
 
 This means it will generate the full schema as well as the data sources that are defined inside the OAS document.
 
-## Platform
 
 ### Changed default RPC pool size for MDCB deployments
 
