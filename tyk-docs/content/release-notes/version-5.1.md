@@ -8,7 +8,6 @@ weight: 1
 
 # What’s Changed?
 
-## Core APIM
 
 ### Tyk Gateway and Dashboard updated to Golang version 1.19
 
