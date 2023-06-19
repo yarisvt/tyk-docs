@@ -9,6 +9,7 @@ aliases:
   - /tyk-cloud/troubleshooting-support/glossary/
   - /tyk-cloud/glossary/
   - /tyk-cloud/troubleshooting-&-support/glossary
+  - /tyk-cloud/troubleshooting--support/glossary
 ---
 
 ## Introduction
