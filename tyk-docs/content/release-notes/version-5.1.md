@@ -8,7 +8,6 @@ weight: 1
 
 # What’s Changed?
 
-
 ### Tyk Gateway and Dashboard updated to Golang version 1.19
 
 Our Dashboard and Gateway are using [Golang 1.19](https://tip.golang.org/doc/go1.19) Programming Language starting with
@@ -41,7 +40,6 @@ the way the analytics data are aggregated (to optimise storage), a user granted
 this role will not have access to the full range of charts. Take a look at the
 documentation for a full description of this new [user role](https://tyk.io/docs/basic-config-and-security/security/dashboard/user-roles/).
 
-
 ### Import API examples from within the Dashboard
 
 In 5.0 we introduced the possibility to import API examples manually or via
@@ -73,7 +71,6 @@ We added a Dashboard API Endpoint that is capable of taking an OAS 3.x document
 and converting it into a UDG API.
 
 This will generate the full schema as well as the data sources that are defined inside the OAS document.
-
 
 ### Changed default RPC pool size for MDCB deployments
 
@@ -118,8 +115,8 @@ size using
 - Added screens in Dashboard New Graph flow, that allows users to choose between creating a graph from scratch or importing one of our example graphs
 - Added a screen to display details of a UDG example API
 - Added a feature to display a full tyk-sync command that will allow a user to import an example UDG into their Dashboard
-- Added an api/examples endpoint to Dashboard API that returns a list of available API examples that can later be imported into the Dasboard
-- Added an endpoint to Dashboard API that transforms an OpenAPI document into UDG config and publishes it in Dashboard
+- Added an api/examples endpoint to Dashboard API that returns a list of available API examples that can later be imported into the Dashboard `GET /api/examples`
+- Added an endpoint to Dashboard API that transforms an OpenAPI document into UDG config and publishes it in Dashboard `POST /api/data-graphs/data-sources/import`
 - Added query param `apidef=true` to example detail endpoint in Dashboard API to retrieve the API definition of an example
 - Added new `owned_analytics` user permission which restricts the user's access only to analytics relating to APIs they own. These are the _API Activity Dashboard Requests_ and _Average Errors Over Time_ charts in the Tyk Dashboard. Note that it is not currently possible to respect API Ownership in other aggregated charts
 
