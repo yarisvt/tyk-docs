@@ -80,7 +80,7 @@ This will generate the full schema as well as the data sources that are defined 
 We have reduced the default RPC pool size from 20 to 5. This can reduce the CPU and
 memory footprint on high throughput scenarios. Please monitor the CPU and memory
 allocation of your environment and adjust accordingly. You can change the pool
-size at
+size using
 [slave_options.rpc_pool_size](https://tyk.io/docs/tyk-oss-gateway/configuration/#slave_optionsrpc_pool_size)
 
 # Changelog
