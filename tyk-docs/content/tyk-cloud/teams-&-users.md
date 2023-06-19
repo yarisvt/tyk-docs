@@ -7,8 +7,8 @@ menu:
     parent: "Tyk Cloud"
 aliases:
   - /tyk-cloud/teams-&-users
-  - /tyk-cloud/teams-and-users
   - /tyk-cloud/teams--users
+  - /tyk-cloud/teams-users
 ---
 
 This section covers the following:
