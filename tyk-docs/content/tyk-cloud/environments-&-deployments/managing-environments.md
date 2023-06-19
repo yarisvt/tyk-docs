@@ -9,7 +9,6 @@ menu:
 weight: 2
 aliases:
   - /tyk-cloud/environments-&-deployments/managing-environments
-  - /tyk-cloud/environments--deployments/managing-environments
   - /tyk-cloud/environments-deployments/managing-environments
 ---
 
