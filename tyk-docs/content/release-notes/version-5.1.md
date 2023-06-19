@@ -160,7 +160,7 @@ size at
 
 ### Changed
 
-- Improve performance when opening the portal page by pre-fetching required data by a few calls instead of thousands.
+- Improved performance when opening the Portal page by optimising the pre-fetching of required data
 
 # Updated Versions
 
