@@ -6,7 +6,8 @@ menu:
   main:
     parent: "Troubleshooting & Support"
 aliases:
-  - tyk-cloud/troubleshooting-&-support/faqs
+  - /tyk-cloud/troubleshooting--support/faqs/
+  - /tyk-cloud/troubleshooting-and-support/faqs/
 ---
 
 ## Introduction
