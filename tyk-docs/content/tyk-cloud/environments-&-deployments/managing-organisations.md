@@ -10,7 +10,7 @@ weight: 1
 aliases:
   - /tyk-cloud/environments-&-deployments/managing-organisations
   - /tyk-cloud/environments--deployments/managing-organisations
-  - /tyk-cloud/environments-and-deployments/managing-organisations
+  - /tyk-cloud/environments-deployments/managing-organisations
 ---
 
 ## Introduction
