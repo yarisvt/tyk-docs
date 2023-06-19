@@ -72,7 +72,7 @@ the “Add GraphQL operation“ checkbox when creating a GraphQL data source.
 We added a Dashboard API Endpoint that is capable of taking an OAS 3.x document
 and converting it into a UDG API.
 
-This means it will generate the full schema as well as the data sources that are defined inside the OAS document.
+This will generate the full schema as well as the data sources that are defined inside the OAS document.
 
 
 ### Changed default RPC pool size for MDCB deployments
