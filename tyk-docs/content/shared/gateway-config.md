@@ -379,6 +379,12 @@ Type: `string`<br />
 
 Set the URL to your Dashboard instance (or a load balanced instance). The URL needs to be formatted as: `http://dashboard_host:port`
 
+### db_app_conf_options.connection_timeout
+EV: <b>TYK_GW_DBAPPCONFOPTIONS_CONNECTIONTIMEOUT</b><br />
+Type: `int`<br />
+
+Set the timeout for your Dashboard connection. Defaults to 30 seconds. In seconds.
+
 ### db_app_conf_options.node_is_segmented
 EV: <b>TYK_GW_DBAPPCONFOPTIONS_NODEISSEGMENTED</b><br />
 Type: `bool`<br />
