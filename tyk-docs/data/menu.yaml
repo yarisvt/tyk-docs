@@ -6,9 +6,6 @@ menu:
     - title: "Tyk API Gateway Documentation"
       path: /
       category: Page
-    - title: "Cloud Support SLA Policies"
-      path: /frequently-asked-questions/sla-policies
-      category: Page
   - title: "Deployment and Operations"
     path: /apim
     category: Tab
@@ -23,11 +20,8 @@ menu:
       category: Directory
       menu:
       - title: "Overview"
-        category: Directory
-        menu:
-        - title: "Tyk Open Source"
-          path: /apim/open-source
-          category: Page
+        path: /apim/open-source
+        category: Page
       - title: "Getting Started"
         category: Page
       - title: "Installation"
@@ -106,7 +100,7 @@ menu:
         - title: "What we covered"
           path: /tyk-cloud/getting-started-tyk-cloud/to-conclude
           category: Page
-      - title: "Day 0 - Planning Phase"
+      - title: "Day 0 - Planning"
         category: Directory
         menu:
         - title: "Availability of infrastructure"
@@ -118,9 +112,6 @@ menu:
         - title: "Environments and deployments"
           category: Page
         - title: "Teams and users"
-          category: Page
-        - title: "Initial Portal Configuration"
-          path: /tyk-cloud/initial-portal-config
           category: Page
       - title: "Day 1 - Deployment in production"
         category: Directory
@@ -251,7 +242,7 @@ menu:
         - title: "Dashboard on Red Hat (RHEL) / CentOS"
           path: /tyk-on-prem/installation/redhat-rhel-centos/dashboard
           category: Page
-      - title: "Day 0 - Planning Phase"
+      - title: "Day 0 - Planning "
         category: Directory
         menu:
         - title: "Design for high availability and performance"
@@ -375,13 +366,54 @@ menu:
       - title: "Securely deploy a REST API"
         category: Page
       - title: "OpenAPI Specification"
-        category: Page
+        category: Directory
+        menu:
+        - title: "Using OAS API Definitions"
+          path: /getting-started/using-oas-definitions
+          category: Page
+        - title: "Create an OAS API"
+          path: /getting-started/using-oas-definitions/create-an-oas-api
+          category: Page
+        - title: "Export an OAS API"
+          path: /getting-started/using-oas-definitions/export-an-oas-api
+          category: Page
+        - title: "Get started with OAS and VS Code"
+          path: /getting-started/using-oas-definitions/get-started-oas
+          category: Page
+        - title: "Import an OAS API"
+          path: /getting-started/using-oas-definitions/import-an-oas-api
+          category: Page
+        - title: "Mock Response"
+          path: /getting-started/using-oas-definitions/mock-response
+          category: Page
+        - title: "Moving to OAS from Tyk Classic APIs"
+          path: /getting-started/using-oas-definitions/moving-to-oas
+          category: Page
+        - title: "OAS Glossary"
+          path: /getting-started/using-oas-definitions/oas-glossary
+          category: Page
+        - title: "OAS Reference"
+          path: /getting-started/using-oas-definitions/oas-reference
+          category: Page
+        - title: "Update existing Tyk API with changes in your OpenAPI definition"
+          path: /getting-started/using-oas-definitions/update-api-with-oas
+          category: Page
+        - title: "Versioning an OAS API"
+          path: /getting-started/using-oas-definitions/versioning-an-oas-api
+          category: Page
       - title: "Publish your first API through the Developer Portal"
         category: Page
       - title: "Add a Kafka data source"
         category: Page
       - title: "Tyk Local Demo library"
-        category: Page
+        category: Directory
+        menu:
+        - title: "Quick Start in Docker"
+          path: /getting-started/quick-start/tyk-demo
+          category: Page
+        - title: "Quick Start in Kubernetes"
+          path: /getting-started/quick-start/tyk-k8s-demo
+          category: Page
       - title: "Install"
         path: /getting-started/installation
         category: Page
@@ -890,9 +922,6 @@ menu:
             - title: "Integrate with JWT"
               path: /advanced-configuration/integrate/api-auth-mode/json-web-tokens
               category: Page
-            - title: "Worked Example - API with OpenIDC Using Auth0"
-              path: /advanced-configuration/integrate/api-auth-mode/oidc-auth0-example
-              category: Page
             - title: "Integrate with OIDC"
               path: /advanced-configuration/integrate/api-auth-mode/open-id-connect
               category: Page
@@ -1058,9 +1087,6 @@ menu:
       - title: "API Documentation"
         category: Directory
         menu:
-        - title: "Overview"
-          category: Directory
-          menu:
         - title: "Tyk Native API Definition"
           category: Directory
           menu:
@@ -1712,7 +1738,7 @@ menu:
         - title: "Portal Customisation"
           category: Directory
           menu:
-          - title: "Full Customisation"
+          - title: "Complete Customisation"
             category: Directory
             menu:
             - title: "Content Manager Workflow"
@@ -1739,11 +1765,11 @@ menu:
             - title: "Menus Customisation"
               path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/customise-enterprise-portal/full-customisation/menus-customisation
               category: Page
+            - title: "Quick Customisation"
+              path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/customise-enterprise-portal/quick-customisation
+              category: Page
           - title: "Customise the Enterprise Portal"
             path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/customise-enterprise-portal/customise-enterprise-portal
-            category: Page
-          - title: "Quick Customisation"
-            path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/customise-enterprise-portal/quick-customisation
             category: Page
       - title: "API Documentation"
         category: Directory
@@ -1811,6 +1837,9 @@ menu:
           category: Page
         - title: "MDCB v2.1"
           path: /release-notes/mdcb-2.1
+          category: Page
+        - title: "MDCB v2.2"
+          path: /release-notes/mdcb-2.2/
           category: Page
     - title: "Universal Data Graph"
       category: Directory
@@ -2116,7 +2145,7 @@ menu:
     - title: "Performance Benchmarking"
       category: Directory
       menu:
-    - title: "Troubleshooting and FAQ"
+    - title: "Frequently Asked Questions "
       category: Directory
       menu:
       - title: "Frequently Asked Questions"
@@ -2127,6 +2156,9 @@ menu:
         category: Page
       - title: "Long Term Support Releases"
         path: /frequently-asked-questions/long-term-support-releases
+        category: Page
+      - title: "Cloud Support SLA Policies"
+        path: /frequently-asked-questions/sla-policies
         category: Page
       - title: "Using Early Access Features"
         path: /frequently-asked-questions/using-early-access-features
@@ -2154,6 +2186,12 @@ menu:
       - title: "Tyk Environment Variables"
         path: /tyk-environment-variables
         category: Page
+  - title: "Delete Page"
+    category: Directory
+    menu:
+  - title: ""
+    category: 
+    menu:
   - title: "APIM Best Practice"
     path: /getting-started/key-concepts
     category: Tab
@@ -2312,9 +2350,6 @@ menu:
     - title: "Troubleshooting"
       path: /troubleshooting/
       category: Page
-    - title: "MDCB v2.2"
-      path: /release-notes/mdcb-2.2/
-      category: Page
     - title: "Tyk Analytics Record Fields"
       path: /tyk-stack/tyk-pump/tyk-analytics-record-fields/
       category: Page
@@ -2329,6 +2364,9 @@ menu:
       category: Page
     - title: "Cloud Classic Virtual Endpoints not working"
       path: /frequently-asked-questions/cloud-classic-virtual-endpoints-not-working/
+      category: Page
+    - title: "Worked Example - API with OpenIDC Using Auth0"
+      path: /advanced-configuration/integrate/api-auth-mode/oidc-auth0-example/
       category: Page
     - title: "Orphan pages"
       path: /orphan/
