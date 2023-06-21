@@ -262,10 +262,12 @@ with open(pages_path, "r") as file:
         parts = data[2].split(" --> ")
         current_level = tree
         found = True
+
         for i, part in enumerate(parts):
             found = False
+            lowercase_part = part.lower()
             for node in current_level:
-                if node["name"] == part:
+                if node["name"].lower() == lowercase_part:
                     current_level = node["children"]
                     found = True
                     break
