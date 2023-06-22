@@ -52,6 +52,7 @@ fileMaybeDelete = outputFileName + "-maybeDelete.txt"
 fileDoesntExists = outputFileName + "-doesntExists.txt"
 fileUrlCheckNoTitle = outputFileName + "-urlcheck-noTitle.txt"
 fileUrlCheckAliases = outputFileName + "-urlcheck-aliases.txt"
+fileCaseInsensitiveMatches = outputFileName + "-urlcheck-caseInsensitiveMatches.txt"
 fileMenu = "./tyk-docs/data/menu.yaml"
 
 # Open the output files
@@ -63,6 +64,7 @@ openDoesntExists = open(fileDoesntExists, "w")
 openFileMenu = open(fileMenu, "w")
 openUrlCheckNoTitle = open(fileUrlCheckNoTitle, "w")
 openUrlCheckAliases = open(fileUrlCheckAliases, "w")
+openCaseInsensitiveMatches = open(fileCaseInsensitiveMatches, "w")
 
 #
 # Mapping of paths in urlcheck to title
@@ -267,9 +269,17 @@ with open(pages_path, "r") as file:
             found = False
             lowercase_part = part.lower()
             for node in current_level:
-                if node["name"].lower() == lowercase_part:
+                if node["name"] == part:
                     current_level = node["children"]
                     found = True
+                    break
+                elif node["name"].lower() == lowercase_part:
+                    current_level = node["children"]
+                    found = True
+                    print(
+                        f"Databank = {node['name']}    Page List = {part}",
+                        file=openCaseInsensitiveMatches,
+                    )
                     break
 
         if found:
@@ -344,3 +354,4 @@ openOrphanFile.close()
 openMaybeDelete.close()
 openFileMenu.close()
 openUrlCheckNoTitle.close()
+openCaseInsensitiveMatches.close()
