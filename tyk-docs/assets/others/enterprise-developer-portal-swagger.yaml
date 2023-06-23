@@ -1,0 +1,4839 @@
+openapi: 3.0.1
+info:
+  title: Tyk Enterprise Developer Portal admin API
+  description: |-
+    ## <a name="introduction"></a> Introduction
+    The Tyk Enterpise Developer Portal API offers programmatic access to all portal resources that your instance of the portal manages. This API  repeats functionality of the user interface and enables APIs consumers integrating their portal instances with their other IT systems such as billings, CRMs, ITSM systems and other software.
+    
+    ## Authentication
+    This API uses admin authorization token that is available for admin users of the portal in the profile page.
+  version: "v1.5.0"
+servers:
+  - url: 'http://localhost:3001'
+tags:
+  - name: Providers
+    description: API Providers connected to this portal instance
+  - name: Users
+    description: Portal admins and API consumers
+  - name: Organisations
+    description: Organisation of API consumers and the portal admins
+  - name: Teams
+    description: Teams of API consumers and the portal admins
+  - name: Products
+    description: Marketing description and visibility of the API Products surfaced in this portal instance
+  - name: Tutorials for API Products
+    description: Tutorials that are defined for the API products
+  - name: API documentation for API Products
+    description: OpenAPI specs for APIs included into the API Prodcuts
+  - name: Plans
+    description: Marketing description and visibility settings of usage plans defined in this portal instance
+  - name: Catalogues
+    description: Catalogues of API Products listed on this portal instance
+  - name: Catalogue audiences
+    description: Audience management
+  - name: Access requests
+    description: Access requests to API Products
+  - name: Applications and credentials
+    description: "Developer applications and API credential for develoeprs"
+  - name: Portal configuration
+    description: "Show the current portal configuration"
+  - name: Pages and content
+    description: "Pages and content on the pages"
+  - name: Themes
+    description: "Management of the portal's visual themes"
+paths:
+  /access_requests:
+    get:
+      description: List all access requests that exist in the portal
+      operationId: /access_requests-GET
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessRequest-index'
+          description: OK
+      security: []
+      summary: List all access requests
+      tags:
+        - Access requests
+    post:
+      description: Create a new access request
+      operationId: /access_requests-POST
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccessRequest-create'
+        description: ""
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessRequest-show'
+          description: OK
+      security: []
+      summary: Create a new access request
+      tags:
+        - Access requests
+  /access_requests/{access_request_id}:
+    delete:
+      description: This endpoint deletes an access request. If an access request is approved, its credentials will be revoked and removed from a gateway or an Identity provider
+      operationId: /access_requests/:access_request_id-DELETE
+      parameters:
+        - description: ""
+          in: path
+          name: access_request_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessRequest-show'
+          description: OK
+      security: []
+      summary: Delete an access request
+      tags:
+        - Access requests
+    get:
+      description: Get an access request's data
+      operationId: /access_requests/:access_request_id-GET
+      parameters:
+        - description: ""
+          in: path
+          name: access_request_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessRequest-show'
+          description: OK
+      security: []
+      summary: Get an access request's data
+      tags:
+        - Access requests
+  /access_requests/{access_request_id}/approve:
+    put:
+      description: This endpoint trigger approval of an access request. A call to this API will trigger creation of credentials in a gateway or an Identity Provider
+      operationId: /access_requests/:access_request_id/approve-PUT
+      parameters:
+        - description: ""
+          in: path
+          name: access_request_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      responses: {}
+      security: []
+      summary: Approve an access request
+      tags:
+        - Access requests
+  /access_requests/{access_request_id}/reject:
+    put:
+      description: Reject an access request
+      operationId: /access_requests/:access_request_id/reject-PUT
+      parameters:
+        - description: ""
+          in: path
+          name: access_request_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      responses: {}
+      security: []
+      summary: Reject an access request
+      tags:
+        - Access requests
+  /apps:
+    get:
+      description: List all developer application
+      operationId: /apps-GET
+      parameters: []
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Client-index'
+          description: OK
+      security: []
+      summary: List all developer application that exist in the portal
+      tags:
+        - Applications and credentials
+    post:
+      description: Create a new developer application
+      operationId: /apps-POST
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Client-create'
+        description: ""
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Client-show'
+          description: OK
+      security: []
+      summary: Create a new developer application
+      tags:
+        - Applications and credentials
+  /apps/{app_id}:
+    delete:
+      description: Delete an application. The application, all its access requests, and credentials will be removed. Also, it will trigger removal of all credentials that belong to this application from a gateway or / and an Identity Provider
+      operationId: /apps/:app_id-DELETE
+      parameters:
+        - description: ""
+          in: path
+          name: app_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Client-show'
+          description: OK
+      security: []
+      summary: Delete an application
+      tags:
+        - Applications and credentials
+    get:
+      description: Get an application's data
+      operationId: /apps/:app_id-GET
+      parameters:
+        - description: ""
+          in: path
+          name: app_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Client-show'
+          description: OK
+      security: []
+      summary: Get an application's data
+      tags:
+        - Applications and credentials
+    put:
+      description: This endpoint updates an application's data such as its name, description, redirect URI, and the user to whom this application belongs
+      operationId: /apps/:app_id-PUT
+      parameters:
+        - description: ""
+          in: path
+          name: app_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Client-update'
+        description: ""
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Client-show'
+          description: OK
+      security: []
+      summary: Update an application
+      tags:
+        - Applications and credentials
+  /apps/{app_id}/access-requests:
+    get:
+      description: List all access requests for this application
+      operationId: /apps/:app_id/access-requests-GET
+      parameters:
+        - description: ""
+          in: path
+          name: app_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessRequest-index'
+          description: OK
+      security: []
+      summary: List all access requests for this application
+      tags:
+        - Applications and credentials
+  /apps/{app_id}/access-requests/{access-request_id}:
+    delete:
+      description: This endpoint deletes an access request. If this access request was approved and has any credenitals attached to it then all of them will be removed and revoked in a gateway on an Identity provider
+      operationId: /apps/:app_id/access-requests/:access-request_id-DELETE
+      parameters:
+        - description: ""
+          in: path
+          name: access-request_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+        - description: ""
+          in: path
+          name: app_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessRequest-show'
+          description: OK
+      security: []
+      summary: Delete an access request
+      tags:
+        - Applications and credentials
+    get:
+      description: Get an access request's data
+      operationId: /apps/:app_id/access-requests/:access-request_id-GET
+      parameters:
+        - description: ""
+          in: path
+          name: access-request_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+        - description: ""
+          in: path
+          name: app_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessRequest-show'
+          description: OK
+      security: []
+      summary: Get an access request's data
+      tags:
+        - Applications and credentials
+  /apps/{app_id}/access-requests/{access-request_id}/credentials:
+    get:
+      description: List credentials from a specific access request for this app
+      operationId: /apps/:app_id/access-requests/:access-request_id/credentials-GET
+      parameters:
+        - description: ""
+          in: path
+          name: access-request_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+        - description: ""
+          in: path
+          name: app_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Credential-index'
+          description: OK
+      security: []
+      summary: List credentials for an access request
+      tags:
+        - Applications and credentials
+  /apps/{app_id}/access-requests/{access-request_i}/credentials/{credential_id}:
+    delete:
+      description: This endpoint deletes a credentials and removes an API key from the gateway or an oAuth2.0 client from the IdP
+      operationId: /apps/:app_id/access-requests/:access-request_id/credentials/:credential_id-DELETE
+      parameters:
+        - description: ""
+          in: path
+          name: credential_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+        - description: ""
+          in: path
+          name: access-request_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+        - description: ""
+          in: path
+          name: app_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Credential-show'
+          description: OK
+      security: []
+      summary: Delete a credential from an access request
+      tags:
+        - Applications and credentials
+    get:
+      description: Get a credential by its ID
+      operationId: /apps/:app_id/access-requests/:access-request_id/credentials/:credential_id-GET
+      parameters:
+        - description: ""
+          in: path
+          name: credential_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+        - description: ""
+          in: path
+          name: access-request_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+        - description: ""
+          in: path
+          name: app_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Credential-show'
+          description: OK
+      security: []
+      summary: Get a credential by its ID
+      tags:
+        - Applications and credentials
+  /apps/{app_id}/provision:
+    put:
+      description: Create a new access request for this application
+      operationId: /apps/:app_id/provision-PUT
+      parameters:
+        - description: ""
+          in: path
+          name: app_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      responses: {}
+      security: []
+      summary: Create a new access request for this application
+      tags:
+        - Applications and credentials
+  /catalogues:
+    get:
+      description: List all catalogues that exist in the portal
+      operationId: /catalogues-GET
+      parameters: []
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Catalogue-index'
+          description: OK
+      security: []
+      summary: List all catalogues
+      tags:
+        - Catalogues
+    post:
+      description: Create a new catalogue
+      operationId: /catalogues-POST
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Catalogue-create'
+        description: ""
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Catalogue-show'
+          description: OK
+      security: []
+      summary: Create a new catalogue
+      tags:
+        - Catalogues
+  /catalogues/{catalogue_id}:
+    delete:
+      description: This endpoint deletes a catalogue. When a catalog is deleted, all of its audiences are also deleted
+      operationId: /catalogues/:catalogue_id-DELETE
+      parameters:
+        - description: ""
+          in: path
+          name: catalogue_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Catalogue-show'
+          description: OK
+      security: []
+      summary: Delete a catalogue
+      tags:
+        - Catalogues
+    get:
+      description: Get a catalogue
+      operationId: /catalogues/:catalogue_id-GET
+      parameters:
+        - description: ""
+          in: path
+          name: catalogue_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Catalogue-show'
+          description: OK
+      security: []
+      summary: Get a catalogue
+      tags:
+        - Catalogues
+    put:
+      description: Update a catalogue's data such as name and visibility settings
+      operationId: /catalogues/:catalogue_id-PUT
+      parameters:
+        - description: ""
+          in: path
+          name: catalogue_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Catalogue-update'
+        description: ""
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Catalogue-show'
+          description: OK
+      security: []
+      summary: Update a catalogue
+      tags:
+        - Catalogues
+  /catalogues/{catalogue_id}/audiences:
+    get:
+      description: List audiences for this catalogue
+      operationId: /catalogues/:catalogue_id/audiences-GET
+      parameters:
+        - description: ""
+          in: path
+          name: catalogue_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganisationCatalogue-index'
+          description: OK
+      security: []
+      summary: List audiences for this catalogue
+      tags:
+        - Catalogue audiences
+    post:
+      description: Add a new audience to this catalogue. Please note that if the catalog's visibility is set to 'public', the audiences will be ignored
+      operationId: /catalogues/:catalogue_id/audiences-POST
+      parameters:
+        - description: ""
+          in: path
+          name: catalogue_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrganisationCatalogue-create'
+        description: ""
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganisationCatalogue-show'
+          description: OK
+      security: []
+      summary: Add a new audience to this catalogue
+      tags:
+        - Catalogue audiences
+  /catalogues/{catalogue_id}/audiences/{audience_id}:
+    delete:
+      description: Remove an audience from this catalog. Please note that if the catalog's visibility is set to 'public', the audiences will be ignored
+      operationId: /catalogues/:catalogue_id/audiences/:audience_id-DELETE
+      parameters:
+        - description: ""
+          in: path
+          name: audience_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+        - description: ""
+          in: path
+          name: catalogue_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganisationCatalogue-show'
+          description: OK
+      security: []
+      summary: Remove an audience from a catalog
+      tags:
+        - Catalogue audiences
+    get:
+      description: List all audience for this catalogue
+      operationId: /catalogues/:catalogue_id/audiences/:audience_id-GET
+      parameters:
+        - description: ""
+          in: path
+          name: audience_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+        - description: ""
+          in: path
+          name: catalogue_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganisationCatalogue-show'
+          description: OK
+      security: []
+      summary: List all audience for this catalogue
+      tags:
+        - Catalogue audiences
+  /configs:
+    get:
+      description: View the current configuration of the portal
+      operationId: /configs-GET
+      parameters: []
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Settings-index'
+          description: OK
+      security: []
+      summary: Get the portal config
+      tags:
+        - Portal configuration
+  /organisations:
+    get:
+      description: List all developer organisations
+      operationId: /organisations-GET
+      parameters: []
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Organisation-index'
+          description: OK
+      security: []
+      summary: List all developer organisations
+      tags:
+        - Organisations
+    post:
+      description: Create a new developer organisation
+      operationId: /organisations-POST
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Organisation-create'
+        description: ""
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Organisation-show'
+          description: OK
+      security: []
+      summary: Create a new developer organisation
+      tags:
+        - Organisations
+  /organisations/{organisation_id}:
+    delete:
+      description: Please note that this endpoint deletes an organisation but not its developers. When an organization is deleted, all users are moved to the Default organization. To completely erase an organization and all its users, delete the users first
+      operationId: /organisations/:organisation_id-DELETE
+      parameters:
+        - description: ""
+          in: path
+          name: organisation_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Organisation-show'
+          description: OK
+      security: []
+      summary: Delete an organisation
+      tags:
+        - Organisations
+    get:
+      description: Get an organisation
+      operationId: /organisations/:organisation_id-GET
+      parameters:
+        - description: ""
+          in: path
+          name: organisation_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Organisation-show'
+          description: OK
+      security: []
+      summary: Get an organisation
+      tags:
+        - Organisations
+    put:
+      description: Update an organisation's data. At this point, you can change only the name of an organisation
+      operationId: /organisations/:organisation_id-PUT
+      parameters:
+        - description: ""
+          in: path
+          name: organisation_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Organisation-update'
+        description: ""
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Organisation-show'
+          description: OK
+      security: []
+      summary: Update an organisation
+      tags:
+        - Organisations
+  /organisations/{organisation_id}/teams:
+    get:
+      description: List all teams for an organisation
+      operationId: /organisations/:organisation_id/teams-GET
+      parameters:
+        - description: ""
+          in: path
+          name: organisation_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Team-index'
+          description: OK
+      security: []
+      summary: List all teams for an organisation
+      tags:
+        - Teams
+    post:
+      description: Create a new team for an organisation
+      operationId: /organisations/:organisation_id/teams-POST
+      parameters:
+        - description: ""
+          in: path
+          name: organisation_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Team-create'
+        description: ""
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Team-show'
+          description: OK
+      security: []
+      summary: Create a new team for an organisation
+      tags:
+        - Teams
+  /organisations/{organisation_id}/teams/{team_id}:
+    delete:
+      description: This endpoint deletes a team from an organisation. Please note that developers that belong to that team won't be removed. Instead, they will moved to the default team of that organization
+      operationId: /organisations/:organisation_id/teams/:team_id-DELETE
+      parameters:
+        - description: ""
+          in: path
+          name: team_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+        - description: ""
+          in: path
+          name: organisation_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Team-show'
+          description: OK
+      security: []
+      summary: Delete a team from an organisation
+      tags:
+        - Teams
+    get:
+      description: Get teams for an organisation
+      operationId: /organisations/:organisation_id/teams/:team_id-GET
+      parameters:
+        - description: ""
+          in: path
+          name: team_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+        - description: ""
+          in: path
+          name: organisation_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Team-show'
+          description: OK
+      security: []
+      summary: Get teams for an organisation
+      tags:
+        - Teams
+    put:
+      description: Update a team for an organisation by add or remove users, or changing the name of the team
+      operationId: /organisations/:organisation_id/teams/:team_id-PUT
+      parameters:
+        - description: ""
+          in: path
+          name: team_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+        - description: ""
+          in: path
+          name: organisation_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Team-update'
+        description: ""
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Team-show'
+          description: OK
+      security: []
+      summary: Update a team for an organisation
+      tags:
+        - Teams
+  /pages:
+    get:
+      description: List all content pages. This doesn't include blog posts and API Products
+      operationId: /pages-GET
+      parameters: []
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Page-index'
+          description: OK
+      security: []
+      summary: List all content pages
+      tags:
+        - Pages and content
+    post:
+      description: Create a new content page
+      operationId: /pages-POST
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Page-create'
+        description: ""
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Page-show'
+          description: OK
+      security: []
+      summary: Create a new content page
+      tags:
+        - Pages and content
+  /pages/{page_id}:
+    delete:
+      description: Delete a page
+      operationId: /pages/:page_id-DELETE
+      parameters:
+        - description: ""
+          in: path
+          name: page_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Page-show'
+          description: OK
+      security: []
+      summary: Delete a page
+      tags:
+        - Pages and content
+    get:
+      description: Get a page
+      operationId: /pages/:page_id-GET
+      parameters:
+        - description: ""
+          in: path
+          name: page_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Page-show'
+          description: OK
+      security: []
+      summary: Get a page
+      tags:
+        - Pages and content
+    put:
+      description: Update a page including title. path, and status
+      operationId: /pages/:page_id-PUT
+      parameters:
+        - description: ""
+          in: path
+          name: page_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Page-update'
+        description: ""
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Page-show'
+          description: OK
+      security: []
+      summary: Update a page
+      tags:
+        - Pages and content
+  /pages/{page_id}/content-blocks:
+    get:
+      description: List all content blocks which are displayed on this page
+      operationId: /pages/:page_id/content-blocks-GET
+      parameters:
+        - description: ""
+          in: path
+          name: page_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContentBlock-index'
+          description: OK
+      security: []
+      summary: List all content blocks which are displayed on this page
+      tags:
+        - Pages and content
+    post:
+      description: Create a new content block for on page
+      operationId: /pages/:page_id/content-blocks-POST
+      parameters:
+        - description: ""
+          in: path
+          name: page_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContentBlock-create'
+        description: ""
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContentBlock-show'
+          description: OK
+      security: []
+      summary: Create a new content block for on page
+      tags:
+        - Pages and content
+  /pages/{page_id}/content-blocks/{content-block_id}:
+    delete:
+      description: Delete a content blocks from this page
+      operationId: /pages/:page_id/content-blocks/:content-block_id-DELETE
+      parameters:
+        - description: ""
+          in: path
+          name: content-block_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+        - description: ""
+          in: path
+          name: page_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContentBlock-show'
+          description: OK
+      security: []
+      summary: Delete a content blocks from this page
+      tags:
+        - Pages and content
+    get:
+      description: Get a content block
+      operationId: /pages/:page_id/content-blocks/:content-block_id-GET
+      parameters:
+        - description: ""
+          in: path
+          name: content-block_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+        - description: ""
+          in: path
+          name: page_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContentBlock-show'
+          description: OK
+      security: []
+      summary: Get a content block
+      tags:
+        - Pages and content
+    put:
+      description: Update a content block including the content itself and the name
+      operationId: /pages/:page_id/content-blocks/:content-block_id-PUT
+      parameters:
+        - description: ""
+          in: path
+          name: content-block_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+        - description: ""
+          in: path
+          name: page_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContentBlock-update'
+        description: ""
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContentBlock-show'
+          description: OK
+      security: []
+      summary: Update a content block
+      tags:
+        - Pages and content
+  /plans:
+    get:
+      description: List all plans available in the portal
+      operationId: /plans-GET
+      parameters: []
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Plan-index'
+          description: OK
+      security: []
+      summary: List all plans
+      tags:
+        - Plans
+  /plans/{plan_id}:
+    get:
+      description: Get a plan
+      operationId: /plans/:plan_id-GET
+      parameters:
+        - description: ""
+          in: path
+          name: plan_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Plan-show'
+          description: OK
+      security: []
+      summary: Get a plan
+      tags:
+        - Plans
+    put:
+      description: Update a plan including catalogue name, description, and oAuth2.0 scope
+      operationId: /plans/:plan_id-PUT
+      parameters:
+        - description: ""
+          in: path
+          name: plan_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Plan-update'
+        description: ""
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Plan-show'
+          description: OK
+      security: []
+      summary: Update a plan
+      tags:
+        - Plans
+  /products:
+    get:
+      description: List all products available in the portal
+      operationId: /products-GET
+      parameters: []
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product-index'
+          description: OK
+      security: []
+      summary: List all products
+      tags:
+        - Products
+  /products/{product_id}:
+    get:
+      description: Get a product
+      operationId: /products/:product_id-GET
+      parameters:
+        - description: ""
+          in: path
+          name: product_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product-show'
+          description: OK
+      security: []
+      summary: Get a product
+      tags:
+        - Products
+    put:
+      description: "Update a product including marketing description, display name, oAuth2.0 scope, and path"
+      operationId: /products/:product_id-PUT
+      parameters:
+        - description: ""
+          in: path
+          name: product_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product-update'
+        description: ""
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product-show'
+          description: OK
+      security: []
+      summary: Update a product
+      tags:
+        - Products
+  /products/{product_id}/api-details:
+    get:
+      description: List all APIs included in this API Product
+      operationId: /products/:product_id/api-details-GET
+      parameters:
+        - description: ""
+          in: path
+          name: product_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIDetail-index'
+          description: OK
+      security: []
+      summary: List all APIs included in this API Product
+      tags:
+        - API documentation for API Products
+  /products/{product_id}/api-details/{api-detail_id}:
+    get:
+      description: Get description of an API
+      operationId: /products/:product_id/api-details/:api-detail_id-GET
+      parameters:
+        - description: ""
+          in: path
+          name: api-detail_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+        - description: ""
+          in: path
+          name: product_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIDetail-show'
+          description: OK
+      security: []
+      summary: Get description of an API
+      tags:
+        - API documentation for API Products
+    put:
+      description: Update description of an API including name, OAS URL, and description
+      operationId: /products/:product_id/api-details/:api-detail_id-PUT
+      parameters:
+        - description: ""
+          in: path
+          name: api-detail_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+        - description: ""
+          in: path
+          name: product_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/APIDetail-update'
+        description: ""
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIDetail-show'
+          description: OK
+      security: []
+      summary: Update description of an API
+      tags:
+        - API documentation for API Products
+  /products/{product_id}/docs:
+    get:
+      description: List all tutorial for this API Product
+      operationId: /products/:product_id/docs-GET
+      parameters:
+        - description: ""
+          in: path
+          name: product_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post-index'
+          description: OK
+      security: []
+      summary: List all tutorial for this API Product
+      tags:
+        - Tutorials for API Products
+    post:
+      description: Create a new tutorial page for this API Product
+      operationId: /products/:product_id/docs-POST
+      parameters:
+        - description: ""
+          in: path
+          name: product_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Post-create'
+        description: ""
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post-show'
+          description: OK
+      security: []
+      summary: Create a new tutorial page for this API Product
+      tags:
+        - Tutorials for API Products
+  /products/{product_id}/docs/{doc_id}:
+    delete:
+      description: Delete a tutorial page from this API Product
+      operationId: /products/:product_id/docs/:doc_id-DELETE
+      parameters:
+        - description: ""
+          in: path
+          name: doc_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+        - description: ""
+          in: path
+          name: product_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post-show'
+          description: OK
+      security: []
+      summary: Delete a tutorial page from this API Product
+      tags:
+        - Tutorials for API Products
+    get:
+      description: Get a tutorial page
+      operationId: /products/:product_id/docs/:doc_id-GET
+      parameters:
+        - description: ""
+          in: path
+          name: doc_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+        - description: ""
+          in: path
+          name: product_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post-show'
+          description: OK
+      security: []
+      summary: Get a tutorial page
+      tags:
+        - Tutorials for API Products
+    put:
+      description: Update a tutorial page including its metadata and content
+      operationId: /products/:product_id/docs/:doc_id-PUT
+      parameters:
+        - description: ""
+          in: path
+          name: doc_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+        - description: ""
+          in: path
+          name: product_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Post-update'
+        description: ""
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post-show'
+          description: OK
+      security: []
+      summary: Update a tutorial page
+      tags:
+        - Tutorials for API Products
+  /products/{product_id}/docs/reorder:
+    post:
+      description: Change order of tutorial pages in an API Product
+      operationId: /products/:product_id/docs/reorder-POST
+      parameters:
+        - description: ""
+          in: path
+          name: doc_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+        - description: ""
+          in: path
+          name: product_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      responses: {}
+      security: []
+      summary: Change order of tutorial pages
+      tags:
+        - Tutorials for API Products
+  /providers:
+    get:
+      description: List all API Providers connected to this portal instance
+      operationId: /providers-GET
+      parameters: []
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Provider-index'
+          description: OK
+      security: []
+      summary: List all API Providers
+      tags:
+        - Providers
+    post:
+      description: Create a new API Provider. The new API Provider will have the 'Unknows' synchronization status until the first synchronization attempt
+      operationId: /providers-POST
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Provider-create'
+        description: ""
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Provider-show'
+          description: OK
+      security: []
+      summary: Create a new API Provider
+      tags:
+        - Providers
+  /providers/{provider_id}:
+    delete:
+      description: This endpoint delete an API Provider provider and removes all assests related to it such as API Products and Plans
+      operationId: /providers/:provider_id-DELETE
+      parameters:
+        - description: ""
+          in: path
+          name: provider_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Provider-show'
+          description: OK
+      security: []
+      summary: Delete an API Provider
+      tags:
+        - Providers
+    get:
+      description: Get an API Provider configuration
+      operationId: /providers/:provider_id-GET
+      parameters:
+        - description: ""
+          in: path
+          name: provider_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Provider-show'
+          description: OK
+      security: []
+      summary: Get an API Provider configuration
+      tags:
+        - Providers
+    put:
+      description: Update Provider
+      operationId: /providers/:provider_id-PUT
+      parameters:
+        - description: ""
+          in: path
+          name: provider_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Provider-update'
+        description: ""
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Provider-show'
+          description: OK
+      security: []
+      summary: Update Provider
+      tags:
+        - Providers
+  /providers/{provider_id}/synchronize:
+    put:
+      description: Synchronize API Products and plans with an API Provider
+      operationId: /providers/:provider_id/synchronize-PUT
+      parameters:
+        - description: ""
+          in: path
+          name: provider_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      responses: {}
+      security: []
+      summary: Synchronize API Products and plans with an API Provider
+      tags:
+        - Providers
+  /themes:
+    get:
+      description: List all themes
+      operationId: /themes-GET
+      parameters: []
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Config-index'
+          description: OK
+      security: []
+      summary: ist all themes
+      tags:
+        - Themes
+  /themes/{theme_id}:
+    delete:
+      description: Delete a theme and all its assets
+      operationId: /themes/:theme_id-DELETE
+      parameters:
+        - description: ""
+          in: path
+          name: theme_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Config-show'
+          description: OK
+      security: []
+      summary: Delete a theme and all its assets
+      tags:
+        - Themes
+    get:
+      description: Get metadata for a theme such as name, author, version, and status
+      operationId: /themes/:theme_id-GET
+      parameters:
+        - description: ""
+          in: path
+          name: theme_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Config-show'
+          description: OK
+      security: []
+      summary: Get a theme
+      tags:
+        - Themes
+  /themes/{theme_id}/activate:
+    put:
+      description: Activate a theme. When a new theme is activated, it becomes current theme for the Live portal and is displayed to all developers visiting the portal
+      operationId: /themes/:theme_id/activate-PUT
+      parameters:
+        - description: ""
+          in: path
+          name: theme_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      responses: {}
+      security: []
+      summary: Activate a theme
+      tags:
+        - Themes
+  /themes/{theme_id}/download:
+    get:
+      description: Download a theme as a zip archive
+      operationId: /themes/:theme_id/download-GET
+      parameters:
+        - description: ""
+          in: path
+          name: theme_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      responses: {}
+      security: []
+      summary: Download a theme
+      tags:
+        - Themes
+  /themes/upload:
+    post:
+      description: |-
+        This endpoint uploads a theme that is archived as a zip file to the portal.
+
+        If a theme with this name already exists in the portal, the uploaded theme will replace the existing theme. Otherwise, a new theme will be creted.
+
+        The name of a theme is stored in the `name` field of `theme.json`.
+      operationId: /themes/upload-POST
+      parameters:
+        - description: ""
+          in: path
+          name: theme_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      responses: {}
+      security: []
+      summary: Upload a theme
+      tags:
+        - Themes
+  /users:
+    get:
+      description: List all admin users and developers
+      operationId: /users-GET
+      parameters: []
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User-index'
+          description: OK
+      security: []
+      summary: List all users
+      tags:
+        - Users
+    post:
+      description: Create a new admin user or developer
+      operationId: /users-POST
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User-create'
+        description: ""
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User-show'
+          description: OK
+      security: []
+      summary: Create a new user
+      tags:
+        - Users
+  /users/{user_id}:
+    delete:
+      description: Delete a user and all their applications. All credentials that are issued for those applications will be revoked and deleted as well
+      operationId: /users/:user_id-DELETE
+      parameters:
+        - description: ""
+          in: path
+          name: user_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User-show'
+          description: OK
+      security: []
+      summary: Delete a user
+      tags:
+        - Users
+    get:
+      description: Get a user
+      operationId: /users/:user_id-GET
+      parameters:
+        - description: ""
+          in: path
+          name: user_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User-show'
+          description: OK
+      security: []
+      summary: Get a user
+      tags:
+        - Users
+    put:
+      description: Update a user data such as email, name, identity provider, and organization
+      operationId: /users/:user_id-PUT
+      parameters:
+        - description: ""
+          in: path
+          name: user_id
+          required: true
+          schema:
+            name: ""
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User-update'
+        description: ""
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User-show'
+          description: OK
+      security: []
+      summary: Update a user
+      tags:
+        - Users
+components:
+  schemas:
+    APIDetail:
+      properties:
+        APIID:
+          type: string
+        APIType:
+          type: string
+        Description:
+          type: string
+        ListenPath:
+          type: string
+        Name:
+          type: string
+        OASDocument:
+          $ref: '#/components/schemas/OSS'
+          type: object
+        OASUrl:
+          type: string
+        ProductID:
+          type: integer
+        Status:
+          type: boolean
+        TargetURL:
+          type: string
+      type: object
+    APIDetail-create:
+      properties:
+        APIID:
+          type: string
+        APIType:
+          type: string
+        Description:
+          type: string
+        ListenPath:
+          type: string
+        Name:
+          type: string
+        OASDocument:
+          $ref: '#/components/schemas/OSS'
+          type: object
+        OASUrl:
+          type: string
+        ProductID:
+          type: integer
+        Status:
+          type: boolean
+        TargetURL:
+          type: string
+      type: object
+    APIDetail-index:
+      properties:
+        APIID:
+          type: string
+        APIType:
+          type: string
+        Description:
+          type: string
+        ListenPath:
+          type: string
+        Name:
+          type: string
+        OASDocument:
+          $ref: '#/components/schemas/OSS'
+          type: object
+        OASUrl:
+          type: string
+        ProductID:
+          type: integer
+        Status:
+          type: boolean
+        TargetURL:
+          type: string
+      type: object
+    APIDetail-index-elem:
+      properties:
+        APIID:
+          type: string
+        APIType:
+          type: string
+        Description:
+          type: string
+        ListenPath:
+          type: string
+        Name:
+          type: string
+        OASDocument:
+          $ref: '#/components/schemas/OSS'
+          type: object
+        OASUrl:
+          type: string
+        ProductID:
+          type: integer
+        Status:
+          type: boolean
+        TargetURL:
+          type: string
+      type: object
+    APIDetail-show:
+      properties:
+        APIID:
+          type: string
+        APIType:
+          type: string
+        Description:
+          type: string
+        ListenPath:
+          type: string
+        Name:
+          type: string
+        OASUrl:
+          type: string
+        Status:
+          type: boolean
+        TargetURL:
+          type: string
+      type: object
+    APIDetail-update:
+      properties:
+        APIID:
+          type: string
+        APIType:
+          type: string
+        Description:
+          type: string
+        ListenPath:
+          type: string
+        Name:
+          type: string
+        OASDocument:
+          $ref: '#/components/schemas/OSS'
+          type: object
+        OASUrl:
+          type: string
+        ProductID:
+          type: integer
+        Status:
+          type: boolean
+        TargetURL:
+          type: string
+      type: object
+    AccessRequest:
+      properties:
+        AuthType:
+          type: string
+        Catalogue:
+          $ref: '#/components/schemas/Catalogue'
+          type: object
+        CatalogueID:
+          type: integer
+        Client:
+          $ref: '#/components/schemas/Client'
+          type: object
+        ClientID:
+          type: integer
+        Credentials:
+          items:
+            $ref: '#/components/schemas/Credential'
+          type: array
+        DCREnabled:
+          type: boolean
+        DCRTemplateID:
+          type: integer
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Plan:
+          $ref: '#/components/schemas/Plan'
+          type: object
+        PlanID:
+          type: integer
+        Products:
+          items:
+            $ref: '#/components/schemas/Product'
+          type: array
+        ProviderID:
+          type: integer
+        ProvisionImmediately:
+          type: boolean
+        Status:
+          type: string
+        User:
+          $ref: '#/components/schemas/User'
+          type: object
+        UserID:
+          type: integer
+      type: object
+    AccessRequest-create:
+      properties:
+        AuthType:
+          type: string
+        Catalogue:
+          $ref: '#/components/schemas/Catalogue'
+          type: object
+        CatalogueID:
+          type: integer
+        Client:
+          $ref: '#/components/schemas/Client'
+          type: object
+        ClientID:
+          type: integer
+        Credentials:
+          items:
+            $ref: '#/components/schemas/Credential'
+          type: array
+        DCREnabled:
+          type: boolean
+        DCRTemplateID:
+          type: integer
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Plan:
+          $ref: '#/components/schemas/Plan'
+          type: object
+        PlanID:
+          type: integer
+        Products:
+          items:
+            $ref: '#/components/schemas/Product'
+          type: array
+        ProviderID:
+          type: integer
+        ProvisionImmediately:
+          type: boolean
+        Status:
+          type: string
+        User:
+          $ref: '#/components/schemas/User'
+          type: object
+        UserID:
+          type: integer
+      type: object
+    AccessRequest-index:
+      items:
+        $ref: '#/components/schemas/AccessRequest-index-elem'
+      type: array
+    AccessRequest-index-elem:
+      properties:
+        AuthType:
+          type: string
+        Catalogue:
+          $ref: '#/components/schemas/Catalogue'
+          type: object
+        CatalogueID:
+          type: integer
+        Client:
+          $ref: '#/components/schemas/Client'
+          type: object
+        ClientID:
+          type: integer
+        Credentials:
+          items:
+            $ref: '#/components/schemas/Credential'
+          type: array
+        DCREnabled:
+          type: boolean
+        DCRTemplateID:
+          type: integer
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Plan:
+          $ref: '#/components/schemas/Plan'
+          type: object
+        PlanID:
+          type: integer
+        Products:
+          items:
+            $ref: '#/components/schemas/Product'
+          type: array
+        ProviderID:
+          type: integer
+        ProvisionImmediately:
+          type: boolean
+        Status:
+          type: string
+        User:
+          $ref: '#/components/schemas/User'
+          type: object
+        UserID:
+          type: integer
+      type: object
+    AccessRequest-show:
+      properties:
+        AuthType:
+          type: string
+        Catalogue:
+          $ref: '#/components/schemas/Catalogue'
+          type: object
+        CatalogueID:
+          type: integer
+        Client:
+          $ref: '#/components/schemas/Client'
+          type: object
+        ClientID:
+          type: integer
+        Credentials:
+          items:
+            $ref: '#/components/schemas/Credential'
+          type: array
+        DCREnabled:
+          type: boolean
+        DCRTemplateID:
+          type: integer
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Plan:
+          $ref: '#/components/schemas/Plan'
+          type: object
+        PlanID:
+          type: integer
+        Products:
+          items:
+            $ref: '#/components/schemas/Product'
+          type: array
+        ProviderID:
+          type: integer
+        ProvisionImmediately:
+          type: boolean
+        Status:
+          type: string
+        User:
+          $ref: '#/components/schemas/User'
+          type: object
+        UserID:
+          type: integer
+      type: object
+    AccessRequest-update:
+      properties:
+        AuthType:
+          type: string
+        Catalogue:
+          $ref: '#/components/schemas/Catalogue'
+          type: object
+        CatalogueID:
+          type: integer
+        Client:
+          $ref: '#/components/schemas/Client'
+          type: object
+        ClientID:
+          type: integer
+        Credentials:
+          items:
+            $ref: '#/components/schemas/Credential'
+          type: array
+        DCREnabled:
+          type: boolean
+        DCRTemplateID:
+          type: integer
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Plan:
+          $ref: '#/components/schemas/Plan'
+          type: object
+        PlanID:
+          type: integer
+        Products:
+          items:
+            $ref: '#/components/schemas/Product'
+          type: array
+        ProviderID:
+          type: integer
+        ProvisionImmediately:
+          type: boolean
+        Status:
+          type: string
+        User:
+          $ref: '#/components/schemas/User'
+          type: object
+        UserID:
+          type: integer
+      type: object
+    Base:
+      properties:
+        Crop:
+          type: boolean
+        CropOptions:
+          type: object
+        Delete:
+          type: boolean
+        FileHeader: {}
+        FileName:
+          type: string
+        Options:
+          type: object
+        Reader: {}
+        Url:
+          type: string
+      type: object
+    Basic:
+      properties:
+        ConfirmedAt:
+          format: date-time
+          type: string
+        EncryptedPassword:
+          type: string
+        Provider:
+          type: string
+        UID:
+          type: string
+        UserID:
+          type: string
+      type: object
+    BlogSetting:
+      properties:
+        AllowFormSubmission:
+          type: boolean
+        Enable:
+          type: boolean
+      type: object
+    Cart:
+      properties:
+        CatalogueOrders:
+          type: string
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        ProviderID:
+          type: integer
+        UserID:
+          type: integer
+      type: object
+    Catalogue:
+      properties:
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Name:
+          type: string
+        NameWithSlug:
+          $ref: '#/components/schemas/Slug'
+          type: object
+        OrgCatalogues:
+          items:
+            $ref: '#/components/schemas/OrganisationCatalogue'
+          type: array
+        Plans:
+          items:
+            $ref: '#/components/schemas/Plan'
+          type: array
+        Products:
+          items:
+            $ref: '#/components/schemas/Product'
+          type: array
+        VisibilityStatus:
+          type: string
+      type: object
+    Catalogue-create:
+      properties:
+        Name:
+          type: string
+        NameWithSlug:
+          $ref: '#/components/schemas/Slug'
+          type: object
+        OrgCatalogues:
+          items:
+            $ref: '#/components/schemas/OrganisationCatalogue'
+          type: array
+        Plans:
+          items:
+            $ref: '#/components/schemas/Plan'
+          type: array
+        Products:
+          items:
+            $ref: '#/components/schemas/Product'
+          type: array
+        VisibilityStatus:
+          type: string
+      type: object
+    Catalogue-index:
+      properties:
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Name:
+          type: string
+        NameWithSlug:
+          $ref: '#/components/schemas/Slug'
+          type: object
+        OrgCatalogues:
+          items:
+            $ref: '#/components/schemas/OrganisationCatalogue'
+          type: array
+        Plans:
+          items:
+            $ref: '#/components/schemas/Plan'
+          type: array
+        Products:
+          items:
+            $ref: '#/components/schemas/Product'
+          type: array
+        VisibilityStatus:
+          type: string
+      type: object
+    Catalogue-index-elem:
+      properties:
+        Name:
+          type: string
+        NameWithSlug:
+          $ref: '#/components/schemas/Slug'
+          type: object
+        OrgCatalogues:
+          items:
+            $ref: '#/components/schemas/OrganisationCatalogue'
+          type: array
+        Plans:
+          items:
+            $ref: '#/components/schemas/Plan'
+          type: array
+        Products:
+          items:
+            $ref: '#/components/schemas/Product'
+          type: array
+        VisibilityStatus:
+          type: string
+      type: object
+    Catalogue-show:
+      properties:
+        Name:
+          type: string
+        NameWithSlug:
+          $ref: '#/components/schemas/Slug'
+          type: object
+        OrgCatalogues:
+          items:
+            $ref: '#/components/schemas/OrganisationCatalogue'
+          type: array
+        Plans:
+          items:
+            $ref: '#/components/schemas/Plan'
+          type: array
+        Products:
+          items:
+            $ref: '#/components/schemas/Product'
+          type: array
+        VisibilityStatus:
+          type: string
+      type: object
+    Catalogue-update:
+      properties:
+        Name:
+          type: string
+        NameWithSlug:
+          $ref: '#/components/schemas/Slug'
+          type: object
+        OrgCatalogues:
+          items:
+            $ref: '#/components/schemas/OrganisationCatalogue'
+          type: array
+        Plans:
+          items:
+            $ref: '#/components/schemas/Plan'
+          type: array
+        Products:
+          items:
+            $ref: '#/components/schemas/Product'
+          type: array
+        VisibilityStatus:
+          type: string
+      type: object
+    Category:
+      properties:
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Name:
+          type: string
+        Posts:
+          items:
+            $ref: '#/components/schemas/Post'
+          type: array
+      type: object
+    Certificate:
+      properties:
+        CertFile:
+          type: string
+        KeyFile:
+          type: string
+        Name:
+          type: string
+      type: object
+    Client:
+      properties:
+        AccessRequests:
+          items:
+            $ref: '#/components/schemas/AccessRequest'
+          type: array
+        Credentials:
+          items:
+            $ref: '#/components/schemas/Credential'
+          type: array
+        Description:
+          type: string
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Name:
+          type: string
+        Products:
+          items:
+            $ref: '#/components/schemas/Product'
+          type: array
+        RedirectURLs:
+          type: string
+        UserID:
+          type: integer
+      type: object
+    Client-create:
+      properties:
+        AccessRequests:
+          items:
+            $ref: '#/components/schemas/AccessRequest'
+          type: array
+        Credentials:
+          items:
+            $ref: '#/components/schemas/Credential'
+          type: array
+        Description:
+          type: string
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Name:
+          type: string
+        Products:
+          items:
+            $ref: '#/components/schemas/Product'
+          type: array
+        RedirectURLs:
+          type: string
+        UserID:
+          type: integer
+      type: object
+    Client-index:
+      items:
+        $ref: '#/components/schemas/Client-index-elem'
+      type: array
+    Client-index-elem:
+      properties:
+        AccessRequests:
+          items:
+            $ref: '#/components/schemas/AccessRequest'
+          type: array
+        Credentials:
+          items:
+            $ref: '#/components/schemas/Credential'
+          type: array
+        Description:
+          type: string
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Name:
+          type: string
+        Products:
+          items:
+            $ref: '#/components/schemas/Product'
+          type: array
+        RedirectURLs:
+          type: string
+        UserID:
+          type: integer
+      type: object
+    Client-show:
+      properties:
+        AccessRequests:
+          items:
+            $ref: '#/components/schemas/AccessRequest'
+          type: array
+        Credentials:
+          items:
+            $ref: '#/components/schemas/Credential'
+          type: array
+        Description:
+          type: string
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Name:
+          type: string
+        Products:
+          items:
+            $ref: '#/components/schemas/Product'
+          type: array
+        RedirectURLs:
+          type: string
+        UserID:
+          type: integer
+      type: object
+    Client-update:
+      properties:
+        AccessRequests:
+          items:
+            $ref: '#/components/schemas/AccessRequest'
+          type: array
+        Credentials:
+          items:
+            $ref: '#/components/schemas/Credential'
+          type: array
+        Description:
+          type: string
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Name:
+          type: string
+        Products:
+          items:
+            $ref: '#/components/schemas/Product'
+          type: array
+        RedirectURLs:
+          type: string
+        UserID:
+          type: integer
+      type: object
+    Config-create:
+      properties:
+        Author:
+          type: string
+        ID:
+          type: string
+        Name:
+          type: string
+        Path:
+          type: string
+        Status:
+          type: boolean
+        ThemeFile:
+          $ref: '#/components/schemas/File'
+          type: object
+        Version:
+          type: string
+      type: object
+    Config-index:
+      items:
+        $ref: '#/components/schemas/Config-index-elem'
+      type: array
+    Config-index-elem:
+      properties:
+        Author:
+          type: string
+        ID:
+          type: string
+        Name:
+          type: string
+        Path:
+          type: string
+        Status:
+          type: boolean
+        ThemeFile:
+          $ref: '#/components/schemas/File'
+          type: object
+        Version:
+          type: string
+      type: object
+    Config-show:
+      properties:
+        Author:
+          type: string
+        ID:
+          type: string
+        Name:
+          type: string
+        Path:
+          type: string
+        Status:
+          type: boolean
+        ThemeFile:
+          $ref: '#/components/schemas/File'
+          type: object
+        Version:
+          type: string
+      type: object
+    Config-update:
+      properties:
+        Author:
+          type: string
+        ID:
+          type: string
+        Name:
+          type: string
+        Path:
+          type: string
+        Status:
+          type: boolean
+        ThemeFile:
+          $ref: '#/components/schemas/File'
+          type: object
+        Version:
+          type: string
+      type: object
+    ContentBlock:
+      properties:
+        Content:
+          type: string
+        MarkdownEnabled:
+          type: boolean
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Name:
+          type: string
+        PageID:
+          type: integer
+      type: object
+    ContentBlock-create:
+      properties:
+        Content:
+          type: string
+        MarkdownEnabled:
+          type: boolean
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Name:
+          type: string
+        PageID:
+          type: integer
+      type: object
+    ContentBlock-index:
+      items:
+        $ref: '#/components/schemas/ContentBlock-index-elem'
+      type: array
+    ContentBlock-index-elem:
+      properties:
+        Content:
+          type: string
+        MarkdownEnabled:
+          type: boolean
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Name:
+          type: string
+        PageID:
+          type: integer
+      type: object
+    ContentBlock-show:
+      properties:
+        Content:
+          type: string
+        MarkdownEnabled:
+          type: boolean
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Name:
+          type: string
+        PageID:
+          type: integer
+      type: object
+    ContentBlock-update:
+      properties:
+        Content:
+          type: string
+        MarkdownEnabled:
+          type: boolean
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Name:
+          type: string
+        PageID:
+          type: integer
+      type: object
+    Credential:
+      properties:
+        AccessRequest:
+          $ref: '#/components/schemas/AccessRequest'
+          type: object
+        AccessRequestID:
+          type: integer
+        ClientID:
+          type: integer
+        Credential:
+          type: string
+        CredentialHash:
+          type: string
+        DCRRegistrationAccessToken:
+          type: string
+        DCRRegistrationClientURI:
+          type: string
+        DCRResponse:
+          type: string
+        Expires:
+          format: date-time
+          type: string
+        GrantType:
+          type: string
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        OAuthClientID:
+          type: string
+        OAuthClientSecret:
+          type: string
+        RedirectURI:
+          type: string
+        ResponseType:
+          type: string
+        Scope:
+          type: string
+        TokenEndpoints:
+          type: string
+      type: object
+    Credential-create:
+      properties:
+        AccessRequest:
+          $ref: '#/components/schemas/AccessRequest'
+          type: object
+        AccessRequestID:
+          type: integer
+        ClientID:
+          type: integer
+        Credential:
+          type: string
+        CredentialHash:
+          type: string
+        DCRRegistrationAccessToken:
+          type: string
+        DCRRegistrationClientURI:
+          type: string
+        DCRResponse:
+          type: string
+        Expires:
+          format: date-time
+          type: string
+        GrantType:
+          type: string
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        OAuthClientID:
+          type: string
+        OAuthClientSecret:
+          type: string
+        RedirectURI:
+          type: string
+        ResponseType:
+          type: string
+        Scope:
+          type: string
+        TokenEndpoints:
+          type: string
+      type: object
+    Credential-index:
+      items:
+        $ref: '#/components/schemas/Credential-index-elem'
+      type: array
+    Credential-index-elem:
+      properties:
+        AccessRequest:
+          $ref: '#/components/schemas/AccessRequest'
+          type: object
+        AccessRequestID:
+          type: integer
+        ClientID:
+          type: integer
+        Credential:
+          type: string
+        CredentialHash:
+          type: string
+        DCRRegistrationAccessToken:
+          type: string
+        DCRRegistrationClientURI:
+          type: string
+        DCRResponse:
+          type: string
+        Expires:
+          format: date-time
+          type: string
+        GrantType:
+          type: string
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        OAuthClientID:
+          type: string
+        OAuthClientSecret:
+          type: string
+        RedirectURI:
+          type: string
+        ResponseType:
+          type: string
+        Scope:
+          type: string
+        TokenEndpoints:
+          type: string
+      type: object
+    Credential-show:
+      properties:
+        AccessRequest:
+          $ref: '#/components/schemas/AccessRequest'
+          type: object
+        AccessRequestID:
+          type: integer
+        ClientID:
+          type: integer
+        Credential:
+          type: string
+        CredentialHash:
+          type: string
+        DCRRegistrationAccessToken:
+          type: string
+        DCRRegistrationClientURI:
+          type: string
+        DCRResponse:
+          type: string
+        Expires:
+          format: date-time
+          type: string
+        GrantType:
+          type: string
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        OAuthClientID:
+          type: string
+        OAuthClientSecret:
+          type: string
+        RedirectURI:
+          type: string
+        ResponseType:
+          type: string
+        Scope:
+          type: string
+        TokenEndpoints:
+          type: string
+      type: object
+    Credential-update:
+      properties:
+        AccessRequest:
+          $ref: '#/components/schemas/AccessRequest'
+          type: object
+        AccessRequestID:
+          type: integer
+        ClientID:
+          type: integer
+        Credential:
+          type: string
+        CredentialHash:
+          type: string
+        DCRRegistrationAccessToken:
+          type: string
+        DCRRegistrationClientURI:
+          type: string
+        DCRResponse:
+          type: string
+        Expires:
+          format: date-time
+          type: string
+        GrantType:
+          type: string
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        OAuthClientID:
+          type: string
+        OAuthClientSecret:
+          type: string
+        RedirectURI:
+          type: string
+        ResponseType:
+          type: string
+        Scope:
+          type: string
+        TokenEndpoints:
+          type: string
+      type: object
+    DCRConfigTemplate:
+      properties:
+        DCRConfigID:
+          type: integer
+        Description:
+          type: string
+        GrantType:
+          type: string
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Name:
+          type: string
+        OktaAppType:
+          type: string
+        Products:
+          items:
+            $ref: '#/components/schemas/Product'
+          type: array
+        ResponseType:
+          type: string
+        TokenEndpoints:
+          type: string
+      type: object
+    DatabaseSetting:
+      properties:
+        ConnectionString:
+          type: string
+        Dialect:
+          type: string
+        EnableLogs:
+          type: boolean
+        MaxRetries:
+          type: integer
+        RetryDelay:
+          type: integer
+      type: object
+    File:
+      properties:
+        OSS:
+          $ref: '#/components/schemas/OSS'
+          type: object
+      type: object
+    ImageBlock:
+      properties:
+        Image:
+          $ref: '#/components/schemas/ImageStore'
+          type: object
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Name:
+          type: string
+        PageID:
+          type: integer
+      type: object
+    ImageStore:
+      properties:
+        OSS:
+          $ref: '#/components/schemas/OSS'
+          type: object
+      type: object
+    Model:
+      properties:
+        CreatedAt:
+          format: date-time
+          type: string
+        DeletedAt:
+          format: date-time
+          type: string
+        ID:
+          type: integer
+        UpdatedAt:
+          format: date-time
+          type: string
+      type: object
+    OSS:
+      properties:
+        Base:
+          $ref: '#/components/schemas/Base'
+          type: object
+      type: object
+    Organisation:
+      properties:
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Name:
+          type: string
+        Teams:
+          items:
+            $ref: '#/components/schemas/Team'
+          type: array
+        Users:
+          items:
+            $ref: '#/components/schemas/User'
+          type: array
+      type: object
+    Organisation-create:
+      properties:
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Name:
+          type: string
+        Teams:
+          items:
+            $ref: '#/components/schemas/Team'
+          type: array
+        Users:
+          items:
+            $ref: '#/components/schemas/User'
+          type: array
+      type: object
+    Organisation-index:
+      items:
+        $ref: '#/components/schemas/Organisation-index-elem'
+      type: array
+    Organisation-index-elem:
+      properties:
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Name:
+          type: string
+        Teams:
+          items:
+            $ref: '#/components/schemas/Team'
+          type: array
+        Users:
+          items:
+            $ref: '#/components/schemas/User'
+          type: array
+      type: object
+    Organisation-show:
+      properties:
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Name:
+          type: string
+        Teams:
+          items:
+            $ref: '#/components/schemas/Team'
+          type: array
+        Users:
+          items:
+            $ref: '#/components/schemas/User'
+          type: array
+      type: object
+    Organisation-update:
+      properties:
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Name:
+          type: string
+        Teams:
+          items:
+            $ref: '#/components/schemas/Team'
+          type: array
+        Users:
+          items:
+            $ref: '#/components/schemas/User'
+          type: array
+      type: object
+    OrganisationCatalogue:
+      properties:
+        Catalogue:
+          $ref: '#/components/schemas/Catalogue'
+          type: object
+        CatalogueID:
+          type: integer
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Name:
+          type: string
+        Organisation:
+          $ref: '#/components/schemas/Organisation'
+          type: object
+        OrganisationID:
+          type: integer
+        TeamID:
+          type: integer
+      type: object
+    OrganisationCatalogue-create:
+      properties:
+        Catalogue:
+          $ref: '#/components/schemas/Catalogue'
+          type: object
+        CatalogueID:
+          type: integer
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Name:
+          type: string
+        Organisation:
+          $ref: '#/components/schemas/Organisation'
+          type: object
+        OrganisationID:
+          type: integer
+        TeamID:
+          type: integer
+      type: object
+    OrganisationCatalogue-index:
+      items:
+        $ref: '#/components/schemas/OrganisationCatalogue-index-elem'
+      type: array
+    OrganisationCatalogue-index-elem:
+      properties:
+        Catalogue:
+          $ref: '#/components/schemas/Catalogue'
+          type: object
+        CatalogueID:
+          type: integer
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Name:
+          type: string
+        Organisation:
+          $ref: '#/components/schemas/Organisation'
+          type: object
+        OrganisationID:
+          type: integer
+        TeamID:
+          type: integer
+      type: object
+    OrganisationCatalogue-show:
+      properties:
+        Catalogue:
+          $ref: '#/components/schemas/Catalogue'
+          type: object
+        CatalogueID:
+          type: integer
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Name:
+          type: string
+        Organisation:
+          $ref: '#/components/schemas/Organisation'
+          type: object
+        OrganisationID:
+          type: integer
+        TeamID:
+          type: integer
+      type: object
+    OrganisationCatalogue-update:
+      properties:
+        Catalogue:
+          $ref: '#/components/schemas/Catalogue'
+          type: object
+        CatalogueID:
+          type: integer
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Name:
+          type: string
+        Organisation:
+          $ref: '#/components/schemas/Organisation'
+          type: object
+        OrganisationID:
+          type: integer
+        TeamID:
+          type: integer
+      type: object
+    Page-create:
+      properties:
+        AllowFormSubmission:
+          type: boolean
+        ContentBlocks:
+          items:
+            $ref: '#/components/schemas/ContentBlock'
+          type: array
+        ImageBlocks:
+          items:
+            $ref: '#/components/schemas/ImageBlock'
+          type: array
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        PageTypeID:
+          type: integer
+        Path:
+          type: string
+        Status:
+          type: string
+        Template:
+          type: string
+        TextContentBlocks:
+          items:
+            $ref: '#/components/schemas/TextContentBlock'
+          type: array
+        Title:
+          type: string
+      type: object
+    Page-index:
+      items:
+        $ref: '#/components/schemas/Page-index-elem'
+      type: array
+    Page-index-elem:
+      properties:
+        AllowFormSubmission:
+          type: boolean
+        ContentBlocks:
+          items:
+            $ref: '#/components/schemas/ContentBlock'
+          type: array
+        ImageBlocks:
+          items:
+            $ref: '#/components/schemas/ImageBlock'
+          type: array
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        PageTypeID:
+          type: integer
+        Path:
+          type: string
+        Status:
+          type: string
+        Template:
+          type: string
+        TextContentBlocks:
+          items:
+            $ref: '#/components/schemas/TextContentBlock'
+          type: array
+        Title:
+          type: string
+      type: object
+    Page-show:
+      properties:
+        AllowFormSubmission:
+          type: boolean
+        ContentBlocks:
+          items:
+            $ref: '#/components/schemas/ContentBlock'
+          type: array
+        ImageBlocks:
+          items:
+            $ref: '#/components/schemas/ImageBlock'
+          type: array
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        PageTypeID:
+          type: integer
+        Path:
+          type: string
+        Status:
+          type: string
+        Template:
+          type: string
+        TextContentBlocks:
+          items:
+            $ref: '#/components/schemas/TextContentBlock'
+          type: array
+        Title:
+          type: string
+      type: object
+    Page-update:
+      properties:
+        AllowFormSubmission:
+          type: boolean
+        ContentBlocks:
+          items:
+            $ref: '#/components/schemas/ContentBlock'
+          type: array
+        ImageBlocks:
+          items:
+            $ref: '#/components/schemas/ImageBlock'
+          type: array
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        PageTypeID:
+          type: integer
+        Path:
+          type: string
+        Status:
+          type: string
+        Template:
+          type: string
+        TextContentBlocks:
+          items:
+            $ref: '#/components/schemas/TextContentBlock'
+          type: array
+        Title:
+          type: string
+      type: object
+    Plan:
+      properties:
+        AuthType:
+          type: string
+        AutoApproveAccessRequests:
+          type: boolean
+        Catalogues:
+          items:
+            $ref: '#/components/schemas/Catalogue'
+          type: array
+        Description:
+          type: string
+        DisplayName:
+          type: string
+        JWTScope:
+          type: string
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Name:
+          type: string
+        Per:
+          format: int64
+          type: integer
+        ProviderID:
+          type: integer
+        QuotaMax:
+          format: int64
+          type: integer
+        QuotaRenewalRate:
+          format: int64
+          type: integer
+        Rate:
+          format: int64
+          type: integer
+        ReferenceID:
+          type: string
+      type: object
+    Plan-create:
+      properties:
+        AuthType:
+          type: string
+        AutoApproveAccessRequests:
+          type: boolean
+        Catalogues:
+          items:
+            $ref: '#/components/schemas/Catalogue'
+          type: array
+        Description:
+          type: string
+        DisplayName:
+          type: string
+        JWTScope:
+          type: string
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Name:
+          type: string
+        Per:
+          format: int64
+          type: integer
+        ProviderID:
+          type: integer
+        QuotaMax:
+          format: int64
+          type: integer
+        QuotaRenewalRate:
+          format: int64
+          type: integer
+        Rate:
+          format: int64
+          type: integer
+        ReferenceID:
+          type: string
+      type: object
+    Plan-index:
+      items:
+        $ref: '#/components/schemas/Plan-index-elem'
+      type: array
+    Plan-index-elem:
+      properties:
+        AuthType:
+          type: string
+        AutoApproveAccessRequests:
+          type: boolean
+        Catalogues:
+          items:
+            $ref: '#/components/schemas/Catalogue'
+          type: array
+        Description:
+          type: string
+        DisplayName:
+          type: string
+        JWTScope:
+          type: string
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Name:
+          type: string
+        Per:
+          format: int64
+          type: integer
+        ProviderID:
+          type: integer
+        QuotaMax:
+          format: int64
+          type: integer
+        QuotaRenewalRate:
+          format: int64
+          type: integer
+        Rate:
+          format: int64
+          type: integer
+        ReferenceID:
+          type: string
+      type: object
+    Plan-show:
+      properties:
+        AuthType:
+          type: string
+        AutoApproveAccessRequests:
+          type: boolean
+        Catalogues:
+          items:
+            $ref: '#/components/schemas/Catalogue'
+          type: array
+        Description:
+          type: string
+        DisplayName:
+          type: string
+        JWTScope:
+          type: string
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Name:
+          type: string
+        Per:
+          format: int64
+          type: integer
+        ProviderID:
+          type: integer
+        QuotaMax:
+          format: int64
+          type: integer
+        QuotaRenewalRate:
+          format: int64
+          type: integer
+        Rate:
+          format: int64
+          type: integer
+        ReferenceID:
+          type: string
+      type: object
+    Plan-update:
+      properties:
+        AuthType:
+          type: string
+        AutoApproveAccessRequests:
+          type: boolean
+        Catalogues:
+          items:
+            $ref: '#/components/schemas/Catalogue'
+          type: array
+        Description:
+          type: string
+        DisplayName:
+          type: string
+        JWTScope:
+          type: string
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Name:
+          type: string
+        Per:
+          format: int64
+          type: integer
+        ProviderID:
+          type: integer
+        QuotaMax:
+          format: int64
+          type: integer
+        QuotaRenewalRate:
+          format: int64
+          type: integer
+        Rate:
+          format: int64
+          type: integer
+        ReferenceID:
+          type: string
+      type: object
+    Post:
+      properties:
+        Author:
+          $ref: '#/components/schemas/User'
+          type: object
+        AuthorID:
+          type: integer
+        BlogSiteID:
+          type: integer
+        Categories:
+          items:
+            $ref: '#/components/schemas/Category'
+          type: array
+        Content:
+          type: string
+        HeaderImage:
+          $ref: '#/components/schemas/ImageStore'
+          type: object
+        Lede:
+          type: string
+        MarkdownContent:
+          type: string
+        MarkdownEnabled:
+          type: boolean
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Path:
+          type: string
+        PreviewContent:
+          type: string
+        ProductDoc:
+          type: boolean
+        ProductID:
+          type: integer
+        Sorting:
+          $ref: '#/components/schemas/Sorting'
+          type: object
+        Status:
+          type: string
+        Tags:
+          items:
+            $ref: '#/components/schemas/Tag'
+          type: array
+        Title:
+          type: string
+      type: object
+    Post-create:
+      properties:
+        Author:
+          $ref: '#/components/schemas/User'
+          type: object
+        AuthorID:
+          type: integer
+        BlogSiteID:
+          type: integer
+        Categories:
+          items:
+            $ref: '#/components/schemas/Category'
+          type: array
+        Content:
+          type: string
+        HeaderImage:
+          $ref: '#/components/schemas/ImageStore'
+          type: object
+        Lede:
+          type: string
+        MarkdownContent:
+          type: string
+        MarkdownEnabled:
+          type: boolean
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Path:
+          type: string
+        PreviewContent:
+          type: string
+        ProductDoc:
+          type: boolean
+        ProductID:
+          type: integer
+        Sorting:
+          $ref: '#/components/schemas/Sorting'
+          type: object
+        Status:
+          type: string
+        Tags:
+          items:
+            $ref: '#/components/schemas/Tag'
+          type: array
+        Title:
+          type: string
+      type: object
+    Post-index:
+      items:
+        $ref: '#/components/schemas/Post-index-elem'
+      type: array
+    Post-index-elem:
+      properties:
+        Author:
+          $ref: '#/components/schemas/User'
+          type: object
+        AuthorID:
+          type: integer
+        BlogSiteID:
+          type: integer
+        Categories:
+          items:
+            $ref: '#/components/schemas/Category'
+          type: array
+        Content:
+          type: string
+        HeaderImage:
+          $ref: '#/components/schemas/ImageStore'
+          type: object
+        Lede:
+          type: string
+        MarkdownContent:
+          type: string
+        MarkdownEnabled:
+          type: boolean
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Path:
+          type: string
+        PreviewContent:
+          type: string
+        ProductDoc:
+          type: boolean
+        ProductID:
+          type: integer
+        Sorting:
+          $ref: '#/components/schemas/Sorting'
+          type: object
+        Status:
+          type: string
+        Tags:
+          items:
+            $ref: '#/components/schemas/Tag'
+          type: array
+        Title:
+          type: string
+      type: object
+    Post-show:
+      properties:
+        Author:
+          $ref: '#/components/schemas/User'
+          type: object
+        AuthorID:
+          type: integer
+        BlogSiteID:
+          type: integer
+        Categories:
+          items:
+            $ref: '#/components/schemas/Category'
+          type: array
+        Content:
+          type: string
+        HeaderImage:
+          $ref: '#/components/schemas/ImageStore'
+          type: object
+        Lede:
+          type: string
+        MarkdownContent:
+          type: string
+        MarkdownEnabled:
+          type: boolean
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Path:
+          type: string
+        PreviewContent:
+          type: string
+        ProductDoc:
+          type: boolean
+        ProductID:
+          type: integer
+        Sorting:
+          $ref: '#/components/schemas/Sorting'
+          type: object
+        Status:
+          type: string
+        Tags:
+          items:
+            $ref: '#/components/schemas/Tag'
+          type: array
+        Title:
+          type: string
+      type: object
+    Post-update:
+      properties:
+        Author:
+          $ref: '#/components/schemas/User'
+          type: object
+        AuthorID:
+          type: integer
+        BlogSiteID:
+          type: integer
+        Categories:
+          items:
+            $ref: '#/components/schemas/Category'
+          type: array
+        Content:
+          type: string
+        HeaderImage:
+          $ref: '#/components/schemas/ImageStore'
+          type: object
+        Lede:
+          type: string
+        MarkdownContent:
+          type: string
+        MarkdownEnabled:
+          type: boolean
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Path:
+          type: string
+        PreviewContent:
+          type: string
+        ProductDoc:
+          type: boolean
+        ProductID:
+          type: integer
+        Sorting:
+          $ref: '#/components/schemas/Sorting'
+          type: object
+        Status:
+          type: string
+        Tags:
+          items:
+            $ref: '#/components/schemas/Tag'
+          type: array
+        Title:
+          type: string
+      type: object
+    Product:
+      properties:
+        APIDetails:
+          items:
+            $ref: '#/components/schemas/APIDetail'
+          type: array
+        AuthType:
+          type: string
+        Catalogues:
+          items:
+            $ref: '#/components/schemas/Catalogue'
+          type: array
+        Content:
+          type: string
+        DCREnabled:
+          type: boolean
+        Description:
+          type: string
+        DisplayName:
+          type: string
+        Docs:
+          items:
+            $ref: '#/components/schemas/Post'
+          type: array
+        Feature:
+          type: boolean
+        Logo:
+          $ref: '#/components/schemas/ImageStore'
+          type: object
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Name:
+          type: string
+        Path:
+          type: string
+        ProviderID:
+          type: integer
+        ReferenceID:
+          type: string
+        Scopes:
+          type: string
+        Tags:
+          items:
+            $ref: '#/components/schemas/Tag'
+          type: array
+        Templates:
+          items:
+            $ref: '#/components/schemas/DCRConfigTemplate'
+          type: array
+      type: object
+    Product-create:
+      properties:
+        APIDetails:
+          items:
+            $ref: '#/components/schemas/APIDetail'
+          type: array
+        AuthType:
+          type: string
+        Catalogues:
+          items:
+            $ref: '#/components/schemas/Catalogue'
+          type: array
+        Content:
+          type: string
+        DCREnabled:
+          type: boolean
+        Description:
+          type: string
+        DisplayName:
+          type: string
+        Docs:
+          items:
+            $ref: '#/components/schemas/Post'
+          type: array
+        Feature:
+          type: boolean
+        Logo:
+          $ref: '#/components/schemas/ImageStore'
+          type: object
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Name:
+          type: string
+        Path:
+          type: string
+        ProviderID:
+          type: integer
+        ReferenceID:
+          type: string
+        Scopes:
+          type: string
+        Tags:
+          items:
+            $ref: '#/components/schemas/Tag'
+          type: array
+        Templates:
+          items:
+            $ref: '#/components/schemas/DCRConfigTemplate'
+          type: array
+      type: object
+    Product-index:
+      items:
+        $ref: '#/components/schemas/Product-index-elem'
+      type: array
+    Product-index-elem:
+      properties:
+        APIDetails:
+          items:
+            $ref: '#/components/schemas/APIDetail'
+          type: array
+        AuthType:
+          type: string
+        Catalogues:
+          items:
+            $ref: '#/components/schemas/Catalogue'
+          type: array
+        Content:
+          type: string
+        DCREnabled:
+          type: boolean
+        Description:
+          type: string
+        DisplayName:
+          type: string
+        Docs:
+          items:
+            $ref: '#/components/schemas/Post'
+          type: array
+        Feature:
+          type: boolean
+        Logo:
+          $ref: '#/components/schemas/ImageStore'
+          type: object
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Name:
+          type: string
+        Path:
+          type: string
+        ProviderID:
+          type: integer
+        ReferenceID:
+          type: string
+        Scopes:
+          type: string
+        Tags:
+          items:
+            $ref: '#/components/schemas/Tag'
+          type: array
+        Templates:
+          items:
+            $ref: '#/components/schemas/DCRConfigTemplate'
+          type: array
+      type: object
+    Product-show:
+      properties:
+        APIDetails:
+          items:
+            $ref: '#/components/schemas/APIDetail'
+          type: array
+        AuthType:
+          type: string
+        Catalogues:
+          items:
+            $ref: '#/components/schemas/Catalogue'
+          type: array
+        Content:
+          type: string
+        DCREnabled:
+          type: boolean
+        Description:
+          type: string
+        DisplayName:
+          type: string
+        Docs:
+          items:
+            $ref: '#/components/schemas/Post'
+          type: array
+        Feature:
+          type: boolean
+        Logo:
+          $ref: '#/components/schemas/ImageStore'
+          type: object
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Name:
+          type: string
+        Path:
+          type: string
+        ProviderID:
+          type: integer
+        ReferenceID:
+          type: string
+        Scopes:
+          type: string
+        Tags:
+          items:
+            $ref: '#/components/schemas/Tag'
+          type: array
+        Templates:
+          items:
+            $ref: '#/components/schemas/DCRConfigTemplate'
+          type: array
+      type: object
+    Product-update:
+      properties:
+        APIDetails:
+          items:
+            $ref: '#/components/schemas/APIDetail'
+          type: array
+        AuthType:
+          type: string
+        Catalogues:
+          items:
+            $ref: '#/components/schemas/Catalogue'
+          type: array
+        Content:
+          type: string
+        DCREnabled:
+          type: boolean
+        Description:
+          type: string
+        DisplayName:
+          type: string
+        Docs:
+          items:
+            $ref: '#/components/schemas/Post'
+          type: array
+        Feature:
+          type: boolean
+        Logo:
+          $ref: '#/components/schemas/ImageStore'
+          type: object
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Name:
+          type: string
+        Path:
+          type: string
+        ProviderID:
+          type: integer
+        ReferenceID:
+          type: string
+        Scopes:
+          type: string
+        Tags:
+          items:
+            $ref: '#/components/schemas/Tag'
+          type: array
+        Templates:
+          items:
+            $ref: '#/components/schemas/DCRConfigTemplate'
+          type: array
+      type: object
+    Provider-create:
+      properties:
+        Catalogues:
+          items:
+            $ref: '#/components/schemas/Catalogue'
+          type: array
+        Configuration:
+          $ref: '#/components/schemas/ProviderConfig'
+          type: object
+        LastSyncedAt:
+          format: date-time
+          type: string
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Name:
+          type: string
+        Plans:
+          items:
+            $ref: '#/components/schemas/Plan'
+          type: array
+        Products:
+          items:
+            $ref: '#/components/schemas/Product'
+          type: array
+        Status:
+          type: string
+        Type:
+          type: string
+      type: object
+    Provider-index:
+      items:
+        $ref: '#/components/schemas/Provider-index-elem'
+      type: array
+    Provider-index-elem:
+      properties:
+        Catalogues:
+          items:
+            $ref: '#/components/schemas/Catalogue'
+          type: array
+        Configuration:
+          $ref: '#/components/schemas/ProviderConfig'
+          type: object
+        LastSyncedAt:
+          format: date-time
+          type: string
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Name:
+          type: string
+        Plans:
+          items:
+            $ref: '#/components/schemas/Plan'
+          type: array
+        Products:
+          items:
+            $ref: '#/components/schemas/Product'
+          type: array
+        Status:
+          type: string
+        Type:
+          type: string
+      type: object
+    Provider-show:
+      properties:
+        Catalogues:
+          items:
+            $ref: '#/components/schemas/Catalogue'
+          type: array
+        Configuration:
+          $ref: '#/components/schemas/ProviderConfig'
+          type: object
+        LastSyncedAt:
+          format: date-time
+          type: string
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Name:
+          type: string
+        Plans:
+          items:
+            $ref: '#/components/schemas/Plan'
+          type: array
+        Products:
+          items:
+            $ref: '#/components/schemas/Product'
+          type: array
+        Status:
+          type: string
+        Type:
+          type: string
+      type: object
+    Provider-update:
+      properties:
+        Catalogues:
+          items:
+            $ref: '#/components/schemas/Catalogue'
+          type: array
+        Configuration:
+          $ref: '#/components/schemas/ProviderConfig'
+          type: object
+        LastSyncedAt:
+          format: date-time
+          type: string
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Name:
+          type: string
+        Plans:
+          items:
+            $ref: '#/components/schemas/Plan'
+          type: array
+        Products:
+          items:
+            $ref: '#/components/schemas/Product'
+          type: array
+        Status:
+          type: string
+        Type:
+          type: string
+      type: object
+    ProviderConfig:
+      properties:
+        MetaData:
+          type: string
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        ProviderID:
+          type: integer
+      type: object
+    S3Setting:
+      properties:
+        ACL:
+          type: string
+        AccessKey:
+          type: string
+        Bucket:
+          type: string
+        Endpoint:
+          type: string
+        PresignURLs:
+          type: boolean
+        Region:
+          type: string
+        SecretKey:
+          type: string
+      type: object
+    Settings-create:
+      properties:
+        Blog:
+          $ref: '#/components/schemas/BlogSetting'
+          type: object
+        Database:
+          $ref: '#/components/schemas/DatabaseSetting'
+          type: object
+        Forms:
+          $ref: '#/components/schemas/'
+          type: object
+        HostPort:
+          type: integer
+        JwtSigningKey:
+          type: string
+        LicenseKey:
+          type: string
+        LogFormat:
+          type: string
+        LogLevel:
+          type: string
+        PortalAPISecret:
+          type: string
+        ProductDocRenderer:
+          type: string
+        RefreshInterval:
+          type: integer
+        S3:
+          $ref: '#/components/schemas/S3Setting'
+          type: object
+        Site:
+          $ref: '#/components/schemas/'
+          type: object
+        Storage:
+          type: string
+        StoreSessionName:
+          type: string
+        TLSConfig:
+          $ref: '#/components/schemas/TLSSetting'
+          type: object
+        Theming:
+          $ref: '#/components/schemas/ThemeSetting'
+          type: object
+      type: object
+    Settings-index:
+      items:
+        $ref: '#/components/schemas/Settings-index-elem'
+      type: array
+    Settings-index-elem:
+      properties:
+        Blog:
+          $ref: '#/components/schemas/BlogSetting'
+          type: object
+        Database:
+          $ref: '#/components/schemas/DatabaseSetting'
+          type: object
+        Forms:
+          $ref: '#/components/schemas/'
+          type: object
+        HostPort:
+          type: integer
+        JwtSigningKey:
+          type: string
+        LicenseKey:
+          type: string
+        LogFormat:
+          type: string
+        LogLevel:
+          type: string
+        PortalAPISecret:
+          type: string
+        ProductDocRenderer:
+          type: string
+        RefreshInterval:
+          type: integer
+        S3:
+          $ref: '#/components/schemas/S3Setting'
+          type: object
+        Site:
+          $ref: '#/components/schemas/'
+          type: object
+        Storage:
+          type: string
+        StoreSessionName:
+          type: string
+        TLSConfig:
+          $ref: '#/components/schemas/TLSSetting'
+          type: object
+        Theming:
+          $ref: '#/components/schemas/ThemeSetting'
+          type: object
+      type: object
+    Settings-show:
+      properties:
+        Blog:
+          $ref: '#/components/schemas/BlogSetting'
+          type: object
+        Database:
+          $ref: '#/components/schemas/DatabaseSetting'
+          type: object
+        Forms:
+          $ref: '#/components/schemas/'
+          type: object
+        HostPort:
+          type: integer
+        JwtSigningKey:
+          type: string
+        LicenseKey:
+          type: string
+        LogFormat:
+          type: string
+        LogLevel:
+          type: string
+        PortalAPISecret:
+          type: string
+        ProductDocRenderer:
+          type: string
+        RefreshInterval:
+          type: integer
+        S3:
+          $ref: '#/components/schemas/S3Setting'
+          type: object
+        Site:
+          $ref: '#/components/schemas/'
+          type: object
+        Storage:
+          type: string
+        StoreSessionName:
+          type: string
+        TLSConfig:
+          $ref: '#/components/schemas/TLSSetting'
+          type: object
+        Theming:
+          $ref: '#/components/schemas/ThemeSetting'
+          type: object
+      type: object
+    Settings-update:
+      properties:
+        Blog:
+          $ref: '#/components/schemas/BlogSetting'
+          type: object
+        Database:
+          $ref: '#/components/schemas/DatabaseSetting'
+          type: object
+        Forms:
+          $ref: '#/components/schemas/'
+          type: object
+        HostPort:
+          type: integer
+        JwtSigningKey:
+          type: string
+        LicenseKey:
+          type: string
+        LogFormat:
+          type: string
+        LogLevel:
+          type: string
+        PortalAPISecret:
+          type: string
+        ProductDocRenderer:
+          type: string
+        RefreshInterval:
+          type: integer
+        S3:
+          $ref: '#/components/schemas/S3Setting'
+          type: object
+        Site:
+          $ref: '#/components/schemas/'
+          type: object
+        Storage:
+          type: string
+        StoreSessionName:
+          type: string
+        TLSConfig:
+          $ref: '#/components/schemas/TLSSetting'
+          type: object
+        Theming:
+          $ref: '#/components/schemas/ThemeSetting'
+          type: object
+      type: object
+    Slug:
+      properties:
+        Slug:
+          type: string
+      type: object
+    Sorting:
+      properties:
+        Position:
+          type: integer
+      type: object
+    TLSSetting:
+      properties:
+        Certificates:
+          items:
+            $ref: '#/components/schemas/Certificate'
+          type: array
+        Enable:
+          type: boolean
+        InsecureSkipVerify:
+          type: boolean
+        MinVersion:
+          type: integer
+      type: object
+    Tag:
+      properties:
+        ID:
+          type: integer
+        Name:
+          type: string
+      type: object
+    Team:
+      properties:
+        Default:
+          type: boolean
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Name:
+          type: string
+        Organisation:
+          $ref: '#/components/schemas/Organisation'
+          type: object
+        OrganisationID:
+          type: integer
+        Users:
+          items:
+            $ref: '#/components/schemas/User'
+          type: array
+      type: object
+    Team-create:
+      properties:
+        Default:
+          type: boolean
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Name:
+          type: string
+        Organisation:
+          $ref: '#/components/schemas/Organisation'
+          type: object
+        OrganisationID:
+          type: integer
+        Users:
+          items:
+            $ref: '#/components/schemas/User'
+          type: array
+      type: object
+    Team-index:
+      items:
+        $ref: '#/components/schemas/Team-index-elem'
+      type: array
+    Team-index-elem:
+      properties:
+        Default:
+          type: boolean
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Name:
+          type: string
+        Organisation:
+          $ref: '#/components/schemas/Organisation'
+          type: object
+        OrganisationID:
+          type: integer
+        Users:
+          items:
+            $ref: '#/components/schemas/User'
+          type: array
+      type: object
+    Team-show:
+      properties:
+        Default:
+          type: boolean
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Name:
+          type: string
+        Organisation:
+          $ref: '#/components/schemas/Organisation'
+          type: object
+        OrganisationID:
+          type: integer
+        Users:
+          items:
+            $ref: '#/components/schemas/User'
+          type: array
+      type: object
+    Team-update:
+      properties:
+        Default:
+          type: boolean
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Name:
+          type: string
+        Organisation:
+          $ref: '#/components/schemas/Organisation'
+          type: object
+        OrganisationID:
+          type: integer
+        Users:
+          items:
+            $ref: '#/components/schemas/User'
+          type: array
+      type: object
+    TextContentBlock:
+      properties:
+        Content:
+          type: string
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Name:
+          type: string
+        PageID:
+          type: integer
+      type: object
+    ThemeSetting:
+      properties:
+        Path:
+          type: string
+        Theme:
+          type: string
+      type: object
+    User:
+      properties:
+        APIToken:
+          type: string
+        APITokenCreatedAt:
+          format: date-time
+          type: string
+        Active:
+          type: boolean
+        Basic:
+          $ref: '#/components/schemas/Basic'
+          type: object
+        Cart:
+          $ref: '#/components/schemas/Cart'
+          type: object
+        Email:
+          type: string
+        First:
+          type: string
+        Joined:
+          format: date-time
+          type: string
+        Last:
+          type: string
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Organisation:
+          $ref: '#/components/schemas/Organisation'
+          type: object
+        OrganisationID:
+          type: integer
+        Password:
+          type: string
+        ProviderID:
+          type: integer
+        ResetPassword:
+          type: boolean
+        Role:
+          type: string
+        SSOKey:
+          type: string
+        Teams:
+          items:
+            $ref: '#/components/schemas/Team'
+          type: array
+      type: object
+    User-create:
+      properties:
+        APIToken:
+          type: string
+        APITokenCreatedAt:
+          format: date-time
+          type: string
+        Active:
+          type: boolean
+        Basic:
+          $ref: '#/components/schemas/Basic'
+          type: object
+        Cart:
+          $ref: '#/components/schemas/Cart'
+          type: object
+        Email:
+          type: string
+        First:
+          type: string
+        Joined:
+          format: date-time
+          type: string
+        Last:
+          type: string
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Organisation:
+          $ref: '#/components/schemas/Organisation'
+          type: object
+        OrganisationID:
+          type: integer
+        Password:
+          type: string
+        ProviderID:
+          type: integer
+        ResetPassword:
+          type: boolean
+        Role:
+          type: string
+        SSOKey:
+          type: string
+        Teams:
+          items:
+            $ref: '#/components/schemas/Team'
+          type: array
+      type: object
+    User-index:
+      items:
+        $ref: '#/components/schemas/User-index-elem'
+      type: array
+    User-index-elem:
+      properties:
+        APIToken:
+          type: string
+        APITokenCreatedAt:
+          format: date-time
+          type: string
+        Active:
+          type: boolean
+        Basic:
+          $ref: '#/components/schemas/Basic'
+          type: object
+        Cart:
+          $ref: '#/components/schemas/Cart'
+          type: object
+        Email:
+          type: string
+        First:
+          type: string
+        Joined:
+          format: date-time
+          type: string
+        Last:
+          type: string
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Organisation:
+          $ref: '#/components/schemas/Organisation'
+          type: object
+        OrganisationID:
+          type: integer
+        Password:
+          type: string
+        ProviderID:
+          type: integer
+        ResetPassword:
+          type: boolean
+        Role:
+          type: string
+        SSOKey:
+          type: string
+        Teams:
+          items:
+            $ref: '#/components/schemas/Team'
+          type: array
+      type: object
+    User-show:
+      properties:
+        APIToken:
+          type: string
+        APITokenCreatedAt:
+          format: date-time
+          type: string
+        Active:
+          type: boolean
+        Basic:
+          $ref: '#/components/schemas/Basic'
+          type: object
+        Cart:
+          $ref: '#/components/schemas/Cart'
+          type: object
+        Email:
+          type: string
+        First:
+          type: string
+        Joined:
+          format: date-time
+          type: string
+        Last:
+          type: string
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Organisation:
+          $ref: '#/components/schemas/Organisation'
+          type: object
+        OrganisationID:
+          type: integer
+        Password:
+          type: string
+        ProviderID:
+          type: integer
+        ResetPassword:
+          type: boolean
+        Role:
+          type: string
+        SSOKey:
+          type: string
+        Teams:
+          items:
+            $ref: '#/components/schemas/Team'
+          type: array
+      type: object
+    User-update:
+      properties:
+        APIToken:
+          type: string
+        APITokenCreatedAt:
+          format: date-time
+          type: string
+        Active:
+          type: boolean
+        Basic:
+          $ref: '#/components/schemas/Basic'
+          type: object
+        Cart:
+          $ref: '#/components/schemas/Cart'
+          type: object
+        Email:
+          type: string
+        First:
+          type: string
+        Joined:
+          format: date-time
+          type: string
+        Last:
+          type: string
+        Model:
+          $ref: '#/components/schemas/Model'
+          type: object
+        Organisation:
+          $ref: '#/components/schemas/Organisation'
+          type: object
+        OrganisationID:
+          type: integer
+        Password:
+          type: string
+        ProviderID:
+          type: integer
+        ResetPassword:
+          type: boolean
+        Role:
+          type: string
+        SSOKey:
+          type: string
+        Teams:
+          items:
+            $ref: '#/components/schemas/Team'
+          type: array
+      type: object
+  securitySchemes: {}
