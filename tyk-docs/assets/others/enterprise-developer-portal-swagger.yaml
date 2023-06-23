@@ -1976,7 +1976,6 @@ components:
           type: string
         OASDocument:
           $ref: '#/components/schemas/OSS'
-          type: object
         OASUrl:
           type: string
         ProductID:
@@ -2000,7 +1999,6 @@ components:
           type: string
         OASDocument:
           $ref: '#/components/schemas/OSS'
-          type: object
         OASUrl:
           type: string
         ProductID:
@@ -2024,7 +2022,6 @@ components:
           type: string
         OASDocument:
           $ref: '#/components/schemas/OSS'
-          type: object
         OASUrl:
           type: string
         ProductID:
@@ -2048,7 +2045,6 @@ components:
           type: string
         OASDocument:
           $ref: '#/components/schemas/OSS'
-          type: object
         OASUrl:
           type: string
         ProductID:
@@ -2091,7 +2087,6 @@ components:
           type: string
         OASDocument:
           $ref: '#/components/schemas/OSS'
-          type: object
         OASUrl:
           type: string
         ProductID:
@@ -2107,12 +2102,10 @@ components:
           type: string
         Catalogue:
           $ref: '#/components/schemas/Catalogue'
-          type: object
         CatalogueID:
           type: integer
         Client:
           $ref: '#/components/schemas/Client'
-          type: object
         ClientID:
           type: integer
         Credentials:
@@ -2125,10 +2118,8 @@ components:
           type: integer
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Plan:
           $ref: '#/components/schemas/Plan'
-          type: object
         PlanID:
           type: integer
         Products:
@@ -2143,7 +2134,6 @@ components:
           type: string
         User:
           $ref: '#/components/schemas/User'
-          type: object
         UserID:
           type: integer
       type: object
@@ -2153,12 +2143,10 @@ components:
           type: string
         Catalogue:
           $ref: '#/components/schemas/Catalogue'
-          type: object
         CatalogueID:
           type: integer
         Client:
           $ref: '#/components/schemas/Client'
-          type: object
         ClientID:
           type: integer
         Credentials:
@@ -2171,10 +2159,8 @@ components:
           type: integer
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Plan:
           $ref: '#/components/schemas/Plan'
-          type: object
         PlanID:
           type: integer
         Products:
@@ -2189,7 +2175,6 @@ components:
           type: string
         User:
           $ref: '#/components/schemas/User'
-          type: object
         UserID:
           type: integer
       type: object
@@ -2203,12 +2188,10 @@ components:
           type: string
         Catalogue:
           $ref: '#/components/schemas/Catalogue'
-          type: object
         CatalogueID:
           type: integer
         Client:
           $ref: '#/components/schemas/Client'
-          type: object
         ClientID:
           type: integer
         Credentials:
@@ -2221,10 +2204,8 @@ components:
           type: integer
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Plan:
           $ref: '#/components/schemas/Plan'
-          type: object
         PlanID:
           type: integer
         Products:
@@ -2239,7 +2220,6 @@ components:
           type: string
         User:
           $ref: '#/components/schemas/User'
-          type: object
         UserID:
           type: integer
       type: object
@@ -2249,12 +2229,10 @@ components:
           type: string
         Catalogue:
           $ref: '#/components/schemas/Catalogue'
-          type: object
         CatalogueID:
           type: integer
         Client:
           $ref: '#/components/schemas/Client'
-          type: object
         ClientID:
           type: integer
         Credentials:
@@ -2267,10 +2245,8 @@ components:
           type: integer
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Plan:
           $ref: '#/components/schemas/Plan'
-          type: object
         PlanID:
           type: integer
         Products:
@@ -2285,7 +2261,6 @@ components:
           type: string
         User:
           $ref: '#/components/schemas/User'
-          type: object
         UserID:
           type: integer
       type: object
@@ -2295,12 +2270,10 @@ components:
           type: string
         Catalogue:
           $ref: '#/components/schemas/Catalogue'
-          type: object
         CatalogueID:
           type: integer
         Client:
           $ref: '#/components/schemas/Client'
-          type: object
         ClientID:
           type: integer
         Credentials:
@@ -2313,10 +2286,8 @@ components:
           type: integer
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Plan:
           $ref: '#/components/schemas/Plan'
-          type: object
         PlanID:
           type: integer
         Products:
@@ -2331,7 +2302,6 @@ components:
           type: string
         User:
           $ref: '#/components/schemas/User'
-          type: object
         UserID:
           type: integer
       type: object
@@ -2379,7 +2349,6 @@ components:
           type: string
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         ProviderID:
           type: integer
         UserID:
@@ -2389,12 +2358,10 @@ components:
       properties:
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Name:
           type: string
         NameWithSlug:
           $ref: '#/components/schemas/Slug'
-          type: object
         OrgCatalogues:
           items:
             $ref: '#/components/schemas/OrganisationCatalogue'
@@ -2416,7 +2383,6 @@ components:
           type: string
         NameWithSlug:
           $ref: '#/components/schemas/Slug'
-          type: object
         OrgCatalogues:
           items:
             $ref: '#/components/schemas/OrganisationCatalogue'
@@ -2436,12 +2402,10 @@ components:
       properties:
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Name:
           type: string
         NameWithSlug:
           $ref: '#/components/schemas/Slug'
-          type: object
         OrgCatalogues:
           items:
             $ref: '#/components/schemas/OrganisationCatalogue'
@@ -2463,7 +2427,6 @@ components:
           type: string
         NameWithSlug:
           $ref: '#/components/schemas/Slug'
-          type: object
         OrgCatalogues:
           items:
             $ref: '#/components/schemas/OrganisationCatalogue'
@@ -2485,7 +2448,6 @@ components:
           type: string
         NameWithSlug:
           $ref: '#/components/schemas/Slug'
-          type: object
         OrgCatalogues:
           items:
             $ref: '#/components/schemas/OrganisationCatalogue'
@@ -2507,7 +2469,6 @@ components:
           type: string
         NameWithSlug:
           $ref: '#/components/schemas/Slug'
-          type: object
         OrgCatalogues:
           items:
             $ref: '#/components/schemas/OrganisationCatalogue'
@@ -2527,7 +2488,6 @@ components:
       properties:
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Name:
           type: string
         Posts:
@@ -2558,7 +2518,6 @@ components:
           type: string
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Name:
           type: string
         Products:
@@ -2584,7 +2543,6 @@ components:
           type: string
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Name:
           type: string
         Products:
@@ -2614,7 +2572,6 @@ components:
           type: string
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Name:
           type: string
         Products:
@@ -2640,7 +2597,6 @@ components:
           type: string
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Name:
           type: string
         Products:
@@ -2666,7 +2622,6 @@ components:
           type: string
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Name:
           type: string
         Products:
@@ -2692,7 +2647,6 @@ components:
           type: boolean
         ThemeFile:
           $ref: '#/components/schemas/File'
-          type: object
         Version:
           type: string
       type: object
@@ -2714,7 +2668,6 @@ components:
           type: boolean
         ThemeFile:
           $ref: '#/components/schemas/File'
-          type: object
         Version:
           type: string
       type: object
@@ -2732,7 +2685,6 @@ components:
           type: boolean
         ThemeFile:
           $ref: '#/components/schemas/File'
-          type: object
         Version:
           type: string
       type: object
@@ -2750,7 +2702,6 @@ components:
           type: boolean
         ThemeFile:
           $ref: '#/components/schemas/File'
-          type: object
         Version:
           type: string
       type: object
@@ -2762,7 +2713,6 @@ components:
           type: boolean
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Name:
           type: string
         PageID:
@@ -2776,7 +2726,6 @@ components:
           type: boolean
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Name:
           type: string
         PageID:
@@ -2794,7 +2743,6 @@ components:
           type: boolean
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Name:
           type: string
         PageID:
@@ -2808,7 +2756,6 @@ components:
           type: boolean
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Name:
           type: string
         PageID:
@@ -2822,7 +2769,6 @@ components:
           type: boolean
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Name:
           type: string
         PageID:
@@ -2832,7 +2778,6 @@ components:
       properties:
         AccessRequest:
           $ref: '#/components/schemas/AccessRequest'
-          type: object
         AccessRequestID:
           type: integer
         ClientID:
@@ -2854,7 +2799,6 @@ components:
           type: string
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         OAuthClientID:
           type: string
         OAuthClientSecret:
@@ -2872,7 +2816,6 @@ components:
       properties:
         AccessRequest:
           $ref: '#/components/schemas/AccessRequest'
-          type: object
         AccessRequestID:
           type: integer
         ClientID:
@@ -2894,7 +2837,6 @@ components:
           type: string
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         OAuthClientID:
           type: string
         OAuthClientSecret:
@@ -2916,7 +2858,6 @@ components:
       properties:
         AccessRequest:
           $ref: '#/components/schemas/AccessRequest'
-          type: object
         AccessRequestID:
           type: integer
         ClientID:
@@ -2938,7 +2879,6 @@ components:
           type: string
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         OAuthClientID:
           type: string
         OAuthClientSecret:
@@ -2956,7 +2896,6 @@ components:
       properties:
         AccessRequest:
           $ref: '#/components/schemas/AccessRequest'
-          type: object
         AccessRequestID:
           type: integer
         ClientID:
@@ -2978,7 +2917,6 @@ components:
           type: string
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         OAuthClientID:
           type: string
         OAuthClientSecret:
@@ -2996,7 +2934,6 @@ components:
       properties:
         AccessRequest:
           $ref: '#/components/schemas/AccessRequest'
-          type: object
         AccessRequestID:
           type: integer
         ClientID:
@@ -3018,7 +2955,6 @@ components:
           type: string
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         OAuthClientID:
           type: string
         OAuthClientSecret:
@@ -3042,7 +2978,6 @@ components:
           type: string
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Name:
           type: string
         OktaAppType:
@@ -3073,16 +3008,13 @@ components:
       properties:
         OSS:
           $ref: '#/components/schemas/OSS'
-          type: object
       type: object
     ImageBlock:
       properties:
         Image:
           $ref: '#/components/schemas/ImageStore'
-          type: object
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Name:
           type: string
         PageID:
@@ -3092,7 +3024,6 @@ components:
       properties:
         OSS:
           $ref: '#/components/schemas/OSS'
-          type: object
       type: object
     Model:
       properties:
@@ -3112,13 +3043,11 @@ components:
       properties:
         Base:
           $ref: '#/components/schemas/Base'
-          type: object
       type: object
     Organisation:
       properties:
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Name:
           type: string
         Teams:
@@ -3134,7 +3063,6 @@ components:
       properties:
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Name:
           type: string
         Teams:
@@ -3154,7 +3082,6 @@ components:
       properties:
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Name:
           type: string
         Teams:
@@ -3170,7 +3097,6 @@ components:
       properties:
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Name:
           type: string
         Teams:
@@ -3186,7 +3112,6 @@ components:
       properties:
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Name:
           type: string
         Teams:
@@ -3202,17 +3127,14 @@ components:
       properties:
         Catalogue:
           $ref: '#/components/schemas/Catalogue'
-          type: object
         CatalogueID:
           type: integer
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Name:
           type: string
         Organisation:
           $ref: '#/components/schemas/Organisation'
-          type: object
         OrganisationID:
           type: integer
         TeamID:
@@ -3222,17 +3144,14 @@ components:
       properties:
         Catalogue:
           $ref: '#/components/schemas/Catalogue'
-          type: object
         CatalogueID:
           type: integer
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Name:
           type: string
         Organisation:
           $ref: '#/components/schemas/Organisation'
-          type: object
         OrganisationID:
           type: integer
         TeamID:
@@ -3246,17 +3165,14 @@ components:
       properties:
         Catalogue:
           $ref: '#/components/schemas/Catalogue'
-          type: object
         CatalogueID:
           type: integer
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Name:
           type: string
         Organisation:
           $ref: '#/components/schemas/Organisation'
-          type: object
         OrganisationID:
           type: integer
         TeamID:
@@ -3266,17 +3182,14 @@ components:
       properties:
         Catalogue:
           $ref: '#/components/schemas/Catalogue'
-          type: object
         CatalogueID:
           type: integer
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Name:
           type: string
         Organisation:
           $ref: '#/components/schemas/Organisation'
-          type: object
         OrganisationID:
           type: integer
         TeamID:
@@ -3286,17 +3199,14 @@ components:
       properties:
         Catalogue:
           $ref: '#/components/schemas/Catalogue'
-          type: object
         CatalogueID:
           type: integer
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Name:
           type: string
         Organisation:
           $ref: '#/components/schemas/Organisation'
-          type: object
         OrganisationID:
           type: integer
         TeamID:
@@ -3316,7 +3226,6 @@ components:
           type: array
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         PageTypeID:
           type: integer
         Path:
@@ -3350,7 +3259,6 @@ components:
           type: array
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         PageTypeID:
           type: integer
         Path:
@@ -3380,7 +3288,6 @@ components:
           type: array
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         PageTypeID:
           type: integer
         Path:
@@ -3410,7 +3317,6 @@ components:
           type: array
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         PageTypeID:
           type: integer
         Path:
@@ -3444,7 +3350,6 @@ components:
           type: string
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Name:
           type: string
         Per:
@@ -3482,7 +3387,6 @@ components:
           type: string
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Name:
           type: string
         Per:
@@ -3524,7 +3428,6 @@ components:
           type: string
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Name:
           type: string
         Per:
@@ -3562,7 +3465,6 @@ components:
           type: string
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Name:
           type: string
         Per:
@@ -3600,7 +3502,6 @@ components:
           type: string
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Name:
           type: string
         Per:
@@ -3624,7 +3525,6 @@ components:
       properties:
         Author:
           $ref: '#/components/schemas/User'
-          type: object
         AuthorID:
           type: integer
         BlogSiteID:
@@ -3637,7 +3537,6 @@ components:
           type: string
         HeaderImage:
           $ref: '#/components/schemas/ImageStore'
-          type: object
         Lede:
           type: string
         MarkdownContent:
@@ -3646,7 +3545,6 @@ components:
           type: boolean
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Path:
           type: string
         PreviewContent:
@@ -3657,7 +3555,6 @@ components:
           type: integer
         Sorting:
           $ref: '#/components/schemas/Sorting'
-          type: object
         Status:
           type: string
         Tags:
@@ -3671,7 +3568,6 @@ components:
       properties:
         Author:
           $ref: '#/components/schemas/User'
-          type: object
         AuthorID:
           type: integer
         BlogSiteID:
@@ -3684,7 +3580,6 @@ components:
           type: string
         HeaderImage:
           $ref: '#/components/schemas/ImageStore'
-          type: object
         Lede:
           type: string
         MarkdownContent:
@@ -3693,7 +3588,6 @@ components:
           type: boolean
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Path:
           type: string
         PreviewContent:
@@ -3704,7 +3598,6 @@ components:
           type: integer
         Sorting:
           $ref: '#/components/schemas/Sorting'
-          type: object
         Status:
           type: string
         Tags:
@@ -3722,7 +3615,6 @@ components:
       properties:
         Author:
           $ref: '#/components/schemas/User'
-          type: object
         AuthorID:
           type: integer
         BlogSiteID:
@@ -3735,7 +3627,6 @@ components:
           type: string
         HeaderImage:
           $ref: '#/components/schemas/ImageStore'
-          type: object
         Lede:
           type: string
         MarkdownContent:
@@ -3744,7 +3635,6 @@ components:
           type: boolean
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Path:
           type: string
         PreviewContent:
@@ -3755,7 +3645,6 @@ components:
           type: integer
         Sorting:
           $ref: '#/components/schemas/Sorting'
-          type: object
         Status:
           type: string
         Tags:
@@ -3769,7 +3658,6 @@ components:
       properties:
         Author:
           $ref: '#/components/schemas/User'
-          type: object
         AuthorID:
           type: integer
         BlogSiteID:
@@ -3782,7 +3670,6 @@ components:
           type: string
         HeaderImage:
           $ref: '#/components/schemas/ImageStore'
-          type: object
         Lede:
           type: string
         MarkdownContent:
@@ -3791,7 +3678,6 @@ components:
           type: boolean
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Path:
           type: string
         PreviewContent:
@@ -3802,7 +3688,6 @@ components:
           type: integer
         Sorting:
           $ref: '#/components/schemas/Sorting'
-          type: object
         Status:
           type: string
         Tags:
@@ -3816,7 +3701,6 @@ components:
       properties:
         Author:
           $ref: '#/components/schemas/User'
-          type: object
         AuthorID:
           type: integer
         BlogSiteID:
@@ -3829,7 +3713,6 @@ components:
           type: string
         HeaderImage:
           $ref: '#/components/schemas/ImageStore'
-          type: object
         Lede:
           type: string
         MarkdownContent:
@@ -3838,7 +3721,6 @@ components:
           type: boolean
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Path:
           type: string
         PreviewContent:
@@ -3849,7 +3731,6 @@ components:
           type: integer
         Sorting:
           $ref: '#/components/schemas/Sorting'
-          type: object
         Status:
           type: string
         Tags:
@@ -3887,10 +3768,8 @@ components:
           type: boolean
         Logo:
           $ref: '#/components/schemas/ImageStore'
-          type: object
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Name:
           type: string
         Path:
@@ -3938,10 +3817,8 @@ components:
           type: boolean
         Logo:
           $ref: '#/components/schemas/ImageStore'
-          type: object
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Name:
           type: string
         Path:
@@ -3993,10 +3870,8 @@ components:
           type: boolean
         Logo:
           $ref: '#/components/schemas/ImageStore'
-          type: object
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Name:
           type: string
         Path:
@@ -4044,10 +3919,8 @@ components:
           type: boolean
         Logo:
           $ref: '#/components/schemas/ImageStore'
-          type: object
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Name:
           type: string
         Path:
@@ -4095,10 +3968,8 @@ components:
           type: boolean
         Logo:
           $ref: '#/components/schemas/ImageStore'
-          type: object
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Name:
           type: string
         Path:
@@ -4126,13 +3997,11 @@ components:
           type: array
         Configuration:
           $ref: '#/components/schemas/ProviderConfig'
-          type: object
         LastSyncedAt:
           format: date-time
           type: string
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Name:
           type: string
         Plans:
@@ -4160,13 +4029,11 @@ components:
           type: array
         Configuration:
           $ref: '#/components/schemas/ProviderConfig'
-          type: object
         LastSyncedAt:
           format: date-time
           type: string
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Name:
           type: string
         Plans:
@@ -4190,13 +4057,11 @@ components:
           type: array
         Configuration:
           $ref: '#/components/schemas/ProviderConfig'
-          type: object
         LastSyncedAt:
           format: date-time
           type: string
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Name:
           type: string
         Plans:
@@ -4220,13 +4085,11 @@ components:
           type: array
         Configuration:
           $ref: '#/components/schemas/ProviderConfig'
-          type: object
         LastSyncedAt:
           format: date-time
           type: string
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Name:
           type: string
         Plans:
@@ -4248,9 +4111,18 @@ components:
           type: string
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         ProviderID:
           type: integer
+      type: object
+    SiteSetting:
+      properties:
+        Enable:
+          type: boolean
+      type: object
+    FormsSetting:
+      properties:
+        Enable:
+          type: boolean
       type: object
     S3Setting:
       properties:
@@ -4273,13 +4145,10 @@ components:
       properties:
         Blog:
           $ref: '#/components/schemas/BlogSetting'
-          type: object
         Database:
           $ref: '#/components/schemas/DatabaseSetting'
-          type: object
         Forms:
-          $ref: '#/components/schemas/'
-          type: object
+          $ref: '#/components/schemas/FormsSetting'
         HostPort:
           type: integer
         JwtSigningKey:
@@ -4298,20 +4167,16 @@ components:
           type: integer
         S3:
           $ref: '#/components/schemas/S3Setting'
-          type: object
         Site:
-          $ref: '#/components/schemas/'
-          type: object
+          $ref: '#/components/schemas/SiteSetting'
         Storage:
           type: string
         StoreSessionName:
           type: string
         TLSConfig:
           $ref: '#/components/schemas/TLSSetting'
-          type: object
         Theming:
           $ref: '#/components/schemas/ThemeSetting'
-          type: object
       type: object
     Settings-index:
       items:
@@ -4321,13 +4186,10 @@ components:
       properties:
         Blog:
           $ref: '#/components/schemas/BlogSetting'
-          type: object
         Database:
           $ref: '#/components/schemas/DatabaseSetting'
-          type: object
         Forms:
-          $ref: '#/components/schemas/'
-          type: object
+          $ref: '#/components/schemas/FormsSetting'
         HostPort:
           type: integer
         JwtSigningKey:
@@ -4346,32 +4208,25 @@ components:
           type: integer
         S3:
           $ref: '#/components/schemas/S3Setting'
-          type: object
         Site:
-          $ref: '#/components/schemas/'
-          type: object
+          $ref: '#/components/schemas/SiteSetting'
         Storage:
           type: string
         StoreSessionName:
           type: string
         TLSConfig:
           $ref: '#/components/schemas/TLSSetting'
-          type: object
         Theming:
           $ref: '#/components/schemas/ThemeSetting'
-          type: object
       type: object
     Settings-show:
       properties:
         Blog:
           $ref: '#/components/schemas/BlogSetting'
-          type: object
         Database:
           $ref: '#/components/schemas/DatabaseSetting'
-          type: object
         Forms:
-          $ref: '#/components/schemas/'
-          type: object
+          $ref: '#/components/schemas/FormsSetting'
         HostPort:
           type: integer
         JwtSigningKey:
@@ -4390,32 +4245,25 @@ components:
           type: integer
         S3:
           $ref: '#/components/schemas/S3Setting'
-          type: object
         Site:
-          $ref: '#/components/schemas/'
-          type: object
+          $ref: '#/components/schemas/SiteSetting'
         Storage:
           type: string
         StoreSessionName:
           type: string
         TLSConfig:
           $ref: '#/components/schemas/TLSSetting'
-          type: object
         Theming:
           $ref: '#/components/schemas/ThemeSetting'
-          type: object
       type: object
     Settings-update:
       properties:
         Blog:
           $ref: '#/components/schemas/BlogSetting'
-          type: object
         Database:
           $ref: '#/components/schemas/DatabaseSetting'
-          type: object
         Forms:
-          $ref: '#/components/schemas/'
-          type: object
+          $ref: '#/components/schemas/FormsSetting'
         HostPort:
           type: integer
         JwtSigningKey:
@@ -4434,20 +4282,16 @@ components:
           type: integer
         S3:
           $ref: '#/components/schemas/S3Setting'
-          type: object
         Site:
-          $ref: '#/components/schemas/'
-          type: object
+          $ref: '#/components/schemas/SiteSetting'
         Storage:
           type: string
         StoreSessionName:
           type: string
         TLSConfig:
           $ref: '#/components/schemas/TLSSetting'
-          type: object
         Theming:
           $ref: '#/components/schemas/ThemeSetting'
-          type: object
       type: object
     Slug:
       properties:
@@ -4485,12 +4329,10 @@ components:
           type: boolean
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Name:
           type: string
         Organisation:
           $ref: '#/components/schemas/Organisation'
-          type: object
         OrganisationID:
           type: integer
         Users:
@@ -4504,12 +4346,10 @@ components:
           type: boolean
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Name:
           type: string
         Organisation:
           $ref: '#/components/schemas/Organisation'
-          type: object
         OrganisationID:
           type: integer
         Users:
@@ -4527,12 +4367,10 @@ components:
           type: boolean
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Name:
           type: string
         Organisation:
           $ref: '#/components/schemas/Organisation'
-          type: object
         OrganisationID:
           type: integer
         Users:
@@ -4546,12 +4384,10 @@ components:
           type: boolean
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Name:
           type: string
         Organisation:
           $ref: '#/components/schemas/Organisation'
-          type: object
         OrganisationID:
           type: integer
         Users:
@@ -4565,12 +4401,10 @@ components:
           type: boolean
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Name:
           type: string
         Organisation:
           $ref: '#/components/schemas/Organisation'
-          type: object
         OrganisationID:
           type: integer
         Users:
@@ -4584,7 +4418,6 @@ components:
           type: string
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Name:
           type: string
         PageID:
@@ -4608,10 +4441,8 @@ components:
           type: boolean
         Basic:
           $ref: '#/components/schemas/Basic'
-          type: object
         Cart:
           $ref: '#/components/schemas/Cart'
-          type: object
         Email:
           type: string
         First:
@@ -4623,10 +4454,8 @@ components:
           type: string
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Organisation:
           $ref: '#/components/schemas/Organisation'
-          type: object
         OrganisationID:
           type: integer
         Password:
@@ -4655,10 +4484,8 @@ components:
           type: boolean
         Basic:
           $ref: '#/components/schemas/Basic'
-          type: object
         Cart:
           $ref: '#/components/schemas/Cart'
-          type: object
         Email:
           type: string
         First:
@@ -4670,10 +4497,8 @@ components:
           type: string
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Organisation:
           $ref: '#/components/schemas/Organisation'
-          type: object
         OrganisationID:
           type: integer
         Password:
@@ -4706,10 +4531,8 @@ components:
           type: boolean
         Basic:
           $ref: '#/components/schemas/Basic'
-          type: object
         Cart:
           $ref: '#/components/schemas/Cart'
-          type: object
         Email:
           type: string
         First:
@@ -4721,10 +4544,8 @@ components:
           type: string
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Organisation:
           $ref: '#/components/schemas/Organisation'
-          type: object
         OrganisationID:
           type: integer
         Password:
@@ -4753,10 +4574,8 @@ components:
           type: boolean
         Basic:
           $ref: '#/components/schemas/Basic'
-          type: object
         Cart:
           $ref: '#/components/schemas/Cart'
-          type: object
         Email:
           type: string
         First:
@@ -4768,10 +4587,8 @@ components:
           type: string
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Organisation:
           $ref: '#/components/schemas/Organisation'
-          type: object
         OrganisationID:
           type: integer
         Password:
@@ -4800,10 +4617,8 @@ components:
           type: boolean
         Basic:
           $ref: '#/components/schemas/Basic'
-          type: object
         Cart:
           $ref: '#/components/schemas/Cart'
-          type: object
         Email:
           type: string
         First:
@@ -4815,10 +4630,8 @@ components:
           type: string
         Model:
           $ref: '#/components/schemas/Model'
-          type: object
         Organisation:
           $ref: '#/components/schemas/Organisation'
-          type: object
         OrganisationID:
           type: integer
         Password:
