@@ -10,12 +10,8 @@ weight: 1
 
 ### Tyk Gateway and Dashboard updated to Golang version 1.19
 
-Our Dashboard and Gateway are using [Golang 1.19](https://tip.golang.org/doc/go1.19) Programming Language starting with
-the 5.1 release. This brings improvements to the code base and allows us to
-benefit from the latest features and security enhancements in Go. Don’t forget
-that, if you’re using GoPlugins, you’ll need to recompile these to maintain
-compatibility with the latest
-[Gateway](https://tyk.io/docs/upgrading-tyk/#tyk-go-plugins)
+Our Dashboard and Gateway are using [Golang 1.19](https://tip.golang.org/doc/go1.19) Programming Language starting with the 5.1 release. This brings improvements to the code base and allows us to
+benefit from the latest features and security enhancements in Go. Don’t forget that, if you’re using [GoPlugins]({{< ref "plugins/supported-languages/golang" >}}), you’ll need to recompile these to maintain compatibility with the latest [Gateway](https://tyk.io/docs/upgrading-tyk/#tyk-go-plugins)
 
 ### Request Body Size Limits
 
@@ -67,8 +63,7 @@ the “Add GraphQL operation“ checkbox when creating a GraphQL data source.
 
 ### Import UDG API from OAS 3.x
 
-We added a Dashboard API Endpoint that is capable of taking an OAS 3.x document
-and converting it into a UDG API.
+We added a [Dashboard API Endpoint]({{< ref "universal-data-graph/datasources/rest" >}}) that is capable of taking an OAS 3.x document and converting it into a UDG API.
 
 This will generate the full schema as well as the data sources that are defined inside the OAS document.
 
@@ -158,9 +153,9 @@ size using
 
 # Updated Versions
 
-Tyk Gateway 5.1 - [docker](https://hub.docker.com/layers/tykio/tyk-gateway/v5.0.0/images/sha256-196815adff2805ccc14c267b14032f23913321b24ea86c052b62a7b1568b6725?context=repo)
+Tyk Gateway 5.1 - [docker](https://hub.docker.com/layers/tykio/tyk-gateway/v5.1.0/images/sha256-bde71eeb83aeefce2e711b33a1deb620377728a7b8bde364b5891ea6058c0649?context=repo)
 
-Tyk Dashboard 5.1 - [docker](https://hub.docker.com/layers/tykio/tyk-dashboard/v5.0/images/sha256-3d736b06b023e23f406b1591f4915b3cb15a417fcb953d380eb8b4d71829f20f?tab=vulnerabilities)
+Tyk Dashboard 5.1 - [docker](https://hub.docker.com/layers/tykio/tyk-dashboard/v5.1.0/images/sha256-075df4d840b452bfe2aa9bad8f1c1b7ad4ee06a7f5b09d3669f866985b8e2600?tab=vulnerabilities)
 
 # Contributors
 
