@@ -747,20 +747,27 @@ paths:
       description: Please note that this endpoint deletes an organisation but not its developers. When an organization is deleted, all users are moved to the Default organization. To completely erase an organization and all its users, delete the users first
       operationId: /organisations/:organisation_id-DELETE
       parameters:
-        - description: ""
+        - description: UID of an organisation
           in: path
           name: organisation_id
           required: true
           schema:
-            name: ""
+            name:  UID of an organisation
             type: integer
+            example: 2
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Organisation-show'
+                $ref: '#/components/schemas/Status'
           description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Status'
+          description: Not found
       security: []
       summary: Delete an organisation
       tags:
@@ -769,13 +776,14 @@ paths:
       description: Get an organisation
       operationId: /organisations/:organisation_id-GET
       parameters:
-        - description: ""
+        - description: UID of an organisation
           in: path
           name: organisation_id
           required: true
           schema:
-            name: ""
+            name:  UID of an organisation
             type: integer
+            example: 2
       responses:
         "200":
           content:
@@ -791,18 +799,19 @@ paths:
       description: Update an organisation's data. At this point, you can change only the name of an organisation
       operationId: /organisations/:organisation_id-PUT
       parameters:
-        - description: ""
+        - description: UID of an organisation
           in: path
           name: organisation_id
           required: true
           schema:
-            name: ""
+            name:  UID of an organisation
             type: integer
+            example: 2
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Organisation-update'
+              $ref: '#/components/schemas/Organisation-create'
         description: ""
       responses:
         "200":
@@ -1921,6 +1930,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Status'
+          description: OK
         "404":
           content:
             application/json:
@@ -3139,18 +3149,10 @@ components:
       type: object
     Organisation-create:
       properties:
-        Model:
-          $ref: '#/components/schemas/Model'
         Name:
           type: string
-        Teams:
-          items:
-            $ref: '#/components/schemas/Team'
-          type: array
-        Users:
-          items:
-            $ref: '#/components/schemas/User'
-          type: array
+          description: Name of an organisation
+          example: Default Organisation
       type: object
     Organisation-index:
       items:
@@ -3158,33 +3160,45 @@ components:
       type: array
     Organisation-index-elem:
       properties:
-        Model:
-          $ref: '#/components/schemas/Model'
+        ID:
+          type: integer
+          description: UID of an organisation
+          example: 1
         Name:
           type: string
-        Teams:
-          items:
-            $ref: '#/components/schemas/Team'
-          type: array
-        Users:
-          items:
-            $ref: '#/components/schemas/User'
-          type: array
+          description: Name of an organisation
+          example: Default Organisation
       type: object
     Organisation-show:
       properties:
-        Model:
-          $ref: '#/components/schemas/Model'
+        CreatedAt:
+          format: date-time
+          description: Date-time when a user is created
+          example: "2023-06-23 21:02"
+          type: string
+        UpdatedAt:
+          format: date-time
+          description: Date-time when a user is updated the last time
+          example: "2023-06-23 21:02"
+          type: string
+        ID:
+          type: integer
+          description: UID of an organisation
+          example: 1
         Name:
           type: string
+          description: Name of an organisation
+          example: Default Organisation
         Teams:
           items:
-            $ref: '#/components/schemas/Team'
+            $ref: '#/components/schemas/Team-index-elem'
           type: array
+          description: Teams included in this organisation
         Users:
-          items:
-            $ref: '#/components/schemas/User'
           type: array
+          description: Users that are included in this organisation. For newly created organisation this field will be an empty array
+          items:
+            $ref: '#/components/schemas/User-index-elem'
       type: object
     Organisation-update:
       properties:
@@ -4454,18 +4468,16 @@ components:
       properties:
         Default:
           type: boolean
-        Model:
-          $ref: '#/components/schemas/Model'
+          description: Identifies if this
+          example: true
+        ID:
+          type: integer
+          description: UID of this team
+          example: 1
         Name:
           type: string
-        Organisation:
-          $ref: '#/components/schemas/Organisation'
-        OrganisationID:
-          type: integer
-        Users:
-          items:
-            $ref: '#/components/schemas/User'
-          type: array
+          description: Name of this team
+          example: Default Organisation All users
       type: object
     Team-show:
       properties:
