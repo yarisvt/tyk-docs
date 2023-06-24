@@ -81,7 +81,7 @@ required for Mutual TLS.
 EV: <b>TYK_PMP_UPTIMEPUMPCONFIG_MONGODBTYPE</b><br />
 Type: `int`<br />
 
-Specifies the mongo DB Type. If it's 0, it means that you are using standard mongo db. If it's 1 it means you are using AWS Document DB. If it's 2, it means you are using CosmosDB.
+Specifies the mongo DB Type. If it's 0, it means that you are using standard mongo db, if it's 1 it means you are using AWS Document DB, if it's 2, it means you are using CosmosDB.
 Defaults to Standard mongo (0).
 
 ### uptime_pump_config.omit_index_creation
@@ -101,7 +101,7 @@ EV: <b>TYK_PMP_UPTIMEPUMPCONFIG_MONGODRIVERTYPE</b><br />
 Type: `string`<br />
 
 MongoDriverType is the type of the driver (library) to use. The valid values are: “mongo-go” and “mgo”.
-Default to “mgo”. Check out this guide to [learn about MongoDB drivers supported by Tyk Pump](https://github.com/TykTechnologies/tyk-pump#driver-type).
+Default to “mongo-go”. Check out this guide to [learn about different MongoDB drivers Tyk Pump support](https://github.com/TykTechnologies/tyk-pump#driver-type).
 
 ### uptime_pump_config.mongo_direct_connection
 EV: <b>TYK_PMP_UPTIMEPUMPCONFIG_MONGODIRECTCONNECTION</b><br />
@@ -123,7 +123,7 @@ Specifies the mongo collection name.
 EV: <b>TYK_PMP_UPTIMEPUMPCONFIG_MAXINSERTBATCHSIZEBYTES</b><br />
 Type: `int`<br />
 
-Maximum insert batch size for mongo selective pump. If the batch we are writing surpasses this value, it will be sent in multiple batches.
+Maximum insert batch size for mongo selective pump. If the batch we are writing surpass this value, it will be send in multiple batchs.
 Defaults to 10Mb.
 
 ### uptime_pump_config.max_document_size_bytes
@@ -269,18 +269,13 @@ and configure it using the `TYK_PMP_PUMPS_PROD_` prefix.
 EV: <b>TYK_PMP_PUMPS_CSV_NAME</b><br />
 Type: `string`<br />
 
-The name of the pump. This is used to identify the pump in the logs.
-Deprecated, use `type` instead.
+Deprecated.
 
 ### pumps.csv.type
 EV: <b>TYK_PMP_PUMPS_CSV_TYPE</b><br />
 Type: `string`<br />
 
 Sets the pump type. This is needed when the pump key does not equal to the pump name type.
-Current valid types are: `mongo`, `mongo-pump-selective`, `mongo-pump-aggregate`, `csv`,
-`elasticsearch`, `influx`, `influx2`, `moesif`, `statsd`, `segment`, `graylog`, `splunk`, `hybrid`, `prometheus`,
-`logzio`, `dogstatsd`, `kafka`, `syslog`, `sql`, `sql_aggregate`, `stdout`, `timestream`, `mongo-graph`,
-`sql-graph`, `sql-graph-aggregate`, `resurfaceio`.
 
 ### pumps.csv.filters
 This feature adds a new configuration field in each pump called filters and its structure is
@@ -417,18 +412,13 @@ The directory and the filename where the CSV data will be stored.
 EV: <b>TYK_PMP_PUMPS_DOGSTATSD_NAME</b><br />
 Type: `string`<br />
 
-The name of the pump. This is used to identify the pump in the logs.
-Deprecated, use `type` instead.
+Deprecated.
 
 ### pumps.dogstatsd.type
 EV: <b>TYK_PMP_PUMPS_DOGSTATSD_TYPE</b><br />
 Type: `string`<br />
 
 Sets the pump type. This is needed when the pump key does not equal to the pump name type.
-Current valid types are: `mongo`, `mongo-pump-selective`, `mongo-pump-aggregate`, `csv`,
-`elasticsearch`, `influx`, `influx2`, `moesif`, `statsd`, `segment`, `graylog`, `splunk`, `hybrid`, `prometheus`,
-`logzio`, `dogstatsd`, `kafka`, `syslog`, `sql`, `sql_aggregate`, `stdout`, `timestream`, `mongo-graph`,
-`sql-graph`, `sql-graph-aggregate`, `resurfaceio`.
 
 ### pumps.dogstatsd.filters
 This feature adds a new configuration field in each pump called filters and its structure is
@@ -656,18 +646,13 @@ On startup, you should see the loaded configs when initializing the dogstatsd pu
 EV: <b>TYK_PMP_PUMPS_ELASTICSEARCH_NAME</b><br />
 Type: `string`<br />
 
-The name of the pump. This is used to identify the pump in the logs.
-Deprecated, use `type` instead.
+Deprecated.
 
 ### pumps.elasticsearch.type
 EV: <b>TYK_PMP_PUMPS_ELASTICSEARCH_TYPE</b><br />
 Type: `string`<br />
 
 Sets the pump type. This is needed when the pump key does not equal to the pump name type.
-Current valid types are: `mongo`, `mongo-pump-selective`, `mongo-pump-aggregate`, `csv`,
-`elasticsearch`, `influx`, `influx2`, `moesif`, `statsd`, `segment`, `graylog`, `splunk`, `hybrid`, `prometheus`,
-`logzio`, `dogstatsd`, `kafka`, `syslog`, `sql`, `sql_aggregate`, `stdout`, `timestream`, `mongo-graph`,
-`sql-graph`, `sql-graph-aggregate`, `resurfaceio`.
 
 ### pumps.elasticsearch.filters
 This feature adds a new configuration field in each pump called filters and its structure is
@@ -943,18 +928,13 @@ Can be used to set custom key file for authentication with Elastic Search.
 EV: <b>TYK_PMP_PUMPS_GRAYLOG_NAME</b><br />
 Type: `string`<br />
 
-The name of the pump. This is used to identify the pump in the logs.
-Deprecated, use `type` instead.
+Deprecated.
 
 ### pumps.graylog.type
 EV: <b>TYK_PMP_PUMPS_GRAYLOG_TYPE</b><br />
 Type: `string`<br />
 
 Sets the pump type. This is needed when the pump key does not equal to the pump name type.
-Current valid types are: `mongo`, `mongo-pump-selective`, `mongo-pump-aggregate`, `csv`,
-`elasticsearch`, `influx`, `influx2`, `moesif`, `statsd`, `segment`, `graylog`, `splunk`, `hybrid`, `prometheus`,
-`logzio`, `dogstatsd`, `kafka`, `syslog`, `sql`, `sql_aggregate`, `stdout`, `timestream`, `mongo-graph`,
-`sql-graph`, `sql-graph-aggregate`, `resurfaceio`.
 
 ### pumps.graylog.filters
 This feature adds a new configuration field in each pump called filters and its structure is
@@ -1119,18 +1099,13 @@ The possible values are:
 EV: <b>TYK_PMP_PUMPS_HYBRID_NAME</b><br />
 Type: `string`<br />
 
-The name of the pump. This is used to identify the pump in the logs.
-Deprecated, use `type` instead.
+Deprecated.
 
 ### pumps.hybrid.type
 EV: <b>TYK_PMP_PUMPS_HYBRID_TYPE</b><br />
 Type: `string`<br />
 
 Sets the pump type. This is needed when the pump key does not equal to the pump name type.
-Current valid types are: `mongo`, `mongo-pump-selective`, `mongo-pump-aggregate`, `csv`,
-`elasticsearch`, `influx`, `influx2`, `moesif`, `statsd`, `segment`, `graylog`, `splunk`, `hybrid`, `prometheus`,
-`logzio`, `dogstatsd`, `kafka`, `syslog`, `sql`, `sql_aggregate`, `stdout`, `timestream`, `mongo-graph`,
-`sql-graph`, `sql-graph-aggregate`, `resurfaceio`.
 
 ### pumps.hybrid.filters
 This feature adds a new configuration field in each pump called filters and its structure is
@@ -1335,18 +1310,13 @@ Skip SSL verification
 EV: <b>TYK_PMP_PUMPS_INFLUX_NAME</b><br />
 Type: `string`<br />
 
-The name of the pump. This is used to identify the pump in the logs.
-Deprecated, use `type` instead.
+Deprecated.
 
 ### pumps.influx.type
 EV: <b>TYK_PMP_PUMPS_INFLUX_TYPE</b><br />
 Type: `string`<br />
 
 Sets the pump type. This is needed when the pump key does not equal to the pump name type.
-Current valid types are: `mongo`, `mongo-pump-selective`, `mongo-pump-aggregate`, `csv`,
-`elasticsearch`, `influx`, `influx2`, `moesif`, `statsd`, `segment`, `graylog`, `splunk`, `hybrid`, `prometheus`,
-`logzio`, `dogstatsd`, `kafka`, `syslog`, `sql`, `sql_aggregate`, `stdout`, `timestream`, `mongo-graph`,
-`sql-graph`, `sql-graph-aggregate`, `resurfaceio`.
 
 ### pumps.influx.filters
 This feature adds a new configuration field in each pump called filters and its structure is
@@ -1516,18 +1486,13 @@ List of tags to be added to the metric.
 EV: <b>TYK_PMP_PUMPS_KAFKA_NAME</b><br />
 Type: `string`<br />
 
-The name of the pump. This is used to identify the pump in the logs.
-Deprecated, use `type` instead.
+Deprecated.
 
 ### pumps.kafka.type
 EV: <b>TYK_PMP_PUMPS_KAFKA_TYPE</b><br />
 Type: `string`<br />
 
 Sets the pump type. This is needed when the pump key does not equal to the pump name type.
-Current valid types are: `mongo`, `mongo-pump-selective`, `mongo-pump-aggregate`, `csv`,
-`elasticsearch`, `influx`, `influx2`, `moesif`, `statsd`, `segment`, `graylog`, `splunk`, `hybrid`, `prometheus`,
-`logzio`, `dogstatsd`, `kafka`, `syslog`, `sql`, `sql_aggregate`, `stdout`, `timestream`, `mongo-graph`,
-`sql-graph`, `sql-graph-aggregate`, `resurfaceio`.
 
 ### pumps.kafka.filters
 This feature adds a new configuration field in each pump called filters and its structure is
@@ -1746,18 +1711,13 @@ Defaults to "sha-256".
 EV: <b>TYK_PMP_PUMPS_LOGZIO_NAME</b><br />
 Type: `string`<br />
 
-The name of the pump. This is used to identify the pump in the logs.
-Deprecated, use `type` instead.
+Deprecated.
 
 ### pumps.logzio.type
 EV: <b>TYK_PMP_PUMPS_LOGZIO_TYPE</b><br />
 Type: `string`<br />
 
 Sets the pump type. This is needed when the pump key does not equal to the pump name type.
-Current valid types are: `mongo`, `mongo-pump-selective`, `mongo-pump-aggregate`, `csv`,
-`elasticsearch`, `influx`, `influx2`, `moesif`, `statsd`, `segment`, `graylog`, `splunk`, `hybrid`, `prometheus`,
-`logzio`, `dogstatsd`, `kafka`, `syslog`, `sql`, `sql_aggregate`, `stdout`, `timestream`, `mongo-graph`,
-`sql-graph`, `sql-graph-aggregate`, `resurfaceio`.
 
 ### pumps.logzio.filters
 This feature adds a new configuration field in each pump called filters and its structure is
@@ -1927,18 +1887,13 @@ If you do not want to use the default Logzio url i.e. when using a proxy. Defaul
 EV: <b>TYK_PMP_PUMPS_MOESIF_NAME</b><br />
 Type: `string`<br />
 
-The name of the pump. This is used to identify the pump in the logs.
-Deprecated, use `type` instead.
+Deprecated.
 
 ### pumps.moesif.type
 EV: <b>TYK_PMP_PUMPS_MOESIF_TYPE</b><br />
 Type: `string`<br />
 
 Sets the pump type. This is needed when the pump key does not equal to the pump name type.
-Current valid types are: `mongo`, `mongo-pump-selective`, `mongo-pump-aggregate`, `csv`,
-`elasticsearch`, `influx`, `influx2`, `moesif`, `statsd`, `segment`, `graylog`, `splunk`, `hybrid`, `prometheus`,
-`logzio`, `dogstatsd`, `kafka`, `syslog`, `sql`, `sql_aggregate`, `stdout`, `timestream`, `mongo-graph`,
-`sql-graph`, `sql-graph-aggregate`, `resurfaceio`.
 
 ### pumps.moesif.filters
 This feature adds a new configuration field in each pump called filters and its structure is
@@ -2070,7 +2025,7 @@ EV: <b>TYK_PMP_PUMPS_MOESIF_META_APPLICATIONID</b><br />
 Type: `string`<br />
 
 Moesif Application Id. You can find your Moesif Application Id from
-[_Moesif Dashboard_](https://www.moesif.com/solutions/track-api-program?language=tyk-api-gateway&utm_medium=docs&utm_campaign=partners&utm_source=tyk) -> _Bottom Left Menu_ -> _Installation_ . Moesif
+[_Moesif Dashboard_](https://www.moesif.com/) -> _Top Right Menu_ -> _API Keys_ . Moesif
 recommends creating separate Application Ids for each environment such as Production,
 Staging, and Development to keep data isolated.
 
@@ -2161,18 +2116,13 @@ value is `sub`.
 EV: <b>TYK_PMP_PUMPS_MONGO_NAME</b><br />
 Type: `string`<br />
 
-The name of the pump. This is used to identify the pump in the logs.
-Deprecated, use `type` instead.
+Deprecated.
 
 ### pumps.mongo.type
 EV: <b>TYK_PMP_PUMPS_MONGO_TYPE</b><br />
 Type: `string`<br />
 
 Sets the pump type. This is needed when the pump key does not equal to the pump name type.
-Current valid types are: `mongo`, `mongo-pump-selective`, `mongo-pump-aggregate`, `csv`,
-`elasticsearch`, `influx`, `influx2`, `moesif`, `statsd`, `segment`, `graylog`, `splunk`, `hybrid`, `prometheus`,
-`logzio`, `dogstatsd`, `kafka`, `syslog`, `sql`, `sql_aggregate`, `stdout`, `timestream`, `mongo-graph`,
-`sql-graph`, `sql-graph-aggregate`, `resurfaceio`.
 
 ### pumps.mongo.filters
 This feature adds a new configuration field in each pump called filters and its structure is
@@ -2342,7 +2292,7 @@ required for Mutual TLS.
 EV: <b>TYK_PMP_PUMPS_MONGO_META_MONGODBTYPE</b><br />
 Type: `int`<br />
 
-Specifies the mongo DB Type. If it's 0, it means that you are using standard mongo db. If it's 1 it means you are using AWS Document DB. If it's 2, it means you are using CosmosDB.
+Specifies the mongo DB Type. If it's 0, it means that you are using standard mongo db, if it's 1 it means you are using AWS Document DB, if it's 2, it means you are using CosmosDB.
 Defaults to Standard mongo (0).
 
 ### pumps.mongo.meta.omit_index_creation
@@ -2362,7 +2312,7 @@ EV: <b>TYK_PMP_PUMPS_MONGO_META_MONGODRIVERTYPE</b><br />
 Type: `string`<br />
 
 MongoDriverType is the type of the driver (library) to use. The valid values are: “mongo-go” and “mgo”.
-Default to “mgo”. Check out this guide to [learn about MongoDB drivers supported by Tyk Pump](https://github.com/TykTechnologies/tyk-pump#driver-type).
+Default to “mongo-go”. Check out this guide to [learn about different MongoDB drivers Tyk Pump support](https://github.com/TykTechnologies/tyk-pump#driver-type).
 
 ### pumps.mongo.meta.mongo_direct_connection
 EV: <b>TYK_PMP_PUMPS_MONGO_META_MONGODIRECTCONNECTION</b><br />
@@ -2384,7 +2334,7 @@ Specifies the mongo collection name.
 EV: <b>TYK_PMP_PUMPS_MONGO_META_MAXINSERTBATCHSIZEBYTES</b><br />
 Type: `int`<br />
 
-Maximum insert batch size for mongo selective pump. If the batch we are writing surpasses this value, it will be sent in multiple batches.
+Maximum insert batch size for mongo selective pump. If the batch we are writing surpass this value, it will be send in multiple batchs.
 Defaults to 10Mb.
 
 ### pumps.mongo.meta.max_document_size_bytes
@@ -2411,18 +2361,13 @@ Enable collection capping. It's used to set a maximum size of the collection.
 EV: <b>TYK_PMP_PUMPS_MONGOAGGREGATE_NAME</b><br />
 Type: `string`<br />
 
-The name of the pump. This is used to identify the pump in the logs.
-Deprecated, use `type` instead.
+Deprecated.
 
 ### pumps.mongoaggregate.type
 EV: <b>TYK_PMP_PUMPS_MONGOAGGREGATE_TYPE</b><br />
 Type: `string`<br />
 
 Sets the pump type. This is needed when the pump key does not equal to the pump name type.
-Current valid types are: `mongo`, `mongo-pump-selective`, `mongo-pump-aggregate`, `csv`,
-`elasticsearch`, `influx`, `influx2`, `moesif`, `statsd`, `segment`, `graylog`, `splunk`, `hybrid`, `prometheus`,
-`logzio`, `dogstatsd`, `kafka`, `syslog`, `sql`, `sql_aggregate`, `stdout`, `timestream`, `mongo-graph`,
-`sql-graph`, `sql-graph-aggregate`, `resurfaceio`.
 
 ### pumps.mongoaggregate.filters
 This feature adds a new configuration field in each pump called filters and its structure is
@@ -2592,7 +2537,7 @@ required for Mutual TLS.
 EV: <b>TYK_PMP_PUMPS_MONGOAGGREGATE_META_MONGODBTYPE</b><br />
 Type: `int`<br />
 
-Specifies the mongo DB Type. If it's 0, it means that you are using standard mongo db. If it's 1 it means you are using AWS Document DB. If it's 2, it means you are using CosmosDB.
+Specifies the mongo DB Type. If it's 0, it means that you are using standard mongo db, if it's 1 it means you are using AWS Document DB, if it's 2, it means you are using CosmosDB.
 Defaults to Standard mongo (0).
 
 ### pumps.mongoaggregate.meta.omit_index_creation
@@ -2612,7 +2557,7 @@ EV: <b>TYK_PMP_PUMPS_MONGOAGGREGATE_META_MONGODRIVERTYPE</b><br />
 Type: `string`<br />
 
 MongoDriverType is the type of the driver (library) to use. The valid values are: “mongo-go” and “mgo”.
-Default to “mgo”. Check out this guide to [learn about MongoDB drivers supported by Tyk Pump](https://github.com/TykTechnologies/tyk-pump#driver-type).
+Default to “mongo-go”. Check out this guide to [learn about different MongoDB drivers Tyk Pump support](https://github.com/TykTechnologies/tyk-pump#driver-type).
 
 ### pumps.mongoaggregate.meta.mongo_direct_connection
 EV: <b>TYK_PMP_PUMPS_MONGOAGGREGATE_META_MONGODIRECTCONNECTION</b><br />
@@ -2687,18 +2632,13 @@ Posible values are: "APIID","errors","versions","apikeys","oauthids","geo","tags
 EV: <b>TYK_PMP_PUMPS_MONGOSELECTIVE_NAME</b><br />
 Type: `string`<br />
 
-The name of the pump. This is used to identify the pump in the logs.
-Deprecated, use `type` instead.
+Deprecated.
 
 ### pumps.mongoselective.type
 EV: <b>TYK_PMP_PUMPS_MONGOSELECTIVE_TYPE</b><br />
 Type: `string`<br />
 
 Sets the pump type. This is needed when the pump key does not equal to the pump name type.
-Current valid types are: `mongo`, `mongo-pump-selective`, `mongo-pump-aggregate`, `csv`,
-`elasticsearch`, `influx`, `influx2`, `moesif`, `statsd`, `segment`, `graylog`, `splunk`, `hybrid`, `prometheus`,
-`logzio`, `dogstatsd`, `kafka`, `syslog`, `sql`, `sql_aggregate`, `stdout`, `timestream`, `mongo-graph`,
-`sql-graph`, `sql-graph-aggregate`, `resurfaceio`.
 
 ### pumps.mongoselective.filters
 This feature adds a new configuration field in each pump called filters and its structure is
@@ -2868,7 +2808,7 @@ required for Mutual TLS.
 EV: <b>TYK_PMP_PUMPS_MONGOSELECTIVE_META_MONGODBTYPE</b><br />
 Type: `int`<br />
 
-Specifies the mongo DB Type. If it's 0, it means that you are using standard mongo db. If it's 1 it means you are using AWS Document DB. If it's 2, it means you are using CosmosDB.
+Specifies the mongo DB Type. If it's 0, it means that you are using standard mongo db, if it's 1 it means you are using AWS Document DB, if it's 2, it means you are using CosmosDB.
 Defaults to Standard mongo (0).
 
 ### pumps.mongoselective.meta.omit_index_creation
@@ -2888,7 +2828,7 @@ EV: <b>TYK_PMP_PUMPS_MONGOSELECTIVE_META_MONGODRIVERTYPE</b><br />
 Type: `string`<br />
 
 MongoDriverType is the type of the driver (library) to use. The valid values are: “mongo-go” and “mgo”.
-Default to “mgo”. Check out this guide to [learn about MongoDB drivers supported by Tyk Pump](https://github.com/TykTechnologies/tyk-pump#driver-type).
+Default to “mongo-go”. Check out this guide to [learn about different MongoDB drivers Tyk Pump support](https://github.com/TykTechnologies/tyk-pump#driver-type).
 
 ### pumps.mongoselective.meta.mongo_direct_connection
 EV: <b>TYK_PMP_PUMPS_MONGOSELECTIVE_META_MONGODIRECTCONNECTION</b><br />
@@ -2918,18 +2858,13 @@ Defaults to 10Mb.
 EV: <b>TYK_PMP_PUMPS_PROMETHEUS_NAME</b><br />
 Type: `string`<br />
 
-The name of the pump. This is used to identify the pump in the logs.
-Deprecated, use `type` instead.
+Deprecated.
 
 ### pumps.prometheus.type
 EV: <b>TYK_PMP_PUMPS_PROMETHEUS_TYPE</b><br />
 Type: `string`<br />
 
 Sets the pump type. This is needed when the pump key does not equal to the pump name type.
-Current valid types are: `mongo`, `mongo-pump-selective`, `mongo-pump-aggregate`, `csv`,
-`elasticsearch`, `influx`, `influx2`, `moesif`, `statsd`, `segment`, `graylog`, `splunk`, `hybrid`, `prometheus`,
-`logzio`, `dogstatsd`, `kafka`, `syslog`, `sql`, `sql_aggregate`, `stdout`, `timestream`, `mongo-graph`,
-`sql-graph`, `sql-graph-aggregate`, `resurfaceio`.
 
 ### pumps.prometheus.filters
 This feature adds a new configuration field in each pump called filters and its structure is
@@ -3091,18 +3026,13 @@ Custom Prometheus metrics.
 EV: <b>TYK_PMP_PUMPS_SPLUNK_NAME</b><br />
 Type: `string`<br />
 
-The name of the pump. This is used to identify the pump in the logs.
-Deprecated, use `type` instead.
+Deprecated.
 
 ### pumps.splunk.type
 EV: <b>TYK_PMP_PUMPS_SPLUNK_TYPE</b><br />
 Type: `string`<br />
 
 Sets the pump type. This is needed when the pump key does not equal to the pump name type.
-Current valid types are: `mongo`, `mongo-pump-selective`, `mongo-pump-aggregate`, `csv`,
-`elasticsearch`, `influx`, `influx2`, `moesif`, `statsd`, `segment`, `graylog`, `splunk`, `hybrid`, `prometheus`,
-`logzio`, `dogstatsd`, `kafka`, `syslog`, `sql`, `sql_aggregate`, `stdout`, `timestream`, `mongo-graph`,
-`sql-graph`, `sql-graph-aggregate`, `resurfaceio`.
 
 ### pumps.splunk.filters
 This feature adds a new configuration field in each pump called filters and its structure is
@@ -3307,18 +3237,13 @@ Default value is `false`.
 EV: <b>TYK_PMP_PUMPS_SQL_NAME</b><br />
 Type: `string`<br />
 
-The name of the pump. This is used to identify the pump in the logs.
-Deprecated, use `type` instead.
+Deprecated.
 
 ### pumps.sql.type
 EV: <b>TYK_PMP_PUMPS_SQL_TYPE</b><br />
 Type: `string`<br />
 
 Sets the pump type. This is needed when the pump key does not equal to the pump name type.
-Current valid types are: `mongo`, `mongo-pump-selective`, `mongo-pump-aggregate`, `csv`,
-`elasticsearch`, `influx`, `influx2`, `moesif`, `statsd`, `segment`, `graylog`, `splunk`, `hybrid`, `prometheus`,
-`logzio`, `dogstatsd`, `kafka`, `syslog`, `sql`, `sql_aggregate`, `stdout`, `timestream`, `mongo-graph`,
-`sql-graph`, `sql-graph-aggregate`, `resurfaceio`.
 
 ### pumps.sql.filters
 This feature adds a new configuration field in each pump called filters and its structure is
@@ -3527,18 +3452,13 @@ default, it writes 1000 records max per batch.
 EV: <b>TYK_PMP_PUMPS_SQLAGGREGATE_NAME</b><br />
 Type: `string`<br />
 
-The name of the pump. This is used to identify the pump in the logs.
-Deprecated, use `type` instead.
+Deprecated.
 
 ### pumps.sqlaggregate.type
 EV: <b>TYK_PMP_PUMPS_SQLAGGREGATE_TYPE</b><br />
 Type: `string`<br />
 
 Sets the pump type. This is needed when the pump key does not equal to the pump name type.
-Current valid types are: `mongo`, `mongo-pump-selective`, `mongo-pump-aggregate`, `csv`,
-`elasticsearch`, `influx`, `influx2`, `moesif`, `statsd`, `segment`, `graylog`, `splunk`, `hybrid`, `prometheus`,
-`logzio`, `dogstatsd`, `kafka`, `syslog`, `sql`, `sql_aggregate`, `stdout`, `timestream`, `mongo-graph`,
-`sql-graph`, `sql-graph-aggregate`, `resurfaceio`.
 
 ### pumps.sqlaggregate.filters
 This feature adds a new configuration field in each pump called filters and its structure is
@@ -3772,18 +3692,13 @@ Determines if the aggregations should be made per minute instead of per hour.
 EV: <b>TYK_PMP_PUMPS_STATSD_NAME</b><br />
 Type: `string`<br />
 
-The name of the pump. This is used to identify the pump in the logs.
-Deprecated, use `type` instead.
+Deprecated.
 
 ### pumps.statsd.type
 EV: <b>TYK_PMP_PUMPS_STATSD_TYPE</b><br />
 Type: `string`<br />
 
 Sets the pump type. This is needed when the pump key does not equal to the pump name type.
-Current valid types are: `mongo`, `mongo-pump-selective`, `mongo-pump-aggregate`, `csv`,
-`elasticsearch`, `influx`, `influx2`, `moesif`, `statsd`, `segment`, `graylog`, `splunk`, `hybrid`, `prometheus`,
-`logzio`, `dogstatsd`, `kafka`, `syslog`, `sql`, `sql_aggregate`, `stdout`, `timestream`, `mongo-graph`,
-`sql-graph`, `sql-graph-aggregate`, `resurfaceio`.
 
 ### pumps.statsd.filters
 This feature adds a new configuration field in each pump called filters and its structure is
@@ -3938,18 +3853,13 @@ Allows to have a separated method field instead of having it embedded in the pat
 EV: <b>TYK_PMP_PUMPS_STDOUT_NAME</b><br />
 Type: `string`<br />
 
-The name of the pump. This is used to identify the pump in the logs.
-Deprecated, use `type` instead.
+Deprecated.
 
 ### pumps.stdout.type
 EV: <b>TYK_PMP_PUMPS_STDOUT_TYPE</b><br />
 Type: `string`<br />
 
 Sets the pump type. This is needed when the pump key does not equal to the pump name type.
-Current valid types are: `mongo`, `mongo-pump-selective`, `mongo-pump-aggregate`, `csv`,
-`elasticsearch`, `influx`, `influx2`, `moesif`, `statsd`, `segment`, `graylog`, `splunk`, `hybrid`, `prometheus`,
-`logzio`, `dogstatsd`, `kafka`, `syslog`, `sql`, `sql_aggregate`, `stdout`, `timestream`, `mongo-graph`,
-`sql-graph`, `sql-graph-aggregate`, `resurfaceio`.
 
 ### pumps.stdout.filters
 This feature adds a new configuration field in each pump called filters and its structure is
@@ -4093,18 +4003,13 @@ Root name of the JSON object the analytics record is nested in.
 EV: <b>TYK_PMP_PUMPS_SYSLOG_NAME</b><br />
 Type: `string`<br />
 
-The name of the pump. This is used to identify the pump in the logs.
-Deprecated, use `type` instead.
+Deprecated.
 
 ### pumps.syslog.type
 EV: <b>TYK_PMP_PUMPS_SYSLOG_TYPE</b><br />
 Type: `string`<br />
 
 Sets the pump type. This is needed when the pump key does not equal to the pump name type.
-Current valid types are: `mongo`, `mongo-pump-selective`, `mongo-pump-aggregate`, `csv`,
-`elasticsearch`, `influx`, `influx2`, `moesif`, `statsd`, `segment`, `graylog`, `splunk`, `hybrid`, `prometheus`,
-`logzio`, `dogstatsd`, `kafka`, `syslog`, `sql`, `sql_aggregate`, `stdout`, `timestream`, `mongo-graph`,
-`sql-graph`, `sql-graph-aggregate`, `resurfaceio`.
 
 ### pumps.syslog.filters
 This feature adds a new configuration field in each pump called filters and its structure is
@@ -4275,18 +4180,13 @@ that FluentD can correctly read the logs.
 EV: <b>TYK_PMP_PUMPS_TIMESTREAM_NAME</b><br />
 Type: `string`<br />
 
-The name of the pump. This is used to identify the pump in the logs.
-Deprecated, use `type` instead.
+Deprecated.
 
 ### pumps.timestream.type
 EV: <b>TYK_PMP_PUMPS_TIMESTREAM_TYPE</b><br />
 Type: `string`<br />
 
 Sets the pump type. This is needed when the pump key does not equal to the pump name type.
-Current valid types are: `mongo`, `mongo-pump-selective`, `mongo-pump-aggregate`, `csv`,
-`elasticsearch`, `influx`, `influx2`, `moesif`, `statsd`, `segment`, `graylog`, `splunk`, `hybrid`, `prometheus`,
-`logzio`, `dogstatsd`, `kafka`, `syslog`, `sql`, `sql_aggregate`, `stdout`, `timestream`, `mongo-graph`,
-`sql-graph`, `sql-graph-aggregate`, `resurfaceio`.
 
 ### pumps.timestream.filters
 This feature adds a new configuration field in each pump called filters and its structure is
