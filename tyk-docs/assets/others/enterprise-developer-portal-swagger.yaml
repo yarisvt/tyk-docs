@@ -1908,20 +1908,25 @@ paths:
       description: Delete a user and all their applications. All credentials that are issued for those applications will be revoked and deleted as well
       operationId: /users/:user_id-DELETE
       parameters:
-        - description: ""
+        - description: UID of a user
           in: path
           name: user_id
           required: true
           schema:
-            name: ""
+            name: UID of a user
             type: integer
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User-show'
-          description: OK
+                $ref: '#/components/schemas/Status'
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Status'
+          description: Not found
       security: []
       summary: Delete a user
       tags:
@@ -1930,15 +1935,21 @@ paths:
       description: Get a user
       operationId: /users/:user_id-GET
       parameters:
-        - description: ""
+        - description: UID of a user
           in: path
           name: user_id
           required: true
           schema:
-            name: ""
+            name: UID of a user
             type: integer
       responses:
         "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User-show'
+          description: OK
+        "404":
           content:
             application/json:
               schema:
@@ -1952,12 +1963,12 @@ paths:
       description: Update a user data such as email, name, identity provider, and organization
       operationId: /users/:user_id-PUT
       parameters:
-        - description: ""
+        - description: UID of a user
           in: path
           name: user_id
           required: true
           schema:
-            name: ""
+            name: UID of a user
             type: integer
       requestBody:
         content:
@@ -1972,6 +1983,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/User-show'
           description: OK
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OnlyErrors'
+          description: Not found or Bad request
       security: []
       summary: Update a user
       tags:
@@ -4177,6 +4194,15 @@ components:
             type: string
             example: "Failed to sync provider Tyk Dashboard (Edit Me): TykPro.Sync. getting available products: fetching policies: Get \"http://localhost:30023/api/portal/policies/?p=-2\": dial tcp [::1]:30023: connect: connection refused"
       type: object
+    OnlyErrors:
+      properties:
+        errors:
+          type: array
+          description: Human-readable description of the errors
+          items:
+            type: string
+            example: "record not found"
+      type: object
     SiteSetting:
       properties:
         Enable:
@@ -4495,10 +4521,14 @@ components:
       type: object
     User:
       properties:
-        APIToken:
+        JWTToken:
           type: string
+          description: API access credentials to the admin APIs that are described in this spectification
+          example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJQcm92aWRlciI6Im5vbmUiLCJVc2VySUQiOiIkMmEkMTAkMFhRUEtCSC9nenFWMVhnRkRzUWViLk90bmdzVVlsQk9VSE14T045bWZveEs3ek9zSzVKLnkifQ.SHZtWNA-sYHUwSLEkWFo1r049WBWcQJVco_WH21jXHs"
         APITokenCreatedAt:
           format: date-time
+          description: Date-time when the `JWTToken` is created
+          example: "2023-06-23"
           type: string
         Active:
           type: boolean
@@ -4507,14 +4537,20 @@ components:
         Cart:
           $ref: '#/components/schemas/Cart'
         Email:
+          description: Email of a user
           type: string
+          example: "admin@acme.com"
         First:
           type: string
+          description: First name of a user
+          example: John
         Joined:
           format: date-time
           type: string
         Last:
           type: string
+          description: Last name of a user
+          example: Doe
         Model:
           $ref: '#/components/schemas/Model'
         Organisation:
@@ -4529,6 +4565,8 @@ components:
           type: boolean
         Role:
           type: string
+          description: Role of a user in their organisation
+          example: consumer-team-member
         SSOKey:
           type: string
         Teams:
@@ -4538,46 +4576,38 @@ components:
       type: object
     User-create:
       properties:
-        APIToken:
-          type: string
-        APITokenCreatedAt:
-          format: date-time
-          type: string
         Active:
+          description: Defines if this user is active and can login to the portal
           type: boolean
-        Basic:
-          $ref: '#/components/schemas/Basic'
-        Cart:
-          $ref: '#/components/schemas/Cart'
+          example: true
         Email:
+          description: Email of a user
           type: string
+          example: "admin@acme.com"
         First:
           type: string
-        Joined:
-          format: date-time
-          type: string
+          description: First name of a user
+          example: John
         Last:
           type: string
-        Model:
-          $ref: '#/components/schemas/Model'
-        Organisation:
-          $ref: '#/components/schemas/Organisation'
+          description: Last name of a user
+          example: Doe
         OrganisationID:
           type: integer
-        Password:
-          type: string
-        ProviderID:
-          type: integer
-        ResetPassword:
-          type: boolean
+          description: ID of an organisation where this user belongs to. For admin users it is always equal to 0
+          example: 1
         Role:
           type: string
-        SSOKey:
+          description: Role of a user in their organisation
+          example: consumer-team-member
+        Provider:
           type: string
-        Teams:
-          items:
-            $ref: '#/components/schemas/Team'
-          type: array
+          description: Type of identity provider for this user, e.g. password, github, etc.
+          example: "password"
+        ResetPassword:
+          type: boolean
+          description: Determines if a user must change their password at the next login
+          example: false
       type: object
     User-index:
       items:
@@ -4585,131 +4615,136 @@ components:
       type: array
     User-index-elem:
       properties:
-        APIToken:
-          type: string
-        APITokenCreatedAt:
-          format: date-time
-          type: string
+        ID:
+          description: UID of a user
+          type: integer
+          example: 1
         Active:
+          description: Defines if this user is active and can login to the portal
           type: boolean
-        Basic:
-          $ref: '#/components/schemas/Basic'
-        Cart:
-          $ref: '#/components/schemas/Cart'
+          example: true
         Email:
+          description: Email of a user
           type: string
+          example: "admin@acme.com"
         First:
           type: string
-        Joined:
-          format: date-time
-          type: string
+          description: First name of a user
+          example: John
         Last:
           type: string
-        Model:
-          $ref: '#/components/schemas/Model'
-        Organisation:
-          $ref: '#/components/schemas/Organisation'
+          description: Last name of a user
+          example: Doe
         OrganisationID:
           type: integer
-        Password:
-          type: string
-        ProviderID:
-          type: integer
-        ResetPassword:
-          type: boolean
+          description: ID of an organisation where this user belongs to. For admin users it is always equal to 0
+          example: 1
         Role:
           type: string
-        SSOKey:
+          description: Role of a user in their organisation
+          example: consumer-team-member
+        Provider:
           type: string
-        Teams:
-          items:
-            $ref: '#/components/schemas/Team'
-          type: array
+          description: Type of identity provider for this user, e.g. password, github, etc.
+          example: "password"
       type: object
     User-show:
       properties:
-        APIToken:
+        JWTToken:
           type: string
+          description: API access credentials to the admin APIs that are described in this spectification
+          example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJQcm92aWRlciI6Im5vbmUiLCJVc2VySUQiOiIkMmEkMTAkMFhRUEtCSC9nenFWMVhnRkRzUWViLk90bmdzVVlsQk9VSE14T045bWZveEs3ek9zSzVKLnkifQ.SHZtWNA-sYHUwSLEkWFo1r049WBWcQJVco_WH21jXHs"
         APITokenCreatedAt:
           format: date-time
+          description: Date-time when the `JWTToken` is created
+          example: "2023-06-23"
           type: string
         Active:
+          description: Defines if this user is active and can login to the portal
           type: boolean
-        Basic:
-          $ref: '#/components/schemas/Basic'
-        Cart:
-          $ref: '#/components/schemas/Cart'
+          example: true
         Email:
+          description: Email of a user
           type: string
+          example: "admin@acme.com"
         First:
           type: string
-        Joined:
-          format: date-time
-          type: string
+          description: First name of a user
+          example: John
         Last:
           type: string
-        Model:
-          $ref: '#/components/schemas/Model'
-        Organisation:
-          $ref: '#/components/schemas/Organisation'
+          description: Last name of a user
+          example: Doe
         OrganisationID:
           type: integer
-        Password:
+          description: ID of an organisation where this user belongs to. For admin users it is always equal to 0
+          example: 1
+        Organisation:
           type: string
-        ProviderID:
-          type: integer
-        ResetPassword:
-          type: boolean
+          description: Name of an rganisation where this user belongs to
+          example: Default Organisation
         Role:
           type: string
-        SSOKey:
+          description: Role of a user in their organisation
+          example: consumer-team-member
+        Provider:
           type: string
+          description: Type of identity provider for this user, e.g. password, github, etc.
+          example: "password"
+        ResetPassword:
+          type: boolean
+          description: Determines if a user must change their password at the next login
+          example: false
         Teams:
           items:
-            $ref: '#/components/schemas/Team'
+            type: string
+            description: Name of this user's teams
+            example: "Default Organisation All users"
           type: array
+        ID:
+          type: integer
+          description: UID of a user
+          example: 1
+        CreatedAt:
+          format: date-time
+          description: Date-time when a user is created
+          example: "2023-06-23 21:02"
+          type: string
+        UpdatedAt:
+          format: date-time
+          description: Date-time when a user is updated the last time
+          example: "2023-06-23 21:02"
+          type: string
       type: object
     User-update:
       properties:
-        APIToken:
-          type: string
-        APITokenCreatedAt:
-          format: date-time
-          type: string
         Active:
+          description: Defines if this user is active and can login to the portal
           type: boolean
-        Basic:
-          $ref: '#/components/schemas/Basic'
-        Cart:
-          $ref: '#/components/schemas/Cart'
+          example: true
         Email:
+          description: Email of a user
           type: string
+          example: "admin@acme.com"
         First:
           type: string
-        Joined:
-          format: date-time
-          type: string
+          description: First name of a user
+          example: John
         Last:
           type: string
-        Model:
-          $ref: '#/components/schemas/Model'
-        Organisation:
-          $ref: '#/components/schemas/Organisation'
-        OrganisationID:
-          type: integer
-        Password:
-          type: string
-        ProviderID:
-          type: integer
-        ResetPassword:
-          type: boolean
+          description: Last name of a user
+          example: Doe
         Role:
           type: string
-        SSOKey:
+          description: Role of a user in their organisation
+          example: consumer-team-member
+        Provider:
           type: string
-        Teams:
-          items:
-            $ref: '#/components/schemas/Team'
-          type: array
+          description: Type of identity provider for this user, e.g. password, github, etc.
+          example: "password"
+        ResetPassword:
+          type: boolean
+          description: Determines if a user must change their password at the next login
+          example: false
       type: object
   securitySchemes: {}
