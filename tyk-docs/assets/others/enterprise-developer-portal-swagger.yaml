@@ -829,13 +829,14 @@ paths:
       description: List all teams for an organisation
       operationId: /organisations/:organisation_id/teams-GET
       parameters:
-        - description: ""
+        - description: UID of an organisation
           in: path
           name: organisation_id
           required: true
           schema:
-            name: ""
+            name:  UID of an organisation
             type: integer
+            example: 2
       responses:
         "200":
           content:
@@ -880,27 +881,35 @@ paths:
       description: This endpoint deletes a team from an organisation. Please note that developers that belong to that team won't be removed. Instead, they will moved to the default team of that organization
       operationId: /organisations/:organisation_id/teams/:team_id-DELETE
       parameters:
-        - description: ""
+        - description: UID of a team
           in: path
           name: team_id
           required: true
           schema:
-            name: ""
+            name:  UID of a team
             type: integer
-        - description: ""
+            example: 2
+        - description: UID of an organisation
           in: path
           name: organisation_id
           required: true
           schema:
-            name: ""
+            name:  UID of an organisation
             type: integer
+            example: 2
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Team-show'
+                $ref: '#/components/schemas/Status'
           description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Status'
+          description: Not found
       security: []
       summary: Delete a team from an organisation
       tags:
@@ -909,20 +918,22 @@ paths:
       description: Get teams for an organisation
       operationId: /organisations/:organisation_id/teams/:team_id-GET
       parameters:
-        - description: ""
+        - description: UID of a team
           in: path
           name: team_id
           required: true
           schema:
-            name: ""
+            name:  UID of a team
             type: integer
-        - description: ""
+            example: 2
+        - description: UID of an organisation
           in: path
           name: organisation_id
           required: true
           schema:
-            name: ""
+            name:  UID of an organisation
             type: integer
+            example: 2
       responses:
         "200":
           content:
@@ -938,20 +949,22 @@ paths:
       description: Update a team for an organisation by add or remove users, or changing the name of the team
       operationId: /organisations/:organisation_id/teams/:team_id-PUT
       parameters:
-        - description: ""
+        - description: UID of a team
           in: path
           name: team_id
           required: true
           schema:
-            name: ""
+            name:  UID of a team
             type: integer
-        - description: ""
+            example: 2
+        - description: UID of an organisation
           in: path
           name: organisation_id
           required: true
           schema:
-            name: ""
+            name:  UID of an organisation
             type: integer
+            example: 2
       requestBody:
         content:
           application/json:
@@ -4445,20 +4458,10 @@ components:
       type: object
     Team-create:
       properties:
-        Default:
-          type: boolean
-        Model:
-          $ref: '#/components/schemas/Model'
         Name:
           type: string
-        Organisation:
-          $ref: '#/components/schemas/Organisation'
-        OrganisationID:
-          type: integer
-        Users:
-          items:
-            $ref: '#/components/schemas/User'
-          type: array
+          description: Name of a team
+          example: Partner Team A
       type: object
     Team-index:
       items:
@@ -4481,37 +4484,45 @@ components:
       type: object
     Team-show:
       properties:
-        Default:
-          type: boolean
-        Model:
-          $ref: '#/components/schemas/Model'
         Name:
           type: string
-        Organisation:
-          $ref: '#/components/schemas/Organisation'
-        OrganisationID:
+          description: Name of this team
+          example: Default Organisation All users
+        ID:
           type: integer
+          description: UID of this team
+          example: 11
+        CreatedAt:
+          format: date-time
+          description: Date-time when a team is created
+          example: "2023-06-23 21:02"
+          type: string
+        UpdatedAt:
+          format: date-time
+          description: Date-time when a team was updated the last time
+          example: "2023-06-23 21:02"
+          type: string
         Users:
           items:
-            $ref: '#/components/schemas/User'
+            types: strings
+            example: "User#6"
+            description: User ID
           type: array
+          description: Users included in this organisation. For newly created organisation will an empty array
       type: object
     Team-update:
       properties:
-        Default:
-          type: boolean
-        Model:
-          $ref: '#/components/schemas/Model'
         Name:
           type: string
-        Organisation:
-          $ref: '#/components/schemas/Organisation'
-        OrganisationID:
-          type: integer
+          description: Name of this team
+          example: Default Organisation All users
         Users:
           items:
-            $ref: '#/components/schemas/User'
+            type: integer
+            description: UID of a user
+            example: 1
           type: array
+          description: UID of users included into this team
       type: object
     TextContentBlock:
       properties:
