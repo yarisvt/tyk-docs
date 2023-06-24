@@ -1660,7 +1660,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Provider-show'
+                $ref: '#/components/schemas/Status'
           description: OK
       security: []
       summary: Delete an API Provider
@@ -1728,7 +1728,19 @@ paths:
           schema:
             name: ""
             type: integer
-      responses: {}
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusWithMessage'
+          description: OK
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusWithErrors'
+          description: Error
       security: []
       summary: Synchronize API Products and plans with an API Provider
       tags:
@@ -1966,135 +1978,180 @@ components:
       properties:
         APIID:
           type: string
+          description: API ID from the Tyk Gateway
+          example: "a0ce49d559ce49d64fe608ea3728082a"
         APIType:
           type: string
+          description: Authentication type of an API
+          example: authToken
         Description:
           type: string
+          description: Human-readable description of an API added by the portal admins
+          example: This API provides payment endpoints
         ListenPath:
           type: string
+          description: Listen path which is defined for this API in the gateway
+          example: "/payments/"
         Name:
           type: string
-        OASDocument:
-          $ref: '#/components/schemas/OSS'
+          description: Name of an API as it is defined in the gateway
+          example: "Payment API"
         OASUrl:
           type: string
-        ProductID:
-          type: integer
+          description: URL of OpenAPI Specification for this API. The document must be a valid OAS document
+          example: "https://petstore.swagger.io/v2/swagger.json"
         Status:
           type: boolean
+          description: "Status of this API: `true` means the API is up and `false` identifies that it is down"
+          example: true
         TargetURL:
           type: string
+          description: Upstream URL of this API
+          example: "http://httpbin.org/"
       type: object
     APIDetail-create:
       properties:
         APIID:
           type: string
+          description: API ID from the Tyk Gateway
+          example: "a0ce49d559ce49d64fe608ea3728082a"
         APIType:
           type: string
+          description: Authentication type of an API
+          example: authToken
         Description:
           type: string
+          description: Human-readable description of an API added by the portal admins
+          example: This API provides payment endpoints
         ListenPath:
           type: string
+          description: Listen path which is defined for this API in the gateway
+          example: "/payments/"
         Name:
           type: string
-        OASDocument:
-          $ref: '#/components/schemas/OSS'
+          description: Name of an API as it is defined in the gateway
+          example: "Payment API"
         OASUrl:
           type: string
-        ProductID:
-          type: integer
+          description: URL of OpenAPI Specification for this API. The document must be a valid OAS document
+          example: "https://petstore.swagger.io/v2/swagger.json"
         Status:
           type: boolean
+          description: "Status of this API: `true` means the API is up and `false` identifies that it is down"
+          example: true
         TargetURL:
           type: string
+          description: Upstream URL of this API
+          example: "http://httpbin.org/"
       type: object
     APIDetail-index:
-      properties:
-        APIID:
-          type: string
-        APIType:
-          type: string
-        Description:
-          type: string
-        ListenPath:
-          type: string
-        Name:
-          type: string
-        OASDocument:
-          $ref: '#/components/schemas/OSS'
-        OASUrl:
-          type: string
-        ProductID:
-          type: integer
-        Status:
-          type: boolean
-        TargetURL:
-          type: string
-      type: object
+      items:
+        $ref: '#/components/schemas/APIDetail-index-elem'
+      type: array
     APIDetail-index-elem:
       properties:
         APIID:
           type: string
+          description: API ID from the Tyk Gateway
+          example: "a0ce49d559ce49d64fe608ea3728082a"
         APIType:
           type: string
+          description: Authentication type of an API
+          example: authToken
         Description:
           type: string
+          description: Human-readable description of an API added by the portal admins
+          example: This API provides payment endpoints
         ListenPath:
           type: string
+          description: Listen path which is defined for this API in the gateway
+          example: "/payments/"
         Name:
           type: string
-        OASDocument:
-          $ref: '#/components/schemas/OSS'
+          description: Name of an API as it is defined in the gateway
+          example: "Payment API"
         OASUrl:
           type: string
-        ProductID:
-          type: integer
+          description: URL of OpenAPI Specification for this API. The document must be a valid OAS document
+          example: "https://petstore.swagger.io/v2/swagger.json"
         Status:
           type: boolean
+          description: "Status of this API: `true` means the API is up and `false` identifies that it is down"
+          example: true
         TargetURL:
           type: string
+          description: Upstream URL of this API
+          example: "http://httpbin.org/"
       type: object
     APIDetail-show:
       properties:
         APIID:
           type: string
+          description: API ID from the Tyk Gateway
+          example: "a0ce49d559ce49d64fe608ea3728082a"
         APIType:
           type: string
+          description: Authentication type of an API
+          example: authToken
         Description:
           type: string
+          description: Human-readable description of an API added by the portal admins
+          example: This API provides payment endpoints
         ListenPath:
           type: string
+          description: Listen path which is defined for this API in the gateway
+          example: "/payments/"
         Name:
           type: string
+          description: Name of an API as it is defined in the gateway
+          example: "Payment API"
         OASUrl:
           type: string
+          description: URL of OpenAPI Specification for this API. The document must be a valid OAS document
+          example: "https://petstore.swagger.io/v2/swagger.json"
         Status:
           type: boolean
+          description: "Status of this API: `true` means the API is up and `false` identifies that it is down"
+          example: true
         TargetURL:
           type: string
+          description: Upstream URL of this API
+          example: "http://httpbin.org/"
       type: object
     APIDetail-update:
       properties:
         APIID:
           type: string
+          description: API ID from the Tyk Gateway
+          example: "a0ce49d559ce49d64fe608ea3728082a"
         APIType:
           type: string
+          description: Authentication type of an API
+          example: authToken
         Description:
           type: string
+          description: Human-readable description of an API added by the portal admins
+          example: This API provides payment endpoints
         ListenPath:
           type: string
+          description: Listen path which is defined for this API in the gateway
+          example: "/payments/"
         Name:
           type: string
-        OASDocument:
-          $ref: '#/components/schemas/OSS'
+          description: Name of an API as it is defined in the gateway
+          example: "Payment API"
         OASUrl:
           type: string
-        ProductID:
-          type: integer
+          description: URL of OpenAPI Specification for this API. The document must be a valid OAS document
+          example: "https://petstore.swagger.io/v2/swagger.json"
         Status:
           type: boolean
+          description: "Status of this API: `true` means the API is up and `false` identifies that it is down"
+          example: true
         TargetURL:
           type: string
+          description: Upstream URL of this API
+          example: "http://httpbin.org/"
       type: object
     AccessRequest:
       properties:
@@ -3991,28 +4048,9 @@ components:
       type: object
     Provider-create:
       properties:
-        Catalogues:
-          items:
-            $ref: '#/components/schemas/Catalogue'
-          type: array
         Configuration:
-          $ref: '#/components/schemas/ProviderConfig'
-        LastSyncedAt:
-          format: date-time
-          type: string
-        Model:
-          $ref: '#/components/schemas/Model'
+          $ref: '#/components/schemas/ProviderConfig-create'
         Name:
-          type: string
-        Plans:
-          items:
-            $ref: '#/components/schemas/Plan'
-          type: array
-        Products:
-          items:
-            $ref: '#/components/schemas/Product'
-          type: array
-        Status:
           type: string
         Type:
           type: string
@@ -4023,96 +4061,117 @@ components:
       type: array
     Provider-index-elem:
       properties:
-        Catalogues:
-          items:
-            $ref: '#/components/schemas/Catalogue'
-          type: array
-        Configuration:
-          $ref: '#/components/schemas/ProviderConfig'
         LastSyncedAt:
-          format: date-time
           type: string
-        Model:
-          $ref: '#/components/schemas/Model'
+          description: The last time this provider was synchronized with the portal
+          example: "7 minutes 5 seconds ago"
+        ID:
+          type: integer
+          description: UUID of this API provider in the portal's database
+          example: 1
         Name:
           type: string
-        Plans:
-          items:
-            $ref: '#/components/schemas/Plan'
-          type: array
-        Products:
-          items:
-            $ref: '#/components/schemas/Product'
-          type: array
+          description: Name of this API Provider
+          example: "Tyk Dashboard"
         Status:
           type: string
+          description: Identifies if this API Provider is Up and ready for synchronization
+          example: "Up"
         Type:
           type: string
+          description: Type of API gateway used by this API Provider e.g. Tyk or AWS
+          example: "tyk-pro"
       type: object
     Provider-show:
       properties:
-        Catalogues:
-          items:
-            $ref: '#/components/schemas/Catalogue'
-          type: array
         Configuration:
           $ref: '#/components/schemas/ProviderConfig'
         LastSyncedAt:
+          type: string
+          description: The last time this provider was synchronized with the portal
+          example: "Not synced yet"
+        ID:
+          type: integer
+          description: UUID of this API provider in the portal's database
+          example: 1
+        UpdatedAt:
           format: date-time
           type: string
-        Model:
-          $ref: '#/components/schemas/Model'
+          description: When this API Provider was updated the last time
+          example: "2023-06-23 19:13"
+        CreatedAt:
+          format: date-time
+          type: string
+          description: When this API Provider was created
+          example: "2023-06-23 19:13"
         Name:
           type: string
-        Plans:
-          items:
-            $ref: '#/components/schemas/Plan'
-          type: array
-        Products:
-          items:
-            $ref: '#/components/schemas/Product'
-          type: array
+          description: Name of this API Provider
+          example: "Tyk Dashboard"
         Status:
           type: string
+          description: Identifies if this API Provider is Up and ready for synchronization
+          example: "Up"
         Type:
           type: string
+          description: Type of API gateway used by this API Provider e.g. Tyk or AWS
+          example: "tyk-pro"
       type: object
     Provider-update:
       properties:
-        Catalogues:
-          items:
-            $ref: '#/components/schemas/Catalogue'
-          type: array
         Configuration:
           $ref: '#/components/schemas/ProviderConfig'
-        LastSyncedAt:
-          format: date-time
-          type: string
-        Model:
-          $ref: '#/components/schemas/Model'
         Name:
-          type: string
-        Plans:
-          items:
-            $ref: '#/components/schemas/Plan'
-          type: array
-        Products:
-          items:
-            $ref: '#/components/schemas/Product'
-          type: array
-        Status:
-          type: string
-        Type:
           type: string
       type: object
     ProviderConfig:
       properties:
         MetaData:
           type: string
-        Model:
-          $ref: '#/components/schemas/Model'
-        ProviderID:
+          description: Connection settings for this API Provider
+          example: "{\"URL\":\"http://localhost:3002\",\"Secret\":\"04d31017802f482f76414a372db30fc2\",\"OrgID\":\"5e9d9544a1dcd60001d0ed20\",\"Gateway\":\"\",\"PoliciesTags\":[],\"InsecureSkipVerify\":false}"
+        ID:
           type: integer
+          description: UID of an API provider's metadata
+          example: 1
+      type: object
+    ProviderConfig-create:
+      properties:
+        MetaData:
+          type: string
+          description: Connection settings for this API Provider
+          example: "{\"URL\":\"http://localhost:3002\",\"Secret\":\"04d31017802f482f76414a372db30fc2\",\"OrgID\":\"5e9d9544a1dcd60001d0ed20\",\"Gateway\":\"\",\"PoliciesTags\":[],\"InsecureSkipVerify\":false}"
+      type: object
+    Status:
+      properties:
+        status:
+          type: string
+          description: Status of the operation
+          example: ok
+      type: object
+    StatusWithMessage:
+      properties:
+        status:
+          type: string
+          description: Status of the operation
+          example: ok
+        message:
+          type: string
+          description: Human-readable description of the status
+          example: "Action Synchronize: Executed successfully"
+      type: object
+    StatusWithErrors:
+      properties:
+        status:
+          type: string
+          description: Status of the operation
+          example: error
+        errors:
+          type: array
+          description: Human-readable description of the errors
+          items:
+            type: string
+            example: "Failed to sync provider Tyk Dashboard (Edit Me): TykPro.Sync. getting available products: fetching policies: Get \"http://localhost:30023/api/portal/policies/?p=-2\": dial tcp [::1]:30023: connect: connection refused"
       type: object
     SiteSetting:
       properties:
