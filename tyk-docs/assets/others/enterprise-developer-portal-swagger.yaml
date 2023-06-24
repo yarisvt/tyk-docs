@@ -1648,13 +1648,14 @@ paths:
       description: This endpoint delete an API Provider provider and removes all assests related to it such as API Products and Plans
       operationId: /providers/:provider_id-DELETE
       parameters:
-        - description: ""
+        - description: UID of an API provider
           in: path
           name: provider_id
           required: true
           schema:
-            name: ""
+            name: UID of an API provider
             type: integer
+            example: 1
       responses:
         "200":
           content:
@@ -1670,13 +1671,14 @@ paths:
       description: Get an API Provider configuration
       operationId: /providers/:provider_id-GET
       parameters:
-        - description: ""
+        - description: UID of an API provider
           in: path
           name: provider_id
           required: true
           schema:
-            name: ""
+            name: UID of an API provider
             type: integer
+            example: 1
       responses:
         "200":
           content:
@@ -1692,13 +1694,14 @@ paths:
       description: Update Provider
       operationId: /providers/:provider_id-PUT
       parameters:
-        - description: ""
+        - description: UID of an API provider
           in: path
           name: provider_id
           required: true
           schema:
-            name: ""
+            name: UID of an API provider
             type: integer
+            example: 1
       requestBody:
         content:
           application/json:
@@ -1721,13 +1724,14 @@ paths:
       description: Synchronize API Products and plans with an API Provider
       operationId: /providers/:provider_id/synchronize-PUT
       parameters:
-        - description: ""
+        - description: UID of an API provider
           in: path
           name: provider_id
           required: true
           schema:
-            name: ""
+            name: UID of an API provider
             type: integer
+            example: 1
       responses:
         "200":
           content:
