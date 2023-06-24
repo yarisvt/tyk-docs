@@ -8,10 +8,6 @@ menu:
       path: /
       category: Page
       show: True
-    - title: "Cloud Support SLA Policies"
-      path: /frequently-asked-questions/sla-policies
-      category: Page
-      show: True
   - title: "Deployment and Operations"
     path: /apim
     category: Tab
@@ -29,13 +25,8 @@ menu:
       show: True
       menu:
       - title: "Overview"
-        category: Directory
-        show: True
-        menu:
-        - title: "Tyk Open Source"
-          path: /apim/open-source
-          category: Page
-          show: True
+        category: Page
+        show: False
       - title: "Getting Started"
         category: Page
         show: False
@@ -99,9 +90,6 @@ menu:
         - title: "Tyk Cloud Trial"
           category: Page
           show: False
-        - title: "Licensing and deployment models"
-          category: Page
-          show: False
         - title: "Hybrid deployment"
           category: Page
           show: False
@@ -141,10 +129,17 @@ menu:
           path: /tyk-cloud/getting-started-tyk-cloud/to-conclude
           category: Page
           show: True
-      - title: "Day 0 - Planning Phase"
+      - title: "Deployment to production"
+        category: Directory
+        show: False
+        menu:
+      - title: "Day 0 - Planning"
         category: Directory
         show: True
         menu:
+        - title: "Licensing and deployment models"
+          category: Page
+          show: False
         - title: "Availability of infrastructure"
           category: Page
           show: False
@@ -338,7 +333,10 @@ menu:
           path: /tyk-on-prem/installation/redhat-rhel-centos/dashboard
           category: Page
           show: True
-      - title: "Day 0 - Planning Phase"
+      - title: "Planning for production"
+        category: Page
+        show: False
+      - title: "Day 0 - Planning "
         category: Directory
         show: False
         menu:
@@ -509,8 +507,53 @@ menu:
         category: Page
         show: False
       - title: "OpenAPI Specification"
-        category: Page
-        show: False
+        category: Directory
+        show: True
+        menu:
+        - title: "Using OAS API Definitions"
+          path: /getting-started/using-oas-definitions
+          category: Page
+          show: True
+        - title: "Create an OAS API"
+          path: /getting-started/using-oas-definitions/create-an-oas-api
+          category: Page
+          show: True
+        - title: "Export an OAS API"
+          path: /getting-started/using-oas-definitions/export-an-oas-api
+          category: Page
+          show: True
+        - title: "Get started with OAS and VS Code"
+          path: /getting-started/using-oas-definitions/get-started-oas
+          category: Page
+          show: True
+        - title: "Import an OAS API"
+          path: /getting-started/using-oas-definitions/import-an-oas-api
+          category: Page
+          show: True
+        - title: "Mock Response"
+          path: /getting-started/using-oas-definitions/mock-response
+          category: Page
+          show: True
+        - title: "Moving to OAS from Tyk Classic APIs"
+          path: /getting-started/using-oas-definitions/moving-to-oas
+          category: Page
+          show: True
+        - title: "OAS Glossary"
+          path: /getting-started/using-oas-definitions/oas-glossary
+          category: Page
+          show: True
+        - title: "OAS Reference"
+          path: /getting-started/using-oas-definitions/oas-reference
+          category: Page
+          show: True
+        - title: "Update existing Tyk API with changes in your OpenAPI definition"
+          path: /getting-started/using-oas-definitions/update-api-with-oas
+          category: Page
+          show: True
+        - title: "Versioning an OAS API"
+          path: /getting-started/using-oas-definitions/versioning-an-oas-api
+          category: Page
+          show: True
       - title: "Publish your first API through the Developer Portal"
         category: Page
         show: False
@@ -518,8 +561,17 @@ menu:
         category: Page
         show: False
       - title: "Tyk Local Demo library"
-        category: Page
-        show: False
+        category: Directory
+        show: True
+        menu:
+        - title: "Quick Start in Docker"
+          path: /getting-started/quick-start/tyk-demo
+          category: Page
+          show: True
+        - title: "Quick Start in Kubernetes"
+          path: /getting-started/quick-start/tyk-k8s-demo
+          category: Page
+          show: True
       - title: "Install"
         path: /getting-started/installation
         category: Page
@@ -683,14 +735,14 @@ menu:
           menu:
     - title: "UDG TBC"
       category: Directory
-      show: False
+      show: True
       menu:
       - title: "Overview"
         category: Page
         show: False
       - title: "Data Graph Design"
         category: Directory
-        show: False
+        show: True
         menu:
         - title: "Design UDG schemas / APIs"
           category: Page
@@ -698,6 +750,10 @@ menu:
         - title: "Manage data sources"
           category: Page
           show: False
+        - title: "UDG Examples"
+          path: /universal-data-graph/udg-examples
+          category: Page
+          show: True
       - title: "Data Graph Management"
         category: Directory
         show: False
@@ -1202,10 +1258,6 @@ menu:
               path: /advanced-configuration/integrate/api-auth-mode/json-web-tokens
               category: Page
               show: True
-            - title: "Worked Example - API with OpenIDC Using Auth0"
-              path: /advanced-configuration/integrate/api-auth-mode/oidc-auth0-example
-              category: Page
-              show: True
             - title: "Integrate with OIDC"
               path: /advanced-configuration/integrate/api-auth-mode/open-id-connect
               category: Page
@@ -1426,10 +1478,6 @@ menu:
         category: Directory
         show: True
         menu:
-        - title: "Overview"
-          category: Directory
-          show: False
-          menu:
         - title: "Tyk Native API Definition"
           category: Directory
           show: True
@@ -2300,7 +2348,7 @@ menu:
           category: Directory
           show: True
           menu:
-          - title: "Full Customisation"
+          - title: "Complete Customisation"
             category: Directory
             show: True
             menu:
@@ -2336,12 +2384,12 @@ menu:
               path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/customise-enterprise-portal/full-customisation/menus-customisation
               category: Page
               show: True
+            - title: "Quick Customisation"
+              path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/customise-enterprise-portal/quick-customisation
+              category: Page
+              show: True
           - title: "Customise the Enterprise Portal"
             path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/customise-enterprise-portal/customise-enterprise-portal
-            category: Page
-            show: True
-          - title: "Quick Customisation"
-            path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/customise-enterprise-portal/quick-customisation
             category: Page
             show: True
       - title: "API Documentation"
@@ -2431,6 +2479,10 @@ menu:
           show: True
         - title: "MDCB v2.1"
           path: /release-notes/mdcb-2.1
+          category: Page
+          show: True
+        - title: "MDCB v2.2"
+          path: /release-notes/mdcb-2.2/
           category: Page
           show: True
     - title: "Universal Data Graph"
@@ -2817,8 +2869,12 @@ menu:
       show: False
     - title: "Tyk APIs Reference"
       category: Directory
-      show: False
+      show: True
       menu:
+      - title: "Tyk APIs"
+        path: /tyk-apis
+        category: Page
+        show: True
     - title: "SDK"
       category: Hide
       menu:
@@ -2827,13 +2883,21 @@ menu:
       menu:
     - title: "Debugging Series"
       category: Directory
-      show: False
+      show: True
       menu:
+      - title: "Debugging Series"
+        path: /debugging-series/debugging-series
+        category: Page
+        show: True
+      - title: "MongoDB Debugging"
+        path: /debugging-series/mongodb-debugging
+        category: Page
+        show: True
     - title: "Performance Benchmarking"
       category: Directory
       show: False
       menu:
-    - title: "Troubleshooting and FAQ"
+    - title: "Frequently Asked Questions"
       category: Directory
       show: True
       menu:
@@ -2847,6 +2911,10 @@ menu:
         show: True
       - title: "Long Term Support Releases"
         path: /frequently-asked-questions/long-term-support-releases
+        category: Page
+        show: True
+      - title: "Cloud Support SLA Policies"
+        path: /frequently-asked-questions/sla-policies
         category: Page
         show: True
       - title: "Using Early Access Features"
@@ -2866,8 +2934,56 @@ menu:
       show: False
     - title: "Tyk Release Summary"
       category: Directory
-      show: False
+      show: True
       menu:
+      - title: "Release Notes"
+        path: /release-notes
+        category: Page
+        show: True
+      - title: "Tyk v3.0"
+        path: /release-notes/version-3.0
+        category: Page
+        show: True
+      - title: "Tyk v3.1"
+        path: /release-notes/version-3.1
+        category: Page
+        show: True
+      - title: "Tyk v3.2"
+        path: /release-notes/version-3.2
+        category: Page
+        show: True
+      - title: "Tyk v4.0"
+        path: /release-notes/version-4.0
+        category: Page
+        show: True
+      - title: "Tyk v4.1"
+        path: /release-notes/version-4.1
+        category: Page
+        show: True
+      - title: "Tyk v4.2"
+        path: /release-notes/version-4.2
+        category: Page
+        show: True
+      - title: "Tyk v4.3"
+        path: /release-notes/version-4.3
+        category: Page
+        show: True
+      - title: "Upgrading Tyk"
+        path: /upgrading-tyk
+        category: Page
+        show: True
+      - title: "Upgrading to v2.3 from v2.2"
+        path: /upgrading-v2-3-v2-2
+        category: Page
+        show: True
+      - title: "Pump v1.8"
+        path: /release-notes/pump-1.8
+        category: Page
+        show: True
+      - title: "Tyk v5.0"
+        path: /release-notes/version-5.0
+        category: Page
+        show: True
     - title: "Contribute to Tyk Docs"
       category: Directory
       show: True
@@ -2884,8 +3000,87 @@ menu:
         path: /tyk-environment-variables
         category: Page
         show: True
+    - title: "Deprecated pages"
+      category: Directory
+      show: True
+      menu:
+      - title: "Gateway API"
+        path: /api-management/oss/gateway-api
+        category: Page
+        show: True
+      - title: "Cloud Classic Virtual Endpoints not working"
+        path: /frequently-asked-questions/cloud-classic-virtual-endpoints-not-working
+        category: Page
+        show: True
+      - title: "How to enable websockets in Cloud"
+        path: /frequently-asked-questions/enable-websockets-cloud
+        category: Page
+        show: True
+      - title: "Troubleshooting"
+        path: /troubleshooting
+        category: Page
+        show: True
+      - title: "“301 Moved permanently“ error in the Dashboard API"
+        path: /troubleshooting/tyk-cloud-classic/301-moved-permanently
+        category: Page
+        show: True
+      - title: "413 Request Entity Too Large"
+        path: /troubleshooting/tyk-cloud-classic/413-request-entity-large
+        category: Page
+        show: True
+      - title: "“504 GATEWAY_TIMEOUT“ error"
+        path: /troubleshooting/tyk-cloud-classic/504-gateway-timeout-error
+        category: Page
+        show: True
+      - title: "“Organisation quota has been exceeded“ error in the Dashboard API"
+        path: /troubleshooting/tyk-cloud-classic/organisation-quota-exceeded-error-dashboard-api
+        category: Page
+        show: True
+      - title: "Tyk Cloud Classic"
+        path: /troubleshooting/tyk-cloud
+        category: Page
+        show: True
+      - title: "Tyk Dashboard Troubleshooting"
+        path: /troubleshooting/tyk-dashboard
+        category: Page
+        show: True
+      - title: "Tyk Gateway Troubleshooting"
+        path: /troubleshooting/tyk-gateway
+        category: Page
+        show: True
+      - title: "Tyk Installation"
+        path: /troubleshooting/tyk-installation
+        category: Page
+        show: True
+      - title: "404 when trying to access Tyk Gateway Repo"
+        path: /troubleshooting/tyk-installation/404-trying-access-tyk-gateway-repo
+        category: Page
+        show: True
+      - title: "Unable to parse JSON Error from Dashboard bootstrap.sh Script"
+        path: /troubleshooting/tyk-installation/parsing-json-error-from-dashboard-bootstrap
+        category: Page
+        show: True
+      - title: "Tyk Multi-Cloud"
+        path: /troubleshooting/tyk-multi-cloud
+        category: Page
+        show: True
+      - title: "Tyk On-Premises"
+        path: /troubleshooting/tyk-on-premise/tyk-on-premise
+        category: Page
+        show: True
+      - title: "Tyk Pump Troubleshooting"
+        path: /troubleshooting/tyk-pump
+        category: Page
+        show: True
+      - title: "Configuration Options"
+        path: /tyk-cloud/configuration-options
+        category: Page
+        show: True
+  - title: ""
+    category: 
+    menu:
   - title: "APIM Best Practice"
-    path: /getting-started/key-concepts
+    path: 
     category: Tab
     show: True
     menu:
@@ -2952,10 +3147,6 @@ menu:
       path: /tyk-cloud/environments--deployments/managing-control-planes/
       category: Page
       show: True
-    - title: "Configuration Options"
-      path: /tyk-cloud/configuration-options/
-      category: Page
-      show: True
     - title: "Managing Users"
       path: /tyk-cloud/teams--users/managing-users/
       category: Page
@@ -2988,52 +3179,8 @@ menu:
       path: /tyk-cloud/teams--users/
       category: Page
       show: True
-    - title: "“301 Moved permanently“ error in the Dashboard API"
-      path: /troubleshooting/tyk-cloud-classic/301-moved-permanently/
-      category: Page
-      show: True
-    - title: "Tyk Dashboard Troubleshooting"
-      path: /troubleshooting/tyk-dashboard/
-      category: Page
-      show: True
-    - title: "Tyk Pump Troubleshooting"
-      path: /troubleshooting/tyk-pump/
-      category: Page
-      show: True
-    - title: "Tyk Gateway Troubleshooting"
-      path: /troubleshooting/tyk-gateway/
-      category: Page
-      show: True
-    - title: "Tyk Installation"
-      path: /troubleshooting/tyk-installation/
-      category: Page
-      show: True
-    - title: "“Organisation quota has been exceeded“ error in the Dashboard API"
-      path: /troubleshooting/tyk-cloud-classic/organisation-quota-exceeded-error-dashboard-api/
-      category: Page
-      show: True
-    - title: "“504 GATEWAY_TIMEOUT“ error"
-      path: /troubleshooting/tyk-cloud-classic/504-gateway-timeout-error/
-      category: Page
-      show: True
-    - title: "413 Request Entity Too Large"
-      path: /troubleshooting/tyk-cloud-classic/413-request-entity-large/
-      category: Page
-      show: True
     - title: "Key information doesn't appear in Dashboard for Tyk Multi-Cloud users"
       path: /troubleshooting/tyk-multi-cloud/token-information-doesnt-appear-dashboard-tyk-multi-cloud-users/
-      category: Page
-      show: True
-    - title: "Tyk Multi-Cloud"
-      path: /troubleshooting/tyk-multi-cloud/
-      category: Page
-      show: True
-    - title: "Unable to parse JSON Error from Dashboard bootstrap.sh Script"
-      path: /troubleshooting/tyk-installation/parsing-json-error-from-dashboard-bootstrap/
-      category: Page
-      show: True
-    - title: "404 when trying to access Tyk Gateway Repo"
-      path: /troubleshooting/tyk-installation/404-trying-access-tyk-gateway-repo/
       category: Page
       show: True
     - title: "Client Credentials Grant Type"
@@ -3042,10 +3189,6 @@ menu:
       show: True
     - title: "Authentication & Authorization"
       path: /basic-config-and-security/security/authentication--authorization/
-      category: Page
-      show: True
-    - title: "Tyk Cloud Classic"
-      path: /troubleshooting/tyk-cloud/
       category: Page
       show: True
     - title: "Managing APIs"
@@ -3092,32 +3235,12 @@ menu:
       path: /plugins/plugin-types/analytics-plugins/
       category: Page
       show: True
-    - title: "Troubleshooting"
-      path: /troubleshooting/
-      category: Page
-      show: True
-    - title: "MDCB v2.2"
-      path: /release-notes/mdcb-2.2/
-      category: Page
-      show: True
     - title: "Tyk Analytics Record Fields"
       path: /tyk-stack/tyk-pump/tyk-analytics-record-fields/
       category: Page
       show: True
-    - title: "Gateway API"
-      path: /api-management/oss/gateway-api/
-      category: Page
-      show: True
-    - title: "Tyk On-Premises"
-      path: /troubleshooting/tyk-on-premise/tyk-on-premise/
-      category: Page
-      show: True
-    - title: "How to enable websockets in Cloud"
-      path: /frequently-asked-questions/enable-websockets-cloud/
-      category: Page
-      show: True
-    - title: "Cloud Classic Virtual Endpoints not working"
-      path: /frequently-asked-questions/cloud-classic-virtual-endpoints-not-working/
+    - title: "Worked Example - API with OpenIDC Using Auth0"
+      path: /advanced-configuration/integrate/api-auth-mode/oidc-auth0-example/
       category: Page
       show: True
     - title: "Orphan pages"
