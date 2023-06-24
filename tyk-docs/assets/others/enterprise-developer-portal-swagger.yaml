@@ -1325,15 +1325,22 @@ paths:
       description: Get a product
       operationId: /products/:product_id-GET
       parameters:
-        - description: ""
+        - description: UID of an API Product
           in: path
           name: product_id
           required: true
           schema:
-            name: ""
+            name: UID of an API Product
             type: integer
+            example: 1
       responses:
         "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product-show'
+          description: OK
+        "404":
           content:
             application/json:
               schema:
@@ -1347,13 +1354,14 @@ paths:
       description: "Update a product including marketing description, display name, oAuth2.0 scope, and path"
       operationId: /products/:product_id-PUT
       parameters:
-        - description: ""
+        - description: UID of an API Product
           in: path
           name: product_id
           required: true
           schema:
-            name: ""
+            name: UID of an API Product
             type: integer
+            example: 1
       requestBody:
         content:
           application/json:
@@ -1367,6 +1375,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/Product-show'
           description: OK
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OnlyErrors'
+          description: Not found or Bad request
       security: []
       summary: Update a product
       tags:
@@ -2018,6 +2032,32 @@ paths:
         - Users
 components:
   schemas:
+    Product-APIDetail-index:
+      properties:
+        APIID:
+          type: string
+          description: API ID from the Tyk Gateway
+          example: "a0ce49d559ce49d64fe608ea3728082a"
+        Name:
+          type: string
+          description: Name of an API as it is defined in the gateway
+          example: "Payment API"
+        Status:
+          type: boolean
+          description: "Status of this API: `true` means the API is up and `false` identifies that it is down"
+          example: true
+      type: object
+    Product-APIDetail-edit:
+      properties:
+        Description:
+          type: string
+          description: Human-readable description of an API added by the portal admins
+          example: This API provides payment endpoints
+        OASUrl:
+          type: string
+          description: URL of OpenAPI Specification for this API. The document must be a valid OAS document
+          example: "https://petstore.swagger.io/v2/swagger.json"
+      type: object
     APIDetail:
       properties:
         APIID:
@@ -3951,148 +3991,161 @@ components:
       properties:
         APIDetails:
           items:
-            $ref: '#/components/schemas/APIDetail'
+            $ref: '#/components/schemas/Product-APIDetail-index'
           type: array
         AuthType:
           type: string
-        Catalogues:
-          items:
-            $ref: '#/components/schemas/Catalogue'
-          type: array
-        Content:
-          type: string
         DCREnabled:
           type: boolean
-        Description:
-          type: string
         DisplayName:
           type: string
-        Docs:
-          items:
-            $ref: '#/components/schemas/Post'
-          type: array
         Feature:
           type: boolean
-        Logo:
-          $ref: '#/components/schemas/ImageStore'
-        Model:
-          $ref: '#/components/schemas/Model'
         Name:
           type: string
         Path:
           type: string
-        ProviderID:
-          type: integer
         ReferenceID:
           type: string
-        Scopes:
-          type: string
-        Tags:
-          items:
-            $ref: '#/components/schemas/Tag'
-          type: array
-        Templates:
-          items:
-            $ref: '#/components/schemas/DCRConfigTemplate'
-          type: array
       type: object
     Product-show:
       properties:
+        ID:
+          type: integer
+          description: UID of this API Product
+          exmaple: 2
         APIDetails:
           items:
             $ref: '#/components/schemas/APIDetail'
           type: array
+          description: APIs included in this API Product
         AuthType:
           type: string
+          description: Authentication type of APIs that are included in this API Product
+          example: "authToken"
         Catalogues:
           items:
-            $ref: '#/components/schemas/Catalogue'
+            type: string
+            descritption: Catalogue name
+            example: "Public Catalogue"
           type: array
+          description: Catalogues in which this API Product is listed
         Content:
           type: string
+          description: Marketing description of an API Product formated as HTML text fragment
+          example: "<p>Description goes here</p>"
         DCREnabled:
           type: boolean
+          description: Defines if Dynamic Client Registration is enabled for this API Product
+          example: true
         Description:
           type: string
+          description: Short description of this API Product which is displayed in the Catalogue page
+          exmaple: "Description goes here"
         DisplayName:
           type: string
-        Docs:
-          items:
-            $ref: '#/components/schemas/Post'
-          type: array
+          description: Name of an API Product that is displayed in the API Product Details and Catalogue pages
+          example: "ACME Payment API"
         Feature:
           type: boolean
-        Logo:
-          $ref: '#/components/schemas/ImageStore'
-        Model:
-          $ref: '#/components/schemas/Model'
+          description: Defines if this product should be featured on the home page of the portal
+          example: true
         Name:
           type: string
+          description: name of this API Product as it comes from the API Provider
+          Exmaple: "Payment API"
         Path:
           type: string
-        ProviderID:
-          type: integer
+          description: "URI fragment that is specific for this product. `Path` is added to the catalogue path to form URI to this product: /portal/catalogue-products/`Path`"
+          example: "acme-payment-api"
+        Logo:
+          type: string
+          description: Path to the logo image for this API Product
+          example: "/system/products/2/logo/logo.png"
         ReferenceID:
           type: string
+          description: UID of this API Product in the API Provider
+          example: 6490fd2a1ba6a6000108864d
         Scopes:
           type: string
+          description: "oAuth2.0 scopes that will be assigned to oAuth2.0 clients that use this API Product. Should be comma-separated string"
+          example: "payments,clients"
         Tags:
           items:
-            $ref: '#/components/schemas/Tag'
+            type: string
+            example: "payment"
+            description: Name of a tag
           type: array
+          description: Tags assigned to this API Product
         Templates:
           items:
-            $ref: '#/components/schemas/DCRConfigTemplate'
+            type: string
+            description: "Name of an oAuth2.0 template"
+            example: "Web application"
           type: array
+          description: "oAuth2.0 templates that are assigned to this API Product"
       type: object
     Product-update:
       properties:
         APIDetails:
           items:
-            $ref: '#/components/schemas/APIDetail'
+            $ref: '#/components/schemas/Product-APIDetail-edit'
           type: array
         AuthType:
           type: string
         Catalogues:
           items:
-            $ref: '#/components/schemas/Catalogue'
+            type: integer
+            description: UID of an API Product
+            example: 1
           type: array
+          description: Catalogues in which this API Product is listed
         Content:
           type: string
+          description: Marketing description of an API Product formated as HTML text fragment
+          example: "<p>Description goes here</p>"
         DCREnabled:
           type: boolean
+          description: Defines if Dynamic Client Registration is enabled for this API Product
+          example: true
         Description:
           type: string
+          description: Short description of this API Product which is displayed in the Catalogue page
+          exmaple: "Description goes here"
         DisplayName:
           type: string
-        Docs:
-          items:
-            $ref: '#/components/schemas/Post'
-          type: array
+          description: Name of an API Product that is displayed in the API Product Details and Catalogue pages
+          example: "ACME Payment API"
         Feature:
           type: boolean
-        Logo:
-          $ref: '#/components/schemas/ImageStore'
-        Model:
-          $ref: '#/components/schemas/Model'
+          description: Defines if this product should be featured on the home page of the portal
+          example: true
         Name:
           type: string
+          description: name of this API Product as it comes from the API Provider
+          Exmaple: "Payment API"
         Path:
           type: string
-        ProviderID:
-          type: integer
-        ReferenceID:
-          type: string
+          description: "URI fragment that is specific for this product. `Path` is added to the catalogue path to form URI to this product: /portal/catalogue-products/`Path`"
+          example: "acme-payment-api"
         Scopes:
           type: string
+          description: "oAuth2.0 scopes that will be assigned to oAuth2.0 clients that use this API Product. Should be comma-separated string"
+          example: "payments,clients"
         Tags:
           items:
-            $ref: '#/components/schemas/Tag'
+            type: integer
+            example: 1
+            description: Name of a tag
           type: array
+          description: Tags assigned to this API Product
         Templates:
           items:
-            $ref: '#/components/schemas/DCRConfigTemplate'
+            type: integer
+            description: "Name of an oAuth2.0 template"
+            example: 1
           type: array
+          description: "oAuth2.0 templates that are assigned to this API Product"
       type: object
     Provider-create:
       properties:
