@@ -1258,13 +1258,14 @@ paths:
       description: Get a plan
       operationId: /plans/:plan_id-GET
       parameters:
-        - description: ""
+        - description: UID of a plan
           in: path
           name: plan_id
           required: true
           schema:
-            name: ""
+            name: UID of a plan
             type: integer
+            example: 1
       responses:
         "200":
           content:
@@ -1280,13 +1281,14 @@ paths:
       description: Update a plan including catalogue name, description, and oAuth2.0 scope
       operationId: /plans/:plan_id-PUT
       parameters:
-        - description: ""
+        - description: UID of a plan
           in: path
           name: plan_id
           required: true
           schema:
-            name: ""
+            name: UID of a plan
             type: integer
+            example: 1
       requestBody:
         content:
           application/json:
@@ -3623,114 +3625,108 @@ components:
       type: array
     Plan-index-elem:
       properties:
-        AuthType:
-          type: string
         AutoApproveAccessRequests:
           type: boolean
-        Catalogues:
-          items:
-            $ref: '#/components/schemas/Catalogue'
-          type: array
-        Description:
-          type: string
+          description: Defines if access requests with this plan are approved automatically
+          example: true
         DisplayName:
           type: string
-        JWTScope:
-          type: string
-        Model:
-          $ref: '#/components/schemas/Model'
+          description: Name of this plan that is displayed to API Consumers
+          example: Free plan
         Name:
           type: string
-        Per:
-          format: int64
-          type: integer
-        ProviderID:
-          type: integer
-        QuotaMax:
-          format: int64
-          type: integer
-        QuotaRenewalRate:
-          format: int64
-          type: integer
-        Rate:
-          format: int64
-          type: integer
+          description: Name of this plan how it comes from the API Provider
+          example: Free plan
         ReferenceID:
           type: string
+          description: ID of this plan how it comes from the API Provider
+          example: 6490fd451ba6a6000108864e
+        Quota:
+          type: string
+          description: Quota of API calls available to customers using this plan as it is defined in the API Provider
+          example: unlimited
+        RateLimit:
+          type: string
+          description: Ratelimit as it is defined in the API Provider
+          exmaple: "1000 calls / 1 minute(s)"
+        ID:
+          type: integer
+          description: UID of this plan
+          example: 1
       type: object
     Plan-show:
       properties:
         AuthType:
           type: string
+        Catalogues:
+          type: array
+          items:
+            type: string
+            example: "Public Catalogue"
+            description: Name of a catalogue
+          description: Array of names of catalogues in which this API Product is published
         AutoApproveAccessRequests:
           type: boolean
-        Catalogues:
-          items:
-            $ref: '#/components/schemas/Catalogue'
-          type: array
-        Description:
-          type: string
+          description: Defines if access requests with this plan are approved automatically
+          example: true
         DisplayName:
           type: string
-        JWTScope:
-          type: string
-        Model:
-          $ref: '#/components/schemas/Model'
+          description: Name of this plan that is displayed to API Consumers
+          example: Free plan
         Name:
           type: string
-        Per:
-          format: int64
-          type: integer
-        ProviderID:
-          type: integer
-        QuotaMax:
-          format: int64
-          type: integer
-        QuotaRenewalRate:
-          format: int64
-          type: integer
-        Rate:
-          format: int64
-          type: integer
+          description: Name of this plan how it comes from the API Provider
+          example: Free plan
+        Description:
+          type: string
+          description: Human-readable description of this plan
+          example: Free plan offers only basic functionality
         ReferenceID:
           type: string
+          description: ID of this plan how it comes from the API Provider
+          example: 6490fd451ba6a6000108864e
+        Quota:
+          type: string
+          description: Quota of API calls available to customers using this plan as it is defined in the API Provider
+          example: unlimited
+        RateLimit:
+          type: string
+          description: Ratelimit as it is defined in the API Provider
+          exmaple: "1000 calls / 1 minute(s)"
+        ID:
+          type: integer
+          description: UID of this plan
+          example: 1
+        JWTScope:
+          type: string
+          description: oAuth2.0 scopes that will be assigned to oAuth2.0 clients that use this plan. Should be comma-separated string
+          example: free-plan
       type: object
     Plan-update:
       properties:
-        AuthType:
-          type: string
         AutoApproveAccessRequests:
           type: boolean
+          description: Defines if access requests with this plan are approved automatically
+          example: true
         Catalogues:
           items:
-            $ref: '#/components/schemas/Catalogue'
+            type: integer
+            example: 1
+            description: UID of a Catalogue
           type: array
-        Description:
-          type: string
+          description: Catalogues in which this API Product is published
         DisplayName:
           type: string
+          description: Name of this plan that is displayed to API Consumers
+          example: Free plan
+        Description:
+          type: string
+          description: Human-readable description of this plan
+          example: Free plan offers only basic functionality
         JWTScope:
           type: string
-        Model:
-          $ref: '#/components/schemas/Model'
-        Name:
-          type: string
-        Per:
-          format: int64
-          type: integer
-        ProviderID:
-          type: integer
-        QuotaMax:
-          format: int64
-          type: integer
-        QuotaRenewalRate:
-          format: int64
-          type: integer
-        Rate:
-          format: int64
-          type: integer
-        ReferenceID:
-          type: string
+          description: oAuth2.0 scopes that will be assigned to oAuth2.0 clients that use this plan. Should be comma-separated string
+          example: free-plan
       type: object
     Post:
       properties:
