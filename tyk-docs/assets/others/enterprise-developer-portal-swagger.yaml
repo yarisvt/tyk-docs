@@ -590,16 +590,17 @@ paths:
         - Catalogues
   /catalogues/{catalogue_id}/audiences:
     get:
-      description: List audiences for this catalogue
+      description: List audiences that have access to this catalogue. Each audience is a team that belongs to a specific organisation
       operationId: /catalogues/:catalogue_id/audiences-GET
       parameters:
-        - description: ""
+        - description: UID of a catalogue
           in: path
           name: catalogue_id
           required: true
           schema:
-            name: ""
+            name: UID of a catalogue
             type: integer
+            example: 1
       responses:
         "200":
           content:
@@ -629,12 +630,18 @@ paths:
               $ref: '#/components/schemas/OrganisationCatalogue-create'
         description: ""
       responses:
-        "200":
+        "201":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/OrganisationCatalogue-show'
           description: OK
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OnlyErrors'
+          description: Not found of bad request
       security: []
       summary: Add a new audience to this catalogue
       tags:
@@ -644,27 +651,35 @@ paths:
       description: Remove an audience from this catalog. Please note that if the catalog's visibility is set to 'public', the audiences will be ignored
       operationId: /catalogues/:catalogue_id/audiences/:audience_id-DELETE
       parameters:
-        - description: ""
+        - description: UID of an audience
           in: path
           name: audience_id
           required: true
           schema:
-            name: ""
+            name: UID of an audience
             type: integer
-        - description: ""
+            example: 1
+        - description: UID of a catalogue
           in: path
           name: catalogue_id
           required: true
           schema:
-            name: ""
+            name: UID of a catalogue
             type: integer
+            example: 1
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OrganisationCatalogue-show'
+                $ref: '#/components/schemas/Status'
           description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Status'
+          description: Not found
       security: []
       summary: Remove an audience from a catalog
       tags:
@@ -673,20 +688,22 @@ paths:
       description: List all audience for this catalogue
       operationId: /catalogues/:catalogue_id/audiences/:audience_id-GET
       parameters:
-        - description: ""
+        - description: UID of an audience
           in: path
           name: audience_id
           required: true
           schema:
-            name: ""
+            name: UID of an audience
             type: integer
-        - description: ""
+            example: 1
+        - description: UID of a catalogue
           in: path
           name: catalogue_id
           required: true
           schema:
-            name: ""
+            name: UID of a catalogue
             type: integer
+            example: 1
       responses:
         "200":
           content:
@@ -694,6 +711,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/OrganisationCatalogue-show'
           description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganisationCatalogue-show'
+          description: Not found
       security: []
       summary: List all audience for this catalogue
       tags:
@@ -3390,37 +3413,43 @@ components:
       type: array
     OrganisationCatalogue-index-elem:
       properties:
-        Catalogue:
-          $ref: '#/components/schemas/Catalogue'
-        CatalogueID:
+        ID:
           type: integer
-        Model:
-          $ref: '#/components/schemas/Model'
-        Name:
-          type: string
-        Organisation:
-          $ref: '#/components/schemas/Organisation'
+          description: UID of this audience
+          example: 1
         OrganisationID:
           type: integer
+          description: UID of an organisation
+          example: 1
         TeamID:
           type: integer
+          description: UID of an team
+          example: 1
       type: object
     OrganisationCatalogue-show:
       properties:
-        Catalogue:
-          $ref: '#/components/schemas/Catalogue'
-        CatalogueID:
+        ID:
           type: integer
-        Model:
-          $ref: '#/components/schemas/Model'
-        Name:
-          type: string
-        Organisation:
-          $ref: '#/components/schemas/Organisation'
+          description: UID of this audience
+          example: 1
         OrganisationID:
           type: integer
+          description: UID of this audience
+          example: 1
         TeamID:
           type: integer
+          description: UID of this audience
+          example: 1
+        CreatedAt:
+          format: date-time
+          description: Date-time when this audience is created
+          example: "2023-06-23 21:02"
+          type: string
+        UpdatedAt:
+          format: date-time
+          description: Date-time when this audience is updated the last time
+          example: "2023-06-23 21:02"
+          type: string
       type: object
     OrganisationCatalogue-update:
       properties:
