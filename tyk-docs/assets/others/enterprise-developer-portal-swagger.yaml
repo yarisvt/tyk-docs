@@ -511,20 +511,27 @@ paths:
       description: This endpoint deletes a catalogue. When a catalog is deleted, all of its audiences are also deleted
       operationId: /catalogues/:catalogue_id-DELETE
       parameters:
-        - description: ""
+        - description: UID of a catalogue
           in: path
           name: catalogue_id
           required: true
           schema:
-            name: ""
+            name: UID of a catalogue
             type: integer
+            example: 1
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Catalogue-show'
+                $ref: '#/components/schemas/Status'
           description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Status'
+          description: Not found
       security: []
       summary: Delete a catalogue
       tags:
@@ -533,13 +540,14 @@ paths:
       description: Get a catalogue
       operationId: /catalogues/:catalogue_id-GET
       parameters:
-        - description: ""
+        - description: UID of a catalogue
           in: path
           name: catalogue_id
           required: true
           schema:
-            name: ""
+            name: UID of a catalogue
             type: integer
+            example: 1
       responses:
         "200":
           content:
@@ -555,13 +563,14 @@ paths:
       description: Update a catalogue's data such as name and visibility settings
       operationId: /catalogues/:catalogue_id-PUT
       parameters:
-        - description: ""
+        - description: UID of a catalogue
           in: path
           name: catalogue_id
           required: true
           schema:
-            name: ""
+            name: UID of a catalogue
             type: integer
+            example: 1
       requestBody:
         content:
           application/json:
@@ -2590,119 +2599,129 @@ components:
       properties:
         Name:
           type: string
+          description: Name of this catalogue
+          exmaple: Private catalogue
         NameWithSlug:
-          $ref: '#/components/schemas/Slug'
-        OrgCatalogues:
-          items:
-            $ref: '#/components/schemas/OrganisationCatalogue'
-          type: array
+          type: string
+          description: URL slug of this catalogue page
+          example: "private-catalogue"
         Plans:
           items:
-            $ref: '#/components/schemas/Plan'
+            type: integer
+            description: UID of a plan which should be included into this catalogue
+            example: 1
           type: array
+          description: Array of plans' UIDs which should be included into this catalogue
         Products:
           items:
-            $ref: '#/components/schemas/Product'
+            type: integer
+            description: UID of a product which should be included into this catalogue
+            example: 1
           type: array
+          description: Array of products' UIDs which should be included into this catalogue
         VisibilityStatus:
-          type: string
+          enum: ["Private", "Public"]
+          description: Visibility of this catalogue. Could be either Private or Public. The `Private` status means this catalogue is visible only to a limited audience while `Public` catalogue is available to all developers
+          example: Private
+        OrgCatalogues:
+          items:
+            $ref: '#/components/schemas/OrganisationCatalogue-create'
+          type: array
       type: object
     Catalogue-index:
-      properties:
-        Model:
-          $ref: '#/components/schemas/Model'
-        Name:
-          type: string
-        NameWithSlug:
-          $ref: '#/components/schemas/Slug'
-        OrgCatalogues:
-          items:
-            $ref: '#/components/schemas/OrganisationCatalogue'
-          type: array
-        Plans:
-          items:
-            $ref: '#/components/schemas/Plan'
-          type: array
-        Products:
-          items:
-            $ref: '#/components/schemas/Product'
-          type: array
-        VisibilityStatus:
-          type: string
-      type: object
+      items:
+        $ref: '#/components/schemas/Catalogue-index-elem'
+      type: array
     Catalogue-index-elem:
       properties:
+        ID:
+          type: integer
+          description: UID of this catalogue
+          example: 1
         Name:
           type: string
+          description: Name this catalogue
+          example: Private Catalogue
         NameWithSlug:
-          $ref: '#/components/schemas/Slug'
-        OrgCatalogues:
-          items:
-            $ref: '#/components/schemas/OrganisationCatalogue'
-          type: array
-        Plans:
-          items:
-            $ref: '#/components/schemas/Plan'
-          type: array
-        Products:
-          items:
-            $ref: '#/components/schemas/Product'
-          type: array
-        VisibilityStatus:
           type: string
+          description: URL slug of this catalogue page
+          example: "private-catalogue"
+        VisibilityStatus:
+          enum: ["Private", "Public"]
+          description: Visibility of this catalogue. Could be either Private or Public. The `Private` status means this catalogue is visible only to a limited audience while `Public` catalogue is available to all developers
+          example: Private
       type: object
     Catalogue-show:
       properties:
+        ID:
+          type: integer
+          description: UID of a catalogue
+          example: 1
         Name:
           type: string
-        NameWithSlug:
-          $ref: '#/components/schemas/Slug'
+          description: Name this catalogue
+          example: Private Catalogue
+        CreatedAt:
+          format: date-time
+          type: string
+          description: Timestamp of when this catalogue was created
+          example: "2023-06-25 13:37"
+        UpdatedAt:
+          format: date-time
+          type: string
+          description: Timestamp of when this catalogue was updated the last time
+          example: "2023-06-25 13:37"
         OrgCatalogues:
           items:
             $ref: '#/components/schemas/OrganisationCatalogue'
           type: array
         Plans:
           items:
-            $ref: '#/components/schemas/Plan'
+            type: string
+            description: Name of a plan
+            example: Free plan
           type: array
+          description: Plans that are included into this catalogue
         Products:
           items:
-            $ref: '#/components/schemas/Product'
+            type: string
+            description: Name of a product
+            example: ACME Payment API
           type: array
+          description: Products that are included into this catalogue
         VisibilityStatus:
-          type: string
+          enum: ["Private", "Public"]
+          description: Visibility of this catalogue. Could be either Private or Public. The `Private` status means this catalogue is visible only to a limited audience while `Public` catalogue is available to all developers
+          example: Private
       type: object
     Catalogue-update:
       properties:
         Name:
           type: string
+          description: Name of this catalogue
+          exmaple: Private catalogue
         NameWithSlug:
-          $ref: '#/components/schemas/Slug'
-        OrgCatalogues:
-          items:
-            $ref: '#/components/schemas/OrganisationCatalogue'
-          type: array
+          type: string
+          description: URL slug of this catalogue page
+          example: "private-catalogue"
         Plans:
           items:
-            $ref: '#/components/schemas/Plan'
+            type: integer
+            description: UID of a plan which should be included into this catalogue
+            example: 1
           type: array
+          description: Array of plans' UIDs which should be included into this catalogue. To remove all plans from a catalogue use `null` value for this property
         Products:
           items:
-            $ref: '#/components/schemas/Product'
+            type: integer
+            description: UID of a product which should be included into this catalogue
+            example: 1
           type: array
+          description: Array of products' UIDs which should be included into this catalogue. To remove all product from a catalogue use `null` value for this property
         VisibilityStatus:
-          type: string
-      type: object
-    Category:
-      properties:
-        Model:
-          $ref: '#/components/schemas/Model'
-        Name:
-          type: string
-        Posts:
-          items:
-            $ref: '#/components/schemas/Post'
-          type: array
+          enum: ["Private", "Public"]
+          description: Visibility of this catalogue. Could be either Private or Public. The `Private` status means this catalogue is visible only to a limited audience while `Public` catalogue is available to all developers
+          example: Private
       type: object
     Certificate:
       properties:
@@ -3339,36 +3358,31 @@ components:
     OrganisationCatalogue:
       properties:
         Catalogue:
-          $ref: '#/components/schemas/Catalogue'
-        CatalogueID:
+          type: string
+          description: Name of a catalogue
+          example: Private catalogue
+        ID:
           type: integer
-        Model:
-          $ref: '#/components/schemas/Model'
+          description: UID of this audience
+          example: 1
         Name:
           type: string
+          description: Optional name of this audience
         Organisation:
-          $ref: '#/components/schemas/Organisation'
-        OrganisationID:
-          type: integer
-        TeamID:
-          type: integer
+          type: string
+          description: Name of an organisation
+          example: Default organisation
       type: object
     OrganisationCatalogue-create:
       properties:
-        Catalogue:
-          $ref: '#/components/schemas/Catalogue'
-        CatalogueID:
-          type: integer
-        Model:
-          $ref: '#/components/schemas/Model'
-        Name:
-          type: string
-        Organisation:
-          $ref: '#/components/schemas/Organisation'
         OrganisationID:
           type: integer
+          description: UID of an organisation
+          example: 1
         TeamID:
           type: integer
+          description: UID of a team
+          example: 1
       type: object
     OrganisationCatalogue-index:
       items:
@@ -3727,6 +3741,17 @@ components:
           type: string
           description: oAuth2.0 scopes that will be assigned to oAuth2.0 clients that use this plan. Should be comma-separated string
           example: free-plan
+      type: object
+    Category:
+      properties:
+        Model:
+          $ref: '#/components/schemas/Model'
+        Name:
+          type: string
+        Posts:
+          items:
+            $ref: '#/components/schemas/Post'
+          type: array
       type: object
     Post:
       properties:
