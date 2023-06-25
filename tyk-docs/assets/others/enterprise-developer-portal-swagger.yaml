@@ -1390,13 +1390,14 @@ paths:
       description: List all APIs included in this API Product
       operationId: /products/:product_id/api-details-GET
       parameters:
-        - description: ""
+        - description: UID of an API Product
           in: path
           name: product_id
           required: true
           schema:
-            name: ""
+            name: UID of an API Product
             type: integer
+            example: 1
       responses:
         "200":
           content:
@@ -1408,25 +1409,27 @@ paths:
       summary: List all APIs included in this API Product
       tags:
         - API documentation for API Products
-  /products/{product_id}/api-details/{api-detail_id}:
+  /products/{product_id}/api-details/{api-id}:
     get:
       description: Get description of an API
-      operationId: /products/:product_id/api-details/:api-detail_id-GET
+      operationId: /products/:product_id/api-details/:api-id-GET
       parameters:
-        - description: ""
+        - description: UID of an API as it comes from the API Provider
           in: path
-          name: api-detail_id
+          name: api-id
           required: true
           schema:
-            name: ""
-            type: integer
-        - description: ""
+            name: ID of an API as it comes from the API Provider
+            type: string
+            example: a0ce49d559ce49d64fe608ea3728082a
+        - description: UID of an API Product
           in: path
           name: product_id
           required: true
           schema:
-            name: ""
+            name: UID of an API Product
             type: integer
+            example: 1
       responses:
         "200":
           content:
@@ -1434,28 +1437,36 @@ paths:
               schema:
                 $ref: '#/components/schemas/APIDetail-show'
           description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIDetail-show'
+          description: Not found
       security: []
       summary: Get description of an API
       tags:
         - API documentation for API Products
     put:
       description: Update description of an API including name, OAS URL, and description
-      operationId: /products/:product_id/api-details/:api-detail_id-PUT
+      operationId: /products/:product_id/api-details/:api-id-PUT
       parameters:
-        - description: ""
+        - description: UID of an API as it comes from the API Provider
           in: path
-          name: api-detail_id
+          name: api-id
           required: true
           schema:
-            name: ""
-            type: integer
-        - description: ""
+            name: ID of an API as it comes from the API Provider
+            type: string
+            example: a0ce49d559ce49d64fe608ea3728082a
+        - description: UID of an API Product
           in: path
           name: product_id
           required: true
           schema:
-            name: ""
+            name: UID of an API Product
             type: integer
+            example: 1
       requestBody:
         content:
           application/json:
@@ -1467,7 +1478,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/APIDetail-show'
+                $ref: '#/components/schemas/APIDetail'
           description: OK
       security: []
       summary: Update description of an API
@@ -2102,12 +2113,43 @@ components:
           description: URL of OpenAPI Specification for this API. The document must be a valid OAS document
           example: "https://petstore.swagger.io/v2/swagger.json"
       type: object
-    APIDetail:
+    Product-APIDetail:
       properties:
         APIID:
           type: string
           description: API ID from the Tyk Gateway
           example: "a0ce49d559ce49d64fe608ea3728082a"
+        APIType:
+          type: string
+          description: Authentication type of an API
+          example: authToken
+        Description:
+          type: string
+          description: Human-readable description of an API added by the portal admins
+          example: This API provides payment endpoints
+        ListenPath:
+          type: string
+          description: Listen path which is defined for this API in the gateway
+          example: "/payments/"
+        Name:
+          type: string
+          description: Name of an API as it is defined in the gateway
+          example: "Payment API"
+        OASUrl:
+          type: string
+          description: URL of OpenAPI Specification for this API. The document must be a valid OAS document
+          example: "https://petstore.swagger.io/v2/swagger.json"
+        Status:
+          type: boolean
+          description: "Status of this API: `true` means the API is up and `false` identifies that it is down"
+          example: true
+        TargetURL:
+          type: string
+          description: Upstream URL of this API
+          example: "http://httpbin.org/"
+      type: object
+    APIDetail:
+      properties:
         APIType:
           type: string
           description: Authentication type of an API
@@ -2186,10 +2228,6 @@ components:
           type: string
           description: Authentication type of an API
           example: authToken
-        Description:
-          type: string
-          description: Human-readable description of an API added by the portal admins
-          example: This API provides payment endpoints
         ListenPath:
           type: string
           description: Listen path which is defined for this API in the gateway
@@ -2248,22 +2286,10 @@ components:
       type: object
     APIDetail-update:
       properties:
-        APIID:
-          type: string
-          description: API ID from the Tyk Gateway
-          example: "a0ce49d559ce49d64fe608ea3728082a"
-        APIType:
-          type: string
-          description: Authentication type of an API
-          example: authToken
         Description:
           type: string
           description: Human-readable description of an API added by the portal admins
           example: This API provides payment endpoints
-        ListenPath:
-          type: string
-          description: Listen path which is defined for this API in the gateway
-          example: "/payments/"
         Name:
           type: string
           description: Name of an API as it is defined in the gateway
@@ -2276,10 +2302,6 @@ components:
           type: boolean
           description: "Status of this API: `true` means the API is up and `false` identifies that it is down"
           example: true
-        TargetURL:
-          type: string
-          description: Upstream URL of this API
-          example: "http://httpbin.org/"
       type: object
     AccessRequest:
       properties:
@@ -3809,7 +3831,7 @@ components:
       properties:
         APIDetails:
           items:
-            $ref: '#/components/schemas/APIDetail'
+            $ref: '#/components/schemas/Product-APIDetail'
           type: array
         AuthType:
           type: string
@@ -3858,7 +3880,7 @@ components:
       properties:
         APIDetails:
           items:
-            $ref: '#/components/schemas/APIDetail'
+            $ref: '#/components/schemas/Product-APIDetail'
           type: array
         AuthType:
           type: string
@@ -3936,7 +3958,7 @@ components:
           exmaple: 2
         APIDetails:
           items:
-            $ref: '#/components/schemas/APIDetail'
+            $ref: '#/components/schemas/Product-APIDetail'
           type: array
           description: APIs included in this API Product
         AuthType:
