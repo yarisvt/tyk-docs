@@ -1478,13 +1478,14 @@ paths:
       description: List all tutorial for this API Product
       operationId: /products/:product_id/docs-GET
       parameters:
-        - description: ""
+        - description: UID of an API Product
           in: path
           name: product_id
           required: true
           schema:
-            name: ""
+            name: UID of an API Product
             type: integer
+            example: 1
       responses:
         "200":
           content:
@@ -1500,13 +1501,132 @@ paths:
       description: Create a new tutorial page for this API Product
       operationId: /products/:product_id/docs-POST
       parameters:
-        - description: ""
+        - description: UID of an API Product
           in: path
           name: product_id
           required: true
           schema:
-            name: ""
+            name: UID of an API Product
             type: integer
+            example: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Post-create'
+        description: ""
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post-create'
+          description: OK
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OnlyErrors'
+          description: OK
+      security: []
+      summary: Create a new tutorial page for this API Product
+      tags:
+        - Tutorials for API Products
+  /products/{product_id}/docs/{doc_id}:
+    delete:
+      description: Delete a tutorial page from this API Product
+      operationId: /products/:product_id/docs/:doc_id-DELETE
+      parameters:
+        - description: UID of an API Product
+          in: path
+          name: product_id
+          required: true
+          schema:
+            name: UID of an API Product
+            type: integer
+            example: 1
+        - description: UID of a tutorial page
+          in: path
+          name: doc_id
+          required: true
+          schema:
+            name: UID of a tutorial page
+            type: integer
+            example: 1
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Status'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Status'
+          description: Not found
+      security: []
+      summary: Delete a tutorial page from this API Product
+      tags:
+        - Tutorials for API Products
+    get:
+      description: Get a tutorial page
+      operationId: /products/:product_id/docs/:doc_id-GET
+      parameters:
+        - description: UID of an API Product
+          in: path
+          name: product_id
+          required: true
+          schema:
+            name: UID of an API Product
+            type: integer
+            example: 1
+        - description: UID of a tutorial page
+          in: path
+          name: doc_id
+          required: true
+          schema:
+            name: UID of a tutorial page
+            type: integer
+            example: 1
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post-index-elem'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post-index-elem'
+          description: OK
+      security: []
+      summary: Get a tutorial page
+      tags:
+        - Tutorials for API Products
+    put:
+      description: Update a tutorial page including its metadata and content
+      operationId: /products/:product_id/docs/:doc_id-PUT
+      parameters:
+        - description: UID of an API Product
+          in: path
+          name: product_id
+          required: true
+          schema:
+            name: UID of an API Product
+            type: integer
+            example: 1
+        - description: UID of a tutorial page
+          in: path
+          name: doc_id
+          required: true
+          schema:
+            name: UID of a tutorial page
+            type: integer
+            example: 1
       requestBody:
         content:
           application/json:
@@ -1518,102 +1638,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Post-show'
+                $ref: '#/components/schemas/Post-index-elem'
           description: OK
-      security: []
-      summary: Create a new tutorial page for this API Product
-      tags:
-        - Tutorials for API Products
-  /products/{product_id}/docs/{doc_id}:
-    delete:
-      description: Delete a tutorial page from this API Product
-      operationId: /products/:product_id/docs/:doc_id-DELETE
-      parameters:
-        - description: ""
-          in: path
-          name: doc_id
-          required: true
-          schema:
-            name: ""
-            type: integer
-        - description: ""
-          in: path
-          name: product_id
-          required: true
-          schema:
-            name: ""
-            type: integer
-      responses:
-        "200":
+        "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Post-show'
-          description: OK
-      security: []
-      summary: Delete a tutorial page from this API Product
-      tags:
-        - Tutorials for API Products
-    get:
-      description: Get a tutorial page
-      operationId: /products/:product_id/docs/:doc_id-GET
-      parameters:
-        - description: ""
-          in: path
-          name: doc_id
-          required: true
-          schema:
-            name: ""
-            type: integer
-        - description: ""
-          in: path
-          name: product_id
-          required: true
-          schema:
-            name: ""
-            type: integer
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Post-show'
-          description: OK
-      security: []
-      summary: Get a tutorial page
-      tags:
-        - Tutorials for API Products
-    put:
-      description: Update a tutorial page including its metadata and content
-      operationId: /products/:product_id/docs/:doc_id-PUT
-      parameters:
-        - description: ""
-          in: path
-          name: doc_id
-          required: true
-          schema:
-            name: ""
-            type: integer
-        - description: ""
-          in: path
-          name: product_id
-          required: true
-          schema:
-            name: ""
-            type: integer
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Post-update'
-        description: ""
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Post-show'
-          description: OK
+                $ref: '#/components/schemas/OnlyErrors'
+          description: Not found or bad request
       security: []
       summary: Update a tutorial page
       tags:
@@ -1623,21 +1655,33 @@ paths:
       description: Change order of tutorial pages in an API Product
       operationId: /products/:product_id/docs/reorder-POST
       parameters:
-        - description: ""
-          in: path
-          name: doc_id
-          required: true
-          schema:
-            name: ""
-            type: integer
-        - description: ""
+        - description: UID of an API Product
           in: path
           name: product_id
           required: true
           schema:
-            name: ""
+            name: UID of an API Product
             type: integer
-      responses: {}
+            example: 1
+        - description: UID of a tutorial page
+          in: path
+          name: doc_id
+          required: true
+          schema:
+            name: UID of a tutorial page
+            type: integer
+            example: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Post-reorder'
+        description: "An array containing the UIDs of tutorial pages represents the new order of tutorial pages for this API Product. The tutorial page whose UID appears first in this array will be positioned first in the API Product's Get Started tab, and so on."
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad request or API Product is not found
       security: []
       summary: Change order of tutorial pages
       tags:
@@ -3711,46 +3755,22 @@ components:
       type: object
     Post-create:
       properties:
-        Author:
-          $ref: '#/components/schemas/User'
-        AuthorID:
-          type: integer
-        BlogSiteID:
-          type: integer
-        Categories:
-          items:
-            $ref: '#/components/schemas/Category'
-          type: array
         Content:
           type: string
-        HeaderImage:
-          $ref: '#/components/schemas/ImageStore'
-        Lede:
-          type: string
-        MarkdownContent:
-          type: string
+          description: Content of this tutorial page. If `MarkdownEnabled` is true then content of this tutorial page is treated as Markdown text and as HTML otherwise
+          example: "# Title\r\n## Subtitle\r\nContent goes here"
         MarkdownEnabled:
           type: boolean
-        Model:
-          $ref: '#/components/schemas/Model'
-        Path:
-          type: string
-        PreviewContent:
-          type: string
-        ProductDoc:
-          type: boolean
-        ProductID:
-          type: integer
-        Sorting:
-          $ref: '#/components/schemas/Sorting'
+          description: Switches content between Markdown and HTML versions
+          example: true
         Status:
-          type: string
-        Tags:
-          items:
-            $ref: '#/components/schemas/Tag'
-          type: array
+          enum: ["published", "draft", "review"]
+          description: Publication status this tutorial page
+          example: "published"
         Title:
           type: string
+          description: Title of this tutorial page which is displayed in the Get started section of an API Product details page
+          example: Get started this API Product
       type: object
     Post-index:
       items:
@@ -3758,133 +3778,33 @@ components:
       type: array
     Post-index-elem:
       properties:
-        Author:
-          $ref: '#/components/schemas/User'
-        AuthorID:
+        ID:
           type: integer
-        BlogSiteID:
-          type: integer
-        Categories:
-          items:
-            $ref: '#/components/schemas/Category'
-          type: array
+          description: UID of this tutorial page
+          example: 1
         Content:
           type: string
-        HeaderImage:
-          $ref: '#/components/schemas/ImageStore'
-        Lede:
-          type: string
-        MarkdownContent:
-          type: string
+          description: Content of this tutorial page. If `MarkdownEnabled` is true then content of this tutorial page is treated as Markdown text and as HTML otherwise
+          example: "# Title\r\n## Subtitle\r\nContent goes here"
         MarkdownEnabled:
           type: boolean
-        Model:
-          $ref: '#/components/schemas/Model'
-        Path:
-          type: string
-        PreviewContent:
-          type: string
-        ProductDoc:
-          type: boolean
-        ProductID:
-          type: integer
-        Sorting:
-          $ref: '#/components/schemas/Sorting'
+          description: Switches content between Markdown and HTML versions
+          example: true
         Status:
-          type: string
-        Tags:
-          items:
-            $ref: '#/components/schemas/Tag'
-          type: array
+          enum: ["published", "draft", "review"]
+          description: Publication status this tutorial page
+          example: "published"
         Title:
           type: string
+          description: Title of this tutorial page which is displayed in the Get started section of an API Product details page
+          example: Get started this API Product
       type: object
-    Post-show:
-      properties:
-        Author:
-          $ref: '#/components/schemas/User'
-        AuthorID:
-          type: integer
-        BlogSiteID:
-          type: integer
-        Categories:
-          items:
-            $ref: '#/components/schemas/Category'
-          type: array
-        Content:
-          type: string
-        HeaderImage:
-          $ref: '#/components/schemas/ImageStore'
-        Lede:
-          type: string
-        MarkdownContent:
-          type: string
-        MarkdownEnabled:
-          type: boolean
-        Model:
-          $ref: '#/components/schemas/Model'
-        Path:
-          type: string
-        PreviewContent:
-          type: string
-        ProductDoc:
-          type: boolean
-        ProductID:
-          type: integer
-        Sorting:
-          $ref: '#/components/schemas/Sorting'
-        Status:
-          type: string
-        Tags:
-          items:
-            $ref: '#/components/schemas/Tag'
-          type: array
-        Title:
-          type: string
-      type: object
-    Post-update:
-      properties:
-        Author:
-          $ref: '#/components/schemas/User'
-        AuthorID:
-          type: integer
-        BlogSiteID:
-          type: integer
-        Categories:
-          items:
-            $ref: '#/components/schemas/Category'
-          type: array
-        Content:
-          type: string
-        HeaderImage:
-          $ref: '#/components/schemas/ImageStore'
-        Lede:
-          type: string
-        MarkdownContent:
-          type: string
-        MarkdownEnabled:
-          type: boolean
-        Model:
-          $ref: '#/components/schemas/Model'
-        Path:
-          type: string
-        PreviewContent:
-          type: string
-        ProductDoc:
-          type: boolean
-        ProductID:
-          type: integer
-        Sorting:
-          $ref: '#/components/schemas/Sorting'
-        Status:
-          type: string
-        Tags:
-          items:
-            $ref: '#/components/schemas/Tag'
-          type: array
-        Title:
-          type: string
-      type: object
+    Post-reorder:
+      type: array
+      items:
+        type: integer
+        example: 1
+        description: UID of a doc page
     Product:
       properties:
         APIDetails:
