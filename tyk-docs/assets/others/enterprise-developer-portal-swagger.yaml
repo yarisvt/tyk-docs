@@ -201,7 +201,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Client-show'
+                $ref: '#/components/schemas/Client-create-show'
           description: OK
       security: []
       summary: Create a new developer application
@@ -212,20 +212,27 @@ paths:
       description: Delete an application. The application, all its access requests, and credentials will be removed. Also, it will trigger removal of all credentials that belong to this application from a gateway or / and an Identity Provider
       operationId: /apps/:app_id-DELETE
       parameters:
-        - description: ""
+        - description: UID of this application
           in: path
           name: app_id
           required: true
           schema:
-            name: ""
+            name: UID of this application
             type: integer
+            example: 1
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Client-show'
+                $ref: '#/components/schemas/Status'
           description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Status'
+          description: Not found
       security: []
       summary: Delete an application
       tags:
@@ -234,19 +241,20 @@ paths:
       description: Get an application's data
       operationId: /apps/:app_id-GET
       parameters:
-        - description: ""
+        - description: UID of this application
           in: path
           name: app_id
           required: true
           schema:
-            name: ""
+            name: UID of this application
             type: integer
+            example: 1
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Client-show'
+                $ref: '#/components/schemas/Client-create-show'
           description: OK
       security: []
       summary: Get an application's data
@@ -256,13 +264,14 @@ paths:
       description: This endpoint updates an application's data such as its name, description, redirect URI, and the user to whom this application belongs
       operationId: /apps/:app_id-PUT
       parameters:
-        - description: ""
+        - description: UID of this application
           in: path
           name: app_id
           required: true
           schema:
-            name: ""
+            name: UID of this application
             type: integer
+            example: 1
       requestBody:
         content:
           application/json:
@@ -276,6 +285,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/Client-show'
           description: OK
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OnlyErrors'
+          description: Bad request or not found
       security: []
       summary: Update an application
       tags:
@@ -2554,6 +2569,74 @@ components:
           description: Timestamp of when this access request was removed
           example: "2023-06-25 13:37"
       type: object
+    Client-AccessRequest-show:
+      properties:
+        AccessRequest:
+          type: string
+          description: Description of an access request to which this credential belongs
+          example: "AccessRequest#1"
+        Credentials:
+          items:
+            $ref: '#/components/schemas/Credential'
+          type: array
+        AuthType:
+          type: string
+          description: Authentication type of APIs that are included in this API Product
+          example: "authToken"
+        Catalogue:
+          type: string
+          description: Catalogue of API Products included in this access request
+          example: "Public Catalogue"
+        Client:
+          type: string
+          description: Name of the developer app
+          example: "Payment application"
+        DCREnabled:
+          type: boolean
+          description: Identifies if this access request was created using Dynamic client registration
+          example: false
+        ID:
+          type: integer
+          description: UID of access request
+          example: 1
+        Plan:
+          type: string
+          description: Name of a plan included in this access request
+          example: Free plan
+        Products:
+          type: array
+          items:
+            type: string
+            example: Payment API
+            description: Name of an product that is included in this access request
+          description: Names of products that are included in this access request
+        ProvisionImmediately:
+          type: boolean
+          description: Identifies if this access request was approved automatically
+          example: true
+        Status:
+          enum: ["approved", "rejected", "pending"]
+          description: Approval status of this access request
+        User:
+          type: string
+          description: Descriptor of a user to whom this access request belongs
+          example: "User#1"
+        CreatedAt:
+          format: date-time
+          type: string
+          description: Timestamp of when this access request was created
+          example: "2023-06-25 13:37"
+        UpdatedAt:
+          format: date-time
+          type: string
+          description: Timestamp of when this access request was updated the last time
+          example: "2023-06-25 13:37"
+        DeletedAt:
+          format: date-time
+          type: string
+          description: Timestamp of when this access request was removed
+          example: "2023-06-25 13:37"
+      type: object
     AccessRequest-update:
       properties:
         AuthType:
@@ -2808,7 +2891,7 @@ components:
       properties:
         AccessRequests:
           items:
-            $ref: '#/components/schemas/AccessRequest'
+            $ref: '#/components/schemas/AccessRequest-show'
           type: array
         Credentials:
           items:
@@ -2831,28 +2914,22 @@ components:
       type: object
     Client-create:
       properties:
-        AccessRequests:
-          items:
-            $ref: '#/components/schemas/AccessRequest'
-          type: array
-        Credentials:
-          items:
-            $ref: '#/components/schemas/Credential'
-          type: array
-        Description:
-          type: string
-        Model:
-          $ref: '#/components/schemas/Model'
         Name:
           type: string
-        Products:
-          items:
-            $ref: '#/components/schemas/Product'
-          type: array
+          description: Name of this application
+          exmaple: "Payment App"
+        Description:
+          type: string
+          description: Human-readable description of this applicatoin
+          example: "This is my payment application"
         RedirectURLs:
           type: string
+          description: Redirect URL for oAuth2.0 authorization_code and PKCE grant types
+          example: "https://app-host/auth"
         UserID:
           type: integer
+          description: UID of a user to whom this application will belong
+          example: 1
       type: object
     Client-index:
       items:
@@ -2860,78 +2937,119 @@ components:
       type: array
     Client-index-elem:
       properties:
-        AccessRequests:
-          items:
-            $ref: '#/components/schemas/AccessRequest'
-          type: array
-        Credentials:
-          items:
-            $ref: '#/components/schemas/Credential'
-          type: array
-        Description:
-          type: string
-        Model:
-          $ref: '#/components/schemas/Model'
         Name:
           type: string
-        Products:
-          items:
-            $ref: '#/components/schemas/Product'
-          type: array
+          description: Name of this application
+          exmaple: "Payment App"
+        Description:
+          type: string
+          description: Human-readable description of this applicatoin
+          example: "This is my payment application"
+        ID:
+          type: integer
+          description: UID of this app
+          example: 1
+        CreatedAt:
+          format: date-time
+          type: string
+          description: Timestamp of when this application was created
+          example: "2023-06-25 13:37"
         RedirectURLs:
           type: string
+          description: Redirect URL for oAuth2.0 authorization_code and PKCE grant types
+          example: "https://app-host/auth"
         UserID:
           type: integer
+          description: UID of a user to whom this application belongs
+          example: 1
       type: object
     Client-show:
       properties:
         AccessRequests:
           items:
-            $ref: '#/components/schemas/AccessRequest'
+            $ref: '#/components/schemas/Client-AccessRequest-show'
           type: array
-        Credentials:
-          items:
-            $ref: '#/components/schemas/Credential'
-          type: array
-        Description:
-          type: string
-        Model:
-          $ref: '#/components/schemas/Model'
         Name:
           type: string
-        Products:
-          items:
-            $ref: '#/components/schemas/Product'
-          type: array
+          description: Name of this application
+          exmaple: "Payment App"
+        ID:
+          type: integer
+          description: UID of this app
+          example: 1
+        Description:
+          type: string
+          description: Human-readable description of this applicatoin
+          example: "This is my payment application"
+        CreatedAt:
+          format: date-time
+          type: string
+          description: Timestamp of when this application was created
+          example: "2023-06-25 13:37"
         RedirectURLs:
           type: string
+          description: Redirect URL for oAuth2.0 authorization_code and PKCE grant types
+          example: "https://app-host/auth"
         UserID:
           type: integer
+          description: UID of a user to whom this application belongs
+          example: 1
       type: object
-    Client-update:
+    Client-create-show:
       properties:
         AccessRequests:
           items:
-            $ref: '#/components/schemas/AccessRequest'
+            $ref: '#/components/schemas/AccessRequest-show'
           type: array
-        Credentials:
-          items:
-            $ref: '#/components/schemas/Credential'
-          type: array
-        Description:
-          type: string
-        Model:
-          $ref: '#/components/schemas/Model'
         Name:
           type: string
-        Products:
-          items:
-            $ref: '#/components/schemas/Product'
-          type: array
+          description: Name of this application
+          exmaple: "Payment App"
+        ID:
+          type: integer
+          description: UID of this app
+          example: 1
+        Description:
+          type: string
+          description: Human-readable description of this applicatoin
+          example: "This is my payment application"
+        CreatedAt:
+          format: date-time
+          type: string
+          description: Timestamp of when this application was created
+          example: "2023-06-25 13:37"
         RedirectURLs:
           type: string
+          description: Redirect URL for oAuth2.0 authorization_code and PKCE grant types
+          example: "https://app-host/auth"
         UserID:
           type: integer
+          description: UID of a user to whom this application belongs
+          example: 1
+      type: object
+    Client-update:
+      properties:
+        Name:
+          type: string
+          description: Name of this application
+          exmaple: "Payment App"
+        Description:
+          type: string
+          description: Human-readable description of this applicatoin
+          example: "This is my payment application"
+        CreatedAt:
+          format: date-time
+          type: string
+          description: Timestamp of when this application was created
+          example: "2023-06-25 13:37"
+        RedirectURLs:
+          type: string
+          description: Redirect URL for oAuth2.0 authorization_code and PKCE grant types
+          example: "https://app-host/auth"
+        UserID:
+          type: integer
+          description: UID of a user to whom this application belongs
+          example: 1
       type: object
     Config-create:
       properties:
