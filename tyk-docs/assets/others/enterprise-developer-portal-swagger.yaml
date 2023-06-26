@@ -57,46 +57,32 @@ paths:
       summary: List all access requests
       tags:
         - Access requests
-    post:
-      description: Create a new access request
-      operationId: /access_requests-POST
-      parameters: []
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/AccessRequest-create'
-        description: ""
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/AccessRequest-show'
-          description: OK
-      security: []
-      summary: Create a new access request
-      tags:
-        - Access requests
   /access_requests/{access_request_id}:
     delete:
       description: This endpoint deletes an access request. If an access request is approved, its credentials will be revoked and removed from a gateway or an Identity provider
       operationId: /access_requests/:access_request_id-DELETE
       parameters:
-        - description: ""
+        - description: UID of this access request
           in: path
           name: access_request_id
           required: true
           schema:
-            name: ""
+            name: UID of this access request
             type: integer
+            example: 1
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AccessRequest-show'
+                $ref: '#/components/schemas/Status'
           description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Status'
+          description: Not found
       security: []
       summary: Delete an access request
       tags:
@@ -105,13 +91,14 @@ paths:
       description: Get an access request's data
       operationId: /access_requests/:access_request_id-GET
       parameters:
-        - description: ""
+        - description: UID of this access request
           in: path
           name: access_request_id
           required: true
           schema:
-            name: ""
+            name: UID of this access request
             type: integer
+            example: 1
       responses:
         "200":
           content:
@@ -128,14 +115,27 @@ paths:
       description: This endpoint trigger approval of an access request. A call to this API will trigger creation of credentials in a gateway or an Identity Provider
       operationId: /access_requests/:access_request_id/approve-PUT
       parameters:
-        - description: ""
+        - description: UID of this access request
           in: path
           name: access_request_id
           required: true
           schema:
-            name: ""
+            name: UID of this access request
             type: integer
-      responses: {}
+            example: 1
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusWithMessage'
+          description: OK
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusWithMessage'
+          description: OK
       security: []
       summary: Approve an access request
       tags:
@@ -145,14 +145,27 @@ paths:
       description: Reject an access request
       operationId: /access_requests/:access_request_id/reject-PUT
       parameters:
-        - description: ""
+        - description: UID of this access request
           in: path
           name: access_request_id
           required: true
           schema:
-            name: ""
+            name: UID of this access request
             type: integer
-      responses: {}
+            example: 1
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusWithMessage'
+          description: OK
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusWithMessage'
+          description: OK
       security: []
       summary: Reject an access request
       tags:
@@ -2427,83 +2440,119 @@ components:
       properties:
         AuthType:
           type: string
+          description: Authentication type of APIs that are included in this API Product
+          example: "authToken"
         Catalogue:
-          $ref: '#/components/schemas/Catalogue'
-        CatalogueID:
-          type: integer
+          type: string
+          description: Catalogue of API Products included in this access request
+          example: "Public Catalogue"
         Client:
-          $ref: '#/components/schemas/Client'
-        ClientID:
-          type: integer
-        Credentials:
-          items:
-            $ref: '#/components/schemas/Credential'
-          type: array
+          type: string
+          description: Name of the developer app
+          example: "Payment application"
         DCREnabled:
           type: boolean
-        DCRTemplateID:
+          description: Identifies if this access request was created using Dynamic client registration
+          example: false
+        ID:
           type: integer
-        Model:
-          $ref: '#/components/schemas/Model'
+          description: UID of access request
+          example: 1
         Plan:
-          $ref: '#/components/schemas/Plan'
-        PlanID:
-          type: integer
+          type: string
+          description: Name of a plan included in this access request
+          example: Free plan
         Products:
-          items:
-            $ref: '#/components/schemas/Product'
-          type: array
-        ProviderID:
-          type: integer
+          type: string
+          description: Names of products included in this access request
+          example: Payment API
         ProvisionImmediately:
           type: boolean
+          description: Identifies if this access request was approved automatically
+          example: true
         Status:
-          type: string
+          enum: ["approved", "rejected", "pending"]
+          description: Approval status of this access request
         User:
-          $ref: '#/components/schemas/User'
-        UserID:
-          type: integer
+          type: string
+          description: Descriptor of a user to whom this access request belongs
+          example: "User#1"
+        CreatedAt:
+          format: date-time
+          type: string
+          description: Timestamp of when this access request was created
+          example: "2023-06-25 13:37"
+        UpdatedAt:
+          format: date-time
+          type: string
+          description: Timestamp of when this access request was updated the last time
+          example: "2023-06-25 13:37"
+        DeletedAt:
+          format: date-time
+          type: string
+          description: Timestamp of when this access request was removed
+          example: "2023-06-25 13:37"
       type: object
     AccessRequest-show:
       properties:
-        AuthType:
-          type: string
-        Catalogue:
-          $ref: '#/components/schemas/Catalogue'
-        CatalogueID:
-          type: integer
-        Client:
-          $ref: '#/components/schemas/Client'
-        ClientID:
-          type: integer
         Credentials:
           items:
             $ref: '#/components/schemas/Credential'
           type: array
+        AuthType:
+          type: string
+          description: Authentication type of APIs that are included in this API Product
+          example: "authToken"
+        Catalogue:
+          type: string
+          description: Catalogue of API Products included in this access request
+          example: "Public Catalogue"
+        Client:
+          type: string
+          description: Name of the developer app
+          example: "Payment application"
         DCREnabled:
           type: boolean
-        DCRTemplateID:
+          description: Identifies if this access request was created using Dynamic client registration
+          example: false
+        ID:
           type: integer
-        Model:
-          $ref: '#/components/schemas/Model'
+          description: UID of access request
+          example: 1
         Plan:
-          $ref: '#/components/schemas/Plan'
-        PlanID:
-          type: integer
+          type: string
+          description: Name of a plan included in this access request
+          example: Free plan
         Products:
-          items:
-            $ref: '#/components/schemas/Product'
-          type: array
-        ProviderID:
-          type: integer
+          type: string
+          description: Names of products included in this access request
+          example: Payment API
         ProvisionImmediately:
           type: boolean
+          description: Identifies if this access request was approved automatically
+          example: true
         Status:
-          type: string
+          enum: ["approved", "rejected", "pending"]
+          description: Approval status of this access request
         User:
-          $ref: '#/components/schemas/User'
-        UserID:
-          type: integer
+          type: string
+          description: Descriptor of a user to whom this access request belongs
+          example: "User#1"
+        CreatedAt:
+          format: date-time
+          type: string
+          description: Timestamp of when this access request was created
+          example: "2023-06-25 13:37"
+        UpdatedAt:
+          format: date-time
+          type: string
+          description: Timestamp of when this access request was updated the last time
+          example: "2023-06-25 13:37"
+        DeletedAt:
+          format: date-time
+          type: string
+          description: Timestamp of when this access request was removed
+          example: "2023-06-25 13:37"
       type: object
     AccessRequest-update:
       properties:
@@ -3028,40 +3077,58 @@ components:
     Credential:
       properties:
         AccessRequest:
-          $ref: '#/components/schemas/AccessRequest'
-        AccessRequestID:
-          type: integer
-        ClientID:
-          type: integer
+          type: string
+          description: Access request description
+          example: "AccessRequest#2"
         Credential:
           type: string
+          description: "Auth token from the Tyk API Gateway. For oAuth2.0 credentials it's an empty string"
+          example: "eyJvcmciOiI1ZTlkOTU0NGExZGNkNjAwMDFkMGVkMjAiLCJpZCI6IjY4MjZjZGViMmVlMzQ3ZGQ5ZjQ1ZWZmMjEyMTlhOWU1IiwiaCI6Im11cm11cjY0In0="
         CredentialHash:
           type: string
+          description: "Hash of an auth token from the Tyk API Gateway. For oAuth2.0 credentials it's an empty string"
+          example: "e1212449778b7ba4"
         DCRRegistrationAccessToken:
           type: string
+          description: Access token for Dynamic client registration that is associated with credentials. Has non-empty value only for oAuth2.0 credentials
+          example: "eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJmZjIyNmYyZi0yMDA0LTRlOWItOTFmOC1iOGYzOTA2ZDJmYTQifQ.eyJleHAiOjAsImlhdCI6MTY4NzczNzM5MCwianRpIjoiNjc3OTgwYjktZjgwMS00MmQ2LWI4OTItZDdkNDk1MmFhMjU5IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5OTk5L3JlYWxtcy9tYXN0ZXIiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0Ojk5OTkvcmVhbG1zL21hc3RlciIsInR5cCI6IlJlZ2lzdHJhdGlvbkFjY2Vzc1Rva2VuIiwicmVnaXN0cmF0aW9uX2F1dGgiOiJhdXRoZW50aWNhdGVkIn0.wyE93vktqlCywgtyJ8HBTjRPG9NvZEDR3zpSMncdwno"
         DCRRegistrationClientURI:
           type: string
+          description: DCR client registration URI that is associated with credentials. Has non-empty value only for oAuth2.0 credentials
+          example: "http://idp-host/realms/master/clients-registrations/openid-connect/cf4ab76c-c437-4ba2-8e94-1323269b5090"
         DCRResponse:
           type: string
+          description: Cached client registration response from the Identity Provider. Has non-empty value only for oAuth2.0 credentials
+          example: '{"redirect_uris":["http://app-host/auth"],"token_endpoint_auth_method":"client_secret_basic","grant_types":["implicit","client_credentials"],"response_types":["id_token","id_token token"],"client_id":"cf4ab76c-c437-4ba2-8e94-1323269b5090","client_secret":"iDe9fkFNBDbVS5JOtYNUDIO8w8N6dWzf","client_name":"oAuth2.0 client","scope":"address phone offline_access microprofile-jwt","subject_type":"public","request_uris":[],"tls_client_certificate_bound_access_tokens":false,"client_id_issued_at":1687737390,"client_secret_expires_at":0,"registration_client_uri":"http://idp-host/realms/master/clients-registrations/openid-connect/cf4ab76c-c437-4ba2-8e94-1323269b5090","registration_access_token":"eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJmZjIyNmYyZi0yMDA0LTRlOWItOTFmOC1iOGYzOTA2ZDJmYTQifQ.eyJleHAiOjAsImlhdCI6MTY4NzczNzM5MCwianRpIjoiNjc3OTgwYjktZjgwMS00MmQ2LWI4OTItZDdkNDk1MmFhMjU5IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5OTk5L3JlYWxtcy9tYXN0ZXIiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0Ojk5OTkvcmVhbG1zL21hc3RlciIsInR5cCI6IlJlZ2lzdHJhdGlvbkFjY2Vzc1Rva2VuIiwicmVnaXN0cmF0aW9uX2F1dGgiOiJhdXRoZW50aWNhdGVkIn0.wyE93vktqlCywgtyJ8HBTjRPG9NvZEDR3zpSMncdwno","backchannel_logout_session_required":false,"require_pushed_authorization_requests":false,"frontchannel_logout_session_required":false}'
         Expires:
           format: date-time
           type: string
-        GrantType:
-          type: string
-        Model:
-          $ref: '#/components/schemas/Model'
+          exmaple: "1969-12-31 19:00"
+          description: Date-time when this credential expires
         OAuthClientID:
           type: string
+          description: oAuth2.0 client ID. Has non-empty value only for oAuth2.0 credentials
+          example: "cf4ab76c-c437-4ba2-8e94-1323269b5090"
         OAuthClientSecret:
           type: string
+          description: oAuth2.0 client secret. Has non-empty value only for oAuth2.0 credentials
+          example: "iDe9fkFNBDbVS5JOtYNUDIO8w8N6dWzf"
         RedirectURI:
           type: string
+          description: Redirect URI for oAuth2.0 authorization_code and PKCE grant types
+          example: "https://app-host/auth"
         ResponseType:
           type: string
+          description: Response types supported by this credential. Has non-empty value only for oAuth2.0 credentials
+          example: "id_token token"
         Scope:
           type: string
+          description: oAuth2.0 scope available to this credential. Has non-empty value only for oAuth2.0 credentials
+          example: "payment client"
         TokenEndpoints:
           type: string
+          description: oAuth2.0 `token_endpoint_auth_method` that this credential uses. Has non-empty value only for oAuth2.0 credentials
+          example: "payment client"
       type: object
     Credential-create:
       properties:
