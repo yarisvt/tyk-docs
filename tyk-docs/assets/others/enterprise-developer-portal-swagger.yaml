@@ -384,6 +384,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/AccessRequest-show'
           description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessRequest-show'
+          description: Not found
       security: []
       summary: Get an access request's data
       tags:
@@ -393,20 +399,22 @@ paths:
       description: List credentials from a specific access request for this app
       operationId: /apps/:app_id/access-requests/:access-request_id/credentials-GET
       parameters:
-        - description: ""
-          in: path
-          name: access-request_id
-          required: true
-          schema:
-            name: ""
-            type: integer
-        - description: ""
+        - description: UID of this application
           in: path
           name: app_id
           required: true
           schema:
-            name: ""
+            name: UID of this application
             type: integer
+            example: 1
+        - description: UID of this access request
+          in: path
+          name: access-request_id
+          required: true
+          schema:
+            name: UID of this access request
+            type: integer
+            example: 1
       responses:
         "200":
           content:
@@ -423,33 +431,42 @@ paths:
       description: This endpoint deletes a credentials and removes an API key from the gateway or an oAuth2.0 client from the IdP
       operationId: /apps/:app_id/access-requests/:access-request_id/credentials/:credential_id-DELETE
       parameters:
-        - description: ""
+        - description: UID of this credential
           in: path
           name: credential_id
           required: true
           schema:
-            name: ""
+            name: UID of this credential
             type: integer
-        - description: ""
-          in: path
-          name: access-request_id
-          required: true
-          schema:
-            name: ""
-            type: integer
-        - description: ""
+            example: 1
+        - description: UID of this application
           in: path
           name: app_id
           required: true
           schema:
-            name: ""
+            name: UID of this application
             type: integer
+            example: 1
+        - description: UID of this access request
+          in: path
+          name: access-request_id
+          required: true
+          schema:
+            name: UID of this access request
+            type: integer
+            example: 1
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Credential-show'
+                $ref: '#/components/schemas/Status'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Status'
           description: OK
       security: []
       summary: Delete a credential from an access request
@@ -459,33 +476,42 @@ paths:
       description: Get a credential by its ID
       operationId: /apps/:app_id/access-requests/:access-request_id/credentials/:credential_id-GET
       parameters:
-        - description: ""
+        - description: UID of this credential
           in: path
           name: credential_id
           required: true
           schema:
-            name: ""
+            name: UID of this credential
             type: integer
-        - description: ""
-          in: path
-          name: access-request_id
-          required: true
-          schema:
-            name: ""
-            type: integer
-        - description: ""
+            example: 1
+        - description: UID of this application
           in: path
           name: app_id
           required: true
           schema:
-            name: ""
+            name: UID of this application
             type: integer
+            example: 1
+        - description: UID of this access request
+          in: path
+          name: access-request_id
+          required: true
+          schema:
+            name: UID of this access request
+            type: integer
+            example: 1
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Credential-show'
+                $ref: '#/components/schemas/Status'
+          description: OK
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Credential-index-elem'
           description: OK
       security: []
       summary: Get a credential by its ID
@@ -496,14 +522,27 @@ paths:
       description: Create a new access request for this application
       operationId: /apps/:app_id/provision-PUT
       parameters:
-        - description: ""
+        - description: UID of this application
           in: path
           name: app_id
           required: true
           schema:
-            name: ""
+            name: UID of this application
             type: integer
-      responses: {}
+            example: 1
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusWithMessage'
+          description: OK
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusWithErrors'
+          description: Not found or Bad request
       security: []
       summary: Create a new access request for this application
       tags:
@@ -2376,88 +2415,6 @@ components:
           description: "Status of this API: `true` means the API is up and `false` identifies that it is down"
           example: true
       type: object
-    AccessRequest:
-      properties:
-        AuthType:
-          type: string
-        Catalogue:
-          $ref: '#/components/schemas/Catalogue'
-        CatalogueID:
-          type: integer
-        Client:
-          $ref: '#/components/schemas/Client'
-        ClientID:
-          type: integer
-        Credentials:
-          items:
-            $ref: '#/components/schemas/Credential'
-          type: array
-        DCREnabled:
-          type: boolean
-        DCRTemplateID:
-          type: integer
-        Model:
-          $ref: '#/components/schemas/Model'
-        Plan:
-          $ref: '#/components/schemas/Plan'
-        PlanID:
-          type: integer
-        Products:
-          items:
-            $ref: '#/components/schemas/Product'
-          type: array
-        ProviderID:
-          type: integer
-        ProvisionImmediately:
-          type: boolean
-        Status:
-          type: string
-        User:
-          $ref: '#/components/schemas/User'
-        UserID:
-          type: integer
-      type: object
-    AccessRequest-create:
-      properties:
-        AuthType:
-          type: string
-        Catalogue:
-          $ref: '#/components/schemas/Catalogue'
-        CatalogueID:
-          type: integer
-        Client:
-          $ref: '#/components/schemas/Client'
-        ClientID:
-          type: integer
-        Credentials:
-          items:
-            $ref: '#/components/schemas/Credential'
-          type: array
-        DCREnabled:
-          type: boolean
-        DCRTemplateID:
-          type: integer
-        Model:
-          $ref: '#/components/schemas/Model'
-        Plan:
-          $ref: '#/components/schemas/Plan'
-        PlanID:
-          type: integer
-        Products:
-          items:
-            $ref: '#/components/schemas/Product'
-          type: array
-        ProviderID:
-          type: integer
-        ProvisionImmediately:
-          type: boolean
-        Status:
-          type: string
-        User:
-          $ref: '#/components/schemas/User'
-        UserID:
-          type: integer
-      type: object
     AccessRequest-basic-elem:
       allOf:
         - $ref: '#/components/schemas/AccessRequest-basic'
@@ -2582,47 +2539,6 @@ components:
               type: array
               description: Credentials that are issued with access request
       type: object
-    AccessRequest-update:
-      properties:
-        AuthType:
-          type: string
-        Catalogue:
-          $ref: '#/components/schemas/Catalogue'
-        CatalogueID:
-          type: integer
-        Client:
-          $ref: '#/components/schemas/Client'
-        ClientID:
-          type: integer
-        Credentials:
-          items:
-            $ref: '#/components/schemas/Credential'
-          type: array
-        DCREnabled:
-          type: boolean
-        DCRTemplateID:
-          type: integer
-        Model:
-          $ref: '#/components/schemas/Model'
-        Plan:
-          $ref: '#/components/schemas/Plan'
-        PlanID:
-          type: integer
-        Products:
-          items:
-            $ref: '#/components/schemas/Product'
-          type: array
-        ProviderID:
-          type: integer
-        ProvisionImmediately:
-          type: boolean
-        Status:
-          type: string
-        User:
-          $ref: '#/components/schemas/User'
-        UserID:
-          type: integer
-      type: object
     Base:
       properties:
         Crop:
@@ -2671,29 +2587,6 @@ components:
           type: integer
         UserID:
           type: integer
-      type: object
-    Catalogue:
-      properties:
-        Model:
-          $ref: '#/components/schemas/Model'
-        Name:
-          type: string
-        NameWithSlug:
-          $ref: '#/components/schemas/Slug'
-        OrgCatalogues:
-          items:
-            $ref: '#/components/schemas/OrganisationCatalogue'
-          type: array
-        Plans:
-          items:
-            $ref: '#/components/schemas/Plan'
-          type: array
-        Products:
-          items:
-            $ref: '#/components/schemas/Product'
-          type: array
-        VisibilityStatus:
-          type: string
       type: object
     Catalogue-create:
       properties:
@@ -2831,31 +2724,6 @@ components:
           type: string
         Name:
           type: string
-      type: object
-    Client:
-      properties:
-        AccessRequests:
-          items:
-            $ref: '#/components/schemas/AccessRequest-basic'
-          type: array
-        Credentials:
-          items:
-            $ref: '#/components/schemas/Credential'
-          type: array
-        Description:
-          type: string
-        Model:
-          $ref: '#/components/schemas/Model'
-        Name:
-          type: string
-        Products:
-          items:
-            $ref: '#/components/schemas/Product'
-          type: array
-        RedirectURLs:
-          type: string
-        UserID:
-          type: integer
       type: object
     Client-basic:
       properties:
@@ -3103,185 +2971,23 @@ components:
           description: oAuth2.0 `token_endpoint_auth_method` that this credential uses. Has non-empty value only for oAuth2.0 credentials
           example: "payment client"
       type: object
-    Credential-create:
-      properties:
-        AccessRequest:
-          $ref: '#/components/schemas/AccessRequest'
-        AccessRequestID:
-          type: integer
-        ClientID:
-          type: integer
-        Credential:
-          type: string
-        CredentialHash:
-          type: string
-        DCRRegistrationAccessToken:
-          type: string
-        DCRRegistrationClientURI:
-          type: string
-        DCRResponse:
-          type: string
-        Expires:
-          format: date-time
-          type: string
-        GrantType:
-          type: string
-        Model:
-          $ref: '#/components/schemas/Model'
-        OAuthClientID:
-          type: string
-        OAuthClientSecret:
-          type: string
-        RedirectURI:
-          type: string
-        ResponseType:
-          type: string
-        Scope:
-          type: string
-        TokenEndpoints:
-          type: string
-      type: object
     Credential-index:
       items:
         $ref: '#/components/schemas/Credential-index-elem'
       type: array
     Credential-index-elem:
-      properties:
-        AccessRequest:
-          $ref: '#/components/schemas/AccessRequest'
-        AccessRequestID:
-          type: integer
-        ClientID:
-          type: integer
-        Credential:
-          type: string
-        CredentialHash:
-          type: string
-        DCRRegistrationAccessToken:
-          type: string
-        DCRRegistrationClientURI:
-          type: string
-        DCRResponse:
-          type: string
-        Expires:
-          format: date-time
-          type: string
-        GrantType:
-          type: string
-        Model:
-          $ref: '#/components/schemas/Model'
-        OAuthClientID:
-          type: string
-        OAuthClientSecret:
-          type: string
-        RedirectURI:
-          type: string
-        ResponseType:
-          type: string
-        Scope:
-          type: string
-        TokenEndpoints:
-          type: string
-      type: object
-    Credential-show:
-      properties:
-        AccessRequest:
-          $ref: '#/components/schemas/AccessRequest'
-        AccessRequestID:
-          type: integer
-        ClientID:
-          type: integer
-        Credential:
-          type: string
-        CredentialHash:
-          type: string
-        DCRRegistrationAccessToken:
-          type: string
-        DCRRegistrationClientURI:
-          type: string
-        DCRResponse:
-          type: string
-        Expires:
-          format: date-time
-          type: string
-        GrantType:
-          type: string
-        Model:
-          $ref: '#/components/schemas/Model'
-        OAuthClientID:
-          type: string
-        OAuthClientSecret:
-          type: string
-        RedirectURI:
-          type: string
-        ResponseType:
-          type: string
-        Scope:
-          type: string
-        TokenEndpoints:
-          type: string
-      type: object
-    Credential-update:
-      properties:
-        AccessRequest:
-          $ref: '#/components/schemas/AccessRequest'
-        AccessRequestID:
-          type: integer
-        ClientID:
-          type: integer
-        Credential:
-          type: string
-        CredentialHash:
-          type: string
-        DCRRegistrationAccessToken:
-          type: string
-        DCRRegistrationClientURI:
-          type: string
-        DCRResponse:
-          type: string
-        Expires:
-          format: date-time
-          type: string
-        GrantType:
-          type: string
-        Model:
-          $ref: '#/components/schemas/Model'
-        OAuthClientID:
-          type: string
-        OAuthClientSecret:
-          type: string
-        RedirectURI:
-          type: string
-        ResponseType:
-          type: string
-        Scope:
-          type: string
-        TokenEndpoints:
-          type: string
-      type: object
-    DCRConfigTemplate:
-      properties:
-        DCRConfigID:
-          type: integer
-        Description:
-          type: string
-        GrantType:
-          type: string
-        Model:
-          $ref: '#/components/schemas/Model'
-        Name:
-          type: string
-        OktaAppType:
-          type: string
-        Products:
-          items:
-            $ref: '#/components/schemas/Product'
-          type: array
-        ResponseType:
-          type: string
-        TokenEndpoints:
-          type: string
-      type: object
+      allOf:
+        - $ref: '#/components/schemas/Credential'
+        - type: object
+          properties:
+            GrantType:
+              type: string
+              description: "oAuth2.0 Grant types which is associated with this credential. Has non-empty value only for oAuth2.0 credentials"
+              example: "client_credetials"
+            ID:
+              type: integer
+              example: 1
+              description: UID of this credential
     DatabaseSetting:
       properties:
         ConnectionString:
@@ -3491,23 +3197,6 @@ components:
           example: "2023-06-23 21:02"
           type: string
       type: object
-    OrganisationCatalogue-update:
-      properties:
-        Catalogue:
-          $ref: '#/components/schemas/Catalogue'
-        CatalogueID:
-          type: integer
-        Model:
-          $ref: '#/components/schemas/Model'
-        Name:
-          type: string
-        Organisation:
-          $ref: '#/components/schemas/Organisation'
-        OrganisationID:
-          type: integer
-        TeamID:
-          type: integer
-      type: object
     Page-create:
       properties:
         AllowFormSubmission:
@@ -3626,80 +3315,6 @@ components:
             $ref: '#/components/schemas/TextContentBlock'
           type: array
         Title:
-          type: string
-      type: object
-    Plan:
-      properties:
-        AuthType:
-          type: string
-        AutoApproveAccessRequests:
-          type: boolean
-        Catalogues:
-          items:
-            $ref: '#/components/schemas/Catalogue'
-          type: array
-        Description:
-          type: string
-        DisplayName:
-          type: string
-        JWTScope:
-          type: string
-        Model:
-          $ref: '#/components/schemas/Model'
-        Name:
-          type: string
-        Per:
-          format: int64
-          type: integer
-        ProviderID:
-          type: integer
-        QuotaMax:
-          format: int64
-          type: integer
-        QuotaRenewalRate:
-          format: int64
-          type: integer
-        Rate:
-          format: int64
-          type: integer
-        ReferenceID:
-          type: string
-      type: object
-    Plan-create:
-      properties:
-        AuthType:
-          type: string
-        AutoApproveAccessRequests:
-          type: boolean
-        Catalogues:
-          items:
-            $ref: '#/components/schemas/Catalogue'
-          type: array
-        Description:
-          type: string
-        DisplayName:
-          type: string
-        JWTScope:
-          type: string
-        Model:
-          $ref: '#/components/schemas/Model'
-        Name:
-          type: string
-        Per:
-          format: int64
-          type: integer
-        ProviderID:
-          type: integer
-        QuotaMax:
-          format: int64
-          type: integer
-        QuotaRenewalRate:
-          format: int64
-          type: integer
-        Rate:
-          format: int64
-          type: integer
-        ReferenceID:
           type: string
       type: object
     Plan-index:
@@ -3917,104 +3532,6 @@ components:
         type: integer
         example: 1
         description: UID of a doc page
-    Product:
-      properties:
-        APIDetails:
-          items:
-            $ref: '#/components/schemas/Product-APIDetail'
-          type: array
-        AuthType:
-          type: string
-        Catalogues:
-          items:
-            $ref: '#/components/schemas/Catalogue'
-          type: array
-        Content:
-          type: string
-        DCREnabled:
-          type: boolean
-        Description:
-          type: string
-        DisplayName:
-          type: string
-        Docs:
-          items:
-            $ref: '#/components/schemas/Post'
-          type: array
-        Feature:
-          type: boolean
-        Logo:
-          $ref: '#/components/schemas/ImageStore'
-        Model:
-          $ref: '#/components/schemas/Model'
-        Name:
-          type: string
-        Path:
-          type: string
-        ProviderID:
-          type: integer
-        ReferenceID:
-          type: string
-        Scopes:
-          type: string
-        Tags:
-          items:
-            $ref: '#/components/schemas/Tag'
-          type: array
-        Templates:
-          items:
-            $ref: '#/components/schemas/DCRConfigTemplate'
-          type: array
-      type: object
-    Product-create:
-      properties:
-        APIDetails:
-          items:
-            $ref: '#/components/schemas/Product-APIDetail'
-          type: array
-        AuthType:
-          type: string
-        Catalogues:
-          items:
-            $ref: '#/components/schemas/Catalogue'
-          type: array
-        Content:
-          type: string
-        DCREnabled:
-          type: boolean
-        Description:
-          type: string
-        DisplayName:
-          type: string
-        Docs:
-          items:
-            $ref: '#/components/schemas/Post'
-          type: array
-        Feature:
-          type: boolean
-        Logo:
-          $ref: '#/components/schemas/ImageStore'
-        Model:
-          $ref: '#/components/schemas/Model'
-        Name:
-          type: string
-        Path:
-          type: string
-        ProviderID:
-          type: integer
-        ReferenceID:
-          type: string
-        Scopes:
-          type: string
-        Tags:
-          items:
-            $ref: '#/components/schemas/Tag'
-          type: array
-        Templates:
-          items:
-            $ref: '#/components/schemas/DCRConfigTemplate'
-          type: array
-      type: object
     Product-index:
       items:
         $ref: '#/components/schemas/Product-index-elem'
