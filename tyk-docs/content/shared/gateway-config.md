@@ -2,13 +2,13 @@
 EV: <b>TYK_GW_HOSTNAME</b><br />
 Type: `string`<br />
 
-Force your Gateway to work only on a specific domain name. Can be overridden by API custom domain.
+Force your Gateway to work only on a specifc domain name. Can be overriden by API custom domain.
 
 ### listen_address
 EV: <b>TYK_GW_LISTENADDRESS</b><br />
 Type: `string`<br />
 
-If your machine has multiple network devices or IPs you can force the Gateway to use the IP address you want.
+If your machine has mulitple network devices or IPs you can force the Gateway to use the IP address you want.
 
 ### listen_port
 EV: <b>TYK_GW_LISTENPORT</b><br />
@@ -118,19 +118,25 @@ Gateway HTTP server configuration
 EV: <b>TYK_GW_HTTPSERVEROPTIONS_READTIMEOUT</b><br />
 Type: `int`<br />
 
-API Consumer -> Gateway network read timeout. Not setting this config, or setting this to 0, defaults to 120 seconds
+User -> Gateway network read timeout
 
 ### http_server_options.write_timeout
 EV: <b>TYK_GW_HTTPSERVEROPTIONS_WRITETIMEOUT</b><br />
 Type: `int`<br />
 
-API Consumer -> Gateway network write timeout. Not setting this config, or setting this to 0, defaults to 120 seconds
+User -> Gateway network write timeout
 
 ### http_server_options.use_ssl
 EV: <b>TYK_GW_HTTPSERVEROPTIONS_USESSL</b><br />
 Type: `bool`<br />
 
 Set to true to enable SSL connections
+
+### http_server_options.use_ssl_le
+EV: <b>TYK_GW_HTTPSERVEROPTIONS_USELE_SSL</b><br />
+Type: `bool`<br />
+
+Enable Lets-Encrypt support
 
 ### http_server_options.enable_http2
 EV: <b>TYK_GW_HTTPSERVEROPTIONS_ENABLEHTTP2</b><br />
@@ -225,23 +231,6 @@ Type: `[]string`<br />
 
 Custom SSL ciphers. See list of ciphers here https://tyk.io/docs/basic-config-and-security/security/tls-and-ssl/#specify-tls-cipher-suites-for-tyk-gateway--tyk-dashboard
 
-### http_server_options.max_request_body_size
-EV: <b>TYK_GW_HTTPSERVEROPTIONS_MAXREQUESTBODYSIZE</b><br />
-Type: `int64`<br />
-
-MaxRequestBodySize configures a maximum size limit for request body size (in bytes) for all APIs on the Gateway.
-
-Tyk Gateway will evaluate all API requests against this size limit and will respond with HTTP 413 status code if the body of the request is larger.
-
-Two methods are used to perform the comparison:
- - If the API Request contains the `Content-Length` header, this is directly compared against `MaxRequestBodySize`.
- - If the `Content-Length` header is not provided, the Request body is read in chunks to compare total size against `MaxRequestBodySize`.
-
-A value of zero (default) means that no maximum is set and API requests will not be tested.
-
-See more information about setting request size limits here:
-https://tyk.io/docs/basic-config-and-security/control-limit-traffic/request-size-limits/#maximum-request-sizes
-
 ### version_header
 EV: <b>TYK_GW_VERSIONHEADER</b><br />
 Type: `string`<br />
@@ -333,18 +322,11 @@ If you set this value to `true`, then the id parameter in a stored policy (or im
 
 This option should only be used when moving an installation to a new database.
 
-### policies.policy_path
-EV: <b>TYK_GW_POLICIES_POLICYPATH</b><br />
-Type: `string`<br />
-
-This option is used for storing a policies  if `policies.policy_source` is set to `file`.
-it should be some existing file path on hard drive
-
 ### ports_whitelist
 EV: <b>TYK_GW_PORTWHITELIST</b><br />
 Type: `PortsWhiteList`<br />
 
-Defines the ports that will be available for the API services to bind to in the following format: `"{“":“”}"`. Remember to escape JSON strings.
+Defines the ports that will be available for the API services to bind to in the following format: `{ “": “” }``.
 This is a map of protocol to PortWhiteList. This allows per protocol
 configurations.
 
@@ -378,6 +360,12 @@ EV: <b>TYK_GW_DBAPPCONFOPTIONS_CONNECTIONSTRING</b><br />
 Type: `string`<br />
 
 Set the URL to your Dashboard instance (or a load balanced instance). The URL needs to be formatted as: `http://dashboard_host:port`
+
+### db_app_conf_options.connection_timeout
+EV: <b>TYK_GW_DBAPPCONFOPTIONS_CONNECTIONTIMEOUT</b><br />
+Type: `int`<br />
+
+Set the timeout for your Dashboard connection. Defaults to 30 seconds. In seconds.
 
 ### db_app_conf_options.node_is_segmented
 EV: <b>TYK_GW_DBAPPCONFOPTIONS_NODEISSEGMENTED</b><br />
@@ -572,7 +560,7 @@ The maximum time in seconds that a RPC ping can last.
 EV: <b>TYK_GW_SLAVEOPTIONS_RPCPOOLSIZE</b><br />
 Type: `int`<br />
 
-The number of RPC connections in the pool. Basically it creates a set of connections that you can re-use as needed. Defaults to 5.
+The number of RPC connections in the pool. Basically it creates a set of connections that you can re-use as needed.
 
 ### slave_options.key_space_sync_interval
 EV: <b>TYK_GW_SLAVEOPTIONS_KEYSPACESYNCINTERVAL</b><br />
@@ -591,12 +579,6 @@ EV: <b>TYK_GW_SLAVEOPTIONS_RPCGLOBALCACHEEXPIRATION</b><br />
 Type: `float32`<br />
 
 RPCKeysCacheExpiration defines the expiration time of the rpc cache that stores the keys, defined in seconds
-
-### slave_options.synchroniser_enabled
-EV: <b>TYK_GW_SLAVEOPTIONS_SYNCHRONISERENABLED</b><br />
-Type: `bool`<br />
-
-SynchroniserEnabled enable this config if MDCB has enabled the synchoniser. If disabled then it will ignore signals to synchonise recources
 
 ### management_node
 EV: <b>TYK_GW_MANAGEMENTNODE</b><br />
@@ -633,7 +615,7 @@ The standard rate limiter offers similar performance as the sentinel-based limit
 EV: <b>TYK_GW_ENABLENONTRANSACTIONALRATELIMITER</b><br />
 Type: `bool`<br />
 
-An enhancement for the Redis and Sentinel rate limiters, that offers a significant improvement in performance by not using transactions on Redis rate-limit buckets.
+An enchancment for the Redis and Sentinel rate limiters, that offers a significant improvement in performance by not using transactions on Redis rate-limit buckets.
 
 ### drl_notification_frequency
 EV: <b>TYK_GW_DRLNOTIFICATIONFREQUENCY</b><br />
@@ -1062,12 +1044,6 @@ Type: `float32`<br />
 
 You can set the interval length on how often the tyk Gateway will purge analytics data. This value is in seconds and defaults to 10 seconds.
 
-### analytics_config.serializer_type
-EV: <b>TYK_GW_ANALYTICSCONFIG_SERIALIZERTYPE</b><br />
-Type: `string`<br />
-
-Determines the serialization engine for analytics. Available options: msgpack, and protobuf. By default, msgpack.
-
 ### enable_separate_analytics_store
 EV: <b>TYK_GW_ENABLESEPERATEANALYTICSSTORE</b><br />
 Type: `bool`<br />
@@ -1168,7 +1144,7 @@ Disable TLS verification
 EV: <b>TYK_GW_LIVENESSCHECK_CHECKDURATION</b><br />
 Type: `time.Duration`<br />
 
-Frequencies of performing interval healthchecks for Redis, Dashboard, and RPC layer. Default: 10 seconds.
+Frequence of performing interval healthchecks for Redis, Dashboard, and RPC layer. Default: 10 seconds.
 
 ### dns_cache
 This section enables the global configuration of the expireable DNS records caching for your Gateway API endpoints.
@@ -1603,12 +1579,6 @@ EV: <b>TYK_GW_FORCEGLOBALSESSIONLIFETIME</b><br />
 Type: `bool`<br />
 
 Enable global API token expiration. Can be needed if all your APIs using JWT or oAuth 2.0 auth methods with dynamically generated keys.
-
-### session_lifetime_respects_key_expiration
-EV: <b>TYK_GW_SESSIONLIFETIMERESPECTSKEYEXPIRATION</b><br />
-Type: `bool`<br />
-
-SessionLifetimeRespectsKeyExpiration respects the key expiration time when the session lifetime is less than the key expiration. That is, Redis waits the key expiration for physical removal.
 
 ### global_session_lifetime
 EV: <b>TYK_GW_GLOBALSESSIONLIFETIME</b><br />
