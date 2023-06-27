@@ -324,26 +324,34 @@ paths:
       description: This endpoint deletes an access request. If this access request was approved and has any credenitals attached to it then all of them will be removed and revoked in a gateway on an Identity provider
       operationId: /apps/:app_id/access-requests/:access-request_id-DELETE
       parameters:
-        - description: ""
-          in: path
-          name: access-request_id
-          required: true
-          schema:
-            name: ""
-            type: integer
-        - description: ""
+        - description: UID of this application
           in: path
           name: app_id
           required: true
           schema:
-            name: ""
+            name: UID of this application
             type: integer
+            example: 1
+        - description: UID of this access request
+          in: path
+          name: access-request_id
+          required: true
+          schema:
+            name: UID of this access request
+            type: integer
+            example: 1
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AccessRequest-basic'
+                $ref: '#/components/schemas/Status'
+          description: OK
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Status'
           description: OK
       security: []
       summary: Delete an access request
@@ -353,26 +361,28 @@ paths:
       description: Get an access request's data
       operationId: /apps/:app_id/access-requests/:access-request_id-GET
       parameters:
-        - description: ""
-          in: path
-          name: access-request_id
-          required: true
-          schema:
-            name: ""
-            type: integer
-        - description: ""
+        - description: UID of this application
           in: path
           name: app_id
           required: true
           schema:
-            name: ""
+            name: UID of this application
             type: integer
+            example: 1
+        - description: UID of this access request
+          in: path
+          name: access-request_id
+          required: true
+          schema:
+            name: UID of this access request
+            type: integer
+            example: 1
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AccessRequest-index-elem'
+                $ref: '#/components/schemas/AccessRequest-show'
           description: OK
       security: []
       summary: Get an access request's data
@@ -2475,12 +2485,8 @@ components:
                 $ref: '#/components/schemas/Credential'
               type: array
       type: object
-    AccessRequest-basic:
+    AccessRequest-internal:
       properties:
-        AuthType:
-          type: string
-          description: Authentication type of APIs that are included in this API Product
-          example: "authToken"
         Catalogue:
           type: string
           description: Catalogue of API Products included in this access request
@@ -2489,29 +2495,6 @@ components:
           type: string
           description: Name of the developer app
           example: "Payment application"
-        DCREnabled:
-          type: boolean
-          description: Identifies if this access request was created using Dynamic client registration
-          example: false
-        ID:
-          type: integer
-          description: UID of access request
-          example: 1
-        Plan:
-          type: string
-          description: Name of a plan included in this access request
-          example: Free plan
-        ProvisionImmediately:
-          type: boolean
-          description: Identifies if this access request was approved automatically
-          example: true
-        Status:
-          enum: ["approved", "rejected", "pending"]
-          description: Approval status of this access request
-        User:
-          type: string
-          description: Descriptor of a user to whom this access request belongs
-          example: "User#1"
         CreatedAt:
           format: date-time
           type: string
@@ -2527,7 +2510,52 @@ components:
           type: string
           description: Timestamp of when this access request was removed
           example: "2023-06-25 13:37"
+        Plan:
+          type: string
+          description: Name of a plan included in this access request
+          example: Free plan
+        User:
+          type: string
+          description: Descriptor of a user to whom this access request belongs
+          example: "User#1"
       type: object
+    AccessRequest-show:
+      allOf:
+        - $ref: '#/components/schemas/AccessRequest-internal'
+        - type: object
+          properties:
+            Products:
+              type: string
+              description: Names of products included in this access request
+              example: Payment API
+            Credentials:
+              items:
+                $ref: '#/components/schemas/Credential'
+              type: array
+    AccessRequest-basic:
+      allOf:
+        - $ref: '#/components/schemas/AccessRequest-internal'
+        - type: object
+          properties:
+            AuthType:
+              type: string
+              description: Authentication type of APIs that are included in this API Product
+              example: "authToken"
+            DCREnabled:
+              type: boolean
+              description: Identifies if this access request was created using Dynamic client registration
+              example: false
+            ID:
+              type: integer
+              description: UID of access request
+              example: 1
+            ProvisionImmediately:
+              type: boolean
+              description: Identifies if this access request was approved automatically
+              example: true
+            Status:
+              enum: ["approved", "rejected", "pending"]
+              description: Approval status of this access request
     AccessRequest-index:
       type: array
       items:
@@ -2552,6 +2580,7 @@ components:
               items:
                 $ref: '#/components/schemas/Credential'
               type: array
+              description: Credentials that are issued with access request
       type: object
     AccessRequest-update:
       properties:
