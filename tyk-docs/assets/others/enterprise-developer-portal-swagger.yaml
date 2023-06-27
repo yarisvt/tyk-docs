@@ -1116,7 +1116,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Page-create'
+              $ref: '#/components/schemas/Page-basic'
         description: ""
       responses:
         "200":
@@ -1134,20 +1134,27 @@ paths:
       description: Delete a page
       operationId: /pages/:page_id-DELETE
       parameters:
-        - description: ""
+        - description: UID of the page
           in: path
           name: page_id
           required: true
           schema:
-            name: ""
+            name: UID of the page
             type: integer
+            example: 1
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Page-show'
+                $ref: '#/components/schemas/Status'
           description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Status'
+          description: Not found
       security: []
       summary: Delete a page
       tags:
@@ -1156,13 +1163,14 @@ paths:
       description: Get a page
       operationId: /pages/:page_id-GET
       parameters:
-        - description: ""
+        - description: UID of the page
           in: path
           name: page_id
           required: true
           schema:
-            name: ""
+            name: UID of the page
             type: integer
+            example: 1
       responses:
         "200":
           content:
@@ -1178,21 +1186,28 @@ paths:
       description: Update a page including title. path, and status
       operationId: /pages/:page_id-PUT
       parameters:
-        - description: ""
+        - description: UID of the page
           in: path
           name: page_id
           required: true
           schema:
-            name: ""
+            name: UID of the page
             type: integer
+            example: 1
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Page-update'
+              $ref: '#/components/schemas/Page-basic'
         description: ""
       responses:
         "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Page-show'
+          description: OK
+        "422":
           content:
             application/json:
               schema:
@@ -3211,126 +3226,63 @@ components:
           example: "2023-06-23 21:02"
           type: string
       type: object
-    Page-create:
-      properties:
-        AllowFormSubmission:
-          type: boolean
-        ContentBlocks:
-          items:
-            $ref: '#/components/schemas/ContentBlock'
-          type: array
-        ImageBlocks:
-          items:
-            $ref: '#/components/schemas/ImageBlock'
-          type: array
-        Model:
-          $ref: '#/components/schemas/Model'
-        PageTypeID:
-          type: integer
-        Path:
-          type: string
-        Status:
-          type: string
-        Template:
-          type: string
-        TextContentBlocks:
-          items:
-            $ref: '#/components/schemas/TextContentBlock'
-          type: array
-        Title:
-          type: string
-      type: object
     Page-index:
       items:
         $ref: '#/components/schemas/Page-index-elem'
       type: array
+    Page-basic:
+      properties:
+        AllowFormSubmission:
+          type: boolean
+          description: dsf
+          example: false
+        PageTypeID:
+          type: integer
+        Path:
+          type: string
+          description: Path to this page
+          example: "/about-us"
+        Status:
+          type: string
+          description: Path to this page
+          example: "/about-us"
+        Template:
+          type: string
+          description: Name of templates that is used by this page. Value of this property must match one of template names in `theme.json`
+          example: "home"
+        Title:
+          type: string
+          description: Title of the page
+          example: "About Tyk Portal"
+      type: object
     Page-index-elem:
-      properties:
-        AllowFormSubmission:
-          type: boolean
-        ContentBlocks:
-          items:
-            $ref: '#/components/schemas/ContentBlock'
-          type: array
-        ImageBlocks:
-          items:
-            $ref: '#/components/schemas/ImageBlock'
-          type: array
-        Model:
-          $ref: '#/components/schemas/Model'
-        PageTypeID:
-          type: integer
-        Path:
-          type: string
-        Status:
-          type: string
-        Template:
-          type: string
-        TextContentBlocks:
-          items:
-            $ref: '#/components/schemas/TextContentBlock'
-          type: array
-        Title:
-          type: string
-      type: object
+      allOf:
+        - $ref: '#/components/schemas/Page-basic'
+        - type: object
+          properties:
+            ID:
+              type: integer
+              description: UID of this page
+              example: 1
     Page-show:
-      properties:
-        AllowFormSubmission:
-          type: boolean
-        ContentBlocks:
-          items:
-            $ref: '#/components/schemas/ContentBlock'
-          type: array
-        ImageBlocks:
-          items:
-            $ref: '#/components/schemas/ImageBlock'
-          type: array
-        Model:
-          $ref: '#/components/schemas/Model'
-        PageTypeID:
-          type: integer
-        Path:
-          type: string
-        Status:
-          type: string
-        Template:
-          type: string
-        TextContentBlocks:
-          items:
-            $ref: '#/components/schemas/TextContentBlock'
-          type: array
-        Title:
-          type: string
-      type: object
-    Page-update:
-      properties:
-        AllowFormSubmission:
-          type: boolean
-        ContentBlocks:
-          items:
-            $ref: '#/components/schemas/ContentBlock'
-          type: array
-        ImageBlocks:
-          items:
-            $ref: '#/components/schemas/ImageBlock'
-          type: array
-        Model:
-          $ref: '#/components/schemas/Model'
-        PageTypeID:
-          type: integer
-        Path:
-          type: string
-        Status:
-          type: string
-        Template:
-          type: string
-        TextContentBlocks:
-          items:
-            $ref: '#/components/schemas/TextContentBlock'
-          type: array
-        Title:
-          type: string
-      type: object
+      allOf:
+        - $ref: '#/components/schemas/Page-basic'
+        - type: object
+          properties:
+            ID:
+              type: integer
+              description: UID of this page
+              example: 1
+            CreatedAt:
+              format: date-time
+              type: string
+              description: Timestamp of when this access request was created
+              example: "2023-06-25 13:37"
+            UpdatedAt:
+              format: date-time
+              type: string
+              description: Timestamp of when this access request was updated the last time
+              example: "2023-06-25 13:37"
     Plan-index:
       items:
         $ref: '#/components/schemas/Plan-index-elem'
