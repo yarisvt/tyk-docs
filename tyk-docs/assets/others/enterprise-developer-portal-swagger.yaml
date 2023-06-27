@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.1.0
 info:
   title: Tyk Enterprise Developer Portal admin API
   description: |-
@@ -51,7 +51,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AccessRequest-index'
+                $ref: '#/components/schemas/AccessRequest-basic-index'
           description: OK
       security: []
       summary: List all access requests
@@ -104,7 +104,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AccessRequest-show'
+                $ref: '#/components/schemas/AccessRequest-index-elem'
           description: OK
       security: []
       summary: Get an access request's data
@@ -194,14 +194,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Client-create'
+              $ref: '#/components/schemas/Client-basic'
         description: ""
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Client-create-show'
+                $ref: '#/components/schemas/Client-show'
           description: OK
       security: []
       summary: Create a new developer application
@@ -254,7 +254,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Client-create-show'
+                $ref: '#/components/schemas/Client-show'
           description: OK
       security: []
       summary: Get an application's data
@@ -276,7 +276,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Client-update'
+              $ref: '#/components/schemas/Client-basic'
         description: ""
       responses:
         "200":
@@ -300,13 +300,14 @@ paths:
       description: List all access requests for this application
       operationId: /apps/:app_id/access-requests-GET
       parameters:
-        - description: ""
+        - description: UID of this application
           in: path
           name: app_id
           required: true
           schema:
-            name: ""
+            name: UID of this application
             type: integer
+            example: 1
       responses:
         "200":
           content:
@@ -342,7 +343,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AccessRequest-show'
+                $ref: '#/components/schemas/AccessRequest-basic'
           description: OK
       security: []
       summary: Delete an access request
@@ -371,7 +372,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AccessRequest-show'
+                $ref: '#/components/schemas/AccessRequest-index-elem'
           description: OK
       security: []
       summary: Get an access request's data
@@ -2447,11 +2448,34 @@ components:
         UserID:
           type: integer
       type: object
-    AccessRequest-index:
+    AccessRequest-basic-elem:
+      allOf:
+        - $ref: '#/components/schemas/AccessRequest-basic'
+        - type: object
+          properties:
+            Products:
+              type: string
+              description: Names of products included in this access request
+              example: Payment API
+    AccessRequest-basic-index:
       items:
-        $ref: '#/components/schemas/AccessRequest-index-elem'
+        $ref: '#/components/schemas/AccessRequest-basic-elem'
       type: array
     AccessRequest-index-elem:
+      allOf:
+        - $ref: '#/components/schemas/AccessRequest-basic'
+        - type: object
+          properties:
+            Products:
+              type: string
+              description: Names of products included in this access request
+              example: Payment API
+            Credentials:
+              items:
+                $ref: '#/components/schemas/Credential'
+              type: array
+      type: object
+    AccessRequest-basic:
       properties:
         AuthType:
           type: string
@@ -2477,10 +2501,6 @@ components:
           type: string
           description: Name of a plan included in this access request
           example: Free plan
-        Products:
-          type: string
-          description: Names of products included in this access request
-          example: Payment API
         ProvisionImmediately:
           type: boolean
           description: Identifies if this access request was approved automatically
@@ -2508,134 +2528,30 @@ components:
           description: Timestamp of when this access request was removed
           example: "2023-06-25 13:37"
       type: object
-    AccessRequest-show:
-      properties:
-        Credentials:
-          items:
-            $ref: '#/components/schemas/Credential'
-          type: array
-        AuthType:
-          type: string
-          description: Authentication type of APIs that are included in this API Product
-          example: "authToken"
-        Catalogue:
-          type: string
-          description: Catalogue of API Products included in this access request
-          example: "Public Catalogue"
-        Client:
-          type: string
-          description: Name of the developer app
-          example: "Payment application"
-        DCREnabled:
-          type: boolean
-          description: Identifies if this access request was created using Dynamic client registration
-          example: false
-        ID:
-          type: integer
-          description: UID of access request
-          example: 1
-        Plan:
-          type: string
-          description: Name of a plan included in this access request
-          example: Free plan
-        Products:
-          type: string
-          description: Names of products included in this access request
-          example: Payment API
-        ProvisionImmediately:
-          type: boolean
-          description: Identifies if this access request was approved automatically
-          example: true
-        Status:
-          enum: ["approved", "rejected", "pending"]
-          description: Approval status of this access request
-        User:
-          type: string
-          description: Descriptor of a user to whom this access request belongs
-          example: "User#1"
-        CreatedAt:
-          format: date-time
-          type: string
-          description: Timestamp of when this access request was created
-          example: "2023-06-25 13:37"
-        UpdatedAt:
-          format: date-time
-          type: string
-          description: Timestamp of when this access request was updated the last time
-          example: "2023-06-25 13:37"
-        DeletedAt:
-          format: date-time
-          type: string
-          description: Timestamp of when this access request was removed
-          example: "2023-06-25 13:37"
-      type: object
-    Client-AccessRequest-show:
-      properties:
-        AccessRequest:
-          type: string
-          description: Description of an access request to which this credential belongs
-          example: "AccessRequest#1"
-        Credentials:
-          items:
-            $ref: '#/components/schemas/Credential'
-          type: array
-        AuthType:
-          type: string
-          description: Authentication type of APIs that are included in this API Product
-          example: "authToken"
-        Catalogue:
-          type: string
-          description: Catalogue of API Products included in this access request
-          example: "Public Catalogue"
-        Client:
-          type: string
-          description: Name of the developer app
-          example: "Payment application"
-        DCREnabled:
-          type: boolean
-          description: Identifies if this access request was created using Dynamic client registration
-          example: false
-        ID:
-          type: integer
-          description: UID of access request
-          example: 1
-        Plan:
-          type: string
-          description: Name of a plan included in this access request
-          example: Free plan
-        Products:
-          type: array
-          items:
-            type: string
-            example: Payment API
-            description: Name of an product that is included in this access request
-          description: Names of products that are included in this access request
-        ProvisionImmediately:
-          type: boolean
-          description: Identifies if this access request was approved automatically
-          example: true
-        Status:
-          enum: ["approved", "rejected", "pending"]
-          description: Approval status of this access request
-        User:
-          type: string
-          description: Descriptor of a user to whom this access request belongs
-          example: "User#1"
-        CreatedAt:
-          format: date-time
-          type: string
-          description: Timestamp of when this access request was created
-          example: "2023-06-25 13:37"
-        UpdatedAt:
-          format: date-time
-          type: string
-          description: Timestamp of when this access request was updated the last time
-          example: "2023-06-25 13:37"
-        DeletedAt:
-          format: date-time
-          type: string
-          description: Timestamp of when this access request was removed
-          example: "2023-06-25 13:37"
+    AccessRequest-index:
+      type: array
+      items:
+        $ref: '#/components/schemas/AccessRequest-index-elem'
+    Client-AccessRequest-index:
+      type: array
+      items:
+        $ref: '#/components/schemas/Client-AccessRequest-elem'
+    Client-AccessRequest-elem:
+      allOf:
+        - $ref: '#/components/schemas/AccessRequest-basic'
+        - type: object
+          properties:
+            Products:
+              type: array
+              items:
+                type: string
+                description: Name of a product that is included in this access request
+                example: Payment API
+              description: Names of products that are included in this access request
+            Credentials:
+              items:
+                $ref: '#/components/schemas/Credential'
+              type: array
       type: object
     AccessRequest-update:
       properties:
@@ -2891,7 +2807,7 @@ components:
       properties:
         AccessRequests:
           items:
-            $ref: '#/components/schemas/AccessRequest-show'
+            $ref: '#/components/schemas/AccessRequest-basic'
           type: array
         Credentials:
           items:
@@ -2912,7 +2828,7 @@ components:
         UserID:
           type: integer
       type: object
-    Client-create:
+    Client-basic:
       properties:
         Name:
           type: string
@@ -2931,126 +2847,36 @@ components:
           description: UID of a user to whom this application will belong
           example: 1
       type: object
+    Client-ID-attributes:
+      properties:
+        ID:
+          type: integer
+          description: UID of this app
+          example: 1
+        CreatedAt:
+          format: date-time
+          type: string
+          description: Timestamp of when this application was created
+          example: "2023-06-25 13:37"
+      type: object
     Client-index:
       items:
         $ref: '#/components/schemas/Client-index-elem'
       type: array
     Client-index-elem:
-      properties:
-        Name:
-          type: string
-          description: Name of this application
-          exmaple: "Payment App"
-        Description:
-          type: string
-          description: Human-readable description of this applicatoin
-          example: "This is my payment application"
-        ID:
-          type: integer
-          description: UID of this app
-          example: 1
-        CreatedAt:
-          format: date-time
-          type: string
-          description: Timestamp of when this application was created
-          example: "2023-06-25 13:37"
-        RedirectURLs:
-          type: string
-          description: Redirect URL for oAuth2.0 authorization_code and PKCE grant types
-          example: "https://app-host/auth"
-        UserID:
-          type: integer
-          description: UID of a user to whom this application belongs
-          example: 1
-      type: object
+      allOf:
+        - $ref: '#/components/schemas/Client-basic'
+        - $ref: '#/components/schemas/Client-ID-attributes'
     Client-show:
-      properties:
-        AccessRequests:
-          items:
-            $ref: '#/components/schemas/Client-AccessRequest-show'
-          type: array
-        Name:
-          type: string
-          description: Name of this application
-          exmaple: "Payment App"
-        ID:
-          type: integer
-          description: UID of this app
-          example: 1
-        Description:
-          type: string
-          description: Human-readable description of this applicatoin
-          example: "This is my payment application"
-        CreatedAt:
-          format: date-time
-          type: string
-          description: Timestamp of when this application was created
-          example: "2023-06-25 13:37"
-        RedirectURLs:
-          type: string
-          description: Redirect URL for oAuth2.0 authorization_code and PKCE grant types
-          example: "https://app-host/auth"
-        UserID:
-          type: integer
-          description: UID of a user to whom this application belongs
-          example: 1
-      type: object
-    Client-create-show:
-      properties:
-        AccessRequests:
-          items:
-            $ref: '#/components/schemas/AccessRequest-show'
-          type: array
-        Name:
-          type: string
-          description: Name of this application
-          exmaple: "Payment App"
-        ID:
-          type: integer
-          description: UID of this app
-          example: 1
-        Description:
-          type: string
-          description: Human-readable description of this applicatoin
-          example: "This is my payment application"
-        CreatedAt:
-          format: date-time
-          type: string
-          description: Timestamp of when this application was created
-          example: "2023-06-25 13:37"
-        RedirectURLs:
-          type: string
-          description: Redirect URL for oAuth2.0 authorization_code and PKCE grant types
-          example: "https://app-host/auth"
-        UserID:
-          type: integer
-          description: UID of a user to whom this application belongs
-          example: 1
-      type: object
-    Client-update:
-      properties:
-        Name:
-          type: string
-          description: Name of this application
-          exmaple: "Payment App"
-        Description:
-          type: string
-          description: Human-readable description of this applicatoin
-          example: "This is my payment application"
-        CreatedAt:
-          format: date-time
-          type: string
-          description: Timestamp of when this application was created
-          example: "2023-06-25 13:37"
-        RedirectURLs:
-          type: string
-          description: Redirect URL for oAuth2.0 authorization_code and PKCE grant types
-          example: "https://app-host/auth"
-        UserID:
-          type: integer
-          description: UID of a user to whom this application belongs
-          example: 1
-      type: object
+      allOf:
+        - $ref: '#/components/schemas/Client-basic'
+        - $ref: '#/components/schemas/Client-ID-attributes'
+        - type: object
+          properties:
+            AccessRequests:
+              items:
+                $ref: '#/components/schemas/Client-AccessRequest-index'
+              type: array
     Config-create:
       properties:
         Author:
