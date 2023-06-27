@@ -2720,10 +2720,13 @@ components:
       properties:
         CertFile:
           type: string
+          example: "portal.crt"
         KeyFile:
           type: string
+          example: "portal.key"
         Name:
           type: string
+          example: "localhost"
       type: object
     Client-basic:
       properties:
@@ -2992,14 +2995,25 @@ components:
       properties:
         ConnectionString:
           type: string
+          example: "por....db"
+          description: Connection string to the portal's database. May hold secure secrets, therefore it's masked
         Dialect:
           type: string
+          enum: ["`sqlite3`", "`mysql`", "`postgres`"]
+          description: Database dialect of the portal's database
         EnableLogs:
           type: boolean
+          description: Defines if the portal should write connection logs to the database
         MaxRetries:
           type: integer
+          description: Max retries when establishing connection to the database
+          example: 3
+          default: 3
         RetryDelay:
           type: integer
+          description: Delay between connection retries when establishing connection to the database. Measured in milliseconds
+          example: 5000
+          default: 5000
       type: object
     File:
       properties:
@@ -3836,16 +3850,22 @@ components:
       properties:
         Enable:
           type: boolean
+          description: Identifies if the live portal is enabled
+          example: true
       type: object
     FormsSetting:
       properties:
         Enable:
           type: boolean
+          description: Identifies if the forms are enabled. By default their are disabled
+          example: false
+          default: false
       type: object
     S3Setting:
       properties:
         ACL:
           type: string
+          description: ACL rules for the S3 bucket
         AccessKey:
           type: string
         Bucket:
@@ -3858,43 +3878,6 @@ components:
           type: string
         SecretKey:
           type: string
-      type: object
-    Settings-create:
-      properties:
-        Blog:
-          $ref: '#/components/schemas/BlogSetting'
-        Database:
-          $ref: '#/components/schemas/DatabaseSetting'
-        Forms:
-          $ref: '#/components/schemas/FormsSetting'
-        HostPort:
-          type: integer
-        JwtSigningKey:
-          type: string
-        LicenseKey:
-          type: string
-        LogFormat:
-          type: string
-        LogLevel:
-          type: string
-        PortalAPISecret:
-          type: string
-        ProductDocRenderer:
-          type: string
-        RefreshInterval:
-          type: integer
-        S3:
-          $ref: '#/components/schemas/S3Setting'
-        Site:
-          $ref: '#/components/schemas/SiteSetting'
-        Storage:
-          type: string
-        StoreSessionName:
-          type: string
-        TLSConfig:
-          $ref: '#/components/schemas/TLSSetting'
-        Theming:
-          $ref: '#/components/schemas/ThemeSetting'
       type: object
     Settings-index:
       items:
@@ -3910,102 +3893,54 @@ components:
           $ref: '#/components/schemas/FormsSetting'
         HostPort:
           type: integer
+          description: Port on which the portal serves HTTP traffic
+          example: 3001
         JwtSigningKey:
           type: string
         LicenseKey:
           type: string
+          description: License key for the portal. Provided by the Tyk's account managers
+          example: XXX
         LogFormat:
           type: string
+          enum: ["dev","prod"]
+          example: "prod"
+          description: Log output format. The `dev` format is more human-friednly but takes more space, `prod` is a json-like format that fits in production use cases but is difficult to read
         LogLevel:
           type: string
+          enum: ["debug", "info", "warn", "error", "dpanic", "panic", "fatal"]
+          description: The portal's log level. The default value is `info`
+          example: "info"
+          default: "info"
         PortalAPISecret:
           type: string
+          description: "API secret that must be set by the admin team to use the SSO flow. [SSO instructions](https://tyk.io/docs/tyk-stack/tyk-developer-portal/enterprise-developer-portal/managing-access/enable-sso/)"
+          example: portal123
         ProductDocRenderer:
           type: string
+          enum: ["stoplight", "redoc"]
+          description: Identifies which OpenAPI specification render engine the portal uses on the API Product Page
+          default: stoplight
+          example: stoplight
         RefreshInterval:
           type: integer
+          description: Defines how often the portal synchronizes data with the connected API Providers. Measured in seconds
+          example: 10
+          default: 10
         S3:
           $ref: '#/components/schemas/S3Setting'
         Site:
           $ref: '#/components/schemas/SiteSetting'
         Storage:
           type: string
+          enum: ["`fs`", "`db`", "`s3`"]
+          description: Defines which type of storage the portal uses for its CMS assets. [More about storing the portal's assets in the documentation](https://tyk.io/docs/tyk-stack/tyk-developer-portal/enterprise-developer-portal/install-tyk-enterprise-portal/configuration/#storage-settings)
+          example: "`db`"
         StoreSessionName:
           type: string
-        TLSConfig:
-          $ref: '#/components/schemas/TLSSetting'
-        Theming:
-          $ref: '#/components/schemas/ThemeSetting'
-      type: object
-    Settings-show:
-      properties:
-        Blog:
-          $ref: '#/components/schemas/BlogSetting'
-        Database:
-          $ref: '#/components/schemas/DatabaseSetting'
-        Forms:
-          $ref: '#/components/schemas/FormsSetting'
-        HostPort:
-          type: integer
-        JwtSigningKey:
-          type: string
-        LicenseKey:
-          type: string
-        LogFormat:
-          type: string
-        LogLevel:
-          type: string
-        PortalAPISecret:
-          type: string
-        ProductDocRenderer:
-          type: string
-        RefreshInterval:
-          type: integer
-        S3:
-          $ref: '#/components/schemas/S3Setting'
-        Site:
-          $ref: '#/components/schemas/SiteSetting'
-        Storage:
-          type: string
-        StoreSessionName:
-          type: string
-        TLSConfig:
-          $ref: '#/components/schemas/TLSSetting'
-        Theming:
-          $ref: '#/components/schemas/ThemeSetting'
-      type: object
-    Settings-update:
-      properties:
-        Blog:
-          $ref: '#/components/schemas/BlogSetting'
-        Database:
-          $ref: '#/components/schemas/DatabaseSetting'
-        Forms:
-          $ref: '#/components/schemas/FormsSetting'
-        HostPort:
-          type: integer
-        JwtSigningKey:
-          type: string
-        LicenseKey:
-          type: string
-        LogFormat:
-          type: string
-        LogLevel:
-          type: string
-        PortalAPISecret:
-          type: string
-        ProductDocRenderer:
-          type: string
-        RefreshInterval:
-          type: integer
-        S3:
-          $ref: '#/components/schemas/S3Setting'
-        Site:
-          $ref: '#/components/schemas/SiteSetting'
-        Storage:
-          type: string
-        StoreSessionName:
-          type: string
+          description: Defines name of the cookir where the portal stores its session
+          example: portal-store-session-name
+          default: portal-store-session-name
         TLSConfig:
           $ref: '#/components/schemas/TLSSetting'
         Theming:
@@ -4141,8 +4076,10 @@ components:
       properties:
         Path:
           type: string
+          example: "./themes"
         Theme:
           type: string
+          example: "default"
       type: object
     User:
       properties:
