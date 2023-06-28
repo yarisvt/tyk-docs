@@ -2009,52 +2009,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Config-index'
+                $ref: '#/components/schemas/Theme-index'
           description: OK
       security: []
-      summary: ist all themes
+      summary: List all themes
       tags:
         - Themes
   /themes/{theme_id}:
-    delete:
-      description: Delete a theme and all its assets
-      operationId: /themes/:theme_id-DELETE
-      parameters:
-        - description: ""
-          in: path
-          name: theme_id
-          required: true
-          schema:
-            name: ""
-            type: integer
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Config-show'
-          description: OK
-      security: []
-      summary: Delete a theme and all its assets
-      tags:
-        - Themes
     get:
       description: Get metadata for a theme such as name, author, version, and status
       operationId: /themes/:theme_id-GET
       parameters:
-        - description: ""
+        - description: "`name` of the theme from the theme.json file"
           in: path
           name: theme_id
           required: true
           schema:
-            name: ""
-            type: integer
+            name: "`name` of the theme from the theme.json file"
+            type: string
+            example: default
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Config-show'
+                $ref: '#/components/schemas/Theme-basic'
           description: OK
       security: []
       summary: Get a theme
@@ -2065,14 +2044,27 @@ paths:
       description: Activate a theme. When a new theme is activated, it becomes current theme for the Live portal and is displayed to all developers visiting the portal
       operationId: /themes/:theme_id/activate-PUT
       parameters:
-        - description: ""
+        - description: "`name` of the theme from the theme.json file"
           in: path
           name: theme_id
           required: true
           schema:
-            name: ""
-            type: integer
-      responses: {}
+            name: "`name` of the theme from the theme.json file"
+            type: string
+            example: default
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusWithMessage'
+          description: OK
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusWithErrors'
+          description: Not found or Issues when activating the theme
       security: []
       summary: Activate a theme
       tags:
@@ -2082,14 +2074,23 @@ paths:
       description: Download a theme as a zip archive
       operationId: /themes/:theme_id/download-GET
       parameters:
-        - description: ""
+        - description: "`name` of the theme from the theme.json file"
           in: path
           name: theme_id
           required: true
           schema:
-            name: ""
-            type: integer
-      responses: {}
+            name: "`name` of the theme from the theme.json file"
+            type: string
+            example: default
+      responses:
+        "200":
+          content:
+            application/zip:
+              schema:
+                type: string
+                format: binary
+                description: zip archive contaning the theme
+          description: OK
       security: []
       summary: Download a theme
       tags:
@@ -2109,9 +2110,31 @@ paths:
           name: theme_id
           required: true
           schema:
-            name: ""
-            type: integer
-      responses: {}
+            type: object
+            properties:
+              file:
+                type: string
+                format: binary
+                description: zip archive containing the theme
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Theme-upload'
+        description: ""
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Theme-upload-response'
+          description: OK
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Theme-upload-response'
+          description: Bad request
       security: []
       summary: Upload a theme
       tags:
@@ -2824,77 +2847,47 @@ components:
               items:
                 $ref: '#/components/schemas/Client-AccessRequest-index'
               type: array
-    Config-create:
-      properties:
-        Author:
-          type: string
-        ID:
-          type: string
-        Name:
-          type: string
-        Path:
-          type: string
-        Status:
-          type: boolean
-        ThemeFile:
-          $ref: '#/components/schemas/File'
-        Version:
-          type: string
+    Theme-upload:
       type: object
-    Config-index:
+      properties:
+        file:
+          type: string
+          format: binary
+          description: zip archive containing theme
+    Theme-upload-response:
+      type: string
+      description: "Upload status"
+      example: "File uploaded successfully"
+    Theme-index:
       items:
-        $ref: '#/components/schemas/Config-index-elem'
+        $ref: '#/components/schemas/Theme-basic'
       type: array
-    Config-index-elem:
+    Theme-basic:
       properties:
         Author:
           type: string
+          description: "`author` field from the `theme.json` file of the theme"
+          example: "Tyk Technologies Ltd. <hello@tyk.io>"
         ID:
           type: string
+          description: UID of the theme
+          example: "default"
         Name:
           type: string
+          description: "`name` field from the `theme.json` file of the theme"
+          example: "Tyk Technologies Ltd. <hello@tyk.io>"
         Path:
           type: string
+          description: "Path to the theme folder"
+          example: "/opt/portal/themes/default"
         Status:
-          type: boolean
-        ThemeFile:
-          $ref: '#/components/schemas/File'
+          type: string
+          enum: ["Current", "Not in use"]
+          description: The current status of the theme
         Version:
           type: string
-      type: object
-    Config-show:
-      properties:
-        Author:
-          type: string
-        ID:
-          type: string
-        Name:
-          type: string
-        Path:
-          type: string
-        Status:
-          type: boolean
-        ThemeFile:
-          $ref: '#/components/schemas/File'
-        Version:
-          type: string
-      type: object
-    Config-update:
-      properties:
-        Author:
-          type: string
-        ID:
-          type: string
-        Name:
-          type: string
-        Path:
-          type: string
-        Status:
-          type: boolean
-        ThemeFile:
-          $ref: '#/components/schemas/File'
-        Version:
-          type: string
+          description: "`version` field from the `theme.json` file of the theme"
+          example: "0.0.1"
       type: object
     ContentBlock-basic:
       properties:
