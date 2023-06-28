@@ -2647,17 +2647,6 @@ components:
         Enable:
           type: boolean
       type: object
-    Cart:
-      properties:
-        CatalogueOrders:
-          type: string
-        Model:
-          $ref: '#/components/schemas/Model'
-        ProviderID:
-          type: integer
-        UserID:
-          type: integer
-      type: object
     Catalogue-create:
       properties:
         Name:
@@ -3042,61 +3031,6 @@ components:
           example: 5000
           default: 5000
       type: object
-    File:
-      properties:
-        OSS:
-          $ref: '#/components/schemas/OSS'
-      type: object
-    ImageBlock:
-      properties:
-        Image:
-          $ref: '#/components/schemas/ImageStore'
-        Model:
-          $ref: '#/components/schemas/Model'
-        Name:
-          type: string
-        PageID:
-          type: integer
-      type: object
-    ImageStore:
-      properties:
-        OSS:
-          $ref: '#/components/schemas/OSS'
-      type: object
-    Model:
-      properties:
-        CreatedAt:
-          format: date-time
-          type: string
-        DeletedAt:
-          format: date-time
-          type: string
-        ID:
-          type: integer
-        UpdatedAt:
-          format: date-time
-          type: string
-      type: object
-    OSS:
-      properties:
-        Base:
-          $ref: '#/components/schemas/Base'
-      type: object
-    Organisation:
-      properties:
-        Model:
-          $ref: '#/components/schemas/Model'
-        Name:
-          type: string
-        Teams:
-          items:
-            $ref: '#/components/schemas/Team'
-          type: array
-        Users:
-          items:
-            $ref: '#/components/schemas/User'
-          type: array
-      type: object
     Organisation-create:
       properties:
         Name:
@@ -3149,21 +3083,6 @@ components:
           description: Users that are included in this organisation. For newly created organisation this field will be an empty array
           items:
             $ref: '#/components/schemas/User-index-elem'
-      type: object
-    Organisation-update:
-      properties:
-        Model:
-          $ref: '#/components/schemas/Model'
-        Name:
-          type: string
-        Teams:
-          items:
-            $ref: '#/components/schemas/Team'
-          type: array
-        Users:
-          items:
-            $ref: '#/components/schemas/User'
-          type: array
       type: object
     OrganisationCatalogue:
       properties:
@@ -3403,60 +3322,6 @@ components:
           type: string
           description: oAuth2.0 scopes that will be assigned to oAuth2.0 clients that use this plan. Should be comma-separated string
           example: free-plan
-      type: object
-    Category:
-      properties:
-        Model:
-          $ref: '#/components/schemas/Model'
-        Name:
-          type: string
-        Posts:
-          items:
-            $ref: '#/components/schemas/Post'
-          type: array
-      type: object
-    Post:
-      properties:
-        Author:
-          $ref: '#/components/schemas/User'
-        AuthorID:
-          type: integer
-        BlogSiteID:
-          type: integer
-        Categories:
-          items:
-            $ref: '#/components/schemas/Category'
-          type: array
-        Content:
-          type: string
-        HeaderImage:
-          $ref: '#/components/schemas/ImageStore'
-        Lede:
-          type: string
-        MarkdownContent:
-          type: string
-        MarkdownEnabled:
-          type: boolean
-        Model:
-          $ref: '#/components/schemas/Model'
-        Path:
-          type: string
-        PreviewContent:
-          type: string
-        ProductDoc:
-          type: boolean
-        ProductID:
-          type: integer
-        Sorting:
-          $ref: '#/components/schemas/Sorting'
-        Status:
-          type: string
-        Tags:
-          items:
-            $ref: '#/components/schemas/Tag'
-          type: array
-        Title:
-          type: string
       type: object
     Post-create:
       properties:
@@ -3910,15 +3775,14 @@ components:
         Theming:
           $ref: '#/components/schemas/ThemeSetting'
       type: object
-    Slug:
+    ThemeSetting:
       properties:
-        Slug:
+        Path:
           type: string
-      type: object
-    Sorting:
-      properties:
-        Position:
-          type: integer
+          example: "./themes"
+        Theme:
+          type: string
+          example: "default"
       type: object
     TLSSetting:
       properties:
@@ -3928,41 +3792,12 @@ components:
           type: array
         Enable:
           type: boolean
+          description: Defines is SSL is enabled in the portal
         InsecureSkipVerify:
           type: boolean
+          description: Defines is the portal accepts self-signed certificates
         MinVersion:
           type: integer
-      type: object
-    Tag:
-      properties:
-        ID:
-          type: integer
-        Name:
-          type: string
-      type: object
-    Team:
-      properties:
-        Default:
-          type: boolean
-        Model:
-          $ref: '#/components/schemas/Model'
-        Name:
-          type: string
-        Organisation:
-          $ref: '#/components/schemas/Organisation'
-        OrganisationID:
-          type: integer
-        Users:
-          items:
-            $ref: '#/components/schemas/User'
-          type: array
-      type: object
-    Team-create:
-      properties:
-        Name:
-          type: string
-          description: Name of a team
-          example: Partner Team A
       type: object
     Team-index:
       items:
@@ -3982,6 +3817,13 @@ components:
           type: string
           description: Name of this team
           example: Default Organisation All users
+      type: object
+    Team-create:
+      properties:
+        Name:
+          type: string
+          description: Name of a team
+          example: Partner Team A
       type: object
     Team-show:
       properties:
@@ -4024,81 +3866,6 @@ components:
             example: 1
           type: array
           description: UID of users included into this team
-      type: object
-    TextContentBlock:
-      properties:
-        Content:
-          type: string
-        Model:
-          $ref: '#/components/schemas/Model'
-        Name:
-          type: string
-        PageID:
-          type: integer
-      type: object
-    ThemeSetting:
-      properties:
-        Path:
-          type: string
-          example: "./themes"
-        Theme:
-          type: string
-          example: "default"
-      type: object
-    User:
-      properties:
-        JWTToken:
-          type: string
-          description: API access credentials to the admin APIs that are described in this spectification
-          example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJQcm92aWRlciI6Im5vbmUiLCJVc2VySUQiOiIkMmEkMTAkMFhRUEtCSC9nenFWMVhnRkRzUWViLk90bmdzVVlsQk9VSE14T045bWZveEs3ek9zSzVKLnkifQ.SHZtWNA-sYHUwSLEkWFo1r049WBWcQJVco_WH21jXHs"
-        APITokenCreatedAt:
-          format: date-time
-          description: Date-time when the `JWTToken` is created
-          example: "2023-06-23"
-          type: string
-        Active:
-          type: boolean
-        Basic:
-          $ref: '#/components/schemas/Basic'
-        Cart:
-          $ref: '#/components/schemas/Cart'
-        Email:
-          description: Email of a user
-          type: string
-          example: "admin@acme.com"
-        First:
-          type: string
-          description: First name of a user
-          example: John
-        Joined:
-          format: date-time
-          type: string
-        Last:
-          type: string
-          description: Last name of a user
-          example: Doe
-        Model:
-          $ref: '#/components/schemas/Model'
-        Organisation:
-          $ref: '#/components/schemas/Organisation'
-        OrganisationID:
-          type: integer
-        Password:
-          type: string
-        ProviderID:
-          type: integer
-        ResetPassword:
-          type: boolean
-        Role:
-          type: string
-          description: Role of a user in their organisation
-          example: consumer-team-member
-        SSOKey:
-          type: string
-        Teams:
-          items:
-            $ref: '#/components/schemas/Team'
-          type: array
       type: object
     User-create:
       properties:
