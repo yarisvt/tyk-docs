@@ -3058,7 +3058,7 @@ menu:
         category: Page
         show: True
   - title: "APIM Best Practice"
-    path: /getting-started/key-concepts
+    path: 
     category: Tab
     show: True
     menu:

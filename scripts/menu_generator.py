@@ -48,7 +48,6 @@ if len(sys.argv) == 5:
 fileUnknownUrl = outputFileName + "-unknownUrl.txt"
 fileNeedsRedirect = outputFileName + "-needsRedirect.txt"
 fileOrphan = outputFileName + "-orphan.txt"
-fileMaybeDelete = outputFileName + "-maybeDelete.txt"
 fileDoesntExists = outputFileName + "-doesntExists.txt"
 fileUrlCheckNoTitle = outputFileName + "-urlcheck-noTitle.txt"
 fileUrlCheckAliases = outputFileName + "-urlcheck-aliases.txt"
@@ -59,7 +58,6 @@ fileMenu = "./tyk-docs/data/menu.yaml"
 openUnknownUrlFile = open(fileUnknownUrl, "w")
 openNeedsRedirectFile = open(fileNeedsRedirect, "w")
 openOrphanFile = open(fileOrphan, "w")
-openMaybeDelete = open(fileMaybeDelete, "w")
 openDoesntExists = open(fileDoesntExists, "w")
 openFileMenu = open(fileMenu, "w")
 openUrlCheckNoTitle = open(fileUrlCheckNoTitle, "w")
@@ -224,8 +222,6 @@ pages_path = sys.argv[2]
 #
 # Read each row in the pages csv ignore first 2 review columns
 # Output to file those columns marked as:
-# - Delete Page
-# - Maybe Delete Page
 # - Page does not exist
 #
 # Ouput to file orphan pages i.e. path not found in mapping path
@@ -391,7 +387,6 @@ print(yaml_string, file=openFileMenu)
 openUnknownUrlFile.close()
 openNeedsRedirectFile.close()
 openOrphanFile.close()
-openMaybeDelete.close()
 openFileMenu.close()
 openUrlCheckNoTitle.close()
 openCaseInsensitiveMatches.close()
