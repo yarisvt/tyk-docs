@@ -8,123 +8,125 @@
 
 ### Tyk Dashboard
 
+#### Changed
+
+- Improved Dashboard Analytics to respect API ownership (including versions) for log browser and some charts
+
 #### Fixed
 
-- Fixed A Bug Where The Tyk Dashboard Could Show A Blank Screen When Clicking On Policies On The Policy Management Screen
+- Fixed an issue where a blank screen was displayed when clicking on policies from the policy management screen
 
-- Fixed A Bug Where Custom Authentication Could Not Be Selected To Provide The Base Identity When Multi-Auth Selected
+- Fixed an issue where a blank screen was displayed when policies with custom policy IDs were added to an API Key
 
-- Fixed A Bug Where An Api Could Be Incorrectly Labelled As Using Multi-Auth In The Tyk Developer Portal Catalogue View.
+- Fixed an issue where custom authentication could not be selected to provide the base identity when multi-auth selected
 
-- Fix A Ui Bug In The Api Designer When Adding All Api Versions To A Policy
+- Fixed an issue where an API could be incorrectly labelled as using multi-auth in the Tyk Developer Portal Catalogue view
 
-- Fixed A Bug Where The Tyk Dashboard Did Not Display Key Alias On The Analytics Screens When Using Sql For The Analytics Data Store.
+- Fixed a UI Bug in the API designer when adding all API versions to a policy [EXPAND WHAT WAS THE BUG]
 
-- Fixed A Bug Where It Was Not Possible To Download Activity By Api Or Activity By Key From The Dashboard When Using Postgresql For The Analytics Store.
+- Fixed an issue where the Tyk Dashboard did not display key alias on the analytics screens when using SQL analytics data store.
 
-- Improved Dashboard Analytics Experience To Respect Api Ownership (Including Versions) For Log Browser And Some Charts
+- Fixed an issue where it was not possible to download _activity by API_ or _activity by key_ reports from the dashboard when using PostgreSQL as the analytics store
 
-- Fixed A Bug Where A New User Could Be Stuck In A Password Reset Loop In The Dashboard If `Tyk_Db_Security_Forcefirstloginpwreset` Was Enabled.
+- Fixed an issue where a new user was stuck in a password reset loop if _Tyk_Db_Security_Forcefirstloginpwreset_ was enabled
 
-- The "Gateway Dashboard" Page Showing Api Analytics Is Now Hidden If The Logged In User Doesn'T Have Analytics Rights.
+- Fixed an issue so that the _showing API Analytics_ page on the Gateway Dashboard is now hidden if the logged in user does not have analytics permissions.
 
-- Fixed: Redirect Unregistered User To New Page When Ssoonlyforregisteredusers Is Set To True
+- Fixed an issue so that unregistered users are now redirected to a new page when _Ssoonlyforregisteredusers_ is True
 
-- Fixed A Bug Where The Tyk Dashboard Could Show A Blank Screen When Policies With Custom Policy Ids Were Added To An Api Key
+- Fixed an issue so that the list of organisations are correctly displayed [WHAT WAS HAPPENING?]
 
-- Fixed A Bug Where Tyk Dashboard Did Not Properly Display The List Of Organisations
+- Fixed an issue when migrating a portal catalogue with a deleted policy from Mongodb To SQL. [WHAT WAS HAPPENING?]
 
-- Fixed A Bug When Migrating A Portal Catalogue With Deleted Policy From Mongodb To Sql.
+- Fixed an issue where the _head_ option was not available in the _Allowed Methods_ dropdown within the OCRS section of the API designer
 
-- Fixed A Bug Where The Head Option Was Not Available In The Allowed Methods Dropdown In The Cors Section Of The Api Designer
+- Fixed When Ssoonlyforregisteredusers=True, Also Checks If User Belongs To The Organization [WHAT DOES THIS MEAN?]
 
-- Fix: When Ssoonlyforregisteredusers=True, Also Checks If User Belongs To The Organization
+- Fixed Storing The Ssl_Force_Common_Name_Check Field In The Api Definition, If This Was Set Via Raw Api Editor Or By Updating The Api Definition Via The Gw/Db Api. [WHAT WAS THE ISSUE?]
 
-- Fixed Storing The Ssl_Force_Common_Name_Check Field In The Api Definition, If This Was Set Via Raw Api Editor Or By Updating The Api Definition Via The Gw/Db Api.
+- Fixed an issue where API Ownership was not respected in the _Api Activity Dashboard Requests_ And _Average Errors Over Time_ charts. Note that it is not currently possible to respect API Ownership in other aggregated charts
 
-- Fixed A Bug Where Api Ownership Was Not Respected In The _Api Activity Dashboard Requests_ And _Average Errors Over Time_ Charts In The Tyk Dashboard; Note That It Is Not Currently Possible To Respect Api Ownership In Other Aggregated Charts
+- Fixed a security issue where a user could update their email address to match that of another user within the same organisation
 
-- Fixed A Bug Where A User Could Update Their Email Address To Match That Of Another User Within The Same Organisation..
+- Fixed an issue where users without _User:Write_ permission could update their permissions through manipulation of dashboard API Calls
 
-- Fixed A Bug Where Users Without `User:Write` Permission Were Able To Update Their Permissions Through Manipulation Of Dashboard Api Calls.
+- Fixed an issue that prevented manual allocation of `Api_Id` during API creation
 
-- Fixed A Bug That Prevented Manual Allocation Of `Api_Id` During Api Creation.
+- Fixed an issue where the _versions_ endpoint returned APIs not owned by the logged-in user
 
-- Fixed A Bug Where The Versions Endpoint Returned Apis Not Owned By The Logged-In User.
+- Fixed a security issue where lhe _Log Browser_ displayed analytics for APIs not owned by the logged-in user
 
-- Fixed A Bug Where The Log Browser Showed Analytics For Apis Not Owned By The Logged-In User.
+- Fixed an issue where security headers were not present when _Classic Portal_ is configured with a custom domain
 
-- Fixed A Bug Where Security Headers Were Not Present When Classic Portal Is Configured With A Custom Domain.
+- Fixed an issue where _Endpoint Popularity_ data was not visible in the Tyk Dashboard for non-admin users
 
-- Fixed A Bug That Prevented Non-Admin Users From Seeing _Endpoint Popularity_ Data In The Tyk Dashboard
+- Fixed an issue where additional data was reported when requesting analytics with _P=-1_ query when using a SQL analytics store
 
-- Fixed A Bug Where Additional Data Was Returned When Requesting Analytics With P=-1 Query When Using Sql For The Analytics Store.
+- Fixed an issue where the dashboard granted visibility of unfiltered analytics when API Ownership is enabled. A new user permission (_Owned_Analytics_) has been added to restrict visibility of API usage, errors and request logs for the owned APIs
 
-- Fixed A Bug Where The Dashboard Granted Visibility Of Unfiltered Analytics When Api Ownership Is Enabled. New User Permission (`Owned_Analytics`) Restricts Visibility Only To Analytics For The Owned Apis: Api Usage, Api Errors And Request Logs.
+- Fixed an issue where the dashboard API granted unfiltered access To Analytics Endpoints With Api Ownership Enabled
 
-- Fixed A Bug Where The Dashboard Api Granted Unfiltered Access To Analytics Endpoints With Api Ownership Enabled.
+- Fixed an issue where the incorrect analytics were reported when filtering by _Tag_ for a SQL analytics data store
 
-- Fixed A Bug Where The Tyk Dashboard Did Not Display The Correct Analytics When Filtering By ‘Tag’ And Using Sql For The Analytics Data Store.
-
-- Fixed A Bug In The Dashboard Analytics Where The Zoom Would Immediately Reset To Default
+- Fixed an issue in the _Dashboard Analytics_ screen where the zoom would immediately reset To default
 
 
 ### Tyk Gateway
 
+#### Added
+
+- Added support for the _:Authority_ header when making gRPC requests. Thanks To Vanhtuan0409 From The Tyk Community For This Contribution.
+
 #### Fixed
 
-- Fixed A Bug Where Tyk Could Return Http 500 Internal Server Error When Load Balancing At Very High Api Traffic Levels
+- Fixed an issue where Tyk could return a HTTP 500 Internal Server error when load balancing at very high API traffic levels
 
-- Fixed A Bug Where Invalid Ip Addresses Could Be Added To The Ip Allow List
+- Fixed an issue where invalid IP addresses could be added to the IP allow list
 
-- Fixed A Bug Where Custom Authentication Could Not Be Selected To Provide The Base Identity When Multi-Auth Selected
+- Fixed an issue where custom authentication could not be selected to provide the base identity when multi-auth selected
 
-- Fixed A Bug Where An Mtls Request With An Expired Certificate Allowed The Request To Be Proxied Upstream In Static Mtls And Dynamic Mtls
+- Fixed a security issue where an _Mtls_ request with an expired certificate could be proxied upstream in _static Mtls_ and _dynamic Mtls_
 
-- Fixed A Bug Where Oauth Access Keys Were Physically Removed From Redis On Expiry; Behaviour For Oauth Is Now The Same As For Other Authorisation Methods.
+- Fixed a security issue where Oauth access keys were physically removed from Redis on expiry. Behaviour for Oauth is now the same as For other authorisation methods
 
-- Added Support For The `:Authority` Header When Making Grpc Requests. Thanks To Vanhtuan0409 From The Tyk Community For This Contribution.
+- Fixed an issue where the `global_size_limit` setting didn't enable request size limit middleware. Thanks to [PatrickTaibel](https://github.com/PatrickTaibel) for the contribution!
 
-- Fixed A Bug Where The `Global_Size_Limit` Setting Didn'T Enable Request Size Limit Middleware. Thanks To @Patricktaibel For The Contribution!
+- Fixed an issue where an error was not raised for required scalar variables
 
-- Fix: Null On Required Scalar Variables Are Now Being Catched As Expected
+- Fixed an issue where upstream JSON error messages were not reported to the consumer. This has been added in the _extensions_ section of GQL error response
 
-- Fix: Fixed An Issue Where Upstream Json Error Message Was Not Passed To The Consumer. It Is Now Included In "Extensions" Section Of Gql Error Response
+- Fixed an issue where _Failure To Load Otto (JS)_ middleware did not prevent the API from proxying traffic upstream. Now Gateway logs an error when the plugin fails to load for API creation/update. Subsequently, it responds with a HTTP 500 if the API is called
 
-- Fixed A Bug Where The Tyk Dashboard Could Show A Blank Screen When Policies With Custom Policy Ids Were Added To An Api Key
+- Fixed a security issue where the _Basic Auth_ password hash was included in the response when fetching the details of a key
 
-- Fixed An Issue Where Failure To Load Otto (Js) Middleware Didn’T Prevent The Api From Proxying Traffic To The Upstream; Now Gateway Logs An Error When The Plugin Fails To Load (During Api Creation/Update) And Responds With Http 500 If The Api Is Called.
+- Fixed an issue that prevented manual allocation of _Api_Id_ during API creation
 
-- Fixed A Bug Where The Basic Auth Password Hash Was Included In The Response When Getting The Details Of A Key
+- Fixed an issue where Tyk could incorrectly complete _Mtls Authentication_ with the client before contacting the upstream service
 
-- Fixed A Bug That Prevented Manual Allocation Of `Api_Id` During Api Creation.
+- Fixed an issue where upstream certificates could be ignored when the API protocol ss TCP/TLS
 
-- Fixed A Bug Where Tyk Might Not Correctly Complete Mtls Authentication With The Client Before Contacting The Upstream Service.
+- Fixed an issue where the gateway panics when Redis Cache_Storage is unavailable
 
-- Fixed A Bug Where Upstream Certificates Can Be Ignored When Api Protocol Is Tcp/Tls
+- Fixed an issue that prevented configuration of cache timeout or cached status codes if _Upstream Cache Control_ was enabled
 
-- Fix: Gateway Panics When Redis Cache_Storage Is Down
+- Fixed an issue where _Edge/Worker Gateway_ did not load APIs and policies on cold start when MDCB is unavailable
 
-- Fixed A Bug That Prevented Configuration Of Cache Timeout Or Cached Status Codes If Upstream Cache Control Was Enabled.
-
-- Fix: Edge/Worker Gateway Does Not Load Api'S And Policies On Cold Start When Mdcb Is Down
-
-- Fix: Raw Keys Were Exposed In Info Log On Gateway On Keyspace Sync
+- Fixed a security issue where raw keys were exposed in the info logs during _Keyspace Sync_
 
 
 ### Tyk Portal
 
 #### Fixed
 
-- Fixed A Bug Where An Api Could Be Incorrectly Labelled As Using Multi-Auth In The Tyk Developer Portal Catalogue View.
+- Fixed an issue where an API could be incorrectly labelled as using _Multi-Auth_ in the _Tyk Developer Portal Catalogue_ view
 
-- Fixed A Bug Where Security Headers Were Not Present When Classic Portal Is Configured With A Custom Domain.
+- Fixed an issue where security headers were not present when _Classic Portal_ is configured with a custom domain
 
 ### Tyk Plugin
 
 #### Fixed
 
-- Fix: Cve-2023-27536
+- Fix: Cve-2023-27536 [WHAT WAS THE FIX?]
 
 ## Updated Versions
 
@@ -132,6 +134,13 @@ Tyk Gateway 4.0.14 - [docker image to pull](https://hub.docker.com/layers/tykio/
 
 Tyk Dashboard 4.0.14 - [docker image to pull](https://hub.docker.com/layers/tykio/tyk-dashboard/v4.0.14/images/sha256-d3db93079e772acb5c926ab3f21a0b8f53fd428a9e9a0e3f77201043668084ea?context=explore)
 
+## Contributors
+
+Special thanks to the following members of the Tyk community for their contributions in this release:
+
+Thanks to [PatrickTaibel](https://github.com/PatrickTaibel) for fixing an issue where `global_size_limit` was not enabling request size limit middleware.
+
+Thanks to [vanhtuan0409](https://github.com/vanhtuan0409) for adding support to the `:authority` header when making gRPC requests.
 
 ## Upgrade process
 
