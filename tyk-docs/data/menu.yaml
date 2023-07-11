@@ -829,13 +829,9 @@ menu:
     show: True
     menu:
     - title: "Overview"
-      category: Directory
+      category: Page
       show: True
-      menu:
-      - title: "Tyk Stack"
-        path: /tyk-stack
-        category: Page
-        show: True
+      path: /tyk-stack
     - title: "Tyk Gateway"
       category: Directory
       show: True
