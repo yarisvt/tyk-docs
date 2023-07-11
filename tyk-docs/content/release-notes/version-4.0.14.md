@@ -125,3 +125,22 @@
 #### Fixed
 
 - Fix: Cve-2023-27536
+
+## Updated Versions
+
+Tyk Gateway 4.0.14 - [docker image to pull](https://hub.docker.com/layers/tykio/tyk-gateway/v4.0.14/images/sha256-e38aac2c72e3f53be285a545f6d8226ca26fbcac9bd3a105855f1ffef25ed62e?context=repo)
+
+Tyk Dashboard 4.0.14 - [docker image to pull](https://hub.docker.com/layers/tykio/tyk-dashboard/v4.0.14/images/sha256-d3db93079e772acb5c926ab3f21a0b8f53fd428a9e9a0e3f77201043668084ea?context=explore)
+
+
+## Upgrade process
+
+Follow the [standard upgrade guide]({{< ref "upgrading-tyk" >}}), there are no breaking changes in this release.
+
+In case you want to switch from MongoDB to SQL, you can [use our migration tool]({{< ref "planning-for-production/database-settings/postgresql.md#migrating-from-an-existing-mongodb-instance" >}}), but keep in mind that it does not yet support the migration of your analytics data.
+
+{{< note success >}}
+**Note**
+
+Please remember that the upgrade to the Golang version implies that all the Golang custom plugins that you are using need to be recompiled before migrating to v5.1 of the Gateway. Check our docs for more details [Golang Plugins]({{< ref "plugins/supported-languages/golang#upgrading-tyk" >}}).
+{{< /note >}}
