@@ -5,6 +5,10 @@ IgnoreDirectoryMissingTrailingSlash: true
 CheckInternalHash: false
 IgnoreEmptyHref: true
 CheckExternal: true
-ExternalTimeout: 3
+RedirectLimit: 5
+
+TestFilesConcurrently: true
+LogLevel: 3
 IgnoreURLs:
   - "apps"
+  - "^https:\/\/github\.com\/TykTechnologies\/tyk-docs\/edit\/.*"
