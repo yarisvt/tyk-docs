@@ -5,5 +5,6 @@ IgnoreDirectoryMissingTrailingSlash: true
 CheckInternalHash: false
 IgnoreEmptyHref: true
 CheckExternal: true
+ExternalTimeout: 3
 IgnoreURLs:
   - "apps"
