@@ -12,4 +12,9 @@ LogLevel: 3
 IgnoreURLs:
   - "apps"
   - "^https://github.com/TykTechnologies/tyk-docs/edit/*"
+  - "^https://tyk.io/*"
   - "https://support.tyk.io/"
+  - "https://community.tyk.io/"
+  - "https://community.tyk.io/"
+  - "https://tyk.io/blog/"
+  - " https://tyk.io/privacy-policy/"
