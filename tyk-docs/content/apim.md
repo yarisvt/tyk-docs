@@ -10,7 +10,7 @@ aliases:
     - /getting-started/deployment-options/
 ---
 
-What is API Management? API management helps ensure the creation and publishing of your APIs is consistent and secure. It monitors performance and activity through analytics and logging and let's you manage all your transformations and policies in one central place.
+What is API Management? API management helps ensure the creation and publishing of your APIs are consistent and secure. It monitors performance and activity through analytics and logging and let's you manage all your transformations and policies in one central place.
 
 {{< youtube CsNHkpQvVlQ >}}
 
