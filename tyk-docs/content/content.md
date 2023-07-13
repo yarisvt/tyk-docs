@@ -27,8 +27,11 @@ url: /
 {{< badge read="15 mins" imageStyle="object-fit:contain" href="tyk-cloud/" image="/img/logos/tyk-logo-cloud.png" >}}
 {{< /badge >}}
 
-
 {{< /grid >}}
+
+{{< grid_home >}}
+Pastry
+{{< /grid_home >}}
 
 {{< button href="apim" color="green" content="Compare" >}}
 

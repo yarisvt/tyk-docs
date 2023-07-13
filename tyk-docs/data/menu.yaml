@@ -1,11 +1,11 @@
 menu:
   - title: "Home"
-    path: /
+    path: /content-test
     category: Tab
     show: True
     menu:
     - title: "Tyk API Gateway Documentation"
-      path: /
+      path: /content-test
       category: Page
       show: True
   - title: "Deployment and Operations"
