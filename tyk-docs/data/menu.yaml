@@ -9,18 +9,18 @@ menu:
       category: Page
       show: True
   - title: "Deployment and Operations"
-    path: /apim
+    path: /deployment-and-operations/deployment-and-operations-overview
     category: Tab
     show: True
     menu:
     - title: "Overview"
-      category: Directory
+      path: /deployment-and-operations/deployment-and-operations-overview
+      category: Page
       show: True
-      menu:
-      - title: "Tyk API Management"
-        path: /apim
-        category: Page
-        show: True
+    - title: "Solutions comparison"
+      path: /deployment-and-operations/solutions-comparison
+      category: Page
+      show: True
     - title: "Quick Start Guides"
       category: Directory
       show: True
@@ -41,6 +41,10 @@ menu:
         category: Directory
         show: True
         menu:
+        - title: "Quick Start"
+          path: /getting-started/quick-start
+          category: Page
+          show: True
         - title: "Quick Start in Docker"
           path: /getting-started/quick-start/tyk-demo
           category: Page
@@ -49,18 +53,19 @@ menu:
           path: /getting-started/quick-start/tyk-k8s-demo
           category: Page
           show: True
+      - title: "Install"
+        path: /getting-started/installation
+        category: Page
+        show: True
     - title: "Tyk Open Source API Gateway"
       category: Directory
       show: True
       menu:
       - title: "Overview"
-        category: Directory
+        category: Page
+        path: /apim/open-source
         show: True
         menu:
-        - title: "Tyk Open Source"
-          path: /apim/open-source
-          category: Page
-          show: True
       - title: "Getting Started"
         category: Page
         show: False
@@ -280,130 +285,123 @@ menu:
         category: Directory
         show: True
         menu:
-        - title: "Installation"
+        - title: "Single Region"
           category: Directory
           show: True
           menu:
-          - title: "Gateway on Red Hat (RHEL) / CentOS"
-            path: /tyk-on-prem/installation/redhat-rhel-centos/gateway
+          - title: "Tyk & K8s demo"
             category: Page
-            show: True
-          - title: "As an Ingress Controller with Tyk Operator"
-            path: /tyk-on-prem/kubernetes-ingress
-            category: Page
-            show: True
-          - title: "Deploy Tyk Self managed On Windows Using Helm"
-            path: /tyk-on-prem/kubernetes-on-windows
-            category: Page
-            show: True
-          - title: "Ansible "
-            path: /tyk-on-premises/ansible
-            category: Page
-            show: True
-          - title: "Bootstrapper CLI"
-            path: /tyk-on-premises/bootstrapper-cli
-            category: Page
-            show: True
-          - title: "Debian / Ubuntu "
-            path: /tyk-on-premises/debian-ubuntu
-            category: Page
-            show: True
-          - title: "Tyk Pump on Ubuntu"
-            path: /tyk-on-premises/debian-ubuntu/analytics-pump
-            category: Page
-            show: True
-          - title: "Dashboard on Ubuntu"
-            path: /tyk-on-premises/debian-ubuntu/dashboard
-            category: Page
-            show: True
-          - title: "Gateway on Ubuntu"
-            path: /tyk-on-premises/debian-ubuntu/gateway
-            category: Page
-            show: True
-          - title: "Docker "
-            path: /tyk-on-premises/docker
-            category: Page
-            show: True
-          - title: "Docker Pro Demo"
-            path: /tyk-on-premises/docker/docker-pro-demo
-            category: Page
-            show: True
-          - title: "Docker Pro Demo on Windows"
-            path: /tyk-on-premises/docker/docker-pro-demo/docker-pro-demo-windows
-            category: Page
-            show: True
-          - title: "Docker Pro Demo on Windows Linux Subsystem"
-            path: /tyk-on-premises/docker/docker-pro-demo/docker-pro-wsl
-            category: Page
-            show: True
-          - title: "AWS Marketplace"
-            path: /tyk-on-premises/installation/on-aws
-            category: Page
-            show: True
-          - title: "Heroku"
-            path: /tyk-on-premises/installation/on-heroku
-            category: Page
-            show: True
-          - title: "Kubernetes "
-            path: /tyk-on-premises/kubernetes
-            category: Page
-            show: True
-          - title: "Microsoft Azure"
-            path: /tyk-on-premises/microsoft-azure
-            category: Page
-            show: True
-          - title: "Install Tyk on AWS EC2"
-            path: /tyk-on-premises/on-aws/ec2
-            category: Page
-            show: True
-          - title: "Red Hat (RHEL / CentOS) "
-            path: /tyk-on-premises/redhat-rhel-centos
-            category: Page
-            show: True
-          - title: "Self-Managed Installation"
-            path: /tyk-self-managed/install
-            category: Page
-            show: True
-        - title: "Quick Start demos"
-          category: Directory
-          show: True
-          menu:
-          - title: "Single Region"
-            category: Directory
-            show: True
-            menu:
-            - title: "Tyk & K8s demo"
-              category: Page
-              show: False
-            - title: "Tyk & Docker demo"
-              category: Page
-              show: False
-            - title: "Tyk Helm Chart "
-              path: /tyk-self-managed/tyk-helm-chart
-              category: Page
-              show: True
-          - title: "Multi Region"
-            category: Directory
             show: False
-            menu:
-            - title: "Kuberenetes demo"
-              category: Page
-              show: False
-            - title: "Docker demo"
-              category: Page
-              show: False
-            - title: "Servers/VMs"
-              category: Page
-              show: False
-        - title: "Licensing and deployment models"
-          category: Page
+          - title: "Tyk & Docker demo"
+            category: Page
+            show: False
+          - title: "Tyk Helm Chart "
+            path: /tyk-self-managed/tyk-helm-chart
+            category: Page
+            show: True
+        - title: "Multi Region"
+          category: Directory
           show: False
+          menu:
+          - title: "Kuberenetes demo"
+            category: Page
+            show: False
+          - title: "Docker demo"
+            category: Page
+            show: False
+          - title: "Servers/VMs"
+            category: Page
+            show: False
         - title: "Tyk Pump on Red Hat (RHEL) / CentOS"
           path: /tyk-on-prem/installation/redhat-rhel-centos/analytics-pump
           category: Page
           show: True
         - title: "Dashboard on Red Hat (RHEL) / CentOS"
           path: /tyk-on-prem/installation/redhat-rhel-centos/dashboard
+          category: Page
+          show: True
+      - title: "Installation"
+        category: Directory
+        show: True
+        menu:
+        - title: "Gateway on Red Hat (RHEL) / CentOS"
+          path: /tyk-on-prem/installation/redhat-rhel-centos/gateway
+          category: Page
+          show: True
+        - title: "As an Ingress Controller with Tyk Operator"
+          path: /tyk-on-prem/kubernetes-ingress
+          category: Page
+          show: True
+        - title: "Deploy Tyk Self managed On Windows Using Helm"
+          path: /tyk-on-prem/kubernetes-on-windows
+          category: Page
+          show: True
+        - title: "Ansible "
+          path: /tyk-on-premises/ansible
+          category: Page
+          show: True
+        - title: "Bootstrapper CLI"
+          path: /tyk-on-premises/bootstrapper-cli
+          category: Page
+          show: True
+        - title: "Debian / Ubuntu "
+          path: /tyk-on-premises/debian-ubuntu
+          category: Page
+          show: True
+        - title: "Tyk Pump on Ubuntu"
+          path: /tyk-on-premises/debian-ubuntu/analytics-pump
+          category: Page
+          show: True
+        - title: "Dashboard on Ubuntu"
+          path: /tyk-on-premises/debian-ubuntu/dashboard
+          category: Page
+          show: True
+        - title: "Gateway on Ubuntu"
+          path: /tyk-on-premises/debian-ubuntu/gateway
+          category: Page
+          show: True
+        - title: "Docker "
+          path: /tyk-on-premises/docker
+          category: Page
+          show: True
+        - title: "Docker Pro Demo"
+          path: /tyk-on-premises/docker/docker-pro-demo
+          category: Page
+          show: True
+        - title: "Docker Pro Demo on Windows"
+          path: /tyk-on-premises/docker/docker-pro-demo/docker-pro-demo-windows
+          category: Page
+          show: True
+        - title: "Docker Pro Demo on Windows Linux Subsystem"
+          path: /tyk-on-premises/docker/docker-pro-demo/docker-pro-wsl
+          category: Page
+          show: True
+        - title: "AWS Marketplace"
+          path: /tyk-on-premises/installation/on-aws
+          category: Page
+          show: True
+        - title: "Heroku"
+          path: /tyk-on-premises/installation/on-heroku
+          category: Page
+          show: True
+        - title: "Kubernetes "
+          path: /tyk-on-premises/kubernetes
+          category: Page
+          show: True
+        - title: "Microsoft Azure"
+          path: /tyk-on-premises/microsoft-azure
+          category: Page
+          show: True
+        - title: "Install Tyk on AWS EC2"
+          path: /tyk-on-premises/on-aws/ec2
+          category: Page
+          show: True
+        - title: "Red Hat (RHEL / CentOS) "
+          path: /tyk-on-premises/redhat-rhel-centos
+          category: Page
+          show: True
+        - title: "Self-Managed Installation"
+          path: /tyk-self-managed/install
           category: Page
           show: True
       - title: "Full deployment"
@@ -435,6 +433,14 @@ menu:
           - title: "Design for multiple data centres"
             category: Page
             show: False
+        - title: "Licensing and deployment models"
+          category: Directory
+          show: True
+          menu:
+          - title: "Licensing and deployment models"
+            path: /tyk-on-premises/licensing
+            category: Page
+            show: True
         - title: "Day 1 - Deployment in production"
           category: Directory
           show: True
@@ -560,21 +566,22 @@ menu:
             category: Page
             show: True
   - title: "Managing APIs"
-    path: /getting-started
+    path: /managing-apis/apim/
     category: Tab
     show: True
     menu:
     - title: "Overview"
-      category: Directory
+      category: page
+      path: /managing-apis/apim/
       show: True
-      menu:
-      - title: "Getting Started"
-        path: /getting-started
-        category: Page
-        show: True
-    - title: "Quick Start Guides"
+    - title: "Getting Started"
+      path: /getting-started
       category: Page
+      show: True
+    - title: "Quick Start Guides"
+      category: Directory
       show: False
+      menu:
     - title: "Core API Management"
       category: Directory
       show: True
@@ -829,13 +836,9 @@ menu:
     show: True
     menu:
     - title: "Overview"
-      category: Directory
+      path: /tyk-stack
+      category: Page
       show: True
-      menu:
-      - title: "Tyk Stack"
-        path: /tyk-stack
-        category: Page
-        show: True
     - title: "Tyk Gateway"
       category: Directory
       show: True
@@ -1774,9 +1777,21 @@ menu:
           category: Directory
           show: False
           menu:
-          - title: "[version]"
-            category: Page
-            show: False
+        - title: "[version]"
+          category: Page
+          show: False
+        - title: "test"
+          category: Page
+          show: true
+          path: /mypage
+        - title: "Tyk Gateway v2.9"
+          path: /release-notes/version-2.9
+          category: Page
+          show: True
+        - title: "Tyk Gateway v2.8"
+          path: /release-notes/version-2.8
+          category: Page
+          show: True
         - title: "Tyk Gateway v2.4"
           path: /release-notes/version-2.4
           category: Page
@@ -1793,14 +1808,8 @@ menu:
           path: /release-notes/version-2.7
           category: Page
           show: True
-        - title: "Tyk Gateway v2.8"
-          path: /release-notes/version-2.8
-          category: Page
-          show: True
-        - title: "Tyk Gateway v2.9"
-          path: /release-notes/version-2.9
-          category: Page
-          show: True
+
+
       - title: "Tyk Gateway Open Source (OSS)"
         path: /tyk-oss-gateway
         category: Page

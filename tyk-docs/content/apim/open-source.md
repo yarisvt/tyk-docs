@@ -1,5 +1,7 @@
 ---
-title: "Tyk Open Source"
+title: "Overview"
+diffTite: true
+diffTitleName: "Tyk Open Source"
 date: 2020-06-24
 weight: 1
 tags: ["Tyk API Management", "Open Source", "API Gateway", "Tyk OSS"]

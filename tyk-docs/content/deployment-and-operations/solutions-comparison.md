@@ -1,11 +1,9 @@
 ---
-title: "Overview"
-diffTitle: true
-diffTitleName: "Tyk API Management"
+title: "Solutions comparison"
 date: 2023-07-12
 weight: 4
 menu: "main"
-linkTitle: API Management
+linkTitle: Tyk Solutions comparison
 tags: ["Tyk API Management", "Licencing", "Open Source", "Self-Managed", "Tyk Cloud", "API Gateway"]
 description: "How to decide on which Tyk deployment option is best for you"
 aliases:
@@ -14,8 +12,8 @@ aliases:
 
 Tyk API Management deployment options are comprised of the various [open and closed source]({{< ref "tyk-stack" >}}) components.
 
-Which one is right for your organisation depends on your requirements and preferences.  
-Please contact us for help and guidance: {{< button_left href="https://tyk.io/contact/" color="green" content="Contact us" >}}
+Which one is right for your organisation depends on your requirements and preferences. Please contact us for help and guidance: 
+{{< button_left href="https://tyk.io/contact/" color="green" content="Contact us" >}}
 
 |                                                                                                                                                            | [Open Source]({{< ref "apim/open-source" >}})  |   [Self-Managed]({{< ref "tyk-on-premises" >}})      |  [Cloud](https://account.cloud-ara.tyk.io/signup)
 |------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|--------------------|---------
@@ -37,15 +35,26 @@ Please contact us for help and guidance: {{< button_left href="https://tyk.io/co
 
 # Licensing
 ### Open Source (OSS)
-The Tyk Gateway is the backbone of all our solutions. You can deploy it for free, forever.
+The *Tyk Gateway* is the backbone of all our solutions. Fully functional gateway, batteries included. You can deploy it for free, forever.
 
 Head on over to the [OSS section]({{< ref "apim/open-source" >}}) for more information on it and the other open-source components.
 
 ### Self-managed (On-Prem)
-{{< include "self-managed-licensing-include" >}}
+
+*Tyk Self-Managed* is the easiest way to install Tyk Full Lifecycle API Management solution in your infrastructure. There is no calling home, and there are no usage limits. You have full control. 
+
+Register here to get a 14-day licenses for Full API management solution which includes the Tyk Dashboard & Developer Portal:
+{{< button_left href="https://tyk.io/sign-up/" color="green" content="Free trial" >}}
+
+For longer duration trials, or to request trials of the other proprietary software please contact the Tyk Team and tell us about your plans:
+{{< button_left href="https://tyk.io/contact/" color="green" content="Contact us" >}}
+
+
+See [licensing and deployment models]({{< ref "licensing" >}}) to learn about the different deployment options for *Tyk Self-Managed*.
+
 
 ### Cloud SaaS (Software as a Service)
-With Tyk Cloud all of the above closed-source components are available. Get your free account [here](https://account.cloud-ara.tyk.io/signup).
+With Tyk Cloud all of the above closed and open source components are available. Get your free account [here](https://account.cloud-ara.tyk.io/signup).
 
 
-There are many open and closed source [Tyk components]({{< ref "tyk-stack" >}}) that make up the various solutions.
+Head over to [Tyk Stack]({{< ref "tyk-stack" >}}) to learn about all the open and close source component that make up the various solutions.
