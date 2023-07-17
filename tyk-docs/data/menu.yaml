@@ -41,6 +41,10 @@ menu:
         category: Directory
         show: True
         menu:
+        - title: "Quick Start"
+          path: /getting-started/quick-start
+          category: Page
+          show: True
         - title: "Quick Start in Docker"
           path: /getting-started/quick-start/tyk-demo
           category: Page
@@ -49,6 +53,10 @@ menu:
           path: /getting-started/quick-start/tyk-k8s-demo
           category: Page
           show: True
+      - title: "Install"
+        path: /getting-started/installation
+        category: Page
+        show: True
     - title: "Tyk Open Source API Gateway"
       category: Directory
       show: True
@@ -134,7 +142,7 @@ menu:
         category: Directory
         show: True
         menu:
-        - title: "Tyk cloud trial"
+        - title: "Tyk Cloud trial"
           category: Page
           show: False
         - title: "Hybrid deployment"
@@ -184,9 +192,6 @@ menu:
           category: Directory
           show: True
           menu:
-          - title: "Licensing and deployment models"
-            category: Page
-            show: False
           - title: "Availability of infrastructure"
             category: Page
             show: False
@@ -247,7 +252,7 @@ menu:
           category: Directory
           show: True
           menu:
-          - title: "Deploy features to the Tyk cloud"
+          - title: "Deploy features to the Tyk Cloud"
             category: Page
             show: False
           - title: "Enable configuration and workflows between deployments"
@@ -280,124 +285,33 @@ menu:
         category: Directory
         show: True
         menu:
-        - title: "Installation"
+        - title: "Single Region"
           category: Directory
           show: True
           menu:
-          - title: "Gateway on Red Hat (RHEL) / CentOS"
-            path: /tyk-on-prem/installation/redhat-rhel-centos/gateway
+          - title: "Tyk & K8s demo"
             category: Page
-            show: True
-          - title: "As an Ingress Controller with Tyk Operator"
-            path: /tyk-on-prem/kubernetes-ingress
-            category: Page
-            show: True
-          - title: "Deploy Tyk Self managed On Windows Using Helm"
-            path: /tyk-on-prem/kubernetes-on-windows
-            category: Page
-            show: True
-          - title: "Ansible "
-            path: /tyk-on-premises/ansible
-            category: Page
-            show: True
-          - title: "Bootstrapper CLI"
-            path: /tyk-on-premises/bootstrapper-cli
-            category: Page
-            show: True
-          - title: "Debian / Ubuntu "
-            path: /tyk-on-premises/debian-ubuntu
-            category: Page
-            show: True
-          - title: "Tyk Pump on Ubuntu"
-            path: /tyk-on-premises/debian-ubuntu/analytics-pump
-            category: Page
-            show: True
-          - title: "Dashboard on Ubuntu"
-            path: /tyk-on-premises/debian-ubuntu/dashboard
-            category: Page
-            show: True
-          - title: "Gateway on Ubuntu"
-            path: /tyk-on-premises/debian-ubuntu/gateway
-            category: Page
-            show: True
-          - title: "Docker "
-            path: /tyk-on-premises/docker
-            category: Page
-            show: True
-          - title: "Docker Pro Demo"
-            path: /tyk-on-premises/docker/docker-pro-demo
-            category: Page
-            show: True
-          - title: "Docker Pro Demo on Windows"
-            path: /tyk-on-premises/docker/docker-pro-demo/docker-pro-demo-windows
-            category: Page
-            show: True
-          - title: "Docker Pro Demo on Windows Linux Subsystem"
-            path: /tyk-on-premises/docker/docker-pro-demo/docker-pro-wsl
-            category: Page
-            show: True
-          - title: "AWS Marketplace"
-            path: /tyk-on-premises/installation/on-aws
-            category: Page
-            show: True
-          - title: "Heroku"
-            path: /tyk-on-premises/installation/on-heroku
-            category: Page
-            show: True
-          - title: "Kubernetes "
-            path: /tyk-on-premises/kubernetes
-            category: Page
-            show: True
-          - title: "Microsoft Azure"
-            path: /tyk-on-premises/microsoft-azure
-            category: Page
-            show: True
-          - title: "Install Tyk on AWS EC2"
-            path: /tyk-on-premises/on-aws/ec2
-            category: Page
-            show: True
-          - title: "Red Hat (RHEL / CentOS) "
-            path: /tyk-on-premises/redhat-rhel-centos
-            category: Page
-            show: True
-          - title: "Self-Managed Installation"
-            path: /tyk-self-managed/install
-            category: Page
-            show: True
-        - title: "Quick Start demos"
-          category: Directory
-          show: True
-          menu:
-          - title: "Single Region"
-            category: Directory
-            show: True
-            menu:
-            - title: "Tyk & K8s demo"
-              category: Page
-              show: False
-            - title: "Tyk & Docker demo"
-              category: Page
-              show: False
-            - title: "Tyk Helm Chart "
-              path: /tyk-self-managed/tyk-helm-chart
-              category: Page
-              show: True
-          - title: "Multi Region"
-            category: Directory
             show: False
-            menu:
-            - title: "Kuberenetes demo"
-              category: Page
-              show: False
-            - title: "Docker demo"
-              category: Page
-              show: False
-            - title: "Servers/VMs"
-              category: Page
-              show: False
-        - title: "Licensing and deployment models"
-          category: Page
+          - title: "Tyk & Docker demo"
+            category: Page
+            show: False
+          - title: "Tyk Helm Chart "
+            path: /tyk-self-managed/tyk-helm-chart
+            category: Page
+            show: True
+        - title: "Multi Region"
+          category: Directory
           show: False
+          menu:
+          - title: "Kuberenetes demo"
+            category: Page
+            show: False
+          - title: "Docker demo"
+            category: Page
+            show: False
+          - title: "Servers/VMs"
+            category: Page
+            show: False
         - title: "Tyk Pump on Red Hat (RHEL) / CentOS"
           path: /tyk-on-prem/installation/redhat-rhel-centos/analytics-pump
           category: Page
@@ -435,6 +349,9 @@ menu:
           - title: "Design for multiple data centres"
             category: Page
             show: False
+        - title: "Day 0 - Planning"
+          category: Page
+          show: False
         - title: "Day 1 - Deployment in production"
           category: Directory
           show: True
@@ -559,8 +476,8 @@ menu:
             path: /tyk-stack/tyk-operator/tyk-operator-reconciliation
             category: Page
             show: True
-  - title: "Managing APIs"
-    path: /getting-started
+  - title: "API Management"
+    path: 
     category: Tab
     show: True
     menu:
@@ -573,16 +490,73 @@ menu:
         category: Page
         show: True
     - title: "Quick Start Guides"
-      category: Page
+      category: Directory
       show: False
-    - title: "Core API Management"
+      menu:
+    - title: "Managing APIs"
       category: Directory
       show: True
       menu:
-      - title: "Overview"
+      - title: "Create APIs"
         category: Directory
         show: False
         menu:
+        - title: "Plan and define APIs"
+          category: Page
+          show: False
+        - title: "Import APIs"
+          category: Page
+          show: False
+        - title: "Create APIs"
+          category: Page
+          show: False
+        - title: "Define access to APIs"
+          category: Page
+          show: False
+        - title: "Define governance for APIs"
+          category: Page
+          show: False
+        - title: "Develop APIs"
+          category: Page
+          show: False
+        - title: "Protect and secure APIs"
+          category: Page
+          show: False
+      - title: "Deploy APIs"
+        category: Directory
+        show: False
+        menu:
+        - title: "Follow governance for APIs"
+          category: Page
+          show: False
+        - title: "Document APIs"
+          category: Page
+          show: False
+        - title: "Test APIs"
+          category: Page
+          show: False
+        - title: "Deploy APIs"
+          category: Page
+          show: False
+      - title: "API Operations"
+        category: Directory
+        show: False
+        menu:
+        - title: "Automated API operations"
+          category: Page
+          show: False
+        - title: "Version APIs"
+          category: Page
+          show: False
+        - title: "Troubleshoot APIs"
+          category: Page
+          show: False
+        - title: "Monitor APIs"
+          category: Page
+          show: False
+        - title: "API observability"
+          category: Page
+          show: False
       - title: "Tyk OAS API Definition"
         category: Directory
         show: True
@@ -635,62 +609,50 @@ menu:
           path: /getting-started/using-oas-definitions/versioning-an-oas-api
           category: Page
           show: True
-      - title: "Create APIs"
-        category: Directory
-        show: True
-        menu:
-        - title: "Plan and define APIs"
-          category: Page
-          show: False
-        - title: "Create APIs"
-          category: Page
-          show: False
-        - title: "Define access to APIs"
-          category: Page
-          show: False
-        - title: "Define governance for APIs"
-          category: Page
-          show: False
-        - title: "Develop APIs"
-          category: Page
-          show: False
-        - title: "Protect and secure APIs"
-          category: Page
-          show: False
-        - title: "Import an API"
-          path: /getting-started/import-apis
-          category: Page
-          show: True
-      - title: "Deploy APIs"
+    - title: "Managing APIS"
+      category: Directory
+      show: False
+      menu:
+      - title: "Overview"
         category: Directory
         show: False
         menu:
-        - title: "Follow governance for APIs"
-          category: Page
-          show: False
-        - title: "Document APIs"
-          category: Page
-          show: False
-        - title: "Test APIs"
-          category: Page
-          show: False
-        - title: "Deploy APIs"
-          category: Page
-          show: False
-      - title: "API Operations"
+    - title: "Managing Data Graphs"
+      category: Directory
+      show: False
+      menu:
+    - title: "Manage Data Graphs"
+      category: Directory
+      show: False
+      menu:
+      - title: "Overview"
         category: Directory
         show: False
         menu:
-        - title: "Version APIs"
+      - title: "Design Data Graphs"
+        category: Directory
+        show: False
+        menu:
+        - title: "Design Data Graph schema APIs"
           category: Page
           show: False
-        - title: "Monitor APIs"
+        - title: "Connect data sources"
           category: Page
           show: False
-        - title: "API observability"
+        - title: "Define access to Data Graph APIs"
           category: Page
           show: False
-      - title: "API Operations--> Troubleshoot APIs"
+      - title: "Deploy Data Graphs"
+        category: Directory
+        show: False
+        menu:
+        - title: "Test Data Graphs"
+          category: Page
+          show: False
+        - title: "Persisted queries"
+          category: Page
+          show: False
+      - title: "Data Graph operations"
         category: Page
         show: False
     - title: "Publish API Products"
@@ -745,82 +707,61 @@ menu:
         category: Directory
         show: False
         menu:
-        - title: "Publish APIs to the portal"
+        - title: "Import APIs to the Developer Portal"
           category: Page
           show: False
-        - title: "Manage developers and developer audiences"
+        - title: "Create API Products"
           category: Page
           show: False
-        - title: "Portal customization"
+        - title: "Create API Product Plans"
           category: Page
           show: False
         - title: "Document API Products"
           category: Page
           show: False
-        - title: "Debug apps and resolve integration issues"
+        - title: "Publish API Products"
           category: Page
           show: False
-      - title: "API Consumer access"
+      - title: "Portal customization"
         category: Directory
         show: False
         menu:
-        - title: "Enable consumers to access API products"
+        - title: "Portal themes"
           category: Page
           show: False
-        - title: "Provide self-service debug capabilities to developers"
+        - title: "Portal navigation"
           category: Page
           show: False
-      - title: "API Product Management"
+        - title: "Portal content"
+          category: Page
+          show: False
+        - title: "SSO"
+          category: Page
+          show: False
+      - title: "API Product access"
+        category: Directory
+        show: False
+        menu:
+        - title: "Give access to API Products"
+          category: Page
+          show: False
+        - title: "Manage developers and developer audiences"
+          category: Page
+          show: False
+        - title: "Self service consumer debugging"
+          category: Page
+          show: False
+      - title: "API Product management"
         category: Directory
         show: False
         menu:
         - title: "Business value reporting"
-          category: Directory
+          category: Page
           show: False
-          menu:
         - title: "API monetization"
-          category: Directory
-          show: False
-          menu:
-    - title: "UDG TBC"
-      category: Directory
-      show: True
-      menu:
-      - title: "Overview"
-        category: Directory
-        show: False
-        menu:
-      - title: "Data Graph Design"
-        category: Directory
-        show: True
-        menu:
-        - title: "Design UDG schemas / APIs"
           category: Page
           show: False
-        - title: "Manage data sources"
-          category: Page
-          show: False
-        - title: "UDG Examples"
-          path: /universal-data-graph/udg-examples
-          category: Page
-          show: True
-      - title: "Data Graph Management"
-        category: Directory
-        show: False
-        menu:
-        - title: "Define access to UDG APIs"
-          category: Page
-          show: False
-        - title: "Test UDG"
-          category: Page
-          show: False
-        - title: "Monitor and troubleshoot UDG"
-          category: Page
-          show: False
-        - title: "Version UDG"
-          category: Page
-          show: False
-        - title: "Expose as a REST API"
+        - title: "Troubleshooting API Products"
           category: Page
           show: False
   - title: "Product Stack"
@@ -1180,7 +1121,7 @@ menu:
               path: /security/security-policies/secure-apis-method-path
               category: Page
               show: True
-          - title: "Security"
+          - title: "How to secure your APIs in Tyk"
             path: /basic-config-and-security/security
             category: Page
             show: True
@@ -2467,7 +2408,7 @@ menu:
           category: Directory
           show: True
           menu:
-          - title: "Complete Customisation"
+          - title: "Complete customisation"
             category: Directory
             show: True
             menu:
@@ -2687,6 +2628,10 @@ menu:
           show: True
         - title: "4. Security"
           path: /universal-data-graph/udg-getting-started/security
+          category: Page
+          show: True
+        - title: "UDG Examples"
+          path: /universal-data-graph/udg-examples
           category: Page
           show: True
       - title: "Connect Data Sources"
@@ -3100,34 +3045,42 @@ menu:
         path: /release-notes
         category: Page
         show: True
-      - title: "Tyk v3.0"
-        path: /release-notes/version-3.0
+      - title: "Tyk v5.1"
+        path: /release-notes/version-5.1
         category: Page
         show: True
-      - title: "Tyk v3.1"
-        path: /release-notes/version-3.1
-        category: Page
-        show: True
-      - title: "Tyk v3.2"
-        path: /release-notes/version-3.2
-        category: Page
-        show: True
-      - title: "Tyk v4.0"
-        path: /release-notes/version-4.0
-        category: Page
-        show: True
-      - title: "Tyk v4.1"
-        path: /release-notes/version-4.1
-        category: Page
-        show: True
-      - title: "Tyk v4.2"
-        path: /release-notes/version-4.2
+      - title: "Tyk v5.0"
+        path: /release-notes/version-5.0
         category: Page
         show: True
       - title: "Tyk v4.3"
         path: /release-notes/version-4.3
         category: Page
         show: True
+      - title: "Tyk v4.2"
+        path: /release-notes/version-4.2
+        category: Page
+        show: True
+      - title: "Tyk v4.1"
+        path: /release-notes/version-4.1
+        category: Page
+        show: True
+      - title: "Tyk v4.0"
+        path: /release-notes/version-4.0
+        category: Page
+        show: True
+      - title: "Tyk v3.2"
+        path: /release-notes/version-3.2
+        category: Page
+        show: True
+      - title: "Tyk v3.1"
+        path: /release-notes/version-3.1
+        category: Page
+        show: True
+      - title: "Tyk v3.0"
+        path: /release-notes/version-3.0
+        category: Page
+        show: True    
       - title: "Upgrading Tyk"
         path: /upgrading-tyk
         category: Page
@@ -3138,14 +3091,6 @@ menu:
         show: True
       - title: "Pump v1.8"
         path: /release-notes/pump-1.8
-        category: Page
-        show: True
-      - title: "Tyk v5.0"
-        path: /release-notes/version-5.0
-        category: Page
-        show: True
-      - title: "Tyk v5.1"
-        path: /release-notes/version-5.1
         category: Page
         show: True
     - title: "Contribute to Tyk Docs"
@@ -3286,6 +3231,30 @@ menu:
     category: Tab
     show: True
     menu:
+    - title: "Basic (Global) Caching"
+      path: /basic-config-and-security/reduce-latency/caching/global-cache/
+      category: Page
+      show: True
+    - title: "Deploy Tyk Self Managed using new Helm Chart"
+      path: /tyk-self-managed/tyk-helm-chart-single-dc/
+      category: Page
+      show: True
+    - title: "Advanced Caching"
+      path: /basic-config-and-security/reduce-latency/caching/advanced-cache/
+      category: Page
+      show: True
+    - title: "Upstream Cache Control"
+      path: /basic-config-and-security/reduce-latency/caching/upstream-controlled-cache/
+      category: Page
+      show: True
+    - title: "Invalidating the Cache"
+      path: /basic-config-and-security/reduce-latency/caching/invalidate-cache/
+      category: Page
+      show: True
+    - title: "Optimising the Cache Storage"
+      path: /basic-config-and-security/reduce-latency/caching/optimise-cache/
+      category: Page
+      show: True
     - title: "Orphan pages"
       path: /orphan/
       category: Page
