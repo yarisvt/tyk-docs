@@ -1793,6 +1793,7 @@ pre {
 
 .edit-button{
   margin-top: 20px!important;
+  background-color: grey;
 }
 
 @media only screen and (max-width: 768px) {
@@ -1800,4 +1801,12 @@ pre {
     width: 100%;
     text-align: center;
   }
+}
+
+.improve-this-page{
+  display: block;
+  background-color: grey;
+  border: 2px solid grey;
+  width: 100%;
+  height: 100%;
 }
