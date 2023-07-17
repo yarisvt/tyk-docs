@@ -2971,13 +2971,9 @@ menu:
         category: Page
         show: True
     - title: "Tyk APIs Reference"
-      category: Directory
+      path: /tyk-apis
+      category: Page
       show: True
-      menu:
-      - title: "Tyk APIs"
-        path: /tyk-apis
-        category: Page
-        show: True
     - title: "SDK"
       category: Directory
       show: False
@@ -3093,22 +3089,14 @@ menu:
         path: /release-notes/pump-1.8
         category: Page
         show: True
-    - title: "Contribute to Tyk Docs"
-      category: Directory
+    - title: "Contribute To Tyk Docs"
+      path: /contribute
+      category: Page
       show: True
-      menu:
-      - title: "Contribute"
-        path: /contribute
-        category: Page
-        show: True
     - title: "Configuration Reference"
-      category: Directory
+      path: /tyk-environment-variables
+      category: Page
       show: True
-      menu:
-      - title: "Tyk Environment Variables"
-        path: /tyk-environment-variables
-        category: Page
-        show: True
     - title: "Deprecated pages"
       category: Directory
       show: True
