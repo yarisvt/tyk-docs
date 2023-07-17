@@ -2963,13 +2963,9 @@ menu:
     show: True
     menu:
     - title: "Overview"
-      category: Directory
+      path: /frequently-asked-questions/faq
+      category: Page
       show: True
-      menu:
-      - title: "FAQ"
-        path: /frequently-asked-questions/faq
-        category: Page
-        show: True
     - title: "Tyk APIs Reference"
       path: /tyk-apis
       category: Page
