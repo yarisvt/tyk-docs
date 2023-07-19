@@ -2,13 +2,13 @@
 EV: <b>TYK_GW_HOSTNAME</b><br />
 Type: `string`<br />
 
-Force your Gateway to work only on a specifc domain name. Can be overriden by API custom domain.
+Force your Gateway to work only on a specific domain name. Can be overridden by API custom domain.
 
 ### listen_address
 EV: <b>TYK_GW_LISTENADDRESS</b><br />
 Type: `string`<br />
 
-If your machine has mulitple network devices or IPs you can force the Gateway to use the IP address you want.
+If your machine has multiple network devices or IPs you can force the Gateway to use the IP address you want.
 
 ### listen_port
 EV: <b>TYK_GW_LISTENPORT</b><br />
@@ -132,12 +132,6 @@ Type: `bool`<br />
 
 Set to true to enable SSL connections
 
-### http_server_options.use_ssl_le
-EV: <b>TYK_GW_HTTPSERVEROPTIONS_USELE_SSL</b><br />
-Type: `bool`<br />
-
-Enable Lets-Encrypt support
-
 ### http_server_options.enable_http2
 EV: <b>TYK_GW_HTTPSERVEROPTIONS_ENABLEHTTP2</b><br />
 Type: `bool`<br />
@@ -197,6 +191,14 @@ Type: `uint16`<br />
 
 Maximum TLS version.
 
+### http_server_options.skip_client_ca_announcement
+EV: <b>TYK_GW_HTTPSERVEROPTIONS_SKIPCLIENTCAANNOUNCEMENT</b><br />
+Type: `bool`<br />
+
+When mTLS enabled, this option allows to skip client CA announcement in the TLS handshake.
+This option is useful when you have a lot of ClientCAs and you want to reduce the handshake overhead, as some clients can hit TLS handshake limits.
+This option does not give any hints to the client, on which certificate to pick (but this is very rare situation when it is required)
+
 ### http_server_options.flush_interval
 EV: <b>TYK_GW_HTTPSERVEROPTIONS_FLUSHINTERVAL</b><br />
 Type: `int`<br />
@@ -222,6 +224,23 @@ EV: <b>TYK_GW_HTTPSERVEROPTIONS_CIPHERS</b><br />
 Type: `[]string`<br />
 
 Custom SSL ciphers. See list of ciphers here https://tyk.io/docs/basic-config-and-security/security/tls-and-ssl/#specify-tls-cipher-suites-for-tyk-gateway--tyk-dashboard
+
+### http_server_options.max_request_body_size
+EV: <b>TYK_GW_HTTPSERVEROPTIONS_MAXREQUESTBODYSIZE</b><br />
+Type: `int64`<br />
+
+MaxRequestBodySize configures a maximum size limit for request body size (in bytes) for all APIs on the Gateway.
+
+Tyk Gateway will evaluate all API requests against this size limit and will respond with HTTP 413 status code if the body of the request is larger.
+
+Two methods are used to perform the comparison:
+ - If the API Request contains the `Content-Length` header, this is directly compared against `MaxRequestBodySize`.
+ - If the `Content-Length` header is not provided, the Request body is read in chunks to compare total size against `MaxRequestBodySize`.
+
+A value of zero (default) means that no maximum is set and API requests will not be tested.
+
+See more information about setting request size limits here:
+https://tyk.io/docs/basic-config-and-security/control-limit-traffic/request-size-limits/#maximum-request-sizes
 
 ### version_header
 EV: <b>TYK_GW_VERSIONHEADER</b><br />
@@ -553,7 +572,7 @@ The maximum time in seconds that a RPC ping can last.
 EV: <b>TYK_GW_SLAVEOPTIONS_RPCPOOLSIZE</b><br />
 Type: `int`<br />
 
-The number of RPC connections in the pool. Basically it creates a set of connections that you can re-use as needed.
+The number of RPC connections in the pool. Basically it creates a set of connections that you can re-use as needed. Defaults to 5.
 
 ### slave_options.key_space_sync_interval
 EV: <b>TYK_GW_SLAVEOPTIONS_KEYSPACESYNCINTERVAL</b><br />
@@ -614,7 +633,7 @@ The standard rate limiter offers similar performance as the sentinel-based limit
 EV: <b>TYK_GW_ENABLENONTRANSACTIONALRATELIMITER</b><br />
 Type: `bool`<br />
 
-An enchancment for the Redis and Sentinel rate limiters, that offers a significant improvement in performance by not using transactions on Redis rate-limit buckets.
+An enhancement for the Redis and Sentinel rate limiters, that offers a significant improvement in performance by not using transactions on Redis rate-limit buckets.
 
 ### drl_notification_frequency
 EV: <b>TYK_GW_DRLNOTIFICATIONFREQUENCY</b><br />
@@ -1149,7 +1168,7 @@ Disable TLS verification
 EV: <b>TYK_GW_LIVENESSCHECK_CHECKDURATION</b><br />
 Type: `time.Duration`<br />
 
-Frequence of performing interval healthchecks for Redis, Dashboard, and RPC layer. Default: 10 seconds.
+Frequencies of performing interval healthchecks for Redis, Dashboard, and RPC layer. Default: 10 seconds.
 
 ### dns_cache
 This section enables the global configuration of the expireable DNS records caching for your Gateway API endpoints.
@@ -1388,6 +1407,12 @@ Type: `int`<br />
 
 Maximum message which can be sent to gRPC server
 
+### coprocess_options.grpc_authority
+EV: <b>TYK_GW_COPROCESSOPTIONS_GRPCAUTHORITY</b><br />
+Type: `string`<br />
+
+Authority used in GRPC connection
+
 ### coprocess_options.python_path_prefix
 EV: <b>TYK_GW_COPROCESSOPTIONS_PYTHONPATHPREFIX</b><br />
 Type: `string`<br />
@@ -1458,6 +1483,12 @@ EV: <b>TYK_GW_NEWRELIC_LICENSEKEY</b><br />
 Type: `string`<br />
 
 New Relic License key
+
+### newrelic.enable_distributed_tracing
+EV: <b>TYK_GW_NEWRELIC_ENABLEDISTRIBUTEDTRACING</b><br />
+Type: `bool`<br />
+
+Enable distributed tracing
 
 ### enable_http_profiler
 EV: <b>TYK_GW_HTTPPROFILE</b><br />

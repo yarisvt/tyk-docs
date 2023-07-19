@@ -82,17 +82,54 @@ Type: `int`<br />
 Sets the batch size for mongo results. Defaults to 2000.
 Increasing this number can decrease dashboard performance. This value cannot be lower than 100 and will fallback to 100 if a lower value has been set.
 
+### mongo_driver
+EV: <b>TYK_DB_MONGODRIVER</b><br />
+Type: `string`<br />
+
+Determines the MongoDB driver used. It could be `mongo-go` to use the official [mongo driver for go v1.11](https://www.mongodb.com/docs/drivers/go/v1.11/) or `mgo` to use [mgo driver](https://github.com/go-mgo/mgo). By default, the value is `mgo`. It can be set at storage level as well if the database type is mongo. This config is available since dashboard v5.0.2
+
+### mongo_direct_connection
+EV: <b>TYK_DB_MONGODIRECTCONNECTION</b><br />
+Type: `bool`<br />
+
+MongoDirectConnection informs whether to establish connections only with the specified seed servers,
+or to obtain information for the whole cluster and establish connections with further servers too.
+If true, the client will only connect to the host provided in the ConnectionString
+and won't attempt to discover other hosts in the cluster. Useful when network restrictions
+prevent discovery, such as with SSH tunneling. Default is false.
+
 ### page_size
 EV: <b>TYK_DB_PAGESIZE</b><br />
 Type: `int`<br />
 
 The page size that the dashboard should use. Defaults to 10.
 
+### storage
+This option allows you to store different types of data in different databases. For example, logs can be stored in one database, analytics in another, and master resources in another.
+
+### storage.main
+Main database where the dashboard resources are stored (users, orgs, policies, etc)
+
+### storage.main.mongo
+Connection setting for a mongo database
+
+### storage.main.mongo.driver
+EV: <b>TYK_DB_STORAGE_MAIN_MONGO_DRIVER</b><br />
+Type: `string`<br />
+
+Driver to use when connected to a mongo database. It could be `mongo-go` to use the official [mongo driver for go v1.11](https://www.mongodb.com/docs/drivers/go/v1.11/) or `mgo` to use [mgo driver](https://github.com/go-mgo/mgo). By default, the value is `mgo`. This config is available since dashboard v5.0.2
+
+### storage.main.postgres
+Connection settings for a Postgres database
+
 ### storage.main.postgres.prefer_simple_protocol
 EV: <b>TYK_DB_STORAGE_MAIN_POSTGRES_PREFERSIMPLEPROTOCOL</b><br />
 Type: `bool`<br />
 
 disables implicit prepared statement usage
+
+### storage.main.mysql
+Connection settings for a MySQL database
 
 ### storage.main.mysql.default_string_size
 EV: <b>TYK_DB_STORAGE_MAIN_MYSQL_DEFAULTSTRINGSIZE</b><br />
@@ -124,11 +161,29 @@ Type: `bool`<br />
 
 auto configure based on currently MySQL version
 
+### storage.analytics
+Where all the analytics related data is stored
+
+### storage.analytics.mongo
+Connection setting for a mongo database
+
+### storage.analytics.mongo.driver
+EV: <b>TYK_DB_STORAGE_ANALYTICS_MONGO_DRIVER</b><br />
+Type: `string`<br />
+
+Driver to use when connected to a mongo database. It could be `mongo-go` to use the official [mongo driver for go v1.11](https://www.mongodb.com/docs/drivers/go/v1.11/) or `mgo` to use [mgo driver](https://github.com/go-mgo/mgo). By default, the value is `mgo`. This config is available since dashboard v5.0.2
+
+### storage.analytics.postgres
+Connection settings for a Postgres database
+
 ### storage.analytics.postgres.prefer_simple_protocol
 EV: <b>TYK_DB_STORAGE_ANALYTICS_POSTGRES_PREFERSIMPLEPROTOCOL</b><br />
 Type: `bool`<br />
 
 disables implicit prepared statement usage
+
+### storage.analytics.mysql
+Connection settings for a MySQL database
 
 ### storage.analytics.mysql.default_string_size
 EV: <b>TYK_DB_STORAGE_ANALYTICS_MYSQL_DEFAULTSTRINGSIZE</b><br />
@@ -160,11 +215,26 @@ Type: `bool`<br />
 
 auto configure based on currently MySQL version
 
+### storage.logs.mongo
+Connection setting for a mongo database
+
+### storage.logs.mongo.driver
+EV: <b>TYK_DB_STORAGE_LOGS_MONGO_DRIVER</b><br />
+Type: `string`<br />
+
+Driver to use when connected to a mongo database. It could be `mongo-go` to use the official [mongo driver for go v1.11](https://www.mongodb.com/docs/drivers/go/v1.11/) or `mgo` to use [mgo driver](https://github.com/go-mgo/mgo). By default, the value is `mgo`. This config is available since dashboard v5.0.2
+
+### storage.logs.postgres
+Connection settings for a Postgres database
+
 ### storage.logs.postgres.prefer_simple_protocol
 EV: <b>TYK_DB_STORAGE_LOGS_POSTGRES_PREFERSIMPLEPROTOCOL</b><br />
 Type: `bool`<br />
 
 disables implicit prepared statement usage
+
+### storage.logs.mysql
+Connection settings for a MySQL database
 
 ### storage.logs.mysql.default_string_size
 EV: <b>TYK_DB_STORAGE_LOGS_MYSQL_DEFAULTSTRINGSIZE</b><br />
@@ -196,11 +266,29 @@ Type: `bool`<br />
 
 auto configure based on currently MySQL version
 
+### storage.uptime
+Where all the uptime related data is stored
+
+### storage.uptime.mongo
+Connection setting for a mongo database
+
+### storage.uptime.mongo.driver
+EV: <b>TYK_DB_STORAGE_UPTIME_MONGO_DRIVER</b><br />
+Type: `string`<br />
+
+Driver to use when connected to a mongo database. It could be `mongo-go` to use the official [mongo driver for go v1.11](https://www.mongodb.com/docs/drivers/go/v1.11/) or `mgo` to use [mgo driver](https://github.com/go-mgo/mgo). By default, the value is `mgo`. This config is available since dashboard v5.0.2
+
+### storage.uptime.postgres
+Connection settings for a Postgres database
+
 ### storage.uptime.postgres.prefer_simple_protocol
 EV: <b>TYK_DB_STORAGE_UPTIME_POSTGRES_PREFERSIMPLEPROTOCOL</b><br />
 Type: `bool`<br />
 
 disables implicit prepared statement usage
+
+### storage.uptime.mysql
+Connection settings for a MySQL database
 
 ### storage.uptime.mysql.default_string_size
 EV: <b>TYK_DB_STORAGE_UPTIME_MYSQL_DEFAULTSTRINGSIZE</b><br />
@@ -433,7 +521,7 @@ If you have a Sentry setup, or are using Getsentry, you can add the Sentry DSN h
 EV: <b>TYK_DB_SENTRYJSCODE</b><br />
 Type: `string`<br />
 
-To have the Dashboard report Javascript errors to you, add a seperate DSN here.
+To have the Dashboard report Javascript errors to you, add a separate DSN here.
 
 ### enable_master_keys
 EV: <b>TYK_DB_ENABLEMASTERKEYS</b><br />
@@ -599,7 +687,7 @@ Controls how long before the failure limits are reset in seconds. The default is
 EV: <b>TYK_DB_SECURITY_HIDELOGINFAILURELIMITERROR</b><br />
 Type: `bool`<br />
 
-By default it will show message like "Retry in N seconds.". In some secure environments it can be treated as leaking of secure context. This option makes failed login attemt to be shown as standard login failure.
+By default it will show message like "Retry in N seconds.". In some secure environments it can be treated as leaking of secure context. This option makes failed login attempt to be shown as standard login failure.
 
 ### security.login_disallow_forward_proxy
 EV: <b>TYK_DB_SECURITY_LOGINDISALLOWFORWARDPROXY</b><br />
@@ -668,7 +756,7 @@ Enable modify OpenPolicy rules via UI and API
 EV: <b>TYK_DB_SECURITY_ADDITIONALPERMISSIONS</b><br />
 Type: `map[ObjectGroup]string`<br />
 
-Through this options, you can provide a list of additional permissions, that can be applief for existing or newly created users or user groups. Example:
+Through this options, you can provide a list of additional permissions, that can be applied for existing or newly created users or user groups. Example:
 
 ```
 {
@@ -681,7 +769,7 @@ Through this options, you can provide a list of additional permissions, that can
 EV: <b>TYK_DB_SECURITY_PRIVATECERTIFICATEENCODINGSECRET</b><br />
 Type: `string`<br />
 
-When using SAML with embeded identity broker, is required to upload a certificate that is encoded by the gateway to store it safely, TIB needs the private key as well, hence it needs the same encoding secret so the information is decoded successfully. This value should match with the encoding secret set in the gateway config file, if not set then it will use by default tyk_api_config.secret to attempt to decode the certificate.
+When using SAML with embedded identity broker, is required to upload a certificate that is encoded by the gateway to store it safely, TIB needs the private key as well, hence it needs the same encoding secret so the information is decoded successfully. This value should match with the encoding secret set in the gateway config file, if not set then it will use by default tyk_api_config.secret to attempt to decode the certificate.
 
 ### ui
 This section controls various settings for the look and feel of the Dashboard UI.
@@ -708,7 +796,7 @@ This settings sets the default language for the UI. Default setting is `en`. Can
 EV: <b>TYK_DB_UI_DONTALLOWLICENSEMANAGEMENT</b><br />
 Type: `bool`<br />
 
-Do not allow licens management screen
+Do not allow license management screen
 
 ### ui.dev
 EV: <b>TYK_DB_UI_DEV</b><br />
@@ -739,7 +827,7 @@ EV: <b>TYK_DB_TIB_HOST_CONNECTIONSTRING</b><br />
 Type: `string`<br />
 
 The URL to the host. It must be in the form: http://domain:port.
-Set this value only if you need to use external Tyk Identity Brokerr
+Set this value only if you need to use external Tyk Identity Broker
 
 ### identity_broker.host.secret
 EV: <b>TYK_DB_TIB_HOST_SECRET</b><br />
@@ -775,7 +863,7 @@ Set this to a date value of the form `DD/MM/YYYY`. Any analytics queries before 
 EV: <b>TYK_DB_MAINTENANCEMODE</b><br />
 Type: `bool`<br />
 
-Set to true to enable special maintanance screen for protal and dashboard
+Set to true to enable special maintenance screen for portal and dashboard
 
 ### allow_explicit_policy_id
 EV: <b>TYK_DB_ALLOWEXPLICITPOLICYID</b><br />
@@ -836,6 +924,12 @@ EV: <b>TYK_DB_SSOENABLEUSERLOOKUP</b><br />
 Type: `bool`<br />
 
 When enabled, if dashboard already have user with given email found, it will be used for the login process
+
+### sso_custom_login_error_url
+EV: <b>TYK_DB_SSOCUSTOMLOGINERRORURL</b><br />
+Type: `string`<br />
+
+SSOCustomLoginErrorURL is an URL to redirect the user in case that SSO fails. If empty the user will be redirected to the error page of dashboard
 
 ### audit
 Enable dashboard audit. Example:

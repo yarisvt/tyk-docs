@@ -144,9 +144,8 @@ or use `--set dash.license={YOUR-LICENSE_KEY}` with the `helm install` command.
 
 
 Tyk Self-Managed licensing allow for different numbers of Gateway nodes to connect to a single Dashboard instance.
-To ensure that your Gateway pods will not scale beyond your license allowance, change the Gateway's resource kind from *DaemonSet* to *Deployment*
-and the replica count to your license node limit. For example, use the following options for a single node license:
-`--set gateway.kind=Deployment --set gateway.replicaCount=1` in your `values.yaml` file or in the Helm install command.
+To ensure that your Gateway pods will not scale beyond your license allowance, please ensure that the Gateway's resource kind is `Deployment`
+and the replica count to your license node limit. By default, the chart is configured to work with a single node license: `gateway.kind=Deployment` and `gateway.replicaCount=1`.
 
 {{< note success >}}
 **Please Note**
@@ -215,7 +214,9 @@ Check [Tyk Gateway Sharding]({{< ref "/content/advanced-configuration/manage-mul
 ## Other Tyk Components
 
 ### Installing Tyk Enterprise Developer Portal
-If you are deploying the **Tyk Enterprise Developer Portal**, set the appropriate values under the `enterprisePortal` section in your `values.yaml`. Please visit [Tyk Enterprise Developer Portal installation]({{< ref "/content/tyk-stack/tyk-developer-portal/enterprise-developer-portal/install-tyk-enterprise-portal.md#launch-the-tyk-enterprise-developer-portal-using-helm" >}}) for a step by step guide.
+If you are deploying the **Tyk Enterprise Developer Portal**, set the appropriate values under the `enterprisePortal` section in your `values.yaml`. Please visit [Tyk Enterprise Developer Portal installation]({{< ref "tyk-stack/tyk-developer-portal/enterprise-developer-portal/install-tyk-enterprise-portal/launching-portal/launching-portal-using-helm#launch-the-tyk-enterprise-developer-portal-using-helm" >}}) for a step by step guide.
+
+>**Note**: Helm chart supports Enterprise Portal v1.2.0+
 
 ### Installing Tyk Self-managed Control Plane
 If you are deploying the **Tyk Control plane**, a.k.a **MDCB**, for a **Tyk Multi Data Centre Bridge** deployment then you set
