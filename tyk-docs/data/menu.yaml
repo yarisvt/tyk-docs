@@ -722,6 +722,22 @@ menu:
         category: Directory
         show: False
         menu:
+      - title: "Connect to a Provider"
+        path: "/tyk-stack/tyk-developer-portal/enterprise-developer-portal/getting-started-with-enterprise-portal/with-tyk-self-managed-as-provider/"
+        category: Page
+        show: True
+      - title: "Create and import API Products and Plans"
+        path: "/tyk-stack/tyk-developer-portal/enterprise-developer-portal/getting-started-with-enterprise-portal/create-api-product-and-plan/"
+        category: Page
+        show: True
+      - title: "Publish API Products and Plans to the Developer portal so that API consumers can access them"
+        path: "/tyk-stack/tyk-developer-portal/enterprise-developer-portal/getting-started-with-enterprise-portal/publish-api-products-and-plans/"
+        category: Page
+        show: True
+      - title: "Customise the navigation menu in the Developer portal for your specific API consumer audience."
+        path: "/tyk-stack/tyk-developer-portal/enterprise-developer-portal/getting-started-with-enterprise-portal/customise-menus/"
+        category: Page
+        show: True
       - title: "API Publishing"
         category: Directory
         show: False
