@@ -573,8 +573,8 @@ menu:
         - title: "Protect and secure APIs"
           category: Page
           show: False
-        - title: "Access an API"
-          path: /getting-started/create-api-key
+        - title: "Import an API"
+          path: /getting-started/import-apis
           category: Page
           show: True
         - title: "Create an API"
@@ -585,8 +585,8 @@ menu:
           path: /getting-started/create-security-policy
           category: Page
           show: True
-        - title: "Import an API"
-          path: /getting-started/import-apis
+        - title: "Access an API"
+          path: /getting-started/create-api-key
           category: Page
           show: True
       - title: "Deploy APIs"
