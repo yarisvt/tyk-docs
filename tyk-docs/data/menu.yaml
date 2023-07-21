@@ -716,7 +716,7 @@ menu:
           show: False
     - title: "Publish APIs"
       category: Directory
-      show: False
+      show: True
       menu:
       - title: "Overview"
         category: Directory
