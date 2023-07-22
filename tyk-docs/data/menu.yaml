@@ -1768,6 +1768,14 @@ menu:
         category: Directory
         show: True
         menu:
+        - title: "Tyk native API definition"
+          category: Directory
+          show: True
+          menu:
+          - title: "API Definition Objects"
+            path: /tyk-gateway-api/api-definition-objects
+            category: Page
+            show: True
         - title: "Gateway API"
           path: /getting-started/key-concepts/gateway-api
           category: Page
