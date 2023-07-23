@@ -1096,6 +1096,10 @@ menu:
             path: /tyk-apis/tyk-gateway-api/api-definition-objects/versioning-endpoint
             category: Page
             show: True
+          - title: "API Definition Objects"
+            path: /tyk-gateway-api/api-definition-objects
+            category: Page
+            show: True
         - title: "Tyk OAS API definition"
           category: Directory
           show: False
@@ -1768,14 +1772,6 @@ menu:
         category: Directory
         show: True
         menu:
-        - title: "Tyk native API definition"
-          category: Directory
-          show: True
-          menu:
-          - title: "API Definition Objects"
-            path: /tyk-gateway-api/api-definition-objects
-            category: Page
-            show: True
         - title: "Gateway API"
           path: /getting-started/key-concepts/gateway-api
           category: Page
@@ -2720,6 +2716,10 @@ menu:
           path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/managing-access/manage-api-users
           category: Page
           show: True
+        - title: "Manage Catalogues"
+          path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/managing-access/manage-catalogues
+          category: Page
+          show: True
         - title: "Managing Access"
           path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/managing-access/managing-access
           category: Page
@@ -2738,10 +2738,6 @@ menu:
           show: True
         - title: "Manage Apps and Credentials"
           path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/api-access/manage-apps-credentials
-          category: Page
-          show: True
-        - title: "Manage Catalogues"
-          path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/managing-access/manage-catalogues
           category: Page
           show: True
         - title: "Dynamic client registration"
@@ -2768,6 +2764,10 @@ menu:
             category: Directory
             show: True
             menu:
+            - title: "Customise the Enterprise Portal"
+              path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/customise-enterprise-portal/customise-enterprise-portal
+              category: Page
+              show: True
             - title: "Content Manager Workflow"
               path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/customise-enterprise-portal/full-customisation/content-manager-workflow
               category: Page
@@ -2804,10 +2804,6 @@ menu:
               path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/customise-enterprise-portal/quick-customisation
               category: Page
               show: True
-          - title: "Customise the Enterprise Portal"
-            path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/customise-enterprise-portal/customise-enterprise-portal
-            category: Page
-            show: True
       - title: "API documentation"
         category: Directory
         show: False
