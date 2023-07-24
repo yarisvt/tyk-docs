@@ -6,7 +6,7 @@ on:
       - simon-add-ghaction-to-check-missing-links
 
 jobs:
-  htmltest:
+  check_menu_links:
     runs-on: ubuntu-latest
     steps:
       - name: Setup Hugo
@@ -15,18 +15,21 @@ jobs:
           hugo-version: '0.111.3'
           extended: true
       - uses: actions/checkout@v3 # download tyk-docs repo
+        name: clone tyk-docs
         # with:
         #   submodules: true  # Fetch Hugo themes (true OR recursive)
         #   fetch-depth: 0
       # Download the tyk_libs repo form dcs3spp
       - uses: actions/checkout@v3 # download the script repo
+        name: clone tyk_libs
         with:
            repository: dcs3spp/tyk_libs
            path: ./tyk_libs
 
       - name: Prepare files to run script # the ghub action script
         run: |
-          cd tyk-docs/tyk-docs
+          pwd
+          cd ./tyk-docs/tyk-docs
           hugo
           cp data/menu.yaml ../../tyk-libs/
           cp public/urlcheck.json ../../tyk-libs/
