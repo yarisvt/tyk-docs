@@ -53,10 +53,11 @@ if __name__ == "__main__":
     menu_data = load_yaml_file(menu_file_path)
 
     all_urls = get_all_urls_from_json(urlcheck_data)
-    missing_urls = check_urls_in_ygdaml(all_urls, menu_data)
+    missing_urls = check_urls_in_yaml(all_urls, menu_data)
 
     if len(missing_urls) > 0:
-        print("The following URLs are missing in menu.yaml:")
+        print("The URLs above are missing in menu.yaml")
+        # print("The following URLs are missing in menu.yaml:")
         #for url in missing_urls:
          #   print(url)
     else:
