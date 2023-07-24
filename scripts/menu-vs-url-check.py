@@ -10,6 +10,11 @@ def load_json_rows(file_path):
             line = line.strip()
             if line:  # Check if the line is not empty
                 json_data = json.loads(line)
+
+                alias = json_data.get("alias")
+                if alias is not None and alias == True:
+                    continue
+
                 json_list.append(json_data)
         return json_list
 
