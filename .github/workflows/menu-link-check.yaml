@@ -16,6 +16,8 @@ jobs:
           extended: true
       - uses: actions/checkout@v3 # download tyk-docs repo
         name: clone tyk-docs
+        with:
+          path: ./tyk-docs
         # with:
         #   submodules: true  # Fetch Hugo themes (true OR recursive)
         #   fetch-depth: 0
