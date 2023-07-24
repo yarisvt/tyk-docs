@@ -3483,10 +3483,6 @@ menu:
     category: Tab
     show: True
     menu:
-    - title: "Deployment and Operations"
-      path: /deployment-and-operations/deployment-and-operations-overview/
-      category: Page
-      show: True
     - title: "Orphan pages"
       path: /orphan/
       category: Page
