@@ -18,9 +18,6 @@ jobs:
         name: clone tyk-docs
         with:
           path: ./tyk-docs
-        # with:
-        #   submodules: true  # Fetch Hugo themes (true OR recursive)
-        #   fetch-depth: 0
       # Download the tyk_libs repo form dcs3spp
       - uses: actions/checkout@v3 # download the script repo
         name: clone tyk_libs
@@ -30,9 +27,11 @@ jobs:
 
       - name: Prepare files to run script # the ghub action script
         run: |
-          pwd
           cd ./tyk-docs/tyk-docs
           hugo
+          pwd
+          ls -a
+          ls ../../
           cp data/menu.yaml ../../tyk-libs/
           cp public/urlcheck.json ../../tyk-libs/
       - name: Run script to check for missing links in menu.yaml
