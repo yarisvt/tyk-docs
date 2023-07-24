@@ -1,4 +1,13 @@
 menu:
+  - title: "Home"
+    path: /
+    category: Tab
+    show: True
+    menu:
+    - title: "Tyk API Gateway Documentation"
+      path: /
+      category: Page
+      show: True
   - title: "Deployment and Operations"
     path: /apim
     category: Tab
@@ -110,7 +119,7 @@ menu:
           category: Directory
           show: True
           menu:
-          - title: "Getting Started"
+          - title: "Getting started"
             category: Directory
             show: True
             menu:
@@ -274,7 +283,7 @@ menu:
             category: Directory
             show: True
             menu:
-            - title: "Single Region"
+            - title: "Single region"
               category: Directory
               show: True
               menu:
@@ -306,7 +315,7 @@ menu:
                 path: /getting-started/quick-start/tyk-demo
                 category: Page
                 show: True
-            - title: "Multi Region"
+            - title: "Multi region"
               category: Directory
               show: False
               menu:
@@ -338,7 +347,7 @@ menu:
               path: /advanced-configuration/integrate/sso
               category: Page
               show: True
-          - title: "Enterprise Developer Portal"
+          - title: "Enterprise developer portal"
             category: Page
             show: False
           - title: "Multi-tenancy with orgs, teams and users"
@@ -569,7 +578,7 @@ menu:
               path: /planning-for-production/monitoring/tyk-components
               category: Page
               show: True
-          - title: "Monitoring Upstream Services"
+          - title: "Monitoring upstream services"
             category: Page
             show: False
           - title: "Scaling up and down depending on usage/performance"
@@ -764,20 +773,20 @@ menu:
         category: Directory
         show: False
         menu:
-        - title: "Design Data Graph schema APIs"
+        - title: "Design data graph schema APIs"
           category: Page
           show: False
         - title: "Connect data sources"
           category: Page
           show: False
-        - title: "Define access to Data Graph APIs"
+        - title: "Define access to data graph APIs"
           category: Page
           show: False
       - title: "Deploy Data Graphs"
         category: Directory
         show: False
         menu:
-        - title: "Test Data Graphs"
+        - title: "Test data graphs"
           category: Page
           show: False
         - title: "Persisted queries"
@@ -787,7 +796,7 @@ menu:
         category: Directory
         show: False
         menu:
-        - title: "Version Data Graphs"
+        - title: "Version data graphs"
           category: Page
           show: False
     - title: "Publish APIs"
@@ -798,23 +807,20 @@ menu:
         category: Directory
         show: False
         menu:
-      - title: "API Publishing"
+      - title: "Publish Ops"
         category: Directory
         show: False
         menu:
-        - title: "Import APIs to the Developer Portal"
+        - title: "Import APIs to the developer portal"
           category: Page
           show: False
-        - title: "Create API Products"
+        - title: "Create API products"
           category: Page
           show: False
-        - title: "Create API Product Plans"
+        - title: "Create API product plans"
           category: Page
           show: False
-        - title: "Document API Products"
-          category: Page
-          show: False
-        - title: "Publish APIs"
+        - title: "Document API products"
           category: Page
           show: False
       - title: "Portal customization"
@@ -837,7 +843,7 @@ menu:
         category: Directory
         show: False
         menu:
-        - title: "Give access to API Products"
+        - title: "Give access to API products"
           category: Page
           show: False
         - title: "Manage developers and developer audiences"
@@ -856,7 +862,7 @@ menu:
         - title: "API monetization"
           category: Page
           show: False
-        - title: "Troubleshooting API Products"
+        - title: "Troubleshooting API products"
           category: Page
           show: False
     - title: "Featured Guides"
@@ -1012,7 +1018,7 @@ menu:
             path: /graphql/gql-headers
             category: Page
             show: True
-        - title: "Manage Multiple Environments"
+        - title: "Manage multiple environments"
           category: Directory
           show: True
           menu:
@@ -1938,7 +1944,7 @@ menu:
           path: /tyk-dashboard
           category: Page
           show: True
-      - title: "Get Started"
+      - title: "Get started"
         category: Directory
         show: True
         menu:
@@ -2404,7 +2410,7 @@ menu:
           category: Directory
           show: False
           menu:
-        - title: "Portal Customisation"
+        - title: "Portal customisation"
           category: Directory
           show: True
           menu:
@@ -2596,7 +2602,7 @@ menu:
         category: Directory
         show: True
         menu:
-        - title: "Launch the Enterprise Developer Portal"
+        - title: "Launch the enterprise developer portal"
           category: Directory
           show: True
           menu:
@@ -2632,7 +2638,7 @@ menu:
           path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/getting-started-with-enterprise-portal/manage-get-started-guides-for-api-products
           category: Page
           show: True
-      - title: "Getting Started"
+      - title: "Getting started"
         category: Directory
         show: True
         menu:
@@ -2684,7 +2690,7 @@ menu:
           path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/install-tyk-enterprise-portal
           category: Page
           show: True
-      - title: "Manage API Consumers"
+      - title: "Manage API consumers"
         category: Directory
         show: True
         menu:
@@ -2724,7 +2730,7 @@ menu:
           path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/managing-access/managing-access
           category: Page
           show: True
-      - title: "Manage API Access"
+      - title: "Manage API access"
         category: Directory
         show: True
         menu:
@@ -2752,7 +2758,7 @@ menu:
         category: Directory
         show: True
         menu:
-        - title: "API Consumer accounts"
+        - title: "API consumer accounts"
           category: Directory
           show: False
           menu:
@@ -2820,7 +2826,7 @@ menu:
         category: Directory
         show: False
         menu:
-      - title: "Developer Portal release notes"
+      - title: "Release notes"
         category: Directory
         show: False
         menu:
@@ -2836,7 +2842,7 @@ menu:
           path: /tyk-multi-data-centre
           category: Page
           show: True
-      - title: "Getting Started"
+      - title: "Getting started"
         category: Directory
         show: True
         menu:
@@ -2922,7 +2928,7 @@ menu:
           path: /tyk-pump
           category: Page
           show: True
-      - title: "Getting Started"
+      - title: "Getting started"
         category: Directory
         show: True
         menu:
@@ -3053,7 +3059,7 @@ menu:
           path: /tyk-stack/tyk-operator/installing-tyk-operator
           category: Page
           show: True
-      - title: "Getting Started"
+      - title: "Getting started"
         category: Directory
         show: True
         menu:
@@ -3117,7 +3123,7 @@ menu:
         category: Directory
         show: False
         menu:
-      - title: "Getting Started"
+      - title: "Getting started"
         category: Directory
         show: False
         menu:
@@ -3157,7 +3163,7 @@ menu:
           path: /tyk-identity-broker
           category: Page
           show: True
-      - title: "Getting Started"
+      - title: "Getting started"
         category: Directory
         show: True
         menu:
