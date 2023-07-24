@@ -1,0 +1,34 @@
+name: Check for missing links in menu.yaml
+on:
+  pull_request:
+
+jobs:
+  htmltest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.111.3'
+          extended: true
+      - uses: actions/checkout@v3 # download tyk-docs repo
+        # with:
+        #   submodules: true  # Fetch Hugo themes (true OR recursive)
+        #   fetch-depth: 0
+      # Download the tyk_libs repo form dcs3spp
+      - uses: actions/checkout@v3 # download the script repo
+        with:
+           repository: dcs3spp/tyk_libs
+           path: ./tyk_libs
+
+      - name: Prepare files to run script # the ghub action script
+        run: |
+        cd tyk-docs/tyk-docs
+        hugo
+# copy menu.yaml and urlcheck.json into the scripts repo
+        cp data/menu.yaml ../../tyk-libs/
+        cp public/urlcheck.json ../../tyk-libs/
+      - name: Run script to check for missing links in menu.yaml
+        run: |
+        cd ../../tyk_libs
+        make find_missing_links
