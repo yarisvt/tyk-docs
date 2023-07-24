@@ -3,7 +3,7 @@ on:
   pull_request:
   push:
     branches:
-      - simon-add-ghaction-to-check-missing-links
+      - simon-gh-action-for-menu-link-checks
 
 jobs:
   check_menu_links:
