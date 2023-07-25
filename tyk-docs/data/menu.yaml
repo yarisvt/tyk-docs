@@ -334,13 +334,9 @@ menu:
         category: Page
         show: True
       - title: "Quick start"
-        category: Directory
+        path: /getting-started/quick-start
+        category: Page
         show: True
-        menu:
-        - title: "Quick Start"
-          path: /getting-started/quick-start
-          category: Page
-          show: True
       - title: "Deployment lifecycle"
         category: Directory
         show: True
