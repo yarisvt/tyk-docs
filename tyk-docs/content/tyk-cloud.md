@@ -1,6 +1,6 @@
 ---
 title: "Tyk Cloud"
-date: 2020-06-24
+date: 2023-07-24
 tags: ["Tyk Stack", "Tyk Cloud", "SaaS"]
 description: "The Tyk Cloud SaaS solution for API management"
 weight: 10
@@ -11,9 +11,13 @@ aliases:
   - /get-started/with-tyk-hybrid/
 ---
 
-The new Tyk Cloud platform allows you to quickly setup the full Tyk Enterprise API Management platform by simply choosing the regions where you want to locate your Tyk Gateways and where you wish your data to reside.
 
-Sign up for a free trial to test it out:
+
+Tyk cloud is a fully managed service that makes it easy for API teams to create, secure, publish and maintain APIs at any scale, anywhere in the world. Tyk Cloud includes everything you need to manage your global API ecosystem: [Tyk Gateways]({{< ref "tyk-oss-gateway" >}}), [Tyk Dashboard]({{< ref "tyk-dashboard" >}}), [Tyk Developer Portal]({{< ref "tyk-developer-portal" >}}) and [Universal Data Graph]({{< ref "universal-data-graph" >}}).
+
+The control plane is hosted by Tyk in the cloud, in one of the 5 regions available. Meanwhile, the data planes, composed of Tyk Gateways and Redis for temporary storage, can be either hosted by Tyk or managed by you on your infrastructure.
+
+Start using Tyk on our servers. Nothing to install:
 
 {{< button_left href="https://tyk.io/sign-up/" color="green" content="Try for free" >}}
 

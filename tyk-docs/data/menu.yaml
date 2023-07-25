@@ -100,9 +100,10 @@ menu:
           path: /tyk-cloud/what-is-tyk-cloud
           category: Page
           show: True
-      - title: "Quick start"
-        category: Page
-        show: False
+        - title: "Quick start"
+          path: /deployment-and-operations/tyk-cloud-platform/quick-start
+          category: Page
+          show: True
       - title: "Deployment lifecycle"
         category: Directory
         show: True
