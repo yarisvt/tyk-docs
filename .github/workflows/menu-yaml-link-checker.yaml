@@ -59,7 +59,7 @@ jobs:
           ls
           ls ../
           cd ./tyk_libs
-          poetry version
+          echo "poetry version"
       - name: install poetry dependencies except the poetry project in pyproject.toml
         run: |
           cd ./tyk_libs
