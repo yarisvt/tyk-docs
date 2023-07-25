@@ -28,11 +28,11 @@ jobs:
         run: |
           pwd
           ls
-          cd ./tyk-docs/tyk-docs
+          cd ./tyk-docs
           hugo
           pwd
           ls -a
-          ls ../../
+          ls ../
           cp data/menu.yaml ../../tyk-libs/
           cp public/urlcheck.json ../../tyk-libs/
       - name: Run script to check for missing links in menu.yaml
