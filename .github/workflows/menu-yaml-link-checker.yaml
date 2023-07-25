@@ -27,7 +27,7 @@ jobs:
       - name: Prepare files to run script # the ghub action script
         run: |
           pwd
-          ls
+          ls ../
           cd ./tyk-docs
           hugo
           pwd
