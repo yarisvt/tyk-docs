@@ -19,7 +19,6 @@ jobs:
         with:
           hugo-version: '0.111.3'
           extended: true
-            - uses: actions/setup-python@v4
       - uses: actions/checkout@v3
         name: clone tyk-docs
       - uses: actions/checkout@v3
@@ -34,6 +33,10 @@ jobs:
           cp data/menu.yaml ../tyk_libs/
           cp public/urlcheck.json ../tyk_libs/
           cd ../tyk_libs/
+      - name: setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
       - name: cache poetry install
         uses: actions/cache@v2
         with:
