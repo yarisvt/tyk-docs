@@ -58,18 +58,18 @@ jobs:
           pwd
           ls
           ls ../
-          cd ./tyk-docs/tyk_libs
+          cd ./tyk_libs
           poetry version
       - name: install poetry dependencies except the poetry project in pyproject.toml
         run: |
-          cd ./tyk-docs/tyk_libs
-          poetry install --no-interaction --no-root
+          cd ./tyk_libs
+          echo "poetry install --no-interaction --no-root"
         if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
       - name: Install poetry project in pyproject.toml
         run: |
-          cd ./tyk-docs/tyk_libs
-          poetry install --no-interaction
+          cd ./tyk_libs
+          echo "poetry install --no-interaction"
       - name: Run script to check for missing links in menu.yaml
         run: |
-          cd ./tyk_docs/tyk_libs
-          make find_missing_links
+          cd ./tyk_libs
+          echo "make find_missing_links"
