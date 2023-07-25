@@ -1,9 +1,9 @@
 name: Check for missing links in menu.yaml
 on:
   pull_request:
-  push:
-    branches:
-      - simon-gh-action-for-menu-link-checks
+  # push:
+  #   branches:
+  #     - simon-gh-action-for-menu-link-checks
 
 jobs:
   check_menu_links:
