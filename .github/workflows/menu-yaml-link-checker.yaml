@@ -14,8 +14,8 @@ jobs:
         with:
           hugo-version: '0.111.3'
           extended: true
-      # - uses: actions/checkout@v3 # download tyk-docs repo
-      #   name: clone tyk-docs
+      - uses: actions/checkout@v3 # download tyk-docs repo
+        name: clone tyk-docs
         # with:
         #   path: ./tyk-docs
       - uses: actions/checkout@v3 # download the script repo
@@ -27,8 +27,9 @@ jobs:
       - name: Prepare files to run script # the ghub action script
         run: |
           pwd
-          ls ../../
+          ls
           cd ./tyk-docs
+          ls
           hugo
           pwd
           ls -a
