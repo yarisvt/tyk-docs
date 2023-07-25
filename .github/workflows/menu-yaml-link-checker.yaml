@@ -32,10 +32,9 @@ jobs:
           ls
           hugo
           pwd
-          ls -a
           ls ../
-          cp data/menu.yaml ../tyk-libs/
-          cp public/urlcheck.json ../tyk-libs/
+          cp data/menu.yaml ../tyk_libs/
+          cp public/urlcheck.json ../tyk_libs/
       - name: Run script to check for missing links in menu.yaml
         run: |
           cd ../../tyk_libs
