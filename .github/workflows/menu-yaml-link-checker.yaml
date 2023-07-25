@@ -33,8 +33,8 @@ jobs:
           pwd
           ls -a
           ls ../
-          cp data/menu.yaml ../../tyk-libs/
-          cp public/urlcheck.json ../../tyk-libs/
+          cp data/menu.yaml ../tyk-libs/
+          cp public/urlcheck.json ../tyk-libs/
       - name: Run script to check for missing links in menu.yaml
         run: |
           cd ../../tyk_libs
