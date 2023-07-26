@@ -19,7 +19,7 @@ To begin your Tyk Cloud journey, follow these simple steps to sign up for an acc
 * Fill in the required information and click on "Next step: Create your password."
 * Provide your email address and choose a robust password for your account.
 * Select your home region, where your data will be securely stored.
-* Opt for the "Set up API platform automatically" option (You can still personalize your setup later).
+* Opt for the "Set up API platform automatically" option (you can still personalize your setup later).
 * Wait a couple of minutes and congratulations, your API platform was deployed!
 
 By default, a cloud data plane will be deployed for you. You can also deploy hybrid data planes on your own infrastructure. 
