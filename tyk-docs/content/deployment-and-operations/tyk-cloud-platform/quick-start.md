@@ -26,16 +26,31 @@ By default, a cloud data plane will be deployed for you. You can also deploy hyb
 
 ## Step 2: Get started with your first API with Tyk Dashboard
 
+
+
+
 With your Tyk Cloud account set up, it's time to create your first API:
 
 * Click on "Manage my APIs" to access the Tyk Dashboard directly. If you closed your window in the meantime, follow these steps to reach the Tyk Dashboard in Tyk Cloud:
   * Go to "Deployment"
   * Select the control plane that was deployed for you.
   * Click on the button "Manage APIs" to access the Tyk Dashboard.
+
+{{< img src="/img/cloud/tyk-cloud-tyk-onboarding-dashboard.png" alt="Accessing Tyk Dashboard from Tyk Cloud" width="500px" >}}
+
 * Click the "Design new API" button to start the API definition creation process.
+
+{{< img src="/img/cloud/tyk-cloud-create-api.png" alt="Accessing Creating an API" width="500px" >}}
+
 * Give your API a name - We’ll use “httpbin” for the rest of this quick start.
 * Keep https://httpbin.org/ as the upstream URL and click on "Configure API"
+
+{{< img src="/img/cloud/create-api-tyk-cloud.png" alt="Accessing Creating an API" width="500px" >}}
+
 * Select to which gateway you want to deploy this API, select the "edge" tags to deploy to the cloud data plane.
+
+{{< img src="/img/cloud/tyk-cloud-select-cloud-gateway.png" alt="Accessing Creating an API" width="500px" >}}
+
 * Customize your API settings, including authentication, rate limits, and caching, as per your requirements.
 * Click "Save" to create your API. Congratulations! You've just set up your first API.
 
