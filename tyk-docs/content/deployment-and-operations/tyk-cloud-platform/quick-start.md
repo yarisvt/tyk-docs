@@ -13,7 +13,7 @@ Start using Tyk on our servers. Nothing to install.
 
 ## Step 1: Sign Up for Tyk Cloud
 
-To beginn your Tyk Cloud journey, follow these simple steps to sign up for an account:
+To begin your Tyk Cloud journey, follow these simple steps to sign up for an account:
 
 * Navigate to the [Tyk Cloud sign up form](https://tyk.io/sign-up/#cloud).
 * Fill in the required information and click on "Next step: Create your password."
