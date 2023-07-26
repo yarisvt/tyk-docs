@@ -3089,7 +3089,7 @@ menu:
           path: /tyk-stack/tyk-operator/getting-started-tyk-operator
           category: Page
           show: True
-        - title: "Install Tyk Operator"
+        - title: "Installing Tyk Operator"
           path: /tyk-stack/tyk-operator/installing-tyk-operator
           category: Page
           show: True
