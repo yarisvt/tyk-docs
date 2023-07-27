@@ -32,8 +32,8 @@ Start using Tyk on our servers. Nothing to install:
 
 {{< grid >}}
 
-{{< badge read="15 mins" href="tyk-cloud/getting-started/" image="/img/tyk-cloud.svg">}}
-Configure Tyk Cloud
+{{< badge read="5 mins" href="/deployment-and-operations/tyk-cloud-platform/quick-start.md" image="/img/tyk-cloud.svg">}}
+Quick Start
 {{< /badge >}}
 
 {{< /grid >}}
