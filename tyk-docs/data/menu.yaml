@@ -96,6 +96,9 @@ menu:
           path: /tyk-cloud
           category: Page
           show: True
+        - title: "What Is Tyk Cloud?"
+          path: /tyk-cloud/what-is-tyk-cloud
+          show: False
         - title: "Quick start"
           path: /deployment-and-operations/tyk-cloud-platform/quick-start
           category: Page
