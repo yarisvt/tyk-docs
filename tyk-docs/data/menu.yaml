@@ -25,11 +25,15 @@ menu:
         path: /apim/open-source
         category: Page
         show: True
-      - title: "Quick install"
+      - title: "Quick start"
+        path: /deployment-and-operations/tyk-open-source-api-gateway/quick-start
+        category: Page
+        show: True
+      - title: "Other installation options"
         category: Directory
         show: True
         menu:
-        - title: "Get Started with OSS"
+        - title: "Overview"
           path: /apim/open-source/installation
           category: Page
           show: True
@@ -37,24 +41,20 @@ menu:
           path: /tyk-oss/ce-docker
           category: Page
           show: True
-        - title: "Via GitHub"
-          path: /tyk-oss/ce-github
+        - title: "Deploy Tyk OSS using new Helm Chart"
+          path: /tyk-oss/ce-helm-chart-new
           category: Page
           show: True
-      - title: "Other installation options"
-        category: Directory
-        show: True
-        menu:
+        - title: "Tyk Helm Chart"
+          path: /tyk-oss/ce-helm-chart
+          category: Page
+          show: True
         - title: "Ansible"
           path: /tyk-oss/ce-ansible
           category: Page
           show: True
         - title: "Debian / Ubuntu"
           path: /tyk-oss/ce-debian-ubuntu
-          category: Page
-          show: True
-        - title: "Tyk Helm Chart"
-          path: /tyk-oss/ce-helm-chart
           category: Page
           show: True
         - title: "As an Ingress Controller with Tyk Operator "
@@ -77,8 +77,8 @@ menu:
           path: /tyk-stack/tyk-gateway/configuration/redis-sentinel
           category: Page
           show: True
-        - title: "Deploy Tyk OSS using new Helm Chart"
-          path: /tyk-oss/ce-helm-chart-new
+        - title: "Via GitHub"
+          path: /tyk-oss/ce-github
           category: Page
           show: True
       - title: "Open source operations tooling"
@@ -2574,7 +2574,7 @@ menu:
       show: True
       menu:
       - title: "Overview"
-        path: /universal-data-graph/datasources/graphql
+        path: /universal-data-graph
         category: Page
         show: True
       - title: "Key concepts"
@@ -2583,10 +2583,6 @@ menu:
         menu:
         - title: "Concepts - DataSources"
           path: /tyk-stack/universal-data-graph/concepts/datasources
-          category: Page
-          show: True
-        - title: "Universal Data Graph"
-          path: /universal-data-graph
           category: Page
           show: True
         - title: "Concepts - Arguments"
@@ -2613,6 +2609,10 @@ menu:
         category: Directory
         show: True
         menu:
+        - title: "GraphQL Datasource"
+          path: /universal-data-graph/datasources/graphql
+          category: Page
+          show: True
         - title: "Kafka Datasource"
           path: /universal-data-graph/datasources/kafka
           category: Page

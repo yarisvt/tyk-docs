@@ -22,6 +22,7 @@ Tyk cloud is a fully managed service that makes it easy for API teams to create,
 
 The control plane is hosted by Tyk in the cloud, in one of the 5 regions available. Meanwhile, the data planes, composed of Tyk Gateways and Redis for temporary storage, can be either hosted by Tyk or managed by you on your infrastructure.
 
+
 Start using Tyk on our servers. Nothing to install:
 
 {{< button_left href="https://tyk.io/sign-up/" color="green" content="Try for free" >}}
