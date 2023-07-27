@@ -555,7 +555,7 @@ The maximum time in seconds that a RPC ping can last.
 EV: <b>TYK_GW_SLAVEOPTIONS_RPCPOOLSIZE</b><br />
 Type: `int`<br />
 
-The number of RPC connections in the pool. Basically it creates a set of connections that you can re-use as needed. Defaults to 5.
+The number of RPC connections in the pool. Basically it creates a set of connections that you can re-use as needed.
 
 ### slave_options.key_space_sync_interval
 EV: <b>TYK_GW_SLAVEOPTIONS_KEYSPACESYNCINTERVAL</b><br />
@@ -1390,12 +1390,6 @@ Type: `int`<br />
 
 Maximum message which can be sent to gRPC server
 
-### coprocess_options.grpc_authority
-EV: <b>TYK_GW_COPROCESSOPTIONS_GRPCAUTHORITY</b><br />
-Type: `string`<br />
-
-Authority used in GRPC connection
-
 ### coprocess_options.python_path_prefix
 EV: <b>TYK_GW_COPROCESSOPTIONS_PYTHONPATHPREFIX</b><br />
 Type: `string`<br />
@@ -1466,12 +1460,6 @@ EV: <b>TYK_GW_NEWRELIC_LICENSEKEY</b><br />
 Type: `string`<br />
 
 New Relic License key
-
-### newrelic.enable_distributed_tracing
-EV: <b>TYK_GW_NEWRELIC_ENABLEDISTRIBUTEDTRACING</b><br />
-Type: `bool`<br />
-
-Enable distributed tracing
 
 ### enable_http_profiler
 EV: <b>TYK_GW_HTTPPROFILE</b><br />
