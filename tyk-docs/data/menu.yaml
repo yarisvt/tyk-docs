@@ -861,26 +861,6 @@ menu:
         path: tyk-stack/tyk-developer-portal/enterprise-developer-portal/getting-started-with-enterprise-portal/getting-started-with-enterprise-portal
         category: Page
         show: True
-      - title: "Getting started"
-        category: Directory
-        show: True
-        menu:
-          - title: "1. Connect to a provider (Tyk Self-Managed)"
-            path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/getting-started-with-enterprise-portal/with-tyk-self-managed-as-provider
-            category: Page
-            show: True
-          - title: "2. Create API Product and Plans"
-            path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/getting-started-with-enterprise-portal/create-api-product-and-plan
-            category: Page
-            show: True
-          - title: "3. Publish API Products and Plans"
-            path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/getting-started-with-enterprise-portal/publish-api-products-and-plans
-            category: Page
-            show: True
-          - title: "4. Customise the menu of live portal"
-            path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/getting-started-with-enterprise-portal/customise-menus
-            category: Page
-            show: True
       - title: "Publish Ops"
         category: Directory
         show: False
