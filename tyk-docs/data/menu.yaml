@@ -2014,10 +2014,6 @@ menu:
         path: /tyk-dashboard
         category: Page
         show: True
-      - title: "Get started"
-        path: /tyk-dashboard/getting-started
-        category: Page
-        show: True
       - title: "Advanced configurations"
         category: Directory
         show: True
@@ -3333,6 +3329,10 @@ menu:
       category: Directory
       show: False
       menu:
+      - title: "Get started"
+        path: /tyk-dashboard/getting-started
+        category: Page
+        show: True
       - title: "Tyk Cloud Classic"
         path: /advanced-configuration/manage-multiple-environments/with-tyk-cloud-classic
         category: Page
