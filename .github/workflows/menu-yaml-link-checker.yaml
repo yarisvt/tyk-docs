@@ -53,13 +53,6 @@ jobs:
         with:
           path: ./tyk-docs/tyk_libs/.venv
           key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
-      - name: display tyk_libs version
-        run: |
-          pwd
-          ls
-          ls ../
-          cd ./tyk_libs
-          echo "poetry version"
       - name: install poetry dependencies except the poetry project in pyproject.toml
         run: |
           cd ./tyk_libs
