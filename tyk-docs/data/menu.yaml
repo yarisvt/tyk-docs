@@ -2018,10 +2018,6 @@ menu:
           category: Directory
           show: True
           menu:
-          - title: "Dashboard"
-            path: /basic-config-and-security/security/dashboard
-            category: Page
-            show: True
           - title: "Create User Groups"
             path: /basic-config-and-security/security/dashboard/create-user-groups
             category: Page
@@ -3325,6 +3321,10 @@ menu:
       category: Directory
       show: False
       menu:
+      - title: "Dashboard"
+        path: /basic-config-and-security/security/dashboard
+        category: Page
+        show: True
       - title: "Tyk Cloud Classic"
         path: /advanced-configuration/manage-multiple-environments/with-tyk-cloud-classic
         category: Page
