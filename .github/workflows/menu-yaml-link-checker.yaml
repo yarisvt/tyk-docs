@@ -17,15 +17,15 @@ jobs:
       - name: setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.111.3'
+          hugo-version: "0.111.3"
           extended: true
       - uses: actions/checkout@v3
         name: clone tyk-docs
       - uses: actions/checkout@v3
         name: clone tyk_libs
         with:
-           repository: dcs3spp/tyk_libs
-           path: ./tyk_libs
+          repository: dcs3spp/tyk_libs
+          path: ./tyk_libs
       - name: Prepare files to run script
         run: |
           cd ./tyk-docs
@@ -65,4 +65,4 @@ jobs:
       - name: Run script to check for missing links in menu.yaml
         run: |
           cd ./tyk_libs
-          echo "make find_missing_links"
+          make find_missing_links
