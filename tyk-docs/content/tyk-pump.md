@@ -11,8 +11,6 @@ aliases:
   - /getting-started/tyk-components/pump/
   - /tyk-configuration-reference/tyk-pump-configuration/tyk-pump-configuration/
 ---
-# Tyk Pump
-
 Tyk Pump is our [open source](https://github.com/TykTechnologies/tyk-pump) analytics purger that moves the API traffic analytics captured by Tyk gateways to any analytics backend or data store. It is also used to display your analytics data on Tyk Dashboard.
 
 {{< note success >}}
@@ -75,6 +73,7 @@ Tyk Pump is scalable, both horizontally and vertically, as indicated by instance
 
 We list our [supported backends here]({{< ref "tyk-stack/tyk-pump/other-data-stores.md" >}}).
 
+TODO update logos and links
 
 {{< grid >}}
     {{< badge href="tyk-pump/tyk-pump-configuration/tyk-pump-dashboard-config" image="/img/docker.png">}}

@@ -2918,38 +2918,58 @@ menu:
         category: Directory
         show: True
         menu:
-        - title: "Tyk Pump Configuration"
-          path: /tyk-pump/configuration
+        - title: "Getting started with Tyk Pump"
+          path: /tyk-pump/pump-get-started
           category: Page
           show: True
         - title: "Setup Dashboard Analytics"
           path: /tyk-pump/tyk-pump-configuration/tyk-pump-dashboard-config
           category: Page
           show: True
-        - title: "Graph Pump setup"
-          path: /tyk-stack/tyk-pump/tyk-pump-configuration/graph-pump/
+        - title: "Setup Graph Pump for GraphQL Analytics"
+          path: /tyk-stack/tyk-pump/tyk-pump-configuration/graph-pump
           category: Page
           show: True
       - title: "API documentation"
         category: Directory
         show: False
         menu:
-      - title: "Environment variables"
+      - title: "Tyk Pump Configuration"
         category: Directory
         show: True
         menu:
+        - title: "Tyk Pump Configuration"
+          path: /tyk-pump/configuration
+          category: Page
+          show: True
         - title: "Tyk Pump Environment Variables"
           path: /tyk-pump/tyk-pump-configuration/tyk-pump-environment-variables
+          category: Page
+          show: True
+        - title: "Tyk Analytics Record Fields"
+          path: /tyk-stack/tyk-pump/tyk-analytics-record-fields/
           category: Page
           show: True
       - title: "Advanced configurations"
         category: Directory
         show: True
         menu:
-        - title: "Configure data sinks"
+        - title: "Sharded Analytics"
+          path: /tyk-stack/tyk-pump/sharded-analytics
+          category: Page
+          show: True
+        - title: "Separated Analytics Storage"
+          path: /tyk-stack/tyk-pump/separated-analytics-storage
+          category: Page
+          show: True
+        - title: "Configure Pump Backends"
           category: Directory
           show: True
           menu:
+          - title: "Supported Backends"
+            path: /tyk-stack/tyk-pump/other-data-stores
+            category: Page
+            show: True
           - title: "Datadog Setup"
             path: /tyk-configuration-reference/tyk-pump-configuration/datadog
             category: Page
@@ -2962,14 +2982,10 @@ menu:
             path: /tyk-configuration-reference/tyk-pump-configuration/splunk
             category: Page
             show: True
-          - title: "Tyk Analytics Record Fields"
-            path: /tyk-stack/tyk-pump/tyk-analytics-record-fields/
+          - title: "Prometheus Setup"
+            path: /tyk-stack/tyk-pump/other-data-stores/monitor-apis-prometheus
             category: Page
             show: True
-        - title: "Monitor your APIs with Prometheus"
-          path: /tyk-stack/tyk-pump/other-data-stores/monitor-apis-prometheus
-          category: Page
-          show: True
       - title: "Troubleshooting"
         category: Directory
         show: True
@@ -3017,14 +3033,6 @@ menu:
           category: Directory
           show: False
           menu:
-      - title: "Supported Backends"
-        path: /tyk-stack/tyk-pump/other-data-stores
-        category: Page
-        show: True
-      - title: "Separated Analytics Storage"
-        path: /tyk-stack/tyk-pump/separated-analytics-storage
-        category: Page
-        show: True
       - title: "Release notes"
         category: Directory
         show: True
