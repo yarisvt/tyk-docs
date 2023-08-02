@@ -85,13 +85,13 @@ TODO update logos and links
     {{< badge title="Datadog" href="tyk-configuration-reference/tyk-pump-configuration/datadog" image="/img/pump-backends/datadog.png">}}
     Datadog / DogStatsD
     {{< /badge >}}
-    {{< badge title="ElasticSearch" href="tyk-pump/elasticsearch" image="/img/pump-backends/elastic.svg">}}
+    {{< badge title="ElasticSearch" href="tyk-pump/elasticsearch" image="/img/pump-backends/elastic.png">}}
     Elasticsearch (2.0+)
     {{< /badge >}}
-    {{< badge title="Graylog" href="tyk-pump/graylog" image="/img/pump-backends/graylog.svg">}}
+    {{< badge title="Graylog" href="tyk-pump/graylog" image="/img/pump-backends/graylog.png">}}
     Graylog
     {{< /badge >}}
-    {{< badge title="InfluxDB2" href="tyk-pump/influxdb2" image="/img/pump-backends/influxdb.svg">}}
+    {{< badge title="InfluxDB2" href="tyk-pump/influxdb2" image="/img/pump-backends/influxdb.png">}}
     InfluxDB2
     {{< /badge >}}
     {{< badge title="Kafka" href="tyk-pump/kafka" image="/img/pump-backends/kafka.png">}}
