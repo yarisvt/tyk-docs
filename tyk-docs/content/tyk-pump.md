@@ -76,52 +76,49 @@ We list our [supported backends here]({{< ref "tyk-stack/tyk-pump/other-data-sto
 TODO update logos and links
 
 {{< grid >}}
-    {{< badge href="tyk-pump/tyk-pump-configuration/tyk-pump-dashboard-config" image="/img/docker.png">}}
-    Tyk Dashboard (with MongoDB/SQL)
+    {{< badge href="tyk-pump/tyk-pump-configuration/tyk-pump-dashboard-config" image="/img/pump-backends/dashboard.png">}}
+    Tyk Dashboard
     {{< /badge >}}
-    {{< badge href="tyk-pump/hybrid" image="/img/docker.png">}}
-    Tyk Dashboard (for Distributed gateways)
-    {{< /badge >}}
-    {{< badge href="tyk-pump/csv" image="/img/docker.png">}}
+    {{< badge href="tyk-pump/csv" image="/img/pump-backends/csv.png">}}
     CSV
     {{< /badge >}}
-    {{< badge href="tyk-configuration-reference/tyk-pump-configuration/datadog" image="/img/docker.png">}}
+    {{< badge href="tyk-configuration-reference/tyk-pump-configuration/datadog" image="/img/pump-backends/datadog.png">}}
     Datadog / DogStatsD
     {{< /badge >}}
-    {{< badge href="tyk-pump/elasticsearch" image="/img/docker.png">}}
+    {{< badge href="tyk-pump/elasticsearch" image="/img/pump-backends/elastic.svg">}}
     Elasticsearch (2.0+)
     {{< /badge >}}
-    {{< badge href="tyk-pump/graylog" image="/img/docker.png">}}
+    {{< badge href="tyk-pump/graylog" image="/img/pump-backends/graylog.svg">}}
     Graylog
     {{< /badge >}}
-    {{< badge href="tyk-pump/influxdb2" image="/img/docker.png">}}
+    {{< badge href="tyk-pump/influxdb2" image="/img/pump-backends/influxdb.svg">}}
     InfluxDB2
     {{< /badge >}}
-    {{< badge href="tyk-pump/kafka" image="/img/docker.png">}}
+    {{< badge href="tyk-pump/kafka" image="/img/pump-backends/kafka.png">}}
     Kafka
     {{< /badge >}}
-    {{< badge href="tyk-pump/logzio" image="/img/docker.png">}}
+    {{< badge href="tyk-pump/logzio" image="/img/pump-backends/logzio.png">}}
     Logz.io
     {{< /badge >}}
-    {{< badge href="tyk-configuration-reference/tyk-pump-configuration/moesif" image="/img/docker.png">}}
+    {{< badge href="tyk-configuration-reference/tyk-pump-configuration/moesif" image="/img/pump-backends/moesif.png">}}
     Moesif
     {{< /badge >}}
-    {{< badge href="tyk-pump/other-data-stores/monitor-apis-prometheus" image="/img/docker.png">}}
+    {{< badge href="tyk-pump/other-data-stores/monitor-apis-prometheus" image="/img/pump-backends/prometheus.png">}}
     Prometheus
     {{< /badge >}}
-    {{< badge href="tyk-pump/resurfaceio" image="/img/docker.png">}}
+    {{< badge href="tyk-pump/resurfaceio" image="/img/pump-backends/resurfaceio.png">}}
     Resurface.io
     {{< /badge >}}
-    {{< badge href="tyk-configuration-reference/tyk-pump-configuration/splunk" image="/img/docker.png">}}
+    {{< badge href="tyk-configuration-reference/tyk-pump-configuration/splunk" image="/img/pump-backends/splunk.png">}}
     Splunk
     {{< /badge >}}
-    {{< badge href="tyk-pump/statsd" image="/img/docker.png">}}
+    {{< badge href="tyk-pump/statsd" image="/img/pump-backends/statsd.png">}}
     StatsD
     {{< /badge >}}
-    {{< badge href="tyk-pump/syslog" image="/img/docker.png">}}
+    {{< badge href="tyk-pump/syslog" image="/img/pump-backends/syslog.png">}}
     Syslog (FluentD)
     {{< /badge >}}
-    {{< badge href="tyk-pump/timestream" image="/img/docker.png">}}
+    {{< badge href="tyk-pump/timestream" image="/img/pump-backends/timestream.png">}}
     Timestream
     {{< /badge >}}
 {{< /grid >}}
