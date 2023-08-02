@@ -2959,7 +2959,7 @@ menu:
         show: True
         menu:
         - title: "Sharded Analytics"
-          path: /tyk-stack/tyk-pump/sharded-analytics
+          path: /tyk-pump/sharded-analytics
           category: Page
           show: True
         - title: "Separated Analytics Storage"
