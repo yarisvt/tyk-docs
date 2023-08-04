@@ -3361,6 +3361,10 @@ menu:
         path: /api-management/oss/gateway-api
         category: Page
         show: True
+      - title: "Synchroniser feature with MDCB"
+        path:  "/api-management/oss/test-release-5"
+        category: Page
+        show: True
       - title: "Cloud Classic Virtual Endpoints not working"
         path: /frequently-asked-questions/cloud-classic-virtual-endpoints-not-working
         category: Page
