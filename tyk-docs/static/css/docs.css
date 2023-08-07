@@ -1801,3 +1801,8 @@ pre {
     text-align: center;
   }
 }
+
+.fit-picture {
+  max-width: 100px!important;
+  height: auto;
+}
