@@ -15,7 +15,7 @@ The new Tyk Cloud platform allows you to quickly setup the full Tyk Enterprise A
 
 Sign up for a free trial to test it out:
 
-{{< button_left href="https://tyk.io/sign-up/" color="green" content="Free trial" >}}
+{{< button_left href="https://tyk.io/sign-up/" color="green" content="Try for free" >}}
 
 Or click here to [learn more]({{< ref "tyk-cloud/what-is-tyk-cloud" >}})
 
