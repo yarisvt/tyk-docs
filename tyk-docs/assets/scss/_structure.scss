@@ -9,7 +9,7 @@ body {
 .section-page {
     background: top center url("../img/front-bg-1.svg") repeat-x;
     background-size: 4817.57px;
-    background-color: #ebebf2;
+    background-color: $brandpurple-light;
     height: calc(100vh - #{$header-height} - #{$header-tabs-height});
     overflow: hidden;
 
