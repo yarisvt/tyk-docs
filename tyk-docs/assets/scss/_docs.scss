@@ -11,7 +11,6 @@
 }
 
 
-
 .badge {
   background: $white;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -181,7 +180,7 @@
   margin-top: 40px !important;
 }
 
-.grid.big .badge>.read {
+.grid.big .badge > .read {
   display: none;
 }
 
@@ -268,11 +267,6 @@
 }
 
 
-
-
-
-
-
 .return-top {
   display: none;
 }
@@ -284,11 +278,6 @@
 .submenu-toggle span {
   top: 0px !important;
 }
-
-
-
-
-
 
 
 /* Edit on GitHub button */
@@ -321,10 +310,10 @@ iframe {
 }
 
 /* Link icon */
-#main-content h2>a>img,
-#main-content h3>a>img,
-#main-content h4>a>img,
-#main-content h5>a>img {
+#main-content h2 > a > img,
+#main-content h3 > a > img,
+#main-content h4 > a > img,
+#main-content h5 > a > img {
   vertical-align: middle;
   border: none !important;
   height: 17px;
@@ -357,11 +346,6 @@ iframe {
   font-size: 32px;
   width: 400px;
 }
-
-
-
-
-
 
 
 /* Suggest an Edit */
@@ -490,14 +474,6 @@ iframe {
 }
 
 
-
-
-
-
-
-
-
-
 /* Documentation : Navigation */
 .docs-navigation {
   padding: 80px 0;
@@ -514,11 +490,11 @@ iframe {
   }
 }
 
-.docs-navigation>div {
+.docs-navigation > div {
   display: table-row;
 }
 
-.docs-navigation>div>* {
+.docs-navigation > div > * {
   display: table-cell;
   vertical-align: middle;
 }
@@ -579,14 +555,6 @@ iframe {
 }
 
 
-
-
-
-
-
-
-
-
 /* Return to Top buttons */
 
 #return-to-top {
@@ -630,15 +598,6 @@ iframe {
     visibility: hidden;
   }
 }
-
-
-
-
-
-
-
-
-
 
 
 /* Documentation : Share - Print*/
@@ -762,7 +721,6 @@ iframe {
     margin-right: 0;
   }
 
- 
 
   .docs-navigation .button {
     margin-bottom: 5px;
@@ -845,4 +803,10 @@ iframe {
     padding: 0;
     letter-spacing: 0.1em;
   }
+}
+
+.external-links::after {
+  content: url("../img/external-link-black.png");
+  width: 16px;
+  height: 16px;
 }
