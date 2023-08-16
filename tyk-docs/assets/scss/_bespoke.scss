@@ -1664,35 +1664,35 @@ body {
   background: $white;
   color: $black;
   padding: 12px 18px;
-  border-top: 2px solid #00B798;
-  border-bottom: 2px solid #00B798;
+  border-top: 2px solid $brand-black;
+  border-bottom: 2px solid $brand-black;
 }
 
 .wysiwyg table thead th {
-  border-right: 2px solid #efefef;
+  border-right: 2px solid $brandpurple-dark;
 }
 
 .wysiwyg table thead th:first-of-type {
-  border-left: 2px solid #00B798;
+  border-left: 2px solid $brand-black;
   border-top-left-radius: 25px;
 }
 
 .wysiwyg table thead th:last-of-type {
-  border-right: 2px solid #00B798;
+  border-right: 2px solid $brand-black;
   border-top-right-radius: 25px;
 }
 
 .wysiwyg table tbody td {
   padding: 12px 18px;
-  border-right: 2px solid #efefef;
-  border-bottom: 2px solid #efefef;
+  border-right: 2px solid $brandpurple-dark;
+  border-bottom: 2px solid $brandpurple-dark;
 }
 
 .wysiwyg table tbody tr td:first-of-type {
-  border-left: 2px solid #00B798;
+  border-left: 2px solid $brand-black;
 }
 .wysiwyg table tbody tr td:last-of-type {
-  border-right: 2px solid #00B798;
+  border-right: 2px solid $brand-black;
 }
 
 .wysiwyg table tbody tr td:nth-child(2) {
@@ -1700,16 +1700,16 @@ body {
 }
 
 .wysiwyg table tbody tr {
-  border-bottom: 2px solid #00B798;
+  border-bottom: 2px solid $brand-black;
 }
 
 .wysiwyg table tbody tr:last-of-type{
-  border-bottom: 2px solid #00B798;
+  border-bottom: 2px solid $brand-black;
   border-bottom-left-radius: 25px;
 }
 
 .wysiwyg table tbody tr:last-child > td{
-  border-bottom: 2px solid #00B798;
+  border-bottom: 2px solid $brand-black;
 }
 
 .wysiwyg table tbody tr:last-child td:first-child{
