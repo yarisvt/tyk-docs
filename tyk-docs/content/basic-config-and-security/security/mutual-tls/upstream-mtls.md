@@ -37,11 +37,11 @@ Do **NOT** include the protocol or Tyk will not match your certificates to the c
  
  ❌ `https://api.production.myupstream.com` 
 
- ✅ `api.production.myupstream.com`
+ {{< tick >}} `api.production.myupstream.com`
 
  You need to include the port if the request is made via a non-standard HTTP port.
 
- ✅ `api.production.myupstream.com:8443`
+ {{< tick >}} `api.production.myupstream.com:8443`
 
 
 ### Wild Cards
@@ -50,7 +50,7 @@ You may use wild cards in combination with text to match the domain, but it only
 
 Example, if your domain is `api.production.myupstream.com`
 
- ✅ `*.production.myupstream.com`  
+ {{< tick >}} `*.production.myupstream.com`  
  
  ❌ `*.myupstream.com`
 

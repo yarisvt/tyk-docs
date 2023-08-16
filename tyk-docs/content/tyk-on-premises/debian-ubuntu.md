@@ -57,12 +57,12 @@ You can choose to not install Redis, MongoDB or PostgreSQL by removing the `-t r
 ## Supported Distributions
 | Distribution | Version | Supported |
 | --------- | :---------: | :---------: |
-| Debian | 10 | ✅ |
-| Debian | 9 | ✅ |
-| Ubuntu | 21 | ✅ |
-| Ubuntu | 20 | ✅ |
-| Ubuntu | 18 | ✅ |
-| Ubuntu | 16 | ✅ |
+| Debian | 10 | {{< tick >}} |
+| Debian | 9 | {{< tick >}} |
+| Ubuntu | 21 | {{< tick >}} |
+| Ubuntu | 20 | {{< tick >}} |
+| Ubuntu | 18 | {{< tick >}} |
+| Ubuntu | 16 | {{< tick >}} |
 
 ## Variables
 - `vars/tyk.yaml`

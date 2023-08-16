@@ -12,10 +12,10 @@ There are two ways to set up client mTLS in Tyk, **static** and **dynamic**.  Th
 
 |         Use Case                                                           | Static |   Dynamic     | 
 |----------------------------------------------------------------------------|--------|---------------|
-| Let developers upload their own public certificates through the Developer Portal                 | ❌ | ✅ |
-| Combine client mTLS with another authentication method                                           | ✅ | ✅ |
-| Allow certs at the API level       *(one or more APIs per cert)*                             | ✅ | ❌ |
-| Allow certs at an individual level *(one or more APIs per cert)*                             | ❌ | ✅ |
+| Let developers upload their own public certificates through the Developer Portal                 | ❌ | {{< tick >}} |
+| Combine client mTLS with another authentication method                                           | {{< tick >}} | {{< tick >}} |
+| Allow certs at the API level       *(one or more APIs per cert)*                             | {{< tick >}} | ❌ |
+| Allow certs at an individual level *(one or more APIs per cert)*                             | ❌ | {{< tick >}} |
 
 
 ## Dynamic Client mTLS

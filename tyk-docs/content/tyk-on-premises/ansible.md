@@ -56,17 +56,17 @@ For a production environment, we recommend that the Gateway, Dashboard and Pump 
 ## Supported Distributions
 | Distribution | Version | Supported |
 | --------- | :---------: | :---------: |
-| Amazon Linux | 2 | ✅ |
-| CentOS | 8 | ✅ |
-| CentOS | 7 | ✅ |
-| Debian | 10 | ✅ |
-| Debian | 9 | ✅ |
-| RHEL | 8 | ✅ |
-| RHEL | 7 | ✅ |
-| Ubuntu | 21 | ✅ |
-| Ubuntu | 20 | ✅ |
-| Ubuntu | 18 | ✅ |
-| Ubuntu | 16 | ✅ |
+| Amazon Linux | 2 | {{< tick >}} |
+| CentOS | 8 | {{< tick >}} |
+| CentOS | 7 | {{< tick >}} |
+| Debian | 10 | {{< tick >}} |
+| Debian | 9 | {{< tick >}} |
+| RHEL | 8 | {{< tick >}} |
+| RHEL | 7 | {{< tick >}} |
+| Ubuntu | 21 | {{< tick >}} |
+| Ubuntu | 20 | {{< tick >}} |
+| Ubuntu | 18 | {{< tick >}} |
+| Ubuntu | 16 | {{< tick >}} |
 
 ## Variables
 - `vars/tyk.yaml`

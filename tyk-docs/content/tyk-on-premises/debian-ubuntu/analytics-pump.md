@@ -49,12 +49,12 @@ $ ansible-playbook playbook.yaml -t tyk-pump
 ## Supported Distributions
 | Distribution | Version | Supported |
 | --------- | :---------: | :---------: |
-| Debian | 10 | ✅ |
-| Debian | 9 | ✅ |
-| Ubuntu | 21 | ✅ |
-| Ubuntu | 20 | ✅ |
-| Ubuntu | 18 | ✅ |
-| Ubuntu | 16 | ✅ |
+| Debian | 10 | {{< tick >}} |
+| Debian | 9 | {{< tick >}} |
+| Ubuntu | 21 | {{< tick >}} |
+| Ubuntu | 20 | {{< tick >}} |
+| Ubuntu | 18 | {{< tick >}} |
+| Ubuntu | 16 | {{< tick >}} |
 
 {{< tab_end >}}
 {{< tab_start "Shell" >}}

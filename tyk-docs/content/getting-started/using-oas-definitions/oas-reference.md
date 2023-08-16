@@ -17,36 +17,36 @@ In the table below, OAS implemented means that the feature is available while us
 
 | Feature Name      | OAS Implemented | API Designer |
 |-------------------|-----------------|--------------|
-| API Name          | ✅               | ✅            |
-| API Internal      | ✅               | ✅            |
-| API Status        | ✅               | ✅            |
+| API Name          | {{< tick >}}               | {{< tick >}}            |
+| API Internal      | {{< tick >}}               | {{< tick >}}            |
+| API Status        | {{< tick >}}               | {{< tick >}}            |
 | API Categories    | ❌️               | ❌️            |
-| API ID/API URL(s) | ✅               | ✅            |
+| API ID/API URL(s) | {{< tick >}}               | {{< tick >}}            |
 | API Type          | ❌️               | ❌️            |
 
 ### Routing
 
 | Feature Name      | OAS Implemented | Api Designer |
 |-------------------|-----------------|--------------|
-| Listen Path/ Slug | ✅               | ✅            |
-| Target URL        | ✅               | ✅            |
-| API Versioning    | ✅               | ❌️            |
+| Listen Path/ Slug | {{< tick >}}               | {{< tick >}}            |
+| Target URL        | {{< tick >}}               | {{< tick >}}            |
+| API Versioning    | {{< tick >}}               | ❌️            |
 
 ### Client to Gateway Authentication
 
 | Feature Name                        | OAS Implemented | API Designer |
 |-------------------------------------|-----------------|--------------|
-| Keyless                             | ✅               | ✅            |
-| Auth Token                          | ✅               | ✅            |
-| JWT                                 | ✅               | ✅            |
-| OpenID Connect                      | ✅               | ✅            |
-| OAuth 2                             | ✅               | ✅            |
-| mTLS                                | ✅               | ✅            |
-| HMAC                                | ✅               | ✅            |
-| Basic Authentication                | ✅               | ✅            |
+| Keyless                             | {{< tick >}}               | {{< tick >}}            |
+| Auth Token                          | {{< tick >}}               | {{< tick >}}            |
+| JWT                                 | {{< tick >}}               | {{< tick >}}            |
+| OpenID Connect                      | {{< tick >}}               | {{< tick >}}            |
+| OAuth 2                             | {{< tick >}}               | {{< tick >}}            |
+| mTLS                                | {{< tick >}}               | {{< tick >}}            |
+| HMAC                                | {{< tick >}}               | {{< tick >}}            |
+| Basic Authentication                | {{< tick >}}               | {{< tick >}}            |
 | Plugin Auth - GO                    | ❌️               | ❌️            |
 | Custom Auth                         | ❌️               | ❌️            |
-| Multiple Authentication Mecanism    | ✅               | ✅            |
+| Multiple Authentication Mecanism    | {{< tick >}}               | {{< tick >}}            |
 | IP Whitelisting                     | ❌️               | ❌️            |
 | IP Blacklisting                     | ❌️               | ❌️            |
 | GW Request Signing                  | ❌️               | ❌️            |
@@ -56,8 +56,8 @@ In the table below, OAS implemented means that the feature is available while us
 
 | Feature Name                   | OAS Implemented | API Designer |
 |--------------------------------|-----------------|--------------|
-| Public Key Certificate Pinning | ✅               | ❌️            |
-| Upstream Certificates mTLS     | ✅               | ✅            |
+| Public Key Certificate Pinning | {{< tick >}}               | ❌️            |
+| Upstream Certificates mTLS     | {{< tick >}}               | {{< tick >}}            |
 | Upstream Request Signing       | ❌️               | ❌️            |
 
 ### Features
@@ -70,12 +70,12 @@ In the table below, OAS implemented means that the feature is available while us
 | Detailed recording (Log browser) enable_detailed_recording  | ❌️               |              |
 | Config Data                                                 | ❌️               | ❌️            |
 | Context Variables                                           | ❌️               | ❌️            |
-| CORS                                                        | ✅               | ✅            |
-| Cache                                                       | ✅               | ✅            |
-| Service Discovery                                           | ✅               | ✅            |
+| CORS                                                        | {{< tick >}}               | {{< tick >}}            |
+| Cache                                                       | {{< tick >}}               | {{< tick >}}            |
+| Service Discovery                                           | {{< tick >}}               | {{< tick >}}            |
 | Plugin Bundle (custom_middleware, custom_middleware_bundle) | ❌️               | ❌️            |
 | Batch Requests                                              | ❌️               | ❌️            |
-| Segment Tags                                                | ✅               | ✅            |
+| Segment Tags                                                | {{< tick >}}               | {{< tick >}}            |
 | Global Rate Limit                                           | ❌️               | ❌️            |
 | Webhooks                                                    | ❌️               | ❌️            |
 | Looping                                                     | ❌️               | ❌️            |
@@ -87,39 +87,39 @@ In the table below, OAS implemented means that the feature is available while us
 | Feature Name                | OAS Implemented | API Designer |
 |-----------------------------|-----------------|--------------|
 | Global Headers              | ❌️               | ❌️            |
-| Endpoint CRUD operations    | ✅               | ✅            |
-| Middleware CRUD  operations | ✅               | ✅            |
+| Endpoint CRUD operations    | {{< tick >}}               | {{< tick >}}            |
+| Middleware CRUD  operations | {{< tick >}}               | {{< tick >}}            |
 | Transform Request Body      | ❌️               | ❌️            |
 | Transform Response Body     | ❌️               | ❌️            |
-| Block                       | ✅               | ✅            |
-| Cache                       | ✅               | ✅            |
+| Block                       | {{< tick >}}               | {{< tick >}}            |
+| Cache                       | {{< tick >}}               | {{< tick >}}            |
 | Circuit Breaker             | ❌️               | ❌️            |
 | Do not track                | ❌️               | ❌️            |
-| Enforced timeout            | ✅               | ❌️            |
-| Ignore                      | ✅               | ✅            |
+| Enforced timeout            | {{< tick >}}               | ❌️            |
+| Ignore                      | {{< tick >}}               | {{< tick >}}            |
 | Internal                    | ❌️               | ❌️            |
-| Transform Request Method    | ✅               | ❌️            |
-| Mock Response               | ✅               | ❌️            |
+| Transform Request Method    | {{< tick >}}               | ❌️            |
+| Mock Response               | {{< tick >}}               | ❌️            |
 | Transform Request Headers   | ❌️               | ❌️            |
 | Transform Response Headers  | ❌️               | ❌️            |
 | Request size limit          | ❌️               | ❌️            |
 | Track endpoint              | ❌️               | ❌️            |
 | URL Rewrite                 | ❌️               | ❌️            |
-| Validate Request            | ✅               | ✅            |
+| Validate Request            | {{< tick >}}               | {{< tick >}}            |
 | Virtual Endpoint            | ❌️               | ❌️            |
-| Allow                       | ✅               | ✅            |
+| Allow                       | {{< tick >}}               | {{< tick >}}            |
 
 ### API Export
 
 | Feature Name | OAS Implemented | API Designer |
 |--------------|-----------------|--------------|
-| API Export   | ✅               | ✅            |
+| API Export   | {{< tick >}}               | {{< tick >}}            |
 
 ### API Export Raw OAS Editor
 
 | Feature Name       | OAS Implemented | API Designer |
 |--------------------|-----------------|--------------|
-| API Raw OAS Editor | ✅               | ✅            |
+| API Raw OAS Editor | {{< tick >}}               | {{< tick >}}            |
 
 
 

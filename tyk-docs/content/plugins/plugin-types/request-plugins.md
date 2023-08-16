@@ -14,12 +14,12 @@ There are 4 different phases in the [request lifecycle]({{< ref "concepts/middle
 ### Hook Capabilities
 | Functionality           |   Pre    |  Auth       | Post-Auth |    Post   |
 |-------------------------|----------|-------------|-----------|-----------|
-| Can modify the Header   | ✅       | ✅          | ✅       | ✅  
-| Can modify the Body     | ✅       | ✅          | ✅       |✅
-| Can modify Query Params | ✅       | ✅          | ✅       |✅
-| Can view Session<sup>1</sup> Details (metadata, quota, context-vars, tags, etc)  |   ❌       | ✅          |✅          |✅
-| Can modify Session<sup>1</sup> <sup>2</sup> |    ❌      | ✅          |    ❌      |❌
-| Can Add More Than One<sup>3</sup> |    ✅      |        ❌   |✅          | ✅
+| Can modify the Header   | {{< tick >}}       | {{< tick >}}          | {{< tick >}}       | {{< tick >}}  
+| Can modify the Body     | {{< tick >}}       | {{< tick >}}          | {{< tick >}}       |{{< tick >}}
+| Can modify Query Params | {{< tick >}}       | {{< tick >}}          | {{< tick >}}       |{{< tick >}}
+| Can view Session<sup>1</sup> Details (metadata, quota, context-vars, tags, etc)  |   ❌       | {{< tick >}}          |{{< tick >}}          |{{< tick >}}
+| Can modify Session<sup>1</sup> <sup>2</sup> |    ❌      | {{< tick >}}          |    ❌      |❌
+| Can Add More Than One<sup>3</sup> |    {{< tick >}}      |        ❌   |{{< tick >}}          | {{< tick >}}
 
 [1] A [Session object]({{< ref "getting-started/key-concepts/what-is-a-session-object" >}}) contains allowances and identity information that is unique to each requestor
 
