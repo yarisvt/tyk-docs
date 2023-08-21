@@ -1,7 +1,7 @@
 ---
 date: 2017-03-15T15:01:42Z
-title: "Self-Managed Installation"
-tags: ["Tyk Stack", "Self-Managed", "Installation"]
+title: "Installation options"
+tags: ["Tyk Stack", "Self-Managed", "Installation", "Installation options", "Containerized installation", "Open system installation"]
 description: "How to install the Self-Managed Tyk Stack"
 identifier: "tyk-self-managed-installation"
 weight: 1
@@ -50,8 +50,6 @@ Install on Microsoft Azure
 {{< /badge >}}
 
 {{< /grid >}}
-
-We distribute Tyk via Packagecloud.io APT and Yum repositories, as well as via our [Github repository for the Tarballs](http://upstart.ubuntu.com/cookbook/).
 
 {{< button_left href="https://tyk.io/sign-up/#self" color="green" content="Self-managed Free trial" >}}
 
