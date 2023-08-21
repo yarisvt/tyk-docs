@@ -26,7 +26,7 @@ On the left-hand side some additional actions are available:
 
 In case you don't have access to Tyk Dashboard and you need to use Tyk Gateway API, you will most likely use external tools to design your schema.
 
-Once done, that schema needs to be added to Tyk API Definition. All Data Graph specific configurations are stored in `"graphql"` object insode the Tyk Definition JSON.
+Once done, that schema needs to be added to Tyk API Definition. All Data Graph specific configurations are stored in `"graphql"` object inside the Tyk Definition JSON.
 
 ```bash
     "graphql": {
