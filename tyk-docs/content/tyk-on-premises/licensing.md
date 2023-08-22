@@ -43,23 +43,23 @@ Do you need support for centrally managing your APIs while deploying edge gatewa
 
 ## Launch - perfect to get started
 
-{{< tick >}} For single teams just getting started
+✅ For single teams just getting started
 
 {{< img src="/img/diagrams/tyk-selfmanaged-launch.png" alt="Tyk Self-managed Launch">}}
 
 ## Flex - for multiple teams within a single data centre or cloud 
 
-{{< tick >}} For multiple teams that require high availability and horizontal scaling <br/>
-{{< tick >}} For Kubernetes-based deployment within one cluster / region 
+✅ For multiple teams that require high availability and horizontal scaling <br/>
+✅ For Kubernetes-based deployment within one cluster / region 
 
 {{< img src="/img/diagrams/tyk-selfmanaged-flex.png" alt="Tyk Self-managed Flex">}}
 
 ## Global Multi-team - for the largest global enterprises at scale
 
-{{< tick >}} For managing your APIs centrally while deploying edge gateways in independent clusters / regions <br />
-{{< tick >}} For the highest availability across data centers <br />
-{{< tick >}} For Kubernetes-based deployment in multiple cluster / multiple regions <br />
-{{< tick >}} For larger organisations [with multiple teams]({{< ref "tyk-multi-data-centre.md" >}}) and [data sovereignty](https://tyk.io/blog/strategies-for-dealing-with-data-sovereignty-at-scale/) requirements <br />
+✅ For managing your APIs centrally while deploying edge gateways in independent clusters / regions <br />
+✅ For the highest availability across data centers <br />
+✅ For Kubernetes-based deployment in multiple cluster / multiple regions <br />
+✅ For larger organisations [with multiple teams]({{< ref "tyk-multi-data-centre.md" >}}) and [data sovereignty](https://tyk.io/blog/strategies-for-dealing-with-data-sovereignty-at-scale/) requirements <br />
 
 The license starts with 3 environments and 2 regions, can be extended to more environments and regions as needed.
 

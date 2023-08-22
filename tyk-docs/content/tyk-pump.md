@@ -59,7 +59,7 @@ Tyk Pump can be horizontally scaled without causing duplicate data, please see t
 
 | Supported | Summary |
 | -- | -- |
-| {{< tick >}} | Single Pump Instance, Single Backend |
-| {{< tick >}} | Single Pump Instance, Multiple Backend(s) |
-| {{< tick >}} | Multiple Pump Instances, Same Backend(s)|
+| ✅ | Single Pump Instance, Single Backend |
+| ✅ | Single Pump Instance, Multiple Backend(s) |
+| ✅ | Multiple Pump Instances, Same Backend(s)|
 | ❌ | Multiple Pump Instances, Different Backend(s) |

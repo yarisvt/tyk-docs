@@ -23,11 +23,11 @@ What Language do I want to write my middleware in and can I use it in this phase
 
 |                          | Auth   |   Pre     | Post-Auth | Post | Response   
 |--------------------------|--------|-----------|-----------|------|-----------|
-| GoLang                   | {{< tick >}}     |{{< tick >}}	        |{{< tick >}}        |{{< tick >}}    |{{< tick >}}
-| JavaScript               | ❌		 |{{< tick >}}	        |❌	      |{{< tick >}} 	  |❌
-| gRPC <sup>2</sup> (Rich) <sup>1</sup>  | {{< tick >}}		 |{{< tick >}}	        |{{< tick >}}	      |{{< tick >}}	  |{{< tick >}}
-| Python (Rich) <sup>1</sup>| {{< tick >}}		 |{{< tick >}}	        |{{< tick >}}	      |{{< tick >}}	  |{{< tick >}}
-| Lua (Rich) <sup>1</sup>   | {{< tick >}}	   |{{< tick >}}	        |{{< tick >}}	      |{{< tick >}}	  |❌
+| GoLang                   | ✅     |✅	        |✅        |✅    |✅
+| JavaScript               | ❌		 |✅	        |❌	      |✅ 	  |❌
+| gRPC <sup>2</sup> (Rich) <sup>1</sup>  | ✅		 |✅	        |✅	      |✅	  |✅
+| Python (Rich) <sup>1</sup>| ✅		 |✅	        |✅	      |✅	  |✅
+| Lua (Rich) <sup>1</sup>   | ✅	   |✅	        |✅	      |✅	  |❌
 
 [More reading on the hook locations]({{< ref "plugins/supported-languages/rich-plugins/rich-plugins-work#coprocess-dispatcher---hooks" >}})
 
@@ -50,9 +50,9 @@ What are the limitations to using this programming Language?
 
 |                                   | GoLang |   JavaScript     | gRPC      | Python    |  Lua   
 |-----------------------------------|--------|------------------|-----------|-----------|-----------|
-| Runs in Gateway process           | {{< tick >}}<br>Runs<br>natively		  |{{< tick >}}<br>Built-In JSVM Interpreter	              |❌<br>Standalone server	|{{< tick >}}<br>Tyk talks with Python interpreter	|{{< tick >}}
-| Built-in SDK                      | {{< tick >}}	<br>All Gateway Functionality  |[Yes]({{< ref "plugins/supported-languages/javascript-middleware/javascript-api" >}})	|❌	|[Yes]({{< ref "plugins/supported-languages/rich-plugins/python/tyk-python-api-methods" >}})	|❌
-| TCP Connections<p>(DBs, Redis, etc)</p> | {{< tick >}} | ❌<br>Very Limited <sup>5</sup> | {{< tick >}} | {{< tick >}} | {{< tick >}} | 
+| Runs in Gateway process           | ✅<br>Runs<br>natively		  |✅<br>Built-In JSVM Interpreter	              |❌<br>Standalone server	|✅<br>Tyk talks with Python interpreter	|✅
+| Built-in SDK                      | ✅	<br>All Gateway Functionality  |[Yes]({{< ref "plugins/supported-languages/javascript-middleware/javascript-api" >}})	|❌	|[Yes]({{< ref "plugins/supported-languages/rich-plugins/python/tyk-python-api-methods" >}})	|❌
+| TCP Connections<p>(DBs, Redis, etc)</p> | ✅ | ❌<br>Very Limited <sup>5</sup> | ✅ | ✅ | ✅ | 
 
 ## Custom Plugin Table
 

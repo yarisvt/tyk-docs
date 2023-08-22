@@ -52,13 +52,13 @@ You can choose to not install Redis by removing the `-t redis`. However Redis is
 ## Supported Distributions
 | Distribution | Version | Supported |
 | --------- | :---------: | :---------: |
-| Debian | 11 | {{< tick >}} |
+| Debian | 11 | ✅ |
 | Debian | 10 | ❌ |
 | Debian | 9 | ❌ |
 
-| Ubuntu | 20 | {{< tick >}} |
-| Ubuntu | 18 | {{< tick >}} |
-| Ubuntu | 16 | {{< tick >}} |
+| Ubuntu | 20 | ✅ |
+| Ubuntu | 18 | ✅ |
+| Ubuntu | 16 | ✅ |
 
 ## Variables
 - `vars/tyk.yaml`
