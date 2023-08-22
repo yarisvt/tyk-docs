@@ -47,7 +47,7 @@ html {
 [class^="icon-"]:before,
 [class*=" icon-"]:before,
 blockquote:before {
-  font-family: "tyk";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: normal;
   speak: none;
@@ -460,7 +460,7 @@ iframe {
   Typography
    ========================================================================== */
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   line-height: 1.5;
   font-size: 15px;
   letter-spacing: 0.015em;
@@ -478,7 +478,7 @@ h4 {
 
 p {
   margin-bottom: 16px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   line-height: 2;
 }
 
@@ -591,7 +591,7 @@ textarea {
   font: inherit;
   outline: none;
   border: none;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 input[type=text],
@@ -1596,7 +1596,7 @@ body {
 .wysiwyg ul,
 .wysiwyg ol,
 .wysiwyg table {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 .wysiwyg ul {
@@ -2010,7 +2010,7 @@ body {
   font-size: 14px;
   color: #a4a4a8;
   font-weight: bold;
-  font-family: 'smoolthan';
+  font-family: 'Inter', sans-serif;
   text-align: left;
   letter-spacing: 0.175em;
   text-transform: uppercase;
@@ -2027,7 +2027,7 @@ body {
   position: absolute;
   right: 0;
   top: -10px;
-  font-family: 'tyk';
+  font-family: 'Inter', sans-serif;
   font-size: 0;
   width: 32px;
   height: 32px;
@@ -2262,7 +2262,7 @@ body {
   content: 'Pronunciation: /tAIk/';
   padding-left: 14px;
   font-size: 14px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: normal;
 }
 
@@ -3829,7 +3829,7 @@ body {
    ========================================================================== */
 .woocommerce table {
   width: 100%;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   text-align: left;
 }
 
@@ -4842,7 +4842,7 @@ body {
 
   .show-menu .burger:after {
     content: '\e801';
-    font-family: 'tyk';
+    font-family: 'Inter', sans-serif;
     font-size: 18px;
     color: $white;
     line-height: 50px;
@@ -6654,7 +6654,7 @@ body {
 
 .vbox-prev:before,
 .vbox-next:before {
-  font-family: 'tyk';
+  font-family: 'Inter', sans-serif;
   font-size: 26px;
   width: 50px;
   height: 50px;
