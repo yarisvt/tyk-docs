@@ -148,7 +148,7 @@ Tree View
     padding-block: 1rem;
     padding-inline-end: 1rem;
     border-block-start: 1px solid $brandpurple-1;
-    color: $brandpurple-7;
+    color: $brand-black;
 
     select {
         border: 1px solid $brandgreen-4;
@@ -372,7 +372,7 @@ Tree View
 
     p {
       line-height: 1.2;
-      color: black;
+      color: $brand-black;
     }
 
     a {
