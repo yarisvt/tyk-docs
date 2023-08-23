@@ -195,6 +195,7 @@ Tree View
         }
 
         &.category-Directory {
+            color: $brand-black;
             &:hover > a {
                 color: $brandpurple-11;
                 font-weight: bold;
