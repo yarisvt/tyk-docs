@@ -1669,7 +1669,7 @@ body {
 }
 
 .wysiwyg table thead th {
-  border-right: 2px solid $brandpurple-dark;
+  border-right: 1px solid $brandpurple-dark;
 }
 
 .wysiwyg table thead th:first-of-type {
@@ -1684,8 +1684,8 @@ body {
 
 .wysiwyg table tbody td {
   padding: 12px 18px;
-  border-right: 2px solid $brandpurple-dark;
-  border-bottom: 2px solid $brandpurple-dark;
+  border-right: 1px solid $brandpurple-dark;
+  border-bottom: 1px solid $brandpurple-dark;
 }
 
 .wysiwyg table tbody tr td:first-of-type {
