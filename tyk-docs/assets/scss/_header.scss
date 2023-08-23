@@ -47,6 +47,7 @@
 			a {
 				position: relative;
 				font-size: 18px;
+				color: $brand-black;
 			}
 
 			label[for="extend-links"] {
@@ -125,7 +126,7 @@
 	}
 
 	a {
-		color: $brandpurple-7;
+		color: $brand-black;
 		font-size: 18px;
 		font-weight: bold;
 		font-family: 'Inter', sans-serif;

@@ -59,11 +59,12 @@ body {
         margin-top: 40px!important;
     }
 
-    .wysiwyg a:not(.button) {
+    .wysiwyg a:not(.button):not(.badge) {
         color: $brandpurple-dark!important;
         text-decoration: underline;
 
     }
+
 
     &__container {
         width: 100%;
