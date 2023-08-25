@@ -857,3 +857,13 @@ iframe {
   top: 0;
   background-size: 100%;
 }
+
+.external-links-black::after {
+  content: "";
+  background:  url("../img/external-white.svg") no-repeat 0 0;
+  width: 16px!important;
+  height: 16px!important;
+  display: inline-block;
+  top: 0;
+  background-size: 100%;
+}
