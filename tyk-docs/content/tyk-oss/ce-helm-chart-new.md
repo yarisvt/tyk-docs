@@ -19,7 +19,7 @@ Tyk is working to provide a new set of Helm charts, and will progressively roll 
 |-----------------|-------------|--------|
 | tyk-oss                | Tyk Open Source | Stable              |
 | tyk-stack          | Tyk Self Managed (Single DC) | Beta            |
-| tyk-mdcb-control-plane | Tyk Self Managed (MDCB) Control Plane | Coming Soon     |
+| tyk-control-plane | Tyk Self Managed (MDCB) Control Plane | Coming Soon     |
 | tyk-data-plane    | Tyk Self Managed (MDCB) Data Plane <br> Tyk Hybrid Data Plane | Stable              |
 
 To deploy Tyk OSS using the new Helm chart, please use [tyk-oss](https://github.com/TykTechnologies/tyk-charts/tree/main/tyk-oss) chart.
