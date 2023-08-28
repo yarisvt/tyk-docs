@@ -164,7 +164,7 @@ Tyk is working to provide a new set of Helm charts, and will progressively roll 
 | Umbrella Charts | Description | Status |
 |-----------------|-------------|--------|
 | tyk-oss                | Tyk Open Source | Stable              |
-| tyk-single-dc          | Tyk Self Managed (Single DC) | Beta            |
+| tyk-stack          | Tyk Self Managed (Single DC) | Beta            |
 | tyk-mdcb-control-plane | Tyk Self Managed (MDCB) Control Plane | Coming Soon     |
 | tyk-mdcb-data-plane    | Tyk Self Managed (MDCB) Data Plane <br> Tyk Hybrid Data Plane | Stable              |
 
