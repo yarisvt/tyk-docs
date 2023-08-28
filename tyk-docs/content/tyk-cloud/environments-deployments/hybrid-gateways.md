@@ -170,7 +170,7 @@ Tyk is working to provide a new set of Helm charts, and will progressively roll 
 
 To deploy hybrid data planes using the new Helm chart, please use [tyk-data-plane](https://github.com/TykTechnologies/tyk-charts/tree/main/tyk-data-plane) chart.
 
-## Tyk MDCB Data Plane
+## Tyk Data Plane
 
 `tyk-data-plane` provides the default deployment of a Tyk data plane for Tyk Self Managed MDCB or Tyk Cloud users. It will deploy the data plane components that remotely connect to a MDCB control plane.
 
