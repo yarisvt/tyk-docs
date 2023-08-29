@@ -1636,13 +1636,16 @@ menu:
           category: Directory
           show: True
           menu:
+          - title: "Jaeger"
+            path: /advanced-configuration/distributed-tracing/opentracing/jaeger
+            category: Page
+            show: False
           - title: "Overview"
             path: /advanced-configuration/distributed-tracing/overview
             category: Page
             show: True
           - title: "OpenTelemetry"
-            path: /advanced-configuration/distributed-tracing/opentracing/jaeger
-            category: Page
+            category: Directory
             show: True
             menu:
             - title: "Overview"
