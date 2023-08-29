@@ -1,7 +1,7 @@
 ---
 title: "Jaeger"
 date: 2019-07-29T10:28:52+03:00
-weight: 1
+weight: 2
 menu: 
   main:
     parent:  "Distributed Tracing"

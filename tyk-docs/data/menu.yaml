@@ -1632,26 +1632,43 @@ menu:
             path: /advanced-configuration/integrate
             category: Page
             show: True
-        - title: "OpenTracing"
+        - title: "Distributed Tracing"
           category: Directory
           show: True
           menu:
-          - title: "Jaeger"
-            path: /advanced-configuration/distributed-tracing/jaeger
+          - title: "Overview"
+            path: /advanced-configuration/distributed-tracing/overview
             category: Page
             show: True
-          - title: "New Relic"
-            path: /advanced-configuration/distributed-tracing/newrelic
+          - title: "OpenTelemetry"
+            path: /advanced-configuration/distributed-tracing/opentracing/jaeger
             category: Page
             show: True
-          - title: "Zipkin"
-            path: /advanced-configuration/distributed-tracing/zipkin
-            category: Page
+            menu:
+            - title: "Overview"
+              path: /advanced-configuration/distributed-tracing/opentelemetry/opentelemetry
+              category: Page
+              show: true
+          - title: "OpenTracing"
+            category: Directory
             show: True
-          - title: "Distributed Tracing"
-            path: /advanced-configuration/opentracing
-            category: Page
-            show: True
+            menu:
+            - title: "Overview"
+              path: /advanced-configuration/distributed-tracing/opentracing/opentracing
+              category: Page
+              show: True
+            - title: "Jaeger"
+              path: /advanced-configuration/distributed-tracing/opentracing/jaeger
+              category: Page
+              show: True
+            - title: "New Relic"
+              path: /advanced-configuration/distributed-tracing/opentracing/newrelic
+              category: Page
+              show: True
+            - title: "Zipkin"
+              path: /advanced-configuration/distributed-tracing/opentracing/zipkin
+              category: Page
+              show: True
         - title: "Plugins"
           category: Directory
           show: True
