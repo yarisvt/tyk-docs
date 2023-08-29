@@ -445,8 +445,8 @@ iframe {
 }
 
 .button.copy {
-  background: #dfdfed;
-  color: #000 !important;
+  background:$brand-black;
+  color: $white !important;
   height: 30px;
   width: 160px;
   border-radius: 18px;
