@@ -1652,6 +1652,14 @@ menu:
             path: /advanced-configuration/distributed-tracing/otel_jaeger
             category: Page
             show: True
+          - title: "OpenTelemetry + Dynatrace"
+            path: /advanced-configuration/distributed-tracing/otel_dynatrace
+            category: Page
+            show: True
+          - title: "OpenTelemetry + New Relic"
+            path: /advanced-configuration/distributed-tracing/otel_new_relic
+            category: Page
+            show: True
           - title: "Distributed Tracing"
             path: /advanced-configuration/opentracing
             category: Page
