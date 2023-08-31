@@ -125,7 +125,7 @@ By ticking the *Add headers* box you will be able to provide a list of key/value
 
 This is an **optional** setting.
 
-UDG is capable of forwarding the headers your consumers send with their request to multiple data sources. To know more about header forwarding see [this]({{< ref "/universal-data-graph/concepts/header-forwarding">}}) section.
+UDG is capable of forwarding the headers your consumers send with their request to multiple data sources. To know more about header forwarding see [this]({{< ref "/universal-data-graph/getting-started/header-forwarding">}}) section.
 
 **Field mapping**
 This setting allows you to define how Tyk's Data Graph engine should traverse the data source response, to parse the part you want. This is an **optional** setting and it is disabled by default.
