@@ -12,16 +12,11 @@ weight: 3
 
 This comprehensive guide provides a step-by-step walkthrough on setting up Tyk Gateway with OpenTelemetry and Jaeger to enhance API observability. We will go through installing necessary components, configuring them, and ensuring they work in unison.
 
-**Prerequisites:**
+## Prerequisites
 
-- Docker installed on your machine
+- [Docker installed on your machine](https://docs.docker.com/get-docker/)
 
-### Step 1: Install Docker
-
-Step 1: Install Docker
-If Docker is not installed on your machine, you can follow the official [Docker installation guide](https://docs.docker.com/get-docker/).
-
-### Step 2: Tyk Gateway Configuration
+### Step 1: Tyk Gateway Configuration
 
 For Tyk Gateway to work with OpenTelemetry, modify the default Tyk configuration to include the following OpenTelemetry settings:
 
@@ -36,9 +31,10 @@ For Tyk Gateway to work with OpenTelemetry, modify the default Tyk configuration
 ```
 
 Note that the `endpoint` value is the address of the OpenTelemetry Collector. We will set this up in the next step.
+
 Also, you can modify the `exporter` value to `http` if you want to use the HTTP protocol instead of gRPC.
 
-### Step 3: Create the Docker-Compose File for Jaeger and OpenTelemetry Collector
+### Step 2: Create the Docker-Compose File for Jaeger and OpenTelemetry Collector
 
 #### Option 1: Using Docker Compose
 
@@ -90,7 +86,7 @@ docker run --name jaeger \
   jaegertracing/all-in-one:1.35
 ```
 
-### Step 4: Configure the OpenTelemetry Collector
+### Step 3: Configure the OpenTelemetry Collector
 
 Create a new YAML configuration file named otel-collector.yml with the following content:
 
@@ -124,7 +120,7 @@ service:
       exporters: [jaeger]
 ```
 
-### Step 5: Run OSS Tyk Gateway with OpenTelemetry and Jaeger
+### Step 4: Run OSS Tyk Gateway with OpenTelemetry and Jaeger
 
 To run Tyk Gateway, you can extend the previous Docker Compose file to include Tyk Gateway and Redis services. Make sure to include the environment variables to configure OpenTelemetry in Tyk Gateway.
 
@@ -151,7 +147,11 @@ redis:
   command: redis-server --appendonly yes
 ```
 
-**NOTE**: Indicate the folder containing your APIs by setting the TYK_APPS environment variable. By default, the apps folder in the Docker Compose file's location will be used for loading the APIs.
+{{< note success >}}
+**Note**
+
+Indicate the folder containing your APIs by setting the [TYK_GW_APPPATH](https://tyk.io/docs/tyk-oss-gateway/configuration/#app_path) environment variable. By default, the apps folder in the Docker Compose file's location will be used for loading the APIs.
+{{< /note >}}
 
 To run all services, execute:
 
@@ -188,7 +188,11 @@ metadata:
 EOF
 ```
 
-**Note:** The Jaeger UI will be available at `jaeger-all-in-one-query:16686`.
+{{< note success >}}
+**Note**
+
+The Jaeger UI will be available at `jaeger-all-in-one-query:16686`.
+{{< /note >}}
 
 ### Step 2: Configure OpenTelemetry Collector
 
@@ -235,9 +239,11 @@ helm install tyk-otel-collector open-telemetry/opentelemetry-collector -n tyk --
 
 ### Step 3: Configure Tyk Gateway
 
-1. Tyk Configuration - Enable OpenTelemetry in Tyk by setting environment variables:
+#### 1. Configure OpenTelemetry in Tyk by setting environment variables:
 
-```json
+You can enable OpenTelemetry in Tyk by modifying its configuration as follows:
+
+````json
 {
   "opentelemetry": {
     "enabled": true,
@@ -245,17 +251,19 @@ helm install tyk-otel-collector open-telemetry/opentelemetry-collector -n tyk --
     "endpoint": "tyk-otel-collector-opentelemetry-collector:4317"
   }
 }
-```
 
-Or you can set the environment variables accordingly:
+Alternatively, set the environment variables in your deployment:
+
 
 ```bash
 TYK_GW_OPENTELEMETRY_ENABLED=true
 TYK_GW_OPENTELEMETRY_EXPORTER=grpc
 TYK_GW_OPENTELEMETRY_ENDPOINT=tyk-otel-collector-opentelemetry-collector:4317
-```
+````
 
-2. Install/Upgrade Tyk using Helm:
+#### 2. Install/Upgrade Tyk using Helm:
+
+To install or upgrade Tyk using Helm, execute the following commands:
 
 ```bash
 NAMESPACE=tyk
