@@ -113,7 +113,8 @@ For example, to create a cache entry for each response to a `POST` request to yo
       {
         "method":"POST",
         "path":"addBooks",
-        "cache_key_regex": "my_match_pattern"
+        "cache_key_regex": "my_match_pattern",
+        "timeout": 60
       }
     ]
 }
