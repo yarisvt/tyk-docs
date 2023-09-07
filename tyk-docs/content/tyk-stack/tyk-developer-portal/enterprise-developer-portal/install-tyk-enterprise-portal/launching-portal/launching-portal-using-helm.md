@@ -37,11 +37,12 @@ Where `TYK_ORG` and `TYK_AUTH` are the Tyk Dashboard Organisation ID and the Tyk
 
 You must set the following values in the `values.yaml` or with `--set {field-name}={field-value}` with the helm upgrade command:
 
-|      Description                                                                                                                                                       |  Field name 
-|------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------
-| Enable portal installation  | <code>enterprisePortal.enabled</code>
-|  Enable portal bootstrapping  |  <code>enterprisePortal.bootstrap</code>
-|   Tyk license key for your portal installationg  |  <code>enterprisePortal.license</code>
+|      Description                                                                                                                                                      |  Field name 
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------|--------------
+| Enable portal installation | <code>enterprisePortal.enabled</code>
+|  Enable portal bootstrapping |  <code>enterprisePortal.bootstrap</code>
+|   Tyk license key for your portal installationg |  <code>enterprisePortal.license</code>
+|  Portal database dialect. Available dialects are:<br/>  |   <code>enterprisePortal.storage.type</code>
 
 
 
