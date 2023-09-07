@@ -41,6 +41,7 @@ You must set the following values in the `values.yaml` or with `--set {field-nam
 |------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------
 | Enable portal installation  | <code>enterprisePortal.enabled</code>
 |  Enable portal bootstrapping  |  <code>enterprisePortal.bootstrap</code>
+|   Tyk license key for your portal installationg  |  <code>enterprisePortal.license</code>
 
 
 
