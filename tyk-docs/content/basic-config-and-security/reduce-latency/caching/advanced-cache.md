@@ -39,17 +39,35 @@ You must disable `cache_all_safe_requests` in the [basic (API-wide) caching conf
 For example, if you want to cache only the `/widget`, `/badger` and `/fish` endpoints of your API, with a 60 second TTL you would set the following in the API definition:
 
 ```
-"cache_options": {
-  "enable_cache": true,
-  "cache_timeout": 60,
-  "cache_all_safe_requests": false,
-  "extended_paths": {
-     "cache": [
-        "widget",
-        "badger",
-        "fish"
-     ]
-   }
+"version_data": {
+    "not_versioned": true,
+    "default_version": "",
+    "versions": {
+        "Default": {
+            "name": "Default",
+            "expires": "",
+            "paths": {
+                "ignored": [],
+                "white_list": [],
+                "black_list": []
+            },
+            "use_extended_paths": true,
+            "extended_paths": {
+                "cache": [
+                    "/testcache",
+                    "endpointcache1",
+                    "endpointcache2"
+                ],
+                "advance_cache_config": [
+                    {
+                      "method":"POST",
+                      "path":"addBooks",
+                      "cache_key_regex": "my_match_pattern"
+                    }
+                ]
+            }
+        }
+    }
 }
 ```
 
