@@ -54,9 +54,9 @@ For example, if you want to cache only the `/widget`, `/badger` and `/fish` endp
             "use_extended_paths": true,
             "extended_paths": {
                 "cache": [
-                    "/testcache",
-                    "/endpointcache1",
-                    "/endpointcache2"
+                    "/widget",
+                    "/badger",
+                    "/fish"
                 ]
             }
         }
