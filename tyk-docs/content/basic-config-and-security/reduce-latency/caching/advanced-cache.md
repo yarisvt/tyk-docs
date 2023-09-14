@@ -39,17 +39,28 @@ You must disable `cache_all_safe_requests` in the [basic (API-wide) caching conf
 For example, if you want to cache only the `/widget`, `/badger` and `/fish` endpoints of your API, with a 60 second TTL you would set the following in the API definition:
 
 ```
-"cache_options": {
-  "enable_cache": true,
-  "cache_timeout": 60,
-  "cache_all_safe_requests": false,
-  "extended_paths": {
-     "cache": [
-        "widget",
-        "badger",
-        "fish"
-     ]
-   }
+"version_data": {
+    "not_versioned": true,
+    "default_version": "",
+    "versions": {
+        "Default": {
+            "name": "Default",
+            "expires": "",
+            "paths": {
+                "ignored": [],
+                "white_list": [],
+                "black_list": []
+            },
+            "use_extended_paths": true,
+            "extended_paths": {
+                "cache": [
+                    "/testcache",
+                    "/endpointcache1",
+                    "/endpointcache2"
+                ]
+            }
+        }
+    }
 }
 ```
 
@@ -107,16 +118,30 @@ The string you provide in `cache_key_regex` will be compared with the request bo
 
 For example, to create a cache entry for each response to a `POST` request to your API's `addBooks` endpoint that contains the string `my_match_pattern` in the body of the request, you would set:
 ```
-"cache_options": {
-  "extended_paths": {
-    "advance_cache_config": [
-      {
-        "method":"POST",
-        "path":"addBooks",
-        "cache_key_regex": "my_match_pattern",
-        "timeout": 60
-      }
-    ]
+"version_data": {
+    "not_versioned": true,
+    "default_version": "",
+    "versions": {
+        "Default": {
+            "name": "Default",
+            "expires": "",
+            "paths": {
+                "ignored": [],
+                "white_list": [],
+                "black_list": []
+            },
+            "use_extended_paths": true,
+            "extended_paths": {
+                "advance_cache_config": [
+                    {
+                      "method":"POST",
+                      "path":"addBooks",
+                      "cache_key_regex": "my_match_pattern"
+                    }
+                ]
+            }
+        }
+    }
 }
 ```
 
