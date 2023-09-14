@@ -6,6 +6,8 @@ description: "How to deploy Tyk Self Managed on Kubernetes using new Helm Chart"
 menu:
   main:
     parent: "Tyk Helm Chart "
+aliases:
+  -  /tyk-self-managed/tyk-helm-chart-single-dc/
 weight: 1
 ---
 
