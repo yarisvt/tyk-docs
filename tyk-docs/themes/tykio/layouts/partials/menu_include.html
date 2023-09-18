@@ -2,6 +2,7 @@
 
 {{- $pagePath := replace $s.Page.RelPermalink "/docs" "" -}}
 {{- $pagePath := replace $pagePath "/nightly" "" -}}
+{{- $pagePath := replace $pagePath "/docs/5.1" "" -}}
 {{- $pagePath := replace $pagePath "/" "" -}}
 {{/*  {{- $pagePath := trim $pagePath "/" -}}  */}}
 
