@@ -1787,7 +1787,7 @@ menu:
           - title: "LuaJIT"
             path: /plugins/supported-languages/rich-plugins/luajit
             category: Page
-            show: True
+            show: False
           - title: "Requirements"
             path: /plugins/supported-languages/rich-plugins/luajit/requirements
             category: Page
