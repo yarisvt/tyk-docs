@@ -1688,8 +1688,16 @@ menu:
           category: Directory
           show: True
           menu:
+          - title: "Get Started with Custom Plugins"
+            path: /plugins/get-started-plugins
+            category: Page
+            show: True
           - title: "Custom Plugins"
             path: /plugins
+            category: Page
+            show: True
+          - title: "Supported Languages"
+            path: /plugins/supported-languages
             category: Page
             show: True
           - title: "How To Serve Plugins"
@@ -1704,10 +1712,7 @@ menu:
             path: /plugins/how-to-serve-plugins/plugin-bundles
             category: Page
             show: True
-          - title: "Supported Languages"
-            path: /plugins/supported-languages
-            category: Page
-            show: True
+
           - title: "Golang plugins"
             path: /plugins/supported-languages/golang
             category: Page
@@ -1814,10 +1819,6 @@ menu:
             show: True
           - title: "How do rich plugins work ?"
             path: /plugins/supported-languages/rich-plugins/rich-plugins-work
-            category: Page
-            show: True
-          - title: "Get Started with Custom Plugins"
-            path: /plugins/get-started-plugins
             category: Page
             show: True
           - title: "CICD - Automating Your Plugin Builds"
