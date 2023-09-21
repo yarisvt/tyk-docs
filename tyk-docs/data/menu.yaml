@@ -1688,18 +1688,26 @@ menu:
           category: Directory
           show: True
           menu:
-          - title: "Get Started with Custom Plugins"
-            path: /plugins/get-started-plugins
-            category: Page
+          - title: "Getting Started"
+            category: Directory
             show: True
-          - title: "Custom Plugins"
-            path: /plugins
-            category: Page
+            menu:
+            - title: "Get Started with Custom Plugins"
+              path: /plugins/get-started-plugins
+              category: Page
+              show: True
+            - title: "Custom Plugins"
+              path: /plugins
+              category: Page
+              show: True
+          - title: " Supported Languages"
+            category: Directory
             show: True
-          - title: "Supported Languages"
-            path: /plugins/supported-languages
-            category: Page
-            show: True
+            menu:    
+            - title: "Golang plugins"
+              path: /plugins/supported-languages/golang
+              category: Page
+              show: True
           - title: "How To Serve Plugins"
             path: /plugins/how-to-serve-plugins
             category: Page
@@ -1710,11 +1718,6 @@ menu:
             show: True
           - title: "Plugin Bundles"
             path: /plugins/how-to-serve-plugins/plugin-bundles
-            category: Page
-            show: True
-
-          - title: "Golang plugins"
-            path: /plugins/supported-languages/golang
             category: Page
             show: True
           - title: "JavaScript Middleware"
