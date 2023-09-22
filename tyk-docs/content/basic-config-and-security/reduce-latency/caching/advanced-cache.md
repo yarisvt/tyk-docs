@@ -18,16 +18,83 @@ To create a separate cache entry for each response that has a different value in
 
 For example, to cache each value in the custom `Unique-User-Id` header of your API response separately you would set:
 ```
+<<<<<<< HEAD
   "cache_options": {
    "cache_by_headers": ["Unique-User-Id"]
+=======
+"cache_options": {
+  "enable_cache": true,
+  "cache_timeout": 60,
+  "cache_all_safe_requests": false
+},
+...
+"version_data": {
+  ...
+  "versions": {
+    ...
+    [versionName]:{
+      ...
+      "use_extended_paths": true,
+      "extended_paths": {
+        "cache": [
+          "widget",
+          "badger",
+          "fish"
+        ]
+      }
+    }
+  }
+>>>>>>> e242ecca... [DX-693] Corrected errors in code examples (#3278)
 }
 ```
 
 {{< note success >}}
 **Note**  
 
+<<<<<<< HEAD
 The `cache_by_headers` configuration is not currently exposed in the Dashboard UI, so it must be enabled though either the raw API editor or the Dashboard API. 
 {{< /note >}}
+=======
+```
+"cache_options": {
+  "enable_cache": true,
+  "cache_all_safe_requests": false
+},
+...
+"version_data": {
+  ...
+  "versions": {
+    ...
+    [versionName]:{
+      ...
+      "use_extended_paths": true,
+      "extended_paths": {
+        "advance_cache_config": [
+          {
+            "method":"GET"
+            "path":"widget"
+            "timeout":30
+            "cache_response_codes": [200]
+          },
+          {
+            "method":"GET"
+            "path":"badger"
+            "timeout":20
+            "cache_response_codes": [200, 201]
+          },
+          {
+            "method":"GET"
+            "path":"fish"
+            "timeout":60
+            "cache_response_codes": [200]
+          }
+        ]
+      }
+    }
+  }
+}
+```
+>>>>>>> e242ecca... [DX-693] Corrected errors in code examples (#3278)
 
 ### Selective caching by body value
 You can configure Tyk's cache to create a separate cache entry for each response where the request matches a specific combination of method, path and body content.
@@ -39,14 +106,38 @@ The string you provide in `cache_key_regex` will be compared with the request bo
 For example, to create a cache entry for each response to a `POST` request to your API's `addBooks` endpoint that contains the string `my_match_pattern` in the body of the request, you would set:
 ```
 "cache_options": {
+<<<<<<< HEAD
   "extended_paths": {
     "advance_cache_config": [
       {
         "method":"POST",
         "path":"addBooks",
         "cache_key_regex": "my_match_pattern"
+=======
+  "enable_cache": true,
+  "cache_all_safe_requests": false
+},
+...
+"version_data": {
+  ...
+  "versions": {
+    ...
+    [versionName]:{
+      ...
+      "use_extended_paths": true,
+      "extended_paths": {
+        "advance_cache_config": [
+          {
+            "method":"POST",
+            "path":"addBooks",
+            "cache_key_regex": "my_match_pattern",
+            "timeout": 60
+          }
+        ]
+>>>>>>> e242ecca... [DX-693] Corrected errors in code examples (#3278)
       }
-    ]
+    }
+  }
 }
 ```
 
@@ -95,5 +186,4 @@ In the Tyk Dashboard you can configure caching per endpoint for your APIs by ass
 **Step 2**: go into the Endpoint Designer tab and for the path(s) you want to cache, select the Cache plugin from the drop-down list.
 
 {{< img src="/img/2.10/cache_plugin.png" alt="Plugin dropdown list" >}}
-
 
