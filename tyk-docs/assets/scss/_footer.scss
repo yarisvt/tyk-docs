@@ -3,10 +3,7 @@
     background-color: $brand-black;
     color: $white;
     margin: 0 -30px;
-    padding-top: 15px;
-    padding-right: 40px;
-    padding-left: 40px;
-    padding-bottom: 15px;
+    padding: 19px 40px 15px;
 
     @include breakpoint(large) {
       margin-inline-end: calc(-1 * var(--main-inline-padding));
