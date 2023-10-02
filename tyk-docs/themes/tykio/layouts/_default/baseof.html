@@ -72,6 +72,19 @@
                 {{ .Content }}
               {{ end }}
             </div>
+
+            {{- if .Params.tags -}}
+            <div class="after-post-tags">
+              <ul class="tags">
+                {{ range .Params.tags }}
+                <li>
+                  <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{.}}</a>
+                </li>
+                {{ end }}
+              </ul>
+            </div>
+            {{- end -}}
+
             {{- $pagePath := .RelPermalink}}
             {{- $pagePath := replace $pagePath "/docs" "" -}}
             {{- $pagePath := replace $pagePath "/nightly" "" -}}
