@@ -124,14 +124,19 @@ body {
     background-size: 100%;
   }
 
+.after-post-tags{
+  margin-top: 10px;
+}
+
 ul.tags {
     list-style:none;
     padding-left:0;
-    margin:0 0 3rem 0;
+    margin: 10px 0 3rem;
 }
 ul.tags li {
     display:inline-block;
     font-size:0.9rem;
+    margin-left: 5px;
 }
 ul.tags li  {
     background:rgba(0,0,0,.05);
