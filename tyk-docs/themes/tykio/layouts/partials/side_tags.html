@@ -1,9 +1,9 @@
 <nav style="padding: 0.5rem 1rem 0.5rem 1.5rem;">
   <span class="tag_label">Tags</span>
   {{- if .Params.tags -}}
-  <ul style="list-style: none">
+  <ul class="tags">
     {{ range .Params.tags }}
-    <li class="tag_item">
+    <li >
       <span>{{.}}</span>
     </li>
     {{ end }}
