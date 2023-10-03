@@ -112,6 +112,21 @@
 	}
 }
 
+.tag_item{
+	display: block;
+	padding: 0.5rem 0;
+	font-size: 15px;
+	color: $brand-black;
+	word-wrap: break-word;
+}
+.tag_label{
+	display: block;
+	position: relative;
+	text-transform: uppercase;
+	color: $brandpurple-11;
+	font-weight: 600;
+}
+
 
 body:not(.hasSidebar) .documentation-table-of-contents {
 	display: none !important;
@@ -123,3 +138,5 @@ body:not(.hasSidebar) .documentation-table-of-contents {
 		text-align: center;
 	}
 }
+
+
