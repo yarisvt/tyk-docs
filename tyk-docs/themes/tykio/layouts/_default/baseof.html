@@ -78,7 +78,7 @@
               <ul class="tags">
                 {{ range .Params.tags }}
                 <li>
-                  <span>{{.}}</span>
+                  <a href="{{ "tags/" | relURL }}{{ . | urlize }}">{{.}}</a>
                 </li>
                 {{ end }}
               </ul>
