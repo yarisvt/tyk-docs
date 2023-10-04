@@ -4,7 +4,6 @@ title = "Tyk Documentation"
 theme = "tykio"
 MetaDataFormat = "yaml"
 enableGitInfo = false
-disableKinds = ["taxonomy", "taxonomyTerm"]
 canonifyURLs = false
 timeout = "60s"
 [params]
