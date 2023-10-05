@@ -3,12 +3,7 @@ languageCode = "en-gb"
 title = "Tyk Documentation"
 theme = "tykio"
 MetaDataFormat = "yaml"
-<<<<<<< HEAD
-enableGitInfo = false
-=======
 enableGitInfo = true
-disableKinds = ["taxonomy", "taxonomyTerm"]
->>>>>>> 0657745839ab0c52361c4daa5884f9bf0bc99ae1
 canonifyURLs = false
 timeout = "60s"
 [params]
