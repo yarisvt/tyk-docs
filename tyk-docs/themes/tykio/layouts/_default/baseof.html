@@ -97,9 +97,7 @@
         </main>
 
 
-        <footer class="footer">
-          {{ partial "footer.html" . }}
-        </footer>
+
 
         <div class="return-top">
           <a href="javascript:" class="button grey medium bottom">Return to Top</a>
@@ -109,8 +107,12 @@
       </article>
 
 
+
   </section>
   {{ end }}
+  <footer class="footer">
+    {{ partial "footer.html" . }}
+  </footer>
   <!-- Footer scripts -->
   {{ partial "footer_scripts.html" . }}
 
