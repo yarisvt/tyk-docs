@@ -55,6 +55,7 @@
   {{ partial "header.html" . }}
 
   <!-- Page content -->
+  {{ block "main" . }}
   <section class="section-page {{if not .Params.hideSidebar}}hasSidebar{{end}}">
      <!-- Side menu -->
       <aside class="page-submenu" data-turbolinks-permanent>
@@ -62,7 +63,6 @@
       </aside>
 
       <article class="page-content">
-        {{ block "main" . }}
         <main class="page-content__main">
           <div class="wysiwyg page-content__container">
 
@@ -95,7 +95,7 @@
             </nav>
           </div>
         </main>
-        {{ end }}
+
 
         <footer class="footer">
           {{ partial "footer.html" . }}
@@ -110,7 +110,7 @@
 
 
   </section>
-
+  {{ end }}
   <!-- Footer scripts -->
   {{ partial "footer_scripts.html" . }}
 
