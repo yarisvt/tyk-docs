@@ -17,7 +17,7 @@ html {
 @font-face {
   font-family: 'smoolthan';
   src: url('../fonts/smoolthan_regular-webfont.woff2') format('woff2'),
-    url('../fonts/smoolthan_regular-webfont.woff') format('woff');
+  url('../fonts/smoolthan_regular-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 
@@ -26,7 +26,7 @@ html {
 @font-face {
   font-family: 'smoolthan';
   src: url('../fonts/smoolthan_bold-webfont.woff2') format('woff2'),
-    url('../fonts/smoolthan_bold-webfont.woff') format('woff');
+  url('../fonts/smoolthan_bold-webfont.woff') format('woff');
   font-weight: bold;
   font-style: normal;
 
@@ -36,9 +36,9 @@ html {
   font-family: 'tyk';
   src: url('../fonts/tyk.eot?66741098');
   src: url('../fonts/tyk.eot?66741098#iefix') format('embedded-opentype'),
-    url('../fonts/tyk.woff?66741098') format('woff'),
-    url('../fonts/tyk.ttf?66741098') format('truetype'),
-    url('../fonts/tyk.svg?66741098#fontello') format('svg');
+  url('../fonts/tyk.woff?66741098') format('woff'),
+  url('../fonts/tyk.ttf?66741098') format('truetype'),
+  url('../fonts/tyk.svg?66741098#fontello') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -441,6 +441,7 @@ html {
 body {
   background: $white;
   color: $brand-black;
+  font-family: "Inter", sans-serif !important;
 }
 
 img {
@@ -1691,6 +1692,7 @@ body {
 .wysiwyg table tbody tr td:first-of-type {
   border-left: 2px solid $brand-black;
 }
+
 .wysiwyg table tbody tr td:last-of-type {
   border-right: 2px solid $brand-black;
 }
@@ -1703,20 +1705,20 @@ body {
   border-bottom: 2px solid $brand-black;
 }
 
-.wysiwyg table tbody tr:last-of-type{
+.wysiwyg table tbody tr:last-of-type {
   border-bottom: 2px solid $brand-black;
   border-bottom-left-radius: 25px;
 }
 
-.wysiwyg table tbody tr:last-child > td{
+.wysiwyg table tbody tr:last-child > td {
   border-bottom: 2px solid $brand-black;
 }
 
-.wysiwyg table tbody tr:last-child td:first-child{
+.wysiwyg table tbody tr:last-child td:first-child {
   border-bottom-left-radius: 25px;
 }
 
-.wysiwyg table tbody tr:last-child td:last-child{
+.wysiwyg table tbody tr:last-child td:last-child {
   border-bottom-right-radius: 25px;
 }
 
@@ -1905,14 +1907,14 @@ body {
   margin-bottom: 40px;
 }
 
-.blog-meta>a,
+.blog-meta > a,
 .blog-meta time,
 .blog-meta div {
   display: inline-block;
   margin-right: 50px;
 }
 
-.blog-meta>a:before,
+.blog-meta > a:before,
 .blog-meta time:before,
 .blog-meta div:before {
   margin-right: 10px;
@@ -2850,7 +2852,7 @@ body {
 
 /* Hybrid */
 .pricing-comparison-hybrid .pricing-comparison-intro:before {
-  background:#0569a9 0%;
+  background: #0569a9 0%;
   background: linear-gradient(-90deg, #0569a9 0%, #04dec4 33%, #f6f6e9 66%);
 }
 
@@ -2941,9 +2943,6 @@ body {
   visibility: hidden;
   margin-left: calc(-100% + -10px);
 }
-
-
-
 
 
 /* ==========================================================================
@@ -4686,7 +4685,7 @@ body {
   Media Queries
    ========================================================================== */
 
-@media only screen and (min-width : 1336px) {
+@media only screen and (min-width: 1336px) {
 
   /* Fix Sidebar */
   .hasSidebar .container:before {
@@ -4711,8 +4710,7 @@ body {
   }
 }
 
-@media only screen and (max-width : 1336px) {
-
+@media only screen and (max-width: 1336px) {
 
 
   /* Layout : Metrics - Full Width */
@@ -4726,7 +4724,7 @@ body {
   }
 }
 
-@media only screen and (max-width : 1100px) {
+@media only screen and (max-width: 1100px) {
   /*
   .burger {width: 60px; height: 60px; position: fixed; top:0; right: 0; background: rgba(0,0,24,0.85); z-index: 3; display: inline-block; }
   .burger:before, .burger:after {content: ''; width: 23px; margin: auto;  position: absolute; top:0; bottom: 0; left:0; right:0;}
@@ -4783,7 +4781,7 @@ body {
     display: none;
   }
 
-  .menu>ul {
+  .menu > ul {
     text-align: left;
     margin-top: 94px;
     width: 100%;
@@ -4960,7 +4958,7 @@ body {
   }
 
   .wysiwyg pre {
-   /* margin-left: -26px; */
+    /* margin-left: -26px; */
     margin-right: -26px;
     padding: 26px;
   }
@@ -6430,7 +6428,7 @@ body {
 
 }
 
-@media only screen and (max-width : 768px) {
+@media only screen and (max-width: 768px) {
 
   /* ==========================================================================
     Page : Contact - One Column
