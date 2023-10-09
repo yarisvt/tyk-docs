@@ -1,22 +1,6 @@
 <div class="container-xxl">
     <div class="d-flex overflow-auto justify-content-between">
-        <div class="nav_sub_active p-3">
-            <a href="#" class="fs-xs text-dk">Home</a>
-        </div>
-        <div class="p-3">
-            <a href="#" class="fs-xs text-dk text-nowrap"
-            >Deployment and operations</a
-            >
-        </div>
-        <div class="p-3">
-            <a href="#" class="fs-xs text-dk text-nowrap">API Management</a>
-        </div>
-        <div class="p-3">
-            <a href="#" class="fs-xs text-dk text-nowrap">Product stack</a>
-        </div>
-        <div class="p-3">
-            <a href="#" class="fs-xs text-dk text-nowrap">Developer support</a>
-        </div>
+        {{- partial "dynamic_tab_menu.html" . -}}
         <div class="p-3">
             <a href="#" class="fs-xs text-dk text-nowrap">API best practices</a>
         </div>
