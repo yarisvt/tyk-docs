@@ -1,18 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
+
 body {
   font-family: "Inter", sans-serif !important;
 }
+
 a {
   text-decoration: none;
 }
+
 .btn {
   border-radius: 20px;
 }
+
 .btn-primary {
   border: 1.2px solid var(--border-dashboard-default, #03031c);
   background: var(
@@ -20,15 +25,18 @@ a {
                   radial-gradient(172.18% 167.73% at 124.09% 140.52%, #b1f 0%, #8438fa 100%)
   );
 }
+
 .text-primary {
   color: var(
                   --action-primary-default,
                   var(--primary-primary-50, #8438fa)
   ) !important;
 }
+
 .text-dk {
   color: #515071;
 }
+
 .text-sec {
   color: var(--text-subdued, #515071);
 }
@@ -37,9 +45,11 @@ a {
   display: flex;
   align-items: center;
 }
+
 .nav_sub_active {
   border-bottom: 2px solid $brandpurple-dark;
 }
+
 .fs-xs {
   font-size: 14px;
 }
@@ -62,7 +72,13 @@ a {
 .banner {
   background: #f3f3f3;
 }
+
 .banner-c-right {
   border-top-right-radius: 20px;
   border-bottom-left-radius: 20px;
+}
+
+.try_section {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
 }
