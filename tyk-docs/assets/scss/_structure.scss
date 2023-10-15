@@ -57,7 +57,7 @@ body {
         margin-top: 40px!important;
     }
 
-    .wysiwyg a:not(.button):not(.badge) {
+    .wysiwyg a:not(.button):not(.badge):not(.home_btn) {
         color: $brandpurple-dark!important;
         text-decoration: underline;
 
