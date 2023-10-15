@@ -1,0 +1,426 @@
+{{define "content"}}
+<div class="banner border">
+    <div class="container-xl">
+        <div class="row">
+            <div class="col-12 col-lg-9">
+                <div style="margin: 56px 0">
+                    <h1 style="font-size: 36px" class="fw-bold mb-3">
+                        Documentation
+                    </h1>
+                    <p style="font-size: 20px" class="mb-4">
+                        Help for all things Tyk, explore our guides and examples.
+                    </p>
+                    <div class="mb-3">
+                        <a class="btn btn-primary fs-xs">
+                            Get started with Tyk API management
+                            <svg
+                                    width="20"
+                                    height="20"
+                                    viewBox="0 0 20 20"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                        d="M13.6875 9.3125C14.0938 9.6875 14.0938 10.3438 13.6875 10.7188L8.6875 15.7188C8.3125 16.125 7.65625 16.125 7.28125 15.7188C6.875 15.3438 6.875 14.6875 7.28125 14.3125L11.5625 10L7.28125 5.71875C6.875 5.34375 6.875 4.6875 7.28125 4.3125C7.65625 3.90625 8.3125 3.90625 8.6875 4.3125L13.6875 9.3125Z"
+                                        fill="white"
+                                />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-3">
+                <div
+                        class="bg-white border p-3 banner-c-right"
+                        style="margin: 56px 0"
+                >
+                    <div class="mb-3 fw-semibold fs-xs">Recently viewed.</div>
+                    <div class="mb-2">
+                        <a href="#" class="text-primary fs-xs">Create API</a>
+                    </div>
+                    <div class="mb-2">
+                        <a href="#" class="text-primary fs-xs">Tyk Dashboard</a>
+                    </div>
+                    <div class="mb-2">
+                        <a href="#" class="text-primary fs-xs">How to upgrade</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="py-5">
+    <div class="container-xl">
+        <div class="row">
+            <div class="col-12 col-md-4 col-lg-3">
+                <div class="mb-5">
+                    <div class="mb-3 fw-semibold fs-5 fw-bold">Tyk Platforms</div>
+                    <div class="mb-2">
+                        <a href="#" class="text-primary fs-xs">Deployment Options</a>
+                    </div>
+                    <div class="mb-2">
+                        <a href="#" class="text-primary fs-xs">Self-managed</a>
+                    </div>
+                    <div class="mb-2">
+                        <a href="#" class="text-primary fs-xs">Cloud</a>
+                    </div>
+                    <div class="mb-2">
+                        <a href="#" class="text-primary fs-xs">Open Source Gateway</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 col-lg-3">
+                <div class="mb-5">
+                    <div class="mb-3 fw-semibold fs-5 fw-bold">API management</div>
+                    <div class="mb-2">
+                        <a href="getting-started/create-api/" class="text-primary fs-xs">Create API</a>
+                    </div>
+                    <div class="mb-2">
+                        <a href="#" class="text-primary fs-xs">Access an API</a>
+                    </div>
+                    <div class="mb-2">
+                        <a href="#" class="text-primary fs-xs">Create UDG schema</a>
+                    </div>
+                    <div class="mb-2">
+                        <a href="#" class="text-primary fs-xs"
+                        >Using OAS API definitions</a
+                        >
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 col-lg-3">
+                <div class="mb-5">
+                    <div class="mb-3 fw-semibold fs-5 fw-bold">Product stack</div>
+                    <div class="mb-2">
+                        <a href="#" class="text-primary fs-xs">OSS Tyk gateway</a>
+                    </div>
+                    <div class="mb-2">
+                        <a href="#" class="text-primary fs-xs"
+                        >OSS Tyk gateway configuration</a
+                        >
+                    </div>
+                    <div class="mb-2">
+                        <a href="#" class="text-primary fs-xs">Tyk gateway API</a>
+                    </div>
+                    <div class="mb-2">
+                        <a href="#" class="text-primary fs-xs">Tyk Dashboard</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 col-lg-3">
+                <div class="mb-5">
+                    <div class="mb-3 fw-semibold fs-5 fw-bold">Developer support</div>
+                    <div class="mb-2">
+                        <a href="#" class="text-primary fs-xs">FAQs</a>
+                    </div>
+                    <div class="mb-2">
+                        <a href="#" class="text-primary fs-xs">Latest Release</a>
+                    </div>
+                    <div class="mb-2">
+                        <a href="#" class="text-primary fs-xs">How to upgrade</a>
+                    </div>
+                    <div class="mb-2">
+                        <a href="#" class="text-primary fs-xs">Contribute to docs</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="py-5">
+    <div class="container-xl">
+        <div class="d-flex justify-content-between align-items-center mb-5">
+            <div>
+                <div class="fs-5 text-dk fw-bold">Try it out?</div>
+                <div class="fs-xs text-sec">
+                    Get started on any of our platforms
+                </div>
+            </div>
+            <div>
+                <a href="#" class="fs-xs text-dk"
+                >View full comparison
+                    <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 20 20"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                                d="M13.6875 9.3125C14.0938 9.6875 14.0938 10.3438 13.6875 10.7188L8.6875 15.7188C8.3125 16.125 7.65625 16.125 7.28125 15.7188C6.875 15.3438 6.875 14.6875 7.28125 14.3125L11.5625 10L7.28125 5.71875C6.875 5.34375 6.875 4.6875 7.28125 4.3125C7.65625 3.90625 8.3125 3.90625 8.6875 4.3125L13.6875 9.3125Z"
+                                fill="#656582"
+                        />
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-4">
+                <div class="border p-3 mb-5">
+                    <div class="fw-bold fs-6 text-dk">Tyk Self managed</div>
+                    <div class="fs-xs mb-3 text-dk">Only 4 steps</div>
+                    <p class="fs-xs mb-3 text-dk">
+                        Easily install our Full Lifecycle API Management solution in
+                        your own infrastructure. There is no calling home, and there are
+                        no usage limits. You have full control.
+                    </p>
+                    <div>
+                        <a href="#" class="btn btn-primary fs-sm">Free trial</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="border p-3 mb-5">
+                    <div class="fw-bold fs-6 text-dk">Tyk Cloud</div>
+                    <div class="fs-xs mb-3 text-dk">Only 2 steps</div>
+                    <p class="fs-xs mb-3 text-dk">
+                        A fully managed service that makes it easy for API teams to
+                        create, secure, publish and maintain APIs at any scale, anywhere
+                        in the world.
+                    </p>
+                    <div>
+                        <a href="#" class="btn btn-primary fs-sm">Free trial</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="border p-3 mb-5">
+                    <div class="fw-bold fs-6 text-dk">Tyk Open Source</div>
+                    <div class="fs-xs mb-3 text-dk">Only 4 steps</div>
+                    <p class="fs-xs mb-3 text-dk">
+                        The heart of what we do. Anything that is API Gateway-related,
+                        lives in the Gateway, or is critical for the Gateway to work is
+                        open and freely available
+                    </p>
+                    <div>
+                        <a href="#" class="btn btn-primary">Get started</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="py-5">
+    <div class="container-xl">
+        <div class="fs-5 text-dk fw-bold mb-5">Explore by Tyk Stack</div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="d-flex align-items-center mb-5">
+                    <div class="me-4">
+                        <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="32"
+                                height="32"
+                                viewBox="0 0 32 32"
+                                fill="none"
+                        >
+                            <path
+                                    d="M31.9559 14.5613C31.2507 6.45232 24.5069 0.0871935 16.2204 0H3.17355H2.73278H0V2.74659V3.57493V16.654C0.352617 24.9809 7.05234 31.6948 15.427 32H28.8264H29.2672H32V29.2534V14.6049C32 14.5613 31.9559 14.5613 31.9559 14.5613Z"
+                                    fill="#20EDBA"
+                            />
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="fw-bold">Tyk gateway (Open source)</div>
+                        <div class="fs-xs text-dk">
+                            Open source Enterprise API Gateway.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="d-flex align-items-center mb-5">
+                    <div class="me-4">
+                        <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="32"
+                                height="32"
+                                viewBox="0 0 32 32"
+                                fill="none"
+                        >
+                            <path
+                                    d="M31.9559 14.5613C31.2507 6.45232 24.5069 0.0871935 16.2204 0H3.17355H2.73278H0V2.74659V3.57493V16.654C0.352617 24.9809 7.05234 31.6948 15.427 32H28.8264H29.2672H32V29.2534V14.6049C32 14.5613 31.9559 14.5613 31.9559 14.5613Z"
+                                    fill="#20EDBA"
+                            />
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="fw-bold">Type Pump (Open source)</div>
+                        <div class="fs-xs text-dk">
+                            Responsible for moving analytics into a persistent data store.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="d-flex align-items-center mb-5">
+                    <div class="me-4">
+                        <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="32"
+                                height="32"
+                                viewBox="0 0 32 32"
+                                fill="none"
+                        >
+                            <path
+                                    d="M31.9559 14.5613C31.2507 6.45232 24.5069 0.0871935 16.2204 0H3.17355H2.73278H0V2.74659V3.57493V16.654C0.352617 24.9809 7.05234 31.6948 15.427 32H28.8264H29.2672H32V29.2534V14.6049C32 14.5613 31.9559 14.5613 31.9559 14.5613Z"
+                                    fill="#20EDBA"
+                            />
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="fw-bold">Tyk Dashboard</div>
+                        <div class="fs-xs text-dk">
+                            The GUI and analytics platform for Tyk.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="d-flex align-items-center mb-5">
+                    <div class="me-4">
+                        <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="32"
+                                height="32"
+                                viewBox="0 0 32 32"
+                                fill="none"
+                        >
+                            <path
+                                    d="M31.9559 14.5613C31.2507 6.45232 24.5069 0.0871935 16.2204 0H3.17355H2.73278H0V2.74659V3.57493V16.654C0.352617 24.9809 7.05234 31.6948 15.427 32H28.8264H29.2672H32V29.2534V14.6049C32 14.5613 31.9559 14.5613 31.9559 14.5613Z"
+                                    fill="#20EDBA"
+                            />
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="fw-bold">Type Operator (Open source)</div>
+                        <div class="fs-xs text-dk">
+                            Manage your APIs on Tyk Gateway.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="d-flex align-items-center mb-5">
+                    <div class="me-4">
+                        <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="32"
+                                height="32"
+                                viewBox="0 0 32 32"
+                                fill="none"
+                        >
+                            <path
+                                    d="M31.9559 14.5613C31.2507 6.45232 24.5069 0.0871935 16.2204 0H3.17355H2.73278H0V2.74659V3.57493V16.654C0.352617 24.9809 7.05234 31.6948 15.427 32H28.8264H29.2672H32V29.2534V14.6049C32 14.5613 31.9559 14.5613 31.9559 14.5613Z"
+                                    fill="#20EDBA"
+                            />
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="fw-bold">Universal Data Graph</div>
+                        <div class="fs-xs text-dk">
+                            Combine multiple APIs into one universal interface.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="d-flex align-items-center mb-5">
+                    <div class="me-4">
+                        <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="32"
+                                height="32"
+                                viewBox="0 0 32 32"
+                                fill="none"
+                        >
+                            <path
+                                    d="M31.9559 14.5613C31.2507 6.45232 24.5069 0.0871935 16.2204 0H3.17355H2.73278H0V2.74659V3.57493V16.654C0.352617 24.9809 7.05234 31.6948 15.427 32H28.8264H29.2672H32V29.2534V14.6049C32 14.5613 31.9559 14.5613 31.9559 14.5613Z"
+                                    fill="#20EDBA"
+                            />
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="fw-bold">Type Sync (Open source)</div>
+                        <div class="fs-xs text-dk">
+                            Command line tool to manage and synchronise Tyk installation.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="d-flex align-items-center mb-5">
+                    <div class="me-4">
+                        <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="32"
+                                height="32"
+                                viewBox="0 0 32 32"
+                                fill="none"
+                        >
+                            <path
+                                    d="M31.9559 14.5613C31.2507 6.45232 24.5069 0.0871935 16.2204 0H3.17355H2.73278H0V2.74659V3.57493V16.654C0.352617 24.9809 7.05234 31.6948 15.427 32H28.8264H29.2672H32V29.2534V14.6049C32 14.5613 31.9559 14.5613 31.9559 14.5613Z"
+                                    fill="#20EDBA"
+                            />
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="fw-bold">Tyk Enterprise Developer Portal</div>
+                        <div class="fs-xs text-dk">
+                            Expose APIs for third-party developers to register and use.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="d-flex align-items-center mb-5">
+                    <div class="me-4">
+                        <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="32"
+                                height="32"
+                                viewBox="0 0 32 32"
+                                fill="none"
+                        >
+                            <path
+                                    d="M31.9559 14.5613C31.2507 6.45232 24.5069 0.0871935 16.2204 0H3.17355H2.73278H0V2.74659V3.57493V16.654C0.352617 24.9809 7.05234 31.6948 15.427 32H28.8264H29.2672H32V29.2534V14.6049C32 14.5613 31.9559 14.5613 31.9559 14.5613Z"
+                                    fill="#20EDBA"
+                            />
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="fw-bold">Type Indentity Broker (Open source)</div>
+                        <div class="fs-xs text-dk">
+                            A bridge between various Identity Management Systems.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="d-flex align-items-center mb-5">
+                    <div class="me-4">
+                        <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="32"
+                                height="32"
+                                viewBox="0 0 32 32"
+                                fill="none"
+                        >
+                            <path
+                                    d="M31.9559 14.5613C31.2507 6.45232 24.5069 0.0871935 16.2204 0H3.17355H2.73278H0V2.74659V3.57493V16.654C0.352617 24.9809 7.05234 31.6948 15.427 32H28.8264H29.2672H32V29.2534V14.6049C32 14.5613 31.9559 14.5613 31.9559 14.5613Z"
+                                    fill="#20EDBA"
+                            />
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="fw-bold">Tyk Multi Data Centre Bridge</div>
+                        <div class="fs-xs text-dk">
+                            Control plane that performs management and synchronisation.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{{end}}
