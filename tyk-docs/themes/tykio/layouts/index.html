@@ -11,7 +11,8 @@
                         Help for all things Tyk, explore our guides and examples.
                     </p>
                     <div class="mb-3">
-                        <a class="home_btn btn btn-primary fs-xs" href="deployment-and-operations/tyk-open-source-api-gateway/quick-start/">
+                        <a class="home_btn btn btn-primary fs-xs"
+                           href="deployment-and-operations/tyk-open-source-api-gateway/quick-start/">
                             Get started with Tyk API management
                             <svg
                                     width="20"
@@ -36,97 +37,41 @@
                 >
                     <div class="mb-3 fw-semibold fs-xs">Recently viewed.</div>
                     <div class="mb-2">
-                        <a href="#" class="text-primary fs-xs">Create API</a>
+                        <a href="getting-started/create-api/" class="text-primary fs-xs">Create API</a>
                     </div>
                     <div class="mb-2">
-                        <a href="#" class="text-primary fs-xs">Tyk Dashboard</a>
+                        <a href="tyk-dashboard/" class="text-primary fs-xs">Tyk Dashboard</a>
                     </div>
                     <div class="mb-2">
-                        <a href="#" class="text-primary fs-xs">How to upgrade</a>
+                        <a href="upgrading-tyk/" class="text-primary fs-xs">How to upgrade</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 <section class="py-5 ">
     <div class="container-xl">
         <div class="row">
+
+            {{- range $.Site.Data.tabs_short_cuts.shorts_cuts -}}
             <div class="col-12 col-md-4 col-lg-3">
                 <div class="mb-5">
-                    <div class="mb-3 fw-semibold fs-5 fw-bold">Tyk Platforms</div>
+                    <div class="mb-3 fw-semibold fs-5 fw-bold">{{.title}}</div>
+                    {{- range .items -}}
                     <div class="mb-2">
-                        <a href="apim/" class="home_link text-primary fs-xs">Deployment Options</a>
+                        <a href="{{.path}}" class="home_link text-primary fs-xs">{{.title}}</a>
                     </div>
-                    <div class="mb-2">
-                        <a href="tyk-on-premises/" class="home_link text-primary fs-xs">Self-managed</a>
-                    </div>
-                    <div class="mb-2">
-                        <a href="tyk-cloud/" class="home_link text-primary fs-xs">Cloud</a>
-                    </div>
-                    <div class="mb-2">
-                        <a href="apim/open-source/" class="home_link text-primary fs-xs">Open Source Gateway</a>
-                    </div>
+                    {{- end -}}
                 </div>
             </div>
-            <div class="col-12 col-md-4 col-lg-3">
-                <div class="mb-5">
-                    <div class="mb-3 fw-semibold fs-5 fw-bold">API management</div>
-                    <div class="mb-2">
-                        <a href="getting-started/create-api/" class="home_link text-primary fs-xs">Create API</a>
-                    </div>
-                    <div class="mb-2">
-                        <a href="getting-started/create-api-key/" class="home_link text-primary fs-xs">Access an API</a>
-                    </div>
-                    <div class="mb-2">
-                        <a href="universal-data-graph/udg-getting-started/creating-schema/" class="home_link text-primary fs-xs">Create UDG schema</a>
-                    </div>
-                    <div class="mb-2">
-                        <a href="getting-started/using-oas-definitions/" class="home_link text-primary fs-xs"
-                        >Using OAS API definitions</a
-                        >
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-4 col-lg-3">
-                <div class="mb-5">
-                    <div class="mb-3 fw-semibold fs-5 fw-bold">Product stack</div>
-                    <div class="mb-2">
-                        <a href="tyk-oss-gateway/" class="home_link text-primary fs-xs">OSS Tyk gateway</a>
-                    </div>
-                    <div class="mb-2">
-                        <a href="tyk-oss-gateway/configuration/" class="home_link text-primary fs-xs"
-                        >OSS Tyk gateway configuration</a
-                        >
-                    </div>
-                    <div class="mb-2">
-                        <a href="tyk-gateway-api/" class="home_link text-primary fs-xs">Tyk gateway API</a>
-                    </div>
-                    <div class="mb-2">
-                        <a href="tyk-dashboard/" class="home_link text-primary fs-xs">Tyk Dashboard</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-4 col-lg-3">
-                <div class="mb-5">
-                    <div class="mb-3 fw-semibold fs-5 fw-bold">Developer support</div>
-                    <div class="mb-2">
-                        <a href="frequently-asked-questions/" class="home_link text-primary fs-xs">FAQs</a>
-                    </div>
-                    <div class="mb-2">
-                        <a href="product-stack/tyk-gateway/release-notes/overview/" class="home_link text-primary fs-xs">Latest Release</a>
-                    </div>
-                    <div class="mb-2">
-                        <a href="upgrading-tyk/" class="home_link text-primary fs-xs">How to upgrade</a>
-                    </div>
-                    <div class="mb-2">
-                        <a href="contribute/" class="home_link text-primary fs-xs">Contribute to docs</a>
-                    </div>
-                </div>
-            </div>
+            {{- end -}}
         </div>
     </div>
 </section>
+
+
 <section class="py-5 try_section">
     <div class="container-xl">
         <div class="d-flex justify-content-between align-items-center mb-5">
@@ -155,51 +100,25 @@
             </div>
         </div>
         <div class="row">
+            {{- range $.Site.Data.tyk_components.components -}}
             <div class="col-12 col-md-4">
                 <div class="border p-3 mb-5">
-                    <div class="fw-bold fs-6 text-dk">Tyk Self managed</div>
-                    <div class="fs-xs mb-3 text-dk">Only 4 steps</div>
+                    <div class="fw-bold fs-6 text-dk">{{.title}}</div>
+                    <div class="fs-xs mb-3 text-dk">{{.steps}}</div>
                     <p class="fs-xs mb-3 text-dk">
-                        Easily install our Full Lifecycle API Management solution in
-                        your own infrastructure. There is no calling home, and there are
-                        no usage limits. You have full control.
+                        {{.description}}
                     </p>
                     <div>
-                        <a href="https://tyk.io/sign-up/#self" class="home_btn btn btn-primary fs-sm">Free trial</a>
+                        <a href="{{.path}}" class="home_btn btn btn-primary fs-sm">{{.button_text}}</a>
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-4">
-                <div class="border p-3 mb-5">
-                    <div class="fw-bold fs-6 text-dk">Tyk Cloud</div>
-                    <div class="fs-xs mb-3 text-dk">Only 2 steps</div>
-                    <p class="fs-xs mb-3 text-dk">
-                        A fully managed service that makes it easy for API teams to
-                        create, secure, publish and maintain APIs at any scale, anywhere
-                        in the world.
-                    </p>
-                    <div>
-                        <a href="https://dashboard.cloud-ara.tyk.io/login" class="home_btn btn btn-primary fs-sm">Free trial</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-4">
-                <div class="border p-3 mb-5">
-                    <div class="fw-bold fs-6 text-dk">Tyk Open Source</div>
-                    <div class="fs-xs mb-3 text-dk">Only 4 steps</div>
-                    <p class="fs-xs mb-3 text-dk">
-                        The heart of what we do. Anything that is API Gateway-related,
-                        lives in the Gateway, or is critical for the Gateway to work is
-                        open and freely available
-                    </p>
-                    <div>
-                        <a href="apim/open-source/" class="home_btn btn btn-primary">Get started</a>
-                    </div>
-                </div>
-            </div>
+            {{- end -}}
         </div>
     </div>
 </section>
+
+
 <section class="py-5">
     <div class="container-xl">
         <div class="fs-5 text-dk fw-bold mb-5">Explore by Tyk Stack</div>

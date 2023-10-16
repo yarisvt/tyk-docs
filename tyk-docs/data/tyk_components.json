@@ -1,0 +1,24 @@
+{
+  "components": [
+    {
+      "title": "Tyk Self managed",
+      "steps": "Only 4 steps",
+      "button_text": "Free trial",
+      "path": "https://tyk.io/sign-up/#self",
+      "description":"Easily install our Full Lifecycle API Management solution in your own infrastructure. There is no calling home, and there are no usage limits. You have full control."
+    },{
+      "title": "Tyk Cloud",
+      "steps": "Only 2 steps",
+      "button_text": "Free trial",
+      "path": "https://dashboard.cloud-ara.tyk.io/login",
+      "description":"A fully managed service that makes it easy for API teams to create, secure, publish and maintain APIs at any scale, anywhere in the world."
+    },{
+      "title": "Tyk Open Source",
+      "steps": "Only 4 steps",
+      "button_text": "Get started",
+      "path": "apim/open-source/",
+      "description":"The heart of what we do. Anything that is API Gateway-related, lives in the Gateway, or is critical for the Gateway to work is open and freely available."
+    }
+
+  ]
+}
