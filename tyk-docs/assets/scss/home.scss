@@ -19,12 +19,23 @@ a {
 }
 
 .btn-primary {
-  border: 1.2px solid var(--border-dashboard-default, #03031c);
-  background: var(
-                  --action-dashboard-default,
-                  radial-gradient(172.18% 167.73% at 124.09% 140.52%, #b1f 0%, #8438fa 100%)
-  );
+  color: #03031C;
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 142.857% */
+  border-radius: 20px;
+  border: 1.2px solid #03031C;
+  background: var(--secondary-secondary-50, #20EDBA);
+  &:hover {
+    background: var(--secondary-secondary-50, #20EDBA);
+    color: #03031C;
+    border: 1.2px solid #03031C;
+  }
 }
+
+
 
 .text-primary {
   color: var(
