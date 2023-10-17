@@ -1,7 +1,7 @@
 <header class="home_header">
   <nav style="padding: 16px" class="container-xxl">
     <div class="row">
-      <div class="col-4">
+      <div class="col-2">
         <div
                 style="display: flex; align-items: center; gap: 6px"
                 class="nav-item"
@@ -77,13 +77,12 @@
           </div>
         </div>
       </div>
-      <div class="col-4 m-hide">
+      <div class="col-6 m-hide">
         <div class="nav-item nav-action">
-          <div style="font-size: 14px" class="text-dk d-none d-lg-block">
-
-            {{- partial "version_selector.html" . -}}
-          </div>
           <div class="d-flex gap-3 align-items-center">
+
+            {{- partial "menu_top_external.html" . -}}
+
             <a href="https://dashboard.cloud-ara.tyk.io/login" class="btn btn-outline-secondary fs-xs text-nowrap"
             >Cloud Login</a>
             <a href="https://tyk.io/sign-up/" class="btn fs-xs text-nowrap btn-primary"
