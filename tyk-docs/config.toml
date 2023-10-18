@@ -7,6 +7,14 @@ enableGitInfo = false
 disableKinds = ["taxonomy", "taxonomyTerm"]
 canonifyurls = "false"
 timeout = "60s"
+<<<<<<< HEAD
+=======
+[params]
+GithubEdit = "https://github.com/TykTechnologies/tyk-docs/edit/master/tyk-docs/content/"
+GithubReadOnly = "https://github.com/TykTechnologies/tyk-docs/blob/master/tyk-docs/content/"
+CanonicalBaseUrl = "https://tyk.io/docs/"
+showEmptyPages = false
+>>>>>>> 3a893283... [DX-751]Every indexable page under /docs/ should have an absolute canonical URL (#3397)
 [sitemap]
   changefreq = "daily"
   priority = 0.5
