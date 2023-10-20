@@ -96,7 +96,7 @@ This release is tested on Kubernetes 1.26.3, 1.25.2, 1.24.6, 1.23.12, 1.22.15, 1
 - Added new options to `pump.backend` parameter. Users can enable specific Mongo & Postgres pumps: `mongo-aggregate`, `mongo-selective`, `postgres-aggregate`, `postgres-pump`
 - Added `Horizontal Pod Autoscaler` specs for gateway deployments, allowing users to easily enable automatic scaling by CPU utilisation, memory utilisation, or custom metrics.
 - Added `insecureSkipVerify` option for gateway under `gateway.tls` section.
-- Added `global.remoteControlPlane.useSecretName` parameter to allows user to pass control plane connection details via Kubernetes secrets. For detail uses of secrets, see [README](tyk-data-plane/README.md)
+- Added `global.remoteControlPlane.useSecretName` parameter to allows user to pass control plane connection details via Kubernetes secrets. For detail uses of secrets, see [README](https://github.com/TykTechnologies/tyk-charts/blob/main/tyk-data-plane/README.md)
 - Added support for `containerSecurityContext` configuration. This is required as k8s and openshift versions require some of these values to be set.
 - Added `containerPort` parameter for gateway to allow for different values to be set for port and targetPort
 - Added support for `imagePullSecret` so user can pull an image from a private container image registry or repository
@@ -174,9 +174,9 @@ This release is tested on Kubernetes 1.26.3, 1.25.2, 1.24.6, 1.23.12, 1.22.15, 1
 - Added `insecureSkipVerify` option for dashboard under `dashboard.tls` section.
 - Added support for SSL configurations in `dashboard.tls` section. User can reference the TLS certificate as secret.
 - Make tyk-bootstrap image repository information configurable
-- Added `global.adminUser.useSecretName` parameter to allows user to pass Admin Credentials via Kubernetes secrets. For detail uses of secrets, see [README](tyk-stack/README.md)
-- Added support for setting Portal licence and storage connection string via `global.secrets.useSecretName`. For detail uses of secrets, see [README](tyk-stack/README.md)
-- Added `global.remoteControlPlane.useSecretName` parameter to allows user to pass control plane connection details via Kubernetes secrets. For detail uses of secrets, see [README](tyk-stack/README.md)
+- Added `global.adminUser.useSecretName` parameter to allows user to pass Admin Credentials via Kubernetes secrets. For detail uses of secrets, see [README](https://github.com/TykTechnologies/tyk-charts/blob/main/tyk-stack/README.md)
+- Added support for setting Portal licence and storage connection string via `global.secrets.useSecretName`. For detail uses of secrets, see [README](https://github.com/TykTechnologies/tyk-charts/blob/main/tyk-stack/README.md)
+- Added `global.remoteControlPlane.useSecretName` parameter to allows user to pass control plane connection details via Kubernetes secrets. For detail uses of secrets, see [README](https://github.com/TykTechnologies/tyk-charts/blob/main/tyk-stack/README.md)
 - Added support for `containerSecurityContext` configuration. This is required as k8s and openshift versions require some of these values to be set.
 - Added `containerPort` parameter for gateway to allow for different values to be set for port and targetPort
 - Added support for `imagePullSecret` so user can pull an image from a private container image registry or repository
