@@ -6,11 +6,15 @@ should add additional sections to their release notes.
 -->
 
 ---
-title: Tyk <Dashboard|Gateway|Pump|etc.> <X.Y> Release Notes
-date: 2023-09-27T15:49:11Z
-description: "Release notes documenting updates, enhancements and changes for Tyk <Dashboard/Gateway/Pump> versions within the <X.Y.Z> series."
-tags: ["Tyk Dashboard", "Release notes", "changelog", "vX.Y", "X.Y.0", "X.Y", "X.Y.Z"]
+title: "{{ replace .Name "-" " " | title }}" <!-- title: Tyk <Dashboard|Gateway|Pump|etc.> <X.Y> Release Notes -->
+date: {{ dateFormat "2006-01-02" .Date }}
+tags: ["Tyk Release notes", "Release changelog", "Tyk changelog"] <!--, "vX.Y", "X.Y.0", "X.Y", "X.Y.Z" -->
+description: "Release notes documenting updates, enhancements and changes for Tyk <Dashboard/Gateway/Pump/etc.> versions within the <X.Y.Z> series."
+weight: 0
+draft: true
 ---
+
+
 
 <!-- oss or licensed. Choose one of the following:
     **Licensed Protected Product** 
