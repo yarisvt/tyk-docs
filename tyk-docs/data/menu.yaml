@@ -441,7 +441,7 @@ menu:
               category: Page
               show: True
             - title: "Tyk new Helm chart"
-              path: /tyk-self-managed/tyk-helm-chart-tyk-stack/
+              path: /deployment-and-operations/tyk-self-managed/deployment-lifecycle/installations/kubernetes/tyk-stack
               category: Page
               show: True
           - title: "Red Hat (RHEL / CentOS)"
