@@ -85,7 +85,7 @@
             <div class="col-12 col-md-4">
                 <div class="border p-3 mb-5">
                     <div class="image-container">
-                        <img class="home-img" title={{.title}}  alt={{.title}} src="{{ .image | relURL }}"/>
+                        <img class="home-img" title={{.title}} alt={{.title}} src="{{ .image | relURL }}"/>
                     </div>
                     <div class="fs-xs mb-3 text-dk">{{.steps}}</div>
                     <p class="fs-xs mb-3 text-dk">
@@ -139,7 +139,7 @@ Start of most used section is here-->
 
             <div class="col-12 col-md-6">
                 {{- range . -}}
-                <a style="text-decoration: none!important;" href="{{.path}}" class="d-flex align-items-center mb-5">
+                <a href="{{.path}}" class="stack-box d-flex align-items-center">
                     <div class="me-4">
                         <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -155,7 +155,7 @@ Start of most used section is here-->
                         </svg>
                     </div>
                     <div>
-                        <div class="fw-bold" style="color: #03031c!important;">{{.title}}</div>
+                        <div class="stack-heading">{{.title}}</div>
                         <div class="fs-xs text-dk">
                             {{.description}}
                         </div>

@@ -111,6 +111,21 @@ a {
   font-weight: 700;
   line-height: normal;
 }
+.stack-box{
+  padding: 4px;
+  border-radius: 4px;
+  border: 1px solid var(--border-default, #D8D8DF);
+  background: var(--surface-neutral-default, #FFF);
+  text-decoration: none!important;
+  margin-bottom: 24px;
+}
+.stack-heading{
+  color: var(--action-primary-default, var(--primary-primary-50, #8438FA));
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px; /* 142.857% */
+}
 
 ol, ul {
   padding-left: 0 !important;

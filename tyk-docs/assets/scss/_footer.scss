@@ -1,9 +1,4 @@
 /* Footer */
-.footer_rev{
-    background-color: $brand-black;
-}
-
-
 .footer {
     background-color: $brand-black;
     color: $white;
@@ -27,8 +22,12 @@
     }
 
     h3 {
-        font-weight: 600;
         margin-bottom: 1rem;
+        color: $white;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
     }
 
     ul {
@@ -41,7 +40,7 @@
 
     &__menu {
         display: flex;
-        justify-content: space-between;
+        justify-content: left;
         flex-wrap: wrap;
 
         .col {
