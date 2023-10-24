@@ -30,7 +30,7 @@ helm upgrade [RELEASE_NAME] tyk-helm/tyk-oss
 #### Release Highlights
 This version upgrades Tyk Gateway and Tyk Dashboard to v5.2.0, Tyk Pump to 1.8.3 and Tyk Portal to 1.7.0.
 
-##### Security enhancements
+##### Security Enhancements
 This version introduces a few security enhancements. It adds configuration options to configure SSL in dashboard, and support of `insecureSkipVerify` option for all charts to bypass verification for self-signed certificates. For security best practices, we now support use of secret to pass sensitive fields including admin credentials, license keys, database connection string, and remote control plane connection details via secrets.
 
 ##### New Gateway parameters
@@ -79,7 +79,7 @@ This release is tested on Kubernetes 1.26.3, 1.25.2, 1.24.6, 1.23.12, 1.22.15, 1
 - Added new options to `pump.backend` parameter. Users can enable specific Mongo & Postgres pumps: `mongo-aggregate`, `mongo-selective`, `postgres-aggregate`, `postgres-pump`
 - Added `Horizontal Pod Autoscaler` specs for gateway deployments, allowing users to easily enable automatic scaling by CPU utilisation, memory utilisation, or custom metrics.
 - Added `insecureSkipVerify` option for gateway under `gateway.tls` section.
-- Added support for `containerSecurityContext` configuration. This is required as k8s and openshift versions require some of these values to be set.- Added `containerPort` parameter for gateway to allow for different values to be set for port and targetPort
+- Added support for `containerSecurityContext` configuration. This is required as K8s and OpenShift versions require some of these values to be set.- Added `containerPort` parameter for gateway to allow for different values to be set for port and targetPort
 - Added support for `imagePullSecret` so user can pull an image from a private container image registry or repository
 - Added parameter `analyticsEnabled` to enable or disable analytics in Gateway. It is set to "" by default which means it will be enabled or disabled based on pump installations.
 ##### Changed
@@ -176,7 +176,7 @@ This release is tested on Kubernetes 1.26.3, 1.25.2, 1.24.6, 1.23.12, 1.22.15, 1
 - Make tyk-bootstrap image repository information configurable
 - Added `global.adminUser.useSecretName` parameter to allows user to pass Admin Credentials via Kubernetes secrets. For detail uses of secrets, see [README](https://github.com/TykTechnologies/tyk-charts/blob/main/tyk-stack/README.md)
 - Added support for setting Portal licence and storage connection string via `global.secrets.useSecretName`. For detail uses of secrets, see [README](https://github.com/TykTechnologies/tyk-charts/blob/main/tyk-stack/README.md)
-- Added `global.remoteControlPlane.useSecretName` parameter to allows user to pass control plane connection details via Kubernetes secrets. For detail uses of secrets, see [README](https://github.com/TykTechnologies/tyk-charts/blob/main/tyk-stack/README.md)
+- Added `global.remoteControlPlane.useSecretName` parameter to allow users to pass control plane connection details via Kubernetes secrets. For detail uses of secrets, see [README](https://github.com/TykTechnologies/tyk-charts/blob/main/tyk-stack/README.md)
 - Added support for `containerSecurityContext` configuration. This is required as k8s and openshift versions require some of these values to be set.
 - Added `containerPort` parameter for gateway to allow for different values to be set for port and targetPort
 - Added support for `imagePullSecret` so user can pull an image from a private container image registry or repository
