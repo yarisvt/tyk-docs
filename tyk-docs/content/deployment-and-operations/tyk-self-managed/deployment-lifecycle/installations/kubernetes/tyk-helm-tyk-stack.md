@@ -6,6 +6,7 @@ description: "How to deploy Tyk Self Managed on Kubernetes using new Helm Chart"
 
 aliases:
   - /tyk-self-managed/tyk-helm-chart-tyk-stack
+  - /tyk-self-managed/tyk-helm-chart-single-dc
 ---
 
 ## New Tyk Helm Charts (Beta)
