@@ -51,32 +51,13 @@
     </div>
 </div>
 
-<section class="py-5 ">
+
+<!--Start of Try it out section is here-->
+<section class="home-section">
     <div class="container-xl">
-        <div class="row">
-
-            {{- range $.Site.Data.tabs_short_cuts.shorts_cuts -}}
-            <div class="col-12 col-md-4 col-lg-3">
-                <div class="mb-5">
-                    <div class="mb-3 fw-semibold fs-5 fw-bold">{{.title}}</div>
-                    {{- range .items -}}
-                    <div class="mb-2">
-                        <a href="{{.path}}" class="home_link text-primary fs-xs">{{.title}}</a>
-                    </div>
-                    {{- end -}}
-                </div>
-            </div>
-            {{- end -}}
-        </div>
-    </div>
-</section>
-
-
-<section class="py-5 try_section">
-    <div class="container-xl">
-        <div class="d-flex justify-content-between align-items-center mb-5">
+        <div class="d-flex justify-content-between align-items-center component-heading">
             <div>
-                <div class="fs-5 text-dk fw-bold">Try it out?</div>
+                <div class="home-section-heading">Try it out?</div>
                 <div class="fs-xs text-sec">
                     Get started on any of our platforms
                 </div>
@@ -103,7 +84,9 @@
             {{- range $.Site.Data.tyk_components.components -}}
             <div class="col-12 col-md-4">
                 <div class="border p-3 mb-5">
-                    <div class="fw-bold fs-6 text-dk">{{.title}}</div>
+                    <div class="image-container">
+                        <img class="home-img" title={{.title}}  alt={{.title}} src="{{ .image | relURL }}"/>
+                    </div>
                     <div class="fs-xs mb-3 text-dk">{{.steps}}</div>
                     <p class="fs-xs mb-3 text-dk">
                         {{.description}}
@@ -119,9 +102,38 @@
 </section>
 
 
-<section class="py-5">
+<!--
+Start of most used section is here-->
+<section class="home-section">
     <div class="container-xl">
-        <div class="fs-5 text-dk fw-bold mb-5">Explore by Tyk Stack</div>
+        <div class="d-flex justify-content-between align-items-center component-heading">
+            <div>
+                <div class="home-section-heading">Most viewed</div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            {{- range $.Site.Data.tabs_short_cuts.shorts_cuts -}}
+            <div class="col-12 col-md-4 col-lg-3">
+                <div class="mb-5">
+                    {{- range .items -}}
+                    <div class="mb-2">
+                        <a href="{{.path}}" class="home_link text-primary fs-xs">{{.title}}</a>
+                    </div>
+                    {{- end -}}
+                </div>
+            </div>
+            {{- end -}}
+        </div>
+    </div>
+</section>
+
+
+<!--Start of explore by  tyk product stack-->
+<section class="home-section">
+    <div class="container-xl">
+        <div class="home-section-heading">Explore by Tyk Stack</div>
         <div class="row">
             {{- range $.Site.Data.tyk_stack.stacks -}}
 

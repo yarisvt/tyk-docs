@@ -28,13 +28,13 @@ a {
   border-radius: 20px;
   border: 1.2px solid #03031C;
   background: var(--secondary-secondary-50, #20EDBA);
+
   &:hover {
     background: var(--secondary-secondary-50, #20EDBA);
     color: #03031C;
     border: 1.2px solid #03031C;
   }
 }
-
 
 
 .text-primary {
@@ -89,11 +89,29 @@ a {
   border-bottom-left-radius: 20px;
 }
 
-.try_section {
-  padding-top: 10px !important;
-  padding-bottom: 10px !important;
+.home-section {
+  margin-top: 40px;
+
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+}
+
+.component-heading {
+  margin-bottom: 20px;
+}
+
+.home-section-heading {
+  color: #03031C;
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
 
 ol, ul {
-  padding-left: 0!important;
+  padding-left: 0 !important;
 }

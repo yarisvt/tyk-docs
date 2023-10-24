@@ -443,7 +443,7 @@ body {
   color: $brand-black;
 }
 
-img {
+img:not(.home-img) {
   border: 0;
   display: block;
   outline: none;
