@@ -3,7 +3,6 @@ title: "Deploy Tyk Self Managed using new Helm Chart"
 date: 2022-07-10
 tags: ["Tyk Self Managed", "Single Data Center", "Kubernetes"]
 description: "How to deploy Tyk Self Managed on Kubernetes using new Helm Chart"
-menu: main
 weight: 1
 aliases:
     - /tyk-self-managed/tyk-helm-chart-single-dc
