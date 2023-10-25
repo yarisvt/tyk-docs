@@ -131,13 +131,13 @@ Start of most used section is here-->
 
 
 <!--Start of explore by  tyk product stack-->
-<section class="home-section">
+<section class="home-section explore-section">
     <div class="container-xl">
         <div class="home-section-heading">Explore by Tyk Stack</div>
         <div class="row">
             {{- range $.Site.Data.tyk_stack.stacks -}}
 
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-4">
                 {{- range . -}}
                 <a href="{{.path}}" class="stack-box d-flex align-items-center">
                     <div class="me-4">
