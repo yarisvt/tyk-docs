@@ -67,7 +67,7 @@ For external contributions, we recommend contributing to Tyk in the following wa
   - `make hugo`
   - `make run`
 3. Go to  [http://localhost:1313/docs/nightly/](http://localhost:1313/docs/nightly/) to view the docs locally
-4. The content itself is just markdown that follows the front matter block. After making a change, Hugo should auto-reload and you will be able to see the changes live in your browser. If not, refresh. Sometimes Hugo gets confused and you may need to re-run it
+4. The content itself is just markdown that follows the front matter block. After making a change, Hugo should auto-reload and you will be able to see the changes live in your browser. If not, refresh. Sometimes Hugo gets confused and you may need to re-run it.
 
 ## Getting Started
 
