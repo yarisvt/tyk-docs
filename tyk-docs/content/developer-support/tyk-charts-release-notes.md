@@ -134,7 +134,7 @@ This release is tested on Kubernetes 1.26.3, 1.25.2, 1.24.6, 1.23.12, 1.22.15, 1
 - Renamed parameter `backend` to `storageType`.
 #### Changelog
 ##### Added
-- Added parameter `.global.mongo.driver` to configure which Mongo Driver to use.
+- Added parameter `.global.mongo.driver` to configure which [Mongo Driver]({{< ref "/tyk-dashboard/configuration#mongo_driver" >}}) to use.
 - Added support for SSL configurations in `dashboard.tls` section. User can reference the TLS certificate as secret.
 - Added `insecureSkipVerify` option for dashboard under `dashboard.tls` section to bypass verification for self-signed certificates.
 - Added `global.adminUser.useSecretName` parameter to allows user to pass Admin Credentials via Kubernetes secrets.
