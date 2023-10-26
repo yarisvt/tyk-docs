@@ -84,7 +84,7 @@ This release is tested on Kubernetes 1.26.3, 1.25.2, 1.24.6, 1.23.12, 1.22.15, 1
 ## tyk-gateway-1.1.0
 #### Changelog
 ##### Added
-- Added `Horizontal Pod Autoscaler` specs for gateway deployments, allowing users to easily enable automatic scaling by CPU utilisation, memory utilisation or custom metrics.
+- Added `Horizontal Pod Autoscaler` specs for Gateway deployments, allowing users to easily enable automatic scaling by CPU utilisation, memory utilisation or custom metrics.
 - Added `insecureSkipVerify` option for Gateway under `gateway.tls` section to bypass verification for self-signed certificates.
 - Added `global.remoteControlPlane.useSecretName` parameter to allows user to pass control plane connection details via Kubernetes secrets.
 - Added support for `containerSecurityContext` configuration. This is required as *K8s* and *OpenShift* versions require the [security context for container](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) to be set.
