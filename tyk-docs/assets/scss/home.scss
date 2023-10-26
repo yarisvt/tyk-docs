@@ -151,3 +151,12 @@ a {
 ol, ul {
   padding-left: 0 !important;
 }
+
+
+.parent-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%!important;
+}
+

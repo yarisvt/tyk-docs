@@ -69,18 +69,24 @@
         <div class="row">
             {{- range $.Site.Data.tyk_components.components -}}
             <div class="col-12 col-md-4">
-                <div class="border p-3 mb-3">
-                    <div class="image-container">
-                        <img class="home-img" title={{.title}} alt={{.title}} src="{{ .image | relURL }}"/>
-                    </div>
-                    <div class="fs-xs mb-3 text-dk">{{.steps}}</div>
-                    <p class="fs-xs mb-3 text-dk">
-                        {{.description}}
-                    </p>
+                <div class="border p-3 mb-3 h-100 ">
+                    <div class="parent-container">
+                        <div>
+                            <div class="image-container">
+                                <img class="home-img" title={{.title}} alt={{.title}} src="{{ .image | relURL }}"/>
+                            </div>
+                            <div class="fs-xs mb-3 text-dk">{{.steps}}</div>
+                            <p class="fs-xs mb-3 text-dk">
+                                {{.description}}
+                            </p>
+                            <p class="fs-xs mb-3 text-dk">
+                                {{.includes}}
+                            </p>
+                        </div>
 
-
-                    <div>
-                        <a href="{{.path}}" class="home_btn btn btn-primary fs-sm">{{.button_text}}</a>
+                        <div class="bottom-container">
+                            <a href="{{.path}}" class="home_btn btn btn-primary fs-sm">{{.button_text}}</a>
+                        </div>
                     </div>
                 </div>
             </div>
