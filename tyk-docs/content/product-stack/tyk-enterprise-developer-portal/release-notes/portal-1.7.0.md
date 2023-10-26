@@ -1,5 +1,5 @@
 ---
-title: Tyk Enterprise Developer Portal v1.7.0
+title: Tyk Enterprise Developer Portal v1.7.0 Release Notes
 description: Release notes documenting updates, enhancements and changes for Tyk Enterprise Developer Portal v1.7.0
 tags: ["Developer Portal", "Release notes", "changelog", "v1.7.0"]
 menu:
@@ -7,6 +7,29 @@ main:
 parent: "Release Notes"
 weight: 7
 ---
+
+**Licensed Protected Product** 
+
+### Support Lifetime
+Our minor releases are supported until our next minor comes out. This would be v1.8 scheduled in Q4 if this goes ahead as planned. If not, 1.7 will remain in support until our next LTS version comes out in March 2024.
+
+##### Release Date 30 Oct 2023
+
+#### Breaking Changes
+<!-- Use the following statement if there are no breaking changes, or explain if there are -->
+This release has no breaking changes.
+
+#### Future Breaking Changes (Optional)
+<!-- Announce future scheduled breaking changes, e.g. Go version updates, DB driver updates etc. -->
+
+#### Deprecations
+<!-- Use the following statement if there are no deprecations, or explain if there are -->
+There are no deprecations in this release.
+
+#### Upgrade instructions
+<!-- For patches release use this: 
+If you are on a X.Y.0 we advise you to upgrade ASAP and if you are on an older version skip X.Y.0 and upgrade directly to this release. 
+-->
 
 # Release Highlights
 ## Content blocks validation
@@ -37,6 +60,10 @@ When specifying path ot the audit file make sure it's mapped to a file on the ho
 Now admin users can specify how often developers can request access to a specific plan. This way the admins can prevent developers from creating too many keys and abusing their free plan.
 {{< img src="/img/dashboard/portal-management/enterprise-portal/1.7.0-rate-limit-for-access-requests.png" width=500px alt="Access requests frequency limit">}}
 
+# Downloads
+- <<[docker image to pull](https://hub.docker.com/layers/tykio/tyk-dashboard/vX.Y.Z/images/blabla)>>
+- <<Helm charts links>>
+- <<source code tarball for oss projects>>
 
 # Changelog
 
@@ -53,3 +80,22 @@ Now admin users can specify how often developers can request access to a specifi
 - Fixed the bug where developers and apps of an organisation were not deleted when the organisation was deleted.
 - Fixed the bug where it was possible to remove the default organisation with resulted in the portal being non-operational.
 
+## Further Information
+
+### Upgrading Tyk
+Please refer to the [upgrading Tyk]({{< ref "upgrading-tyk" >}}) page for further guidance with respect to the upgrade strategy.
+
+### API Documentation
+<!-- Update the link to the Gateway "tyk-gateway-api" or dashboard "tyk-dashboard-api" and the Postman collection 
+
+If there were changes in any of Tyk’s API docs:
+
+- Have API endpoints been documented in the release note summary and changelog?				
+- Has a link to the endpoint documentation being included?
+- Has the benefit of the new/updated endpoint been explained in the release highlights and changelog?
+-->
+- [OpenAPI Document]({{<ref "blabla" >}})
+- [Postman Collection](https://www.postman.com/tyk-technologies/workspace/tyk-public-workspace/collection/<collection-id>)
+
+### FAQ
+Please visit our [Developer Support]({{< ref "frequently-asked-questions/faq" >}}) page for further information relating to reporting bugs, upgrading Tyk, technical support and how to contribute.
