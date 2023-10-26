@@ -1,5 +1,7 @@
 # Tyk Charts 1.1.0
 
+Open Source ([Mozilla Public License](https://github.com/TykTechnologies/tyk/blob/master/LICENSE.md))
+
 ### Support Lifetime
 Our minor releases are supported until our next minor comes out. 
 ##### Release Date 30 Oct 2023
