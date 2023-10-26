@@ -15,7 +15,7 @@
       "button_text": "Free trial",
       "path": "https://dashboard.cloud-ara.tyk.io/login",
       "description":"A fully managed service that makes it easy for API teams to create, secure, publish and maintain APIs at any scale, anywhere in the world.",
-      "includes": "Includes: Tyk OSS Gateway"
+      "includes": "Includes: Tyk API Gateway, Tyk Dashboard, Tyk Portal, Tyk UDG"
     },{
       "title": "Tyk Open Source",
       "image": "img/tyk_open_source.svg",
