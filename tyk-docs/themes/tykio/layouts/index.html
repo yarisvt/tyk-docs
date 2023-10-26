@@ -14,18 +14,8 @@
                         <a class="home_btn btn btn-primary fs-xs"
                            href="deployment-and-operations/tyk-open-source-api-gateway/quick-start/">
                             Get started with Tyk API management
-                            <svg
-                                    width="20"
-                                    height="20"
-                                    viewBox="0 0 20 20"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                        d="M13.6875 9.3125C14.0938 9.6875 14.0938 10.3438 13.6875 10.7188L8.6875 15.7188C8.3125 16.125 7.65625 16.125 7.28125 15.7188C6.875 15.3438 6.875 14.6875 7.28125 14.3125L11.5625 10L7.28125 5.71875C6.875 5.34375 6.875 4.6875 7.28125 4.3125C7.65625 3.90625 8.3125 3.90625 8.6875 4.3125L13.6875 9.3125Z"
-                                        fill="black"
-                                />
-                            </svg>
+                            <img class="home-img" title="Get started with Tyk API management"
+                                 alt="Get started with Tyk API management" src="img/black-forward-arrow.svg"/>
                         </a>
                     </div>
                 </div>
@@ -41,34 +31,25 @@
 <!--Start of Try it out section is here-->
 <section class="home-section">
     <div class="container-xl">
-        <div class="d-flex justify-content-between align-items-center component-heading">
+        <div class="d-flex flex-wrap justify-content-between align-items-center component-heading">
             <div>
                 <div class="home-section-heading">Try it out?</div>
                 <div class="fs-xs text-sec">
                     Get started on any of our platforms
                 </div>
             </div>
-            <div>
-                <a href="#" class="fs-xs text-dk"
-                >View full comparison
-                    <svg
-                            width="20"
-                            height="20"
-                            viewBox="0 0 20 20"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                                d="M13.6875 9.3125C14.0938 9.6875 14.0938 10.3438 13.6875 10.7188L8.6875 15.7188C8.3125 16.125 7.65625 16.125 7.28125 15.7188C6.875 15.3438 6.875 14.6875 7.28125 14.3125L11.5625 10L7.28125 5.71875C6.875 5.34375 6.875 4.6875 7.28125 4.3125C7.65625 3.90625 8.3125 3.90625 8.6875 4.3125L13.6875 9.3125Z"
-                                fill="#656582"
-                        />
-                    </svg>
+            <div class="mt-3 mt-md-0 ">
+                <a class="home_btn btn btn-primary fs-xs"
+                   href="apim/">
+                    Full comparison
+                    <img class="home-img" title="Full comparison"
+                         alt="Full comparison" src="img/black-forward-arrow.svg"/>
                 </a>
             </div>
         </div>
         <div class="row">
             {{- range $.Site.Data.tyk_components.components -}}
-            <div class="col-12 col-md-4">
+            <div class="col-12 col-md-4 mb-3 mb-md-0">
                 <div class="border p-3 mb-3 h-100 ">
                     <div class="parent-container">
                         <div>
