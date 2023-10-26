@@ -569,7 +569,7 @@ tyk-dev-portal:
 
 #### Storage Settings
 
-Enterprise Portal supports different storage options for the portal's CMS assets. Please see the [Enterprise Portal Storage settings]({{<ref "tyk-stack/tyk-developer-portal/enterprise-developer-portal/install-tyk-enterprise-portal/configuration/#portal-settings">}}) page for all the available options. Most of them can be setup in corresponding `storage` section:
+Enterprise Portal supports different storage options for the portal's CMS assets. Please see the [Enterprise Portal Storage settings]({{<ref "tyk-stack/tyk-developer-portal/enterprise-developer-portal/install-tyk-enterprise-portal/configuration#portal-settings">}}) page for all the available options. Most of them can be setup in corresponding `storage` section:
 
 ```yaml
 tyk-dev-portal:
@@ -616,7 +616,7 @@ tyk-dev-portal:
 
 #### Other Configurations
 
-Other [Enterprise Portal configurations]({{<ref "/tyk-stack/tyk-developer-portal/enterprise-developer-portal/install-tyk-enterprise-portal/configuration">}}) can be set by using environment variables with `extraEnvs` fields, e.g.:
+Other [Enterprise Portal configurations]({{<ref "tyk-stack/tyk-developer-portal/enterprise-developer-portal/install-tyk-enterprise-portal/configuration">}}) can be set by using environment variables with `extraEnvs` fields, e.g.:
 
 ```yaml
 tyk-dev-portal:
