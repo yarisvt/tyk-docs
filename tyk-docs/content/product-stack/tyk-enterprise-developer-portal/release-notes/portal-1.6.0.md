@@ -10,7 +10,7 @@ weight: 6
 
 # Release Highlights
 ## OAuth2.0 flow now supports multiple identity providers
-Now the Tyk Enterprise Developer portal can use multiple identity providers (IdPs) for OAuth2.0 via the Dynamic Client Registration flow. If your company has multiple OAuth2.0 providers now you can utilize them all for oAuth2.0 authentication. For instance, if your company uses different IdPs for different products (e.g. one for the U.S. and another for the EU) you can now achieve that with Tyk.
+Now the Tyk Enterprise Developer portal can use multiple identity providers (IdPs) for OAuth2.0 via the Dynamic Client Registration flow. If your company has multiple OAuth2.0 providers now you can utilize them all for OAuth2.0 authentication. For instance, if your company uses different IdPs for different products (e.g. one for the U.S. and another for the EU) you can now achieve that with Tyk.
 
 Just create multiple IdPs in the App registration menu:
 {{< img src="/img/dashboard/portal-management/enterprise-portal/1.6.0-multiple-idps-index.png" width=500px alt="OAuth2.0 providers page">}}
@@ -22,7 +22,7 @@ And then use them to enable OAuth2.0 authentication for API Products:
 You can download all CMS content with just one API call with the brand new API endpoint *GET* */pages/all/content-blocks* that returns all content blocks for all pages. Now migration between environments and deployment is much easier.
 
 ## Support for Mutual TLS
-For customers who need extra security for their APIs such financial institutions and payment providers we introduced an ability for the portal to surface Mutual TLS APIs. Now you can configure API Key and oAuth2.0 API to support Mutual TLS. Just create an API that supports multiple authentication mechanisms in the Dashboard and publish it to the portal:
+For customers who need extra security for their APIs such financial institutions and payment providers we introduced an ability for the portal to surface Mutual TLS APIs. Now you can configure API Key and OAuth2.0 API to support Mutual TLS. Just create an API that supports multiple authentication mechanisms in the Dashboard and publish it to the portal:
 {{< img src="/img/dashboard/portal-management/enterprise-portal/1.6.0-mtl-support-dashboard.png" width=500px alt="Mutual TLS auth API in the Tyk Dashboard">}}
 
 Now your developers can discover and request access to them in the portal:

@@ -23,7 +23,7 @@ In 1.5.0 we introduced the following APIs:
 - CRUD API for OpenAPI Spec for APIs included in API products.
 - CRUD API for API Providers.
 
-## Better oAuth2.0 flow without the scope to policy mapping
+## Better OAuth2.0 flow without the scope to policy mapping
 {{< note >}}
 This feature requires a patch to the gateway. In the 1.3.0 version of the portal, it's disabled. Once the 5.2 version of the gateway is released, we can confirm that the feature is fully functional. Stay tuned for updates!
 {{< /note >}}
