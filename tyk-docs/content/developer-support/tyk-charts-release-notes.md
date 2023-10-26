@@ -74,7 +74,7 @@ This release is tested on Kubernetes 1.26.3, 1.25.2, 1.24.6, 1.23.12, 1.22.15, 1
 - Added parameter `.global.mongo.driver` to configure which [Mongo Driver](https://tyk.io/docs/tyk-dashboard/configuration/#mongo_driver) to use.
 - Added new options to `pump.backend` parameter. Users can enable specific Mongo & Postgres Pumps: `mongo-aggregate`, `mongo-selective`, `postgres-aggregate`, `postgres-pump`.
 - Added `global.remoteControlPlane.useSecretName` parameter to allows user to pass control plane connection details via Kubernetes secrets.
-- Added support for `containerSecurityContext` configuration. This is required as *K8s* and *OpenShift* versions require the [security context for container](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) to be set.
+- Added support for `containerSecurityContext` configuration. This is required as [*K8s*](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) and [*OpenShift*](https://access.redhat.com/documentation/en-us/openshift_container_platform/4.12/html/authentication_and_authorization/managing-pod-security-policies) versions require the security context for container to be set.
 - Added support for `imagePullSecret` so user can pull an image from a private container image registry or repository.
 ##### Changed
 - Updated Pump default image tag to v1.8.3.
@@ -87,7 +87,7 @@ This release is tested on Kubernetes 1.26.3, 1.25.2, 1.24.6, 1.23.12, 1.22.15, 1
 - Added `Horizontal Pod Autoscaler` specs for Gateway deployments, allowing users to easily enable automatic scaling by CPU utilisation, memory utilisation or custom metrics.
 - Added `insecureSkipVerify` option for Gateway under `gateway.tls` section to bypass verification for self-signed certificates.
 - Added `global.remoteControlPlane.useSecretName` parameter to allows user to pass control plane connection details via Kubernetes secrets.
-- Added support for `containerSecurityContext` configuration. This is required as *K8s* and *OpenShift* versions require the [security context for container](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) to be set.
+- Added support for `containerSecurityContext` configuration. This is required as [*K8s*](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) and [*OpenShift*](https://access.redhat.com/documentation/en-us/openshift_container_platform/4.12/html/authentication_and_authorization/managing-pod-security-policies) versions require the security context for container to be set.
 - Added `containerPort` parameter for Gateway to allow for different values to be set for port and targetPort.
 - Added support for `imagePullSecret` so user can pull an image from a private container image registry or repository.
 - Added parameter `analyticsEnabled` to enable or disable analytics in Gateway. It is set to "" by default which means it will be enabled or disabled based on Pump installations.
@@ -102,7 +102,8 @@ This release is tested on Kubernetes 1.26.3, 1.25.2, 1.24.6, 1.23.12, 1.22.15, 1
 - Added new options to `pump.backend` parameter. Users can enable specific Mongo & Postgres Pumps: `mongo-aggregate`, `mongo-selective`, `postgres-aggregate`, `postgres-pump`.
 - Added `Horizontal Pod Autoscaler` specs for Gateway deployments, allowing users to easily enable automatic scaling by CPU utilisation, memory utilisation or custom metrics.
 - Added `insecureSkipVerify` option for Gateway under `gateway.tls` section to bypass verification for self-signed certificates.
-- Added support for `containerSecurityContext` configuration. This is required as K8s and OpenShift versions require some of these values to be set.- Added `containerPort` parameter for Gateway to allow for different values to be set for port and targetPort.
+- Added support for `containerSecurityContext` configuration. This is required as [*K8s*](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) and [*OpenShift*](https://access.redhat.com/documentation/en-us/openshift_container_platform/4.12/html/authentication_and_authorization/managing-pod-security-policies) versions require the security context for container to be set.
+- Added `containerPort` parameter for Gateway to allow for different values to be set for port and targetPort.
 - Added support for `imagePullSecret` so user can pull an image from a private container image registry or repository.
 - Added parameter `analyticsEnabled` to enable or disable analytics in Gateway. It is set to "" by default which means it will be enabled or disabled based on Pump installations.
 ##### Changed
@@ -120,7 +121,7 @@ This release is tested on Kubernetes 1.26.3, 1.25.2, 1.24.6, 1.23.12, 1.22.15, 1
 - Added `Horizontal Pod Autoscaler` specs for Gateway deployments, allowing users to easily enable automatic scaling by CPU utilisation, memory utilisation or custom metrics.
 - Added `insecureSkipVerify` option for Gateway under `gateway.tls` section to bypass verification for self-signed certificates.
 - Added `global.remoteControlPlane.useSecretName` parameter to allows user to pass control plane connection details via Kubernetes secrets. For detail uses of secrets, see [README](https://github.com/TykTechnologies/tyk-charts/blob/main/tyk-data-plane/README.md).
-- Added support for `containerSecurityContext` configuration. This is required as *K8s* and *OpenShift* versions require the [security context for container](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) to be set.
+- Added support for `containerSecurityContext` configuration. This is required as [*K8s*](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) and [*OpenShift*](https://access.redhat.com/documentation/en-us/openshift_container_platform/4.12/html/authentication_and_authorization/managing-pod-security-policies) versions require the security context for container to be set.
 - Added `containerPort` parameter for Gateway to allow for different values to be set for port and targetPort.
 - Added support for `imagePullSecret` so user can pull an image from a private container image registry or repository.
 - Added parameter `analyticsEnabled` to enable or disable analytics in Gateway. It is set to "" by default which means it will be enabled or disabled based on Pump installations.
@@ -138,7 +139,7 @@ This release is tested on Kubernetes 1.26.3, 1.25.2, 1.24.6, 1.23.12, 1.22.15, 1
 - Added support for SSL configurations in `dashboard.tls` section. User can reference the TLS certificate as secret.
 - Added `insecureSkipVerify` option for dashboard under `dashboard.tls` section to bypass verification for self-signed certificates.
 - Added `global.adminUser.useSecretName` parameter to allows user to pass Admin Credentials via Kubernetes secrets.
-- Added support for `containerSecurityContext` configuration. This is required as k8s and openshift versions require some of these values to be set.
+- Added support for `containerSecurityContext` configuration. This is required as [*K8s*](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) and [*OpenShift*](https://access.redhat.com/documentation/en-us/openshift_container_platform/4.12/html/authentication_and_authorization/managing-pod-security-policies) versions require the security context for container to be set.
 - Added support for `imagePullSecret` so user can pull an image from a private container image registry or repository.
 ##### Changed
 - Changed default storageType to `postgres`.
@@ -169,9 +170,9 @@ This release is tested on Kubernetes 1.26.3, 1.25.2, 1.24.6, 1.23.12, 1.22.15, 1
 - Added support for `extraVolume` and `extraVolumeMount`. It can be used to configure volume for `fs` portal storage.
 - Added `global.adminUser.useSecretName` parameter to allows user to pass Admin Credentials via Kubernetes secrets. See [Protect Confidential Fields with Kubernetes Secrets](https://github.com/TykTechnologies/tyk-charts/blob/main/tyk-single-dc/README.md#protect-confidential-fields-with-kubernetes-secrets) for what can be included in the secret.
 - Added support for setting Portal licence and storage connection string via `global.secrets.useSecretName`. See [Protect Confidential Fields with Kubernetes Secrets](https://github.com/TykTechnologies/tyk-charts/blob/main/tyk-single-dc/README.md#protect-confidential-fields-with-kubernetes-secrets) for what can be included in the secret.
-- Added support for `containerSecurityContext` configuration. This is required as *K8s* and *OpenShift* versions require the [security context for container](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) to be set.
+- Added support for `containerSecurityContext` configuration. This is required as [*K8s*](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) and [*OpenShift*](https://access.redhat.com/documentation/en-us/openshift_container_platform/4.12/html/authentication_and_authorization/managing-pod-security-policies) versions require the security context for container to be set.
 - Added support for `imagePullSecret` so user can pull an image from a private container image registry or repository.
-- Added support for Portal storage type `db` in `storage.type`. See [Enterprise Portal Storage Type](https://tyk.io/docs/nightly/tyk-stack/tyk-developer-portal/enterprise-developer-portal/install-tyk-enterprise-portal/configuration/#storage-settings) for details of the different storage types we support.
+- Added support for Portal storage type `db` in `storage.type`. See [Enterprise Portal Storage Type](https://tyk.io/docs/tyk-stack/tyk-developer-portal/enterprise-developer-portal/install-tyk-enterprise-portal/configuration/#storage-settings) for details of the different storage types we support.
 ##### Changed
 ##### Fixed
 - Updated Portal default image tag to v1.7.0.
@@ -198,10 +199,10 @@ This release is tested on Kubernetes 1.26.3, 1.25.2, 1.24.6, 1.23.12, 1.22.15, 1
 - Added `global.adminUser.useSecretName` parameter to allows user to pass Admin Credentials via Kubernetes secrets. For detail uses of secrets, see [README](https://github.com/TykTechnologies/tyk-charts/blob/main/tyk-stack/README.md).
 - Added support for setting Portal licence and storage connection string via `global.secrets.useSecretName`. For detail uses of secrets, see [README](https://github.com/TykTechnologies/tyk-charts/blob/main/tyk-stack/README.md).
 - Added `global.remoteControlPlane.useSecretName` parameter to allow users to pass control plane connection details via Kubernetes secrets. For detail uses of secrets, see [README](https://github.com/TykTechnologies/tyk-charts/blob/main/tyk-stack/README.md).
-- Added support for `containerSecurityContext` configuration. This is required as *K8s* and *OpenShift* versions require the [security context for container](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) to be set.
+- Added support for `containerSecurityContext` configuration. This is required as [*K8s*](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) and [*OpenShift*](https://access.redhat.com/documentation/en-us/openshift_container_platform/4.12/html/authentication_and_authorization/managing-pod-security-policies) versions require the security context for container to be set.
 - Added `containerPort` parameter for Gateway to allow for different values to be set for port and targetPort.
 - Added support for `imagePullSecret` so user can pull an image from a private container image registry or repository.
-- Added support for Portal storage type `db` in `storage.type`. See [Enterprise Portal Storage Type](https://tyk.io/docs/nightly/tyk-stack/tyk-developer-portal/enterprise-developer-portal/install-tyk-enterprise-portal/configuration/#storage-settings) for details of the different storage types we support.
+- Added support for Portal storage type `db` in `storage.type`. See [Enterprise Portal Storage Type](https://tyk.io/docs/tyk-stack/tyk-developer-portal/enterprise-developer-portal/install-tyk-enterprise-portal/configuration/#storage-settings) for details of the different storage types we support.
 - Added parameter `analyticsEnabled` to enable or disable analytics in Gateway. It is set to "" by default which means it will be enabled or disabled based on Pump installations.
 ##### Changed
 - Changed default storageType to `postgres`. See [Database Options](https://tyk.io/docs/tyk-dashboard/database-options/) for the storage types we support.
