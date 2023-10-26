@@ -31,21 +31,7 @@
                 </div>
             </div>
             <div class="col-12 col-lg-3">
-                <div
-                        class="bg-white border p-3 banner-c-right"
-                        style="margin: 56px 0"
-                >
-                    <div class="mb-3 fw-semibold fs-xs">Recently viewed.</div>
-                    <div class="mb-2">
-                        <a href="getting-started/create-api/" class="text-primary fs-xs">Create API</a>
-                    </div>
-                    <div class="mb-2">
-                        <a href="tyk-dashboard/" class="text-primary fs-xs">Tyk Dashboard</a>
-                    </div>
-                    <div class="mb-2">
-                        <a href="upgrading-tyk/" class="text-primary fs-xs">How to upgrade</a>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>
@@ -133,11 +119,11 @@ Start of most used section is here-->
 <!--Start of explore by  tyk product stack-->
 <section class="home-section explore-section">
     <div class="container-xl">
-        <div class="home-section-heading">Explore by Tyk Stack</div>
+        <div class="home-section-heading home-section-pd">Explore by Tyk Stack</div>
         <div class="row">
             {{- range $.Site.Data.tyk_stack.stacks -}}
 
-            <div class="col-12 col-md-4">
+            <div class="col-12 col-md-6">
                 {{- range . -}}
                 <a href="{{.path}}" class="stack-box d-flex align-items-center">
                     <div class="me-4">

@@ -3,7 +3,10 @@
     background-color: $brand-black;
     color: $white;
     margin: 0 -30px;
-    padding: 25px 40px 15px;
+    padding-top: 32px;
+    padding-right: 40px;
+    padding-left: 40px;
+    padding-bottom: 25px;
 
     @include breakpoint(large) {
       margin-inline-end: calc(-1 * var(--main-inline-padding));
@@ -68,7 +71,7 @@
     &__social {
         a {
             display: inline-block;
-            margin-right: 1.5rem;
+            margin-right: 0.6rem;
 
             &:before {
                 font-size: 1.7rem;
@@ -146,11 +149,11 @@
         &-facebook {
             background-image: url('../img/icon-social-facebook-refresh.svg');
         }
-        &-youtube {
-            background-image: url('../img/icon-social-youtube.svg');
+        &-moon {
+            background-image: url('../img/icon-social-moon-refresh.svg');
         }
         &-podcast {
-            background-image: url('../img/icon-social-podcast.svg');
+            background-image: url('../img/icon-social-podcast-refresh.svg');
         }
     }
 }

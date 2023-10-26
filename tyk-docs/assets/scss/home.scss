@@ -81,7 +81,10 @@ a {
 }
 
 .banner {
-  background: #f3f3f3;
+  background-image: url('../img/leaf_background.svg');
+  background-size: auto;
+  background-repeat: no-repeat;
+
 }
 
 .banner-c-right {
@@ -95,7 +98,11 @@ a {
 }
 
 .explore-section{
-  background:  url('../img/gradiet_explore.svg') no-repeat left ;
+  background-image: url('../img/gradiet_explore.svg');
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+
 }
 
 .image-container {
@@ -115,6 +122,11 @@ a {
   font-weight: 700;
   line-height: normal;
 }
+
+.home-section-pd{
+  margin-bottom: 20px;
+}
+
 .stack-box{
   padding: 4px;
   border-radius: 4px;
