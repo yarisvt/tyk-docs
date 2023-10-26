@@ -142,7 +142,7 @@ This section describes how to use Kubernetes secrets to declare confidential fie
 
 #### Tyk Dashboard Admin
 
-If Tyk Dashboard bootstrapping is enabled, Tyk Dashboard admin will be bootstrapped according to `global.adminUser` field.
+If Tyk Dashboard bootstrapping is enabled, Tyk Dashboard admin user will be created according to the `global.adminUser` field.
 
 All admin credentials can also be set through Kubernetes secret.
 
@@ -177,7 +177,8 @@ in it. Then, this secret must be referenced via `global.adminUser.useSecretName`
 
 #### APISecret
 
-[`APISecret`](https://tyk.io/docs/tyk-oss-gateway/configuration/#secret) field configures a header value used in every
+The [`APISecret`](https://tyk.io/docs/tyk-oss-gateway/configuration/#secret) field configures a header value used in every
+interaction with Tyk Gateway API.
 interaction with Tyk Gateway API.
 
 It can be configured via `global.secrets.APISecret` as a plain text or Kubernetes secret which includes `APISecret` key
@@ -568,7 +569,7 @@ tyk-dev-portal:
 
 #### Storage Settings
 
-Enterprise Portal supports different storage options for the portal's CMS assets. Please see the [Enterprise Portal Storage settings] page for all the available options. Most of them can be setup in corresponding `storage` section:
+Enterprise Portal supports different storage options for the portal's CMS assets. Please see the [Enterprise Portal Storage settings]({{<ref "tyk-stack/tyk-developer-portal/enterprise-developer-portal/install-tyk-enterprise-portal/configuration/#portal-settings">}}) page for all the available options. Most of them can be setup in corresponding `storage` section:
 
 ```yaml
 tyk-dev-portal:
@@ -615,7 +616,7 @@ tyk-dev-portal:
 
 #### Other Configurations
 
-For other [Enterprise Portal configurations]({{<ref "/tyk-stack/tyk-developer-portal/enterprise-developer-portal/install-tyk-enterprise-portal/configuration">}}), it can be set by using environment variables with `extraEnvs` fields, e.g.:
+Other [Enterprise Portal configurations]({{<ref "/tyk-stack/tyk-developer-portal/enterprise-developer-portal/install-tyk-enterprise-portal/configuration">}}) can be set by using environment variables with `extraEnvs` fields, e.g.:
 
 ```yaml
 tyk-dev-portal:
