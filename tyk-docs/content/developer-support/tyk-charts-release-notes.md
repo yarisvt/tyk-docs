@@ -100,7 +100,7 @@ This release is tested on Kubernetes 1.26.3, 1.25.2, 1.24.6, 1.23.12, 1.22.15, 1
 #### Changelog
 ##### Added
 - Added new options to `pump.backend` parameter. Users can enable specific Mongo & Postgres Pumps: `mongo-aggregate`, `mongo-selective`, `postgres-aggregate`, `postgres-pump`.
-- Added `Horizontal Pod Autoscaler` specs for gateway deployments, allowing users to easily enable automatic scaling by CPU utilisation, memory utilisation or custom metrics.
+- Added `Horizontal Pod Autoscaler` specs for Gateway deployments, allowing users to easily enable automatic scaling by CPU utilisation, memory utilisation or custom metrics.
 - Added `insecureSkipVerify` option for Gateway under `gateway.tls` section to bypass verification for self-signed certificates.
 - Added support for `containerSecurityContext` configuration. This is required as K8s and OpenShift versions require some of these values to be set.- Added `containerPort` parameter for Gateway to allow for different values to be set for port and targetPort.
 - Added support for `imagePullSecret` so user can pull an image from a private container image registry or repository.
