@@ -6,7 +6,7 @@
       "steps": "Only 4 steps",
       "button_text": "Free trial",
       "path": "tyk-self-managed/install/",
-      "description":"Easily install our Full Lifecycle API Management solution in your own infrastructure. There is no calling home, and there are no usage limits. You have full control.",
+      "description":"Easily install our Full Lifecycle API Management solution in your own infrastructure. There is no calling home and there are no usage limits. You have full control.",
       "includes": "Includes: Tyk API Gateway, Tyk Dashboard, Tyk Portal, Tyk UDG"
     },{
       "title": "Tyk Cloud",
