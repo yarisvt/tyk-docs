@@ -356,9 +356,9 @@ To explore the list of supported backends for Tyk Pump, please visit [Pump Backe
 {{< /note >}}
 
 #### Prometheus Pump
-Add `prometheus` to `pump.backend`, and add connection details for prometheus under `pump.prometheusPump`. 
+Add `prometheus` to `tyk-pump.pump.backend`, and add connection details for Prometheus under `tyk-pump.pump.prometheusPump`. 
 
-We also support monitoring using Prometheus Operator. All you have to do is set `pump.prometheusPump.prometheusOperator.enabled` to true.
+We also support monitoring using Prometheus Operator. All you have to do is set `tyk-pump.pump.prometheusPump.prometheusOperator.enabled` to true.
 This will create a _PodMonitor_ resource for your Pump instance.
 
 ```yaml
@@ -572,7 +572,7 @@ To enable Tyk Developer Enterprise Portal, set `global.components.devPortal` to 
 
 #### Tyk Developer Enterprise Portal License (Required)
 
-Tyk Developer Enterprise Portal License is required. It can be set up in `tyk-dev-portal.license` or through secret `global.secrets.useSecretName`. The secret should contain a key called DeveloperPortalLicense.
+Tyk Developer Enterprise Portal License is required. It can be set up in `tyk-dev-portal.license` or through secret `global.secrets.useSecretName`. The secret should contain a key called DevPortalLicense.
 
 ```yaml
 tyk-dev-portal:
