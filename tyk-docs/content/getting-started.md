@@ -12,7 +12,7 @@ aliases:
   - /getting-started/installation/tutorials/tutorials/
 ---
 
-Tyk offers an open source API Gateway that is fast, scalable and modern. Tyk also offers a full life-cycle API Management Platform with an API Gateway, API Analytics, Developer Portal and API Management Dashboard.
+Tyk test offers an open source API Gateway that is fast, scalable and modern. Tyk also offers a full life-cycle API Management Platform with an API Gateway, API Analytics, Developer Portal and API Management Dashboard.
 
 Once you have a Tyk environment installed, whether it's self-managed OSS or Enterprise, or Cloud, come back here to create your first API!
 
