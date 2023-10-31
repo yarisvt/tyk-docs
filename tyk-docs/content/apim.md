@@ -10,6 +10,7 @@ aliases:
     - /getting-started/deployment-options/
 ---
 
+Test
 Tyk API Management deployment options are comprised of the various [open and closed source]({{< ref "tyk-stack" >}}) components.
 
 Which one is right for your organisation depends on your requirements and preferences.  Please contact us for help:
