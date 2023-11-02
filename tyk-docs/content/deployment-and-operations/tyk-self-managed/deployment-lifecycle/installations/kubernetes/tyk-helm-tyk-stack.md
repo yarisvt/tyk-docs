@@ -610,10 +610,11 @@ tyk-dev-portal:
     # User can set the storage type for portal.
     # Supported types: fs, s3, db
     type: "fs"
+    dialect: "sqlite3"
+    connectionString: "db/portal.db"
+    enableLogs: false
+    
     database:
-      dialect: "sqlite3"
-      connectionString: "db/portal.db"
-      enableLogs: false
       maxRetries: 3
       retryDelay: 5000
     # Configuration values for using s3 as storage for Tyk Developer Portal
