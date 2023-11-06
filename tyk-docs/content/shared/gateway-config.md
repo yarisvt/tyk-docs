@@ -2,13 +2,13 @@
 EV: <b>TYK_GW_HOSTNAME</b><br />
 Type: `string`<br />
 
-Force your Gateway to work only on a specific domain name. Can be overridden by API custom domain.
+Force your Gateway to work only on a specifc domain name. Can be overriden by API custom domain.
 
 ### listen_address
 EV: <b>TYK_GW_LISTENADDRESS</b><br />
 Type: `string`<br />
 
-If your machine has multiple network devices or IPs you can force the Gateway to use the IP address you want.
+If your machine has mulitple network devices or IPs you can force the Gateway to use the IP address you want.
 
 ### listen_port
 EV: <b>TYK_GW_LISTENPORT</b><br />
@@ -118,19 +118,25 @@ Gateway HTTP server configuration
 EV: <b>TYK_GW_HTTPSERVEROPTIONS_READTIMEOUT</b><br />
 Type: `int`<br />
 
-API Consumer -> Gateway network read timeout. Not setting this config, or setting this to 0, defaults to 120 seconds
+User -> Gateway network read timeout
 
 ### http_server_options.write_timeout
 EV: <b>TYK_GW_HTTPSERVEROPTIONS_WRITETIMEOUT</b><br />
 Type: `int`<br />
 
-API Consumer -> Gateway network write timeout. Not setting this config, or setting this to 0, defaults to 120 seconds
+User -> Gateway network write timeout
 
 ### http_server_options.use_ssl
 EV: <b>TYK_GW_HTTPSERVEROPTIONS_USESSL</b><br />
 Type: `bool`<br />
 
 Set to true to enable SSL connections
+
+### http_server_options.use_ssl_le
+EV: <b>TYK_GW_HTTPSERVEROPTIONS_USELE_SSL</b><br />
+Type: `bool`<br />
+
+Enable Lets-Encrypt support
 
 ### http_server_options.enable_http2
 EV: <b>TYK_GW_HTTPSERVEROPTIONS_ENABLEHTTP2</b><br />
@@ -225,23 +231,6 @@ Type: `[]string`<br />
 
 Custom SSL ciphers. See list of ciphers here https://tyk.io/docs/basic-config-and-security/security/tls-and-ssl/#specify-tls-cipher-suites-for-tyk-gateway--tyk-dashboard
 
-### http_server_options.max_request_body_size
-EV: <b>TYK_GW_HTTPSERVEROPTIONS_MAXREQUESTBODYSIZE</b><br />
-Type: `int64`<br />
-
-MaxRequestBodySize configures a maximum size limit for request body size (in bytes) for all APIs on the Gateway.
-
-Tyk Gateway will evaluate all API requests against this size limit and will respond with HTTP 413 status code if the body of the request is larger.
-
-Two methods are used to perform the comparison:
- - If the API Request contains the `Content-Length` header, this is directly compared against `MaxRequestBodySize`.
- - If the `Content-Length` header is not provided, the Request body is read in chunks to compare total size against `MaxRequestBodySize`.
-
-A value of zero (default) means that no maximum is set and API requests will not be tested.
-
-See more information about setting request size limits here:
-https://tyk.io/docs/basic-config-and-security/control-limit-traffic/request-size-limits/#maximum-request-sizes
-
 ### version_header
 EV: <b>TYK_GW_VERSIONHEADER</b><br />
 Type: `string`<br />
@@ -266,15 +255,6 @@ EV: <b>TYK_GW_HASHKEYS</b><br />
 Type: `bool`<br />
 
 Enable Key hashing
-
-### disable_key_actions_by_username
-EV: <b>TYK_GW_DISABLEKEYACTIONSBYUSERNAME</b><br />
-Type: `bool`<br />
-
-DisableKeyActionsByUsername disables key search by username.
-When this is set to `true` you are able to search for keys only by keyID or key hash (if `hash_keys` is also set to `true`)
-Note that if `hash_keys` is also set to `true` then the keyID will not be provided for APIs secured using basic auth. In this scenario the only search option would be to use key hash
-If you are using the Tyk Dashboard, you must configure this setting with the same value in both Gateway and Dashboard
 
 ### hash_key_function
 EV: <b>TYK_GW_HASHKEYFUNCTION</b><br />
@@ -349,18 +329,11 @@ If you set this value to `true`, then the id parameter in a stored policy (or im
 
 This option should only be used when moving an installation to a new database.
 
-### policies.policy_path
-EV: <b>TYK_GW_POLICIES_POLICYPATH</b><br />
-Type: `string`<br />
-
-This option is used for storing a policies  if `policies.policy_source` is set to `file`.
-it should be some existing file path on hard drive
-
 ### ports_whitelist
 EV: <b>TYK_GW_PORTWHITELIST</b><br />
 Type: `PortsWhiteList`<br />
 
-Defines the ports that will be available for the API services to bind to in the following format: `"{“":“”}"`. Remember to escape JSON strings.
+Defines the ports that will be available for the API services to bind to in the following format: `{ “": “” }``.
 This is a map of protocol to PortWhiteList. This allows per protocol
 configurations.
 
@@ -399,7 +372,7 @@ Set the URL to your Dashboard instance (or a load balanced instance). The URL ne
 EV: <b>TYK_GW_DBAPPCONFOPTIONS_CONNECTIONTIMEOUT</b><br />
 Type: `int`<br />
 
-Set a timeout value, in seconds, for your Dashboard connection. Default value is 30.
+Set the timeout for your Dashboard connection. Defaults to 30 seconds. In seconds.
 
 ### db_app_conf_options.node_is_segmented
 EV: <b>TYK_GW_DBAPPCONFOPTIONS_NODEISSEGMENTED</b><br />
@@ -594,7 +567,7 @@ The maximum time in seconds that a RPC ping can last.
 EV: <b>TYK_GW_SLAVEOPTIONS_RPCPOOLSIZE</b><br />
 Type: `int`<br />
 
-The number of RPC connections in the pool. Basically it creates a set of connections that you can re-use as needed. Defaults to 5.
+The number of RPC connections in the pool. Basically it creates a set of connections that you can re-use as needed.
 
 ### slave_options.key_space_sync_interval
 EV: <b>TYK_GW_SLAVEOPTIONS_KEYSPACESYNCINTERVAL</b><br />
@@ -613,12 +586,6 @@ EV: <b>TYK_GW_SLAVEOPTIONS_RPCGLOBALCACHEEXPIRATION</b><br />
 Type: `float32`<br />
 
 RPCKeysCacheExpiration defines the expiration time of the rpc cache that stores the keys, defined in seconds
-
-### slave_options.synchroniser_enabled
-EV: <b>TYK_GW_SLAVEOPTIONS_SYNCHRONISERENABLED</b><br />
-Type: `bool`<br />
-
-SynchroniserEnabled enable this config if MDCB has enabled the synchoniser. If disabled then it will ignore signals to synchonise recources
 
 ### management_node
 EV: <b>TYK_GW_MANAGEMENTNODE</b><br />
@@ -655,7 +622,7 @@ The standard rate limiter offers similar performance as the sentinel-based limit
 EV: <b>TYK_GW_ENABLENONTRANSACTIONALRATELIMITER</b><br />
 Type: `bool`<br />
 
-An enhancement for the Redis and Sentinel rate limiters, that offers a significant improvement in performance by not using transactions on Redis rate-limit buckets.
+An enchancment for the Redis and Sentinel rate limiters, that offers a significant improvement in performance by not using transactions on Redis rate-limit buckets.
 
 ### drl_notification_frequency
 EV: <b>TYK_GW_DRLNOTIFICATIONFREQUENCY</b><br />
@@ -1040,12 +1007,6 @@ Type: `bool`<br />
 
 Each UUID will be replaced with a placeholder {uuid}
 
-### analytics_config.normalise_urls.normalise_ulids
-EV: <b>TYK_GW_ANALYTICSCONFIG_NORMALISEURLS_NORMALISEULIDS</b><br />
-Type: `bool`<br />
-
-Each ULID will be replaced with a placeholder {ulid}
-
 ### analytics_config.normalise_urls.normalise_numbers
 EV: <b>TYK_GW_ANALYTICSCONFIG_NORMALISEURLS_NORMALISENUMBERS</b><br />
 Type: `bool`<br />
@@ -1089,12 +1050,6 @@ EV: <b>TYK_GW_ANALYTICSCONFIG_PURGEINTERVAL</b><br />
 Type: `float32`<br />
 
 You can set the interval length on how often the tyk Gateway will purge analytics data. This value is in seconds and defaults to 10 seconds.
-
-### analytics_config.serializer_type
-EV: <b>TYK_GW_ANALYTICSCONFIG_SERIALIZERTYPE</b><br />
-Type: `string`<br />
-
-Determines the serialization engine for analytics. Available options: msgpack, and protobuf. By default, msgpack.
 
 ### enable_separate_analytics_store
 EV: <b>TYK_GW_ENABLESEPERATEANALYTICSSTORE</b><br />
@@ -1196,7 +1151,7 @@ Disable TLS verification
 EV: <b>TYK_GW_LIVENESSCHECK_CHECKDURATION</b><br />
 Type: `time.Duration`<br />
 
-Frequencies of performing interval healthchecks for Redis, Dashboard, and RPC layer. Default: 10 seconds.
+Frequence of performing interval healthchecks for Redis, Dashboard, and RPC layer. Default: 10 seconds.
 
 ### dns_cache
 This section enables the global configuration of the expireable DNS records caching for your Gateway API endpoints.
@@ -1481,7 +1436,6 @@ If not set or left empty, it will default to `info`.
 
 ### tracing
 Section for configuring OpenTracing support
-Deprecated: use OpenTelemetry instead.
 
 ### tracing.name
 EV: <b>TYK_GW_TRACER_NAME</b><br />
@@ -1500,150 +1454,6 @@ EV: <b>TYK_GW_TRACER_OPTIONS</b><br />
 Type: `map[string]interface{}`<br />
 
 Tracing configuration. Refer to the Tracing Docs for the full list of options.
-
-### opentelemetry
-Section for configuring OpenTelemetry.
-
-### opentelemetry.enabled
-EV: <b>TYK_GW_OPENTELEMETRY_ENABLED</b><br />
-Type: `bool`<br />
-
-A flag that can be used to enable or disable the trace exporter.
-
-### opentelemetry.exporter
-EV: <b>TYK_GW_OPENTELEMETRY_EXPORTER</b><br />
-Type: `string`<br />
-
-The type of the exporter to sending data in OTLP protocol.
-This should be set to the same type of the OpenTelemetry collector.
-Valid values are "grpc", or "http".
-Defaults to "grpc".
-
-### opentelemetry.endpoint
-EV: <b>TYK_GW_OPENTELEMETRY_ENDPOINT</b><br />
-Type: `string`<br />
-
-OpenTelemetry collector endpoint to connect to.
-Defaults to "localhost:4317".
-
-### opentelemetry.headers
-EV: <b>TYK_GW_OPENTELEMETRY_HEADERS</b><br />
-Type: `map[string]string`<br />
-
-A map of headers that will be sent with HTTP requests to the collector.
-
-### opentelemetry.connection_timeout
-EV: <b>TYK_GW_OPENTELEMETRY_CONNECTIONTIMEOUT</b><br />
-Type: `int`<br />
-
-Timeout for establishing a connection to the collector.
-Defaults to 1 second.
-
-### opentelemetry.resource_name
-EV: <b>TYK_GW_OPENTELEMETRY_RESOURCENAME</b><br />
-Type: `string`<br />
-
-Name of the resource that will be used to identify the resource.
-Defaults to "tyk".
-
-### opentelemetry.span_processor_type
-EV: <b>TYK_GW_OPENTELEMETRY_SPANPROCESSORTYPE</b><br />
-Type: `string`<br />
-
-Type of the span processor to use. Valid values are "simple" or "batch".
-Defaults to "batch".
-
-### opentelemetry.context_propagation
-EV: <b>TYK_GW_OPENTELEMETRY_CONTEXTPROPAGATION</b><br />
-Type: `string`<br />
-
-Type of the context propagator to use. Valid values are:
-- "tracecontext": tracecontext is a propagator that supports the W3C
-Trace Context format (https://www.w3.org/TR/trace-context/).
-- "b3": b3 is a propagator serializes SpanContext to/from B3 multi Headers format.
-Defaults to "tracecontext".
-
-### opentelemetry.tls
-TLS configuration for the exporter.
-
-### opentelemetry.tls.enable
-EV: <b>TYK_GW_OPENTELEMETRY_TLS_ENABLE</b><br />
-Type: `bool`<br />
-
-Flag that can be used to enable TLS. Defaults to false (disabled).
-
-### opentelemetry.tls.insecure_skip_verify
-EV: <b>TYK_GW_OPENTELEMETRY_TLS_INSECURESKIPVERIFY</b><br />
-Type: `bool`<br />
-
-Flag that can be used to skip TLS verification if TLS is enabled.
-Defaults to false.
-
-### opentelemetry.tls.ca_file
-EV: <b>TYK_GW_OPENTELEMETRY_TLS_CAFILE</b><br />
-Type: `string`<br />
-
-Path to the CA file.
-
-### opentelemetry.tls.cert_file
-EV: <b>TYK_GW_OPENTELEMETRY_TLS_CERTFILE</b><br />
-Type: `string`<br />
-
-Path to the cert file.
-
-### opentelemetry.tls.key_file
-EV: <b>TYK_GW_OPENTELEMETRY_TLS_KEYFILE</b><br />
-Type: `string`<br />
-
-Path to the key file.
-
-### opentelemetry.tls.max_version
-EV: <b>TYK_GW_OPENTELEMETRY_TLS_MAXVERSION</b><br />
-Type: `string`<br />
-
-Maximum TLS version that is supported.
-Options: ["1.0", "1.1", "1.2", "1.3"].
-Defaults to "1.3".
-
-### opentelemetry.tls.min_version
-EV: <b>TYK_GW_OPENTELEMETRY_TLS_MINVERSION</b><br />
-Type: `string`<br />
-
-Minimum TLS version that is supported.
-Options: ["1.0", "1.1", "1.2", "1.3"].
-Defaults to "1.2".
-
-### opentelemetry.sampling
-Defines the configurations to use in the sampler.
-
-### opentelemetry.sampling.type
-EV: <b>TYK_GW_OPENTELEMETRY_SAMPLING_TYPE</b><br />
-Type: `string`<br />
-
-Refers to the policy used by OpenTelemetry to determine
-whether a particular trace should be sampled or not. It's determined at the
-start of a trace and the decision is propagated down the trace. Valid Values are:
-AlwaysOn, AlwaysOff and TraceIDRatioBased. It defaults to AlwaysOn.
-
-### opentelemetry.sampling.rate
-EV: <b>TYK_GW_OPENTELEMETRY_SAMPLING_RATE</b><br />
-Type: `float64`<br />
-
-Parameter for the TraceIDRatioBased sampler type and represents the percentage
-of traces to be sampled. The value should fall between 0.0 (0%) and 1.0 (100%). For instance, if
-the sampling rate is set to 0.5, the sampler will aim to sample approximately 50% of the traces.
-By default, it's set to 0.5.
-
-### opentelemetry.sampling.parent_based
-EV: <b>TYK_GW_OPENTELEMETRY_SAMPLING_PARENTBASED</b><br />
-Type: `bool`<br />
-
-Rule that ensures that if we decide to record data for a particular operation,
-we'll also record data for all the subsequent work that operation causes (its "child spans").
-This approach helps in keeping the entire story of a transaction together. Typically, ParentBased
-is used in conjunction with TraceIDRatioBased. Using it with AlwaysOn or AlwaysOff might not be as
-effective since, in those cases, you're either recording everything or nothing, and there are no
-intermediary decisions to consider. The default value for this option is false.
 
 ### newrelic.app_name
 EV: <b>TYK_GW_NEWRELIC_APPNAME</b><br />
@@ -1777,12 +1587,6 @@ Type: `bool`<br />
 
 Enable global API token expiration. Can be needed if all your APIs using JWT or oAuth 2.0 auth methods with dynamically generated keys.
 
-### session_lifetime_respects_key_expiration
-EV: <b>TYK_GW_SESSIONLIFETIMERESPECTSKEYEXPIRATION</b><br />
-Type: `bool`<br />
-
-SessionLifetimeRespectsKeyExpiration respects the key expiration time when the session lifetime is less than the key expiration. That is, Redis waits the key expiration for physical removal.
-
 ### global_session_lifetime
 EV: <b>TYK_GW_GLOBALSESSIONLIFETIME</b><br />
 Type: `int64`<br />
@@ -1914,19 +1718,4 @@ EV: <b>TYK_GW_JWTSSLINSECURESKIPVERIFY</b><br />
 Type: `bool`<br />
 
 Skip TLS verification for JWT JWKs url validation
-
-### resource_sync
-ResourceSync configures mitigation strategy in case sync fails.
-
-### resource_sync.retry_attempts
-EV: <b>TYK_GW_RESOURCESYNC_RETRYATTEMPTS</b><br />
-Type: `int`<br />
-
-RetryAttempts configures the number of retry attempts before returning on a resource sync.
-
-### resource_sync.interval
-EV: <b>TYK_GW_RESOURCESYNC_INTERVAL</b><br />
-Type: `int`<br />
-
-Interval configures the interval in seconds between each retry on a resource sync error.
 
