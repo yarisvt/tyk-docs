@@ -2,7 +2,7 @@
 title: Tyk Gateway 5.2 Release Notes
 date: 2023-09-27T15:49:11Z
 description: "Release notes documenting updates, enhancements, and changes for Tyk Gateway versions within the 5.2.X series."
-tags: ["Tyk Gateway", "Release notes", "v5.2", "5.2.0", "5.2", "changelog", "5.2.1"]
+tags: ["Tyk Gateway", "Release notes", "v5.2", "5.2.0", "5.2", "changelog", "5.2.1", "5.2.2", "5.2.3"]
 ---
 
 **Open Source** ([Mozilla Public License](https://github.com/TykTechnologies/tyk/blob/master/LICENSE.md))
@@ -11,6 +11,59 @@ tags: ["Tyk Gateway", "Release notes", "v5.2", "5.2.0", "5.2", "changelog", "5.2
 
 ### Support Lifetime
 Minor releases are supported until our next minor comes out. There is no 5.3 scheduled in Q4. Subsequently, 5.2 will remain in support until our next LTS version comes out in March 2024.
+
+---
+
+## 5.2.3 Release Notes 
+
+##### Release Date XX Nov 2023
+
+#### Breaking Changes
+This release has no breaking changes.
+
+#### Deprecations
+There are no deprecations in this release.
+
+#### Upgrade instructions
+If you are using a 5.2.x version, we advise you to upgrade ASAP to this latest release. If you are on an older version, you should skip 5.2.0 and upgrade directly to this release.
+
+#### Release Highlights
+This release enhances security, stability, and performance.
+For a comprehensive list of changes, please refer to the detailed [changelog]({{< ref "#Changelog-v5.2.3">}}) below.
+
+#### Downloads
+- [docker image to pull](TBC)
+- [source code](https://github.com/TykTechnologies/tyk/releases/tag/v5.2.3)
+
+#### Changelog {#Changelog-v5.2.3}
+​
+### Security
+​
+The following High Priority CVEs are known to exist in this release:
+<ul><li>CVE-2023-39325</li>
+<li>CVE-2023-44487 - To mitigate the vulnerability, users are advised to disable HTTP/2 at this time by setting `enable_http2` to `false`.</li>
+<li>CVE-2023-45283</li>
+​</ul>
+
+### Fixed
+​
+<ul>​<li><details><summary>Python version not always correctly autodetected</summary> Fixed an issue where Tyk was not autodetecting the installed Python version if that had multiple digits in the minor version (e.g. Python 3.11). The regular expression was updated to correctly identify Python versions 3.x and 3.xx, improving compatibility and functionality. </details></li>​
+
+<li><details><summary>***TO BE UPDATED*** Poor performance using JWT authentication in distributed (MDCB) deployments</summary> Fixed an issue where the Gateway would always try to retrieve keys via MDCB when using JWT authentication. This fix improves the performance of the Tyk Gateway in an MDCB setup, reducing local Redis load and network calls over MDCB, and improving .</details></li>​
+
+<li><details><summary>Custom Authentication Plugin not working correctly with policies</summary> Fixed an issue where the session object generated when creating a Custom Key in a Go Plugin did not inherit parameters correctly from the Security Policy.</details></li>
+
+<li><details><summary>Runtime log error incorrectly produced when using Go Plugin Virtual Endpoints</summary> Fixed a minor issue with Go Plugin virtual endpoints where a runtime log error was produced from a request, even if the response was successful. Thanks to uddmorningsun for spotting this and proposing a fix.</details></li>
+
+<li><details><summary>Attaching a public key to an API definition for mTLS brings down the Gateway</summary> Fixed an issue where uploading a public key instead of a certificate into the certificate store and using that key for mTLS caused all the Gateways that the APIs are published on to cease negotiating TLS. This fix improves the stability of the gateways and the successful negotiation of TLS.</details></li></ul>
+​
+### Added
+​
+<ul><li><details><summary>Implemented a `tyk version` command that provides more details about the Tyk Gateway build</summary> This prints the release version, git commit, Go version used, architecture and other build details. It's used to provide more detailed information when raising support tickets, as well as facilitating some CI automation with the use of `--json` flag.</details></li>
+
+<li><details><summary>Added option to fallback to default API version</summary> Added new option for Tyk to use the default version of an API if the requested version does not exist. This is referred to as falling back to default and is enabled using a configuration flag in the API defintion; for Tyk OAS APIs the flag is `fallbackToDefault`, for Tyk Classic APIs it is `fallback_to_default`.</details></li>
+​
+<li><details><summary>Implemented a backoff limit for subscription connection retry</summary> Added a backoff limit for subscription connection retry to prevent excessive error messages when the upstream stops working. The connection retries and linked error messages now occur in progressively longer intervals, improving error handling and user experience.</details></li></ul>
 
 ---
 
@@ -28,7 +81,8 @@ There are no deprecations in this release.
 If you are using a 5.2.x version, we advise you to upgrade ASAP to this latest release. If you are on an older version, you should skip 5.2.0 and upgrade directly to this release.
 
 #### Release Highlights
-This release primarily focuses on bug fixes.
+The Tyk Gateway's latest update enhances security, stability, and performance. Key improvements include: resolving protobuf dependency issues, updating Python 3.11 compatibility, optimizing JWT authentication in MDCB setups, and stabilizing Golang Virtual Endpoints. Additionally, the middleware execution order has been aligned with documentation for consistency, and a new backoff limit for subscription retries has been added to improve error handling. These updates collectively ensure a more robust, user-friendly, and efficient Tyk Gateway experience.
+
 For a comprehensive list of changes, please refer to the detailed [changelog]({{< ref "#Changelog-v5.2.2">}}) below.
 
 #### Downloads
@@ -37,32 +91,37 @@ For a comprehensive list of changes, please refer to the detailed [changelog]({{
 
 #### Changelog {#Changelog-v5.2.2}
 
-#### Fixed
-
-- Fixed an issue where [enforced timeouts]({{< ref "planning-for-production/ensure-high-availability/enforced-timeouts" >}}) values were incorrect on a per-request basis. Since we enforced timeouts only at the transport level and created the transport only once within the value set by [max_conn_time]({{< ref "tyk-oss-gateway/configuration#max_conn_time" >}}), the timeout in effect was not deterministic. Timeouts larger than 0 seconds are now enforced for each request.
-
-- Fixed an issue when using MongoDB and [Tyk Security Policies]({{< ref "getting-started/key-concepts/what-is-a-security-policy" >}}) where Tyk could incorrectly grant access to an API after that API had been deleted from the associated policy. This was due to the policy cleaning operation that is triggered when an API is deleted from a policy in a MongoDB installation. With this fix, the policy cleaning operation will not remove the final (deleted) API from the policy; Tyk recognises that the API record is invalid and denies granting access rights to the key.
-
-- Fixed the following high-priority CVEs identified in the Tyk Gateway, providing increased protection against security vulnerabilities. Note that the [Logstash]({{< ref "log-data#aggregated-logs-with-logstash" >}}) formatter timestamp is now in [RFC3339Nano](https://www.rfc-editor.org/rfc/rfc3339) format.
-
-  - [CVE-2021-23409](https://nvd.nist.gov/vuln/detail/CVE-2021-23409)
-  - [CVE-2021-23351](https://nvd.nist.gov/vuln/detail/CVE-2021-23351)
-  - [CVE-2022-40897](https://nvd.nist.gov/vuln/detail/CVE-2022-40897)
-  - [CVE-2022-1941](https://nvd.nist.gov/vuln/detail/CVE-2022-1941)
-  - [CVE-2019-19794](https://nvd.nist.gov/vuln/detail/CVE-2019-19794)
-  - [CVE-2010-0928](https://nvd.nist.gov/vuln/detail/CVE-2010-0928)
-  - [CVE-2007-6755](https://nvd.nist.gov/vuln/detail/CVE-2007-6755)
-  - [CVE-2018-5709](https://nvd.nist.gov/vuln/detail/CVE-2018-5709)
-
-- Fixed a potential race condition where the *DRL Manager* was not properly protected against concurrent read/write operations in some high-load scenarios.
-
-- Fixed a performance issue encountered when Tyk Gateway retrieves a key via MDCB for a JWT API. The token is now validated against [JWKS or the public key]({{<ref "basic-config-and-security/security/authentication-authorization/json-web-tokens#dynamic-public-key-rotation-using-public-jwks-url" >}}) in the API Definition.
-
-- Fixed a performance issue where JWT middleware introduced latency which significantly reduced the overall request/response throughput.
-
-- Fixed an issue that prevented *UDG* examples from being displayed in the dashboard when the *Open Policy Agent(OPA)* is enabled.
-
-- Fixed an issue where the Tyk Gateway logs would include sensitive information when the incorrect signature is provided in a request to an API protected by HMAC authentication.
+### Fixed
+​
+<ul><li><details><summary>Protobuf dependency breaks CI</summary> Fixed an issue where a recent dependency release of protobuf was breaking the gateway. The older 4.24.4 dependency was pinned to pass CI, and tech debt in coprocess/python tests was addressed, resulting in improved test speed and reliability.</details></li>
+​
+<li><details><summary>Python version not autodetected when installed python version is 3.11</summary> Fixed an issue where Tyk was not autodetecting the installed Python version when Python 3.11 was installed. The regular expression was updated to correctly identify Python versions 3.x and 3.xx, improving compatibility and functionality.</details></li>
+​
+<li><details><summary>Python 3.11 removes 'getargspec' from inspect library</summary> Fixed an issue where the removal of 'getargspec' from the inspect library in Python 3.11 caused compatibility issues. The function was replaced with 'getfullargspec', as recommended, ensuring the software remains compatible with the latest versions of Python.</details></li>
+​
+<li><details><summary>Gateway always retrieves keys via MDCB when using JWT auth (Keycloak)</summary> Fixed an issue where the Gateway was always retrieving keys via MDCB when using JWT authentication. This fix improves the performance of the Tyk Gateway in an MDCB setup, reducing local Redis load and network calls over MDCB.</details></li>
+​
+<li><details><summary>VERSION is injected in gateway package, inaccessible for import</summary> Fixed an issue where the version value was injected into the gateway package and was inaccessible for import due to a diamond dependency problem. Moved injected values into 'internal/build.Version' and implemented 'tyk version' to print injected variables and runtime info, improving accessibility and usability.</details></li>
+​
+<li><details><summary>Custom Plugin Auth Not working with policies</summary> Fixed an issue where the Custom Key in a Go Plugin did not respect the limits defined in the policy. The ApplyPolicies function is now called after a Go plugin is executed, ensuring policy data is available within all GoPlugin types and improving the overall functionality.</details></li>
+​
+<li><details><summary>Fix invalid memory address or nil pointer dereference in Golang Virtual Endpoints</summary> Fixed an issue that was causing an invalid memory address or nil pointer dereference error in Golang Virtual Endpoints. This fix ensures the stability and reliability of Golang Virtual Endpoints.</details></li>
+​
+<li><details><summary>Attaching a public key to an API definition for mTLS brings down all the Gateways it's published on</summary> Fixed an issue where uploading a public key instead of a certificate into the certificate store and using that key for mTLS caused all the gateways that the APIs are published on to cease negotiating TLS. This fix ensures the stability of the gateways and the successful negotiation of TLS.</details></li>
+​
+</ul>
+​
+### Changed
+​
+<ul><li><details><summary>Version check middleware executed before pre plugins contrary to the documentation</summary> Updated the middleware execution order to match the documentation, with the version check now occurring after the 'pre' plugins. Also added a configuration that prevents APIs from returning an error if the targeted version is non-existent, instead redirecting to the designated default version. This improves flexibility and consistency across both Classic and OAS APIs.</details></li>
+​
+</ul>
+​
+### Added
+​
+<ul><li><details><summary>Implement a backoff limit for subscription connection retry</summary> Added a backoff limit for subscription connection retry to prevent excessive error messages when the upstream stops working. The connection retries and linked error messages now occur in progressively longer intervals, improving error handling and user experience.</details></li>
+​
+</ul>
 
 #### Community Contributions
 
