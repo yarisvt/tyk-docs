@@ -30,6 +30,6 @@ This page serves the purpose of illustrating the latest Tyk components. The foll
 
 ## Helm Charts
 
-| Component   | Release | Patch  | Tag |
-|-------------|---------|--------|-----|
-| Helm Charts | 1.1     | 1.1.9  | [tag]() |
+| Component   | Patch  |
+|-------------|--------|
+| Helm Charts | [1.1.0](https://github.com/TykTechnologies/tyk-charts/releases/tag/v1.1.0)  |
