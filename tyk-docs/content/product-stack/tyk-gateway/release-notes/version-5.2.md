@@ -100,9 +100,7 @@ For a comprehensive list of changes, please refer to the detailed [changelog]({{
 <li><details><summary>Attaching a public key to an API definition for mTLS brings down all the Gateways it's published on</summary> Fixed an issue where uploading a public key instead of a certificate into the certificate store and using that key for mTLS caused all the gateways that the APIs are published on to cease negotiating TLS. This fix ensures the stability of the gateways and the successful negotiation of TLS.</details></li></ul>
 
 ##### Changed
-
-<ul><li><details><summary>Version check middleware executed before pre plugins contrary to the documentation</summary>Updated the middleware execution order to match the documentation, with the version check now occurring after the 'pre' plugins. Also added a configuration that prevents APIs from returning an error if the targeted version is non-existent, instead redirecting to the designated default version. This improves flexibility and consistency across both Classic and OAS APIs
-</details></li></ul>​
+<ul><li><details><summary>Version check middleware executed before pre plugins contrary to the documentation</summary>Updated the middleware execution order to match the documentation, with the version check now occurring after the 'pre' plugins. Also added a configuration that prevents APIs from returning an error if the targeted version is non-existent, instead redirecting to the designated default version. This improves flexibility and consistency across both Classic and OAS APIs</details></li></ul>
 
 ##### Added
 
