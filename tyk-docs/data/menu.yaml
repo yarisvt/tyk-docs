@@ -1662,6 +1662,12 @@ menu:
             show: True
           - title: "How To Serve Plugins"
             path: /plugins/how-to-serve-plugins
+          - title: "Plugins Hub"
+            path: /plugins/plugin-hub
+            catgory: Page
+            show: True
+          - title: "Get Started"
+            path: /plugins/get-started-plugins
             category: Page
             show: True
           - title: "Plugin Bundles"
