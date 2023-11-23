@@ -48,14 +48,14 @@ The following High Priority CVEs are known to exist in this release:
 
 ##### Fixed
 
-​<ul><li><details><summary>Python version not always correctly autodetected</summary>Fixed an issue where Tyk was not autodetecting the installed Python version if that had multiple digits in the minor version (e.g. Python 3.11). The regular expression was updated to correctly identify Python versions 3.x and 3.xx, improving compatibility and functionality.</details></li>
+<ul><li><details><summary>Python version not always correctly autodetected</summary>Fixed an issue where Tyk was not autodetecting the installed Python version if that had multiple digits in the minor version (e.g. Python 3.11). The regular expression was updated to correctly identify Python versions 3.x and 3.xx, improving compatibility and functionality.</details></li>
 <li><details><summary>TO BE UPDATED Poor performance using JWT authentication in distributed (MDCB) deployments</summary> Fixed an issue where the Gateway would always try to retrieve keys via MDCB when using JWT authentication. This fix improves the performance of the Tyk Gateway in an MDCB setup, reducing local Redis load and network calls over MDCB, and improving.</details></li>
 <li><details><summary>Custom Authentication Plugin not working correctly with policies</summary> Fixed an issue where the session object generated when creating a Custom Key in a Go Plugin did not inherit parameters correctly from the Security Policy.</details></li>
 <li><details><summary>Runtime log error incorrectly produced when using Go Plugin Virtual Endpoints</summary> Fixed a minor issue with Go Plugin virtual endpoints where a runtime log error was produced from a request, even if the response was successful. Thanks to uddmorningsun for spotting this and proposing a fix.</details></li>
 <li><details><summary>Attaching a public key to an API definition for mTLS brings down the Gateway</summary> Fixed an issue where uploading a public key instead of a certificate into the certificate store and using that key for mTLS caused all the Gateways that the APIs are published on to cease negotiating TLS. This fix improves the stability of the gateways and the successful negotiation of TLS.</details></li></ul>
 
 ##### Added
-​
+
 <ul><li><details><summary>Implemented a `tyk version` command that provides more details about the Tyk Gateway build</summary> This prints the release version, git commit, Go version used, architecture and other build details. It's used to provide more detailed information when raising support tickets, as well as facilitating some CI automation with the use of `--json` flag.</details></li>
 
 <li><details><summary>Added option to fallback to default API version</summary> Added new option for Tyk to use the default version of an API if the requested version does not exist. This is referred to as falling back to default and is enabled using a configuration flag in the API defintion; for Tyk OAS APIs the flag is `fallbackToDefault`, for Tyk Classic APIs it is `fallback_to_default`.</details></li>
@@ -89,7 +89,7 @@ For a comprehensive list of changes, please refer to the detailed [changelog]({{
 #### Changelog {#Changelog-v5.2.2}
 
 ##### Fixed
-​
+
 <ul><li><details><summary>Protobuf dependency breaks CI</summary> Fixed an issue where a recent dependency release of protobuf was breaking the gateway. The older 4.24.4 dependency was pinned to pass CI, and tech debt in coprocess/python tests was addressed, resulting in improved test speed and reliability.</details></li>
 <li><details><summary>Python version not autodetected when installed python version is 3.11</summary> Fixed an issue where Tyk was not autodetecting the installed Python version when Python 3.11 was installed. The regular expression was updated to correctly identify Python versions 3.x and 3.xx, improving compatibility and functionality.</details></li>
 <li><details><summary>Python 3.11 removes 'getargspec' from inspect library</summary> Fixed an issue where the removal of 'getargspec' from the inspect library in Python 3.11 caused compatibility issues. The function was replaced with 'getfullargspec', as recommended, ensuring the software remains compatible with the latest versions of Python.</details></li>
@@ -98,18 +98,15 @@ For a comprehensive list of changes, please refer to the detailed [changelog]({{
 <li><details><summary>Custom Plugin Auth Not working with policies</summary> Fixed an issue where the Custom Key in a Go Plugin did not respect the limits defined in the policy. The ApplyPolicies function is now called after a Go plugin is executed, ensuring policy data is available within all GoPlugin types and improving the overall functionality.</details></li>
 <li><details><summary>Fix invalid memory address or nil pointer dereference in Golang Virtual Endpoints</summary> Fixed an issue that was causing an invalid memory address or nil pointer dereference error in Golang Virtual Endpoints. This fix ensures the stability and reliability of Golang Virtual Endpoints.</details></li>
 <li><details><summary>Attaching a public key to an API definition for mTLS brings down all the Gateways it's published on</summary> Fixed an issue where uploading a public key instead of a certificate into the certificate store and using that key for mTLS caused all the gateways that the APIs are published on to cease negotiating TLS. This fix ensures the stability of the gateways and the successful negotiation of TLS.</details></li></ul>
-​
+
 ##### Changed
-​
-<ul><li><details><summary>Version check middleware executed before pre plugins contrary to the documentation</summary> Updated the middleware execution order to match the documentation, with the version check now occurring after the 'pre' plugins. Also added a configuration that prevents APIs from returning an error if the targeted version is non-existent, instead redirecting to the designated default version. This improves flexibility and consistency across both Classic and OAS APIs.</details></li>
-​
-</ul>
-​
+
+<ul><li><details><summary>Version check middleware executed before pre plugins contrary to the documentation</summary>Updated the middleware execution order to match the documentation, with the version check now occurring after the 'pre' plugins. Also added a configuration that prevents APIs from returning an error if the targeted version is non-existent, instead redirecting to the designated default version. This improves flexibility and consistency across both Classic and OAS APIs
+</details></li></ul>​
+
 ##### Added
-​
-<ul><li><details><summary>Implement a backoff limit for subscription connection retry</summary> Added a backoff limit for subscription connection retry to prevent excessive error messages when the upstream stops working. The connection retries and linked error messages now occur in progressively longer intervals, improving error handling and user experience.</details></li>
-​
-</ul>
+
+<ul><li><details><summary>Implement a backoff limit for subscription connection retry</summary> Added a backoff limit for subscription connection retry to prevent excessive error messages when the upstream stops working. The connection retries and linked error messages now occur in progressively longer intervals, improving error handling and user experience.</details></li></ul>
 
 #### Community Contributions
 
