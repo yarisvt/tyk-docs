@@ -32,7 +32,7 @@ This release enhances security, stability, and performance.
 For a comprehensive list of changes, please refer to the detailed [changelog]({{< ref "#Changelog-v5.2.3">}}) below.
 
 #### Downloads
-- [docker image to pull](TBC)
+- [docker image to pull](https://hub.docker.com/layers/tykio/tyk-gateway/v5.2.3/images/sha256-8a94658c8c52ddfe30f78c5438dd4308c4d019655d8af7773a33fdffda097992?context=explore)
 - [source code](https://github.com/TykTechnologies/tyk/releases/tag/v5.2.3)
 
 #### Changelog {#Changelog-v5.2.3}
