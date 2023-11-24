@@ -1,5 +1,5 @@
 ---
-title: Latest Tyk Releases
+title: Latest Releases
 description: This page provides a table of the latest Tyk Component versions with links to Github tags and docker versions
 ---
 
