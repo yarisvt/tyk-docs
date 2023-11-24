@@ -1,13 +1,15 @@
 ---
-title: Latest Releases
-description: This page provides a table of the latest Tyk Component versions with links to Github tags and docker versions
+title: Latest Releases And Dependencies
+description: This page summarises latest Tyk Releases and Dependencies
 ---
 
-This page provides the latest releases for Tyk Open Source and licensed components, in addition to Helm Charts. Furthermore, the following information is linked:
+This page provides the latest releases and dependencies for Tyk Open Source and licensed components, in addition to Helm Charts. Furthermore, the following information is linked:
 - Tags for patch and LTS releases.
 - Docker images for patch and LTS releases.
 
-## Open Source
+## Latest Releases
+
+### Open Source
 
 | Component   | Release  | LTS   | Docker  |
 |-------------|----------|-------|---------|
@@ -17,7 +19,7 @@ This page provides the latest releases for Tyk Open Source and licensed componen
 | Operator    | [0.15.1](https://github.com/TykTechnologies/tyk-operator/releases/tag/v0.15.1)   |       | [image](https://hub.docker.com/r/tykio/tyk-operator/tags?page=1&name=0.15.1)         |
 
 
-## Licensed
+### Licensed
 
 | Component   | Release | LTS   | Docker |
 |-------------|--------|-------|---------|
@@ -26,8 +28,24 @@ This page provides the latest releases for Tyk Open Source and licensed componen
 | Portal      | 1.8.0  |       | [image](https://hub.docker.com/r/tykio/portal/tags?page=1&name=1.8)        |
 
 
-## Helm Charts
+### Helm Charts
 
 | Component   | Patch  |
 |-------------|--------|
 | Helm Charts | [1.1.0](https://github.com/TykTechnologies/tyk-charts/releases/tag/v1.1.0)  |
+
+
+## Dependencies
+
+| Dependency      | Supported Version(s) | Tested Version(s) | Website |
+| --------------- | -------------------- | ----------------- | ------- |
+| Golang          |                      | 1.19              | [website](https://go.dev/) |
+| Redis           |                      | 6.2.x and 7       | [website](https://redis.io/) |
+| MongoDB         |                      | 4.4.x, 5.0.x and 6.0.x | [website](https://www.mongodb.com/) |
+| DocumentDB      |                      | 3.6 and 4 | [website](https://aws.amazon.com/documentdb/) |
+| CosmosDB(SQL)   |                      | 3.6 and 4 | [website](https://azure.microsoft.com/en-gb/products/cosmos-db/) |
+| CosmosDB(NoSQL) |                      | 3.6 and 4 | [website](https://azure.microsoft.com/en-gb/products/cosmos-db/) |
+| MySQL           |                      | 4+ | [website](https://www.mysql.com/) |
+| SQLite          |                      | 4+ | [website](https://www.sqlite.org/index.html) |
+| PostgreSQL      |                      | 11.x - 15.x LTS | [website](https://www.postgresql.org/) | 
+
