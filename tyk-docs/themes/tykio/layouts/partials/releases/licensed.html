@@ -1,0 +1,71 @@
+{{/* Retrieve the data */}}
+{{- $dashboard := .Site.Data.releases.dashboard -}}
+{{- $mdcb := .Site.Data.releases.mdcb -}}
+{{- $portal := .Site.Data.releases.portal -}}
+
+{{/* Initialise list of data items */}}
+{{- $components := slice -}}
+{{- with $dashboard -}}
+    {{- $components = $components | append (dict "name" "Dashboard" "data"
+$dashboard) -}}
+{{- end -}}
+{{- with $mdcb -}}
+    {{- $components = $components | append (dict "name" "MDCB" "data"
+$mdcb) -}}
+{{- end -}}
+{{- with $portal -}}
+    {{- $components = $components | append (dict "name" "Portal" "data"
+$portal) -}}
+{{- end -}}
+
+{{/* Loop through the list and merge data with table */}}
+<table>
+  <thead>
+    <th>Component</th>
+    <th>Release</th>
+    <th>LTS</th>
+    <th>Docker</th>
+  </thead>
+  <tbody>
+    {{- range $i, $component := $components -}}
+    <tr>
+        <td>{{- $component.name -}}</td>
+        <td>
+            {{- with $component.data.latest -}}
+                {{- $component.data.latest -}}
+            {{- end -}}
+        </td>
+        <td>
+            {{- with $component.data.lts -}}
+              {{- $component.data.lts -}}
+            {{- end -}}
+        </td>
+        <td>
+          {{- with $component.data.latest -}}
+            {{- with index $component.data $component.data.latest -}}
+              <a
+                href="{{- .docker -}}"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                image
+              </a>
+            {{- end -}}
+            {{- with $component.data.lts -}}
+              {{- with index $component.data $component.data.lts -}}
+                <a
+                  href="{{- .docker -}}"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  | lts
+                </a>
+              {{- end -}}
+            {{- end -}}
+          {{- end -}}
+        </td>
+    </tr>
+    {{- end -}}
+  </tbody>
+</table>
+

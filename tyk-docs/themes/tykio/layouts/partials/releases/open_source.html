@@ -1,0 +1,90 @@
+{{/* Retrieve the data */}}
+{{- $gateway := .Site.Data.releases.gateway -}}
+{{- $pump := .Site.Data.releases.pump -}}
+{{- $tib := .Site.Data.releases.tib -}}
+{{- $operator := .Site.Data.releases.operator }}
+
+{{/* Initialise a list of the data items */}}
+{{- $components := slice -}}
+{{- with $gateway -}}
+    {{- $components = $components | append (dict "name" "Gateway" "data" $gateway) -}}
+{{- end -}}
+{{- with $pump -}}
+    {{- $components = $components | append (dict "name" "Pump" "data" $pump) -}}
+{{- end -}}
+{{- with $tib -}}
+    {{- $components = $components | append (dict "name" "Identity Broker" "data"
+    $tib) -}}
+{{- end -}}
+{{- with $operator -}}
+    {{- $components = $components | append (dict "name" "Operator" "data"
+    $operator) -}}
+{{- end -}}
+
+{{/* Loop through the list and merge the data */}}
+<table>
+  <thead>
+    <th>Component</th>
+    <th>Release</th>
+    <th>LTS</th>
+    <th>Docker</th>
+  </thead>
+  <tbody>
+    {{- range $i, $component := $components -}}
+    <tr>
+      <td>{{- $component.name -}}</td>
+      <td>
+          {{- with $component.data.latest -}}
+            {{- with index $component.data $component.data.latest -}}
+              <a
+                  href="{{- .tag -}}"
+                  rel="noopener noreferrer"
+                  target="_blank"
+              >
+                  {{- $component.data.latest -}}
+              </a>
+            {{- end -}}
+          {{- end -}}
+      </td>
+      <td>
+          {{- with $component.data.lts -}}
+            {{- with index $component.data $component.data.lts -}}
+              <a
+                  href="{{- .tag -}}"
+                  rel="noopener noreferrer"
+                  target="_blank"
+              >
+                  {{- $component.data.lts -}}
+              </a>
+            {{- end -}}
+          {{- end -}}
+      </td>
+      <td>
+          {{- with $component.data.latest -}}
+            {{- with index $component.data $component.data.latest -}}
+              <a
+                  href="{{- .docker -}}"
+                  rel="noopener noreferrer"
+                  target="_blank"
+              >
+                  image
+              </a>
+              {{- with $component.data.lts -}}
+                {{- with index $component.data $component.data.lts -}}
+                    |<a
+                        href="{{- .docker -}}"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                    >
+                        lts
+                    </a>
+                {{- end -}}
+              {{- end -}}
+            {{- end -}}
+          {{- end -}}
+      </td>
+    </tr>
+    {{- end -}}
+  </tbody>
+</table>
+

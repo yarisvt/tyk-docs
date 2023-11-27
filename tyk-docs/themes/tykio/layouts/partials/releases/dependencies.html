@@ -1,0 +1,34 @@
+{{- $dependencies := .Site.Data.dependencies -}}
+
+{{- with $dependencies -}}
+    {{- with $dependencies.data -}}
+        <table>
+            <thead>
+                <tr>
+                    <th>Dependency</th>
+                    <th>Supported versions</th>
+                    <th>Tested versions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{ range $index, $data := $dependencies.data -}}
+                    <tr>
+                        <td>
+                            <a
+                                href="{{- .website -}}"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                {{- .name -}}
+                            </a>
+                        </td>
+                        <td>{{- .supported -}}</td>
+                        <td>{{- .tested -}}</td>
+                    </tr>
+                {{- end -}}
+            </tbody>
+        </table>
+    {{- else -}}
+        <p>Failed to process data</p>
+    {{- end -}}
+{{- end -}}
