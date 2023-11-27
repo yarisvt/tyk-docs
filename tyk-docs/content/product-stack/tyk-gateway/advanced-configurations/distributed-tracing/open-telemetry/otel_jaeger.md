@@ -1,13 +1,17 @@
 ---
 date: 2023-08-29T13:32:12Z
-title: OpenTelemetry With Jaeger
+title: Exporting OpenTelemetry Distributed Traces to Jaeger
 tags: ["distributed tracing", "OpenTelemetry", "Jaeger"]
 description: "This guide explains how to setup Tyk Gateway with OpenTelemetry and Jager to enhance API Observability"
 ---
 
-This comprehensive guide provides a step-by-step walkthrough on setting up Tyk Gateway with OpenTelemetry and Jaeger to enhance API observability. We will go through installing necessary components, configuring them, and ensuring they work in unison.
+This guide demonstrates the configuration steps required to set up Tyk API Gateway with OpenTelemetry and Jaeger for efficient distributed tracing and enhanced API observability. Whether you’re using Tyk API Gateway in an open-source (OSS) or commercial deployment, the configuration options remain identical.
 
-## Prerequisites
+This capability is not yet available for Gateways hosted in Tyk Cloud.
+
+## Deploying Tyk Gateway with OpenTelemetry and Jaeger on Docker
+
+### Prerequisites
 
 - [Docker installed on your machine](https://docs.docker.com/get-docker/)
 - Gateway v5.2.0 or higher
@@ -15,7 +19,8 @@ This comprehensive guide provides a step-by-step walkthrough on setting up Tyk G
 
 ### Step 1: Tyk Gateway Configuration
 
-For Tyk Gateway to work with OpenTelemetry, modify the default Tyk configuration to include the following OpenTelemetry settings:
+To enable Tyk Gateway to work seamlessly with OpenTelemetry, modify the Tyk configuration file (e.g., `tyk.conf`) and append the following OpenTelemetry settings:
+
 
 ```json
 {
@@ -27,9 +32,7 @@ For Tyk Gateway to work with OpenTelemetry, modify the default Tyk configuration
 }
 ```
 
-Note that the `endpoint` value is the address of the OpenTelemetry Collector. We will set this up in the next step.
-
-Also, you can modify the `exporter` value to `http` if you want to use the HTTP protocol instead of gRPC.
+Ensure to adjust the endpoint value to match the OpenTelemetry Collector's address. Optionally, switch the exporter value to http for HTTP protocol usage instead of gRPC.
 
 ### Step 2: Create the Docker-Compose File for Jaeger and OpenTelemetry Collector
 
@@ -98,8 +101,8 @@ receivers:
 processors:
   batch:
 exporters:
-  jaeger:
-    endpoint: jaeger-all-in-one:14250
+  otlp:
+    endpoint: jaeger-all-in-one:4317
     tls:
       insecure: true
 extensions:
@@ -164,9 +167,9 @@ By following this guide, you should now have a Tyk Gateway setup integrated with
 </br>
 
 
-# Deploying Tyk Gateway with OpenTelemetry and Jaeger on Kubernetes
+## Deploying Tyk Gateway with OpenTelemetry and Jaeger on Kubernetes
 
-## Prerequisites
+### Prerequisites
 
 - A running Kubernetes cluster
 - kubectl and helm CLI tools installed
@@ -214,7 +217,7 @@ config:
   processors:
     batch: {}
   exporters:
-    jaeger:
+    otlp:
       endpoint: "jaeger-all-in-one-collector.observability.svc.cluster.local:14250"
       tls:
         insecure: true
