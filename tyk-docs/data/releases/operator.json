@@ -1,0 +1,9 @@
+{
+  "licensed": false,
+  "latest": "0.15.1",
+  "0.15.1": {
+    "date": "19/11/2023",
+    "tag": "https://github.com/TykTechnologies/tyk-operator/releases/tag/v0.15.1",
+    "docker": "https://hub.docker.com/r/tykio/tyk-operator/tags?page=1&name=0.15.1"
+  }
+}

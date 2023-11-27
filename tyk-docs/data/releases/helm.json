@@ -1,0 +1,9 @@
+{
+  "licensed": false,
+  "latest": "1.0.0",
+  "1.0.0": {
+    "date": "19/11/2023",
+    "tag": "https://github.com/TykTechnologies/tyk-identity-broker/releases/tag/v1.4.3",
+    "docker": "https://hub.docker.com/r/tykio/tyk-identity-broker/tags?page=1&name=1.4.3"
+  }
+}
