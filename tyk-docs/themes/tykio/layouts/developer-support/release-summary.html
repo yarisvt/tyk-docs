@@ -1,128 +1,82 @@
-{{ define "content" }}
-
-{{- $dashboard := .Site.Data.releases.dashboard -}}
-{{- $gateway := .Site.Data.releases.gateway -}}
-{{- $helm := .Site.Data.releases.helm -}}
-{{- $mdcb := .Site.Data.releases.mdcb -}}
-{{- $operator := .Site.Data.releases.operator -}}
-{{- $portal := .Site.Data.releases.portal -}}
-{{- $pump := .Site.Data.releases.pump -}}
-{{- $tib := .Site.Data.releases.tib -}}
-
-{{- $components := slice -}}
-{{- with $dashboard -}}
-    {{- $components = $components | append (dict "name" "Dashboard" "data" $dashboard) -}}
-{{ end }}
-{{- with $gateway -}}
-    {{- $components = $components | append (dict "name" "Gateway" "data" $gateway) -}}
-{{ end }}
-{{- with $helm -}}
-    {{- $components = $components | append (dict "name" "Helm" "data" $helm) -}}
-{{ end }}
-{{- with $mdcb -}}
-    {{- $components = $components | append (dict "name" "MDCB" "data" $mdcb) -}}
-{{ end }}
-{{- with $operator -}}
-    {{- $components = $components | append (dict "name" "Operator" "data"
-    $operator) -}}
-{{ end }}
-{{- with $portal -}}
-    {{- $components = $components | append (dict "name" "Portal" "data" $portal) -}}
-{{ end }}
-{{- with $pump -}}
-    {{- $components = $components | append (dict "name" "Pump" "data" $pump) -}}
-{{ end }}
-{{- with $tib -}}
-    {{- $components = $components | append (dict "name" "Identity Broker" "data"
-    $tib) -}}
-{{ end }}
-
-{{/* Merge the JSON release data */}}
+{{ define "content" }} {{- $dashboard := .Site.Data.releases.dashboard -}} {{-
+$gateway := .Site.Data.releases.gateway -}} {{- $helm :=
+.Site.Data.releases.helm -}} {{- $mdcb := .Site.Data.releases.mdcb -}} {{-
+$operator := .Site.Data.releases.operator -}} {{- $portal :=
+.Site.Data.releases.portal -}} {{- $pump := .Site.Data.releases.pump -}} {{-
+$tib := .Site.Data.releases.tib -}} {{- $components := slice -}} {{- with
+$dashboard -}} {{- $components = $components | append (dict "name" "Dashboard"
+"data" $dashboard) -}} {{ end }} {{- with $gateway -}} {{- $components =
+$components | append (dict "name" "Gateway" "data" $gateway) -}} {{ end }} {{-
+with $helm -}} {{- $components = $components | append (dict "name" "Helm" "data"
+$helm) -}} {{ end }} {{- with $mdcb -}} {{- $components = $components | append
+(dict "name" "MDCB" "data" $mdcb) -}} {{ end }} {{- with $operator -}} {{-
+$components = $components | append (dict "name" "Operator" "data" $operator) -}}
+{{ end }} {{- with $portal -}} {{- $components = $components | append (dict
+"name" "Portal" "data" $portal) -}} {{ end }} {{- with $pump -}} {{- $components
+= $components | append (dict "name" "Pump" "data" $pump) -}} {{ end }} {{- with
+$tib -}} {{- $components = $components | append (dict "name" "Identity Broker"
+"data" $tib) -}} {{ end }} {{/* Merge the JSON release data */}}
 <div class="container mt-4">
   <div class="row justify-content-center">
     {{ range $index, $component := $components }}
     <div class="col-md-4 mb-4">
       <div class="card h-100">
-        <div class="card-header bg-dark text-white">{{- $component.name -}}</div>
+        <div class="card-header bg-dark text-white">
+          {{- $component.name -}}
+        </div>
         <div class="card-body">
-          {{/* Determine license type */}}
-          {{- $license := "Licensed" -}}
-          {{- $licensed := .data.licensed -}}
-          {{- if not $licensed -}}
-              {{- $license = "Open Source" -}}
-          {{ end }}
-
-          {{/* Get latest and lts data */}}
-          {{- $lts := false -}}
-          {{- $ltsData := "" -}}
-          {{- with .data.lts -}}
-              {{- $ltsData = index $component.data $component.data.lts -}}
-              {{- if $ltsData -}}
-                  {{- $lts = true -}}
-              {{ end }}
-          {{ end }}
-
-          {{- $latest := false -}}
-          {{- $latestData := "" -}}
-          {{- with .data.latest -}}
-              {{- $latestData = index $component.data $component.data.latest -}}
-              {{- if $latestData -}}
-                  {{- $latest = true -}}
-              {{ end }}
-          {{ end }}
+          {{/* Determine license type */}} {{- $license := "Licensed" -}} {{-
+          $licensed := .data.licensed -}} {{- if not $licensed -}} {{- $license
+          = "Open Source" -}} {{ end }} {{/* Get latest and lts data */}} {{-
+          $lts := false -}} {{- $ltsData := "" -}} {{- with .data.lts -}} {{-
+          $ltsData = index $component.data $component.data.lts -}} {{- if
+          $ltsData -}} {{- $lts = true -}} {{ end }} {{ end }} {{- $latest :=
+          false -}} {{- $latestData := "" -}} {{- with .data.latest -}} {{-
+          $latestData = index $component.data $component.data.latest -}} {{- if
+          $latestData -}} {{- $latest = true -}} {{ end }} {{ end }}
 
           <h6 class="card-title">
-              {{- with $component.data.latest -}}
-                  {{- $title := $component.data.latest -}}
-                  {{- if $component.data.lts -}}
-                      {{- $title = printf "%s | %s (LTS)" $title $component.data.lts -}}
-                  {{- end -}}
-                  {{- $title -}}
-              {{ end }}
+            {{- with $component.data.latest -}} {{- $title :=
+            $component.data.latest -}} {{- if $component.data.lts -}} {{- $title
+            = printf "%s | %s (LTS)" $title $component.data.lts -}} {{- end -}}
+            {{- $title -}} {{ end }}
           </h6>
           <p class="card-text">{{- $license -}}</p>
         </div>
 
         <!-- Footer -->
-        <div class="card-footer text-muted d-flex justify-content-between
-            align-items-center" style="font-size: 12px;">
+        <div
+          class="card-footer text-muted d-flex justify-content-between align-items-center"
+          style="font-size: 12px"
+        >
           <!-- GitHub Images (Left Corner) -->
           <div class="d-flex align-items-start">
             {{- if and $latest (not $licensed) -}}
-              <div class="d-flex flex-column align-items-center ml-3">
-                <a
+            <div class="d-flex flex-column align-items-center ml-3">
+              <a
                 href="{{- $latestData.tag -}}"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="d-flex flex-column align-items-center"
-                >
-                    <img
-                      src="{{ "img/github.svg" | relURL }}"
-                      alt="Latest GHub Icon"
-                      class="icon"
-                      style="width: 20px; height: 20px"
-                    />
-                    <span>{{- $component.data.latest -}}</span>
-                </a>
-              </div>
-            {{ end }}
-            {{- if and $lts (not $licensed) -}}
-              <div class="d-flex flex-column align-items-center ml-3">
-                <a
-                  href="{{- $ltsData.tag -}}"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="d-flex flex-column align-items-center"
-                >
-                    <img
-                      src="{{ "img/github.svg" | relURL }}"
-                      alt="LTS GHub icon"
-                      class="icon"
-                      style="width: 20px; height: 20px"
-                    />
-                    <span>{{- $component.data.lts -}}</span>
-                </a>
-              </div>
+              >
+                <img src="{{ "img/github.svg" | relURL }}" alt="Latest GHub
+                Icon" class="icon" style="width: 32px; height: 32px" />
+                <span>{{- $component.data.latest -}}</span>
+              </a>
+            </div>
+            {{ end }} {{- if and $lts (not $licensed) -}}
+            <div class="d-flex flex-column align-items-center ml-3">
+              <a
+                href="{{- $ltsData.tag -}}"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="d-flex flex-column align-items-center"
+              >
+                <img src="{{ "img/github.svg" | relURL }}" alt="LTS GHub icon"
+                class="icon" style="width: 32px; height: 32px" />
+                <span>{{- $component.data.lts -}}</span>
+              </a>
+            </div>
             {{ end }}
           </div>
 
@@ -136,17 +90,12 @@
                 rel="noopener noreferrer"
                 class="d-flex flex-column align-items-center"
               >
-                  <img
-                    src="{{ "img/docker.png" | relURL }}"
-                    alt="Docker Latest Icon"
-                    class="icon"
-                    style="width: 20px; height: 20px"
-                  />
-                  <span>{{- $component.data.latest -}}</span>
+                <img src="{{ "img/docker.png" | relURL }}" alt="Docker Latest
+                Icon" class="icon" style="width: 32px; height: 32px" />
+                <span>{{- $component.data.latest -}}</span>
               </a>
             </div>
-            {{ end }}
-            {{- if $lts -}}
+            {{ end }} {{- if $lts -}}
             <div class="d-flex flex-column align-items-center ml-3">
               <a
                 href="{{- $latestData.docker -}}"
@@ -154,13 +103,9 @@
                 rel="noopener noreferrer"
                 class="d-flex flex-column align-items-center"
               >
-                  <img
-                    src="{{ "img/docker.png" | relURL }}"
-                    alt="Docker LTS Icon"
-                    class="icon"
-                    style="width: 20px; height: 20px"
-                  />
-                  <span>{{- $component.data.lts -}}</span>
+                <img src="{{ "img/docker.png" | relURL }}" alt="Docker LTS Icon"
+                class="icon" style="width: 32px; height: 32px" />
+                <span>{{- $component.data.lts -}}</span>
               </a>
             </div>
             {{ end }}
