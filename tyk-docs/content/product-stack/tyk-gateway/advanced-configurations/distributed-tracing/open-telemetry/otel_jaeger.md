@@ -20,8 +20,6 @@ This capability is not yet available for Gateways hosted in Tyk Cloud.
 
 ### Step 1: Create the Docker-Compose File for Jaeger and OpenTelemetry Collector
 
-#### Option 1: Using Docker Compose
-
 Save the following YAML configuration to a file named `docker-compose.yml`.
 
 ```yaml
@@ -52,17 +50,6 @@ Run the services by navigating to the directory containing the docker-compose.ym
 docker-compose up
 ```
 
-#### Option 2: Running Individual Docker Containers
-
-Alternatively, you can run the individual Docker containers as follows:
-
-```bash
-docker run --name jaeger \
-  -e COLLECTOR_OTLP_ENABLED=true \
-  -p 16686:16686 \
-  -p 4317:4317 \
-  jaegertracing/all-in-one:1.35
-```
 
 ### Step 2: Configure the OpenTelemetry Collector
 
