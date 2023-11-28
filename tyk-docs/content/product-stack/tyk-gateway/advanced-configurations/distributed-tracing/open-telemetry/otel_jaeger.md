@@ -17,24 +17,8 @@ This capability is not yet available for Gateways hosted in Tyk Cloud.
 - Gateway v5.2.0 or higher
 - OTel Collector [docker image](https://hub.docker.com/r/otel/opentelemetry-collector)
 
-### Step 1: Tyk Gateway Configuration
 
-To enable Tyk Gateway to work seamlessly with OpenTelemetry, modify the Tyk configuration file (e.g., `tyk.conf`) and append the following OpenTelemetry settings:
-
-
-```json
-{
-  "opentelemetry": {
-    "enabled": true,
-    "exporter": "grpc",
-    "endpoint": "localhost:4317"
-  }
-}
-```
-
-Ensure to adjust the endpoint value to match the OpenTelemetry Collector's address. Optionally, switch the exporter value to http for HTTP protocol usage instead of gRPC.
-
-### Step 2: Create the Docker-Compose File for Jaeger and OpenTelemetry Collector
+### Step 1: Create the Docker-Compose File for Jaeger and OpenTelemetry Collector
 
 #### Option 1: Using Docker Compose
 
@@ -48,8 +32,7 @@ services:
     image: jaegertracing/all-in-one:latest
     ports:
       - "16686:16686" # Jaeger UI
-      - "14268:14268" # Collector port
-      - "14250:14250" # gRPC port
+      - "4317:4317" # OTLP receiver
 
   # OpenTelemetry Collector
   collector-gateway:
@@ -58,11 +41,7 @@ services:
       - ./configs/otel-collector.yml:/etc/otel-collector.yml
     command: ["--config=/etc/otel-collector.yml"]
     ports:
-      - "1888:1888" # pprof extension
-      - "13133:13133" # Health check extension
       - "4317:4317" # OTLP gRPC receiver
-      - "4318:4318" # OTLP HTTP receiver
-      - "55679:55679" # zPages extension
     depends_on:
       - jaeger-all-in-one
 ```
@@ -82,11 +61,10 @@ docker run --name jaeger \
   -e COLLECTOR_OTLP_ENABLED=true \
   -p 16686:16686 \
   -p 4317:4317 \
-  -p 4318:4318 \
   jaegertracing/all-in-one:1.35
 ```
 
-### Step 3: Configure the OpenTelemetry Collector
+### Step 2: Configure the OpenTelemetry Collector
 
 Create a new YAML configuration file named otel-collector.yml with the following content:
 
@@ -105,14 +83,8 @@ exporters:
     endpoint: jaeger-all-in-one:4317
     tls:
       insecure: true
-extensions:
-  health_check:
-  pprof:
-    endpoint: :1888
-  zpages:
-    endpoint: :55679
+
 service:
-  extensions: [pprof, zpages, health_check]
   pipelines:
     traces:
       receivers: [otlp]
@@ -120,7 +92,7 @@ service:
       exporters: [jaeger]
 ```
 
-### Step 4: Run OSS Tyk Gateway with OpenTelemetry and Jaeger
+### Step 3: Run OSS Tyk Gateway with OpenTelemetry and Jaeger
 
 To run Tyk Gateway, you can extend the previous Docker Compose file to include Tyk Gateway and Redis services. Make sure to include the environment variables to configure OpenTelemetry in Tyk Gateway.
 
@@ -150,7 +122,7 @@ redis:
 {{< note success >}}
 **Note**
 
-Indicate the folder containing your APIs by setting the [TYK_GW_APPPATH](https://tyk.io/docs/tyk-oss-gateway/configuration/#app_path) environment variable. By default, the apps folder in the Docker Compose file's location will be used for loading the APIs.
+Indicate the folder containing your API definitions by setting the [TYK_GW_APPPATH](https://tyk.io/docs/tyk-oss-gateway/configuration/#app_path) environment variable. By default, the apps folder in the Docker Compose file's location will be used for loading the API definition.
 {{< /note >}}
 
 To run all services, execute:
@@ -210,25 +182,16 @@ config:
   receivers:
     otlp:
       protocols:
-        http:
-          endpoint: ${env:MY_POD_IP}:4318
         grpc:
           endpoint: ${env:MY_POD_IP}:4317
   processors:
     batch: {}
   exporters:
     otlp:
-      endpoint: "jaeger-all-in-one-collector.observability.svc.cluster.local:14250"
+      endpoint: "jaeger-all-in-one-collector.observability.svc.cluster.local:4317"
       tls:
         insecure: true
-  extensions:
-    health_check: {}
-    pprof:
-      endpoint: :1888
-    zpages:
-      endpoint: :55679
   service:
-    extensions: [pprof, zpages, health_check]
     pipelines:
       traces:
         receivers: [otlp]
