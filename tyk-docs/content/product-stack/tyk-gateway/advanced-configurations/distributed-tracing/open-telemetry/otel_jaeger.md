@@ -5,20 +5,18 @@ tags: ["distributed tracing", "OpenTelemetry", "Jaeger"]
 description: "This guide explains how to setup Tyk Gateway with OpenTelemetry and Jager to enhance API Observability"
 ---
 
-This guide demonstrates the configuration steps required to set up Tyk API Gateway with OpenTelemetry and Jaeger for efficient distributed tracing and enhanced API observability. Whether you’re using Tyk API Gateway in an open-source (OSS) or commercial deployment, the configuration options remain identical.
+This guide demonstrates the configuration steps required to set up Tyk API Gateway with Jaeger for efficient distributed tracing and enhanced API observability. Whether you’re using Tyk API Gateway in an open-source (OSS) or commercial deployment, the configuration options remain identical.
 
 This capability is not yet available for Gateways hosted in Tyk Cloud.
 
-## Deploying Tyk Gateway with OpenTelemetry and Jaeger on Docker
+## Deploying Tyk Gateway and Jaeger on Docker
 
 ### Prerequisites
 
 - [Docker installed on your machine](https://docs.docker.com/get-docker/)
 - Gateway v5.2.0 or higher
-- OTel Collector [docker image](https://hub.docker.com/r/otel/opentelemetry-collector)
 
-
-### Step 1: Create the Docker-Compose File for Jaeger and OpenTelemetry Collector
+### Step 1: Create the Docker-Compose File for Jaeger
 
 Save the following YAML configuration to a file named `docker-compose.yml`.
 
@@ -31,60 +29,44 @@ services:
     ports:
       - "16686:16686" # Jaeger UI
       - "4317:4317" # OTLP receiver
-
-  # OpenTelemetry Collector
-  collector-gateway:
-    image: otel/opentelemetry-collector:latest
-    volumes:
-      - ./configs/otel-collector.yml:/etc/otel-collector.yml
-    command: ["--config=/etc/otel-collector.yml"]
-    ports:
-      - "4317:4317" # OTLP gRPC receiver
-    depends_on:
-      - jaeger-all-in-one
 ```
 
-Run the services by navigating to the directory containing the docker-compose.yml file and executing:
+### Step 2: Configure a test API
 
-```bash
-docker-compose up
+If you don't have any APIs configured yet, create a subdirectory called `apps` in the current directory. Create a new file `apidef-hello-world.json` and copy this very simple API definition for testing purposes:
+
+```json
+{ 
+    "name": "Hello-World",
+    "slug": "hello-world",
+    "api_id": "Hello-World",
+    "org_id": "1",
+    "use_keyless": true,
+    "detailed_tracing": true,
+    "version_data": {
+      "not_versioned": true,
+      "versions": {
+        "Default": {
+          "name": "Default",
+          "use_extended_paths": true
+        }
+      }
+    },
+    "proxy": {
+      "listen_path": "/hello-world/",
+      "target_url": "http://echo.tyk-demo.com:8080/",
+      "strip_listen_path": true
+    },
+    "active": true
+}
 ```
 
-
-### Step 2: Configure the OpenTelemetry Collector
-
-Create a new YAML configuration file named otel-collector.yml with the following content:
-
-```yaml
-receivers:
-  otlp:
-    protocols:
-      http:
-        endpoint: 0.0.0.0:4318
-      grpc:
-        endpoint: 0.0.0.0:4317
-processors:
-  batch:
-exporters:
-  otlp:
-    endpoint: jaeger-all-in-one:4317
-    tls:
-      insecure: true
-
-service:
-  pipelines:
-    traces:
-      receivers: [otlp]
-      processors: [batch]
-      exporters: [jaeger]
-```
-
-### Step 3: Run OSS Tyk Gateway with OpenTelemetry and Jaeger
+### Step 3: Run OSS Tyk Gateway with OpenTelemetry enabled
 
 To run Tyk Gateway, you can extend the previous Docker Compose file to include Tyk Gateway and Redis services. Make sure to include the environment variables to configure OpenTelemetry in Tyk Gateway.
 
 ```yaml
-# ... Existing docker-compose.yml content for jaeger and otel-collector
+# ... Existing docker-compose.yml content for jaeger
 
 tyk:
   image: tykio/tyk-gateway:v5.2.0
@@ -106,21 +88,29 @@ redis:
   command: redis-server --appendonly yes
 ```
 
-{{< note success >}}
-**Note**
-
-Indicate the folder containing your API definitions by setting the [TYK_GW_APPPATH](https://tyk.io/docs/tyk-oss-gateway/configuration/#app_path) environment variable. By default, the apps folder in the Docker Compose file's location will be used for loading the API definition.
-{{< /note >}}
-
-To run all services, execute:
+Run the services by navigating to the directory containing the docker-compose.yml file and executing:
 
 ```bash
 docker-compose up
 ```
 
-By following this guide, you should now have a Tyk Gateway setup integrated with OpenTelemetry and Jaeger, providing a powerful observability solution for your APIs.
 
-{{< img src="/img/distributed-tracing/opentelemetry/jaeger-metrics.png" alt="Jaeger Metrics" >}}
+### Step 4: Explore OpenTelemetry traces in Jaeger
+
+Begin by sending a few requests to the API endpoint configured in step 2: 
+``
+http://localhost:8080/hello-world/
+``
+
+Next, navigate to Jaeger on `http://localhost:16686`, select the ´service´ called ´tyk-gateway´and click on the button ´Find traces´. You should see traces generated by Tyk:
+
+{{< img src="/img/distributed-tracing/opentelemetry/api-gateway-trace-tyk-jaeger.png" alt="Tyk API Gateway distributed trace in Jaeger" >}}
+
+Click on a trace to view all its internal spans:
+
+{{< img src="/img/distributed-tracing/opentelemetry/api-gateway-trace-tyk-jaeger-spans.png" alt="Tyk API Gateway spans in Jaeger" >}}
+
+
 
 </br>
 </br>
