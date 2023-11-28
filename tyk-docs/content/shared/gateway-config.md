@@ -335,8 +335,9 @@ Set this to the URL of your Tyk Dashboard installation. The URL needs to be form
 EV: <b>TYK_GW_POLICIES_POLICYRECORDNAME</b><br />
 Type: `string`<br />
 
-This option is required if `policies.policy_source` is set to `file`.
-Specifies the path of your JSON file containing the available policies.
+This option only applies in OSS deployment when the `policies.policy_source` is either set
+to `file` or an empty string. If `policies.policy_path` is not set, then Tyk will load policies
+from the JSON file specified by `policies.policy_record_name`.
 
 ### policies.allow_explicit_policy_id
 EV: <b>TYK_GW_POLICIES_ALLOWEXPLICITPOLICYID</b><br />
@@ -353,8 +354,10 @@ This option should only be used when moving an installation to a new database.
 EV: <b>TYK_GW_POLICIES_POLICYPATH</b><br />
 Type: `string`<br />
 
-This option is used for storing a policies  if `policies.policy_source` is set to `file`.
-it should be some existing file path on hard drive
+This option only applies in OSS deployment when the `policies.policy_source` is either set
+to `file` or an empty string. If `policies.policy_path` is set, then Tyk will load policies
+from all the JSON files under the directory specified by the `policies.policy_path` option.
+In this configuration, Tyk Gateway will allow policy management through the Gateway API.
 
 ### ports_whitelist
 EV: <b>TYK_GW_PORTWHITELIST</b><br />
