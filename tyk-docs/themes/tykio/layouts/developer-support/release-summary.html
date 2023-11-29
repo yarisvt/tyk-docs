@@ -1,21 +1,41 @@
-{{ define "content" }} {{- $dashboard := .Site.Data.releases.dashboard -}} {{-
-$gateway := .Site.Data.releases.gateway -}} {{- $helm :=
-.Site.Data.releases.helm -}} {{- $mdcb := .Site.Data.releases.mdcb -}} {{-
-$operator := .Site.Data.releases.operator -}} {{- $portal :=
-.Site.Data.releases.portal -}} {{- $pump := .Site.Data.releases.pump -}} {{-
-$tib := .Site.Data.releases.tib -}} {{- $components := slice -}} {{- with
-$dashboard -}} {{- $components = $components | append (dict "name" "Dashboard"
-"data" $dashboard) -}} {{ end }} {{- with $gateway -}} {{- $components =
-$components | append (dict "name" "Gateway" "data" $gateway) -}} {{ end }} {{-
-with $helm -}} {{- $components = $components | append (dict "name" "Helm" "data"
-$helm) -}} {{ end }} {{- with $mdcb -}} {{- $components = $components | append
-(dict "name" "MDCB" "data" $mdcb) -}} {{ end }} {{- with $operator -}} {{-
-$components = $components | append (dict "name" "Operator" "data" $operator) -}}
-{{ end }} {{- with $portal -}} {{- $components = $components | append (dict
-"name" "Portal" "data" $portal) -}} {{ end }} {{- with $pump -}} {{- $components
-= $components | append (dict "name" "Pump" "data" $pump) -}} {{ end }} {{- with
-$tib -}} {{- $components = $components | append (dict "name" "Identity Broker"
-"data" $tib) -}} {{ end }} {{/* Merge the JSON release data */}}
+{{ define "content" }}
+
+{{- $dashboard := .Site.Data.releases.dashboard -}}
+{{- $gateway := .Site.Data.releases.gateway -}} 
+{{- $helm := .Site.Data.releases.helm -}} 
+{{- $mdcb := .Site.Data.releases.mdcb -}}
+{{- $operator := .Site.Data.releases.operator -}} 
+{{- $portal := .Site.Data.releases.portal -}} 
+{{- $pump := .Site.Data.releases.pump -}}
+{{- $tib := .Site.Data.releases.tib -}}
+
+{{- $components := slice -}}
+{{- with $dashboard -}}
+  {{- $components = $components | append (dict "name" "Dashboard" "data" $dashboard) -}}
+{{ end }}
+{{- with $gateway -}}
+  {{- $components = $components | append (dict "name" "Gateway" "data" $gateway) -}}
+{{ end }}
+{{- with $helm -}}
+  {{- $components = $components | append (dict "name" "Helm" "data" $helm) -}}
+{{ end }}
+{{- with $mdcb -}}
+  {{- $components = $components | append (dict "name" "MDCB" "data" $mdcb) -}}
+{{ end }}
+{{- with $operator -}}
+  {{- $components = $components | append (dict "name" "Operator" "data" $operator) -}}
+{{ end }}
+{{- with $portal -}}
+  {{- $components = $components | append (dict "name" "Portal" "data" $portal) -}}
+{{ end }}
+{{- with $pump -}}
+  {{- $components = $components | append (dict "name" "Pump" "data" $pump) -}}
+{{ end }}
+{{- with $tib -}}
+  {{- $components = $components | append (dict "name" "Identity Broker" "data" $tib) -}}
+{{ end }}
+
+{{/* Merge the JSON release data */}}
 <div class="container mt-4">
   <div class="row justify-content-center">
     {{ range $index, $component := $components }}
