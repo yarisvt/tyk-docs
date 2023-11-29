@@ -78,7 +78,8 @@
                     <span>{{- $component.data.latest -}}</span>
                     </a>
                 </div>
-                {{ end }} {{- if and $lts (not $licensed) -}}
+                {{ end }}
+                {{- if and $lts (not $licensed) -}}
                 <div class="d-flex flex-column align-items-center ml-3">
                     <a
                     href="{{- $ltsData.tag -}}"
@@ -109,7 +110,8 @@
                     <span>{{- $component.data.latest -}}</span>
                     </a>
                 </div>
-                {{ end }} {{- if $lts -}}
+                {{ end }}
+                {{- if $lts -}}
                 <div class="d-flex flex-column align-items-center ml-3">
                     <a
                     href="{{- $latestData.docker -}}"
