@@ -105,7 +105,7 @@ redis:
 - Execute the following command to start the services:
 
 ```bash
-docker-compose up
+docker compose up
 ```
 
 
