@@ -1,6 +1,7 @@
 {
   "licensed": false,
   "latest": "1.4.3",
+  "releaseNotesPath": "https://github.com/TykTechnologies/tyk-identity-broker/releases",
   "1.4.3": {
     "date": "19/11/2023",
     "tag": "https://github.com/TykTechnologies/tyk-identity-broker/releases/tag/v1.4.3",

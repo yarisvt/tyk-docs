@@ -21,6 +21,7 @@
                 {{/* Determine license type */}}
                 {{- $license := "Licensed" -}}
                 {{- $licensed := .data.licensed -}}
+                {{- $releaseNotesPath := .data.releaseNotesPath -}}
                 {{- if not $licensed -}}
                     {{- $license = "Open Source" -}}
                 {{ end }}
@@ -53,7 +54,7 @@
                     {{ end }}
                 </h6>
                 <div class="mt-5">
-                    <a href="{{ "product-stack/tyk-dashboard/release-notes/overview" | relURL }}" class="home_btn sec-btn">Release Notes</a>
+                    <a href="{{ $releaseNotesPath | relURL }}" class="home_btn sec-btn">Release Notes</a>
                 </div>
             </div>
     

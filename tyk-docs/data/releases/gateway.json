@@ -2,6 +2,7 @@
   "licensed": false,
   "latest": "5.2.3",
   "lts": "5.0.8",
+  "releaseNotesPath": "product-stack/tyk-gateway/release-notes/overview",
   "5.2.3": {
     "date": "19/11/2023",
     "tag": "https://github.com/TykTechnologies/tyk/releases/tag/v5.2.3",

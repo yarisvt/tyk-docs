@@ -1,6 +1,7 @@
 {
   "licensed": false,
   "latest": "1.8.3",
+  "releaseNotesPath": "release-notes/pump-1.8",
   "1.8.3": {
     "date": "19/11/2023",
     "tag": "https://github.com/TykTechnologies/tyk-pump/releases/tag/v1.8.3",
