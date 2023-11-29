@@ -3593,7 +3593,7 @@ menu:
         path: /upgrading-v2-3-v2-2
         category: Page
         show: True
-    - title: "Tyk Release Notes"
+    - title: "Tyk Releases"
       path: /developer-support/tyk-release-summary/overview
       category: Page
       show: True
