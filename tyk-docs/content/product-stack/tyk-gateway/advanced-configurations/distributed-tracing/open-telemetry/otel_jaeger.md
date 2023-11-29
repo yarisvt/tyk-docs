@@ -116,7 +116,7 @@ docker-compose up
 http://localhost:8080/hello-world/
 ``
 
-- Access Jaeger at `http://localhost:16686``.
+- Access Jaeger at *http://localhost:16686*.
 - In Jaeger's interface:
   - Select the service named tyk-gateway.
   - Click the 'Find Traces' button.
