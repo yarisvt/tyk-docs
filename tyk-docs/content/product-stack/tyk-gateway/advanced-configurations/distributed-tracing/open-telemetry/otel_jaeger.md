@@ -175,7 +175,7 @@ EOF
 ```
 
 
-### Step 2: Deploy Tyk Gateway using Helm
+### Step 2: Deploy Tyk Gateway with OpenTelemetry Enabled using Helm
 
 To install or upgrade [Tyk Gateway OSS using Helm](https://github.com/TykTechnologies/tyk-charts/tree/main/tyk-oss), execute the following commands:
 
