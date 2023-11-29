@@ -10,28 +10,51 @@
         <div class="row justify-content-center">
         {{ range $index, $component := $components }}
         <div class="col-md-4 mb-4">
+            <!-- header -->
             <div class="card h-100">
             <div class="card-header bg-dark text-white">
                 {{- $component.name -}}
             </div>
+
+            <!-- body -->
             <div class="card-body">
-                {{/* Determine license type */}} {{- $license := "Licensed" -}} {{-
-                $licensed := .data.licensed -}} {{- if not $licensed -}} {{- $license
-                = "Open Source" -}} {{ end }} {{/* Get latest and lts data */}} {{-
-                $lts := false -}} {{- $ltsData := "" -}} {{- with .data.lts -}} {{-
-                $ltsData = index $component.data $component.data.lts -}} {{- if
-                $ltsData -}} {{- $lts = true -}} {{ end }} {{ end }} {{- $latest :=
-                false -}} {{- $latestData := "" -}} {{- with .data.latest -}} {{-
-                $latestData = index $component.data $component.data.latest -}} {{- if
-                $latestData -}} {{- $latest = true -}} {{ end }} {{ end }}
+                {{/* Determine license type */}}
+                {{- $license := "Licensed" -}}
+                {{- $licensed := .data.licensed -}}
+                {{- if not $licensed -}}
+                    {{- $license = "Open Source" -}}
+                {{ end }}
+                
+                {{/* Get latest and lts data */}}
+                {{- $lts := false -}}
+                {{- $ltsData := "" -}}
+                {{- with .data.lts -}}
+                    {{- $ltsData = index $component.data $component.data.lts -}}
+                    {{- if $ltsData -}}
+                        {{- $lts = true -}}
+                    {{ end }}
+                {{ end }}
+                {{- $latest := false -}}
+                {{- $latestData := "" -}}
+                {{- with .data.latest -}}
+                    {{- $latestData = index $component.data $component.data.latest -}}
+                    {{- if $latestData -}}
+                        {{- $latest = true -}}
+                    {{ end }}
+                {{ end }}
     
                 <h6 class="card-title">
-                {{- with $component.data.latest -}} {{- $title :=
-                $component.data.latest -}} {{- if $component.data.lts -}} {{- $title
-                = printf "%s | %s (LTS)" $title $component.data.lts -}} {{- end -}}
-                {{- $title -}} {{ end }}
+                    {{- with $component.data.latest -}}
+                        {{- $title := $component.data.latest -}}
+                        {{- if $component.data.lts -}}
+                            {{- $title = printf "%s | %s (LTS)" $title $component.data.lts -}}
+                        {{- end -}}
+                        {{- $title -}}
+                    {{ end }}
                 </h6>
-                <p class="card-text">{{- $license -}}</p>
+                <div class="bottom-container">
+                    <a href="{{ "product-stack/tyk-dashboard/release-notes/overview" | relURL }}" class="home_btn sec-btn">Release Notes</a>
+                </div>
             </div>
     
             <!-- Footer -->
