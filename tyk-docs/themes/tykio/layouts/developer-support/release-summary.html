@@ -14,8 +14,7 @@
 {{- $licensed := slice -}}
 {{- $helm := slice -}}
 
-{{- $overview := .Content -}}
-{{- $overview -}}
+{{- .Content -}}
 
 {{- with $dashboard -}}
   {{- $licensed = $licensed | append (dict "name" "Dashboard" "data" $dashboard) -}}
@@ -41,6 +40,8 @@
 {{- with $tib -}}
   {{- $openSource = $openSource| append (dict "name" "Identity Broker" "data" $tib) -}}
 {{ end }}
+
+
 
 {{ partial "developer-support/latest-releases/release-summary.html" (dict "section" "Licensed" "components" $licensed)  }}
 {{ partial "developer-support/latest-releases/release-summary.html" (dict "section" "Open Source" "components" $openSource)  }}
