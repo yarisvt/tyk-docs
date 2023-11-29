@@ -1,6 +1,6 @@
 ---
 date: 2023-08-29T13:32:12Z
-title: Exporting OpenTelemetry Distributed Traces to Jaeger
+title: OpenTelemetry With Jaeger
 tags: ["distributed tracing", "OpenTelemetry", "Jaeger"]
 description: "This guide explains how to setup Tyk Gateway with OpenTelemetry and Jager to enhance API Observability"
 ---
