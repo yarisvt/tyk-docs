@@ -2153,7 +2153,7 @@
       </image:image>
   </url>
   <url>
-    <loc>https://tyk.io/docs/tyk-stack/tyk-developer-portal/enterprise-developer-portal/getting-started-with-enterprise-portal/publish-api-products-and-plans/</loc>
+    <loc>https://tyk.io/docs//product-stack/tyk-enterprise-developer-portal/getting-started/publish-api-products-and-plans/</loc>
     <lastmod>2022-06-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -3465,7 +3465,7 @@
       </image:image>
   </url>
   <url>
-    <loc>https://tyk.io/docs/tyk-stack/tyk-developer-portal/enterprise-developer-portal/enterprise-portal-concepts/</loc>
+    <loc>https://tyk.io/docs//product-stack/tyk-enterprise-developer-portal/getting-started/enterprise-portal-concepts/</loc>
     <lastmod>2022-06-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -3655,7 +3655,7 @@
       </image:image>
   </url>
   <url>
-    <loc>https://tyk.io/docs/nightly/tyk-stack/tyk-developer-portal/enterprise-developer-portal/getting-started-with-enterprise-portal/create-api-product-and-plan/</loc>
+    <loc>https://tyk.io/docs/nightly//product-stack/tyk-enterprise-developer-portal/getting-started/create-api-product-and-plan/</loc>
     <lastmod>2022-06-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -3951,7 +3951,7 @@
       </image:image>
   </url>
   <url>
-    <loc>https://tyk.io/docs/nightly/tyk-stack/tyk-developer-portal/enterprise-developer-portal/getting-started-with-enterprise-portal/publish-api-products-and-plans/</loc>
+    <loc>https://tyk.io/docs/nightly//product-stack/tyk-enterprise-developer-portal/getting-started/publish-api-products-and-plans/</loc>
     <lastmod>2022-06-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -6167,7 +6167,7 @@
       </image:image>
   </url>
   <url>
-    <loc>https://tyk.io/docs/tyk-stack/tyk-developer-portal/enterprise-developer-portal/getting-started-with-enterprise-portal/create-api-product-and-plan/</loc>
+    <loc>https://tyk.io/docs//product-stack/tyk-enterprise-developer-portal/getting-started/create-api-product-and-plan/</loc>
     <lastmod>2022-06-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -10693,7 +10693,7 @@
       </image:image>
   </url>
   <url>
-    <loc>https://tyk.io/docs/nightly/tyk-stack/tyk-developer-portal/enterprise-developer-portal/enterprise-portal-concepts/</loc>
+    <loc>https://tyk.io/docs/nightly//product-stack/tyk-enterprise-developer-portal/getting-started/enterprise-portal-concepts/</loc>
     <lastmod>2022-06-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>

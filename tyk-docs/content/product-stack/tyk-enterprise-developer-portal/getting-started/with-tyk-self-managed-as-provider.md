@@ -1,8 +1,10 @@
 ---
-title: "Connect to a provider (Tyk Self-Managed)"
+title: "Connect to the Tyk Dashboard"
 date: 2022-02-08
-tags: [""]
-description: ""
+tags: ["Tyk Developer Portal","Enterprise Portal","API Providers"]
+aliases:
+  - /tyk-stack/tyk-developer-portal/enterprise-developer-portal/getting-started-with-enterprise-portal/with-tyk-self-managed-as-provider
+description: "Connect the Tyk Enterprise Developer Portal to the Tyk Dashboard in one minute"
 menu:
   main:
     parent: "Getting Started With Enterprise Portal"
@@ -53,3 +55,7 @@ The first step in getting started with the developer portal is to connect the po
 3.  The Secret is the **Tyk Dashboard API Access Credentials**. The **Organisation ID** is underneath **Reset key**. {{< img src="/img/2.10/user_api_id.png" alt="API key location" >}}
 4.  Select **APIs** from the **System Management** section.
 5.  From the **Actions** menu for your API, select Copy API ID
+
+### Next step
+
+Go to [Create API Products and Plans]({{< ref "/product-stack/tyk-enterprise-developer-portal/getting-started/create-api-product-and-plan" >}}) to connect create API Products and plans.
