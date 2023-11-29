@@ -1,7 +1,6 @@
 ---
 title: Latest Tyk Releases
-description: "Explore Tyk's latest releases and improvements. Here you will find release notes for all Tyk Components and versions. "
-tags: [""]
+description: "Explore Tyk's latest releases and improvements. Here you will find latest releases and access to docker images and release notes for all Tyk Components and versions. "
 layout: release-summary
 aliases:
   - /release-notes
