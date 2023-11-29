@@ -155,7 +155,7 @@ For the purpose of this tutorial, we will use jaeger-all-in-one, which includes 
 kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.13.2/cert-manager.yaml
 ```
 
-2. Install Jaeger Operator (see [Jaeger Operator Documentation](https://www.jaegertracing.io/docs/latest/operator/)).
+2. Install [Jaeger Operator](https://www.jaegertracing.io/docs/latest/operator/)).
 
 ```bash
 kubectl create namespace observability
