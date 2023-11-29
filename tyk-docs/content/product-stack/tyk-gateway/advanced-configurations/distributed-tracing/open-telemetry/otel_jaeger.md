@@ -5,7 +5,7 @@ tags: ["distributed tracing", "OpenTelemetry", "Jaeger"]
 description: "This guide explains how to setup Tyk Gateway with OpenTelemetry and Jager to enhance API Observability"
 ---
 
-This comprehensive guide offers a detailed, step-by-step walkthrough for configuring Tyk Gateway with OpenTelemetry and [Jaeger](https://www.jaegertracing.io/) to significantly improve API observability. We will cover the installation of essential components, their configuration, and the process of ensuring seamless integration.
+This quick start guide offers a detailed, step-by-step walkthrough for configuring Tyk Gateway OSS with OpenTelemetry and [Jaeger](https://www.jaegertracing.io/) to significantly improve API observability. We will cover the installation of essential components, their configuration, and the process of ensuring seamless integration.
 
 Let's get started with deploying Tyk using [Docker]({{< ref "otel_jaeger" >}}#deploying-tyk-gateway-and-jaeger-on-docker). Further instructions for [Kubernetes]({{< ref "otel_jaeger" >}}#deploying-tyk-gateway-and-jaeger-on-kubernetes) deployment are detailed below.
 
