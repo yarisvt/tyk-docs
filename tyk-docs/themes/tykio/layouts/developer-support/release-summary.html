@@ -42,8 +42,8 @@
   {{- $openSource = $openSource| append (dict "name" "Identity Broker" "data" $tib) -}}
 {{ end }}
 
-{{ partial "releases/latest-releases/open-source.html" (dict "section" "Licensed" "components" $licensed)  }}
-{{ partial "releases/latest-releases/open-source.html" (dict "section" "Open Source" "components" $openSource)  }}
-{{ partial "releases/latest-releases/open-source.html" (dict "section" "Helm" "components" $helm)  }}
+{{ partial "developer-support/latest-releases/release-summary.html" (dict "section" "Licensed" "components" $licensed)  }}
+{{ partial "developer-support/latest-releases/release-summary.html" (dict "section" "Open Source" "components" $openSource)  }}
+{{ partial "developer-support/latest-releases/release-summary.html" (dict "section" "Helm" "components" $helm)  }}
 
 {{ end }}
