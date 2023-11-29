@@ -70,7 +70,7 @@ If you haven't configured any APIs yet, follow these steps:
 }
 ```
 
-This API definition sets up a basic API named Hello-World for testing purposes, configured to proxy requests to `http://echo.tyk-demo.com:8080/``.
+This API definition sets up a basic API named Hello-World for testing purposes, configured to proxy requests to `http://echo.tyk-demo.com:8080/`.
 
 ### Step 3: Run Tyk Gateway OSS with OpenTelemetry Enabled
 
