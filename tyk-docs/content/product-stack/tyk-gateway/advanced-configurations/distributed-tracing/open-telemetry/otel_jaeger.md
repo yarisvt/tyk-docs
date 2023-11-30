@@ -114,7 +114,7 @@ docker compose up
 - Start by sending a few requests to the API endpoint configured in Step 2:
 ```bash
 curl http://localhost:8080/hello-world/ -i
-``
+```
 
 - Access Jaeger at *http://localhost:16686*.
 - In Jaeger's interface:
