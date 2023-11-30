@@ -23,18 +23,26 @@
                             </a>
                         </td>
                         <td>
-                            {{ with .supported }}
-                                {{ range $index, $item := . }}
-                                    {{ if $index }}{{ ", " }}{{ end }}{{ $item }}
-                                {{ end }}
-                            {{ end }}
+                        {{- with .supported -}}
+                            {{- $itemCount := len . -}}
+                            {{- range $index, $item := . -}}
+                              {{- if $index -}}
+                                {{- if eq $index (sub $itemCount 1) }} and {{ else -}}, {{ end -}}
+                              {{- end -}}
+                              {{ $item }}
+                            {{- end -}}
+                        {{- end -}}                          
                         </td>
                         <td>
-                            {{ with .tested -}}
-                                {{ range $index, $item := . }}
-                                    {{ if $index }}{{ ", " }}{{ end }}{{ $item }}
-                                {{ end }} 
-                            {{ end }}
+                        {{- with .tested -}}
+                            {{- $itemCount := len . -}}
+                            {{- range $index, $item := . -}}
+                              {{- if $index -}}
+                                {{- if eq $index (sub $itemCount 1) }} and {{ else -}}, {{ end -}}
+                              {{- end -}}
+                              {{ $item }}
+                            {{- end -}}
+                        {{- end -}} 
                         </td>
                     </tr>
                 {{- end -}}
