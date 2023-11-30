@@ -3598,7 +3598,7 @@ menu:
       category: Page
       show: True
     - title: "3rd Party Dependencies"
-      path: /developer-support/components
+      path: /developer-support/third-party-dependencies
       category: Page
       show: True
     - title: "Contribute to Tyk Docs"
