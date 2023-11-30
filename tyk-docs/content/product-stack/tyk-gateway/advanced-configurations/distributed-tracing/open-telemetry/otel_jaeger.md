@@ -41,7 +41,7 @@ If you haven't configured any APIs yet, follow these steps:
 
 - Create a subdirectory named apps in the current directory.
 - Create a new file named `apidef-hello-world.json``.
-- Copy the provided simple API definition below into the `apidef-hello-world.json`` file:
+- Copy the provided simple API definition below into the `apidef-hello-world.json` file:
 
 
 ```json
