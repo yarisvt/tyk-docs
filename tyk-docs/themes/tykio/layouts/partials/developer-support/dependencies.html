@@ -22,8 +22,20 @@
                                 {{- .name -}}
                             </a>
                         </td>
-                        <td>{{- .supported -}}</td>
-                        <td>{{- .tested -}}</td>
+                        <td>
+                            {{ with .supported }}
+                                {{ range $index, $item := . }}
+                                    {{ if $index }}{{ ", " }}{{ end }}{{ $item }}
+                                {{ end }}
+                            {{ end }}
+                        </td>
+                        <td>
+                            {{ with .tested -}}
+                                {{ range $index, $item := . }}
+                                    {{ if $index }}{{ ", " }}{{ end }}{{ $item }}
+                                {{ end }} 
+                            {{ end }}
+                        </td>
                     </tr>
                 {{- end -}}
             </tbody>

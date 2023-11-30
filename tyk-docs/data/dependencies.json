@@ -38,7 +38,7 @@
         },
         {
             "name": "CosmoDB (NoSQL)",
-            "supported": [],
+            "supported": ["3.6","4"],
             "tested": ["3.6","4"],
             "website": "https://azure.microsoft.com/en-gb/products/cosmos-db"
         },
