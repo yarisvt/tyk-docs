@@ -2,31 +2,37 @@
     "data": [
         {
             "name": "Go",
-            "supported": [],
-            "tested": [ "1.19" ],
-            "website":"https://go.dev"
+            "supported": ["1.19"],
+            "tested": ["1.19"],
+            "website":"https://go.dev/dl/"
         },
         {
             "name": "Redis",
-            "supported": [],
-            "tested": [ "6.2.x", "7" ],
-            "website":"https://redis.io"
+            "supported": [ "6.0.x - 6.2.x" ],
+            "tested": ["6.2.x", "7"],
+            "website":"https://redis.io/download/"
         },
         {
-            "name": "MongoDB",
-            "supported": [],
+            "name": "MongoDB (mgo-driver)",
+            "supported": [ "4.4.x" ],
             "tested": ["4.4.x","5.0.x","6.0.x"],
             "website":"https://www.mongodb.com"
         },
         {
+            "name": "MongoDB (mongo-driver)",
+            "supported": [ "4.4.x", "5.0.x", "6.0.x" ],
+            "tested": [ "4.4.x","5.0.x","6.0.x" ],
+            "website":"https://www.mongodb.com" 
+        },
+        {
             "name": "DocumentDB",
-            "supported": [],
+            "supported": ["3.6", "4"],
             "tested": ["3.6", "4"],
             "website": "https://aws.amazon.com/documentdb"
         },
         {
             "name": "CosmosDB (SQL)",
-            "supported": [],
+            "supported": ["3.6","4"],
             "tested": ["3.6","4"],
             "website": "https://azure.microsoft.com/en-gb/products/cosmos-db"
         },
@@ -38,21 +44,34 @@
         },
         {
             "name": "MySQL",
-            "supported": [],
+            "supported": ["4+"],
             "tested": ["4+"],
-            "website": "https://www.mysql.com"
+            "website": "https://www.mysql.com/downloads/"
         },
         {
             "name": "SQLite",
-            "supported": [],
-            "tested": [ "4+" ],
-            "website": "https://www.sqlite.org/index.html"
+            "supported": ["3.x","4+"],
+            "tested": ["4+"],
+            "website": "https://www.sqlite.org/chronology.html"
         },
         {
             "name": "PostgreSQL",
-            "supported": [],
-            "tested": [ "11.x-15.x" ],
-            "website": "https://www.postgresql.org"
+            "supported": ["11.x-15.x"],
+            "tested": ["11.x-15.x"],
+            "website": "https://www.postgresql.org/download/"
+        },
+        {
+            "name": "Helm",
+            "supported": ["3+"],
+            "tested": ["3+"],
+            "website": "https://helm.sh/docs/intro/install"
+        },
+        {
+            "name": "Kubernetes",
+            "supported": ["1.19+"],
+            "tested": ["1.19+"],
+            "website": "https://kubernetes.io/docs/setup/production-environment/tools"
         }
+
     ]
 }
