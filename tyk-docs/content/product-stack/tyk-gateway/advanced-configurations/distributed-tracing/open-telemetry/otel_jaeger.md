@@ -112,7 +112,7 @@ docker compose up
 ### Step 4: Explore OpenTelemetry Traces in Jaeger
 
 - Start by sending a few requests to the API endpoint configured in Step 2:
-``
+```bash
 curl http://localhost:8080/hello-world/ -i
 ``
 
