@@ -3597,7 +3597,7 @@ menu:
       path: /developer-support/tyk-release-summary/overview
       category: Page
       show: True
-    - title: "Tyk Dependencies"
+    - title: "3rd Party Dependencies"
       path: /developer-support/components
       category: Page
       show: True
