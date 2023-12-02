@@ -1,8 +1,73 @@
 {{- define "content" -}}
+<div class="section-banner">
+  <div class="container-xl p-0 border-bottom">
+      <div class="row mb-3">
+          <div class="col-12 col-lg-7">
+              <div>
+                  <h1 style="font-size: 36px" class="fw-bold mb-0 lh-normal fs-normal">
+                      {{- .Title -}}
+                  </h1>
+                  <p class="mb-4 fs-16 font-400 lh-normal text-sec">
+                    {{- .RawContent -}}
+                  </p>
+              </div>
+          </div>
+          <div class="col-12 col-lg-5">
+          </div>
+      </div>
+  </div>
+</div>
+<!-- <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .release-card {
+      border-radius: 15px;
+      transition: box-shadow 0.3s;
+    }
+
+    .release-card:hover {
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+      transform: scale(1.05);
+    }
+
+    .release-description {
+      font-size: 0.75rem;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 400;
+      margin-bottom: 0.25px !important;
+      margin-top: 0.25px !important;
+    }
+    
+    .release-link {
+      font-size: 0.75rem;
+      display: block;
+      text-decoration: none !important;
+    }
+
+    .release-text {
+      font-size: 0.75rem;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 400;
+      line-height: 20px; 
+    }
+
+    .release-title {
+      font-size: 1rem;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 400;
+      color: #007bff;
+      margin-bottom: 0.25px !important;      
+    }
+  </style>
+</head>
+<body> -->
 
 {{- $dashboard := .Site.Data.releases.dashboard -}}
-{{- $gateway := .Site.Data.releases.gateway -}} 
-{{- $helmCharts := .Site.Data.releases.helm -}} 
+{{- $gateway := .Site.Data.releases.gateway -}}
+{{- $helm := "" -}}
+{{- $helmChart := .Site.Data.releases.helm -}} 
 {{- $mdcb := .Site.Data.releases.mdcb -}}
 {{- $operator := .Site.Data.releases.operator -}} 
 {{- $portal := .Site.Data.releases.portal -}} 
@@ -12,9 +77,6 @@
 {{- $components := slice -}}
 {{- $openSource:= slice -}}
 {{- $licensed := slice -}}
-{{- $helm := slice -}}
-
-{{- .Content -}}
 
 {{- with $dashboard -}}
   {{- $licensed = $licensed | append (dict "name" "Dashboard" "data" $dashboard) -}}
@@ -22,8 +84,8 @@
 {{- with $gateway -}}
   {{- $openSource = $openSource| append (dict "name" "Gateway" "data" $gateway) -}}
 {{ end }}
-{{- with $helmCharts -}}
-  {{- $helm = $helm | append (dict "name" "Helm" "data" $helmCharts) -}}
+{{- with $helmChart -}}
+  {{- $helm = (dict "name" "Helm" "data" $helmChart) -}}
 {{ end }}
 {{- with $mdcb -}}
   {{- $licensed = $licensed | append (dict "name" "MDCB" "data" $mdcb) -}}
@@ -41,8 +103,21 @@
   {{- $openSource = $openSource| append (dict "name" "Identity Broker" "data" $tib) -}}
 {{ end }}
 
-{{ partial "developer-support/latest-releases/release-summary.html" (dict "section" "Licensed" "components" $licensed)  }}
-{{ partial "developer-support/latest-releases/release-summary.html" (dict "section" "Open Source" "components" $openSource)  }}
-{{ partial "developer-support/latest-releases/release-summary.html" (dict "section" "Helm" "components" $helm)  }}
-
+<section class="home-section">
+  <div class="container-xl p-0">
+    <div class="align-items-center component-heading">
+      <div>
+        <div class="home-section-heading">Discover our releases</div>
+        <div class="fs-16 font-400 fs-normal text-sec lh-normal">
+          Find out more about the latest releases for all our platforms below
+        </div>
+      </div>
+    </div>
+    {{ partial "developer-support/latest-releases/release-summary.html" (dict "section" "Licensed" "components" $licensed)  }}
+    {{ partial "developer-support/latest-releases/release-summary.html" (dict "section" "Open Source" "components" $openSource)  }}
+    {{ partial "developer-support/latest-releases/helm-summary.html" (dict "section" "Helm Charts" "chart" $helm)  }}
+  <div style="margin-bottom: 80px;"></div>
+  </div>
+</section>
+<!-- </body> -->
 {{ end }}
