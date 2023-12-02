@@ -1,4 +1,5 @@
 {
+  "home": "tyk-pump",
   "licensed": false,
   "latest": "1.8.3",
   "releaseNotesPath": "release-notes/pump-1.8",

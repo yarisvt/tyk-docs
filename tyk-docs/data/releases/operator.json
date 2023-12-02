@@ -1,4 +1,5 @@
 {
+  "home": "tyk-operator",
   "licensed": false,
   "latest": "0.15.1",
   "releaseNotesPath": "https://github.com/TykTechnologies/tyk-operator/releases",

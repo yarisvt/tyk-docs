@@ -1,10 +1,10 @@
 {
+  "home": "https://github.com/TykTechnologies/tyk-charts",
   "licensed": false,
-  "latest": "1.0.0",
-  "releaseNotesPath": "https://github.com/TykTechnologies/tyk-charts/releases",
-  "1.0.0": {
+  "latest": "1.1.0",
+  "releaseNotesPath": "https://github.com/TykTechnologies/tyk-charts/tags",
+  "1.1.0": {
     "date": "19/11/2023",
-    "tag": "https://github.com/TykTechnologies/tyk-identity-broker/releases/tag/v1.4.3",
-    "docker": "https://hub.docker.com/r/tykio/tyk-identity-broker/tags?page=1&name=1.4.3"
+    "tag": "https://github.com/TykTechnologies/tyk-charts/releases/tag/v1.1.0"
   }
 }
