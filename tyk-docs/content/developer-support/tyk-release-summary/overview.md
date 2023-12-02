@@ -1,11 +1,11 @@
 ---
 title: Latest Tyk Releases
-description: "Explore Tyk's latest releases and improvements. Here you will find latest releases and access to docker images and release notes for all Tyk Components and versions. "
+description: "Explore Tyk's latest releases. Here you will find latest releases and access to docker images and release notes for all our platforms."
+diffTitle: true
+landingPage: true
 layout: release-summary
 aliases:
   - /release-notes
 ---
 
-Tyk is an API Management platform that contains many different components, such as: [Tyk Gateway]({{< ref "tyk-oss-gateway" >}}), [Tyk Dashboard]({{< ref "tyk-dashboard" >}}), [Tyk Enterprise Developer Portal]({{< ref "tyk-developer-portal/tyk-enterprise-developer-portal" >}}), [Tyk Pump]({{< ref "tyk-pump" >}}), [Tyk Multi Data Centre Bridge (MDCB)]({{< ref "tyk-multi-data-centre" >}}), [Tyk Sync]({{< ref "tyk-sync" >}}), [Tyk Operator]({{< ref "tyk-operator" >}}), [Tyk Cloud]({{< ref "tyk-cloud" >}}) and [Tyk Identity Broker]({{< ref "tyk-identity-broker" >}}).
-
-This page provides a summary of the latest Tyk releases. For open source components you can access the latest tagged release on GitHub. Additionally we also provide links to our Docker images.
+Explore the latest tagged open-source releases on our GitHub repositories. Enhance integration with Docker images for seamless deployment. Detailed insights, including features, enhancements and bug fixes, are in our comprehensive release notes—a vital resource for developers evaluating upgrades.
