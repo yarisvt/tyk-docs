@@ -18,7 +18,7 @@ If you are interested in getting access contact us at [support@tyk.io](<mailto:s
 
 ## Introduction
 
-In this section, you will learn how to customize the visual appearance of API Products and plans with the Tyk Enterprise Developer Portal. That includes:
+In this section, you will learn how to customise the visual appearance of API Products and plans with the Tyk Enterprise Developer Portal. That includes:
 - The display name for API Products and plans.
 - The description and logo of API Products that will be displayed on the API Product catalogue page.
 - Tags for API Products to match them with related blog posts.
