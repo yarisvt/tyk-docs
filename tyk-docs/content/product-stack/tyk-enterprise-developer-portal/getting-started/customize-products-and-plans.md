@@ -45,7 +45,7 @@ From that page you can also manage [OAuth2.0 settings]({{< ref "/tyk-stack/tyk-d
 - **Scope**: scope for the [OAuth2.0 settings]({{< ref "/tyk-stack/tyk-developer-portal/enterprise-developer-portal/api-access/dynamic-client-registration.md" >}}). Please refer to the [OAuth2.0 documentation]({{< ref "/tyk-stack/tyk-developer-portal/enterprise-developer-portal/api-access/dynamic-client-registration" >}}) for further guidance.
 - **Catalogues**: the catalogues in which this plan is available. Catalogues and organisation are be [covered]({{< ref "/product-stack/tyk-enterprise-developer-portal/getting-started/create-orgs-and-catalogs" >}}) later in this Get started guide.
 - **Auto-approve settings for access requests**: whether access requests for this plan should be approved automatically.
-- **Access request frequency**: defines how often developers can request access to a specific plan. This way the admins can prevent developers from creating too many keys and abusing their automatically approved plans.
+- **Access request frequency**: Defines how often developers can request access to a specific plan. This way the admins can prevent developers from creating too many keys and abusing their automatically approved plans.
 
 {{< img src="img/dashboard/portal-management/enterprise-portal/customize-plan.png" alt="Customize visual appearance of a plan" >}}
 
