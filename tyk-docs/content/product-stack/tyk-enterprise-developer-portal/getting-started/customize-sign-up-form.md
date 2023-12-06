@@ -21,7 +21,7 @@ If you are interested in getting access, contact us at [support@tyk.io](<mailto:
 In this section, you will learn how to customize the sign-up form for your API Consumers and extend the data stored in the user profile.
 To achieve that, you will need to:
 - Add a new attribute to the User profile and make it available in the sign-up form.
-- Optionally, add description to it and set other parameters that suit your needs.
+- Optionally, add a description and set other parameters that suit your requirements.
 
 ## Navigate to the Custom Attributes menu
 
