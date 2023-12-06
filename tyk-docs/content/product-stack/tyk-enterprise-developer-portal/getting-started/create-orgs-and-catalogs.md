@@ -38,7 +38,7 @@ In this guide, we will create the **B2B customer** organisation to fulfil the ab
 1. To create an organisation for the **B2B customer**, navigate From the **Organisations** menu and click on the **Add new organisation** button to add a new organisation.
    {{< img src="/img/dashboard/portal-management/enterprise-portal/navigate-to-organisations.png" alt="Navigate to the Organisations menu" >}}
 
-2. Enter the name of your new organisation and click on the **Save** button. A new default-team will be also automatically created that is tied to your new organisation.
+2. Enter the name of your new organisation and click on the **Save** button. A new default-team will be automatically created and associated with your new organisation.
    {{< img src="/img/dashboard/portal-management/enterprise-portal/create-b2b-customer-org.png" alt="Add a new Organisation" >}}
 
 {{< note success >}}
