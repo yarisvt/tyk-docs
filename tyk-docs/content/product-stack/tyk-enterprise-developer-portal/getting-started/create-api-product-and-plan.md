@@ -65,7 +65,7 @@ To create a Plan for the developer portal, follow the same steps as for creating
 3.  Under **Global limits and Quota**, select **Enforce usage quota** and **Enforce rate limit**. Ensure **Disable rate-limiting** and **Unlimited requests** are **not** selected so you can set these limits.
 {{< img src="img/dashboard/portal-management/enterprise-portal/portal-enforce-quota.png" alt="Enforce quota and rate limit" >}}
 
-4.  To import the plans into the Developer portal, from the Tyk Portal admin app, click **Synchronise**.
+4.  Click **Synchronise** to import the plans into the Developer portal, from the Tyk Portal admin app.
 {{< img src="img/dashboard/portal-management/enterprise-portal/portal-sync-with-dashboard.png" alt="Sync with the Tyk Pro" >}}
 
 ## Next step
