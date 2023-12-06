@@ -52,7 +52,7 @@ If you want to edit the default team name you can do so by navigating to **Teams
 1. To create catalogues, navigate to the catalogues menu in the Tyk Enterprise Developer Portal.
 
 By default, when the portal is [bootstrapped]({{< ref "/product-stack/tyk-enterprise-developer-portal/deploy/bootstrapping-portal.md" >}}) features two catalogues:
-- **Public** catalogues. A catalogue that is available to all developers.
+- **Public** catalogues are available to all developers.
 - **Private** catalogues are available only to logged in developers who have been assigned with access.
 
 You can create new catalogues by clicking on the **Add new catalogue** button or use the default catalogues.
