@@ -53,7 +53,7 @@ If you want to edit the default team name you can do so by navigating to **Teams
 
 By default, when the portal is [bootstrapped]({{< ref "/product-stack/tyk-enterprise-developer-portal/deploy/bootstrapping-portal.md" >}}) features two catalogues:
 - **Public** catalogues. A catalogue that is available to all developers.
-- **Private** catalogues. A catalogue that is available only to logged in developers how have been assigned with access to that catalogue.
+- **Private** catalogues are available only to logged in developers who have been assigned with access.
 
 You can create new catalogues by clicking on the **Add new catalogue** button or use the default catalogues.
 
