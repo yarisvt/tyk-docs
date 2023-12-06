@@ -66,7 +66,7 @@ You can create new catalogues by clicking on the **Add new catalogue** button or
 {{< note >}}
 **Note**
 
-You can create multiple public catalogues but since they will share the same level of access we advise to keep only one public catalogue.
+While it is possible to create multiple public catalogues, we do not advise doing so. This is because multiple public catalogues will share the same level of access.
 {{< /note >}}
 
 3. Once the catalogue is created, add a developer audience to it by clicking on the **Add Team** button and selecting an appropriate developer team (**B2B customer All users** in this example).
