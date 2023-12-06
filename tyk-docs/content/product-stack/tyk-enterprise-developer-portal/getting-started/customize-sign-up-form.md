@@ -2,7 +2,7 @@
 title: "Customise the sign-up form"
 date: 2023-11-30
 tags: ["Tyk Developer Portal","Enterprise Portal","Sign-up","User attributes","Metadata"]
-description: "Customize the sign-up form and extend the data stored in the User profile"
+description: "Customise the sign-up form and extend the data stored in the User profile"
 menu:
     main:
         parent: "Get Started"
