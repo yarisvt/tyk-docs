@@ -58,4 +58,4 @@ The first step in getting started with the developer portal is to connect the po
 
 ### Next step
 
-Go to [Create API Products and Plans]({{< ref "/product-stack/tyk-enterprise-developer-portal/getting-started/create-api-product-and-plan" >}}) to connect create API Products and plans.
+Visit the [Create API Products and Plans]({{< ref "/product-stack/tyk-enterprise-developer-portal/getting-started/create-api-product-and-plan" >}}) guide to learn how to create API Products and plans.
