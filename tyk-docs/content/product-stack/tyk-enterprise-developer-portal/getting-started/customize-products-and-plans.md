@@ -39,7 +39,7 @@ From that page you can also manage [OAuth2.0 settings]({{< ref "/tyk-stack/tyk-d
 2. Once you have saved the changes by clicking on the **Save** button, you can view how the API Product looks like in the catalogue:
 {{< img src="img/dashboard/portal-management/enterprise-portal/product-live-portal.png" alt="View the API Product in the catalogue" >}}
 
-## Customize plans
+Customise plans
 1. To customise visual appearance of plans, open the **Plans** menu and select the plan you want to customise. You can customise the following settings:
 - **Catalogue display name**: The name of the catalogue that will be displayed in the API Product page.
 - **Scope**: Scope for the [OAuth2.0 settings]({{< ref "/tyk-stack/tyk-developer-portal/enterprise-developer-portal/api-access/dynamic-client-registration.md" >}}). Please refer to the [OAuth2.0 documentation]({{< ref "/tyk-stack/tyk-developer-portal/enterprise-developer-portal/api-access/dynamic-client-registration" >}}) for further guidance.
