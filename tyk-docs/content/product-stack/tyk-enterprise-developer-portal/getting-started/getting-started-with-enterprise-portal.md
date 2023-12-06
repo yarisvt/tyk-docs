@@ -4,7 +4,7 @@ date: 2022-02-08
 tags: ["Tyk Developer Portal","Enterprise Portal","Get started","How-to"]
 aliases:
   - /tyk-stack/tyk-developer-portal/enterprise-developer-portal/getting-started-with-enterprise-portal/getting-started-with-enterprise-portal
-description: "This section provide concise guide for the basic configuration of the portal"
+description: "This section provides a concise guide for the basic configuration of the portal"
 menu:
   main:
     parent: "Tyk Enterprise Developer Portal"
