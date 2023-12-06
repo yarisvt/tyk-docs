@@ -61,7 +61,7 @@ Once you have created a new custom attribute and saved changes to the User model
 {{< note success >}}
 **Congratulations**
 
-You have now added a custom attribute to the User model and made it appear in the user sign-up form. By following the above steps you can add more attributes of different types.
+You have now added a custom attribute to the user model and made it appear in the user sign-up form. By following the above steps you can add more attributes of different types.
 {{< /note >}}
 
 ## Next step
