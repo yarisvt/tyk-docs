@@ -43,7 +43,7 @@ To add a new attribute to the User model, click on the **Add Custom attribute** 
 - **Enable validation**: defines if the portal should apply the regular expression defined in the **Validation Reg Exp** to validate value of this attribute when creating or updating a user profile. It is available for the **String** data type only.
 - **Dropdown Values**: a list of values for the attribute. It is available for the **Dropdown** data type only.
 - Fields that define the attribute's behavior:
-  - Write once read many: defines if the value of the attribute can be changed after a user profile is created.
+  - Write once read many: Determines if the value of the attribute can be changed after a user profile is created.
   - Add to the key metadata: defines if the value of the attribute should be added to the metadata of Auth keys or OAuth2.0 clients when a user creates them.
   - Required: defines if this attribute is required to create a user profile.
   - Show on sign-up form: defines if this attribute should be visible in the sing-up form.
