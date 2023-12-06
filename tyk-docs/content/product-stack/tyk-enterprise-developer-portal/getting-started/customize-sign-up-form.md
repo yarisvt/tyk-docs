@@ -36,7 +36,7 @@ To add a new attribute to the User model, click on the **Add Custom attribute** 
 - **Description**: a rich text that is used to describe this attribute. It is also displayed in the UI.
 - **Type of attribute**: type of data that can be stored in this attribute. You cannot change value of this field once the attribute is created. The following data types are acceptable:
   - Boolean (true or false).
-  - Dropdown (a list of value).
+  - Dropdown (a list of values).
   - String.
   - Number.
 - **Validation Reg Exp**: a regular expression that is used to validate the value of this field. It is available for the **String** data type only.
