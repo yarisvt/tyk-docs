@@ -26,7 +26,7 @@ To achieve that, you will need to:
 ## Navigate to the Custom Attributes menu
 
 To customize the sign-up form, you need to add new data attributes to the User model so that when a user profile is being created, those attributes will be recorded against the user profile.
-To start customizing the user sign-up form, navigate to the **Custom attributes** menu and the select the **User** model. Currently, it is possible to extend only the User model, in future releases we will add the same capabilities to other models.
+To start customising the user sign-up form, navigate to the **Custom attributes** menu and the select the **User** model. Currently, it is possible to extend only the user model. In future releases we will add the same capabilities to other models.
 {{< img src="img/dashboard/portal-management/enterprise-portal/navigate-to-user-attributes.png" alt="Navigate to the User's attributes" >}}
 
 ## Add a new attribute to the User model
