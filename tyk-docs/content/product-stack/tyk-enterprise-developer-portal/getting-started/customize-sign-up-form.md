@@ -55,7 +55,7 @@ To add a new attribute to the User model, click on the **Add Custom attribute** 
 For purpose of this guide, make sure to tick the **Required** and **Show on sign-up form** checkboxes and select the **Developers can only view the attribute** behavior.
 {{< img src="img/dashboard/portal-management/enterprise-portal/add-new-attribute-to-user-model.png" alt="Add a new attribute to the User model" >}}
 
-Once you have created a new custom attribute and saved changes to the User model by clicking on th **Save** button, the new attribute is added to the user sign-up form.
+The new attribute will be added to the user sign-up form, once you have created a new custom attribute and saved changes to the user model by clicking on the **Save** button.
 {{< img src="img/dashboard/portal-management/enterprise-portal/custom-attribute-in-the-sign-up-form.png" alt="Customized user sign-up form" >}}
 
 {{< note success >}}
