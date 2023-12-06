@@ -31,7 +31,7 @@ To start customizing the user sign-up form, navigate to the **Custom attributes*
 
 ## Add a new attribute to the User model
 To add a new attribute to the User model, click on the **Add Custom attribute** button and then fill in properties of the new attribute:
-- **Attribute ID**: a string that consists of letters (a-zA-Z), numbers (0-9), dashes, and underscores and is used to refer to this attribute in [the Admin APIs]({{< ref "/product-stack/tyk-enterprise-developer-portal/api-documentation/tyk-edp-api" >}}).
+- **Attribute ID**: A string that consists of letters (a-zA-Z), numbers (0-9), dashes, and underscores. This is used to reference the attribute in the [Admin APIs]({{< ref "/product-stack/tyk-enterprise-developer-portal/api-documentation/tyk-edp-api" >}}) screen.
 - **Attribute Label**: the attribute's name that is displayed in the UI.
 - **Description**: Explains the intended usage of this attribute. It is also displayed in the UI.
 - **Type of attribute**: The type of data that can be stored in this attribute. You cannot change the value of this field once the attribute is created. The following data types are acceptable:
