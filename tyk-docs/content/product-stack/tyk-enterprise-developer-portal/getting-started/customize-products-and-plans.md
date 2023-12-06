@@ -36,7 +36,7 @@ To customize the visual appearance of API Products, follow the following steps:
 From that page you can also manage [OAuth2.0 settings]({{< ref "/tyk-stack/tyk-developer-portal/enterprise-developer-portal/api-access/dynamic-client-registration.md" >}}) and add [the Get started guides]({{< ref "/tyk-stack/tyk-developer-portal/enterprise-developer-portal/getting-started-with-enterprise-portal/manage-get-started-guides-for-api-products" >}}) to your API Products which is covered in the relevant sections.
 {{< img src="img/dashboard/portal-management/enterprise-portal/customize-product.png" alt="Customize visual appearance of an API Product" >}}
 
-2. Once you have saved the changes by clicking on the **Save** button, you can view how the API Product looks like in the catalogue:
+2. Save changes by clicking on the **Save** button. You should now be able to preview how the API Product will be displayed in the catalogue:
 {{< img src="img/dashboard/portal-management/enterprise-portal/product-live-portal.png" alt="View the API Product in the catalogue" >}}
 
 Customise plans
