@@ -55,7 +55,7 @@ From that page you can also manage [OAuth2.0 settings]({{< ref "/tyk-stack/tyk-d
 {{< note success >}}
 **Congratulations**
 
-You have now customized the visual appearance of your API Product and plan. By following the above steps you can customize visual appearance of your other API Products and plans. 
+You have now customised the visual appearance of your API Product and plan. By following the above steps you can customise visual appearance of your other API Products and plans. 
 {{< /note >}}
 
 ## Next step
