@@ -26,12 +26,12 @@ In this section, you will learn how to customise the visual appearance of API Pr
 ## Customize API Products
 To customise the visual appearance of API Products:
 1. Navigate to the **API Products** menu, select the product that you want to customise (the Payment API in example below). In this menu you can customise the following aspects of API Products:
-- **Catalogue display name**: this is the name that will be displayed in the external catalogue.
-- **Featured API Product**: tick this option for the API Product to appear on the home page under the **Featured products** section.
-- **Description**: a short description about what this API Product is. It is displayed in the catalogue and on the API Product page.
-- **Content**: a long text description that appears on the API Product overview page, the rich text editor enables you to add more information about the API Product e.g. use cases, features, etc.
-- **Image**: an API Product logo that is displayed on the catalogue and on the API Product pages.
-- **Tags**: the tags are used to match the API Product with the related blog posts that have the same tags in common.
+- **Catalogue display name**: This is the name that will be displayed in the external catalogue.
+- **Featured API Product**: Tick this option for the API Product to appear on the home page under the **Featured products** section.
+- **Description**: A short description about what this API Product is. It is displayed in the catalogue and on the API Product page.
+- **Content**: A long text description that appears on the API Product overview page, the rich text editor enables you to add more information about the API Product e.g. use cases, features, etc.
+- **Image**: An API Product logo that is displayed on the catalogue and on the API Product pages.
+- **Tags**: The tags are used to match the API Product with the related blog posts that have the same tags in common.
  
 From that page you can also manage [OAuth2.0 settings]({{< ref "/tyk-stack/tyk-developer-portal/enterprise-developer-portal/api-access/dynamic-client-registration.md" >}}) and add [Get started guides]({{< ref "/tyk-stack/tyk-developer-portal/enterprise-developer-portal/getting-started-with-enterprise-portal/manage-get-started-guides-for-api-products" >}}) to your API Products, which is covered in the relevant sections.
 {{< img src="img/dashboard/portal-management/enterprise-portal/customize-product.png" alt="Customize visual appearance of an API Product" >}}
