@@ -32,22 +32,22 @@ To start customising the user sign-up form, navigate to the **Custom attributes*
 ## Add a new attribute to the User model
 To add a new attribute to the User model, click on the **Add Custom attribute** button and then fill in properties of the new attribute:
 - **Attribute ID**: A string that consists of letters (a-zA-Z), numbers (0-9), dashes, and underscores. This is used to reference the attribute in the [Admin APIs]({{< ref "/product-stack/tyk-enterprise-developer-portal/api-documentation/tyk-edp-api" >}}) screen.
-- **Attribute Label**: the attribute's name that is displayed in the UI.
+- **Attribute Label**: The attribute's name that is displayed in the UI.
 - **Description**: Explains the intended usage of this attribute. It is also displayed in the UI.
 - **Type of attribute**: The type of data that can be stored in this attribute. You cannot change the value of this field once the attribute is created. The following data types are acceptable:
   - Boolean (true or false).
   - Dropdown (a list of values).
   - String.
   - Number.
-- **Validation Reg Exp**: a regular expression that is used to validate the value of this field. It is available for the **String** data type only.
+- **Validation Reg Exp**: A regular expression that is used to validate the value of this field. It is available for the **String** data type only.
 - **Enable validation**: Determines if the portal should apply the regular expression defined in the **Validation Reg Exp** to validate the value of this attribute when creating or updating a user profile. It is available for the **String** data type only.
-- **Dropdown Values**: a list of values for the attribute. It is available for the **Dropdown** data type only.
+- **Dropdown Values**: A list of values for the attribute. It is available for the **Dropdown** data type only.
 - Fields that define the attribute's behavior:
-  - Write once read many: Determines if the value of the attribute can be changed after a user profile is created.
-  - Add to the key metadata: defines if the value of the attribute should be added to the metadata of Auth keys or OAuth2.0 clients when a user creates them.
-  - Required: defines if this attribute is required to create a user profile.
-  - Show on sign-up form: defines if this attribute should be visible in the sing-up form.
-- **Behavior**: defines if developers can view or edit this attribute. Possible values are:
+  - **Write once read many**: Determines if the value of the attribute can be changed after a user profile is created.
+  - **Add to the key metadata**: Determines if the value of the attribute should be added to the metadata of Auth keys or OAuth2.0 clients when a user creates them.
+  - **Required**: Determines if this attribute is required to create a user profile.
+  - **Show on sign-up form**: Determines if this attribute should be visible in the sing-up form.
+- **Behavior**: Determines if developers can view or edit this attribute. Possible values are:
   - Developers can view and edit the attribute.
   - Developers can only view the attribute.
   - Developers cannot see the attribute.
