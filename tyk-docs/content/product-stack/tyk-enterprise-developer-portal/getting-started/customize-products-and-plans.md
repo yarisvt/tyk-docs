@@ -2,7 +2,7 @@
 title: "Customize visual appearance of API Products and Plans"
 date: 2023-11-30
 tags: ["Tyk Developer Portal","Enterprise Portal","API Product","Customization"]
-description: "Make your API Products to standout by customizing their visual appearance"
+description: "Make your API Products standout by customising their visual appearance"
 menu:
   main:
     parent: "Get Started"
