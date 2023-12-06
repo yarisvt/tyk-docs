@@ -79,7 +79,7 @@ You can achieve the same result by navigating to the **API Products** menu. Addi
 {{< note >}}
 **Congratulations**
 
-You have successfully added can create multiple public catalogues but since they will share the same level of access we advise to keep only one public catalogue.
+You have successfully added a catalogue and associated a team with it. Furthermore, you have allocated plans and API products to this catalogue.
 {{< /note >}}
 
 Visit [Customise the sign-up form]({{< ref "/product-stack/tyk-enterprise-developer-portal/getting-started/customize-sign-up-form" >}}) for the user sign-up form customisation guide.
