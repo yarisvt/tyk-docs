@@ -29,8 +29,8 @@ To customise the sign-up form, you need to add new data attributes to the user m
 To start customising the user sign-up form, navigate to the **Custom attributes** menu and the select the **User** model. Currently, it is possible to extend only the user model. In future releases we will add the same capabilities to other models.
 {{< img src="img/dashboard/portal-management/enterprise-portal/navigate-to-user-attributes.png" alt="Navigate to the User's attributes" >}}
 
-## Add a new attribute to the User model
-To add a new attribute to the User model, click on the **Add Custom attribute** button and then fill in properties of the new attribute:
+## Add a new attribute to the user model
+To add a new attribute to the user model, click on the **Add Custom attribute** button and then fill in properties of the new attribute:
 - **Attribute ID**: A string that consists of letters (a-zA-Z), numbers (0-9), dashes, and underscores. This is used to reference the attribute in the [Admin APIs]({{< ref "/product-stack/tyk-enterprise-developer-portal/api-documentation/tyk-edp-api" >}}) screen.
 - **Attribute Label**: The attribute's name that is displayed in the UI.
 - **Description**: Explains the intended usage of this attribute. It is also displayed in the UI.
@@ -53,7 +53,7 @@ To add a new attribute to the User model, click on the **Add Custom attribute** 
   - Developers cannot see the attribute.
 
 For the purpose of this guide, make sure to tick the **Required** and **Show on sign-up form** checkboxes and select the **Developers can only view the attribute** option.
-{{< img src="img/dashboard/portal-management/enterprise-portal/add-new-attribute-to-user-model.png" alt="Add a new attribute to the User model" >}}
+{{< img src="img/dashboard/portal-management/enterprise-portal/add-new-attribute-to-user-model.png" alt="Add a new attribute to the user model" >}}
 
 The new attribute will be added to the user sign-up form, once you have created a new custom attribute and saved changes to the user model by clicking on the **Save** button.
 {{< img src="img/dashboard/portal-management/enterprise-portal/custom-attribute-in-the-sign-up-form.png" alt="Customized user sign-up form" >}}
