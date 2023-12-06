@@ -44,7 +44,7 @@ In this guide, we will create the **B2B customer** organisation to fulfil the ab
 {{< note success >}}
 **Note**
 
-If you want to edit the default team name you can do so by navigating to **Teams**, open up the team tied to the organisation you created, and edit the name as required.
+You can edit the default team name by navigating to **Teams** and opening up the team associated with the organisation you created. This will allow you to edit the team name as required.
 
 {{< /note >}}
 
