@@ -33,7 +33,7 @@ The first step in getting started with the developer portal is to connect the po
 ## Connect to a provider (Tyk Self-Managed)
 
 1. Go to the provider section in the portal admin dashboard
-2. Click Add provider
+2. Click **Add provider**
 3. Add your provider details
 
 | Field                    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
