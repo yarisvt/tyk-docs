@@ -49,7 +49,7 @@ From that page you can also manage [OAuth2.0 settings]({{< ref "/tyk-stack/tyk-d
 
 {{< img src="img/dashboard/portal-management/enterprise-portal/customize-plan.png" alt="Customize visual appearance of a plan" >}}
 
-2. Customize the plan's visual appearance as need and then click on the **Save**. Now you can view the plan in the API Product page: 
+2. Customise the plan's visual appearance as required and then click on the **Save** button. Now you can view the plan in the API Product page: 
 {{< img src="img/dashboard/portal-management/enterprise-portal/plan-live-portal.png" alt="Customize visual appearance of a plan" >}}
 
 {{< note success >}}
