@@ -2994,7 +2994,7 @@ menu:
         category: Directory
         show: False
         menu:
-      - title: "Visual appearance customization"
+      - title: "Visual appearance customisation"
         category: Directory
         show: True
         menu:
