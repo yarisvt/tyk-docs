@@ -19,7 +19,12 @@ If you are interested in getting access, contact us at [support@tyk.io](<mailto:
 ## Introduction
 
 In the Tyk Enterprise Developer Portal, Organisations and Catalogues are used to segment the user base and make different APIs available to different user audiences according to the business model.
-For instance, if the Account Management API is available only to trusted partners but the Payment API is available to every developer, that can be solved by creating two catalogs for these two APIs.
+For example, assume the following scenario:
+
+- Account Management API is available only to trusted partners
+- Payment API is available to all developers
+
+Subsequently, two catalogs can be created for these two APIs.
 
 In the below example, an API Provider offers two API Products (the Accounts API and Payment API) with two plans (the Free plan and Enterprise plan) to their customers.
 Enterprise customers can use both APIs with the Enterprise plan that offers a higher user limit while any other customers (for instance, individual developers or hobbyists) have access only to the Payment API with the Free plan.
