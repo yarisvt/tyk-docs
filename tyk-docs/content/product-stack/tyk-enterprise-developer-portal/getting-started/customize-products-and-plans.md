@@ -42,7 +42,7 @@ From that page you can also manage [OAuth2.0 settings]({{< ref "/tyk-stack/tyk-d
 ## Customize plans
 1. To customize visual appearance of plans, open the **Plans** menu and select the plan you want to customize. You can customize the following settings:
 - **Catalogue display name**: name of the that will be displayed in the API Product page.
-- **Scope**: scope for the [OAuth2.0 settings]({{< ref "/tyk-stack/tyk-developer-portal/enterprise-developer-portal/api-access/dynamic-client-registration.md" >}}). Please refer to the [OAuth2.0 documentation]({{< ref "/tyk-stack/tyk-developer-portal/enterprise-developer-portal/api-access/dynamic-client-registration" >}}) for further guidance.
+- **Scope**: Scope for the [OAuth2.0 settings]({{< ref "/tyk-stack/tyk-developer-portal/enterprise-developer-portal/api-access/dynamic-client-registration.md" >}}). Please refer to the [OAuth2.0 documentation]({{< ref "/tyk-stack/tyk-developer-portal/enterprise-developer-portal/api-access/dynamic-client-registration" >}}) for further guidance.
 - **Catalogues**: The catalogues in which this plan is available. Catalogues and organisation are [covered]({{< ref "/product-stack/tyk-enterprise-developer-portal/getting-started/create-orgs-and-catalogs" >}}) later within this getting started guide.
 - **Auto-approve settings for access requests**: Determines if access requests for this plan should be approved automatically.
 - **Access request frequency**: Defines how often developers can request access to a specific plan. This way the admins can prevent developers from creating too many keys and abusing their automatically approved plans.
