@@ -40,7 +40,7 @@ To add a new attribute to the User model, click on the **Add Custom attribute** 
   - String.
   - Number.
 - **Validation Reg Exp**: a regular expression that is used to validate the value of this field. It is available for the **String** data type only.
-- **Enable validation**: defines if the portal should apply the regular expression defined in the **Validation Reg Exp** to validate value of this attribute when creating or updating a user profile. It is available for the **String** data type only.
+- **Enable validation**: Determines if the portal should apply the regular expression defined in the **Validation Reg Exp** to validate the value of this attribute when creating or updating a user profile. It is available for the **String** data type only.
 - **Dropdown Values**: a list of values for the attribute. It is available for the **Dropdown** data type only.
 - Fields that define the attribute's behavior:
   - Write once read many: Determines if the value of the attribute can be changed after a user profile is created.
