@@ -31,7 +31,7 @@ When integrating with Tyk, the Tyk policies will be imported into the Developer 
 {{< youtube rIGnIQ235As >}}
 
 API Products are partitioned policies that provide an ACL but not quota/rate limits.
-To create one, assuming you have one or more APIs already created.
+The following steps explain how to create and import an API product from Tyk, assuming you have one or more APIs already created:
 
 1. From your Tyk Self-Managed installation, go to **Policies** and click **Add policy**.
 2. Select which APIs you want to add to your API product.
