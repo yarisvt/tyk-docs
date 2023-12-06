@@ -66,4 +66,4 @@ You have now added a custom attribute to the User model and made it appear in th
 
 ## Next step
 
-Go to [Setup email notifications]({{< ref "/product-stack/tyk-enterprise-developer-portal/getting-started/setup-email-notifications" >}}) to setup email notifications guide which completes this tutorial.
+Visit [Setup email notifications]({{< ref "/product-stack/tyk-enterprise-developer-portal/getting-started/setup-email-notifications" >}}) to learn how to setup email notifications guide, which completes this tutorial.
