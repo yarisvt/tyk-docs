@@ -29,7 +29,7 @@ Subsequently, two catalogs can be created for these two APIs.
 In the below example, an API Provider offers two API Products (the Accounts API and Payment API) with two plans (the Free plan and Enterprise plan) to their customers.
 Enterprise customers can use both APIs with the Enterprise plan that offers a higher user limit while any other customers (for instance, individual developers or hobbyists) have access only to the Payment API with the Free plan.
 
-To achieve that, the API Provider uses two catalogues to implement their business model so that they can offer different experience to different customer audiences. This section explains to achieve that using the Tyk Enterprise Developer Portal.
+To achieve that, the API Provider uses two catalogues to implement their business model so that they can offer different experiences for different customer audiences. This section explains how to achieve that using the Tyk Enterprise Developer Portal.
 {{< img src="/img/dashboard/portal-management/enterprise-portal/org-catalogue-product-relation.png" alt="Relationship between catalogues, API Products, plans, teams, and organisations" >}}
 
 ## Create organisation and teams
