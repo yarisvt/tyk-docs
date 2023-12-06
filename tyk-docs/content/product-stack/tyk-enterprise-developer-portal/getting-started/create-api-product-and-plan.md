@@ -61,7 +61,7 @@ To create a Plan for the developer portal, follow the same steps as for creating
 1. From your Tyk Self-Managed installation, go to **Policies** and click **Add policy**.
 {{< img src="img/dashboard/portal-management/enterprise-portal/portal-add-policy.png" alt="Create a policy" >}}
 
-2. Select an API, it doesn’t matter which API you select since the purpose of this policy is simply just to control the allowance. However, selecting an API is a required field which means you need to select an API anyway.
+2. Select an API. Please note that this a required field. The purpose of the policy explained in this guide is to control allowance, so you can select any API here.
 3.  Under **Global limits and Quota**, select **Enforce usage quota** and **Enforce rate limit**. Ensure **Disable rate-limiting** and **Unlimited requests** are **not** selected so you can set these limits.
 {{< img src="img/dashboard/portal-management/enterprise-portal/portal-enforce-quota.png" alt="Enforce quota and rate limit" >}}
 
