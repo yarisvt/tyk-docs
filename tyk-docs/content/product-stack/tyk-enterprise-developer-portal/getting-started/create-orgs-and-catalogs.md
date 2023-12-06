@@ -34,7 +34,7 @@ To achieve that, the API Provider uses two catalogues to implement their busines
 
 ## Create organisation and teams
 The Tyk Enterprise Developer Portal uses Organisation aca Catalogues to segment access to APIs and plans. Therefore, the first thing is to create an organisation for your customers. If you don't want to provision organisations manually, you can leverage the [Admin APIs]({{< ref "/product-stack/tyk-enterprise-developer-portal/api-documentation/tyk-edp-api.md" >}}) or enable the [self-service organisation registration]({{< ref "/tyk-stack/tyk-developer-portal/enterprise-developer-portal/managing-access/manage-api-consumer-organisations.md" >}}).
-In this guide, we will create the **B2B customer** organisation to fulfil the above business model. To do so, follow the below steps:
+In this guide, we will create the **B2B customer** organisation to fulfill the above business model:
 1. To create an organisation for the **B2B customer**, navigate to the **Organisations** menu and click on the **Add new organisation** button.
    {{< img src="/img/dashboard/portal-management/enterprise-portal/navigate-to-organisations.png" alt="Navigate to the Organisations menu" >}}
 
