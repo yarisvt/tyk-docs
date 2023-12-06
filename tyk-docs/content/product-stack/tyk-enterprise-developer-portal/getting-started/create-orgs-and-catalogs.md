@@ -70,7 +70,7 @@ You can create multiple public catalogues but since they will share the same lev
 {{< /note >}}
 
 3. Once the catalogue is created, add a developer audience to it by clicking on the **Add Team** button and selecting an appropriate developer team (**B2B customer All users** in this example).
-   Finally, add plans and API Products to the created catalogue so that the select developer teams can view them.
+   Finally, add plans and API Products to the created catalogue so that the selected developer teams can view them.
    {{< img src="/img/dashboard/portal-management/enterprise-portal/add-team-products-and-plans.png" alt="Add teams, products, and plans to the catalogue" >}}
 
 You can achieve the same result by navigating to the **API Products** menu. Adding an API Product to a catalogue through the **Catalogues** and the **API Products** menus will produce the same result.
