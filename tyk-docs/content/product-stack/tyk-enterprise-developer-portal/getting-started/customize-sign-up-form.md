@@ -34,7 +34,7 @@ To add a new attribute to the User model, click on the **Add Custom attribute** 
 - **Attribute ID**: a string that consists of letters (a-zA-Z), numbers (0-9), dashes, and underscores and is used to refer to this attribute in [the Admin APIs]({{< ref "/product-stack/tyk-enterprise-developer-portal/api-documentation/tyk-edp-api" >}}).
 - **Attribute Label**: the attribute's name that is displayed in the UI.
 - **Description**: a rich text that is used to describe this attribute. It is also displayed in the UI.
-- **Type of attribute**: type of data that can be stored in this attribute. You cannot change value of this field once the attribute is created. The following data types are acceptable:
+- **Type of attribute**: The type of data that can be stored in this attribute. You cannot change the value of this field once the attribute is created. The following data types are acceptable:
   - Boolean (true or false).
   - Dropdown (a list of values).
   - String.
