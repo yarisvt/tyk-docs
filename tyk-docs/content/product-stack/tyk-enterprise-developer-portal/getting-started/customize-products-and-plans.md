@@ -60,4 +60,4 @@ You have now customized the visual appearance of your API Product and plan. By f
 
 ## Next step
 
-Go to [Create API Consumer organisations and catalogues]({{< ref "/product-stack/tyk-enterprise-developer-portal/getting-started/create-orgs-and-catalogs" >}}) to create API Consumer organisations and catalogues.
+Visit the [create API Consumer organisations and catalogues]({{< ref "/product-stack/tyk-enterprise-developer-portal/getting-started/create-orgs-and-catalogs" >}}) section to learn how to create API consumer organisations and catalogues.
