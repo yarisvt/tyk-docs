@@ -24,7 +24,7 @@ In this section, you will learn how to customise the visual appearance of API Pr
 - Tags for API Products to match them with related blog posts.
 
 ## Customize API Products
-To customize the visual appearance of API Products, follow the following steps:
+To customise the visual appearance of API Products:
 1. Navigate to the **API Products** menu, select the product that you want to customise (the Payment API in example below). In this menu you can customise the following aspects of API Products:
 - **Catalogue display name**: this is the name that will be displayed in the external catalogue.
 - **Featured API Product**: tick this option for the API Product to appear on the home page under the **Featured products** section.
