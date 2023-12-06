@@ -48,7 +48,7 @@ The first step in getting started with the developer portal is to connect the po
 
 4. Save your changes
 
-### How to find the Secret and Org ID inside your Tyk Dashboard
+### How to find the Secret and Org ID inside your Tyk Dashboard?
 
 1.  Select **Users** from the **System Management** section.
 2.  In the users list, click **Edit** for your user.
