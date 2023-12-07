@@ -99,12 +99,12 @@ This release is tested on Kubernetes 1.26.3, 1.25.2, 1.24.6, 1.23.12, 1.22.15, 1
 #### Changelog
 ##### Added
 - Added Ingress configuration for dashboard and classic portal.
-- In `tyk-dashboard`, a new field (`tykApiHost`) allows configuring a custom service name for Tyk Gateway.
+- In `tyk-dashboard`, a new field (`dashboard.tykApiHost`) allows configuring a custom service name for Tyk Gateway.
 ##### Fixed
 - Fixed gateway connection string at environment variable TYK_DB_TYKAPI_HOST and TYK_DB_TYKAPI_PORT.
 - Aligned the value of `dashboard.overrideHostname` with `gwHostName` yaml anchor.
 - Fixed setting TYK_DB_ENABLEAGGREGATELOOKUPS via `dashboard.enableAggregateLookups`.
-- Fixed the issue that Dashboard version 5.0.2 or before failed to start because of missing configuration file (tyk_analytics.conf). In order to fix that, if the dashboard version is <= v5.0.2, it runs init-container to create empty tyk-analytics.
+- Fixed the issue that Dashboard version 5.0.2 or before failed to start because of missing configuration file (tyk_analytics.conf). In order to fix that, if the dashboard version is <= v5.0.2, it runs init-container to create empty tyk_analytics.conf file.
 ##### Changed
 * Updated Dashboard default image tag to v5.2.3.
 * Updated default value for PostgreSQL sslmode (`global.postgres.sslmode`) from empty to `disable`.
@@ -119,7 +119,7 @@ This release is tested on Kubernetes 1.26.3, 1.25.2, 1.24.6, 1.23.12, 1.22.15, 1
 - Updated the default service type of Gateway and Pump service from NodePort to ClusterIP. You can configure external access to service with your desired method like changing service type to NodePort, LoadBalancer, or configuring Ingress.
 #### Changelog
 ##### Added  
-- Added opentelemetry support at `tyk-gateway.gateway.opentelemetry`.
+- Added OpenTelemetry support at `tyk-gateway.gateway.opentelemetry`.
 ##### Updated
 * Updated Gateway default image tag to v5.2.3.
 * Updated the default service type of Gateway and Pump service from NodePort to ClusterIP. You can configure external access to service with your desired method like changing service type to NodePort, LoadBalancer, or configuring Ingress.
