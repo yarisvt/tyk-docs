@@ -25,7 +25,7 @@ This version upgrades Tyk Gateway and Tyk Dashboard to v5.2.3 and Tyk Portal to 
 ##### New Gateway parameters
 This version enhances Gateway charts by introducing configurations for Opentelemetry. Their usage can be found in values.yaml:
 
-```
+```yaml
     # opentelemetry is used to configure opentelemetry for Tyk Gateway
     opentelemetry:
       # Used to enable/disable opentelemetry
