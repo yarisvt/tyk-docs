@@ -119,7 +119,7 @@ This release is tested on Kubernetes 1.26.3, 1.25.2, 1.24.6, 1.23.12, 1.22.15, 1
 - Updated the default service type of Gateway and Pump service from *NodePort* to *ClusterIP* for better security. You can configure external access to a service with your desired method like changing service type to *NodePort*, *LoadBalancer*, or configuring *Ingress*.
 #### Changelog
 ##### Added  
-- Added OpenTelemetry support at `tyk-gateway.gateway.opentelemetry`.
+- Added OpenTelemetry support under `tyk-gateway.gateway.opentelemetry`.
 ##### Updated
 - Updated Gateway default image tag to v5.2.3.
 - Updated the default service type of Gateway and Pump service from *NodePort* to *ClusterIP*. You can configure external access to a service with your desired method like changing service type to NodePort, LoadBalancer, or configuring Ingress.
@@ -130,7 +130,7 @@ This release is tested on Kubernetes 1.26.3, 1.25.2, 1.24.6, 1.23.12, 1.22.15, 1
 #### Changelog
 ##### Updated
 - Updated Developer Portal default image tag to v1.8.1.
-- Updated the Default service type of Developer Portal service from NodePort to ClusterIP. You can configure external access to service with your desired method like changing service type to NodePort, LoadBalancer, or configuring Ingress.
+- Updated the default service type of Gateway and Pump service from *NodePort* to *ClusterIP* for better security. You can configure external access to a service with your desired method like changing service type to *NodePort*, *LoadBalancer*, or configuring *Ingress*.
 * Updated default storage type in values.yaml from `fs` to `db`. The new default option does not require additional configuration to work.
 * Updated liveliness probe from `/` to `/live` and readiness probe from `/` to `/ready`.
 - Moved the database related variables in the values.yaml outside the section related to the storage of the assets inside enterprise portal. This reduces confusion, facilitating database configuration.
@@ -145,7 +145,7 @@ This release is tested on Kubernetes 1.26.3, 1.25.2, 1.24.6, 1.23.12, 1.22.15, 1
 - Updated the default service type of Gateway service from NodePort to ClusterIP. You can configure external access to service with your desired method like changing service type to NodePort, LoadBalancer, or configuring Ingress.
 #### Changelog
 ##### Added
-- Added OpenTelemetry support at `gateway.opentelemetry`.
+- Added OpenTelemetry support under `gateway.opentelemetry`.
 - In `tyk-gateway`, new fields (`dashboardConnectionString` and `policyConnectionString`) are introduced to set connection strings for Dashboard App Config and Policies when using Tyk Dashboard as a source.
 ##### Changed
 - Updated Gateway default image tag to v5.2.3.
@@ -163,7 +163,7 @@ This release is tested on Kubernetes 1.26.3, 1.25.2, 1.24.6, 1.23.12, 1.22.15, 1
 - Updated the default service type of Gateway and Pump service from *NodePort* to *ClusterIP* for better security. You can configure external access to service with your desired method like changing service type to *NodePort*, *LoadBalancer*, or configuring *Ingress*.
 #### Changelog
 ##### Added
-- Added OpenTelemetry support at `tyk-gateway.gateway.opentelemetry`.
+- Added OpenTelemetry support under `tyk-gateway.gateway.opentelemetry`.
 ##### Changed
 - Updated Gateway default image tag to v5.2.3.
 - Updated the Default service type of Gateway and Pump service from NodePort to ClusterIP. You can configure external access to service with your desired method like changing service type to NodePort, LoadBalancer, or configuring Ingress.
@@ -174,7 +174,7 @@ This release is tested on Kubernetes 1.26.3, 1.25.2, 1.24.6, 1.23.12, 1.22.15, 1
 - Updated the default service type of Pump service from *NodePort* to *ClusterIP* for better security. You can configure external access to service with your desired method like changing service type to *NodePort*, *LoadBalancer*, or configuring *Ingress*.
 #### Changelog
 ##### Updated
-- Updated the default service type of Pump service from NodePort to ClusterIP. You can configure external access to service with your desired method like changing service type to NodePort, LoadBalancer, or configuring Ingress.
+- Updated the default service type of Pump service from *NodePort* to *ClusterIP* for better security. You can configure external access to service with your desired method like changing service type to *NodePort*, *LoadBalancer*, or configuring *Ingress*.
 - Remove .cluster.local from service URL to allow for named cluster support.
 ##### Fixed  
 - Fixed the problem that Hybrid Pump was not setup correctly if remoteControlPlane connection details was set through secret. Setting up hybrid pump using Kubernetes secret values if `global.remoteControlPlane.useSecretName` is set.
@@ -182,7 +182,7 @@ This release is tested on Kubernetes 1.26.3, 1.25.2, 1.24.6, 1.23.12, 1.22.15, 1
 ## tyk-stack-1.0.0
 #### Changelog
 ##### Added
-- Added OpenTelemetry support at `tyk-gateway.gateway.opentelemetry`.  
+- Added OpenTelemetry support under `tyk-gateway.gateway.opentelemetry`.  
 - Added Ingress configuration for dashboard and classic portal.
 - Added `extraEnvs` to support setting environment variables for bootstrapping jobs.
 - Added a field `global.components.bootstrap` to enable or disable bootstrapping.
