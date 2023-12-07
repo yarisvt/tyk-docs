@@ -89,7 +89,7 @@ This release is tested on Kubernetes 1.26.3, 1.25.2, 1.24.6, 1.23.12, 1.22.15, 1
 - Added `extraEnvs` to support setting environment variables for jobs.
 ##### Changed
 - Bootstrapping Job do not fail if there is existing ORG found in dashboard storage. If the database has been bootstrapped already, the job will proceed with creating secret with Operator and Developer Portal.
-- Renamed environment variable names to be consistent with `envconfig` naming convention. The list of supported environment variables are documented at [tyk-k8s-bootstrap]([https://github.com/TykTechnologies/tyk-k8s-bootstrap](https://github.com/TykTechnologies/tyk-k8s-bootstrap)).
+- Renamed environment variable names to be consistent with `envconfig` naming convention. The list of supported environment variables are documented at [tyk-k8s-bootstrap](https://github.com/TykTechnologies/tyk-k8s-bootstrap).
 - Remove .cluster.local from service URL to allow for named cluster support.
 ##### Removed
 - Removed annotation `[sidecar.istio.io/inject:](http://sidecar.istio.io/inject:) “false”` from postInstall and preDelete job. If Tyk is deployed inside Istio service mesh, you can configure the required annotation for all jobs using values.yaml file.
@@ -102,13 +102,13 @@ This release is tested on Kubernetes 1.26.3, 1.25.2, 1.24.6, 1.23.12, 1.22.15, 1
 - In `tyk-dashboard`, a new field (`tykApiHost`) allows configuring a custom service name for Tyk Gateway.
 ##### Fixed
 - Fixed gateway connection string at environment variable TYK_DB_TYKAPI_HOST and TYK_DB_TYKAPI_PORT.
-- Fixed value of dashboard.overrideHostname with gwHostName yaml anchor.
-- Fixed TYK_DB_ENABLEAGGREGATELOOKUPS to `dashboard.enableAggregateLookups`.
+- Aligned the value of `dashboard.overrideHostname` with `gwHostName` yaml anchor.
+- Fixed setting TYK_DB_ENABLEAGGREGATELOOKUPS via `dashboard.enableAggregateLookups`.
 - Fixed the issue that Dashboard version 5.0.2 or before failed to start because of missing configuration file (tyk_analytics.conf). In order to fix that, if the dashboard version is <= v5.0.2, it runs init-container to create empty tyk-analytics.
 ##### Changed
 * Updated Dashboard default image tag to v5.2.3.
-* Updated default value for postgresql sslmode changed from empty to `disable`.
-- Updated set Default service type of Dashboard service from NodePort to ClusterIP.
+* Updated default value for PostgreSQL sslmode (`global.postgres.sslmode`) from empty to `disable`.
+- Updated default service type of Dashboard service from NodePort to ClusterIP.
 - Removed `.cluster.local` from service URL to allow for named cluster support.
 ##### Removed
 - Removed annotation `traffic.sidecar.istio.io/excludeInboundPorts` and `traffic.sidecar.istio.io/includeInboundPorts`. If Tyk is deployed inside Istio service mesh, you can configure the required annotation using values.yaml file.
@@ -123,7 +123,7 @@ This release is tested on Kubernetes 1.26.3, 1.25.2, 1.24.6, 1.23.12, 1.22.15, 1
 ##### Updated
 * Updated Gateway default image tag to v5.2.3.
 * Updated the default service type of Gateway and Pump service from NodePort to ClusterIP. You can configure external access to service with your desired method like changing service type to NodePort, LoadBalancer, or configuring Ingress.
-- Removed .cluster.local from service URL to allow for named cluster support.
+- Removed `.cluster.local` from service URL to allow for named cluster support.
 
 ## tyk-dev-portal-1.0.0
 
@@ -134,7 +134,7 @@ This release is tested on Kubernetes 1.26.3, 1.25.2, 1.24.6, 1.23.12, 1.22.15, 1
 * Updated default storage type in values.yaml from `fs` to `db`. The new default option does not require additional configuration to work.
 * Used /live path for liveliness probe and /ready path for readiness probe.
 * Moved the database related variables in the values.yaml outside the section related to the storage of the assets inside enterprise portal.
-* Updated: Set Dashboard URL in Portal using service discovery.
+* Updated seting Dashboard URL in Portal using service discovery.
 * User can provide developer portal configurations via secret `useSecretName` instead of `global.secrets.useSecretName`. This is to make it easier to manage portal and dashboard configuration separately.
 ##### Removed
 * Removed field `global.bootstrap.devPortal`. You can now set both `global.components.bootstrap` and `tyk-bootstrap.bootstrap.devPortal` to true to enable portal bootstrapping.
@@ -145,16 +145,16 @@ This release is tested on Kubernetes 1.26.3, 1.25.2, 1.24.6, 1.23.12, 1.22.15, 1
 - Updated the default service type of Gateway service from NodePort to ClusterIP. You can configure external access to service with your desired method like changing service type to NodePort, LoadBalancer, or configuring Ingress.
 #### Changelog
 ##### Added
-- Added opentelemetry support at `gateway.opentelemetry`.
+- Added OpenTelemetry support at `gateway.opentelemetry`.
 - In `tyk-gateway`, new fields (`dashboardConnectionString` and `policyConnectionString`) are introduced to set connection strings for Dashboard App Config and Policies when using Tyk Dashboard as a source.
 ##### Changed
 - Updated Gateway default image tag to v5.2.3.
 - Set environment variables TYK_GW_DBAPPCONFOPTIONS_CONNECTIONSTRING and TYK_GW_POLICIES_POLICYCONNECTIONSTRING to dashboard connection string only if `gateway.useDashboardAppConfig.enabled` is set to true.
 - Set TYK_GW_POLICIES_POLICYSOURCE to “service” if `gateway.useDashboardAppConfig.enabled` is set to true.
-- Updated Default service type of Gateway service from NodePort to ClusterIP. You can configure external access to service with your desired method like changing service type to NodePort, LoadBalancer, or configuring Ingress.  
+- Updated default service type of Gateway service from NodePort to ClusterIP. You can configure external access to service with your desired method like changing service type to NodePort, LoadBalancer, or configuring Ingress.  
 - Remove .cluster.local from service URL to allow for named cluster support.
 ##### Fixed
-* gateway pod should listen on port `.gateway.containerPort` instead of `global.servicePorts.gateway`.
+- Gateway pod listens on port `.gateway.containerPort` instead of `global.servicePorts.gateway`.
 ##### Removed
 - Remove `global.components.dashboard` flag as it was misleading. Adapted gateway to use a gateway-specific flag `gateway.useDashboardAppConfig`. Set `gateway.useDashboardAppConfig` to true if gateway should connect to Dashboard for [app configurations]([https://tyk.io/docs/tyk-oss-gateway/configuration/#use_db_app_configs](https://tyk.io/docs/tyk-oss-gateway/configuration/#use_db_app_configs)).
 
@@ -163,7 +163,7 @@ This release is tested on Kubernetes 1.26.3, 1.25.2, 1.24.6, 1.23.12, 1.22.15, 1
 - Updated the default service type of Gateway and Pump service from NodePort to ClusterIP. You can configure external access to service with your desired method like changing service type to NodePort, LoadBalancer, or configuring Ingress.
 #### Changelog
 ##### Added
-- Added opentelemetry support at `tyk-gateway.gateway.opentelemetry`.
+- Added OpenTelemetry support at `tyk-gateway.gateway.opentelemetry`.
 ##### Changed
 - Updated Gateway default image tag to v5.2.3.
 - Updated the Default service type of Gateway and Pump service from NodePort to ClusterIP. You can configure external access to service with your desired method like changing service type to NodePort, LoadBalancer, or configuring Ingress.
@@ -174,25 +174,25 @@ This release is tested on Kubernetes 1.26.3, 1.25.2, 1.24.6, 1.23.12, 1.22.15, 1
 - Updated the default service type of Pump service from NodePort to ClusterIP. You can configure external access to service with your desired method like changing service type to NodePort, LoadBalancer, or configuring Ingress.
 #### Changelog
 ##### Updated
-- Updated the Default service type of Pump service from NodePort to ClusterIP. You can configure external access to service with your desired method like changing service type to NodePort, LoadBalancer, or configuring Ingress.
+- Updated the default service type of Pump service from NodePort to ClusterIP. You can configure external access to service with your desired method like changing service type to NodePort, LoadBalancer, or configuring Ingress.
 - Remove .cluster.local from service URL to allow for named cluster support.
 ##### Fixed  
-* Fixed: Setup hybrid pump using secret values if user has set global.remoteControlPlane.useSecretName.
+- Setting up hybrid pump using Kubernetes secret values if `global.remoteControlPlane.useSecretName` is set.
 
 ## tyk-stack-1.0.0
 #### Changelog
 ##### Added
-- Added opentelemetry support at `tyk-gateway.gateway.opentelemetry`.  
+- Added OpenTelemetry support at `tyk-gateway.gateway.opentelemetry`.  
 - Added Ingress configuration for dashboard and classic portal.
 - Added `extraEnvs` to support setting environment variables for bootstrapping jobs.
 - Added a field `global.components.bootstrap` to enable or disable bootstrapping.
-- Added In `tyk-gateway`, new fields (`dashboardConnectionString` and `policyConnectionString`) are introduced to set connection strings for Dashboard App Config and Policies when using Tyk Dashboard as a source.
+- Added new fields (`dashboardConnectionString` and `policyConnectionString`) in `tyk-gateway`, that are introduced to set connection strings for Dashboard App Config and Policies when using Tyk Dashboard as a source.
 - Added In `tyk-dashboard`, a new field (`tykApiHost`) allows configuring a custom service name for Tyk Gateway.
 ##### Updated
-* Updated default storage type in values.yaml from `fs` to `db`. The new default option does not require additional configuration to work.
-* Updated: Move the database related variables in the values.yaml outside the section related to the storage of the assets inside enterprise portal.
-* Updated secret metadata name to be dynamic so that it is possible to install multiple releases in the same namespace.
-* Updated Gateway default image tag to v5.2.3.
+- Updated default storage type in values.yaml from `fs` to `db`. The new default option does not require additional configuration to work.
+- Updated: Move the database related variables in the values.yaml outside the section related to the storage of the assets inside enterprise portal.
+- Updated secret metadata name to be dynamic so that it is possible to install multiple releases in the same namespace.
+- Updated Gateway default image tag to v5.2.3.
 - Updated Dashboard default image tag to v5.2.3.
 - Changed: User can provide developer portal configurations via secret `tyk-dev-portal.useSecretName` instead of `global.secrets.useSecretName`. This is to make it easier to manage portal and dashboard configuration separately.
 - Updated Developer Portal default image tag to v1.8.1.
@@ -201,7 +201,7 @@ This release is tested on Kubernetes 1.26.3, 1.25.2, 1.24.6, 1.23.12, 1.22.15, 1
 - Remove .cluster.local from service URL to allow for named cluster support.  
 ##### Removed
 - Removed duplicate setting of TYK_GW_SECRET in tyk-stack values.yaml. The value is set in tyk-gateway component already.
-- Removed duplicate setting of TYK_DB_HOSTCONFIG_GATEWAYHOSTNAME in tyk-stack values.yaml. The value is set at tyk-dashboard.dashboard.hostConfig.overrideHostname.
+- Removed duplicate setting of TYK_DB_HOSTCONFIG_GATEWAYHOSTNAME in tyk-stack values.yaml. The value is set at `tyk-dashboard.dashboard.hostConfig.overrideHostname`.
 - Removed field `global.bootstrap.devPortal`. You can now set both `global.components.bootstrap` and `tyk-bootstrap.bootstrap.devPortal` to true to enable portal bootstrapping.
 - Removed support for `tyk-dashboard.dashboard.enableIstioIngress` field in values.yaml.
-- Removed `global.components.dashboard` flag as it was misleading. Adapted gateway to use a gateway-specific flag `tyk-gateway.gateway.useDashboardAppConfig`. Set `tyk-gateway.gateway.useDashboardAppConfig` to true if gateway should connect to Dashboard for [app configurations]([https://tyk.io/docs/tyk-oss-gateway/configuration/#use_db_app_configs](https://tyk.io/docs/tyk-oss-gateway/configuration/#use_db_app_configs)).
+- Removed `global.components.dashboard` flag as it was misleading. Adapted gateway to use a gateway-specific flag `tyk-gateway.gateway.useDashboardAppConfig`. Set `tyk-gateway.gateway.useDashboardAppConfig` to true if gateway should connect to Dashboard for [app configurations](https://tyk.io/docs/tyk-oss-gateway/configuration/#use_db_app_configs).
