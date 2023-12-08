@@ -39,7 +39,7 @@
   {{- $openSource = $openSource| append (dict "name" "Gateway" "data" $gateway) -}}
 {{ end }}
 {{- with $helmChart -}}
-  {{- $openSource = $openSource | append (dict "name" "Helm" "data" $helmChart) -}}
+  {{- $openSource = $openSource | append (dict "name" "Helm Charts" "data" $helmChart) -}}
   {{- $helm = (dict "name" "Helm" "data" $helmChart) -}}
 {{ end }}
 {{- with $mdcb -}}
