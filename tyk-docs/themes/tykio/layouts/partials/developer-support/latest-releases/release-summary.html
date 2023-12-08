@@ -58,16 +58,17 @@
                                         </p>
                                     </div>
                                     <div class="col-md-12"></hr></div>
+                                    {{- with $latestData.docker -}}
                                     <div class="col-md-6">
-                                        <p class="release-title mb-0 mt-0">Docker</p>
                                         {{- if $latest -}}
+                                            <p class="release-title mb-0 mt-0">Docker</p>
                                             <a href="{{ $latestData.docker}}"
                                             target="_blank"
                                             rel="nopener noreferrer"
                                             class="release-link mb-0"
                                             >
                                                 Latest {{ $component.data.latest}}
-                                            </a> 
+                                            </a>
                                         {{- end -}}
                                         {{- if $lts -}}
                                             <a href="{{ $ltsData.docker }}"
@@ -79,6 +80,7 @@
                                             </a> 
                                         {{- end -}} 
                                     </div>
+                                    {{ end }} 
                                     {{- if not $licensed -}}
                                     <div class="col-md-6">
                                         <p class="release-title mb-0 mt-0">GitHub</p>

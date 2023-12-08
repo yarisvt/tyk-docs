@@ -39,6 +39,7 @@
   {{- $openSource = $openSource| append (dict "name" "Gateway" "data" $gateway) -}}
 {{ end }}
 {{- with $helmChart -}}
+  {{- $openSource = $openSource | append (dict "name" "Helm" "data" $helmChart) -}}
   {{- $helm = (dict "name" "Helm" "data" $helmChart) -}}
 {{ end }}
 {{- with $mdcb -}}
@@ -69,7 +70,6 @@
     </div>
     {{ partial "developer-support/latest-releases/release-summary.html" (dict "section" "Licensed" "components" $licensed)  }}
     {{ partial "developer-support/latest-releases/release-summary.html" (dict "section" "Open Source" "components" $openSource)  }}
-    {{ partial "developer-support/latest-releases/helm-summary.html" (dict "section" "Helm Charts" "chart" $helm)  }}
   <div style="margin-bottom: 80px;"></div>
   </div>
 </section>
