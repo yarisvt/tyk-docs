@@ -44,8 +44,8 @@ This version enhances Gateway charts by introducing configurations for OpenTelem
       resourceName: tyk
       # Type of the span processor to use. Valid values are “simple” or “batch”.
       spanProcessorType: batch
-      # Type of the context propagator to use
-      contextPropogation: tracecontext
+      # Type of the context propagator to use. Valid values are "tracecontext" and "b3".
+      contextPropagation: tracecontext
       # TLS configuration for the exporter.
       tls:
         # Flag that can be used to enable TLS
