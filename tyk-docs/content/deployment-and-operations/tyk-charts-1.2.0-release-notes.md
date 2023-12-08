@@ -42,7 +42,7 @@ This version enhances Gateway charts by introducing configurations for OpenTelem
       connectionTimeout: 1
       # Name of the resource that will be used to identify the resource.
       resourceName: tyk
-      # Type of the span processor to use
+      # Type of the span processor to use. Valid values are “simple” or “batch”.
       spanProcessorType: batch
       # Type of the context propagator to use
       contextPropogation: tracecontext
