@@ -135,7 +135,7 @@ This release is tested on Kubernetes 1.26.3, 1.25.2, 1.24.6, 1.23.12, 1.22.15, 1
 - Updated liveliness probe from `/` to `/live` and readiness probe from `/` to `/ready`.
 - Moved the database related variables in the values.yaml outside the section related to the storage of the assets inside enterprise portal. This reduces confusion, facilitating database configuration.
 - Updated setting Dashboard URL in Portal using service discovery.
-* User can provide developer portal configurations via secret `useSecretName` instead of `global.secrets.useSecretName`. This is to make it easier to manage portal and dashboard configuration separately.
+- User can provide developer portal configurations via secret `useSecretName` instead of `global.secrets.useSecretName`. This is to make it easier to manage portal and dashboard configuration separately.
 ##### Removed
 - Removed field `global.bootstrap.devPortal`. You can now set both `global.components.bootstrap` and `tyk-bootstrap.bootstrap.devPortal` to true to enable portal bootstrapping.
 
