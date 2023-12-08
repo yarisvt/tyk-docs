@@ -25,7 +25,7 @@ In this section, you will learn about how catalogues work and how to create a ne
 ## Prerequisites
 
 - Connect to a provider [Tyk Self-Managed]({{< ref "product-stack/tyk-enterprise-developer-portal/getting-started/with-tyk-self-managed-as-provider" >}})
-- Create [policies with enforced access rights]({{< ref "/product-stack/tyk-enterprise-developer-portal/getting-started/create-api-product-and-plan.md" >}}) (API Product in the Portal)
+- Create [policies with enforced access rights]({{< ref "product-stack/tyk-enterprise-developer-portal/getting-started/create-api-product-and-plan" >}}) (API Product in the Portal)
 - Create one or more [policies with enforced rate limit and quotas]({{< ref "/product-stack/tyk-enterprise-developer-portal/getting-started/create-api-product-and-plan.md" >}}) (Plan in the Portal)
 
 ## Create a new catalogue
