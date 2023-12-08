@@ -428,12 +428,17 @@ menu:
               path: /tyk-on-prem/kubernetes-ingress
               category: Page
               show: True
+<<<<<<< HEAD
             - title: "Windows with Helm chart"
               path: /tyk-on-prem/kubernetes-on-windows
               category: Page
               show: True
             - title: "Kubernetes"
               path: /tyk-on-premises/kubernetes
+=======
+            - title: "Tyk Stack Helm chart"
+              path: /deployment-and-operations/tyk-self-managed/deployment-lifecycle/installations/kubernetes/tyk-helm-tyk-stack
+>>>>>>> ed2dd8e7... [DX-835] Update tyk-stack docs (#3614)
               category: Page
               show: True
             - title: "Helm chart"
@@ -442,6 +447,10 @@ menu:
               show: True
             - title: "Tyk new Helm chart"
               path: /tyk-self-managed/tyk-helm-chart-single-dc/
+              category: Page
+              show: True
+            - title: "Legacy Tyk Pro Helm chart"
+              path: /tyk-self-managed/tyk-helm-chart
               category: Page
               show: True
           - title: "Red Hat (RHEL / CentOS)"
