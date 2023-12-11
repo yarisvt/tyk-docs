@@ -83,7 +83,7 @@ A patch, sometimes just called a fix, is a small piece of software that's used t
 
 Patches are software and Operating System (OS) updates that address security vulnerabilities within a program or product. Tyk may choose to release updates to fix performance bugs, as well as to provide enhanced security features.
 
-### Compatibility
+## Compatibility
 
 Tyk has a few different compaonent which can drive questions on what version of X goes with what version of Y.
 
