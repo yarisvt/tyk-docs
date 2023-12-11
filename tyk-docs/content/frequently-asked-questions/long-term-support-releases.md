@@ -47,21 +47,21 @@ If you have a requirement to run on a non supported version for longer than the 
 
 As we release regularly, there will of course be other release issues throughout the year. These are NOT long term support releases. These releases offer new capability and are designed to appeal to teams who want the latest capability as soon as it lands. This capability will be subsumed into the next LTS release, however.
 
-These releases are supported, but the support window is small - they are supported only until the next release comes out and supersedes it. So if you want stabilty and regular patching then LTS releases are for you.
+These releases are supported, but the support windows is small - they are supported only until the next release comes out and supersedes it. So if you want stabilty and regular patching then LTS releases are for you.
 
-## Major / Minor / Patch - How Do We Decide?
+## Major / Minor ? Patch - How Do We Decide?
 
-We know that an LTS release which has a major semantic version update is not a desirable practice.
+We know that an LTS release which has a major semantic version is not a desirable practice.
 
 So, we will always endeavour to avoid shipping major versions, especially major versions as LTS releases. However, sometimes it is unavoidable and we have to ship a major version. 
 
-Our first commitment to you is to make our definitions of major / minor / patch transparent.
+Our first commitment to you is to make our definitions of major / minor / patch transparent:
 
 ### Major Version
 
 The major version is designated as X.0 and is defined by one or more of the following:
 
-1. Breaking changes to Tyk Gateway or Tyk Dashboard APIs. Tyk APIs include not just the endpoints, but also return error codes and messages, logging details - basically anything where a user interacts with a Tyk product and might have to make changes to maintain functionality in response to a change we implement.
+1. Breaking changes to Tyk Gateway or Tyk Dashboard APIs. Tyk APIs include not just the endpoints, but also return error codes and messages, logging details - basically anything were a user interacts with a Tyk product and might have to make changes to maintain functionality in response to a change we implement.
 2. Deprecation of existing functionality or engines that breaks a key business process.
 3. Breaking plugin compiler for customer Go plugins after plugins have been recompiled.
 4. Crypto deprecations.
@@ -69,7 +69,7 @@ The major version is designated as X.0 and is defined by one or more of the foll
 6. Breaking public function calls.
 7. A change which amends behaviour of a configuration setting.
 
-Our default setting is NOT to introduce breaking changes, but sometimes it is necessary. If we do introduce breaking changes we have a collective choice to make; if we document the breaking change well and offer migration scripts, we may be able to classify it as a minor. If we cannot do that, then it should be a major version.
+Our default setting is NOT to introduce breaking changes, but sometimes it is necessary. If we do introduce breaking changes we have a collective choice to make; if we document the breaking change well and offer migration scripts, we may be able to classify as a minor. If we cannot do that, then it should be a major version.
 
 ### Minor Version
 
@@ -77,13 +77,13 @@ According the the **Semantic Versioning** specification, a **MINOR** version is 
 
 ### Patch Version
 
-A patch, sometimes just called a fix, is a small piece of software that is used to correct a problem, usually called a bug, with an operating system or software program.
+A patch, sometimes just called a fix, is a small piece of software that's used to correct a problem, usually called a bug, with an operating system or software program.
 
 Patches are software and Operating System (OS) updates that address security vulnerabilities within a program or product. Tyk may choose to release updates to fix performance bugs, as well as to provide enhanced security features.
 
 ### Compatibility
 
-Tyk has a few different components which can drive questions on what version of X goes with what version of Y.
+Tyk has a few different compaonent which can drive questions on what version of X goes with what version of Y.
 
 When we release a new Gateway version, it triggers us to be clear on version compatibility with other areas of the Tyk stack.
 
@@ -94,7 +94,7 @@ As part of the release for the new Gateway LTS version we will commit to show ev
 
 The table below is illustrative, but shows the intent:
 
-| Gateway Version | Compatibility versions for best experience | Backwards Compatibility - MDCB | Backwards Compatibility - Operator | Backwards Compatibility - Helm | Backwards Compatibility - EDP | Backwards Compatibility - Pump | Backwards Compatibility - Sync | Backwards Compatibility - TIB |
+| Gateway Version | Compaibility versions for best experience | Backwards Compatibility - MDCB | Backwards Compatibility - Operator | Backwards Compatibility - Helm | Backwards Compatibility - EDP | Backwards Compatibility - Pump | Backwards Compatibility - Sync | Backwards Compatibility - TIB |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
 | 5.3 LTS | MDCB 2.5 Operator 1.8 Helm 2.2 Sync 2.4.1 | Version 1.7 to 2.4 inclusive | Versions X to Y | Versions X to Y | Versions X to Y | Versions X to Y | Versions X to Y | Versions X to Y |
 
@@ -104,7 +104,7 @@ We have step by step install guides for various architectures and installation t
 
 Head [here]() to find them!
 
-And don't forget, our brilliant Customer Success Teams and Account Managers are here to assist you with any issues - pleases refer to your SLA on the specifics of how we can help!
+And don't forgeth, our brilliant Customer Success Teams and Account Managers are here to assist you with any issues - pleases refer to your SLA on the specifics of how we can help!
 
 ## Keep Me Informed!
 
@@ -114,11 +114,11 @@ Do you want to know when our next LTS is? And what might be in it? Subscribe to 
 
 ### Enterprise Portal
 
-We strive to avoid any long term support arrangements for our Enterprise Portal. We run a regular 6 week release cadence which delivers new capability, extension of existing capability and bug fixes. Our policy is that we aim to avoid any breaking changes, so in effect the entire Enterprise Portal is supported. Here we'd increment our version as a minor version - 1.3.0, 1.4.0, 1.5.0 etc.
+We strive to avoid any long term support arrangements for our Enterprise Portal. We run a regular 6 week release cadence which delivers new capability, extension of existing capability and bug fixes. Our poliocy is that we aim to avoid any breaking changes, so in effect the entie Enterprise Portal is supported. Here we'd increment out version as a minor version - 1.3.0, 1.4.0, 1.5.0 etc.
 
-Occasionally, we may see a need to issue a critical fix if there is a systems down time or a criticial security defect. Here we would release this as as soon as physically possible and the semantic versioning would reflect a patch (1.3.1, 1.4.1. etc).
+Occasionally, we may see a need to issue a critical fix if there is a systems down time or a criticial security defect. Here would release this as as soon as physically possible and the semantic versioning would reflect a patch (1.3.1, 1.4.1. etc).
 
-The only exception to this policy is if we ever need to release a breaking change. This would mean that we have to release a new major version (i.e. releasing version 2.0). In this exceptional circumstance we would support both the old major version and the new one concurrently for six months - please note that the old version only gets supported in terms of critical fixes, not new functionality. After the six months is up, the previous major version falls out of support.
+The only exception to this policy is if we every need to release a breaking change. This would mean that we have to release a new major version (i.e. releasing version 2.0). In this exceptional circumstance we would support both the old major version and the new one concurrently for six months - please note that the old version only gets supported in terms of critical fixes, not new functionality. After the six months is up, the previous major version falls out of support.
 
 If you are using the Enterprise Portal on Tyk Cloud, we recommend you use the latest version at all times and we auto upgrade to that version on TYk Cloud. When a new release is launched, older versions are immediately deprecated . This gives you the best, latest and most secure capability. If a customer wants to use a previous version, this is possible via rollback; but if an issue arises on an older version our advice would be simply to upgrade to the latest version.
 
@@ -126,4 +126,4 @@ If you are using the Enterprise Portal on Tyk Cloud, we recommend you use the la
 
 Minor updates to Tyk Pump, Tyk Identity Broker (TIB), MDCB and Operator are deployable quickly with low risk and no breaking changes. Tyk will support the latest major.minor version (e.g. Pump 1.7) until the next major.minor version (1.8) is released. Then we'd support that version.
 
-To help assure backward compatibility we ensure that each version of Pump and other components we release works with the Gateway and Dashboard versions which are under Long Term Support (LTS) at that time. For example, we'd ensure Pump v1.7 is compatible with release v4 of Tyk Gateway and Tyk Dashboard, and this increments with the LTS model. Following semver convention, if we need to patch a minor Pump version, we would number that as a patch version (e.g. 1.7.1).
+To help assure backward compatibility we ensure that each version of Pump and other components we release works with the Gateway and Dashboard versions which are under Long Term Support (LTS) at that time. For example, we'd ensure Pump v1.7 is compatible with release v4 of Tyk Gateway and Tyk Dashboard, and this increments with the LTS model.Following semver convention, if we need to patch a minor Pump version, we would number that as a patch version (e.g. 1.7.1).
