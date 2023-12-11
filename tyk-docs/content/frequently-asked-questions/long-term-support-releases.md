@@ -49,7 +49,9 @@ As we release regularly, there will of course be other release issues throughout
 
 These releases are supported, but the support windows is small - they are supported only until the next release comes out and supersedes it. So if you want stabilty and regular patching then LTS releases are for you.
 
-## Major / Minor ? Patch - How Do We Decide?
+---
+
+## Major / Minor / Patch - How Do We Decide?
 
 We know that an LTS release which has a major semantic version is not a desirable practice.
 
