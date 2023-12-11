@@ -93,7 +93,7 @@ Patches are software and Operating System (OS) updates that address security vul
 
 ## Compatibility
 
-Tyk has a few different compaonent which can drive questions on what version of X goes with what version of Y.
+Tyk has a few different component which can drive questions on what version of X goes with what version of Y.
 
 When we release a new Gateway version, it triggers us to be clear on version compatibility with other areas of the Tyk stack.
 
@@ -114,7 +114,7 @@ The table below is illustrative, but shows the intent:
 
 We have step by step install guides for various architectures and installation types.
 
-Head [here]() to find them!
+Head [here]({{< ref "upgrading-tyk" >}}) to find them!
 
 And don't forgeth, our brilliant Customer Success Teams and Account Managers are here to assist you with any issues - pleases refer to your SLA on the specifics of how we can help!
 
