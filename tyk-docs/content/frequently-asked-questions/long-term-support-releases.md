@@ -9,6 +9,8 @@ menu:
 weight: 0
 ---
 
+Welcome to Tyk's Long Term Support (LTS) Releases page. Here, we'll walk you through the practical aspects of how LTS benefits your business. Explore our approach to stability, understand semantic versioning and learn about our compatibility policies. We'll also cover support for non-LTS components and provide links on upgrading and staying informed about new LTS releases.
+
 ## Why Customers Love Long Term Support (LTS)?
 
 Long Term Support describes a release of our Gateway and Dashboard which offers our customers, stability over a 1-2 year period. It also means we are committed to ensure you have uninterrupted service for the lifetime of the long term release. There are many customer benefits in keeping pace with our long term release:
