@@ -1,6 +1,6 @@
 ---
 title: "Long Term Support Releases"
-date: 2022-03-11
+date: 2023-12-11
 tags: ["FAQ", "Long Term Support", "LTS"]
 description: "Long Term Releases and how we support them"
 menu:
