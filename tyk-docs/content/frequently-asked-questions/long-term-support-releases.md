@@ -22,6 +22,8 @@ Long Term Support describes a release of our Gateway and Dashboard which offers 
 Our current Long Term Support release is version 5.0 LTS, which is in full support until April 2024 and then enters maintenance support until April 2025. Our next Long Term Support Release will be announced end of April 2024.
 {{</ note >}}
 
+---
+
 ## What Is Our LTS Offering?
 
 We offer a 24 month long term support offering for our Gateway LTS version. For the first 12 months we offer **full support** which means that we will fix every 7 weeks. After this 12 months period is up, we will revert to **maintenance support** for a further 12 months, which offers critical fixes and critical security patching only, with the cadence being on an 'as needed' basis.
@@ -43,6 +45,8 @@ If you have a requirement to run on a non supported version for longer than the 
 | LTS+1 (version TBC) | April 2024 - April 2025 | May 2025 - April 2026 | May 2026 |
 | LTS+2 (version TBC) | April 2025 - April 2026 | May 2026 - April 2027 | May 2027 |
 
+---
+
 ## What About Non LTS Gateway Releases?
 
 As we release regularly, there will of course be other release issues throughout the year. These are NOT long term support releases. These releases offer new capability and are designed to appeal to teams who want the latest capability as soon as it lands. This capability will be subsumed into the next LTS release, however.
@@ -59,7 +63,7 @@ So, we will always endeavour to avoid shipping major versions, especially major 
 
 Our first commitment to you is to make our definitions of major / minor / patch transparent:
 
-### Major Version
+#### Major Version
 
 The major version is designated as X.0 and is defined by one or more of the following:
 
@@ -73,15 +77,17 @@ The major version is designated as X.0 and is defined by one or more of the foll
 
 Our default setting is NOT to introduce breaking changes, but sometimes it is necessary. If we do introduce breaking changes we have a collective choice to make; if we document the breaking change well and offer migration scripts, we may be able to classify as a minor. If we cannot do that, then it should be a major version.
 
-### Minor Version
+#### Minor Version
 
 According the the **Semantic Versioning** specification, a **MINOR** version is incremented when you add functionality in a backward compatible manner. In other words, if Tyk make changes to your software that do not break any existing functionality, you can increment the **MINOR** version number. For example, if you add new features or capabilities to your software without changing any existing functionality, you can increase the **MINOR** version number.
 
-### Patch Version
+#### Patch Version
 
 A patch, sometimes just called a fix, is a small piece of software that's used to correct a problem, usually called a bug, with an operating system or software program.
 
 Patches are software and Operating System (OS) updates that address security vulnerabilities within a program or product. Tyk may choose to release updates to fix performance bugs, as well as to provide enhanced security features.
+
+---
 
 ## Compatibility
 
@@ -100,6 +106,8 @@ The table below is illustrative, but shows the intent:
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
 | 5.3 LTS | MDCB 2.5 Operator 1.8 Helm 2.2 Sync 2.4.1 | Version 1.7 to 2.4 inclusive | Versions X to Y | Versions X to Y | Versions X to Y | Versions X to Y | Versions X to Y | Versions X to Y |
 
+--- 
+
 ## How Do I Upgrade and How Can Tyk Help?
 
 We have step by step install guides for various architectures and installation types.
@@ -108,13 +116,17 @@ Head [here]() to find them!
 
 And don't forgeth, our brilliant Customer Success Teams and Account Managers are here to assist you with any issues - pleases refer to your SLA on the specifics of how we can help!
 
+---
+
 ## Keep Me Informed!
 
 Do you want to know when our next LTS is? And what might be in it? Subscribe to our mailing list [here]()!
 
+---
+
 ## Support Arrangements For Other Tyk Components
 
-### Enterprise Portal
+#### Enterprise Portal
 
 We strive to avoid any long term support arrangements for our Enterprise Portal. We run a regular 6 week release cadence which delivers new capability, extension of existing capability and bug fixes. Our poliocy is that we aim to avoid any breaking changes, so in effect the entie Enterprise Portal is supported. Here we'd increment out version as a minor version - 1.3.0, 1.4.0, 1.5.0 etc.
 
@@ -124,7 +136,7 @@ The only exception to this policy is if we every need to release a breaking chan
 
 If you are using the Enterprise Portal on Tyk Cloud, we recommend you use the latest version at all times and we auto upgrade to that version on TYk Cloud. When a new release is launched, older versions are immediately deprecated . This gives you the best, latest and most secure capability. If a customer wants to use a previous version, this is possible via rollback; but if an issue arises on an older version our advice would be simply to upgrade to the latest version.
 
-### Other Components
+#### Other Components
 
 Minor updates to Tyk Pump, Tyk Identity Broker (TIB), MDCB and Operator are deployable quickly with low risk and no breaking changes. Tyk will support the latest major.minor version (e.g. Pump 1.7) until the next major.minor version (1.8) is released. Then we'd support that version.
 
