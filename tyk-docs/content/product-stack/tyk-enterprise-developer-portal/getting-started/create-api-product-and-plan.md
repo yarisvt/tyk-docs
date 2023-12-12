@@ -26,7 +26,7 @@ When integrating with Tyk, the Tyk policies will be imported into the Developer 
 - Tyk Self-Managed [added as a provider]({{< ref "/product-stack/tyk-enterprise-developer-portal/getting-started/with-tyk-self-managed-as-provider" >}})
 - Have APIs [created in your Tyk installation]({{< ref "getting-started/create-api" >}}.
 
-## Create and import an API product from Tyk
+## Create and import an API Product from Tyk
 
 {{< youtube rIGnIQ235As >}}
 
