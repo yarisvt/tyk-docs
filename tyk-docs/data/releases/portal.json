@@ -4,7 +4,7 @@
   "latest": "1.8.0",
   "releaseNotesPath": "product-stack/tyk-enterprise-developer-portal/release-notes/portal-1.8.0",
   "1.8.0": {
-    "date": "19/11/2023",
+    "date": "24/11/2023",
     "docker":"https://hub.docker.com/r/tykio/portal/tags?page=1&name=1.8.0"
   }
 }
