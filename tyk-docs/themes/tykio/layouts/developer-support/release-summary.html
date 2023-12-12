@@ -26,6 +26,7 @@
 {{- $operator := .Site.Data.releases.operator -}} 
 {{- $portal := .Site.Data.releases.portal -}} 
 {{- $pump := .Site.Data.releases.pump -}}
+{{- $sync := .Site.Data.releases.sync -}}
 {{- $tib := .Site.Data.releases.tib -}}
 
 {{- $components := slice -}}
@@ -53,6 +54,9 @@
 {{ end }}
 {{- with $pump -}}
   {{- $openSource = $openSource| append (dict "name" "Pump" "data" $pump) -}}
+{{ end }}
+{{- with $sync -}}
+  {{- $openSource = $openSource| append (dict "name" "Sync" "data" $sync) -}}
 {{ end }}
 {{- with $tib -}}
   {{- $openSource = $openSource| append (dict "name" "Identity Broker" "data" $tib) -}}
