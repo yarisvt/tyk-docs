@@ -104,9 +104,15 @@ As part of the release for the new Gateway LTS version we will commit to show ev
 
 The table below is illustrative, but shows the intent:
 
-| Gateway Version | Compatibility versions for best experience | Backwards Compatibility - MDCB | Backwards Compatibility - Operator | Backwards Compatibility - Helm | Backwards Compatibility - EDP | Backwards Compatibility - Pump | Backwards Compatibility - Sync | Backwards Compatibility - TIB |
-| ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
-| 5.3 LTS | MDCB 2.5 Operator 1.8 Helm 2.2 Sync 2.4.1 | Version 1.7 to 2.4 inclusive | Versions X to Y | Versions X to Y | Versions X to Y | Versions X to Y | Versions X to Y | Versions X to Y |
+| Gateway Version | Recommended Compatibility | Backwards Compatibility |
+|----    |---- |---- |
+| 5.3 LTS | Helm v2.2     | Helm vX - vY |
+|         | MDCB v2.5     | MDCB v1.7 - v2.4 |
+|         | Operator v1.8 | Operator vX - vY |
+|         | Sync v2.4.1   | Sync vX - vY |
+| | | EDP vX - vY |
+| | | Pump vX - vY |
+| | | TIB vX - vY |
 
 --- 
 
