@@ -93,7 +93,7 @@ Patches are software and Operating System (OS) updates that address security vul
 
 ## Compatibility
 
-Tyk has a few different component which can drive questions on what version of X goes with what version of Y.
+Tyk has a few different components which can drive questions on what version of X goes with what version of Y.
 
 When we release a new Gateway version, it triggers us to be clear on version compatibility with other areas of the Tyk stack.
 
@@ -102,7 +102,7 @@ As part of the release for the new Gateway LTS version we will commit to show ev
 1. What component versions might you need to leverage the very latest Tyk experience across the entire stack.
 2. What components and versions remain backwards compatible with the new Gateway version.
 
-The table below is illustrative, but shows the intent:
+The table below is an illustrative example, but shows the intent:
 
 | Gateway Version | Recommended Compatibility | Backwards Compatibility |
 |----    |---- |---- |
@@ -113,6 +113,8 @@ The table below is illustrative, but shows the intent:
 | | | EDP vX - vY |
 | | | Pump vX - vY |
 | | | TIB vX - vY |
+
+The above compatibility matrix table will be included in future [release notes]({{< ref "product-stack/tyk-gateway/release-notes/overview" >}}) for Gateway for releases 5.3+. Furthermore, the release notes will include tested third party dependences, such as PostgreSQL, MongoDB, Redis etc.
 
 --- 
 
