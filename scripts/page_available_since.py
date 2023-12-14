@@ -1,23 +1,64 @@
 from bs4 import BeautifulSoup
 import os, requests
 import re
+import json
 
 versions = [
-    "5.1",
-    "5.0",
-    "4.3",
-    "4.2",
-    "4.1",
-    "4.0",
-    "3.2",
-    "3.1",
-    "3-lts", ]
+    {
+        "path": "/docs/",
+        "name": "Latest - 5.2",
+    },
+    {
+        "path": "/docs/5.1/",
+        "name": "5.1",
+
+    },
+    {
+        "path": "/docs/5.0/",
+        "name": "5 LTS",
+    },
+    {
+        "path": "/docs/4.3/",
+        "name": "4.3",
+    },
+    {
+        "path": "/docs/4.2/",
+        "name": "4.2",
+    },
+    {
+        "path": "/docs/4.1/",
+        "name": "4.1",
+    },
+    {
+        "path": "/docs/4.0/",
+        "name": "4 LTS",
+    },
+    {
+        "path": "/docs/3.2/",
+        "name": "3.2",
+    },
+    {
+        "path": "/docs/3.1/",
+        "name": "3.1",
+    },
+    {"path": "/docs/nightly/",
+     "name": "Nightly",
+     }
+]
+
+filePath = "../tyk-docs/data/page_available_since.json"
+
+
+def process_and_write_to_file():
+    available = get_site_maps()
+    with open(filePath, 'w') as file:
+        json.dump(available, file, indent=4)
 
 
 def get_site_maps():
     available_since = {}
     for version in versions:
-        url = "https://tyk.io/docs/{version}/sitemap.xml".format(version=version)
+        url = "https://tyk.io/{version}/sitemap.xml".format(version=version["path"])
         print("Getting sitemap for {url}".format(url=url))
         response = requests.get(url, headers={'user-agent': 'insomnia/2023.4.0'})
         if response.status_code != 200:
@@ -25,13 +66,13 @@ def get_site_maps():
         response.raise_for_status()
         print("finished fetching for {url}".format(url=url))
         urls = get_urls(content=response.text)
-        print("parsing urls for version {version}".format(version=version))
+        print("parsing urls for version {version}".format(version=version["name"]))
         for url in urls:
             if url in available_since:
-                available_since[url].append(version)
+                available_since[url].append(version["path"])
             else:
-                available_since[url] = [version]
-        print("finished adding to dict urls for version {version}".format(version=version))
+                available_since[url] = [version["path"]]
+        print("finished adding to dict urls for version {version}".format(version=version["name"]))
     return available_since
 
 
@@ -57,9 +98,6 @@ def replace_base_url(url: str):
     return modified_url
 
 
-print(get_site_maps())
-
-
 # print(get_urls("latest_sitemap.xml"))
 
 def read_file(file_name: str):
@@ -78,3 +116,6 @@ def test_modified():
     ]
     for url in urls:
         print(replace_base_url(url))
+
+
+process_and_write_to_file()
