@@ -1,0 +1,44 @@
+{
+  "versions": [
+    {
+      "path": "/docs/",
+      "name": "Latest - 5.2"
+    },
+    {
+      "path": "/docs/5.1/",
+      "name": "5.1"
+    },
+    {
+      "path": "/docs/5.0/",
+      "name": "5 LTS"
+    },
+    {
+      "path": "/docs/4.3/",
+      "name": "4.3"
+    },
+    {
+      "path": "/docs/4.2/",
+      "name": "4.2"
+    },
+    {
+      "path": "/docs/4.1/",
+      "name": "4.1"
+    },
+    {
+      "path": "/docs/4.0/",
+      "name": "4 LTS"
+    },
+    {
+      "path": "/docs/3.2/",
+      "name": "3.2"
+    },
+    {
+      "path": "/docs/3.1/",
+      "name": "3.1"
+    },
+    {
+      "path": "/docs/nightly/",
+      "name": "Nightly"
+    }
+  ]
+}
