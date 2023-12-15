@@ -46,6 +46,9 @@
 {{- with $mdcb -}}
   {{- $licensed = $licensed | append (dict "name" "MDCB" "data" $mdcb) -}}
 {{ end }}
+{{- with $tib -}}
+  {{- $openSource = $openSource| append (dict "name" "Identity Broker" "data" $tib) -}}
+{{ end }}
 {{- with $operator -}}
   {{- $openSource = $openSource | append (dict "name" "Operator" "data" $operator) -}}
 {{ end }}
@@ -58,9 +61,7 @@
 {{- with $sync -}}
   {{- $openSource = $openSource| append (dict "name" "Sync" "data" $sync) -}}
 {{ end }}
-{{- with $tib -}}
-  {{- $openSource = $openSource| append (dict "name" "Identity Broker" "data" $tib) -}}
-{{ end }}
+
 
 <section class="home-section">
   <div class="container-xl p-0">
