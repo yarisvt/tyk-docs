@@ -76,7 +76,7 @@ def get_site_maps():
     return available_since
 
 
-def get_urls(content: str):
+def get_urls(content: str) -> list:
     parsed = BeautifulSoup(content, "lxml")
     urls_from_xml = []
     loc_tags = parsed.find_all('loc')
