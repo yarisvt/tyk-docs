@@ -61,8 +61,6 @@ def get_site_maps() -> dict:
         url = "https://tyk.io/{version}/sitemap.xml".format(version=version["path"])
         print("Getting sitemap for {url}".format(url=url))
         response = requests.get(url, headers={'user-agent': 'insomnia/2023.4.0'})
-        if response.status_code != 200:
-            raise Exception("unable to fetch the sitemap")
         response.raise_for_status()
         print("finished fetching for {url}".format(url=url))
         urls = get_urls(content=response.text)
@@ -97,8 +95,6 @@ def replace_base_url(url: str) -> str:
     modified_url = modified_url.replace(replace_latest, '')
     return modified_url
 
-
-# print(get_urls("latest_sitemap.xml"))
 
 def read_file(file_name: str):
     f = open(file_name, "r")
