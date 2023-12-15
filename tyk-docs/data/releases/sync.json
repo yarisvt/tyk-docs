@@ -2,7 +2,7 @@
     "home": "tyk-sync",
     "licensed": false,
     "latest": "1.4.1",
-    "releaseNotesPath": "release-notes/pump-1.8",
+    "releaseNotesPath": "tyk-sync",
     "1.4.1": {
       "date": "31/10/2023",
       "tag": "https://github.com/TykTechnologies/tyk-sync/releases/tag/v1.4.1",
