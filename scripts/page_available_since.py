@@ -49,7 +49,7 @@ versions = [
 filePath = "../tyk-docs/data/page_available_since.json"
 
 
-def process_and_write_to_file():
+def process_and_write_to_file() -> None:
     available = get_site_maps()
     with open(filePath, 'w') as file:
         json.dump(available, file, indent=4)
