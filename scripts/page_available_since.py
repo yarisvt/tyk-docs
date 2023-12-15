@@ -55,7 +55,7 @@ def process_and_write_to_file() -> None:
         json.dump(available, file, indent=4)
 
 
-def get_site_maps():
+def get_site_maps() -> dict:
     available_since = {}
     for version in versions:
         url = "https://tyk.io/{version}/sitemap.xml".format(version=version["path"])
