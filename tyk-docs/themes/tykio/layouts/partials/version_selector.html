@@ -7,10 +7,6 @@
 <label for="version-selector">Version: </label>
 <select onchange="var path = location.pathname.match('\/docs\/(?:nightly|[1-9][^\/]*\)?(.*)')[1].replace(/^\//,''); window.location = this.options[this.selectedIndex].value + path" id="version-selector">
     {{- range $.Site.Data.release_versions.versions -}}
-    {{- $disabled := false  -}}
-    {{- if not (in $values .path) -}}
-        {{- $disabled = true  -}}
-    {{- end -}}
-    <option value="{{.path}}" {{if eq $currentVersion .path}} selected="selected" {{end}} {{if $disabled}} disabled {{end}}>{{.name}}</option>
+    <option value="{{.path}}" {{if eq $currentVersion .path}} selected="selected" {{end}} {{if not (in $values .path)}} disabled {{end}}>{{.name}}</option>
     {{- end -}}
 </select>
