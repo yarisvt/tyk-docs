@@ -86,7 +86,7 @@ def get_urls(content: str) -> list:
     return sorted(urls_from_xml)
 
 
-def replace_base_url(url: str):
+def replace_base_url(url: str) -> str:
     version_pattern = r'https://tyk\.io/docs/[0-9]+(\.[0-9]+)?'
     replace_nightly = 'https://tyk.io/docs/nightly'
     replace_3lts = 'https://tyk.io/docs/3-lts'
