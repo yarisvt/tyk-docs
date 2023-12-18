@@ -4,7 +4,12 @@ menu:
   main:
     parent: "Release Notes"
 weight: 255
+<<<<<<< HEAD:tyk-docs/content/release-notes/mdcb/mdcb.md
 url: "/release-notes/mdcb"
+=======
+aliases:
+  - "/release-notes/mdcb/mdcb"
+>>>>>>> 3f807fc5... Add alias to release-notes/mdcb/mdcb to mdcb-2.0.md (#3775):tyk-docs/content/release-notes/mdcb-2.0.md
 ---
 
 ## 2.0.3
