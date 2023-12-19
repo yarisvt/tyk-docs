@@ -54,9 +54,44 @@ An example is given below.
 Given the time difference between your upgrade and the release of this version, we recommend customers verify the ongoing support of third-party dependencies they install, as their status may have changed since the release.
 
 
-#### Dependencies (Optional)
-<!-- Announce compatible related dependencies, e.g Dahsboard and MDCB -->
-This release of Tyk Dashboard is compatible with MDCB version x.y.z 
+#### Dependencies
+<!--
+Announce any 3rd party dependencies & tools. For Gateway and Portal only, additionaly announce compatible related dependencies in the form of a compatibility matrix. Illustrative examples are given in the subsections below.
+-->
+
+##### Compatibility Matrix
+<!--
+Version compatibility with other components in the Tyk stack. This takes the form of a compatibility matrix and is only required for Gateway and Portal.
+An illustrative example is shown below.
+-->
+| Gateway Version | Recommended Compatibility | Backwards Compatibility |
+|----    |---- |---- |
+| 5.3 LTS | Helm v2.2     | Helm vX - vY |
+|         | MDCB v2.5     | MDCB v1.7 - v2.4 |
+|         | Operator v1.8 | Operator vX - vY |
+|         | Sync v2.4.1   | Sync vX - vY |
+| | | EDP vX - vY |
+| | | Pump vX - vY |
+| | | TIB vX - vY |
+
+##### 3rd Party Dependencies & Tools
+<!--
+This subsection should be a table that presents the third party dependencies and tools compatible with the release. Compatible is used in the sense of those versions tested with the releases. Such information assists customers considering upgrading to a specific release. 
+
+Additionally, the following disclaimer statement should be added for customers to check that the third party dependency they decide to install remains in support.
+
+*Given the time difference between your upgrade and the release of this version, we recommend customers verify the ongoing support of third-party dependencies they install, as their status may have changed since the release.*
+
+An illustrative example is shown below.
+-->
+
+| 3rd Party Dependency | Compatible Version(s) |
+|---- |---- |
+| GoLang | 1.19 |
+| MongoDB | 4.4.x, 5.0.x and 6.0.x |
+| PostgreSQL | 11.x - 15.x |
+
+Given the time difference between your upgrade and the release of this version, we recommend customers verify the ongoing support of third-party dependencies they install, as their status may have changed since the release.
 
 #### Deprecations
 <!-- Use the following statement if there are no deprecations, or explain if there are -->
