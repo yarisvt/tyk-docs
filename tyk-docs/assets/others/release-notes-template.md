@@ -37,23 +37,6 @@ This release has no breaking changes.
 #### Future Breaking Changes (Optional)
 <!-- Announce future scheduled breaking changes, e.g. Go version updates, DB driver updates etc. -->
 
-#### 3rd Party Dependencies & Tools
-<!-- Third party dependencies encompasses tools (GoLang, Helm etc.), databases (PostgreSQL, MongoDB etc.) and external software libraries. This section should be a table that presents the third party dependencies and tools compatible with the release. Compatible is used in the sense of those versions tested with the releases. Such information assists customers considering upgrading to a specific release. 
-
-Additionally, a disclaimer statement should be added for customers to check that the third party dependency they decide to install remains in support.
-
-An example is given below.
--->
-
-| Third Party Dependency | Compatible Versions    |
-| ---------------------- | ---------------------- |
-| GoLang                 | 1.19                   |
-| MongoDB                | 4.4.x, 5.0.x and 6.0.x |
-| PostgreSQL             | 11.x - 15.x            |
-
-Given the time difference between your upgrade and the release of this version, we recommend customers verify the ongoing support of third-party dependencies they install, as their status may have changed since the release.
-
-
 #### Dependencies
 <!--
 Announce any 3rd party dependencies & tools. For Gateway and Portal only, additionaly announce compatible related dependencies in the form of a compatibility matrix. Illustrative examples are given in the subsections below.
@@ -75,21 +58,18 @@ An illustrative example is shown below.
 | | | TIB vX - vY |
 
 ##### 3rd Party Dependencies & Tools
-<!--
-This subsection should be a table that presents the third party dependencies and tools compatible with the release. Compatible is used in the sense of those versions tested with the releases. Such information assists customers considering upgrading to a specific release. 
+<!-- Third party dependencies encompasses tools (GoLang, Helm etc.), databases (PostgreSQL, MongoDB etc.) and external software libraries. This section should be a table that presents the third party dependencies and tools compatible with the release. Compatible is used in the sense of those versions tested with the releases. Such information assists customers considering upgrading to a specific release. 
 
-Additionally, the following disclaimer statement should be added for customers to check that the third party dependency they decide to install remains in support.
+Additionally, a disclaimer statement should be added for customers to check that the third party dependency they decide to install remains in support.
 
-*Given the time difference between your upgrade and the release of this version, we recommend customers verify the ongoing support of third-party dependencies they install, as their status may have changed since the release.*
-
-An illustrative example is shown below.
+An example is given below.
 -->
 
-| 3rd Party Dependency | Compatible Version(s) |
-|---- |---- |
-| GoLang | 1.19 |
-| MongoDB | 4.4.x, 5.0.x and 6.0.x |
-| PostgreSQL | 11.x - 15.x |
+| Third Party Dependency | Compatible Versions    |
+| ---------------------- | ---------------------- |
+| GoLang                 | 1.19                   |
+| MongoDB                | 4.4.x, 5.0.x and 6.0.x |
+| PostgreSQL             | 11.x - 15.x            |
 
 Given the time difference between your upgrade and the release of this version, we recommend customers verify the ongoing support of third-party dependencies they install, as their status may have changed since the release.
 
