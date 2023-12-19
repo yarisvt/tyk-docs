@@ -2,11 +2,13 @@
 {{- $pagePath := replaceRE $pattern "/docs" .RelPermalink -}}
 {{- $pagePath := replace $pagePath "/docs" "" -}}
 {{- $pagePath := replace $pagePath "/nightly" "" -}}
-{{- $values := index $.Site.Data.page_available_since $pagePath -}}
+{{- $values := index $.Site.Data.page_available_since_pete $pagePath -}}
 {{- $currentVersion := replace .RelPermalink $pagePath "/" -}}
+
 <label for="version-selector">Version: </label>
 <select onchange="var path = location.pathname.match('\/docs\/(?:nightly|[1-9][^\/]*\)?(.*)')[1].replace(/^\//,''); window.location = this.options[this.selectedIndex].value + path" id="version-selector">
     {{- range $.Site.Data.release_versions.versions -}}
-    <option value="{{.path}}" {{if eq $currentVersion .path}} selected="selected" {{end}} {{if not (in $values .path)}} disabled {{end}}>{{.name}}</option>
+    {{ $value2 := index $values .path }}
+    <option data-url="{{$value2}}" value="{{.path}}" {{if eq $currentVersion .path}} selected="selected" {{end}} >{{.name}}</option>
     {{- end -}}
 </select>
