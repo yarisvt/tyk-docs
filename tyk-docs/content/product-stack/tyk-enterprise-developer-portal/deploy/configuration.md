@@ -3,12 +3,8 @@ title: "Configure Tyk Enterprise Developer Portal"
 date: 2022-02-08
 tags: ["Configure Tyk Enterprise Developer Portal", "Tyk Enterprise Developer Portal"]
 description: "Configuration reference for the Tyk Enterprise Developer Portal"
-menu:
-  main:
-    parent: "Install Tyk Enterprise Developer Portal"
-weight: 1
 aliases:
-- tyk-stack/tyk-developer-portal/enterprise-developer-portal/install-tyk-enterprise-portal/configuration
+  - tyk-stack/tyk-developer-portal/enterprise-developer-portal/install-tyk-enterprise-portal/configuration
 ---
 
 
