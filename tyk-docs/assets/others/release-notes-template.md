@@ -34,12 +34,12 @@ Our minor releases are supported until our next minor comes out. This would be <
 <!-- Use the following statement if there are no breaking changes, or explain if there are -->
 This release has no breaking changes.
 
-#### Future Breaking Changes (Optional)
+#### Future Planned Breaking Changes (Optional)
 <!-- Announce future scheduled breaking changes, e.g. Go version updates, DB driver updates etc. -->
 
 #### Dependencies
 <!--
-Announce any 3rd party dependencies & tools. For Gateway and Portal only, additionaly announce compatible related dependencies in the form of a compatibility matrix. Illustrative examples are given in the subsections below.
+Announce any 3rd party dependencies & tools. For Gateway and Portal only, additionally, announce compatible related dependencies in the form of a compatibility matrix. Illustrative examples are given in the subsections below.
 -->
 
 ##### Compatibility Matrix
@@ -144,7 +144,7 @@ This should be a bullet point list of updated features. Explain:
 - Link to documentation of the updated feature
 - For OSS - Link to the corresponding issue if possible on GitHub to allow the users to see further info.
 
-Each change log item should be expandable. The first line summarise the changelog entry. It should be then possible to expand this to reveal further details about the changelog item. This is achieved using HTML as shown in the example below.
+Each change log item should be expandable. The first line summarises the changelog entry. It should be then possible to expand this to reveal further details about the changelog item. This is achieved using HTML as shown in the example below.
 -->
 <ul>
 <li>
