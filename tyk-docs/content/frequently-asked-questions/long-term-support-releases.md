@@ -20,6 +20,8 @@ Long Term Support describes a release of our Gateway and Dashboard which offers 
 3. **Functional Richness**: There will always be great capability contained in out latest LTS which moves your game on in terms of workflows.
 4. **Continuation of Service**: We will patch the LTS version every 7 weeks for the period it remains in full support.
 
+In summary, LTS releases are stable minor or patch releases that are suitable for production use.
+
 {{< note success >}}
 Our current Long Term Support release is version 5.0 LTS, which is in full support until April 2024 and then enters maintenance support until April 2025. Our next Long Term Support Release will be announced end of April 2024.
 {{</ note >}}
