@@ -42,7 +42,7 @@ This release has no breaking changes.
 Announce any 3rd party dependencies & tools. For Gateway and Portal only, additionally, announce compatible related dependencies in the form of a compatibility matrix. Illustrative examples are given in the subsections below.
 -->
 
-##### Compatibility Matrix
+##### Compatibility Matrix For Tyk Components
 <!--
 Version compatibility with other components in the Tyk stack. This takes the form of a compatibility matrix and is only required for Gateway and Portal.
 An illustrative example is shown below.
@@ -57,7 +57,7 @@ An illustrative example is shown below.
 | | | Pump vX - vY |
 | | | TIB vX - vY |
 
-##### 3rd Party Dependencies & Tools
+##### Version Compatibility For 3rd Party Dependencies & Toolings
 <!-- Third party dependencies encompasses tools (GoLang, Helm etc.), databases (PostgreSQL, MongoDB etc.) and external software libraries. This section should be a table that presents the third party dependencies and tools compatible with the release. Compatible is used in the sense of those versions tested with the releases. Such information assists customers considering upgrading to a specific release. 
 
 Additionally, a disclaimer statement should be added for customers to check that the third party dependency they decide to install remains in support.
