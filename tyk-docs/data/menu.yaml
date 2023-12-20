@@ -3470,7 +3470,7 @@ menu:
       category: Directory
       show: True
       menu:
-      - title: "Debugging Series"
+      - title: "Overview"
         path: /debugging-series/debugging-series
         category: Page
         show: True
