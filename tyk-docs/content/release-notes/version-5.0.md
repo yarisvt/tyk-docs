@@ -1,10 +1,16 @@
 ---
+<<<<<<< HEAD:tyk-docs/content/release-notes/version-5.0.md
 title: Tyk v5.0
 menu:
   main:
     parent: "Release Notes"
 weight: 1
 tags: ["release notes", "Tyk Gateway", "Tyk Dashboard", "v5.0", "5.0", "5.0.0", "5.0.1", "5.0.1", "5.0.2", "5.0.3", "5.0.4", "5.0.5", "5.0.6", "5.0.7", "5.0.8", "5.0.9"]
+=======
+title: Tyk Dashboard v5.0
+tags: ["release notes", "Tyk Dashboard", "v5.0", "5.0", "5.0.0", "5.0.1", "5.0.1", "5.0.2", "5.0.3", "5.0.4", "5.0.5", "5.0.6", "5.0.7", "5.0.8", "5.0.9", "5.0.10"]
+weight: 2
+>>>>>>> 39a94902... Dashboard release notes 5.0.10 (#3818):tyk-docs/content/product-stack/tyk-dashboard/release-notes/version-5.0.md
 ---
 
 ## v5.0.9
@@ -13,8 +19,47 @@ Please refer to our GitHub [release notes](https://github.com/TykTechnologies/ty
 ## v5.0.8
 Please refer to our GitHub [release notes](https://github.com/TykTechnologies/tyk/releases/tag/v5.0.8) for Tyk Gateway and Tyk Dashboard.
 
+<<<<<<< HEAD:tyk-docs/content/release-notes/version-5.0.md
 ## v5.0.7
 Please refer to our GitHub [release notes](https://github.com/TykTechnologies/tyk/releases/tag/v5.0.7) for Tyk Gateway and Tyk Dashboard.
+=======
+---
+
+## 5.0.10 Release Notes
+Please refer to our GitHub [release notes](https://github.com/TykTechnologies/tyk/releases/tag/v5.0.10)
+
+---
+
+## 5.0.9 Release Notes
+Please refer to our GitHub [release notes](https://github.com/TykTechnologies/tyk/releases/tag/v5.0.9)
+
+---
+
+## 5.0.8 Release Notes
+Please refer to our GitHub [release notes](https://github.com/TykTechnologies/tyk/releases/tag/v5.0.8)
+
+--- 
+
+## 5.0.7 Release Notes
+Please refer to our GitHub [release notes](https://github.com/TykTechnologies/tyk/releases/tag/v5.0.7).
+
+---
+
+## 5.0.6 Release Notes
+Please refer to our GitHub [release notes](https://github.com/TykTechnologies/tyk/releases/tag/v5.0.6). 
+
+---
+
+## 5.0.5 Release Notes
+Please refer to our GitHub [release notes](https://github.com/TykTechnologies/tyk/releases/tag/v5.0.5).
+
+---
+
+## 5.0.4 Release Notes
+Please refer to our GitHub [release notes](https://github.com/TykTechnologies/tyk/releases/tag/v5.0.4).
+
+---
+>>>>>>> 39a94902... Dashboard release notes 5.0.10 (#3818):tyk-docs/content/product-stack/tyk-dashboard/release-notes/version-5.0.md
 
 ## v5.0.6
 Please refer to our GitHub [release notes](https://github.com/TykTechnologies/tyk/releases/tag/v5.0.6) for Tyk Gateway and Tyk Dashboard.
