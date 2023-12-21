@@ -2267,7 +2267,7 @@ menu:
             path: /tyk-stack/tyk-manager/analytics/geographic-distribution
             category: Page
             show: True
-          - title: "Audit Log Configuration"
+          - title: "Audit Log"
             path: /product-stack/tyk-dashboard/advanced-configurations/analytics/audit-log
             category: Page
             show: True
