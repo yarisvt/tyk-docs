@@ -7,7 +7,7 @@ tags: ["audit", "audit records", "audit log"]
 The audit log contains audit records for all requests made to all endpoints under the `/api` route.
 The Tyk Dashboard config section contains an audit section for configuring audit logging behaviour. An example is listed below.
 
-```bash
+```yaml
   ...
   "audit": {
     "enabled": true,
