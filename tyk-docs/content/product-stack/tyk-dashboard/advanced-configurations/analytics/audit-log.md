@@ -1,5 +1,5 @@
 ---
-title: Configuring The Dasboard Audit Log
+title: Configuring Tyk Dashboard Audit Log
 description: Audit log configuration
 tags: ["audit", "audit records", "audit log"]
 ---
