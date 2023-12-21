@@ -98,7 +98,7 @@ $ sudo service tyk-gateway start
 | Ubuntu | 18 | ✅ |
 | Ubuntu | 16 | ✅ |
 
-## Requirements
+## Require
 Before you begin the installation process, make sure you have the following:
 - [Git](https://git-scm.com/download/linux) - required for getting the installation files.
 - [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html) is required to run the following commands. Instructions on how install Tyk CE with shell is in the <b>Shell</b> tab.
@@ -124,7 +124,7 @@ $ sh scripts/init.sh
 
 4. Modify `hosts.yml` file to update ssh variables to your server(s). You can learn more about the hosts file [here](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html)
 
-5. Run ansible-playbook to install `tyk-gateway-ce`
+5. Run ansible-pto install `tyk-gateway-ce`
 
 ```console
 $ ansible-playbook playbook.yaml -t tyk-gateway-ce -t redis
@@ -169,7 +169,8 @@ Read more about Redis configuration [here](https://github.com/geerlingguy/ansibl
 {{< tabs_end >}}
 ## Next Steps Tutorials
 
-Follow the Tutorials on the Community Edition tabs for the following:
+Follow the 
+
 
 1. [Add an API]({{< ref "getting-started/create-api" >}})
 2. [Create a Security Policy]({{< ref "getting-started/create-security-policy" >}})
