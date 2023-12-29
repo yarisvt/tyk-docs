@@ -2925,7 +2925,7 @@ menu:
         - title: "Setup email notifications"
           path: /product-stack/tyk-enterprise-developer-portal/getting-started/setup-email-notifications
           category: Page
-          show: True  
+          show: True
       - title: "Environment variables"
         category: Directory
         show: True
