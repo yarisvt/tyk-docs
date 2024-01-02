@@ -11,24 +11,19 @@ This page details how to add a payment method for your Tyk Cloud account so that
 
 ## Adding a payment method to your account
 
-**You must have *Billing Admin* user rights to add a payment method. 
+**Note:** You must have *Billing Admin* user rights to add a payment method. 
 
 Follow these steps to add a payment method:
 1. Make sure you are logged in to your *Tyk Cloud* UI as a *Billing Admin* user.
-2. Go to [ACCOUNT and BILLING > Payment Method](https://account.cloud-ara.tyk.io/payment-method) menu item.
-3. Add the payment details and click *Save*.
-
-In case you don't have these user rights, you will automatically log into the Account and Billing).
-
+2. Go to <a href="https://account.cloud-ara.tyk.io/payment-method" class="external-links" target="_blank" rel="noopener">ACCOUNT & BILLING --> Payment Method</a> menu item. In case you don't have this user rights, you will automatically logged into the main [OPRATIONS](https://dashboard.cloud-ara.tyk.io/) screen (the main login page).
+3. Enter your card details and click *Save*.
+4. You'll see confirmation that the payment method was added successfully.
 
 {{< note success >}}
-**Note**
+**Note about card payments**
   
-For this release of Tyk Cloud, we are only supporting card payments
+Currently, *Tyk Cloud* only supports card payments. If you requeire another payment method, please [constact us](https://tyk.io/contact/) to speak with a member of our team.
 {{< /note >}}
-
-4. Enter your card details and click Save.
-5. You'll see confirmation that the payment method was added successfully.
 
 ## Payment Method Maintenance
 
