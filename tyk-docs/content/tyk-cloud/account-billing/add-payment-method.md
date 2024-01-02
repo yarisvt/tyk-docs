@@ -13,15 +13,15 @@ aliases:
 
 ## Introduction
 
-This page details how to add a payment method for your Tyk Cloud account, so that you can continue to enjoy the benefits of outstanding API management.
+This page details how to add a payment method for your Tyk Cloud account so that you can continue to enjoy the benefits of outstanding API management.
 
 ## How to add a payment method to your account
 
 You must have billing admin permissions to add a payment method. 
 
 1. Log in to your account as a Billing Admin.
-2. If you have dashboard and billing permissions, click the Account & Billing menu item (otherwise you will automatically log into the Account and Billing).
-3. Click the Payment Method menu item.
+2. If you have dashboard and billing permissions, click the *ACCOUNT & BILLING* menu item (otherwise you will automatically log into the Account and Billing).
+3. [Click](https://account.cloud-ara.tyk.io/payment-method) the Payment Method menu item. 
 
 {{< note success >}}
 **Note**
