@@ -21,7 +21,8 @@ You must have billing admin permissions to add a payment method.
 
 1. Log in to your account as a Billing Admin.
 2. If you have dashboard and billing permissions, click the *ACCOUNT & BILLING* menu item (otherwise you will automatically log into the Account and Billing).
-3. [Click](https://account.cloud-ara.tyk.io/payment-method) the Payment Method menu item. 
+3. [Click](https://account.cloud-ara.tyk.io/payment-method) the Payment Method menu item.
+4. [GraphQL Foundation webpage](https://spec.graphql.org)
 
 {{< note success >}}
 **Note**
