@@ -1,28 +1,25 @@
 ---
 title: "Add Payment Method"
 date: 2020-05-23
-tags: ["Tyk Cloud", "Account", "Payment"]
+tags: ["Tyk Cloud", "Account", "Payment", "Billing method"]
 description: "Adding payment methods to your Tyk Cloud account"
-menu:
-  main:
-    parent: "Account and Billing"
-weight: 2
 aliases:
     - /tyk-cloud/account-and-billing/add-payment-method/
 ---
 
-## Introduction
-
 This page details how to add a payment method for your Tyk Cloud account so that you can continue to enjoy the benefits of outstanding API management.
 
-## How to add a payment method to your account
+## Adding a payment method to your account
 
-You must have billing admin permissions to add a payment method. 
+**You must have *Billing Admin* user rights to add a payment method. 
 
-1. Log in to your account as a Billing Admin.
-2. If you have dashboard and billing permissions, click the *ACCOUNT & BILLING* menu item (otherwise you will automatically log into the Account and Billing).
-3. [Click](https://account.cloud-ara.tyk.io/payment-method) the Payment Method menu item.
-4. [GraphQL Foundation webpage](https://spec.graphql.org)
+Follow these steps to add a payment method:
+1. Make sure you are logged in to your account *Tyk Cloud* UI as a *Billing Admin* user.
+2. Go to [ACCOUNT & BILLING --> Payment Method](https://account.cloud-ara.tyk.io/payment-method) menu item.
+3. Add the payment details and click *Save*.
+
+In case you don't have these user rights, you will automatically log into the Account and Billing).
+
 
 {{< note success >}}
 **Note**
@@ -35,5 +32,5 @@ For this release of Tyk Cloud, we are only supporting card payments
 
 ## Payment Method Maintenance
 
-As a Billing Admin you can also edit or delete an existing payment method. If you delete a payment method and you do not add a new one, your plan will go into [retirement]({{< ref "tyk-cloud/account-billing/retirement" >}}) at the end of your current billing cycle.
+As a *Billing Admin* user, you can also edit or delete an existing payment method. If you delete a payment method and you do not add a new one, your plan will go into [retirement]({{< ref "tyk-cloud/account-billing/retirement" >}}) at the end of your current billing cycle.
 
