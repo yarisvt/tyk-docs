@@ -22,7 +22,7 @@ Rate limits are calculated in Requests Per Second (RPS). For example, let’s sa
 Tyk offers the following rate limiting modes:
 
 1. Distributed Rate Limiter. Most performant, not 100% accurate. Recommended for most use cases. Implements the [token bucket algorithm](https://en.wikipedia.org/wiki/Token_bucket).
-2. Redis Rate Limiter. Less performant, 100% perfect accuracy. Implements the [sliding window algorithm](https://developer.redis.com/develop/dotnet/aspnetcore/rate-limiting/sliding-window/).
+2. Redis Rate Limiter. Less performant, 100% perfect accuracy. Implements the [sliding window log algorithm](https://developer.redis.com/develop/dotnet/aspnetcore/rate-limiting/sliding-window/).
 3. Leaky Bucket Rate Limiter. Implements delays on requests so they can be processed at the configured rate. Implements the [leaky bucket algorithm](https://en.wikipedia.org/wiki/Leaky_bucket).
 
 ### Distributed Rate Limiter (DRL)
@@ -63,7 +63,7 @@ Tyk switches between these two modes using the `drl_threshold`. If the rate limi
 
 Read more [about DRL Threshold here]({{< ref "/tyk-oss-gateway/configuration.md#drl_threshold" >}})
 
-Redis rate limiter, provides 100% accuracy, however instead of using the token bucket algorithm it uses the sliding window algorithm. This means that if there is a user who abuses the rate limit, this user's requests will be limited until they start respecting the rate limit. In other words, requests that return 429 will count towards their rate limit counter.
+Redis rate limiter, provides 100% accuracy, however instead of using the token bucket algorithm it uses the sliding window log algorithm. This means that if there is a user who abuses the rate limit, this user's requests will be limited until they start respecting the rate limit. In other words, requests that return 429 will count towards their rate limit counter.
 
 ### Leaky bucket rate limiter
 
