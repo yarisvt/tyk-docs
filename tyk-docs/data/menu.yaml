@@ -2922,6 +2922,150 @@ menu:
           path: /product-stack/tyk-enterprise-developer-portal/getting-started/setup-email-notifications
           category: Page
           show: True
+      - title: "Manage API consumers"
+        category: Directory
+        show: True
+        menu:
+        - title: "Add Organisations"
+          path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/managing-access/add-organisations
+          category: Page
+          show: True
+        - title: "Approve Self Registering Requests"
+          path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/managing-access/approve-self-registering-requests
+          category: Page
+          show: True
+        - title: "Enable single sign on for admin users and developers"
+          path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/managing-access/enable-sso
+          category: Page
+          show: True
+        - title: "Invite Codes"
+          path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/managing-access/invite-codes
+          category: Page
+          show: True
+        - title: "Manage API Consumer organisations"
+          path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/managing-access/manage-api-consumer-organisations
+          category: Page
+          show: True
+        - title: "Manage API Consumers"
+          path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/managing-access/manage-api-consumers
+          category: Page
+          show: True
+        - title: "Manage API Users"
+          path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/managing-access/manage-api-users
+          category: Page
+          show: True
+        - title: "Manage Catalogues"
+          path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/managing-access/manage-catalogues
+          category: Page
+          show: True
+        - title: "Managing Access"
+          path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/managing-access/managing-access
+          category: Page
+          show: True
+        - title: "Developer API Consumer Portal"
+          category: Directory
+          show: True
+          menu:
+            - title: "Overview"
+              path: /tyk-developer-portal/tyk-enterprise-developer-portal/api-consumer-portal
+              category: Page
+              show: True
+            - title: "Register for a Portal"
+              path: /tyk-developer-portal/tyk-enterprise-developer-portal/api-consumer-portal/register-portal
+              category: Page
+              show: True
+            - title: "Reset Password"
+              path: /tyk-developer-portal/tyk-enterprise-developer-portal/api-consumer-portal/reset-password
+              category: Page
+              show: True
+            - title: "Access an API Product"
+              path: /tyk-developer-portal/tyk-enterprise-developer-portal/api-consumer-portal/access-api-product
+              category: Page
+              show: True
+      - title: "Manage API access"
+        category: Directory
+        show: True
+        menu:
+        - title: "API Access"
+          path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/api-access/api-access
+          category: Page
+          show: True
+        - title: "Approve or reject provisioning requests"
+          path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/api-access/approve-requests
+          category: Page
+          show: True
+        - title: "Manage Apps and Credentials"
+          path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/api-access/manage-apps-credentials
+          category: Page
+          show: True
+        - title: "Dynamic client registration"
+          path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/api-access/dynamic-client-registration
+          category: Page
+          show: True
+        - title: "Create Get started guides for your API Products"
+          path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/getting-started-with-enterprise-portal/manage-get-started-guides-for-api-products
+          category: Page
+          show: True
+      - title: "Portal customisation"
+        category: Directory
+        show: False
+        menu:
+      - title: "Content management"
+        category: Directory
+        show: True
+        menu:
+        - title: "Quick Customisation"
+          path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/customise-enterprise-portal/quick-customisation
+          category: Page
+          show: True
+        - title: "Complete customisation"
+          category: Directory
+          show: True
+          menu:
+          - title: "Overview"
+            path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/customise-enterprise-portal/full-customisation/full-customisation
+            category: Page
+            show: True
+          - title: "Developer Workflow"
+            category: Directory
+            show: True
+            menu:
+            - title: "Overview"
+              path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/customise-enterprise-portal/full-customisation/developer-workflow
+              category: Page
+              show: True
+            - title: "File Structure and Concepts"
+              path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/customise-enterprise-portal/full-customisation/file-structure-concepts
+              category: Page
+              show: True
+            - title: "Create a New Page Template"
+              path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/customise-enterprise-portal/full-customisation/create-new-page-template
+              category: Page
+              show: True
+          - title: "Email Workflow"
+            path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/customise-enterprise-portal/full-customisation/email-customization
+            category: Page
+            show: True
+          - title: "Content Manager Workflow"
+            category: Directory
+            show: True
+            menu:
+            - title: "Overview"
+              path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/customise-enterprise-portal/full-customisation/content-manager-workflow
+              category: Page
+              show: True
+            - title: "Edit Manage Page Content"
+              path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/customise-enterprise-portal/full-customisation/edit-manage-page-content
+              category: Page
+              show: True
+            - title: "Menus Customisation"
+              path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/customise-enterprise-portal/full-customisation/menus-customisation
+              category: Page
+              show: True
+          - title: "Upgrade the portal theme"
+            path: /product-stack/tyk-enterprise-developer-portal/upgrading/theme-upgrades
+            category: Page
+            show: True
       - title: "Environment variables"
         category: Directory
         show: True
@@ -2930,154 +3074,6 @@ menu:
           path: /product-stack/tyk-enterprise-developer-portal/deploy/configuration
           category: Page
           show: True 
-      - title: "Configuration"
-        category: Directory
-        show: True
-        menu:
-          - title: "Manage API consumers"
-            category: Directory
-            show: True
-            menu:
-            - title: "Add Organisations"
-              path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/managing-access/add-organisations
-              category: Page
-              show: True
-            - title: "Approve Self Registering Requests"
-              path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/managing-access/approve-self-registering-requests
-              category: Page
-              show: True
-            - title: "Enable single sign on for admin users and developers"
-              path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/managing-access/enable-sso
-              category: Page
-              show: True
-            - title: "Invite Codes"
-              path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/managing-access/invite-codes
-              category: Page
-              show: True
-            - title: "Manage API Consumer organisations"
-              path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/managing-access/manage-api-consumer-organisations
-              category: Page
-              show: True
-            - title: "Manage API Consumers"
-              path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/managing-access/manage-api-consumers
-              category: Page
-              show: True
-            - title: "Manage API Users"
-              path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/managing-access/manage-api-users
-              category: Page
-              show: True
-            - title: "Manage Catalogues"
-              path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/managing-access/manage-catalogues
-              category: Page
-              show: True
-            - title: "Managing Access"
-              path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/managing-access/managing-access
-              category: Page
-              show: True
-            - title: "Developer API Consumer Portal"
-              category: Directory
-              show: True
-              menu:
-                - title: "Overview"
-                  path: /tyk-developer-portal/tyk-enterprise-developer-portal/api-consumer-portal
-                  category: Page
-                  show: True
-                - title: "Register for a Portal"
-                  path: /tyk-developer-portal/tyk-enterprise-developer-portal/api-consumer-portal/register-portal
-                  category: Page
-                  show: True
-                - title: "Reset Password"
-                  path: /tyk-developer-portal/tyk-enterprise-developer-portal/api-consumer-portal/reset-password
-                  category: Page
-                  show: True
-                - title: "Access an API Product"
-                  path: /tyk-developer-portal/tyk-enterprise-developer-portal/api-consumer-portal/access-api-product
-                  category: Page
-                  show: True
-          - title: "Manage API access"
-            category: Directory
-            show: True
-            menu:
-            - title: "API Access"
-              path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/api-access/api-access
-              category: Page
-              show: True
-            - title: "Approve or reject provisioning requests"
-              path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/api-access/approve-requests
-              category: Page
-              show: True
-            - title: "Manage Apps and Credentials"
-              path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/api-access/manage-apps-credentials
-              category: Page
-              show: True
-            - title: "Dynamic client registration"
-              path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/api-access/dynamic-client-registration
-              category: Page
-              show: True
-            - title: "Create Get started guides for your API Products"
-              path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/getting-started-with-enterprise-portal/manage-get-started-guides-for-api-products
-              category: Page
-              show: True
-          - title: "Portal customisation"
-            category: Directory
-            show: False
-            menu:
-          - title: "Content management"
-            category: Directory
-            show: True
-            menu:
-            - title: "Quick Customisation"
-              path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/customise-enterprise-portal/quick-customisation
-              category: Page
-              show: True
-            - title: "Complete customisation"
-              category: Directory
-              show: True
-              menu:
-              - title: "Overview"
-                path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/customise-enterprise-portal/full-customisation/full-customisation
-                category: Page
-                show: True
-              - title: "Developer Workflow"
-                category: Directory
-                show: True
-                menu:
-                - title: "Overview"
-                  path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/customise-enterprise-portal/full-customisation/developer-workflow
-                  category: Page
-                  show: True
-                - title: "File Structure and Concepts"
-                  path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/customise-enterprise-portal/full-customisation/file-structure-concepts
-                  category: Page
-                  show: True
-                - title: "Create a New Page Template"
-                  path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/customise-enterprise-portal/full-customisation/create-new-page-template
-                  category: Page
-                  show: True
-              - title: "Email Workflow"
-                path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/customise-enterprise-portal/full-customisation/email-customization
-                category: Page
-                show: True
-              - title: "Content Manager Workflow"
-                category: Directory
-                show: True
-                menu:
-                - title: "Overview"
-                  path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/customise-enterprise-portal/full-customisation/content-manager-workflow
-                  category: Page
-                  show: True
-                - title: "Edit Manage Page Content"
-                  path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/customise-enterprise-portal/full-customisation/edit-manage-page-content
-                  category: Page
-                  show: True
-                - title: "Menus Customisation"
-                  path: /tyk-stack/tyk-developer-portal/enterprise-developer-portal/customise-enterprise-portal/full-customisation/menus-customisation
-                  category: Page
-                  show: True
-              - title: "Upgrade the portal theme"
-                path: /product-stack/tyk-enterprise-developer-portal/upgrading/theme-upgrades
-                category: Page
-                show: True
       - title: "Release notes"
         category: Directory
         show: True
