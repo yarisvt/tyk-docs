@@ -7,7 +7,14 @@ menu:
   main:
     parent: "OAuth 2.0"
 weight: 1
+<<<<<<< HEAD:tyk-docs/content/basic-config-and-security/security/Authentication & Authorization/auth-code-grant-type.md
 url: "/basic-config-and-security/security/authentication-&-authorization/oauth2-0/auth-code-grant"
+=======
+aliases:
+  - /basic-config-and-security/security/authentication-authorization/oauth2.0/auth-code-grant/
+  - /basic-config-and-security/security/authentication-authorization/oauth2-0/auth-code-grant/
+  - /basic-config-and-security/security/authentication-&-authorization/oauth2-0/auth-code-grant/
+>>>>>>> a60e734a... [DX-932] add aliases to pages returning 404 as advised by nik (#3843):tyk-docs/content/basic-config-and-security/security/authentication-&-authorization/oauth2-0/auth-code-grant.md
 ---
 
 This process requires three steps:
