@@ -53,7 +53,7 @@ This option can be enabled using the following configuration option [enable_sent
 
 The Redis limiter is indeed slower than the DRL, but that performance can be improved by enabling the [enable_non_transactional_rate_limiter]({{< ref "/tyk-oss-gateway/configuration.md#enable_non_transactional_rate_limiter" >}}). This leverages Redis Pipelining to enhance the performance of the Redis operations. Here are the [Redis documentation](https://redis.io/docs/manual/pipelining/) for more information.
 
-#### DRL Threshold
+##### DRL Threshold
 
 `TYK_GW_DRLTHRESHOLD`
 
