@@ -5,7 +5,13 @@ weight: 7
 menu:
   main:
     parent: "Troubleshooting & Support"
+<<<<<<< HEAD:tyk-docs/content/tyk-cloud/tyk-cloud-faq/tyk-cloud-faqs.md
 url: /tyk-cloud/troubleshooting-&-support/faqs
+=======
+aliases:
+  - tyk-cloud/troubleshooting-&-support/faqs
+  - /tyk-cloud/troubleshooting-support/faqs/
+>>>>>>> a60e734a... [DX-932] add aliases to pages returning 404 as advised by nik (#3843):tyk-docs/content/tyk-cloud/troubleshooting-&-support/faqs.md
 ---
 
 ## Introduction

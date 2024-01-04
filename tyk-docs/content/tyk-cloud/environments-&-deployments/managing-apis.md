@@ -7,7 +7,13 @@ menu:
   main:
     parent: "Environments & Deployments"
 weight: 6
+<<<<<<< HEAD
 url: /tyk-cloud/environments-&-deployments/managing-apis
+=======
+aliases:
+  - tyk-cloud/environments-&-deployments/managing-apis
+  - /tyk-cloud/environments-deployments/managing-apis/
+>>>>>>> a60e734a... [DX-932] add aliases to pages returning 404 as advised by nik (#3843)
 ---
 
 ## Introduction

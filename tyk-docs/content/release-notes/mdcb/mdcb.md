@@ -4,7 +4,13 @@ menu:
   main:
     parent: "Release Notes"
 weight: 255
+<<<<<<< HEAD:tyk-docs/content/release-notes/mdcb/mdcb.md
 url: "/release-notes/mdcb"
+=======
+aliases:
+  - "/release-notes/mdcb/mdcb"
+  - /release-notes/mdcb/
+>>>>>>> a60e734a... [DX-932] add aliases to pages returning 404 as advised by nik (#3843):tyk-docs/content/release-notes/mdcb-2.0.md
 ---
 
 ## 2.0.3

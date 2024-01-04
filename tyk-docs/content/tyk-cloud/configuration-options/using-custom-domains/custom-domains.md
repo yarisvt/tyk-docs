@@ -7,9 +7,13 @@ weight: 4
 menu:
   main:
     parent: "Configuration Options"
+<<<<<<< HEAD:tyk-docs/content/tyk-cloud/configuration-options/using-custom-domains/custom-domains.md
 url: /tyk-cloud/using-custom-domains
+=======
+aliases:
+  - /frequently-asked-questions/custom-domain-for-portal-cloud-multi-cloud/ 
+>>>>>>> a60e734a... [DX-932] add aliases to pages returning 404 as advised by nik (#3843):tyk-docs/content/tyk-cloud/using-custom-domains.md
 ---
-
 ## Introduction
 
 You can set up Tyk Cloud to use a custom domain. Using custom domains is available on our free trial and all our paid [plans](https://tyk.io/price-comparison/). You can use a custom domain for both your **Control Planes** and **Edge Gateways**.

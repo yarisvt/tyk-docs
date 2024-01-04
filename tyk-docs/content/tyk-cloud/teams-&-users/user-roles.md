@@ -8,6 +8,11 @@ weight: 3
 url: /tyk-cloud/teams-&-users/user-roles
 aliases:
   - /tyk-cloud/reference-docs/user-roles/
+<<<<<<< HEAD
+=======
+  - /tyk-cloud/teams-&-users/user-roles
+  - /tyk-cloud/teams-users/user-roles/
+>>>>>>> a60e734a... [DX-932] add aliases to pages returning 404 as advised by nik (#3843)
 ---
 
 ## Introduction

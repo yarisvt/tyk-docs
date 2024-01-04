@@ -5,7 +5,13 @@ menu:
   main:
     parent: "Teams & Users"
 weight: 3
+<<<<<<< HEAD:tyk-docs/content/tyk-cloud/teams-&-users/as-team-member.md
 url: /tyk-cloud/teams-&-users/managing-users
+=======
+aliases:
+  - tyk-cloud/teams-&-users/managing-users
+  - /tyk-cloud/teams-users/managing-users/
+>>>>>>> a60e734a... [DX-932] add aliases to pages returning 404 as advised by nik (#3843):tyk-docs/content/tyk-cloud/teams-&-users/managing-users.md
 ---
 
 ## Introduction
