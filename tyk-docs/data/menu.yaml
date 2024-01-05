@@ -3010,7 +3010,7 @@ menu:
         category: Directory
         show: False
         menu:
-      - title: "Content management"
+      - title: "Customising UI appearance"
         category: Directory
         show: True
         menu:
