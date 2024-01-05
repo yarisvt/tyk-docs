@@ -56,13 +56,11 @@ With your Tyk Cloud account set up, it's time to create your first API:
 
 Now that your API is created, you can explore and manage it through the Tyk Dashboard.
 
-```
 {{< warning success >}}
 **Warning**
 
 To setup an API with Manual Access Approval enabled the configuration for sending emails is a manual process. To enable this feature please contact your account manager.
 {{< /warning >}}
-```
 
 ## Next Steps
 
