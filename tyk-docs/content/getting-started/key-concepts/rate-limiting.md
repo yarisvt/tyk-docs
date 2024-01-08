@@ -27,7 +27,7 @@ Tyk offers the following rate limiting algorithms to protect your APIs:
 
 ### Distributed Rate Limiter (DRL)
 
-This is the default rate limiter in Tyk. It is the most performant, and the trade-off is that the limit is approximate, not exact. To use a less performant, exact rate limiter, review the Redis rate limiter below.
+This is the default rate limiter in Tyk. It is the most performant but has a trade-off that the limit applied is approximate, not exact. To use a less performant, exact rate limiter, review the Redis rate limiter below.
 
 The Distributed Rate Limiter will be used automatically unless one of the other rate limit algorithms are explicitly enabled via configuration.
 
