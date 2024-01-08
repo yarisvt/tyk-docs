@@ -35,7 +35,7 @@ With the DRL, the gateways divide the rate limit evenly across all the gateways 
 
 This relies on having a fair load balancer since it assumes a well distributed load between all the gateways.
 
-It also uses what's called a token bucket algorithm. In this case if the request rate is higher than the rate limit it will attempt to let through requests at the specified rate limit. It's important to note that this is the only rate limit method that uses this algorithm and that it will yield approximate results.
+The DRL implements a token bucket algorithm. In this case if the request rate is higher than the rate limit it will attempt to let through requests at the specified rate limit. It's important to note that this is the only rate limit method that uses this algorithm and that it will yield approximate results.
 
 ### Redis rate limiter
 
