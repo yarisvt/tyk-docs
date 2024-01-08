@@ -19,7 +19,7 @@ Rate limits are calculated in Requests Per Second (RPS). For example, let’s sa
 
 ## Types Of Rate Limiting
 
-Tyk offers the following rate limiting modes:
+Tyk offers the following rate limiting algorithms to protect your APIs:
 
 1. Distributed Rate Limiter. Most performant, not 100% accurate. Recommended for most use cases. Implements the [token bucket algorithm](https://en.wikipedia.org/wiki/Token_bucket).
 2. Redis Rate Limiter. Less performant, 100% perfect accuracy. Implements the [sliding window log algorithm](https://developer.redis.com/develop/dotnet/aspnetcore/rate-limiting/sliding-window/).
