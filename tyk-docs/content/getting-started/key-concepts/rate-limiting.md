@@ -45,7 +45,11 @@ This algorithm can be managed using the following configuration option [enable_r
 
 ##### Sentinel Rate Limiter
 
-The sentinel-based rate limiter delivers a smoother performance curve as rate-limit calculations happen off-thread, but a stricter time-out based cool-down for clients. For example, when a throttling action is triggered, they are required to cool-down for the period of the rate limit. The default behaviour is for the rate-limit calculations to happen on-thread and which offers a staggered cool-down and a smoother rate-limit experience for the client. For example, you can slow your connection throughput to regain entry into your rate limit. This is more of a “throttle” than a “block”. The standard rate limiter offers similar performance as the sentinel-based limiter. This is disabled by default.
+As explained above, when using the Redis rate limiter, when a throttling action is triggered, requests are required to cool-down for the period of the rate limit.
+
+The default behaviour with the Redis rate limiter is that the rate-limit calculations are performed on-thread.
+
+The optional Redis Sentinel rate limiter delivers a smoother performance curve as rate-limit calculations happen off-thread, with a stricter time-out based cool-down for clients. 
 
 This option can be enabled using the following configuration option [enable_sentinel_rate_limiter]({{< ref "/tyk-oss-gateway/configuration.md#enable_sentinel_rate_limiter" >}}).
 
