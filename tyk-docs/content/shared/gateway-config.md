@@ -335,8 +335,9 @@ Set this to the URL of your Tyk Dashboard installation. The URL needs to be form
 EV: <b>TYK_GW_POLICIES_POLICYRECORDNAME</b><br />
 Type: `string`<br />
 
-This option is required if `policies.policy_source` is set to `file`.
-Specifies the path of your JSON file containing the available policies.
+This option only applies in OSS deployment when the `policies.policy_source` is either set
+to `file` or an empty string. If `policies.policy_path` is not set, then Tyk will load policies
+from the JSON file specified by `policies.policy_record_name`.
 
 ### policies.allow_explicit_policy_id
 EV: <b>TYK_GW_POLICIES_ALLOWEXPLICITPOLICYID</b><br />
@@ -353,8 +354,10 @@ This option should only be used when moving an installation to a new database.
 EV: <b>TYK_GW_POLICIES_POLICYPATH</b><br />
 Type: `string`<br />
 
-This option is used for storing a policies  if `policies.policy_source` is set to `file`.
-it should be some existing file path on hard drive
+This option only applies in OSS deployment when the `policies.policy_source` is either set
+to `file` or an empty string. If `policies.policy_path` is set, then Tyk will load policies
+from all the JSON files under the directory specified by the `policies.policy_path` option.
+In this configuration, Tyk Gateway will allow policy management through the Gateway API.
 
 ### ports_whitelist
 EV: <b>TYK_GW_PORTWHITELIST</b><br />
@@ -635,48 +638,6 @@ This is to ensure visibility for the management node across all APIs.
 
 ### auth_override
 This is used as part of the RPC / Hybrid back-end configuration in a Tyk Enterprise installation and isn’t used anywhere else.
-
-### enable_redis_rolling_limiter
-EV: <b>TYK_GW_ENABLEREDISROLLINGLIMITER</b><br />
-Type: `bool`<br />
-
-Redis based rate limiter with fixed window. Provides 100% rate limiting accuracy, but require two additional Redis roundtrip for each request.
-
-### enable_sentinel_rate_limiter
-EV: <b>TYK_GW_ENABLESENTINELRATELIMITER</b><br />
-Type: `bool`<br />
-
-To enable, set to `true`. The sentinel-based rate limiter delivers a smoother performance curve as rate-limit calculations happen off-thread, but a stricter time-out based cool-down for clients. For example, when a throttling action is triggered, they are required to cool-down for the period of the rate limit.
-Disabling the sentinel based rate limiter will make rate-limit calculations happen on-thread and therefore offers a staggered cool-down and a smoother rate-limit experience for the client.
-For example, you can slow your connection throughput to regain entry into your rate limit. This is more of a “throttle” than a “block”.
-The standard rate limiter offers similar performance as the sentinel-based limiter. This is disabled by default.
-
-### enable_non_transactional_rate_limiter
-EV: <b>TYK_GW_ENABLENONTRANSACTIONALRATELIMITER</b><br />
-Type: `bool`<br />
-
-An enhancement for the Redis and Sentinel rate limiters, that offers a significant improvement in performance by not using transactions on Redis rate-limit buckets.
-
-### drl_notification_frequency
-EV: <b>TYK_GW_DRLNOTIFICATIONFREQUENCY</b><br />
-Type: `int`<br />
-
-How frequently a distributed rate limiter synchronises information between the Gateway nodes. Default: 2 seconds.
-
-### drl_threshold
-EV: <b>TYK_GW_DRLTHRESHOLD</b><br />
-Type: `float64`<br />
-
-A distributed rate limiter is inaccurate on small rate limits, and it will fallback to a Redis or Sentinel rate limiter on an individual user basis, if its rate limiter lower then threshold.
-A Rate limiter threshold calculated using the following formula: `rate_threshold = drl_threshold * number_of_gateways`.
-So you have 2 Gateways, and your threshold is set to 5, if a user rate limit is larger than 10, it will use the distributed rate limiter algorithm.
-Default: 5
-
-### drl_enable_sentinel_rate_limiter
-EV: <b>TYK_GW_DRLENABLESENTINELRATELIMITER</b><br />
-Type: `bool`<br />
-
-Controls which algorthm to use as a fallback when your distributed rate limiter can't be used.
 
 ### enforce_org_data_age
 EV: <b>TYK_GW_ENFORCEORGDATAAGE</b><br />
