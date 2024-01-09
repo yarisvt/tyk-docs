@@ -87,7 +87,7 @@ According the the **Semantic Versioning** specification, a **MINOR** version is 
 
 #### Patch Version
 
-A patch, sometimes just called a fix, is a small piece of software that's used to correct a problem, usually called a bug, with an operating system or software program.
+A patch, sometimes just called a fix, is a small piece of code that's used to correct a problem, usually called a bug, with an operating system or software program.
 
 Patches are software and Operating System (OS) updates that address security vulnerabilities within a program or product. Tyk may choose to release updates to fix performance bugs, as well as to provide enhanced security features.
 
