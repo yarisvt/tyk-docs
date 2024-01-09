@@ -11,4 +11,3 @@
   {{- end }}
 {{- end }}
 {{- printf "/* /docs/nightly/404.html 404\n" }}
-{{- printf "/* /404.html 404\n" }}
