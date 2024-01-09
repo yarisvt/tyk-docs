@@ -150,6 +150,6 @@ If you are using the Enterprise Portal on Tyk Cloud, we recommend you use the la
 
 #### Other Components
 
-Minor updates to Tyk Pump, Tyk Identity Broker (TIB), MDCB and Operator are deployable quickly with low risk and no breaking changes. Tyk will support the latest major.minor version (e.g. Pump 1.7) until the next major.minor version (1.8) is released. Then we'd support that version.
+Minor updates to Tyk Pump, Tyk Identity Broker (TIB), MDCB and Tyk Operator are deployable swiftly with minimal risk and no breaking changes. Tyk will provide support for the latest *major.minor* version (e.g. Tyk Pump v1.7) until the subsequent *major.minor* version (e.g. Tyk Pump v1.8) is released, at which point support for the newer version will commence."
 
 To help assure backward compatibility we ensure that each version of Pump and other components we release works with the Gateway and Dashboard versions which are under Long Term Support (LTS) at that time. For example, we'd ensure Pump v1.7 is compatible with release v4 of Tyk Gateway and Tyk Dashboard, and this increments with the LTS model.Following semver convention, if we need to patch a minor Pump version, we would number that as a patch version (e.g. 1.7.1).
