@@ -71,7 +71,7 @@ Our first commitment to you is to make our definitions of major / minor / patch 
 
 The major version is designated as X.0 and is defined by one or more of the following:
 
-1. Breaking changes to Tyk Gateway or Tyk Dashboard APIs. Tyk APIs include not just the endpoints, but also return error codes and messages, logging details - basically anything were a user interacts with a Tyk product and might have to make changes to maintain functionality in response to a change we implement.
+1. Breaking changes to Tyk Gateway or Tyk Dashboard APIs. Tyk APIs include not just the endpoints, but also return error codes and messages, logging details - basically anything where a user interacts with a Tyk product and might have to make changes to maintain functionality in response to a change we implement.
 2. Deprecation of existing functionality or engines that breaks a key business process.
 3. Breaking plugin compiler for customer Go plugins after plugins have been recompiled.
 4. Crypto deprecations.
