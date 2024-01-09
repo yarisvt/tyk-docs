@@ -37,7 +37,7 @@ This relies on having a fair load balancer since it assumes a well distributed l
 
 The DRL implements a token bucket algorithm. In this case if the request rate is higher than the rate limit it will attempt to let through requests at the specified rate limit. It's important to note that this is the only rate limit method that uses this algorithm and that it will yield approximate results.
 
-### Redis rate limiter
+### Redis Rate Limiter
 
 This uses Redis to track and limit the rate of incoming API calls. An important behaviour of this method is that it blocks access to the API when the rate exceeds the rate limit and does not let further API calls through until the rate drops below the specified rate limit. For example, if the rate limit is 3000/minute the call rate would have to be reduced below 3000 for a whole minute before the HTTP 429 responses stop.
 For example, you can slow your connection throughput to regain entry into your rate limit. This is more of a “throttle” than a “block”.
