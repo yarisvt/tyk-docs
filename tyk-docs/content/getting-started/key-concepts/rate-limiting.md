@@ -42,7 +42,7 @@ The DRL implements a token bucket algorithm. In this case if the request rate is
 This uses Redis to track and limit the rate of incoming API calls. An important behaviour of this method is that it blocks access to the API when the rate exceeds the rate limit and does not let further API calls through until the rate drops below the specified rate limit. For example, if the rate limit is 3000/minute the call rate would have to be reduced below 3000 for a whole minute before the HTTP 429 responses stop.
 For example, you can slow your connection throughput to regain entry into your rate limit. This is more of a “throttle” than a “block”.
 
-This algorithm can be managed using the following configuration option [enable_redis_rolling_limiter]({{< ref "/tyk-oss-gateway/configuration.md#enable_redis_rolling_limiter" >}}).
+This algorithm can be managed using the following configuration option [enable_redis_rolling_limiter]({{< ref "tyk-oss-gateway/configuration.md#enable_redis_rolling_limiter" >}}).
 
 ##### Redis Sentinel Rate Limiter
 
