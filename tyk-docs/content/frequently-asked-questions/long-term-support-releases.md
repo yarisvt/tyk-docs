@@ -140,7 +140,7 @@ To receive updates on our upcoming Long-Term Support (LTS) release schedule and 
 
 #### Enterprise Portal
 
-We strive to avoid any long term support arrangements for our Enterprise Portal. We run a regular 6 week release cadence which delivers new capability, extension of existing capability and bug fixes. Our poliocy is that we aim to avoid any breaking changes, so in effect the entie Enterprise Portal is supported. Here we'd increment out version as a minor version - 1.3.0, 1.4.0, 1.5.0 etc.
+We strive to avoid any long term support arrangements for our Enterprise Portal. We run a regular 6 week release cadence which delivers new capability, extension of existing capability and bug fixes. Our policy is that we aim to avoid any breaking changes, so in effect the entire Enterprise Portal is supported. Here we'd increment out version as a minor version - 1.3.0, 1.4.0, 1.5.0 etc.
 
 Occasionally, we may see a need to issue a critical fix if there is a systems down time or a criticial security defect. Here would release this as as soon as physically possible and the semantic versioning would reflect a patch (1.3.1, 1.4.1. etc).
 
