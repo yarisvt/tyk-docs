@@ -74,7 +74,7 @@ The Redis rate limiter provides 100% accuracy, however instead of using the toke
 
 Leaky bucket rate limiting will add delays to incoming requests to control the outgoing request rate to what is configured. It handles traffic bursts and smooths them out to the configured rate.
 
-This option can be enabled using the following configuration option [enable_leaky_bucket_rate_limiter]({{< ref "/tyk-oss-gateway/configuration.md#enable_leaky_bucket_rate_limiter" >}}).
+This option can be enabled using the following configuration option [enable_leaky_bucket_rate_limiter]({{< ref "tyk-oss-gateway/configuration.md#enable_leaky_bucket_rate_limiter" >}}).
 
 Impact: the gateway needs to queue the requests up to the defined limit and that comes with some performance penalties. The responses add latency if the request rate goes beyond the defined limits.
 
