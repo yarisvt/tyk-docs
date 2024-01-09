@@ -132,7 +132,7 @@ And don't forgeth, our brilliant Customer Success Teams and Account Managers are
 
 ## Keep Me Informed!
 
-Do you want to know when our next LTS is? And what might be in it? Subscribe to our mailing list [here]()!
+To receive updates on our upcoming Long-Term Support (LTS) release schedule and its contents, feel free to subscribe to our [mailing list]()
 
 ---
 
