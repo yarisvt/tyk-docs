@@ -44,7 +44,7 @@ For example, you can slow your connection throughput to regain entry into your r
 
 This algorithm can be managed using the following configuration option [enable_redis_rolling_limiter]({{< ref "/tyk-oss-gateway/configuration.md#enable_redis_rolling_limiter" >}}).
 
-##### Sentinel Rate Limiter
+##### Redis Sentinel Rate Limiter
 
 As explained above, when using the Redis rate limiter, when a throttling action is triggered, requests are required to cool-down for the period of the rate limit.
 
