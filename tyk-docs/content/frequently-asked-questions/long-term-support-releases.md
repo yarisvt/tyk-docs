@@ -83,7 +83,7 @@ Our default setting is NOT to introduce breaking changes, but sometimes it is ne
 
 #### Minor Version
 
-According to the *Semantic Versioning* specification, a MINOR version is incremented when you add functionality in a backwards compatible manner. In other words, if Tyk makes changes to your software that do not break any existing functionality, you can increment the MINOR version number. For example, if you add new features or capabilities to your software without changing any existing functionality, you can increase the MINOR version number.
+According to the *Semantic Versioning* [specification](https://semver.org/), a MINOR version is incremented when you add functionality in a backwards compatible manner. In other words, if Tyk makes changes to your software that do not break any existing functionality, you can increment the MINOR version number. For example, if you add new features or capabilities to your software without changing any existing functionality, you can increase the MINOR version number.
 
 #### Patch Version
 
