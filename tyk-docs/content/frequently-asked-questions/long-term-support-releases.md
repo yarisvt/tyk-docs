@@ -138,6 +138,10 @@ To receive updates on our upcoming Long-Term Support (LTS) release schedule and 
 
 ## Support Arrangements For Other Tyk Components
 
+The Tyk product is comprised of various components, such as Tyk Sync, Tyk Pump and Tyk Operator. Some of these components are more standalone than others, which allows us to operate different release cadences. Consequently, we strive to avoid long term support policies for any component, except Tyk Gateway and Tyk Dashboard.
+
+Tyk Gateway and Tyk Dashboard represent the core product and contain the majority of our workflows. Subsequently, these have a long term support policy.
+
 #### Enterprise Portal
 
 We strive to avoid any long term support arrangements for our Enterprise Portal. We run a regular 6 week release cadence which delivers new capability, extension of existing capability and bug fixes. Our policy is that we aim to avoid any breaking changes, so in effect the entire Enterprise Portal is supported. Here we'd increment out version as a minor version - 1.3.0, 1.4.0, 1.5.0 etc.
