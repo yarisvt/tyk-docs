@@ -148,7 +148,7 @@ The only exception to this policy is if we every need to release a breaking chan
 
 If you are using the Enterprise Portal on Tyk Cloud, we recommend you use the latest version at all times and we auto upgrade to that version on TYk Cloud. When a new release is launched, older versions are immediately deprecated . This gives you the best, latest and most secure capability. If a customer wants to use a previous version, this is possible via rollback; but if an issue arises on an older version our advice would be simply to upgrade to the latest version.
 
-#### Other Components
+#### Tyk Pump, Tyk Identity Broker, MDCB and Tyk Operator
 
 Minor updates to Tyk Pump, Tyk Identity Broker (TIB), MDCB and Tyk Operator are deployable swiftly with minimal risk and no breaking changes. Tyk will provide support for the latest *major.minor* version (e.g. Tyk Pump v1.7) until the subsequent *major.minor* version (e.g. Tyk Pump v1.8) is released, at which point support for the newer version will commence."
 
