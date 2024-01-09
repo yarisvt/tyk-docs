@@ -116,7 +116,7 @@ The table below is an illustrative example, but shows the intent:
 | | | Pump vX - vY |
 | | | TIB vX - vY |
 
-The above compatibility matrix table will be included in future [release notes]({{< ref "product-stack/tyk-gateway/release-notes/overview" >}}) for Gateway for releases 5.3+. Furthermore, the release notes will include tested third party dependences, such as PostgreSQL, MongoDB, Redis etc.
+The compatibility matrix table shown above will be part of upcoming [Gateway release notes]({{< ref "product-stack/tyk-gateway/release-notes/overview" >}}) for versions 5.3 and beyond. Additionally, these release notes will list tested third-party dependencies like *PostgreSQL, MongoDB, Redis*, and more.
 
 --- 
 
