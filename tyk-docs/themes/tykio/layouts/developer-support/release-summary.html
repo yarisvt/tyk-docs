@@ -65,14 +65,6 @@
 
 <section class="home-section">
   <div class="container-xl p-0">
-    <div class="align-items-center component-heading">
-      <div>
-        <div class="home-section-heading">Discover our releases</div>
-        <div class="fs-16 font-400 fs-normal text-sec lh-normal">
-          Find out more about the latest releases for all our platforms below
-        </div>
-      </div>
-    </div>
     <h2 id="Components">Tyk Components</h2>
     {{ partial "developer-support/latest-releases/release-summary.html" (dict "section" "Licensed" "components" $licensed)  }}
     {{ partial "developer-support/latest-releases/release-summary.html" (dict "section" "Open Source" "components" $openSource)  }}
