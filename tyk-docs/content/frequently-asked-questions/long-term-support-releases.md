@@ -145,7 +145,9 @@ Tyk Gateway and Tyk Dashboard represent the core product and contain the majorit
 
 We strive to avoid any long term support arrangements for our Enterprise Portal. We run a regular 6 week release cadence which delivers new capability, extension of existing capability and bug fixes. Our policy is that we aim to avoid any breaking changes, so in effect the entire Enterprise Portal is supported. Here we'd increment out version as a minor version - 1.3.0, 1.4.0, 1.5.0 etc.
 
-Occasionally, we may see a need to issue a critical fix if there is a systems down time or a criticial security defect. Here would release this as as soon as physically possible and the semantic versioning would reflect a patch (1.3.1, 1.4.1. etc).
+We support our release cadence with a critical fix process. This is invoked when a severity one incident is declared, usually defined as systems down time, no workaround or a critical security issue.
+
+Our critical fix process commits to release as soon as possible and we issue a standalone fix outside of our normal cadence.
 
 The only exception to this policy is if we every need to release a breaking change. This would mean that we have to release a new major version (i.e. releasing version 2.0). In this exceptional circumstance we would support both the old major version and the new one concurrently for six months - please note that the old version only gets supported in terms of critical fixes, not new functionality. After the six months is up, the previous major version falls out of support.
 
