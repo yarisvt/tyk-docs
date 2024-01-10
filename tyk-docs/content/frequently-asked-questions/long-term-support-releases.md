@@ -151,7 +151,7 @@ Our critical fix process commits to release as soon as possible and we issue a s
 
 The only exception to this policy is if we every need to release a breaking change. This would mean that we have to release a new major version (i.e. releasing version 2.0). In this exceptional circumstance we would support both the old major version and the new one concurrently for six months - please note that the old version only gets supported in terms of critical fixes, not new functionality. After the six months is up, the previous major version falls out of support.
 
-If you are using the Enterprise Portal on Tyk Cloud, we recommend you use the latest version at all times and we auto upgrade to that version on TYk Cloud. When a new release is launched, older versions are immediately deprecated . This gives you the best, latest and most secure capability. If a customer wants to use a previous version, this is possible via rollback; but if an issue arises on an older version our advice would be simply to upgrade to the latest version.
+If you are using Enterprise Portal on Tyk Cloud, we keep you safe, secure and up to date with the latest features by auto upgrading you to the latest version. When a new release is launched, older versions are immediately deprecated. If a customer wants to use a previous version, this is possible via rollback. However, if an issue arises on an older version our advice would be to upgrade to the latest version.
 
 #### Tyk Pump, Tyk Identity Broker, MDCB and Tyk Operator
 
