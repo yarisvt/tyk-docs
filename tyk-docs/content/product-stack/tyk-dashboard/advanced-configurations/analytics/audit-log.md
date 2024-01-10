@@ -27,6 +27,7 @@ The Tyk Dashboard config section contains an audit section for configuring audit
 | path | Path to the audit log. Overwrites `security.audit_log_path` if it was set | |
 | detailed_recording | Enable detailed records in the audit log. If set to `true` then audit log records will contain the http-request (without body) and full http-response including the body | `false` |
 
+Please consult [Tyk Dashboard Configuration Options]({{< ref "tyk-dashboard/configuration#audit" >}}) for equivalent configuration with environment variables.
 
 ### JSON File Format
 
