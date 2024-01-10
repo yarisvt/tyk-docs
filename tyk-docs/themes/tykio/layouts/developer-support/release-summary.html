@@ -34,32 +34,32 @@
 {{- $licensed := slice -}}
 
 {{- with $dashboard -}}
-  {{- $licensed = $licensed | append (dict "name" "Dashboard" "data" $dashboard) -}}
+  {{- $licensed = $licensed | append (dict "name" " Tyk Dashboard" "data" $dashboard) -}}
 {{ end }}
 {{- with $gateway -}}
-  {{- $openSource = $openSource| append (dict "name" "Gateway" "data" $gateway) -}}
+  {{- $openSource = $openSource| append (dict "name" "Tyk Gateway" "data" $gateway) -}}
+{{ end }}
+{{- with $operator -}}
+  {{- $openSource = $openSource | append (dict "name" "Tyk Operator" "data" $operator) -}}
+{{ end }}
+{{- with $pump -}}
+  {{- $openSource = $openSource| append (dict "name" "Tyk Pump" "data" $pump) -}}
+{{ end }}
+{{- with $sync -}}
+  {{- $openSource = $openSource| append (dict "name" "Tyk Sync" "data" $sync) -}}
+{{ end }}
+{{- with $tib -}}
+  {{- $openSource = $openSource| append (dict "name" "Tyk Identity Broker" "data" $tib) -}}
 {{ end }}
 {{- with $helmChart -}}
-  {{- $openSource = $openSource | append (dict "name" "Helm Charts" "data" $helmChart) -}}
+  {{- $openSource = $openSource | append (dict "name" "Tyk Helm Charts" "data" $helmChart) -}}
   {{- $helm = (dict "name" "Helm" "data" $helmChart) -}}
 {{ end }}
 {{- with $mdcb -}}
-  {{- $licensed = $licensed | append (dict "name" "MDCB" "data" $mdcb) -}}
-{{ end }}
-{{- with $tib -}}
-  {{- $openSource = $openSource| append (dict "name" "Identity Broker" "data" $tib) -}}
-{{ end }}
-{{- with $operator -}}
-  {{- $openSource = $openSource | append (dict "name" "Operator" "data" $operator) -}}
+  {{- $licensed = $licensed | append (dict "name" "Tyk MDCB" "data" $mdcb) -}}
 {{ end }}
 {{- with $portal -}}
-  {{- $licensed = $licensed | append (dict "name" "Portal" "data" $portal) -}}
-{{ end }}
-{{- with $pump -}}
-  {{- $openSource = $openSource| append (dict "name" "Pump" "data" $pump) -}}
-{{ end }}
-{{- with $sync -}}
-  {{- $openSource = $openSource| append (dict "name" "Sync" "data" $sync) -}}
+  {{- $licensed = $licensed | append (dict "name" "Tyk Enterprise Developer Portal" "data" $portal) -}}
 {{ end }}
 
 
