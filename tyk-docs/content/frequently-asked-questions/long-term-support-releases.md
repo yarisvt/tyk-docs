@@ -79,7 +79,7 @@ The major version is designated as X.0 and is defined by one or more of the foll
 4. Breaking changes in the Tyk Gateway and Tyk Dashboard log messages.
 5. Deprecation of existing functionality or engines that breaks a key business process.
 6. Crypto deprecations.
-7. Changes to common names in certficates.
+7. Changes to common names in certificates.
 
 In summary, breaking changes involves anything with which a user interacts with a Tyk product and might have to make changes to maintain functionality in response to a change we implement.
 
