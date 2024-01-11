@@ -75,7 +75,7 @@ The major version is designated as X.0 and is defined by one or more of the foll
 
 1. Breaking changes to Tyk Gateway API, Tyk Dashboard API or Tyk custom plugins interfaces. Tyk Gateway and Tyk Dashboard APIs include not just the endpoints, but also return error codes and messages, in addition to logging details. In summary, breaking changes involves anything where a user interacts with a Tyk product and might have to make changes to maintain functionality in response to a change we implement.
 2. Deprecation of existing functionality or engines that breaks a key business process.
-3. Breaking plugin compiler for customer Go plugins after plugins have been recompiled.
+3. Breaking changes in the Go plugin compiler for users' Go plugins after plugins have been recompiled.
 4. Crypto deprecations.
 5. Changes to common names in certficates.
 6. A change which amends behaviour of a configuration setting.
