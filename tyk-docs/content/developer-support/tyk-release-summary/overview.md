@@ -8,4 +8,4 @@ aliases:
   - /release-notes
 ---
 
-Explore the latest tagged open-source releases on our GitHub repositories. Enhance integration with Docker images for seamless deployment. Detailed insights, including features, enhancements and bug fixes, are in our comprehensive release notes—a vital resource for developers evaluating upgrades.
+Download the latest releases for our Tyk components. Links are provided to download docker images and source code ( where applicable for our open-source components). Detailed insights, including features, enhancements and bug fixes, can be found in our comprehensive release notes. These are a vital resource for developers evaluating upgrades.
