@@ -138,7 +138,7 @@ To receive updates on our upcoming Long-Term Support (LTS) release schedule and 
 
 ---
 
-## Support Arrangements For Other Tyk Components
+## LTS Support Policy For Components Other Than Tyk Gateway and Tyk Dashboard
 
 The Tyk product is comprised of various components, such as Tyk Sync, Tyk Pump and Tyk Operator. Some of these components are more standalone than others, which allows us to operate different release cadences. Consequently, we strive to avoid long term support policies for any component, except Tyk Gateway and Tyk Dashboard.
 
