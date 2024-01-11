@@ -81,9 +81,7 @@ The major version is designated as X.0 and is defined by one or more of the foll
 6. Crypto deprecations.
 7. Changes to common names in certificates.
 
-In summary, breaking changes involves anything with which a user interacts with a Tyk product and might have to make changes to maintain functionality in response to a change we implement.
-
-Our default setting is NOT to introduce breaking changes, but sometimes it is necessary. If we do introduce breaking changes we have a collective choice to make; if we document the breaking change well and offer migration scripts, we may be able to classify as a minor. If we cannot do that, then it should be a major version.
+In summary, breaking changes involves anything with which a user interacts with a Tyk product and might have to make changes to maintain functionality in response to a change we implement. Subsequently, breaking changes are introduced in a major version, in accordance with the *Semantic Versioning* [specification](https://semver.org/).
 
 #### Minor Version
 
