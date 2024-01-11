@@ -73,12 +73,15 @@ Our first commitment to you is to make our definitions of major / minor / patch 
 
 The major version is designated as X.0 and is defined by one or more of the following:
 
-1. Breaking changes to Tyk Gateway API, Tyk Dashboard API or Tyk custom plugins interfaces. Tyk Gateway and Tyk Dashboard APIs include not just the endpoints, but also return error codes and messages, in addition to logging details. In summary, breaking changes involves anything where a user interacts with a Tyk product and might have to make changes to maintain functionality in response to a change we implement.
-2. Deprecation of existing functionality or engines that breaks a key business process.
-3. Breaking changes in the Go plugin compiler for users' Go plugins after plugins have been recompiled.
-4. Crypto deprecations.
-5. Changes to common names in certficates.
-6. A change which amends behaviour of a configuration setting.
+1. Breaking changes to Tyk APIs, including Tyk Gateway API, Tyk Dashboard API, MDCB and Tyk EDP and any other component which exposes APIs. Changes include not just the endpoints, but also behaviour and functionality, schemas, input parameters, return error codes and messages. The APIs are documented and published as an OpenAPI Spec document.
+2. Breaking changes to Tyk custom plugins interfaces, breaking plugin compiler for customer Go plugins after plugins have been recompiled.
+3. Breaking changes in the config files in all Tyk components, fields in the config files, environment variables used by Tyk components, APIs (function calls) of Tyk middleware, Go template interface.
+4. Breaking changes in the Tyk Gateway and Tyk Dashboard log messages.
+5. Deprecation of existing functionality or engines that breaks a key business process.
+6. Crypto deprecations.
+7. Changes to common names in certficates.
+
+In summary, breaking changes involves anything with which a user interacts with a Tyk product and might have to make changes to maintain functionality in response to a change we implement.
 
 Our default setting is NOT to introduce breaking changes, but sometimes it is necessary. If we do introduce breaking changes we have a collective choice to make; if we document the breaking change well and offer migration scripts, we may be able to classify as a minor. If we cannot do that, then it should be a major version.
 
