@@ -126,4 +126,3 @@ Select a trace to visualize its corresponding internal spans:
 
 {{< img src="/img/distributed-tracing/opentelemetry/api-gateway-trace-tyk-jaeger-spans.png" alt="Tyk API Gateway spans in Jaeger" >}}
 
-
