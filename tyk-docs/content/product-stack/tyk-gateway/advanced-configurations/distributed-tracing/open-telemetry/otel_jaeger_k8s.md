@@ -2,7 +2,7 @@
 date: 2023-08-29T13:32:12Z
 title: How to integrate with Jaeger on Kubernetes
 tags: ["distributed tracing", "OpenTelemetry", "Jaeger", "Kubernetes"]
-description: "This guide explains how to integration Tyk Gateway with OpenTelemetry and Jager on Kubernetes to enhance API Observability"
+description: "This guide explains how to integrate Tyk Gateway with OpenTelemetry and Jager on Kubernetes to enhance API Observability"
 ---
 
 This quick start guide offers a detailed, step-by-step walkthrough for configuring Tyk Gateway OSS with OpenTelemetry and [Jaeger](https://www.jaegertracing.io/) to significantly improve API observability. We will cover the installation of essential components, their configuration, and the process of ensuring seamless integration.
