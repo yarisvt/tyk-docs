@@ -5,7 +5,7 @@ tags: ["distributed tracing", "OpenTelemetry", "Jaeger", "Kubernetes"]
 description: "This guide explains how to integrate Tyk Gateway with OpenTelemetry and Jager on Kubernetes to enhance API Observability"
 ---
 
-This quick start guide offers a detailed, step-by-step walkthrough for configuring Tyk Gateway OSS with OpenTelemetry and [Jaeger](https://www.jaegertracing.io/) to significantly improve API observability. We will cover the installation of essential components, their configuration, and the process of ensuring seamless integration.
+This quick start guide offers a detailed, step-by-step walkthrough for configuring Tyk Gateway OSS with OpenTelemetry and [Jaeger](https://www.jaegertracing.io/) on Kubernetes to significantly improve API observability. We will cover the installation of essential components, their configuration, and the process of ensuring seamless integration.
 
 For Kubernetes instructions, please refer to [How to integrate with Jaeger on Docker]({{< ref "otel_jaeger" >}}).
 
@@ -15,7 +15,7 @@ For Kubernetes instructions, please refer to [How to integrate with Jaeger on Do
 Ensure the following prerequisites are in place before proceeding:
 
 - A functional Kubernetes cluster
-- kubectl and helm CLI tools installed
+- [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl) and [helm](https://helm.sh/docs/intro/install/) CLI tools installed
 
 ## Step 1: Install Jaeger Operator
 
