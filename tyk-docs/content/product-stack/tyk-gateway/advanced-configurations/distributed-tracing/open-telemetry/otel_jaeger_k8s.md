@@ -53,23 +53,16 @@ EOF
 To install or upgrade [Tyk Gateway OSS using Helm](https://github.com/TykTechnologies/tyk-charts/tree/main/tyk-oss), execute the following commands:
 
 ```bash
-NAMESPACE=tyk
-APISecret=foo
-TykVersion=v5.2.0
-
 helm upgrade tyk-redis oci://registry-1.docker.io/bitnamicharts/redis -n $NAMESPACE --create-namespace --install
-helm repo add tyk-helm https://helm.tyk.io/public/helm/charts/
-helm repo update
-helm upgrade tyk-otel tyk-helm/tyk-oss -n $NAMESPACE --create-namespace --devel \
+helm upgrade tyk-otel tyk-helm/tyk-oss -n $NAMESPACE --create-namespace \
   --install \
   --set global.secrets.APISecret="$APISecret" \
+  --set tyk-gateway.gateway.image.tag=$TykVersion \
   --set global.redis.addrs="{tyk-redis-master.$NAMESPACE.svc.cluster.local:6379}" \
   --set global.redis.pass="$(kubectl get secret --namespace $NAMESPACE tyk-redis -o jsonpath='{.data.redis-password}' | base64 -d)" \
-  --set tyk-gateway.gateway.image.tag=$TykVersion \
-  --set "tyk-gateway.gateway.extraEnvs[0].name=TYK_GW_OPENTELEMETRY_ENABLED" \
-  --set-string "tyk-gateway.gateway.extraEnvs[0].value=true" \
-  --set "tyk-gateway.gateway.extraEnvs[1].name=TYK_GW_OPENTELEMETRY_ENDPOINT" \
-  --set "tyk-gateway.gateway.extraEnvs[1].value=jaeger-all-in-one-collector.observability.svc.cluster.local:4317"
+  --set tyk-gateway.gateway.opentelemetry.enabled=true \
+  --set tyk-gateway.gateway.opentelemetry.exporter="grpc" \
+  --set tyk-gateway.gateway.opentelemetry.endpoint="jaeger-all-in-one-collector.observability.svc.cluster.local:4317"
 ```
 
 Tyk Gateway is now accessible through service gateway-svc-tyk-oss-tyk-gateway at port 8080 and exports the OpenTelemetry traces to the `jaeger-all-in-one-collector` service.
