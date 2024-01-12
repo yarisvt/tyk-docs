@@ -150,7 +150,7 @@ We support our release cadence with a critical fix process. This is invoked when
 
 Our critical fix process commits to release as soon as possible and we issue a standalone fix outside of our normal cadence.
 
-The only exception to this policy is if we every need to release a breaking change. This would mean that we have to release a new major version (i.e. releasing version 2.0). In this exceptional circumstance we would support both the old major version and the new one concurrently for six months - please note that the old version only gets supported in terms of critical fixes, not new functionality. After the six months is up, the previous major version falls out of support.
+The only exception to this policy is if we ever need to release a breaking change. This would mean that we have to release a new major version (i.e. releasing version 2.0). In this exceptional circumstance we would support both the old major version and the new one concurrently for six months - please note that the old version only gets supported in terms of critical fixes, not new functionality. After six months, the previous major version falls out of support.
 
 If you are using Enterprise Portal on Tyk Cloud, we keep you safe, secure and up to date with the latest features by auto upgrading you to the latest version. When a new release is launched, older versions are immediately deprecated. If a customer wants to use a previous version, this is possible via rollback. However, if an issue arises on an older version our advice would be to upgrade to the latest version.
 
