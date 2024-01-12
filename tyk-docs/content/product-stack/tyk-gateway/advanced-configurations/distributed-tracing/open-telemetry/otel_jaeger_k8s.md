@@ -53,6 +53,10 @@ EOF
 To install or upgrade [Tyk Gateway OSS using Helm](https://github.com/TykTechnologies/tyk-charts/tree/main/tyk-oss), execute the following commands:
 
 ```bash
+NAMESPACE=tyk
+APISecret=foo
+TykVersion=v5.2.0
+
 helm upgrade tyk-redis oci://registry-1.docker.io/bitnamicharts/redis -n $NAMESPACE --create-namespace --install
 helm upgrade tyk-otel tyk-helm/tyk-oss -n $NAMESPACE --create-namespace \
   --install \
