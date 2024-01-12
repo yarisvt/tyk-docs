@@ -1,5 +1,5 @@
 ---
-title: Latest Tyk Releases
+title: Latest And Long Term Support (LTS) Tyk Releases
 description: "Explore Tyk's latest releases. Here you will find latest releases and access to docker images and release notes for all our platforms."
 diffTitle: true
 landingPage: true
