@@ -31,7 +31,7 @@ This is the default rate limiter in Tyk. It is the most performant but has a tra
 
 The Distributed Rate Limiter will be used automatically unless one of the other rate limit algorithms are explicitly enabled via configuration.
 
-With the DRL, the gateways divide the rate limit evenly across all the gateways in the cluster (a cluster of gateway shares the same Redis.) These gateways store the running rate in memory and return [429 (Rate Limit Exceeded)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429) when their share is used up.
+With the DRL, the configured rate limit is split (distributed) evenly across all the gateways in the cluster (a cluster of gateway shares the same Redis). These gateways store the running rate in memory and return [429 (Rate Limit Exceeded)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429) when their share is used up.
 
 This relies on having a fair load balancer since it assumes a well distributed load between all the gateways.
 
