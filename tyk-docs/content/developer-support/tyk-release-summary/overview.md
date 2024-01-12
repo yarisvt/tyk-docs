@@ -8,4 +8,4 @@ aliases:
   - /release-notes
 ---
 
-Download the latest releases for our Tyk components. Links are provided to download docker images and source code ( where applicable for our open-source components). Detailed insights, including features, enhancements and bug fixes, can be found in our comprehensive release notes. These are a vital resource for developers evaluating upgrades.
+View the release notes for both our licensed and open source components. The notes contain detailed insights about features, enhancements and bug fixes, and are a vital resource for developers evaluating upgrades.
