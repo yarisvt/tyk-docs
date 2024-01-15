@@ -5,7 +5,7 @@
 
     {{ $slug := replace $section " " "-" }}
 
-    <h3 id="{{- $slug -}}">{{- $section -}}</h3>
+    <h2 id="{{- $slug -}}">{{- $section -}}</h2>
 
     {{- with $components -}}
         <div class="container mt-4">
