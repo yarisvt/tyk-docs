@@ -149,7 +149,7 @@ $(document).ready(function(e){
 
 				setTimeout(function () {
 					resetLayout();
-				}, 3000);
+				}, 2000);
 			};
 
 			var showCopiedLayout = function () {
