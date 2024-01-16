@@ -4,7 +4,7 @@ info:
   description: |-
     ## <a name="introduction"></a> Introduction
     The Tyk Enterprise Developer Portal Management API offers programmatic access to all portal resources that your instance of the portal manages. This API repeats functionality of the user interface and enables APIs consumers integrating their portal instances with their other IT systems such as billings, CRMs, ITSM systems and other software.
-    
+
     ## Authentication
     This API requires an admin authorisation token that is available for admin users of the portal in the profile page.
   version: "v1.8.0"
@@ -1922,6 +1922,255 @@ paths:
       summary: Delete OAS file of an API
       tags:
         - API documentation for API Products
+  /products/{product_id}/tags:
+    get:
+      description: List all tags for this API Product
+      operationId: /products/:product_id/tags-GET
+      parameters:
+        - description: UID of an API Product
+          in: path
+          name: product_id
+          required: true
+          schema:
+            type: integer
+            example: 1
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product-Tag-index'
+          description: OK
+      security:
+        - AdminAPIToken: []
+      summary: List all tags for this API Product
+      tags:
+        - Tags for API Products
+    post:
+      description: Attach a tag to this API Product
+      operationId: /products/:product_id/tags-POST
+      parameters:
+        - description: UID of an API Product
+          in: path
+          name: product_id
+          required: true
+          schema:
+            type: integer
+            example: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product-Tag'
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product-Tag'
+          description: OK
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OnlyErrors'
+          description: OK
+      security:
+        - AdminAPIToken: []
+      summary: Attach a tag to this API Product
+      tags:
+        - Tags for API Products
+  /products/{product_id}/tags/{tag_name}:
+    delete:
+      description: Detach a tag from this API Product
+      operationId: /products/:product_id/tags/:tag_id-DELETE
+      parameters:
+        - description: UID of an API Product
+          in: path
+          name: product_id
+          required: true
+          schema:
+            type: integer
+            example: 1
+        - description: Name of a the tag
+          in: path
+          name: tag_name
+          required: true
+          schema:
+            type: string
+            example: foo
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Status'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Status'
+          description: Not found
+      security:
+        - AdminAPIToken: []
+      summary: Detach a tag from this API Product
+      tags:
+        - Tags for API Products
+    get:
+      description: Get a tag from this API Product
+      operationId: /products/:product_id/tags/:tag_id-GET
+      parameters:
+        - description: UID of an API Product
+          in: path
+          name: product_id
+          required: true
+          schema:
+            type: integer
+            example: 1
+        - description: Name of a the tag
+          in: path
+          name: tag_name
+          required: true
+          schema:
+            type: string
+            example: foo
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product-Tag'
+          description: OK
+      security:
+        - AdminAPIToken: []
+      summary: Get a tag from this API Product
+      tags:
+        - Tags for API Products
+  /products/{product_id}/client_types:
+    get:
+      description: List all client types for this API Product
+      operationId: /products/:product_id/client_types-GET
+      parameters:
+        - description: UID of a Client Type
+          in: path
+          name: product_id
+          required: true
+          schema:
+            type: integer
+            example: 1
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product-ClientType-index'
+          description: OK
+      security:
+        - AdminAPIToken: []
+      summary: List all client types for this API Product
+      tags:
+        - Client types for API Products
+    post:
+      description: Attach a client type to this API Product
+      parameters:
+        - description: UID of an API Product
+          in: path
+          name: product_id
+          required: true
+          schema:
+            type: integer
+            example: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product-ClientType-create'
+      responses:
+        "201":
+          content:
+            applicatison/json:
+              schema:
+                $ref: '#/components/schemas/Product-ClientType-show'
+          description: OK
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OnlyErrors'
+          description: OK
+      security:
+        - AdminAPIToken: []
+      summary: Attach a client type to this API Product
+      tags:
+        - Client types for API Products
+  /products/{product_id}/client_types/{client_type_id}:
+    delete:
+      description: Detach a client type from this API Product
+      operationId: /products/:product_id/client_types/:client_type_id-DELETE
+      parameters:
+        - description: UID of an API Product
+          in: path
+          name: product_id
+          required: true
+          schema:
+            type: integer
+            example: 1
+        - description: UID of a client type
+          in: path
+          name: client_type_id
+          required: true
+          schema:
+            type: integer
+            example: 1
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Status'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Status'
+          description: Not found
+      security:
+        - AdminAPIToken: []
+      summary: Detach a client type from this API Product
+      tags:
+        - Client types for API Products
+    get:
+      description: Get a client type from this API Product
+      operationId: /products/:product_id/client_types/:client_type_id-GET
+      parameters:
+        - description: UID of an API Product
+          in: path
+          name: product_id
+          required: true
+          schema:
+            type: integer
+            example: 1
+        - description: UID of a Client Type
+          in: path
+          name: client_type_id
+          required: true
+          schema:
+            type: integer
+            example: 1
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product-ClientType-show'
+          description: OK
+      security:
+        - AdminAPIToken: []
+      summary: Get a client type from this API Product
+      tags:
+        - Client types for API Products
   /providers:
     get:
       description: List all API Providers connected to this portal instance
@@ -2513,7 +2762,7 @@ paths:
         - Custom Attributes
   /extended_attributes/{extended_attribute_id}/custom-attributes:
     get:
-      description: Get a list of custom attributes for an extended model 
+      description: Get a list of custom attributes for an extended model
       operationId: /extended_attributes/:extended_attribute_id/custom-attributes-GET
       parameters:
         - description: UID of extended attribute
@@ -4667,6 +4916,77 @@ components:
       items:
         $ref: '#/components/schemas/Custom-attribute-user-element'
       type: array
+    Product-Tag-create:
+      properties:
+        Name:
+          type: string
+          description: Name of this tag
+          example: 1
+      type: object
+    Product-Tag-index:
+      items:
+        $ref: '#/components/schemas/Product-Tag'
+      type: array
+    Product-Tag:
+      properties:
+        Name:
+          type: string
+          description: Name of this tag
+          example: foo
+      type: object
+    Product-ClientType-index:
+      items:
+        $ref: '#/components/schemas/Product-ClientType-index-elem'
+      type: array
+    Product-ClientType-index-elem:
+      properties:
+        ID:
+          type: integer
+          description: UID of this client type
+          example: 1
+        Name:
+          type: string
+          description: Name of this client type
+          example: foo
+      type: object
+    Product-ClientType-show:
+      properties:
+        Name:
+          type: string
+          description: Name of this client type
+          example: foo
+        ID:
+          type: integer
+          description: UID of this client type
+          example: 11
+        Description:
+          type: string
+          description: description on the client type
+          example: foo
+        GrantType:
+          type: string
+          description: represent grant types allowed by the client type
+        OktaAppType:
+          type: string
+          description: represent the app type for Okta
+        CreatedAt:
+          format: date-time
+          description: Date-time when a client type is created
+          example: "2023-06-23 21:02"
+          type: string
+        UpdatedAt:
+          format: date-time
+          description: Date-time when a client type was updated the last time
+          example: "2023-06-23 21:02"
+          type: string
+      type: object
+    Product-ClientType-create:
+      properties:
+        ID:
+          type: integer
+          description: UID of this client type
+          example: 11
+      type: object
   securitySchemes:
     AdminAPIToken:
       type: apiKey
