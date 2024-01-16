@@ -111,17 +111,24 @@ $(document).ready(function(e){
 			var $textArea = $('<textarea></textarea>');
 			var $element = $(this);
 			var $parent = $element.parent();
+			var $imageContainer = $('<div class="copy-container"></div>'); // Container for both image and text
 			var $image = $('<img src="/docs/nightly/img/copy.png" alt="Copy to Clipboard" class="copy-icon">');
+			var $text = $('<span class="copy-text">Copy to Clipboard</span>'); // Text element
 
 			var prependImage = function () {
-				$image.css({
+				$imageContainer.css({
 					position: 'absolute',
 					top: '20px',  // Increase top padding
 					right: '20px',  // Increase right padding
 					cursor: 'pointer',
+					display: 'flex', // Use flexbox for alignment
+					alignItems: 'center', // Center vertically
 				});
+
+				$imageContainer.append($image); // Append the image
+				$imageContainer.append($text); // Append the text
 				$parent.css({ position: 'relative' }); // Ensure the parent has relative positioning
-				$parent.prepend($image);
+				$parent.prepend($imageContainer);
 			};
 
 			var selectCodeToBeCopied = function () {
@@ -133,7 +140,7 @@ $(document).ready(function(e){
 			var copyTextToClipboard = function () {
 				try {
 					document.execCommand('copy');
-					$image.attr('src', '/docs/nightly/img/copy.png').prop('disabled', true);
+					showCopiedLayout();
 				} catch (err) {
 					$image.attr('src', '/docs/nightly/img/copy.png').prop('disabled', true);
 				}
@@ -141,12 +148,23 @@ $(document).ready(function(e){
 				$textArea.remove();
 
 				setTimeout(function () {
-					$image.attr('src', '/docs/nightly/img/copy.png').prop('disabled', false);
+					resetLayout();
 				}, 3000);
 			};
 
+			var showCopiedLayout = function () {
+				$text.text('Copied');
+				$image.attr('src', '/docs/nightly/img/check.png'); // Change the image to a tick
+			};
+
+			var resetLayout = function () {
+				$text.text('Copy to Clipboard');
+				$image.attr('src', '/docs/nightly/img/copy.png'); // Change the image back to 'Copy'
+				$image.prop('disabled', false);
+			};
+
 			var bindEvents = function () {
-				$image.on('click', function (e) {
+				$imageContainer.on('click', function (e) {
 					e.preventDefault();
 					selectCodeToBeCopied();
 					copyTextToClipboard();
@@ -159,7 +177,6 @@ $(document).ready(function(e){
 	};
 
 	$('code[class^="language"]:not(.language-diff)').copyToClipboard();
-
 
 
 //Handle header hyperlinks
