@@ -112,7 +112,7 @@ $(document).ready(function(e){
 			var $element = $(this);
 			var $parent = $element.parent();
 			var $imageContainer = $('<div class="copy-container"></div>'); // Container for both image and text
-			var $image = $('<img src="/docs/nightly/img/copy.png" alt="Copy to Clipboard" class="copy-icon">');
+			var $image = $('<img src="/docs/nightly/img/copy.png" alt="Copy code" class="copy-icon">');
 			var $text = $('<span class="copy-text">Copy to Clipboard</span>'); // Text element
 
 			var prependImage = function () {
@@ -158,7 +158,7 @@ $(document).ready(function(e){
 			};
 
 			var resetLayout = function () {
-				$text.text('Copy to Clipboard');
+				$text.text('Copy code');
 				$image.attr('src', '/docs/nightly/img/copy.png'); // Change the image back to 'Copy'
 				$image.prop('disabled', false);
 			};
