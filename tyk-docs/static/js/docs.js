@@ -106,54 +106,61 @@ if (!window.debCfn) {
 
 // Copy to clipboard handler
 $(document).ready(function(e){
-
-	$.fn.copyToClipboard = function() {
-
-		return this.each(function($elem) {
+	$.fn.copyToClipboard = function () {
+		return this.each(function () {
 			var $textArea = $('<textarea></textarea>');
 			var $element = $(this);
 			var $parent = $element.parent();
-			var $button = $('<button class="button copy">Copy to Clipboard</button>');
+			var $image = $('<img src="/docs/nightly/img/copy.png" alt="Copy to Clipboard" class="copy-icon">');
 
-			var appendButton = function appendButton() {
-				$button.insertAfter($parent);
+			var prependImage = function () {
+				$image.css({
+					position: 'absolute',
+					top: '20px',  // Increase top padding
+					right: '20px',  // Increase right padding
+					cursor: 'pointer',
+				});
+				$parent.css({ position: 'relative' }); // Ensure the parent has relative positioning
+				$parent.prepend($image);
 			};
 
-			var selectCodeToBeCopied = function selectCodeToBeCopied() {
+			var selectCodeToBeCopied = function () {
 				$textArea.val($element.text());
 				$textArea.insertAfter($element);
 				$textArea.select();
 			};
 
-			var copyTextToClipboard = function copyTextToClipboard() {
+			var copyTextToClipboard = function () {
 				try {
 					document.execCommand('copy');
-					$button.text( 'Copied!').prop('disabled', true);
+					$image.attr('src', '/docs/nightly/img/copy.png').prop('disabled', true);
 				} catch (err) {
-					$button.text( 'FAILED: Could not copy').prop('disabled', true);
+					$image.attr('src', '/docs/nightly/img/copy.png').prop('disabled', true);
 				}
 
 				$textArea.remove();
 
-				setTimeout(function(){
-					$button.text( 'Copy to Clipboard').prop('disabled', false);
-				}, 3000);			
+				setTimeout(function () {
+					$image.attr('src', '/docs/nightly/img/copy.png').prop('disabled', false);
+				}, 3000);
 			};
 
-			var bindEvents = function bindEvents() {
-				$button.on('click', function(e) {
+			var bindEvents = function () {
+				$image.on('click', function (e) {
 					e.preventDefault();
 					selectCodeToBeCopied();
 					copyTextToClipboard();
 				});
 			};
 
-			appendButton();
+			prependImage();
 			bindEvents();
-		});   
+		});
 	};
 
 	$('code[class^="language"]:not(.language-diff)').copyToClipboard();
+
+
 
 //Handle header hyperlinks
 	$('.wysiwyg').find('h2:not(.see_also_heading), h3:not(.see_also_heading), h4:not(.see_also_heading), h5:not(.see_also_heading)').hover(function () {
